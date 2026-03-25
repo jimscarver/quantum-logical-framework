@@ -1,21 +1,38 @@
 # Quantum Logical Framework Simulator
 
-A Python implementation demonstrating the core principles of a quantum-logical system where physics emerges from zero-action balanced distinctions in Hilbert space.
+A Python-based educational and exploratory simulator demonstrating a radical information-first view of quantum mechanics:
 
-## Overview
+**All physics emerges from zero-free-action balanced distinctions (primordial qubits) in Hilbert space.**
 
-This framework explores fundamental quantum concepts:
-- **Zero-free-action events** as balanced distinctions (primordial qubits in ℂ²)
-- **Non-commutative folding** via Pauli-matrix multiplication  
-- **Double cover topology** (SU(2) ≅ unit quaternions) enforcing 720° logical closure
-- **Half-integer spin** as minimal persistent structure (fundamental fermions)
-- **Spin-1 emergence** from bundled spin-1/2 distinctions (holographic gauge fields)
-- **Energy-dimensionality relation**: E = d × h × f (information-theoretic view)
+### Core Ideas
+- **Zero free action** as the foundational layer: every primitive event is a perfectly balanced distinction with net action = 0.
+- **Non-commutative folding** via Pauli matrices (equivalent to unit-quaternion multiplication).
+- **Double cover (SU(2) ≅ unit quaternions)**: logical closure requires 720° (half-integer spin as the minimal persistent structure).
+- **Energy = Hilbert-space dimensionality**: \( E = d \times h \times f \), where \( d = 2^N \) for \( N \) qubits.
+- **Holographic emergence**: spin-1 (gauge fields, classical waves) is composite, not fundamental → bulk physics is a holographic projection from a lower-dimensional boundary of spin-1/2 distinctions.
+- **Universality**: primitive local and non-local folds construct **all possible quantum-logical systems**.
+- Frequency doubling, conic-section polygons in Hilbert space, and holographic line projections emerge naturally from dimension tunneling.
 
-## Installation
+### Repository Files
 
-**Requirements:** Python 3.7+, NumPy only
+| File                        | Description |
+|----------------------------|-----------|
+| `README.md`                | This file – overview, theory, installation, and usage. |
+| `quantum_simulator.py`     | Core simulator: Pauli folding, double cover (360° vs 720°), Bloch sphere, energy-dimensionality relation, and basic non-commutativity demonstrations. **Start here.** |
+| `universal.py.`            | Demonstrates construction of universal quantum gate sets (H, T, CNOT-style) from primitive folds. Shows how **all possible logical systems** can be synthesized. |
+| `doubler.py`               | Quantum-logical frequency doubler: builds a frequency-doubler gate via controlled dimension tunneling. Includes time-domain simulation and FFT confirmation of f → 2f. |
+| `holographic.py`           | 2D qubit transition → discrete conic-section polygon in projected Hilbert space, with holographic 1D line projection on the boundary. Visualizes bulk-to-boundary mapping. |
 
+*(Note: `universal.py.` has a trailing dot in the filename – you may want to rename it to `universal.py` for clarity.)*
+
+All scripts require only **NumPy** (and Matplotlib for visualization in `doubler.py` and `holographic.py`).
+
+### Installation
+
+```bash
+git clone https://github.com/jimscarver/quantum-logical-framework.git
+cd quantum-logical-framework
+pip install numpy matplotlib   # matplotlib optional for plots
 ```bash
 git clone https://github.com/jimscarver/quantum-logical-framework.git
 cd quantum-logical-framework
