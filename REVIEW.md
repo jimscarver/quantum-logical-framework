@@ -1,5 +1,5 @@
 
-#Review of the Quantum Logical Framework Simulator
+# Review of the Quantum Logical Framework Simulator
 
 **Author**: Jim Scarver  
 **Date**: March 2026  
