@@ -24,6 +24,7 @@ A Python-based educational and exploratory simulator demonstrating a radical inf
 | `doubler.py`          | Quantum-logical frequency doubler (f → 2f) |
 | `holographic.py`      | 2D qubit transitions → conic-section polygon + holographic line |
 | `path_integral.py`    | Full path-integral module: zero-action histories, emergent least-action, holographic projection, **and direct light-cone entropy calculation** |
+| `Entropy.md`           | information outside a local light-cone  |
 
 ### Installation & Quick Start
 ```bash
