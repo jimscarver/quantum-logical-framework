@@ -1,6 +1,3 @@
-**Entropy in the Quantum Logical Framework**  
-**Relation to Black-Hole Entropy and the Arrow of Time**
-
 ### 1. Entropy = Logical Information Outside the Local Light Cone
 
 In this framework entropy is **never fundamental**. It is purely the **logical information residing outside any observer’s local light-cone perspective** — the alternating values of variables in the full set of zero-action histories that the observer cannot resolve.
