@@ -1,43 +1,28 @@
-# Recursive Phase Logic: The Yin-Yang-Yin Model
+# Recursive Phase Logic: Folding Quantum Logical Action
 
-This document explains the topological and logical significance of the `YinYangYin.png` visualization within the **Quantum Logical Framework (QLF)**.
+This document presents `YinYangYin.png` as a **visual shorthand** for recursive folding of quantum logical action in the **Quantum Logical Framework (QLF)**.
 
 ![Recursive Yin Yang Yin](./YinYangYin.png)
 
-## 1. Discrete Phase Changes as Recursion
-In the QLF, we represent quantum states not as static points, but as dynamic rotations in Hilbert space. The `YinYangYin` model illustrates a **Discrete Phase Change** at every level of scale.
+## 1. Discrete Folding of Action
 
-* **Primary Level (Macro):** The outer boundary represents the initial $SU(2)$ double-cover topology. The clockwise rotation defines the positive phase of the system's "spin."
-* **Secondary Level (Meso):** Within the "seed" (the nested dot), a discrete transformation occurs. The rotation flips to **counter-clockwise**. In the simulation, this maps to a Pauli-Z or Phase-Flip operation, where the logical context is inverted to maintain a "Zero-Free-Action" balance.
-* **Tertiary Level (Micro):** The process repeats, flipping back to clockwise, representing the next recursive fold in the Hilbert space.
+The image illustrates recursive alternation of complementary logical rotations:
 
-Each recursion is not just a visual zoom; it is a **Logical Fold** or a non-commutative operation.
+- **Clockwise / Counter-clockwise**: represent successive complementary phases in Hilbert space.
+- **Nested Dots**: indicate further recursive folding at smaller scales.
+- **Self-similar repetition**: conveys recursion and logical closure.
 
----
+Each level corresponds to a **Logical Fold**: a discrete, non-commutative operation that preserves zero-free-action balance.
 
-## 2. Mapping to the Framework Implementation
+## 2. Conceptual Role
 
-The recursive geometry in this image directly correlates to the core Python modules in this repository:
+`YinYangYin.png` is a **simplified, topological view** of folding quantum logical action:
 
-| Visual Element | QLF Concept | Implementation Reference |
-| :--- | :--- | :--- |
-| **Swirl Direction** | Quantum Phase / Spin | `quantum_simulator.py` (Rotation Matrices) |
-| **Nested Dots** | Sub-space Decomposition | `holographic.py` (Scale Invariance) |
-| **Alternating Rotation** | Non-commutative Folding | `doubler.py` (720° Logical Closure) |
-| **Infinite Fractal** | Universal Fluxoid | `universal.py` (Persistent Structures) |
+- Shows how local complementary relations propagate through recursive structures.
+- Highlights that persistence requires alternating, balanced operations.
+- Provides an **intuitive guide** to the structure of the framework without replacing formal definitions or simulations.
 
----
+## 3. Takeaway
 
-## 3. The "Zero-Free-Action" Balance
-The alternating clockwise and counter-clockwise rotations provide a visual proof of the framework's core principle: **Physics emerges from balanced distinctions.**
-
-By alternating the phase at every recursive step, the total "Logical Pressure" or "Free Action" of the system remains zero. The counter-rotation of the inner "Yin" balances the clockwise rotation of the outer "Yang." This creates a **stable, persistent structure**—what we define in this framework as a **particle** or a **persistent bit**.
-
-> *"The universe does not exist in a state of 'being,' but in a recursive state of 'balancing' opposing rotations."*
-
----
-
-## 4. Measurement and Symmetry Breaking
-In this framework, **Measurement** is defined as the act of "stopping the recursion" at a specific scale. When an observer interacts with the system, they fix the phase of a specific level, temporarily breaking the fractal symmetry to extract a classical bit. 
-
-The `YinYangYin.png` model shows that even after a "classical" measurement (the dot), the underlying quantum potential (the nested Yin Yang) remains intact at the next level of recursion, preserving the holographic nature of the information.
+The diagram is a **heuristic tool**: it simplifies the visualization of recursive logical folding in QLF.  
+It **does not** attempt to be a literal physical derivation, but it captures the essence of how zero-free-action constraints organize persistent quantum-logical structure.
