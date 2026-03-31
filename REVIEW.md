@@ -1,41 +1,58 @@
+Here is the complete, rewritten **`REVIEW.md`** document. It has been restructured to clearly define the framework's current capabilities, translate its novel terminology, and rigorously map its relationship to established scientific literature without claiming false mathematical equivalence.
 
-# Review of the Quantum Logical Framework Simulator
+***
 
-**Author**: Jim Scarver  
-**Date**: March 2026  
-**Repository**: https://github.com/jimscarver/quantum-logical-framework
+# Scientific Context and Conceptual Mapping
 
-## Abstract
-This framework treats the universe as a quantum logical system built from zero-free-action balanced distinctions (primordial qubits). All familiar physics — least action, spin, energy, entropy, holography, frequency doubling, and classical trajectories — emerges from non-commutative Pauli folding and dimension tunneling. The accompanying Python simulator (`path_integral.py` and supporting modules) makes these ideas runnable and visual. Entropy is explicitly the logical information outside any observer’s local light-cone perspective.
+The **Quantum Logical Framework (QLF)** and its underlying computational language, **QuCalc**, represent a non-standard, discrete topological approach to modeling quantum phenomena. This document serves to translate the novel terminology of the "Possibilist Universe" into standard physics concepts and explicitly map the framework's philosophical ancestors.
 
-## Core Concepts Realized in Code
-- **Zero free action**: Every primitive fold (Pauli rotation) has net action S = 0.
-- **Non-commutative folding**: Pauli multiplication ≡ unit-quaternion algebra → double cover → 720° closure (half-integer spin).
-- **Dimension tunneling**: Inconsistent fold directions add tensor factors → entanglement and higher-dimensional Hilbert space.
-- **Energy**: E = d × h × f with d = 2^N.
-- **Path integral**: Sum over all zero-action histories; least action emerges via coarse-graining missing distinctions.
-- **Entropy**: Computed as von Neumann entropy S = –Tr(ρ ln ρ) of the mixed state formed by sampled paths — exactly the “alternating values of variables” outside the observer’s local light cone (see `compute_light_cone_entropy` in `path_integral.py`).
-- **Holography**: Bulk path integral projects to a 1D boundary line (mirrors `holographic.py`).
+## 1. Terminology Translation
 
-## Comparison with Other Quantum Simulations (2026)
-(See table in README.md for compact version.)
+To review the codebase accurately, it is necessary to understand how standard quantum mechanical concepts are redefined within the discrete, 8-axis logic of QuCalc:
 
-The simulator is **educational and foundational**, not production-scale. It uniquely starts from pure logic and derives the rest. Standard tools (Qiskit, ITensor, PIMC) assume a pre-existing Hilbert space and Hamiltonian; this framework *constructs* the Hilbert space itself.
+| Standard Physics Concept | QLF / QuCalc Equivalent | Description in Framework |
+| :--- | :--- | :--- |
+| **Wavefunction / Superposition** | **Possibility Branching** | A sequence of topological "twists" generates a superposition of possible successor folds governed by Pauli multiplication rules. |
+| **Observable Particle** | **Stable History String** | A persistent sequence of twists that has successfully closed its logical loop. |
+| **Unitary Evolution / Conservation** | **Zero Free Action (ZFA)** | The strict requirement that a history string must topologically balance to zero across all dimensions to avoid being pruned. |
+| **Path Integral / Action ($S$)** | **Twist Count** | The Action of a path is not a continuous Lagrangian, but the discrete number of topological operations required to reach a state. |
+| **Fermionic Spin-½** | **Double-Cycle (720°) Loop** | A specific recursive network that requires two full logical traversals (8 fundamental twists minimum) to reach Zero Free Action. |
 
-## Scientific References
-1. Wheeler, J. A. (1990). “Information, Physics, Quantum: The Search for Links.” In *Complexity, Entropy and the Physics of Information*.  
-2. Zeilinger, A. (1999). “A Foundational Principle for Quantum Mechanics.” *Foundations of Physics*, 29(4), 631–643.  
-3. Mead, C. A. (2000). *Collective Electrodynamics*. MIT Press.  
-4. Cramer, J. G. (1986). “The Transactional Interpretation of Quantum Mechanics.” *Reviews of Modern Physics*, 58, 647–687.  
-5. Feynman, R. P. (1948). “Space-Time Approach to Non-Relativistic Quantum Mechanics.” *Reviews of Modern Physics*, 20, 367–387. (path-integral formulation)  
-6. ’t Hooft, G. (1993). “Dimensional Reduction in Quantum Gravity.” arXiv:gr-qc/9310026.  
-7. Susskind, L. (1995). “The World as a Hologram.” *Journal of Mathematical Physics*, 36, 6377–6396.  
-8. Maldacena, J. (1999). “The Large N Limit of Superconformal Field Theories and Supergravity.” *International Journal of Theoretical Physics*, 38, 1113–1133. (AdS/CFT holography)  
-9. Rovelli, C. (1996). “Relational Quantum Mechanics.” *International Journal of Theoretical Physics*, 35, 1637–1678. (light-cone / observer-dependent information)  
-10. Griffiths, R. B. (1984). “Consistent Histories and the Interpretation of Quantum Mechanics.” *Journal of Statistical Physics*, 36, 219–272. (alternating histories and entropy)
+---
 
-## How to Explore
-Run `python path_integral.py` to see the light-cone entropy calculation live.  
-Import anywhere with:  
-```python
-from path_integral import run_path_integral_simulation, compute_light_cone_entropy
+## 2. Current Repository Status & Computability
+
+As of the current build, the repository does not rely on continuous differential equations or standard matrix mechanics. Instead, it provides a strictly unitary, computationally verifiable sandbox. 
+
+**Current Capabilities:**
+* **Generative Engine:** Concurrently traces multi-dimensional logical paths (`qucalc_engine.py`).
+* **Holographic Boundary Filtering:** Evaluates candidate events and drops those that represent topological contradictions (`topology_resolver.py`).
+* **Computable Unitarity:** Explicitly demonstrates that histories closing under adjoint evolution ($E + E^\dagger$) are mathematically isomorphic to Zero Free Action events, ensuring the conservation of information.
+
+---
+
+## 3. Conceptual Ancestors and Thematic Mapping
+
+While the framework is entirely mathematically self-contained within its own base-8 directional logic, its structural philosophy is heavily inspired by foundational work in physics and information theory. 
+
+The references below are cited as **conceptual ancestors**, not as mathematical endorsements of the QuCalc model. Here is how standard physical theorems are explicitly re-interpreted and mapped within the Possibilist Universe:
+
+### A. John Archibald Wheeler: "It from Bit"
+* **Standard Context:** Wheeler (1990) proposed that the physical universe is fundamentally an information-theoretic structure, where every physical quantity derives its ultimate significance from yes-or-no questions.
+* **The QuCalc Mapping:** QLF functionalizes this philosophy by merging it with G. Spencer-Brown's *Laws of Form*. In QuCalc, the "Bit" is not abstract data, but a discrete topological distinction (the "Mark"). Space and time do not pre-exist; they are dynamically generated by the asynchronous, concurrent evaluation of these logical distinctions.
+
+### B. Richard Feynman: Path Integrals and Sum Over Histories
+* **Standard Context:** Feynman (1948) established that a quantum system explores all possible paths between two states, with the probability amplitude determined by integrating the continuous classical action $S$ along each path ($e^{iS/\hbar}$).
+* **The QuCalc Mapping:** QLF abandons the continuous Lagrangian. Instead, the framework simulates a discrete "Sum Over Histories" by concurrently tracing all Pauli-permitted branches. The "classical trajectory" (the stationary phase) is computationally defined as the specific history string that perfectly resolves to **Zero Free Action**.
+
+### C. Juan Maldacena: The Holographic Principle (AdS/CFT)
+* **Standard Context:** Maldacena (1999) demonstrated a mathematical equivalence between a gravity theory in a bulk space and a conformal field theory on its boundary, specific to string theory backgrounds.
+* **The QuCalc Mapping:** QLF does not utilize Einstein field equations or D-branes. Instead, it proposes a **Structural Holography**. Because a minimal closed loop on a 2D logical boundary requires exactly four orthogonal twists to satisfy ZFA, the ratio of macroscopic area to enclosed entropy is strictly fixed at $1/4$. The "bulk" behavior is fundamentally constrained by the requirement that lower-dimensional logical boundaries must not contain topological contradictions.
+
+### D. Robert Griffiths: Consistent Histories
+* **Standard Context:** Griffiths (1984) developed an interpretive framework for QM where probabilities are assigned to sequences of events (histories) such that they satisfy consistency conditions, avoiding logical paradoxes.
+* **The QuCalc Mapping:** In QLF, consistency is not an interpretive probability—it is an absolute mechanical filter. A "Consistent History" in QuCalc is one that successfully closes under adjoint evolution. Any generated history string that fails this closure is a topological contradiction and is pruned at the causal light cone, ensuring that only logically consistent events persist as observable reality.
+
+---
+
+*This review document is actively maintained to ensure strict delineation between established continuous quantum mechanics and the discrete logical mechanics of the Possibilist Universe.*
