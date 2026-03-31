@@ -1,203 +1,109 @@
-import numpy as np
-import matplotlib.pyplot as plt
+"""
+DISCRETE PATH INTEGRAL: Sum Over Histories in the Possibilist Universe.
 
-# =============================================================================
-# QUANTUM LOGICAL FRAMEWORK SIMULATOR — PATH INTEGRAL MODULE
-# =============================================================================
-#
-# This module demonstrates the path-integral formulation entirely within the
-# zero-free-action quantum-logical picture developed in the repository.
-#
-# FRAMEWORK JUSTIFICATION (linked to all previous modules):
-#
-# 1. HILBERT SPACE AND ZERO FREE ACTION
-#    The full path integral lives in the complete Hilbert space ℋ = (ℂ²)⊗N.
-#    Every fundamental "path" is a sequence of zero-free-action folds (balanced
-#    distinctions created by the primitive creation operator). No net action
-#    is ever introduced at the fundamental level — S = 0 for every elementary
-#    distinction. This is stronger than the classical least-action principle.
-#
-# 2. NON-COMMUTATIVE FOLDING GENERATES ALL PATHS
-#    Each discrete time step applies a Pauli-generated rotation U(θ) = cos(θ/2)I
-#    − i sin(θ/2)(n·σ) — exactly the same "fold" used in quantum_simulator.py,
-#    doubler.py, and holographic.py. Because the fold direction can be chosen
-#    independently at each step (or tunnel into a new dimension via controlled
-#    operations), the set of all possible sequences spans the entire space of
-#    quantum-logical systems.
-#
-# 3. DIMENSION TUNNELING → PATH BRANCHING
-#    When a fold direction is inconsistent with the local basis, it triggers
-#    tunneling into an extra ℂ² factor (exactly as in the frequency doubler
-#    and holographic modules). This is the mechanism that produces entanglement
-#    between paths and naturally implements the sum-over-histories.
-#
-# 4. FROM ZERO ACTION TO LEAST ACTION (COARSE-GRAINING)
-#    The path integral is the coherent sum over ALL histories:
-#        K = Σ_paths exp(i S_path / ℏ)
-#    In the framework, every microscopic S_path = 0, so the phase factor is
-#    identically 1 for every term at the deepest level. The observed stationary
-#    (least-action) path emerges only after coarse-graining / tracing out hidden
-#    distinctions (missing information). This reproduces Feynman's stationary-phase
-#    approximation exactly as described in the original Scientific-American-style
-#    article.
-#
-# 5. ENERGY-DIMENSIONALITY RELATION
-#    Each discrete fold resolves one additional bit of information → increases
-#    the effective Hilbert-space dimension d = 2^N. Therefore
-#        E = d × h × f
-#    (exactly as in all previous modules). The total energy of the path integral
-#    scales with the number of paths considered.
-#
-# 6. HOLOGRAPHIC PROJECTION
-#    Because spin-1 (classical trajectories) is emergent, the bulk path integral
-#    (a high-dimensional object in Hilbert space) projects onto a simple 1D line
-#    on the holographic boundary — the classical trajectory. This mirrors the
-#    holographic.py module and AdS/CFT bulk-to-boundary mapping.
-#
-# 7. UNIVERSALITY
-#    The same universal gate set (H, T, controlled folds) that constructs all
-#    logical systems also generates the path integral. No extra ontology required.
-#
-# =============================================================================
+This module replaces the continuous Lagrangian with a discrete topological action.
+It calculates the complex probability amplitude (Propagator) by summing
+over all Pauli-permitted history strings. The 'classical trajectory' mechanically 
+emerges as the strings with the stationary phase (Zero Free Action).
+"""
 
-# Pauli matrices and primitive fold (imported logic from previous modules)
-sigma_x = np.array([[0, 1], [1, 0]], dtype=complex)
-sigma_y = np.array([[0, -1j], [1j, 0]], dtype=complex)
-sigma_z = np.array([[1, 0], [0, -1]], dtype=complex)
-I = np.eye(2, dtype=complex)
+import cmath
+import math
 
-def pauli_rotation(axis, theta_deg):
-    """Primitive zero-free-action fold — identical to all previous modules."""
-    theta = np.deg2rad(theta_deg)
-    n = np.array(axis) / np.linalg.norm(axis)
-    return (np.cos(theta/2) * I
-            - 1j * np.sin(theta/2) * (n[0]*sigma_x + n[1]*sigma_y + n[2]*sigma_z))
+class DiscretePathIntegral:
+    def __init__(self, action_quantum=math.pi / 2):
+        """
+        Initializes the Path Integral calculator.
+        `action_quantum` represents the fundamental phase shift induced by a 
+        single unbalanced topological twist.
+        """
+        self.action_quantum = action_quantum
 
-# =============================================================================
-# PATH INTEGRAL SIMULATION
-# =============================================================================
-N_steps = 20                  # discrete time steps (number of folds)
-N_paths = 512                 # number of sampled histories (Monte-Carlo style)
-# Each path is a sequence of independent fold axes (random tunneling directions)
-# This simulates the sum over ALL possible quantum-logical histories.
-
-# Pre-allocate propagator amplitudes
-propagator = np.zeros(N_steps, dtype=complex)
-classical_path = np.zeros(N_steps)          # emergent stationary path (x-coordinate)
-
-# Simulate many paths
-np.random.seed(42)  # reproducible
-for p in range(N_paths):
-    # Start in |0⟩ (ground distinction)
-    psi = np.array([1.0, 0.0], dtype=complex)
-    path_x = [0.0]  # track projected position (Bloch x for visualization)
-    
-    for t in range(1, N_steps + 1):
-        # Random fold direction → independent dimension tunneling
-        axis = np.random.randn(3)
-        axis /= np.linalg.norm(axis)
-        # Small random angle (diffusive paths) + weak bias toward classical direction
-        delta_theta = 10.0 + np.random.normal(0, 2.0)  # degrees
-        U = pauli_rotation(axis, delta_theta)
-        psi = U @ psi
+    def calculate_topological_action(self, history):
+        """
+        The discrete Action (S) of a history string is its net topological 
+        deviation from the Void (Identity/ZFA).
+        Calculated as the L1 norm (Manhattan distance) across the 4 logical axes.
+        """
+        v = history.count('^') - history.count('v')
+        h = history.count('<') - history.count('>')
+        d = history.count('/') - history.count('\\')
+        l = history.count('+') - history.count('-')
         
-        # Project onto observable (Bloch x) for classical-like coordinate
-        rx = np.real(np.trace(np.outer(psi, psi.conj()) @ sigma_x))
-        path_x.append(rx)
+        # Action is the sum of the absolute un-canceled twists
+        action = abs(v) + abs(h) + abs(d) + abs(l)
+        return action
+
+    def compute_amplitude(self, history):
+        """
+        Calculates the complex amplitude for a single history string: e^(i * S * quantum)
+        If the path is perfectly ZFA, Action = 0, meaning Amplitude = e^0 = 1 (Constructive).
+        Unbalanced paths receive a rotating complex phase causing destructive interference.
+        """
+        S = self.calculate_topological_action(history)
+        phase = S * self.action_quantum
+        
+        # cmath.rect(r, phi) returns the complex number r * e^(i * phi)
+        amplitude = cmath.rect(1.0, phase)
+        return amplitude, S
+
+    def calculate_propagator(self, candidate_histories):
+        """
+        The Sum Over Histories. Calculates the total propagator (K) by summing 
+        the complex amplitudes of all possible topological paths.
+        Identifies the 'Classical Paths' representing the stationary phase.
+        """
+        total_amplitude = 0j
+        classical_paths = []
+        min_action = float('inf')
+
+        for history in candidate_histories:
+            amp, S = self.compute_amplitude(history)
+            total_amplitude += amp
+            
+            # The Classical Path is mechanically the path of Least Action
+            if S < min_action:
+                min_action = S
+                classical_paths = [history]
+            elif S == min_action:
+                classical_paths.append(history)
+
+        # Normalize the total propagator by the number of histories explored
+        N = len(candidate_histories)
+        if N > 0:
+            total_amplitude /= N
+
+        return {
+            "propagator_amplitude": total_amplitude,
+            "probability": abs(total_amplitude)**2,
+            "classical_paths": classical_paths,
+            "minimum_action": min_action
+        }
+
+# --- Self-Evident Example Execution ---
+if __name__ == "__main__":
+    path_integral = DiscretePathIntegral()
     
-    # Accumulate amplitude (all microscopic actions = 0 → phase = +1)
-    propagator += psi[0]  # amplitude to final |0⟩ component (interference)
+    # A raw sample of generated histories from a seed twist.
+    # In a full simulation, these are provided by `qucalc_engine.py`
+    candidate_paths = [
+        "^<v>",         # Closed 2D Loop (Action = 0)
+        "^^<<vv>>",     # Complex Closed Loop (Action = 0)
+        "^</+",         # Open Path (Action = 4)
+        "^>v-",         # Open Path (Action = 2)
+        "^<v>^+-"       # Almost Closed (Action = 1)
+    ]
     
-    # Store one sample path for visualization
-    if p == 0:
-        sample_path = np.array(path_x)
-
-# Normalize the propagator (average amplitude)
-propagator /= N_paths
-
-# Emergent classical path = average position after coarse-graining
-classical_path = np.cumsum(np.linspace(0, 1, N_steps + 1))  # linear stationary path
-
-print("=== PATH INTEGRAL RESULTS ===")
-print(f"Number of histories sampled: {N_paths}")
-print(f"Number of discrete folds per path: {N_steps}")
-print(f"Final propagator amplitude (sum over all paths): {propagator[0]:.4f} + {propagator[1]:.4f}i")
-print("All microscopic paths have zero free action → perfect constructive interference at the deepest level.")
-print("Observed classical trajectory emerges only after missing-information coarse-graining.")
-
-# =============================================================================
-# VISUALIZATION: BULK PATHS vs EMERGENT CLASSICAL PATH vs HOLOGRAPHIC LINE
-# =============================================================================
-fig, axs = plt.subplots(2, 2, figsize=(12, 9))
-
-# Bulk path integral (many random histories)
-ax = axs[0, 0]
-for p in range(min(50, N_paths)):  # plot first 50 paths for clarity
-    # Regenerate a few paths for plotting
-    psi = np.array([1.0, 0.0], dtype=complex)
-    path_x = [0.0]
-    for t in range(N_steps):
-        axis = np.random.randn(3)
-        axis /= np.linalg.norm(axis)
-        U = pauli_rotation(axis, 10.0 + np.random.normal(0, 2.0))
-        psi = U @ psi
-        rx = np.real(np.trace(np.outer(psi, psi.conj()) @ sigma_x))
-        path_x.append(rx)
-    ax.plot(range(N_steps + 1), path_x, alpha=0.3, color='blue', linewidth=0.8)
-ax.plot(range(N_steps + 1), classical_path, 'r-', linewidth=3, label='Emergent classical (stationary) path')
-ax.set_title('Bulk Path Integral\n(All zero-action histories in Hilbert space)')
-ax.set_xlabel('Discrete time step (fold)')
-ax.set_ylabel('Projected position (Bloch x)')
-ax.legend()
-
-# Propagator magnitude (interference)
-axs[0, 1].plot(np.abs(propagator), 'o-', color='green')
-axs[0, 1].set_title('Path-Integral Propagator Magnitude\n(Constructive interference from zero action)')
-axs[0, 1].set_xlabel('Time step')
-axs[0, 1].set_ylabel('|K|')
-axs[0, 1].grid(True)
-
-# Holographic projection (bulk → 1D boundary line)
-axs[1, 0].plot(classical_path, np.zeros_like(classical_path), 'o-', color='red', linewidth=2)
-axs[1, 0].set_title('Holographic Projection\n(Bulk path integral collapses to 1D boundary line)')
-axs[1, 0].set_xlabel('Holographic coordinate θ (linear)')
-axs[1, 0].set_ylabel('Boundary screen (1D)')
-axs[1, 0].set_yticks([])
-axs[1, 0].grid(True)
-
-# Energy scaling
-h = 6.62607015e-34
-f = 1.0
-d_total = 2 ** (N_steps)          # effective dimensions resolved by all folds
-E_total = d_total * h * f
-axs[1, 1].text(0.5, 0.5, f"Energy of path integral\nE = d × h × f\n(d = 2^{N_steps})\nE = {E_total:.2e} J",
-               horizontalalignment='center', verticalalignment='center', fontsize=12,
-               bbox=dict(facecolor='lightblue', alpha=0.5))
-axs[1, 1].set_title('Energy = Hilbert Dimensionality')
-axs[1, 1].axis('off')
-
-plt.tight_layout()
-plt.show()
-
-# =============================================================================
-# SUMMARY — HOW THIS FITS THE QUANTUM-LOGICAL FRAMEWORK
-# =============================================================================
-print("\n=== PATH INTEGRAL MODULE SUMMARY ===")
-print("• Every history is a sequence of zero-free-action Pauli folds.")
-print("• Dimension tunneling (random axes) generates the full sum-over-histories.")
-print("• Microscopic S = 0 for all paths → coherent sum is trivial at the fundamental level.")
-print("• Least-action classical trajectory emerges via coarse-graining of missing information.")
-print("• Energy scales exactly as E = d × h × f with the number of folds resolved.")
-print("• Bulk path integral projects holographically onto a straight 1D line —")
-print("  consistent with holographic.py and the emergence of spin-1.")
-print("This module completes the framework: from primitive distinctions →")
-print("universal gates → frequency doubling → conic polygons → full path integral.")
-
-# =============================================================================
-# USAGE NOTE FOR REPOSITORY
-# =============================================================================
-print("\nTo add this file to the repo:")
-print("1. Save as path_integral.py")
-print("2. Update README.md with the new entry (see suggestion below)")
-print("3. Run: python path_integral.py")
-print("Requires: numpy, matplotlib")
+    print("--- Computing Discrete Path Integral ---")
+    results = path_integral.calculate_propagator(candidate_paths)
+    
+    # Format the complex number for clean output
+    amp = results['propagator_amplitude']
+    formatted_amp = f"{amp.real:.4f} + {amp.imag:.4f}j"
+    
+    print(f"\nTotal Propagator Amplitude (K): {formatted_amp}")
+    print(f"Emergent Probability (|K|^2): {results['probability']:.4f}")
+    
+    print(f"\nClassical Paths Identified (Stationary Phase, Action = {results['minimum_action']}):")
+    for path in results['classical_paths']:
+        print(f" [+] {path} -> Contributes coherently")
