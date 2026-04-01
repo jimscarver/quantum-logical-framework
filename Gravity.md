@@ -45,3 +45,47 @@ In short:
 | Relational warping       | Distorts resolved geometry                   | Curvature = gravity (least-action GR) |
 
 This is exactly why the framework reproduces both thermodynamic entropy (outside light cone) and black-hole entropy (on horizon) from the *same* gap between full zero-action Hilbert space and any local observer’s slice. Gravity is therefore not a force added on top of spacetime; it is the inevitable geometric consequence of entropy deconstructing the underlying logical completeness. The Python modules (`path_integral.py` for light-cone entropy and `holographic.py` for boundary logic) make this deconstruction → gravity process fully simulatable.
+
+# Entropic Gravity: The Equivalence of Curvature and Information
+
+In 2010, theoretical physicist Erik Verlinde proposed that gravity is not a fundamental fundamental interaction, but an entropic force—an emergent phenomenon resulting from the statistical tendency of physical systems to maximize their entropy. 
+
+While standard physics relies on continuous thermodynamics and holographic bounding to model this, the **Quantum Logical Framework (QLF)** provides the precise discrete mechanics to prove it computationally. In QuCalc, we can mathematically demonstrate that Entropy ($S$) and Gravity (Spacetime Curvature, $R$) are identical emergent properties of **Bound Topological Action**.
+
+## 1. Entropy as ZFA Density ($S$)
+
+In QLF, information is strictly physical. According to the *Laws of Form*, to store one bit of information requires a complete act of distinction (a "Mark"). In the 8-axis logic of QuCalc, a stable Mark is defined as exactly one closed **Zero Free Action (ZFA)** topological loop. 
+
+If a logical region (a discrete spatial volume) contains $N$ independent closed loops, the entropy—the measure of hidden internal states—of that region is strictly proportional to that loop count:
+$$S \propto N$$
+
+## 2. Gravity as Bound Action ($R$)
+
+In the `gravitational_tensor.py` model, gravity is the emergent curvature of the logical manifold. Curvature (the Ricci scalar, $R$) is calculated as the trace of the topological stress-energy tensor. A high trace occurs when a history string repeatedly folds across orthogonal dimensions to trap itself in a localized region.
+
+This localized knotting is mechanically defined as **Bound Action** ($E_{bound}$). Because it takes a minimum of $h=4$ fundamental twists to create a single stable 2D loop, the total Bound Action in a region is exactly the number of loops multiplied by the topological constant:
+$$E_{bound} = N \cdot h$$
+
+Therefore, the emergent mass and resulting spacetime curvature of a region is strictly proportional to its loop count:
+$$R \propto N$$
+
+## 3. The Equivalence Proof
+
+By isolating $N$ (the density of ZFA loops) in both classical metrics, the algebraic equivalence is self-evident. 
+
+Because $S \propto N$ and $R \propto N$, we can definitively state:
+$$R \propto S$$
+
+**Spacetime curvature (Gravity) and the count of hidden topological states (Entropy) are the exact same computational metric viewed from two different macroscopic perspectives.** Mass is simply the outward geometric expression of dense, localized information processing.
+
+## 4. The Mechanics of Attraction
+
+If gravity is simply localized entropy, why do objects fall? In a continuous universe, this requires a "pulling" force or curved geometry. In a discrete computational universe, it is a matter of pure statistical probability.
+
+History strings are continuously generated via Pauli-constrained possibility branching. A path only survives if it resolves to Zero Free Action; otherwise, it is pruned at the causal light cone. 
+
+1. **The Massive Body:** A planet is a region of extreme ZFA density (high entropy). It is a massive, stable computational network of successfully resolved logic.
+2. **The Falling Object:** For an unspooling, free-action string (an object in motion), it must eventually find a way to close its logical loop to persist in the universe.
+3. **Statistical Pressure:** It is statistically vastly more probable to achieve ZFA by geometrically intersecting and entangling with a massive, already-stable ZFA network than it is to spontaneously form a closed loop in the isolated vacuum of space. 
+
+Gravity is not a pull. It is the **computational pressure** of the manifold. Free strings naturally drift toward high-density informational regions because those regions offer the most efficient, highly probable paths to logical resolution.
