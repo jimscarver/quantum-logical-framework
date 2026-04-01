@@ -2,7 +2,7 @@
 
 A valid physical framework must do more than possess mathematical elegance; it must successfully retrodict the proven experimental results of standard quantum mechanics and general relativity. 
 
-The **Quantum Logical Framework (QLF)** proposes that the universe operates on a discrete, 8-axis topological logic (QuCalc) rather than continuous differential equations. This document outlines how macroscopic physical phenomena—proven by decades of experiment—naturally emerge from the computational mechanics of Zero Free Action (ZFA).
+The **Quantum Logical Framework (QLF)** proposes that the universe operates on a discrete, n-axis topological logic (8-axis currently in QuCalc) rather than continuous differential equations. This document outlines how macroscopic physical phenomena—proven by decades of experiment—naturally emerge from the computational mechanics of Zero Free Action (ZFA).
 
 ## 1. Special Relativity & Time Dilation
 **The Standard Experiment:** Muons generated in the upper atmosphere decay in 2.2 microseconds at rest. However, because they are traveling near the speed of light, they survive long enough to reach the Earth's surface. Moving clocks run slower.
