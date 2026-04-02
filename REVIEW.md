@@ -36,4 +36,6 @@ The structural philosophy of QLF is heavily inspired by foundational work in phy
 ### E. Juan Maldacena: The Holographic Principle (AdS/CFT)
  * **Standard Context:** A gravity theory in a bulk space is mathematically equivalent to a conformal field theory on its boundary.
  * **The QuCalc Mapping:** QLF proposes a **Structural Holography**. Because a minimal closed loop on a 2D logical boundary requires exactly four orthogonal twists to satisfy ZFA (h=4), the Bekenstein-Hawking entropy ratio of Macroscopic Area to Enclosed Entropy is strictly computationally fixed at 1/4.
-*This review document is actively maintained to ensure strict delineation between established continuous quantum mechanics and the discrete, relational logical mechanics of the Possibilist Universe.*
+
+
+  This review document is actively maintained to ensure strict delineation between established continuous quantum mechanics and the discrete, relational logical mechanics of the Possibilist Universe.*
