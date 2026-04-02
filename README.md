@@ -4,7 +4,17 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Status](https://img.shields.io/badge/status-Experimental-orange)
 
-The **Quantum Logical Framework** is a discrete, topological computational engine that models quantum mechanics without continuous matrices or abstract Hilbert spaces. **QuCalc is a quantum rho-calculus built from an 8-twist relational alphabet whose symbols encode local directions relative to context rather than absolute directions in a predefined space.**
+This project begins from a simple claim: physical reality is fundamentally quantum-logical.
+
+Nothing is created in isolation. The minimal creation event is a complementary entangled pair. Nothing happens except through local distinctions expressible by Pauli operations. Only zero-free-action events persist physically. Everything else is excluded by contradiction.
+
+From these assumptions, the framework treats physical events not as particles moving through a preexisting spacetime, but as stable closures of complementary quantum logic. Spacetime, persistence, and measurable structure are emergent consequences of recursively stable zero-free-action relations.
+
+The Pauli algebra is fundamental here because it expresses the minimal grammar of binary quantum distinction: orthogonality, inversion, noncommutation, and half-spin closure. In this view, Pauli-structured transformation is not merely a representation of physics. It is the primitive form of physical process.
+
+The purpose of this repository is to formalize, justify, and simulate that claim: that a universe built only from entangled qubit pairs, Pauli-structured distinctions, and zero-free-action closure is sufficient to generate stable quantum structure and the emergent order we call physical reality.
+
+The **Quantum Logical Framewormk** is a discrete, topological computational engine that models quantum mechanics without continuous matrices or abstract Hilbert spaces. **QuCalc is a quantum rho-calculus built from an 8-twist relational alphabet whose symbols encode local directions relative to context rather than absolute directions in a predefined space.**
 
 In this framework, the fundamental conservation laws of physics (Unitarity) are not hard-coded; they emerge naturally through the geometric requirement of **Zero Free Action (ZFA)**.
 
