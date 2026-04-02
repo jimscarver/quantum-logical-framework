@@ -1,21 +1,25 @@
-# Unforgeable Names and Component Assembly in QC
+# Unforgeable Names and Hierarchical Environments
 
-In the Quantum Logical Framework, computing the exact topological twists of a massive particle at every moment is computationally impossible and physically unnecessary. QuCalc (QC) solves this scaling problem by transitioning from raw topology to component algebra using **Unforgeable Names**.
+In the Quantum Logical Framework (QLF), computing the exact topological twists of a massive macroscopic object at every moment is computationally impossible. QuCalc solves this scaling problem by adopting the structural hierarchy of **Rho-calculus**, transitioning from raw topology to component-based assembly using Unforgeable Names, Contexts, and Environments.
 
-## 1. The Rho-Calculus Inspiration
-In concurrent programming (specifically Rho-calculus), active processes can be "quoted" into static names, and names can be "unquoted" back into active processes. 
-QC adopts this exact mechanic for quantum events:
-* **The Process:** The active expansion and resolution of a history string searching for Zero Free Action (ZFA).
-* **The Name:** Once ZFA is achieved, the event's topological boundary is closed. The framework assigns it a mathematically unique, **Unforgeable Name**. 
+## 1. Unforgeable Names (Context-Independent Components)
+When a history string successfully resolves to Zero Free Action (ZFA), its boundary is closed. It is no longer an active, searching process. 
 
-## 2. Context Independence
-Because a ZFA event has completely balanced its internal action, its internal structure is perfectly isolated from the surrounding universe. It leaks no free action. Therefore, the unforgeable name is strictly **context-independent**. 
+The framework "quotes" this stable event, assigning it a mathematically unique, **Unforgeable Name** (e.g., a hash of its internal topology). Because a ZFA event leaks no free action, its internal logic is perfectly isolated. An unforgeable name is strictly **context-independent**. A quark named `@Q_1` is internally identical whether it sits in a star or a laboratory.
 
-A particle (like an electron) named `Event_E1` behaves exactly the same whether it is assembled into a Hydrogen atom in a star or a Carbon atom on Earth. Its internal logic does not need to be re-evaluated by the surrounding environment.
+## 2. The Context ($C[\cdot]$)
+To build macroscopic reality (like assembling quarks into a proton), QLF uses a **Context**. 
+A Context is a shared interaction manifold. Instead of tracking millions of individual base-8 twists, the macroscopic universe simply tracks the interaction of Unforgeable Names within a shared Context.
 
-## 3. Assembling Logical Systems
-By abstracting complex ZFA loops into Unforgeable Names, QC allows for macroscopic assembly. 
+## 3. The Environment (Hierarchical Binding)
+Because every Unforgeable Name operates in its own arbitrary, isolated namespace, they cannot be directly summed together. The Context must provide an **Environment** to evaluate them. 
 
-Instead of tracking $10^{24}$ individual base-8 twists, the macroscopic universe simply tracks the interactions between unforgeable names. When two named components intersect their causal boundaries, the engine only evaluates their *external* interaction (their shared Prefix), treating their internal logic as a black-box identity.
+The Environment is a discrete gauge transformation. It is passed down from the parent Context to the child component, dictating how the arbitrary local axes of the child bind to the shared reference frame of the parent. 
 
-This mathematically proves why macroscopic objects appear solid and stable, even though they are composed of probabilistic quantum processes.
+## 4. Macroscopic Evaluation
+In this framework, the universe scales functionally:
+1. A Context (Proton) receives Unforgeable Names (Quarks).
+2. The Context passes a specific Environment to each Name, orienting their geometries relative to one another.
+3. The components evaluate themselves *only* at their shared boundary.
+
+This proves mathematically why macroscopic objects appear stable. The universe does not re-calculate the internal quantum state of every particle; it simply evaluates the Unforgeable Names according to the Environment passed down by their immediate Context.
