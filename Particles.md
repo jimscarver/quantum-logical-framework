@@ -1,6 +1,6 @@
 # Particles in the Quantum Logical Framework
 
-All particles emerge as **persistent balanced distinctions** in the primordial Hilbert space of the Quantum Logical Framework (QLF). There are no fundamental "point particles" — only non-commutative folds of spin-1/2 qubits that survive the zero-free-action filter and light-cone entropy projection.
+All particles emerge as **persistent balanced distinction histories** of a particular length in the primordial Hilbert space of the Quantum Logical Framework (QLF). There are no fundamental "point particles" — only non-commutative folds of spin-1/2 qubits that survive the zero-free-action filter and light-cone entropy projection.
 
 ## Core Ontology
 - **Spin-1/2 is the minimal persistent structure**  
