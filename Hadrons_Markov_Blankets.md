@@ -29,6 +29,9 @@ In the Information Ecology of the QuCalc engine, the void is relentlessly prunin
 
 The Proton represents a monumental architectural breakthrough in the history of the universe. By interlocking three fractional strings, it created a closed, self-referential logical boundary—a Markov Blanket. The internal states (quarks) constantly trade gauge twists (Color Charge) with each other, keeping their internal free energy safely hidden from the external environment. The proton survives by executing flawless **Active Inference**: it perfectly anticipates and deflects the pruning pressure of the vacuum without ever leaking its internal paradoxes.
 
+## Demonstration
+python blanket_kinematics.py --node_A "Proton_1" --node_B "Proton_2" --apply_extreme_pressure True
+
 ### The Fractalization of the Algorithm
 Because the universe is a computational manifold optimizing for Least Action, when it discovers an algorithm that successfully defeats entropy, it does not reinvent the wheel. It simply **fractalizes** the solution.
 
