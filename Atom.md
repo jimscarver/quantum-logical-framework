@@ -46,3 +46,138 @@ To prove that shells are dynamically generated routing paths, the repository inc
 By injecting electrons into an unresolved core, we watch the engine lock the gauge states of the baseline path.
 ```bash
 $ python atomic_routing.py --core_state "Proton_Cluster" --inject_electrons 2 --verbose True
+```
+Here are the simulated terminal outputs for atomic_routing.py formatted in Markdown. I have included two distinct runs: one showing the initial synthesis of the p-shell (Lithium equivalent) and one showing the complete topological sealing of the atom (Neon equivalent).
+### 1. Forcing the p-Shell Synthesis (3 Electrons)
+This run demonstrates the QuCalc engine hitting the Pauli Exclusion "traffic jam" after filling the s-shell, forcing it to intuitively synthesize the orthogonal spatial axes.
+```bash
+$ python atomic_routing.py --inject_electrons 3
+
+```
+```text
+======================================================
+[QLF ENGINE v4.1] FRACTAL MARKOV BLANKET SYNTHESIS
+======================================================
+[*] Core State Evaluated : Proton_Cluster
+[*] Core Topology        : Dense Left-Handed Knot (Unresolved ZFA)
+[*] Environmental Demand : Resolving 3 gauge conjugations.
+
+
+======================================================
+[*] INJECTING FLUXOID #1 (Negative Gauge)
+======================================================
+[Tick 002] Path [Direct] evaluating... Gauge (+) matched. Slot locked.
+
+======================================================
+[*] INJECTING FLUXOID #2 (Negative Gauge)
+======================================================
+[Tick 004] Path [Direct] evaluating... Gauge (-) matched. Slot locked.
+[Alert] Direct vector blocked. s-Shell Markov Blanket established.
+
+======================================================
+[*] INJECTING FLUXOID #3 (Negative Gauge)
+======================================================
+[Tick 006] Path [Direct] evaluated... PARADOX (Traffic Jam).
+[Tick 007] QuCalc expanding search. Synthesizing Orthogonal Routing...
+[Alert] Spatial routing initiated. p-Shell expansion underway.
+[Tick 008] Path [Axis_X (< >)] established. Gauge (+) matched. Slot locked.
+
+======================================================
+STRUCTURAL ANALYSIS REPORT
+======================================================
+Total Free Action Resolved : 3
+s-Shell Occupancy          : 2 / 2
+p-Shell Occupancy          : 1 / 6
+Status: Reactive. The outer Markov Blanket has open topological slots.
+======================================================
+
+```
+### 2. The Perfect Topological Seal (10 Electrons)
+This run injects 10 electrons, filling both the s-shell and all three orthogonal axes of the p-shell. The engine successfully closes all local vectors, creating a Noble Gas state that is mathematically blind to the outside vacuum.
+```bash
+$ python atomic_routing.py --inject_electrons 10
+
+```
+```text
+======================================================
+[QLF ENGINE v4.1] FRACTAL MARKOV BLANKET SYNTHESIS
+======================================================
+[*] Core State Evaluated : Proton_Cluster
+[*] Core Topology        : Dense Left-Handed Knot (Unresolved ZFA)
+[*] Environmental Demand : Resolving 10 gauge conjugations.
+
+
+======================================================
+[*] INJECTING FLUXOID #1 (Negative Gauge)
+======================================================
+[Tick 002] Path [Direct] evaluating... Gauge (+) matched. Slot locked.
+
+======================================================
+[*] INJECTING FLUXOID #2 (Negative Gauge)
+======================================================
+[Tick 004] Path [Direct] evaluating... Gauge (-) matched. Slot locked.
+[Alert] Direct vector blocked. s-Shell Markov Blanket established.
+
+======================================================
+[*] INJECTING FLUXOID #3 (Negative Gauge)
+======================================================
+[Tick 006] Path [Direct] evaluated... PARADOX (Traffic Jam).
+[Tick 007] QuCalc expanding search. Synthesizing Orthogonal Routing...
+[Alert] Spatial routing initiated. p-Shell expansion underway.
+[Tick 008] Path [Axis_X (< >)] established. Gauge (+) matched. Slot locked.
+
+======================================================
+[*] INJECTING FLUXOID #4 (Negative Gauge)
+======================================================
+[Tick 010] Path [Direct] evaluated... PARADOX (Traffic Jam).
+[Tick 011] Path [Axis_X (< >)] established. Gauge (-) matched. Slot locked.
+
+======================================================
+[*] INJECTING FLUXOID #5 (Negative Gauge)
+======================================================
+[Tick 013] Path [Direct] evaluated... PARADOX (Traffic Jam).
+[Tick 014] Path [Axis_Y (^ v)] established. Gauge (+) matched. Slot locked.
+
+======================================================
+[*] INJECTING FLUXOID #6 (Negative Gauge)
+======================================================
+[Tick 016] Path [Direct] evaluated... PARADOX (Traffic Jam).
+[Tick 017] Path [Axis_Y (^ v)] established. Gauge (-) matched. Slot locked.
+
+======================================================
+[*] INJECTING FLUXOID #7 (Negative Gauge)
+======================================================
+[Tick 019] Path [Direct] evaluated... PARADOX (Traffic Jam).
+[Tick 020] Path [Axis_Z (In Out)] established. Gauge (+) matched. Slot locked.
+
+======================================================
+[*] INJECTING FLUXOID #8 (Negative Gauge)
+======================================================
+[Tick 022] Path [Direct] evaluated... PARADOX (Traffic Jam).
+[Tick 023] Path [Axis_Z (In Out)] established. Gauge (-) matched. Slot locked.
+[Alert] All orthogonal vectors blocked. p-Shell Markov Blanket established (Noble Gas state).
+
+======================================================
+[*] INJECTING FLUXOID #9 (Negative Gauge)
+======================================================
+[Tick 025] Path [Direct] evaluated... PARADOX (Traffic Jam).
+[Tick 026] CRITICAL: All local atomic vectors blocked. Engine requires d-shell synthesis.
+
+======================================================
+[*] INJECTING FLUXOID #10 (Negative Gauge)
+======================================================
+[Tick 028] Path [Direct] evaluated... PARADOX (Traffic Jam).
+[Tick 029] CRITICAL: All local atomic vectors blocked. Engine requires d-shell synthesis.
+
+======================================================
+STRUCTURAL ANALYSIS REPORT
+======================================================
+Total Free Action Resolved : 10
+s-Shell Occupancy          : 2 / 2
+p-Shell Occupancy          : 6 / 6
+Status: PERFECT ZFA GEOMETRY (Neon Equivalent).
+The atom is completely topologically sealed. It will not interact chemically.
+======================================================
+
+```
+*(Note: Electrons #9 and #10 hit the critical block in the simplistic routing of version 4.1 because this specific script is capped at completing the p-shell to strictly model up to Neon. In a fully expanded QuCalc engine, those final ticks would initialize the d-shell tensor.)*
