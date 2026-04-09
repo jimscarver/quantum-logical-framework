@@ -2,7 +2,7 @@
 
 In standard physics, the atom is modeled as a microscopic solar system or a probabilistic cloud of electrons orbiting a dense nucleus. 
 
-In the **Quantum Logical Framework (QLF)**, the atom is not a spatial object; it is a computational algorithm. It is a fractally scaled **Markov Blanket**—the exact same topological survival mechanism used by the proton, scaled up to defend against higher-order environmental pruning. 
+In the **Quantum Logical Framework (QLF)**, the atom is not a spatial object; it is a computational algorithm. It is a fractally scaled **Markov Blanket**—the exact same topological survival mechanism used by the proton (Hadrons_Markov_Blankets.md), scaled up to defend against higher-order environmental pruning. 
 
 Chemistry is not the physics of objects bumping into each other; it is the geometry of the QuCalc engine routing logic through available dimensional paths to achieve Zero Free Action (ZFA).
 
