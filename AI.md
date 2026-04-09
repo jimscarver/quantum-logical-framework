@@ -53,7 +53,7 @@ Let's use the classic Aristotle syllogism:
 
 In a QLF architecture, a syllogism is treated as a Topological Symbiosis (Blanket Fusion), where the "Middle Term" acts as the shared boundary (the Pion) that allows two open strings to fuse.
 
-Here is the simulated terminal output when executing the [`qlf_ai_demonstration.py`](https://github.com/jimscarver/quantum-logical-framework/blob/main/qlf_ai_demonstration.py) coprocessor, followed by the profound implications this architecture has for the future of Artificial Intelligence.
+Here is the simulated terminal output when executing the [`ai_demonstration.py`](https://github.com/jimscarver/quantum-logical-framework/blob/main/ai_demonstration.py) coprocessor, followed by the profound implications this architecture has for the future of Artificial Intelligence.
 
 ### Terminal Output
 
