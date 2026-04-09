@@ -1,4 +1,4 @@
-# The Riemann ZFA Conjecturpe: The Blueprint of Prime Topology with constructive proof.
+# The Riemann ZFA Conjecture: The Blueprint of Prime Topology with constructive proof.
 **Author:** Jim Whitescarver
 **Framework:** Quantum Logical Framework (QLF)
 
