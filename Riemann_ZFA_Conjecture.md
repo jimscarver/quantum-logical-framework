@@ -1,4 +1,4 @@
-# The Riemann ZFA Conjecture: The Blueprint of Prime Topology with constructive proof.
+# The Riemann ZFA Conjecture: The Blueprint of Prime Topology
 **Author:** Jim Whitescarver
 **Framework:** Quantum Logical Framework (QLF)
 
@@ -72,3 +72,5 @@ Perfect symmetry is mathematically defined as a real part of exactly 1/2. Any de
 **Q.E.D.**
 ### Why this framing works
 This approach redefines the RH from a problem of *continuous numbers* into a problem of *discrete logical constraints*. It proves the hypothesis not by crunching infinite series, but by demonstrating that anything *off* the critical line is an illegal operation in the QuCalc constraint solver.
+
+[constructive formal proof](Riemann-Conjecture-Proof.md)
