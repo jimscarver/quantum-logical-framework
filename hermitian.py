@@ -1,4 +1,4 @@
-# QuCalc: Hermitian Conjugate and Zero Free Action correspondence test
+# QuCalc: Hermitian Conjugate and Zero Free Action Action correspondence test
 
 # 1. Define the conjugate mapping for the 8-axis logic
 CONJUGATE_MAP = {
@@ -52,22 +52,15 @@ def test_hermitian_closure(candidate_event):
         print("RESULT: FAILURE. Topological contradiction detected.\n")
         return False
 
-# --- Run the Demonstration ---
-
-# Test 1: A simple 2D fold sequence
-test_hermitian_closure("^<")
-
-# Test 2: A complex 3D / temporal candidate event
-test_hermitian_closure("^</+-")
-
-===
-Testing Candidate Event (E): ^<
-Hermitian Conjugate (E_dagger): >v
-Evolution Cycle (E + E_dagger): ^<>v
-RESULT: SUCCESS. The adjoint evolution closed perfectly (Zero Free Action = True).
-
-Testing Candidate Event (E): ^</+-
-Hermitian Conjugate (E_dagger): -+\>v
-Evolution Cycle (E + E_dagger): ^</+--+\>v
-RESULT: SUCCESS. The adjoint evolution closed perfectly (Zero Free Action = True).
-===
+# --- Clean Demonstration ---
+if __name__ == "__main__":
+    print("=== Hermitian Closure Tests ===\n")
+    
+    # Test 1: Simple 2D fold
+    test_hermitian_closure("^<")
+    
+    # Test 2: Minimal 3D/temporal candidate
+    test_hermitian_closure("^v")
+    
+    # Test 3: A known good closed history
+    test_hermitian_closure("^<v>")
