@@ -18,7 +18,7 @@ class IntuitionisticEngine:
     def evaluate_deficit(self, history):
         """Calculates the exact topological remainder needing to be closed."""
         net_v = history.count('^') - history.count('v')
-        net_h = history.count('>') - history.count('<')
+        net_h = history.count('<') - history.count('>')   # FIXED: standardized sign
         net_g = history.count('+') - history.count('-')
         return {'v': net_v, 'h': net_h, 'g': net_g}
 
@@ -72,11 +72,7 @@ if __name__ == "__main__":
     engine = IntuitionisticEngine()
     
     # Example 1: The Vacuum (No environmental block)
-    # The engine easily constructs the simplest Base Fermion proof.
     engine.synthesize_proof(seed="^>", max_depth=6, environment_block=False)
     
     # Example 2: The Dense Context (Environmental Block)
-    # The environment prevents immediate spatial closure.
-    # The engine is forced to synthesize a higher-dimensional gauge twist (+/-) 
-    # to construct the proof, resulting in a heavier, more complex particle.
     engine.synthesize_proof(seed="^>", max_depth=8, environment_block=True)
