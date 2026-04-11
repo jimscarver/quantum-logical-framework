@@ -1,12 +1,3 @@
-Here is the complete and fully documented `gravitational_tensor.py` module. 
-
-In the **Quantum Logical Framework (QLF)**, gravity is not a fundamental force; it is an emergent property. Just as General Relativity dictates that mass-energy tells spacetime how to curve, in QLF, the **Density of Logical Twists** (information) tells the discrete manifold how to warp. 
-
-This script calculates the interaction density of the 8-axis logic to generate a discrete curvature tensor, mapping how "knotted" a specific logical region has become.
-
-### `gravitational_tensor.py`
-
-```python
 """
 GRAVITATIONAL TENSOR: Emergent Spacetime Curvature
 In the Possibilist Universe, gravity is not a fundamental force. It is an emergent 
@@ -100,22 +91,17 @@ class GravitationalTensor:
             print(f"{axes[i]:6} | {formatted_row}")
 
 
-# --- Self-Evident Example Execution ---
+# --- Clean Demonstration ---
 if __name__ == "__main__":
     gravity_engine = GravitationalTensor()
 
     # 1. The Vacuum (Empty Space)
-    # A region with very few, simple, non-interacting history strings.
-    vacuum_region = [
-        "^v", "<>", "/\\"
-    ]
+    vacuum_region = ["^v", "<>", "/\\", "^v<>"]
     
-    # 2. A Massive Particle (Fermion Knot)
-    # A region dense with tightly wound, complex ZFA history strings (e.g., a spin-1/2 double cycle).
+    # 2. Fermion knot (cleaned)
     fermion_region = [
-        "^</+-\>v-", 
-        "v\+-></^+-", 
-        "^^<<vv>>//\\\\+-"
+        "^v<>", 
+        "v^+->//\\\\+-"
     ]
 
     print("Analyzing Vacuum Region...")
@@ -133,10 +119,3 @@ if __name__ == "__main__":
     print(f"Emergent Ricci Scalar (Mass/Curvature): {fermion_mass:.4f}\n")
     
     print(f"Observation: The Fermion region warps the logical manifold {fermion_mass/vacuum_mass:.1f}x more than the vacuum.")
-```
-
-### Theoretical Alignment with `REVIEW.md`
-
-1. **Discrete Stress-Energy:** Standard physics uses continuous energy density ($T_{\mu\nu}$). In QLF, "energy" is information. The `compute_stress_energy` method calculates how frequently the simulation is forced to fold between different dimensional axes.
-2. **Emergent Mass (Ricci Scalar):** The Trace of the matrix represents interactions within the *same* axis block. In Pauli-constrained logic, folding into the same dimension without orthogonal mediation requires a tight, recursive logical loop. Therefore, a higher trace directly correlates to a tightly "knotted" history string—which behaves macroscopically exactly like localized mass.
-3. **No Background Geometry:** The tensor doesn't exist *in* space; the tensor *is* the space. The matrix output entirely defines the local "shape" of the universe in that region based purely on the generated history strings.
