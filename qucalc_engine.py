@@ -5,6 +5,11 @@ possibility branching. It generates history strings and filters for
 Zero Free Action (ZFA).
 """
 
+# - The six twists ^ v < > / \ belong to the 3D spatial perspective.
+# - Free (uncanceled) spatial twists → macroscopic space.
+# - Additional local/gauge twists + - represent algorithmic lag → time.
+# All ZFA and generation logic remains unchanged.
+
 import collections
 
 class QuCalcEngine:
