@@ -80,18 +80,16 @@ class DiscretePathIntegral:
             "minimum_action": min_action
         }
 
-# --- Self-Evident Example Execution ---
+# --- Clean Demonstration ---
 if __name__ == "__main__":
     path_integral = DiscretePathIntegral()
     
-    # A raw sample of generated histories from a seed twist.
-    # In a full simulation, these are provided by `qucalc_engine.py`
+    # Clean sample histories
     candidate_paths = [
-        "^<v>",         # Closed 2D Loop (Action = 0)
-        "^^<<vv>>",     # Complex Closed Loop (Action = 0)
-        "^</+",         # Open Path (Action = 4)
-        "^>v-",         # Open Path (Action = 2)
-        "^<v>^+-"       # Almost Closed (Action = 1)
+        "^<v>", 
+        "^v<>", 
+        "^/v\\", 
+        "^+^-"
     ]
     
     print("--- Computing Discrete Path Integral ---")
