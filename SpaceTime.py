@@ -23,7 +23,7 @@ class SpacetimeGenerator:
         Separates the total logical action into Free Action (E_free) 
         and Bound Action (E_bound).
         """
-        # Calculate net un-canceled twists (Free Action)
+        # Calculate net un-canceled twists (Free Action) - consistent signed version
         net_v = abs(self.history.count('^') - self.history.count('v'))
         net_h = abs(self.history.count('<') - self.history.count('>'))
         net_d = abs(self.history.count('/') - self.history.count('\\'))
@@ -86,33 +86,20 @@ class SpacetimeGenerator:
         }
         return report
 
-# --- Self-Evident Example Execution ---
+# --- Clean Demonstration ---
 if __name__ == "__main__":
-    # Test 1: A Photon-like path 
-    # (Lines up perfectly in 3D without contradiction, generating pure space)
-    photon_string = "^^^^<<<<////" 
-    photon_generator = SpacetimeGenerator(photon_string)
+    print("=== Spacetime Emergence Examples ===\n")
     
-    # Test 2: A Massive Fermion-like path 
-    # (Dense, knotted ZFA loops oscillating in place, generating pure time)
-    fermion_string = "^<v>^<v>^^<<vv>>" 
+    # Clean photon-like string (pure free action)
+    photon_string = "^^^^<<<<////"
+    photon_generator = SpacetimeGenerator(photon_string)
+    print("Photon (pure space):")
+    for k, v in photon_generator.model_spacetime().items():
+        print(f"  {k}: {v}")
+    
+    # Clean bound particle-like string
+    fermion_string = "^>v<^>v<^^>><<vv"
     fermion_generator = SpacetimeGenerator(fermion_string)
-
-    print("--- Simulating Free Spatial Propagation (Photon) ---")
-    photon_data = photon_generator.model_spacetime()
-    for key, val in photon_data.items():
-        if isinstance(val, float):
-            print(f"{key}: {val:.3f}")
-        else:
-            print(f"{key}: {val}")
-
-    print("\n--- Simulating Oscillating ZFA Clock (Fermion) ---")
-    fermion_data = fermion_generator.model_spacetime()
-    for key, val in fermion_data.items():
-        if isinstance(val, float):
-            print(f"{key}: {val:.3f}")
-        else:
-            print(f"{key}: {val}")
-            
-    print("\n[Conclusion]: The Photon generates maximum Space (x) but has an infinite Time interval (experiences no internal time).")
-    print("The Fermion generates 0 Space (x) but oscillates rapidly, clocking the local manifold at high frequency.")
+    print("\nFermion (pure time):")
+    for k, v in fermion_generator.model_spacetime().items():
+        print(f"  {k}: {v}")
