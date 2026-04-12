@@ -5,7 +5,7 @@ A valid physical framework must do more than possess mathematical elegance; it m
 The **Quantum Logical Framework (QLF)** proposes that the universe operates on a discrete, 8-twist topological logic rather than continuous differential equations.  
 **We model only 8 folds at a time**, yet these 8 twists map onto unlimited directions in Hilbert space.  
 Space emerges purely from the **3D spatial perspective** (`^ v < > / \`).  
-Time emerges from the **other dimension** (the local/gauge dimension `+ -`).  
+Time emerges from the **other directions** (the local/gauge directions e.g. `+ -`).  
 
 This document shows how all major experimental results naturally emerge from Zero Free Action (ZFA), Hermitian closure, and constructive logic.
 
