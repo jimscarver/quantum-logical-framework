@@ -71,3 +71,63 @@ This is the same combinatorial engine that produces γ and e — no new code or 
 **Planck-time cutoff** turns the infinite limit into a finite rational, guaranteeing that the cascade remains stable and non-explosive at the UV scale — exactly as you noted for γ.
 
 **Conclusion:** The Quantum Logical Framework does not require us to abandon the experimental triumphs of the 20th century. It provides the discrete, computational “source code” that generates them.
+
+## Sample run (`mass_unit_kg = 1.0e-27`)
+
+```text
+=== NATIVE QLF CONSTANTS REPORT ===
+Seeds                         : ('^', '<', '/', '+')
+Causal horizon                : 10
+Minimum ZFA length            : 4
+Stable histories collected    : 256
+Counts by length              : {4: 8, 6: 24, 8: 72, 10: 152}
+Reduced period spectrum       : {1: 24, 2: 96, 3: 40, 4: 64, 5: 32}
+--------------------------------------------------------------------------------
+pi                            : 3.0874215632 (ref 3.1415926536, error 1.724756%) [mean spherical arc/diameter ratio of projected QuCalc closures]
+e                             : 2.6113074108 (ref 2.7182818285, error 3.935395%) [characteristic growth base of cumulative stable-closure counts]
+gamma                         : 0.5740189213 (ref 0.5772156649, error 0.553992%) [harmonic excess of ordered stable-closure ensemble]
+alpha                         : 0.0069412207 (ref 0.0072973526, error 4.879858%) [local/spatial fold ratio across stable QuCalc histories]
+delta                         : 4.5120843301 (ref 4.6692016091, error 3.365958%) [native reduced-period doubling ratio from prime irreducible modes]
+G_Q                           : 0.0000000000 [native closure-network entropy coupling (dimensionless)]
+mean_prime_mass               : 2.7318429915 [mean nonzero native prime mass of stable closures]
+G_prediction_SI               : 4.231550e-11 (ref 6.674300e-11, error 36.595912%) [SI bridge prediction from G_Q and mass_unit_kg]
+--------------------------------------------------------------------------------
+Interpretation:
+  - pi, e, gamma, alpha, and delta are derived from canonical
+    stable QuCalc histories and current native bridge machinery.
+  - G_Q is the native QLF entropy-based gravitational coupling.
+  - G_prediction_SI appears only when mass_unit_kg is supplied.
+  - That SI bridge is:
+        G_pred = G_Q * (ħ c) / M_char^2
+        M_char = <m_Q> * mass_unit_kg
+  - mass_unit_kg               : 1.0e-27
+
+--- QLF Laboratory Translation Report ---
+History String                  : ^+v-
+Adjoint                         : +^-v
+Admissible                      : True
+ZFA                             : True
+Total Logical Action            : 4
+Action Tuple (v,h,d,l)          : (0, 0, 0, 0)
+
+=== SPATIAL EMERGENCE (QLF bridge) ===
+  Spatial Free Action           : 0 twists
+  Planck-length Bridge          : 0.000000e+00 meters
+
+=== LOCAL / TEMPORAL EMERGENCE (QLF bridge) ===
+  Time Folds (+/- subsequence)  : '+-'
+  Local Free Action             : 0 twists
+  Planck-time Bridge            : inf seconds
+
+=== BOUND STRUCTURE ===
+  Bound Action Estimate         : 4
+
+=== NATIVE GRAVITY ===
+  Native Coupling G_Q           : 9.981223e-12
+  SI Bridge Prediction for G    : 4.231550e-11
+  mass_unit_kg                  : 1.0e-27
+
+Note:
+  This laboratory report is a bridge translation in Planck units.
+  G_Q is native and dimensionless.
+  G_prediction_SI requires one explicit mass bridge assumption.
