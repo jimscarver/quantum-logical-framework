@@ -44,12 +44,13 @@ These values are obtained with high sample counts (50 000+ for π/e/γ/δ). Erro
 ## Emergence of the Euler-Mascheroni Constant γ
 
 QLF derives the Euler-Mascheroni constant γ directly from the discrete combinatorial structure of Zero Free Action (ZFA) histories. In the high-sample limit of the QuCalc engine, γ appears as the finite remainder when the cumulative count of Pauli-permitted twist histories is subtracted from the logarithmic growth of the total number of resolving histories:
-
+$$
 \[
 \gamma_{\text{QLF}} = \lim_{N\to\infty} \left( \sum_{k=1}^{N} \frac{1}{k_{\text{ZFA}}} - \ln N \right)
 \]
+$$
 
-where \(k_{\text{ZFA}}\) is the integer count of topologically closed histories that satisfy the Zero Free Action condition (implemented via `is_zfa(hist)` in `qucalc_engine.py` and sampled in `constants_mapper.py` and `path_integral.py`).
+where $\(k_{\text{ZFA}}\)$ is the integer count of topologically closed histories that satisfy the Zero Free Action condition (implemented via `is_zfa(hist)` in `qucalc_engine.py` and sampled in `constants_mapper.py` and `path_integral.py`).
 
 This limit emerges naturally in the same stationary-phase path-integral summation used for e and for π. Runs with ≥50 000 histories reproduce the first 8–10 digits to machine precision.
 
@@ -59,12 +60,12 @@ The maximum frequency is bounded by the Planck time \(t_P \approx 5.39 \times 10
 ## Emergence of Feigenbaum’s Constant δ
 
 QLF derives Feigenbaum’s bifurcation constant δ directly from the iterative refinement of ZFA histories. As the effective twist density (the coupling-like parameter in `path_integral.py`) is varied, the count of stable histories undergoes a clean period-doubling cascade. The ratio of successive bifurcation intervals converges exactly to:
-
+$$
 \[
 \delta_{\text{QLF}} = \lim_{n\to\infty} \frac{\Delta_n}{\Delta_{n+1}} \approx 4.669201609\dots
 \]
-
-where \(\Delta_n\) is the width of the stability window at the \(n\)-th doubling (extracted automatically in `constants_mapper.py` via iterative ZFA pruning).  
+$$
+where $\(\Delta_n\)$ is the width of the stability window at the \(n\)-th doubling (extracted automatically in `constants_mapper.py` via iterative ZFA pruning).  
 
 This is the same combinatorial engine that produces γ and e — no new code or parameters required. High-sample runs already match the universal value to machine precision.  
 
