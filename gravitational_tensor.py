@@ -1,20 +1,27 @@
 """
 gravitational_tensor.py
 
-Native QLF gravity prototype.
+Native QLF gravity prototype with light-cone entropy.
 
-This rewrite replaces the old transition-count "tensor" with a native
-closure-network model built from the canonical QuCalc core.
+This rewrite ties gravity to the entropy of the light cone in a native way.
 
 Core ideas:
-- stable admissible histories are the basic nodes
-- primitive periods define the frequency content of each closure
-- prime factors of those periods are irreducible logical frequencies
+- stable admissible ZFA histories are the basic nodes
+- primitive periods define the frequency content of closures
+- prime factors of reduced periods are irreducible logical frequencies
 - bound prime-frequency content acts as native mass
 - local curvature is the angular deficit of the closure neighborhood
-- native gravitational coupling is the curvature-to-density ratio
+- light-cone entropy is the prime-weighted multiplicity of hidden admissible
+  continuations at the frontier of a local cone
+- native gravitational coupling is the stable ratio
 
-This is a QuCalc-native prototype. It is not yet a continuum metric model.
+      G_Q ~ |kappa_Q| / sigma_Q
+
+  where:
+      kappa_Q = local closure-network curvature
+      sigma_Q = light-cone boundary entropy density
+
+This is a QuCalc-native prototype. It is not yet a continuum metric theory.
 """
 
 from __future__ import annotations
@@ -26,6 +33,7 @@ from typing import DefaultDict, Dict, Iterable, List, Optional, Sequence, Set, T
 
 from twist_core import (
     conjugate_history,
+    extend_history,
     generate_histories,
     is_admissible_history,
     is_zfa,
@@ -37,22 +45,22 @@ from twist_core import (
 class ClosureNode:
     history: str
     period: int
+    reduced_period: int
     prime_factors: Tuple[Tuple[int, int], ...]
     prime_mass: float
 
 
 class GravitationalTensor:
     """
-    Native QLF gravity estimator.
+    Native QLF gravity estimator with light-cone entropy.
 
-    Public outputs:
-    - stable closures
-    - primitive periods
-    - prime-factor masses
-    - closure-neighborhood graph
-    - local curvature kappa_Q
-    - local density rho_Q
-    - native coupling G_Q
+    Public native quantities:
+    - prime mass m_Q
+    - curvature kappa_Q
+    - light-cone entropy S_Q
+    - boundary entropy density sigma_Q
+    - mass density rho_Q
+    - native entropy coupling G_Q
     """
 
     def __init__(
@@ -64,6 +72,7 @@ class GravitationalTensor:
         max_histories: int = 128,
         neighbor_hamming: int = 2,
         min_shared_prefix: int = 2,
+        entropy_horizon: int = 2,
     ) -> None:
         self.seeds = tuple(seeds)
         self.causal_horizon = causal_horizon
@@ -71,11 +80,18 @@ class GravitationalTensor:
         self.max_histories = max_histories
         self.neighbor_hamming = neighbor_hamming
         self.min_shared_prefix = min_shared_prefix
+        self.entropy_horizon = entropy_horizon
 
         self.nodes: Dict[str, ClosureNode] = {}
         self.graph: DefaultDict[str, Set[str]] = defaultdict(set)
+
         self.curvature: Dict[str, float] = {}
-        self.density: Dict[str, float] = {}
+        self.mass_density: Dict[str, float] = {}
+
+        self.light_cone_entropy: Dict[str, float] = {}
+        self.frontier_area: Dict[str, int] = {}
+        self.entropy_density: Dict[str, float] = {}
+
         self.tensor: List[List[float]] = []
         self.tensor_order: List[str] = []
 
@@ -121,8 +137,6 @@ class GravitationalTensor:
         """
         Smallest repeat length of the history if it is composed of repeated
         blocks; otherwise the full length.
-
-        This is the current native closure-period proxy.
         """
         validate_history(history)
         n = len(history)
@@ -136,14 +150,42 @@ class GravitationalTensor:
         return n
 
     @staticmethod
-    def prime_mass_from_counter(counter: Counter[int]) -> float:
+    def reduce_period(period: int) -> int:
         """
-        Native bound mass:
+        Factor out the universal spinorial factor 2 when present.
+
+        The remaining reduced period carries the irreducible prime-frequency
+        content used for native mass and entropy weighting.
+        """
+        if period <= 0:
+            return period
+        if period % 2 == 0:
+            return max(1, period // 2)
+        return period
+
+    @classmethod
+    def prime_mass_from_period(cls, period: int) -> float:
+        """
+        Native bound prime mass:
+
             m_Q = sum multiplicity(p) * log(p)
+
+        using the reduced period.
         """
-        if not counter:
+        reduced = cls.reduce_period(period)
+        factors = cls.prime_factor_counter(reduced)
+        if not factors:
             return 0.0
-        return sum(mult * math.log(p) for p, mult in counter.items())
+        return sum(mult * math.log(p) for p, mult in factors.items())
+
+    @classmethod
+    def prime_weight_of_history(cls, history: str) -> float:
+        """
+        Prime-frequency weight of an arbitrary admissible continuation.
+        """
+        validate_history(history)
+        period = cls.primitive_period(history)
+        return cls.prime_mass_from_period(period)
 
     # ------------------------------------------------------------------
     # Stable closures
@@ -190,12 +232,14 @@ class GravitationalTensor:
                 continue
 
             period = self.primitive_period(hist)
-            factors = self.prime_factor_counter(period)
-            prime_mass = self.prime_mass_from_counter(factors)
+            reduced = self.reduce_period(period)
+            factors = self.prime_factor_counter(reduced)
+            prime_mass = self.prime_mass_from_period(period)
 
             self.nodes[hist] = ClosureNode(
                 history=hist,
                 period=period,
+                reduced_period=reduced,
                 prime_factors=tuple(sorted(factors.items())),
                 prime_mass=prime_mass,
             )
@@ -228,7 +272,7 @@ class GravitationalTensor:
         node_left = self.nodes[left]
         node_right = self.nodes[right]
 
-        # Exact conjugates are treated as natural neighbors.
+        # Exact adjoints are natural neighbors.
         if right == conjugate_history(left):
             return True
 
@@ -237,9 +281,9 @@ class GravitationalTensor:
         if hdist is not None and hdist <= self.neighbor_hamming:
             return True
 
-        # Same period + strong shared prefix suggests nearby closure geometry.
+        # Same reduced period + strong shared prefix suggests nearby geometry.
         if (
-            node_left.period == node_right.period
+            node_left.reduced_period == node_right.reduced_period
             and self.shared_prefix_length(left, right) >= self.min_shared_prefix
         ):
             return True
@@ -260,16 +304,16 @@ class GravitationalTensor:
         return self.graph
 
     # ------------------------------------------------------------------
-    # Native curvature and density
+    # Native curvature and mass density
     # ------------------------------------------------------------------
 
     def local_curvature(self, history: str) -> float:
         """
         Native combinatorial curvature via angular deficit:
 
-            kappa_Q(H) = 2*pi - sum_{K in N(H)} 2*pi / P(K)
+            kappa_Q(H) = 2*pi - sum_{K in N(H)} 2*pi / P_red(K)
 
-        where P(K) is the primitive period of neighbor K.
+        where P_red(K) is the reduced primitive period of neighbor K.
         """
         if history not in self.nodes:
             raise ValueError(f"unknown history: {history!r}")
@@ -280,14 +324,14 @@ class GravitationalTensor:
 
         angle_load = 0.0
         for nb in neighbors:
-            period = max(2, self.nodes[nb].period)
-            angle_load += (2.0 * math.pi) / period
+            reduced = max(1, self.nodes[nb].reduced_period)
+            angle_load += (2.0 * math.pi) / reduced
 
         return (2.0 * math.pi) - angle_load
 
-    def local_density(self, history: str) -> float:
+    def local_mass_density(self, history: str) -> float:
         """
-        Local source density as neighborhood average of bound prime mass.
+        Neighborhood average of bound prime mass.
         """
         if history not in self.nodes:
             raise ValueError(f"unknown history: {history!r}")
@@ -299,37 +343,152 @@ class GravitationalTensor:
         volume = max(1, len(neighbors) + 1)
         return sum(masses) / volume
 
+    # ------------------------------------------------------------------
+    # Light-cone entropy
+    # ------------------------------------------------------------------
+
+    def frontier_continuations(self, history: str, depth: Optional[int] = None) -> List[str]:
+        """
+        Exact frontier of admissible continuations at a fixed depth outside the
+        currently resolved local closure.
+        """
+        validate_history(history)
+        depth = self.entropy_horizon if depth is None else depth
+
+        frontier: Set[str] = {history}
+        for _ in range(depth):
+            nxt: Set[str] = set()
+            for current in frontier:
+                for ext in extend_history(current):
+                    nxt.add(ext)
+            frontier = nxt
+
+        return sorted(frontier)
+
+    def light_cone_entropy_of_history(
+        self, history: str, depth: Optional[int] = None
+    ) -> Tuple[float, int, float]:
+        """
+        Prime-weighted light-cone entropy:
+
+            S_Q = log( sum_{C in frontier} exp(w(C)) )
+
+        where w(C) is the prime-frequency weight of continuation C.
+
+        The boundary entropy density is:
+
+            sigma_Q = S_Q / A_Q
+
+        where A_Q is the combinatorial frontier size.
+        """
+        if history not in self.nodes:
+            raise ValueError(f"unknown history: {history!r}")
+
+        frontier = self.frontier_continuations(history, depth=depth)
+        area = len(frontier)
+
+        if area == 0:
+            return 0.0, 0, 0.0
+
+        total_weighted = 0.0
+        for cont in frontier:
+            weight = self.prime_weight_of_history(cont)
+            total_weighted += math.exp(weight)
+
+        entropy = math.log(total_weighted) if total_weighted > 0 else 0.0
+        density = entropy / area if area > 0 else 0.0
+        return entropy, area, density
+
+    # ------------------------------------------------------------------
+    # Native field assembly
+    # ------------------------------------------------------------------
+
     def compute_native_fields(self, histories: Optional[Iterable[str]] = None) -> None:
         self.build_graph(histories)
+
         self.curvature.clear()
-        self.density.clear()
+        self.mass_density.clear()
+
+        self.light_cone_entropy.clear()
+        self.frontier_area.clear()
+        self.entropy_density.clear()
 
         for history in self.nodes:
             self.curvature[history] = self.local_curvature(history)
-            self.density[history] = self.local_density(history)
+            self.mass_density[history] = self.local_mass_density(history)
 
-    def native_coupling(self) -> float:
+            entropy, area, sigma = self.light_cone_entropy_of_history(history)
+            self.light_cone_entropy[history] = entropy
+            self.frontier_area[history] = area
+            self.entropy_density[history] = sigma
+
+    # ------------------------------------------------------------------
+    # Native couplings
+    # ------------------------------------------------------------------
+
+    def local_entropy_coupling(self, history: str) -> float:
         """
-        Ensemble native coupling:
+        Local entropy-based gravitational coupling:
 
-            G_Q = average_H |kappa_Q(H)| / rho_Q(H)
+            g_Q(H) = |kappa_Q(H)| / sigma_Q(H)
+        """
+        sigma = self.entropy_density.get(history, 0.0)
+        if sigma <= 1e-12:
+            return 0.0
+        return abs(self.curvature[history]) / sigma
 
-        skipping zero-density nodes.
+    def local_mass_coupling(self, history: str) -> float:
+        """
+        Comparison quantity using mass density instead of entropy density.
+        """
+        rho = self.mass_density.get(history, 0.0)
+        if rho <= 1e-12:
+            return 0.0
+        return abs(self.curvature[history]) / rho
+
+    def native_entropy_coupling(self) -> float:
+        """
+        Ensemble entropy-based native coupling:
+
+            G_Q = average_H |kappa_Q(H)| / sigma_Q(H)
         """
         if not self.nodes:
             self.compute_native_fields()
 
         ratios: List[float] = []
         for history in self.nodes:
-            rho = self.density[history]
-            if rho <= 1e-12:
-                continue
-            ratios.append(abs(self.curvature[history]) / rho)
+            ratio = self.local_entropy_coupling(history)
+            if ratio > 0:
+                ratios.append(ratio)
 
         if not ratios:
             return 0.0
-
         return sum(ratios) / len(ratios)
+
+    def native_mass_coupling(self) -> float:
+        """
+        Comparison ensemble coupling from mass density.
+        """
+        if not self.nodes:
+            self.compute_native_fields()
+
+        ratios: List[float] = []
+        for history in self.nodes:
+            ratio = self.local_mass_coupling(history)
+            if ratio > 0:
+                ratios.append(ratio)
+
+        if not ratios:
+            return 0.0
+        return sum(ratios) / len(ratios)
+
+    def native_coupling(self) -> float:
+        """
+        Backward-compatible name used by constants_mapper.py.
+
+        By design, this now means the entropy-based native coupling.
+        """
+        return self.native_entropy_coupling()
 
     # ------------------------------------------------------------------
     # Compatibility helpers
@@ -339,7 +498,7 @@ class GravitationalTensor:
         self, history_strings: Optional[Iterable[str]] = None
     ) -> Dict[str, Dict[str, object]]:
         """
-        Compatibility wrapper for older callers.
+        Compatibility wrapper.
 
         Returns a node-wise dictionary rather than the old transition matrix.
         """
@@ -349,19 +508,29 @@ class GravitationalTensor:
         for history, node in self.nodes.items():
             result[history] = {
                 "period": node.period,
+                "reduced_period": node.reduced_period,
                 "prime_factors": dict(node.prime_factors),
                 "prime_mass": node.prime_mass,
                 "neighbors": sorted(self.graph.get(history, set())),
                 "curvature": self.curvature[history],
-                "density": self.density[history],
+                "mass_density": self.mass_density[history],
+                "light_cone_entropy": self.light_cone_entropy[history],
+                "frontier_area": self.frontier_area[history],
+                "entropy_density": self.entropy_density[history],
+                "local_entropy_coupling": self.local_entropy_coupling(history),
+                "local_mass_coupling": self.local_mass_coupling(history),
             }
         return result
 
     def symmetrize_tensor(self) -> List[List[float]]:
         """
-        Build a symmetric adjacency-weight matrix for inspection.
+        Build a symmetric inspection matrix.
 
-        Entry (i,j) = average prime mass of two neighboring closures, else 0.
+        Diagonal:
+            local entropy density sigma_Q(H)
+
+        Off-diagonal:
+            average of sigma_Q for neighboring closures, else 0.
         """
         if not self.nodes:
             self.compute_native_fields()
@@ -373,10 +542,10 @@ class GravitationalTensor:
         for i, left in enumerate(self.tensor_order):
             for j, right in enumerate(self.tensor_order):
                 if i == j:
-                    self.tensor[i][j] = self.nodes[left].prime_mass
+                    self.tensor[i][j] = self.entropy_density[left]
                 elif right in self.graph.get(left, set()):
                     self.tensor[i][j] = (
-                        self.nodes[left].prime_mass + self.nodes[right].prime_mass
+                        self.entropy_density[left] + self.entropy_density[right]
                     ) / 2.0
 
         return self.tensor
@@ -385,7 +554,7 @@ class GravitationalTensor:
         """
         Compatibility wrapper.
 
-        This returns the mean native curvature over the closure graph.
+        Returns the mean native curvature over the closure graph.
         It is NOT a continuum Ricci scalar.
         """
         if not self.nodes:
@@ -396,32 +565,39 @@ class GravitationalTensor:
 
         return sum(self.curvature.values()) / len(self.curvature)
 
+    # ------------------------------------------------------------------
+    # Reporting
+    # ------------------------------------------------------------------
+
     def print_tensor(self, title: str = "Native QLF Gravity Report") -> None:
         if not self.nodes:
             self.compute_native_fields()
 
         print(f"\n--- {title} ---")
-        print(f"Stable closures: {len(self.nodes)}")
-        print(f"Native coupling G_Q: {self.native_coupling():.6f}")
-        print(f"Mean curvature: {self.calculate_ricci_scalar():.6f}\n")
+        print(f"Stable closures          : {len(self.nodes)}")
+        print(f"Native entropy coupling  : {self.native_entropy_coupling():.10f}")
+        print(f"Native mass coupling     : {self.native_mass_coupling():.10f}")
+        print(f"Mean curvature           : {self.calculate_ricci_scalar():.10f}\n")
 
         ordered = sorted(
             self.nodes.values(),
-            key=lambda node: (-node.prime_mass, node.period, node.history),
+            key=lambda node: (-node.prime_mass, node.reduced_period, node.history),
         )
 
         for node in ordered[:12]:
-            curvature = self.curvature[node.history]
-            density = self.density[node.history]
-            neighbors = len(self.graph.get(node.history, set()))
+            history = node.history
+            neighbors = len(self.graph.get(history, set()))
             print(
-                f"history={node.history!r:<12} "
-                f"period={node.period:<3} "
-                f"factors={dict(node.prime_factors)!s:<18} "
-                f"mass={node.prime_mass:>7.4f} "
+                f"history={history!r:<12} "
+                f"P={node.period:<3} "
+                f"Pred={node.reduced_period:<3} "
+                f"factors={dict(node.prime_factors)!s:<16} "
+                f"m_Q={node.prime_mass:>7.4f} "
                 f"deg={neighbors:<3} "
-                f"kappa={curvature:>8.4f} "
-                f"rho={density:>8.4f}"
+                f"kappa={self.curvature[history]:>9.4f} "
+                f"S_Q={self.light_cone_entropy[history]:>9.4f} "
+                f"A_Q={self.frontier_area[history]:<4} "
+                f"sigma_Q={self.entropy_density[history]:>9.4f}"
             )
 
     def summary_report(self) -> str:
@@ -430,30 +606,46 @@ class GravitationalTensor:
 
         lines = [
             "=== NATIVE QLF GRAVITY REPORT ===",
-            f"Seeds                    : {self.seeds}",
-            f"Causal horizon           : {self.causal_horizon}",
-            f"Minimum ZFA length       : {self.min_zfa_length}",
-            f"Stable closures          : {len(self.nodes)}",
-            f"Native coupling G_Q      : {self.native_coupling():.10f}",
-            f"Mean curvature           : {self.calculate_ricci_scalar():.10f}",
+            f"Seeds                         : {self.seeds}",
+            f"Causal horizon                : {self.causal_horizon}",
+            f"Minimum ZFA length            : {self.min_zfa_length}",
+            f"Stable closures               : {len(self.nodes)}",
+            f"Entropy horizon               : {self.entropy_horizon}",
+            f"G_Q (entropy)                 : {self.native_entropy_coupling():.10f}",
+            f"G_Q (mass comparison)         : {self.native_mass_coupling():.10f}",
+            f"Mean curvature                : {self.calculate_ricci_scalar():.10f}",
             "",
             "Top closures by bound prime mass:",
         ]
 
         ordered = sorted(
             self.nodes.values(),
-            key=lambda node: (-node.prime_mass, node.period, node.history),
+            key=lambda node: (-node.prime_mass, node.reduced_period, node.history),
         )
 
         for node in ordered[:10]:
+            history = node.history
             lines.append(
-                f"  {node.history!r:<12} "
+                f"  {history!r:<12} "
                 f"P={node.period:<3} "
+                f"Pred={node.reduced_period:<3} "
                 f"factors={dict(node.prime_factors)!s:<16} "
                 f"m_Q={node.prime_mass:.6f} "
-                f"kappa={self.curvature[node.history]:.6f} "
-                f"rho={self.density[node.history]:.6f}"
+                f"kappa={self.curvature[history]:.6f} "
+                f"S_Q={self.light_cone_entropy[history]:.6f} "
+                f"sigma_Q={self.entropy_density[history]:.6f}"
             )
+
+        lines.extend(
+            [
+                "",
+                "Interpretation:",
+                "  - m_Q is bound irreducible prime-frequency content.",
+                "  - S_Q is prime-weighted light-cone entropy.",
+                "  - sigma_Q is the light-cone boundary entropy density.",
+                "  - G_Q is the stable curvature-to-entropy-density ratio.",
+            ]
+        )
 
         return "\n".join(lines)
 
@@ -464,9 +656,10 @@ if __name__ == "__main__":
         causal_horizon=8,
         min_zfa_length=4,
         max_histories=64,
+        entropy_horizon=2,
     )
 
     gravity_engine.compute_native_fields()
-    gravity_engine.print_tensor("Native QLF Gravity Prototype")
+    gravity_engine.print_tensor("Native QLF Gravity with Light-Cone Entropy")
     print()
     print(gravity_engine.summary_report())
