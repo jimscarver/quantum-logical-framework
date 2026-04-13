@@ -1,66 +1,53 @@
-# QuCalc: Hermitian Conjugate and Zero Free Action Action correspondence test
+"""
+Hermitian / adjoint closure checks driven by twist_core.py
+"""
 
-# 1. Define the conjugate mapping for the 8-axis logic
-CONJUGATE_MAP = {
-    '^': 'v', 'v': '^',
-    '<': '>', '>': '<',
-    '/': '\\', '\\': '/',
-    '+': '-', '-': '+'
-}
+from __future__ import annotations
 
-def get_hermitian_conjugate(history_string):
-    """
-    Calculates the adjoint evolution (H_dagger) of a QuCalc history string.
-    Rule: Reverse the sequence and invert each operator.
-    """
-    # Reverse the string
-    reversed_sequence = history_string[::-1]
-    # Invert each twist
-    conjugate_sequence = "".join([CONJUGATE_MAP[twist] for twist in reversed_sequence])
-    return conjugate_sequence
+from typing import Dict
 
-def is_zero_free_action(history_string):
-    """
-    Evaluates if a string inherently balances to zero free action.
-    """
-    vertical = history_string.count('^') - history_string.count('v')
-    horizontal = history_string.count('<') - history_string.count('>')
-    depth = history_string.count('/') - history_string.count('\\')
-    local = history_string.count('+') - history_string.count('-')
-    
-    return (vertical == 0 and horizontal == 0 and depth == 0 and local == 0)
+from twist_core import (
+    calculate_action,
+    closure_with_adjoint,
+    conjugate_history,
+    is_admissible_history,
+    is_zfa,
+)
 
-def test_hermitian_closure(candidate_event):
-    """
-    Tests if an event and its Hermitian conjugate close to Zero Free Action.
-    """
-    print(f"Testing Candidate Event (E): {candidate_event}")
-    
-    # Generate E_dagger
-    e_dagger = get_hermitian_conjugate(candidate_event)
-    print(f"Hermitian Conjugate (E_dagger): {e_dagger}")
-    
-    # The Full Adjoint Evolution: E * E_dagger
-    evolution_cycle = candidate_event + e_dagger
-    print(f"Evolution Cycle (E + E_dagger): {evolution_cycle}")
-    
-    # Test for exact closure (ZFA)
-    if is_zero_free_action(evolution_cycle):
-        print("RESULT: SUCCESS. The adjoint evolution closed perfectly (Zero Free Action = True).\n")
-        return True
-    else:
-        print("RESULT: FAILURE. Topological contradiction detected.\n")
-        return False
 
-# --- Clean Demonstration ---
+def get_hermitian_conjugate(history_string: str) -> str:
+    return conjugate_history(history_string)
+
+
+def is_zero_free_action(history_string: str) -> bool:
+    return is_zfa(history_string, min_length=0)
+
+
+def test_hermitian_closure(candidate_event: str) -> Dict[str, object]:
+    """
+    Return a structured closure audit.
+
+    This is stronger than the old count-only check because it also verifies
+    that the history and its adjoint are admissible under the canonical
+    successor rule.
+    """
+    audit = closure_with_adjoint(candidate_event)
+    audit["candidate_action"] = calculate_action(candidate_event)
+    audit["candidate_is_zfa"] = is_zfa(candidate_event)
+    audit["candidate_is_admissible"] = is_admissible_history(candidate_event)
+    return audit
+
+
 if __name__ == "__main__":
-    print("=== Hermitian Closure Tests ===\n")
-    
-    # Test 1: Simple 2D fold
-    test_hermitian_closure("^<")
-    
-    # Test 2: Minimal 3D/temporal candidate
-    test_hermitian_closure("^v")
-    
-    # Test 3: A known good closed history
-    test_hermitian_closure("^<v>")
+    examples = ["^<", "^v", "^<v>", "^/>\\<v+"]
+    print("=== Hermitian closure audits ===")
+    for example in examples:
+        audit = test_hermitian_closure(example)
+        print(f"\nCandidate: {audit['history']}")
+        print(f"Adjoint:   {audit['adjoint']}")
+        print(f"Cycle:     {audit['cycle']}")
+        print(f"Action(E): {audit['candidate_action']}")
+        print(f"Action(cycle): {audit['cycle_action']}")
+        print(f"Admissible(E): {audit['candidate_is_admissible']}")
+        print(f"Admissible(E†): {audit['adjoint_is_admissible']}")
+        print(f"Cycle ZFA: {audit['cycle_is_zfa']}")

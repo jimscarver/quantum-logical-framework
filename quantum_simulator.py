@@ -1,78 +1,42 @@
-import collections
+"""
+quantum_simulator.py
 
-# QuCalc Alphabet: 8-Axis Directional Logic
-# ^v (Vertical), <> (Horizontal), /\ (Depth), +- (Local/Temporal)
-TWISTS = ['^', 'v', '<', '>', '/', '\\', '+', '-']
+Thin simulator wrapper over the canonical QuCalcEngine.
+"""
 
-# Adjoint Mapping for Unitarity Check
-CONJUGATE_MAP = {
-    '^': 'v', 'v': '^', '<': '>', '>': '<',
-    '/': '\\', '\\': '/', '+': '-', '-': '+'
-}
+from __future__ import annotations
+
+from typing import List
+
+from qucalc_engine import QuCalcEngine
+from twist_core import calculate_action
+
 
 class QuCalcSimulator:
-    def __init__(self, light_cone_limit=12):
-        self.limit = light_cone_limit
+    def __init__(self, light_cone_limit: int = 12, min_zfa_length: int = 4):
+        self.engine = QuCalcEngine(
+            causal_horizon=light_cone_limit,
+            min_zfa_length=min_zfa_length,
+        )
 
-    def generate_next_folds(self, current_path):
-        """
-        Pauli-constrained expansion. 
-        In QuCalc, a twist in one dimension generates possibilities 
-        in orthogonal or local dimensions.
-        """
-        last = current_path[-1]
-        if last in ['^', 'v']: return ['<', '>', '/', '\\', '+', '-']
-        if last in ['<', '>']: return ['^', 'v', '/', '\\', '+', '-']
-        if last in ['/', '\\']: return ['^', 'v', '<', '>', '+', '-']
-        return TWISTS # Temporal twists (+/-) allow universal branching
+    def generate_next_folds(self, current_path: str) -> List[str]:
+        return self.engine.get_orthogonal_axes(current_path[-1])
 
-    def evaluate_zfa(self, history):
-        """
-        Tests for Zero Free Action: 
-        Does the topological twist-count net to zero across all axes?
-        """
-        net_v = history.count('^') - history.count('v')
-        net_h = history.count('<') - history.count('>')
-        net_d = history.count('/') - history.count('\\')
-        net_l = history.count('+') - history.count('-')
-        
-        return all(axis == 0 for axis in [net_v, net_h, net_d, net_l])
+    def evaluate_zfa(self, history: str) -> bool:
+        return self.engine.is_zfa(history)
 
-    def simulate(self, seed):
-        """
-        The Core Engine: Traces all possibilities concurrently.
-        Returns all stable history strings (resolved particles/events).
-        """
-        print(f"--- QuCalc Simulation Started: Seed '{seed}' ---")
-        stable_histories = []
-        queue = collections.deque([seed])
+    def simulate(self, seed: str) -> List[str]:
+        return self.engine.generate_possibilities(seed)
 
-        while queue:
-            path = queue.popleft()
+    def action(self, history: str):
+        return calculate_action(history)
 
-            # 1. Check for Resolution (Zero Free Action)
-            # Minimum length of 4 required for a closed 2D loop
-            if len(path) >= 4 and self.evaluate_zfa(path):
-                stable_histories.append(path)
-                continue # Path resolved; it is now a stable "Event"
 
-            # 2. Check for Dissipation (Light Cone Limit)
-            if len(path) >= self.limit:
-                continue # Information lost to background radiation
-
-            # 3. Expand Possibilities
-            for next_twist in self.generate_next_folds(path):
-                queue.append(path + next_twist)
-
-        return stable_histories
-
-# --- Sample Execution ---
 if __name__ == "__main__":
     sim = QuCalcSimulator(light_cone_limit=8)
-    
-    # Starting with a horizontal twist seed
+
     results = sim.simulate(">")
-    
-    print(f"\nFound {len(results)} stable ZFA history strings:")
-    for r in results[:5]: # Show first 5 discovered events
-        print(f" -> Event: {r}")
+
+    print(f"Found {len(results)} stable ZFA history strings:")
+    for history in results[:10]:
+        print(f"  {history} -> action {sim.action(history)}")
