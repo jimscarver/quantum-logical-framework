@@ -446,4 +446,3 @@ if __name__ == "__main__":
     print(mapper.generate_constants_report())
     print()
     print(mapper.generate_laboratory_report())
-This version should be a much better base for the next step. The next worthwhile improvement is to add a QuCalc-native renormalization routine so `emerge_feigenbaum()` is no longer blank, and then a network-geometric curvature routine so `emerge_G()` can be restored without hand tuning.
