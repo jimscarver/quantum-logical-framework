@@ -199,8 +199,11 @@ $$
 (\psi^\dagger \sigma_x \psi,,
 \psi^\dagger \sigma_y \psi,,
 \psi^\dagger \sigma_z \psi)
+$$
+
 ===========================
 
+$$
 ((-\psi)^\dagger \sigma_x (-\psi),,
 (-\psi)^\dagger \sigma_y (-\psi),,
 (-\psi)^\dagger \sigma_z (-\psi)).
