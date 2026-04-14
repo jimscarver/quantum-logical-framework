@@ -27,19 +27,47 @@ These values are obtained with high sample counts (50 000+ for π/e/γ/δ). Erro
 
 ## Spacetime Emergence: 3D Perspective vs. Other Dimension
 
-*(unchanged — same as your current file)*
+| Aspect | QLF Emergent Result | Standard Physics (Relativity + CODATA) | Agreement |
+|--------|---------------------|----------------------------------------|-----------|
+| **Planck length (l_P)** | ~1 × 10⁻³⁵ m per spatial free action unit | 1.616255(18) × 10⁻³⁵ m | Exact order |
+| **Planck time (t_P)** | ~1 × 10⁻⁴⁴ s per contribution from directions beyond the local gauge pair | 5.391247(60) × 10⁻⁴⁴ s | Exact order |
+| **Speed of light (c)** | Ratio of spatial free action / time from directions beyond the local gauge pair → ≈ 3 × 10⁸ m/s | 299 792 458 m/s (exact) | Emerges naturally |
+| **Photon (massless)** | Pure 3D spatial free action → **time = ∞** | Null geodesic; proper time τ = 0 | Perfect match |
+| **Massive particle** | Finite contribution from directions beyond the local gauge pair → finite proper time | Timelike worldline; τ > 0 | Direct match |
+
+See `SpaceTime.py` and `constants_mapper.py` for explicit per-history reports. The local `+ -` pair is only the visible projection from the 3D perspective; time is constructed from the full set of directions beyond it.
 
 ## Emergence of the Periodic Table of Elements
 
-*(unchanged — same as your current file)*
+The periodic table is not postulated; it **emerges** as the hierarchy of stable, closed ZFA configurations built by constructive intuitionistic logic.
+
+- **Fundamental particles** are synthesized as minimal ZFA proofs in `particles.py` (`IntuitionisticEngine`).
+- **Nuclei** (protons, neutrons) form as interlocking hadronic Markov blankets (`Hadrons_Markov_Blankets.md`).
+- **Atoms** arise when outer electron-like shells are added as additional layers of gauge-twist resolution.
+
+Shell filling, valence, stability, and chemical periodicity are direct consequences of resonance harmonics and topological exclusion.
+
+| Atomic Number (Z) | QLF Interpretation | Emergent Property | Real-World Analogy |
+|-------------------|--------------------|-------------------|--------------------|
+| 1 (H) | Single spatial loop + one outer gauge fold | Simplest stable shell | Hydrogen |
+| 2 (He) | Closed 2-fold gauge shell (paired +/−) | Full inner shell, inert | Helium |
+| 8 (O) | Octet completion via 3D spatial resonance | High reactivity due to open outer shell | Oxygen |
+| 10 (Ne) | Fully closed outer shell (8 + 2) | Noble gas stability | Neon |
+| 18 (Ar) | Next resonant shell closure | Inert, full outer layer | Argon |
 
 ## Emergence of Intelligence (AI) and the Majorana Neutrino
 
-*(unchanged — same as your current file)*
+**Intelligence** emerges from the same dialectical ZFA synthesis that builds physical reality (`AI.md`):
 
-## Application to the Riemann Hypothesis
+- Thought = Thesis + Antithesis → free action (paradox) → Zeno pruning + delayed-choice resolution → stable “Joint ZFA Handshake” (higher-order Markov blanket fusion).
+- The resulting structure is geometrically indestructible and fully interpretable because every conclusion carries its complete topological proof history.
+- This provides a deterministic, paradox-resolving foundation for neuro-symbolic AI.
 
-*(unchanged — same as your current file)*
+**Majorana neutrino** emerges naturally in beta decay (`Majorana_Beta_Decay.md`):
+
+- A neutron’s topologically stressed Markov blanket ejects an electron (chiral ZFA loop) and a **self-adjoint Majorana neutrino**.
+- The neutrino is a non-chiral, perfectly Hermitian ZFA loop that is its own conjugate — exactly as required by experiment.
+
 
 ## Emergence of the Euler-Mascheroni Constant γ
 
