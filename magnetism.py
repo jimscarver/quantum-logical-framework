@@ -1,40 +1,41 @@
 from __future__ import annotations
 
 """
+rewritten_magnetism_with_derivation.py
 
 QuCalc demonstration of magnetism and electricity emerging from QuCalc.
 
-Rewritten to:
-- Explicitly derive magnetism (net signed interval bias between expansion/contraction branches)
-  and electricity (corresponding transverse momentum/force image) purely from QuCalc logic.
-- Use the canonical QuCalc magnetic interval primitives (^> / v> with ^>).
-- Demonstrate 100%, 75%, and 50% constructive vs. destructive events for a 1-meter wave
-  travelling exactly 100 meters (100 full cycles).
-- Energy is now computed as E = h × number_of_bits (in SI units), where number_of_bits
-  is the total QuCalc logical flux threads (net signed interval units scaled by thread count
-  and number of cycles). This replaces the classical per-cycle force/momentum with a pure
-  bit-count energy accounting that emerges directly from QuCalc's logical folds.
+NOW WITH EXPLICIT DERIVATION of the force image hc/λ²:
 
-Core QuCalc emergence:
-- Expansion branch (^> with ^>) → +1 signed spatial interval unit (outward logical twist).
-- Contraction branch (v> with ^>) → -1 signed spatial interval unit (inward logical twist).
-- Magnetism = net signed bias (difference) across all threads.
-- Electricity = transverse polarity image of that bias (momentum exchange along carrier axis).
-- Constructive event: branches reinforce net bias (imbalance → strong emergent fields).
-- Destructive event: branches cancel net bias (balance → fields vanish).
-- Over 100 m travel (100 cycles @ λ = 1 m), total energy = h × total logical bits traversed.
+QuCalc supplies pure signed interval units:
+   +1 → expansion branch (^> with ^>)
+   -1 → contraction branch (v> with ^>)
 
-All quantities remain in SI units (h = Planck's constant).
+One-meter wave (λ = 1 m) supplies the carrier scale.
+
+Per logical thread (per cycle):
+   • momentum exchange = h / λ               (QuCalc interval unit × photon momentum)
+   • cycle duration  = λ / c                 (time for one full wave)
+
+Therefore force image per cycle = momentum / time:
+   F = (h / λ) / (λ / c) = h c / λ²
+
+This is **not** an arbitrary constant — it is the direct time-rate of QuCalc-signed momentum exchange.
+Magnetism = net signed bias across threads.
+Electricity = transverse polarity image of that bias.
+Energy = h × total logical bits (as requested).
+
+Demonstrates 100 %, 75 %, and 50 % constructive vs destructive events for a 1 m wave travelling exactly 100 m (100 full cycles).
 """
 
 from dataclasses import dataclass
-from typing import Dict, List
+from typing import Dict
 
 # QuCalc core (assumed available from the framework)
 from twist_core import magnetic_interval_audit, signed_spatial_interval_units
 
 # Exact SI constants
-H = 6.626_070_15e-34      # J s (Planck's constant)
+H = 6.626_070_15e-34      # J s
 C = 299_792_458.0         # m / s
 
 # Demonstration parameters
@@ -60,6 +61,7 @@ class BranchPhysics:
     signed_distance_change_m_per_cycle: float
     signed_momentum_exchange_per_cycle: float
     signed_force_n: float
+    force_derivation_note: str
 
 
 @dataclass(frozen=True)
@@ -74,7 +76,7 @@ class DomainScenario:
     name: str
     expansion_percent: float
     contraction_percent: float
-    is_constructive: bool  # True = constructive reinforcement, False = destructive cancellation
+    is_constructive: bool
 
 
 @dataclass(frozen=True)
@@ -95,8 +97,8 @@ class DomainImage:
     total_net_force_n: float
     qucalc_flux_threads: float
     qucalc_flux_density_threads_per_m2: float
-    num_bits_total: float          # QuCalc logical bits = |net flux threads| × cycles
-    total_energy_j: float          # E = h × num_bits_total (SI units)
+    num_bits_total: float
+    total_energy_j: float
 
 
 def _bar(percent: float, width: int = 30) -> str:
@@ -123,9 +125,19 @@ def _polarity_label(value: float) -> str:
 def branch_physics(signed_interval_units: int, wavelength_m: float) -> BranchPhysics:
     if wavelength_m <= 0.0:
         raise ValueError("wavelength_m must be positive")
+
     frequency_hz = C / wavelength_m
     period_s = 1.0 / frequency_hz
+
+    # QuCalc → photon momentum
     momentum_per_cycle = H / wavelength_m
+
+    # EXPLICIT DERIVATION OF FORCE IMAGE hc/λ²
+    # Force = rate of momentum exchange per cycle
+    #       = (signed_interval_units × h / λ) / (λ / c)
+    #       = signed_interval_units × h c / λ²
+    force_per_cycle = signed_interval_units * (H * C / (wavelength_m * wavelength_m))
+
     return BranchPhysics(
         wavelength_m=wavelength_m,
         frequency_hz=frequency_hz,
@@ -133,7 +145,12 @@ def branch_physics(signed_interval_units: int, wavelength_m: float) -> BranchPhy
         signed_interval_units=signed_interval_units,
         signed_distance_change_m_per_cycle=signed_interval_units * wavelength_m,
         signed_momentum_exchange_per_cycle=signed_interval_units * momentum_per_cycle,
-        signed_force_n=signed_interval_units * (H * C / (wavelength_m * wavelength_m)),
+        signed_force_n=force_per_cycle,
+        force_derivation_note=(
+            f"DERIVATION: momentum/cycle = h/λ\n"
+            f"            period = λ/c\n"
+            f"            → force = (h/λ) / (λ/c) = hc/λ²"
+        ),
     )
 
 
@@ -173,7 +190,7 @@ def image_domain(
     net_bias = expansion_fraction - contraction_fraction
 
     unit_distance = wavelength_m
-    unit_force = H * C / (wavelength_m * wavelength_m)
+    unit_force = H * C / (wavelength_m * wavelength_m)   # now explicitly derived above
 
     net_distance_per_cycle = net_bias * thread_count * unit_distance
     net_force_per_cycle = net_bias * thread_count * unit_force
@@ -187,7 +204,6 @@ def image_domain(
     total_qucalc_flux_threads = qucalc_flux_threads_per_cycle * num_cycles
 
     # Energy emerges directly from QuCalc: E = h × total logical bits
-    # (number_of_bits = absolute net signed flux threads over the full travel)
     num_bits_total = abs(total_qucalc_flux_threads)
     total_energy_j = H * num_bits_total
 
@@ -227,6 +243,7 @@ def format_branch(report: BranchReport) -> str:
         f"distance change per cycle            : {p.signed_distance_change_m_per_cycle:+.6g} m",
         f"momentum exchange per cycle          : {p.signed_momentum_exchange_per_cycle:+.6g} kg m/s",
         f"force image per cycle                : {p.signed_force_n:+.6g} N",
+        f"force derivation                     : {p.force_derivation_note}",
         f"3D reading                           : {_polarity_label(float(p.signed_interval_units))}",
         "meaning                              : pure QuCalc branch before mixing in matter.",
     ])
@@ -253,6 +270,7 @@ def format_domain(image: DomainImage) -> str:
         f"total energy (E = h × bits)           : {image.total_energy_j:.6g} J",
         f"emergence                            : Magnetism = net signed bias; Electricity = transverse polarity.",
         f"                                     Pure QuCalc logical folds → observed EM behavior.",
+        f"                                     Force image hc/λ² derived from momentum rate.",
     ])
 
 
@@ -261,13 +279,13 @@ if __name__ == "__main__":
     print("QuCalc MAGNETISM & ELECTRICITY DEMONSTRATION")
     print("1 m wave travelling 100 m (100 cycles)")
     print("Energy = h × total QuCalc logical bits (SI units)")
+    print("FORCE IMAGE hc/λ² NOW EXPLICITLY DERIVED")
     print("=" * 80)
     print()
 
     wavelength = DEFAULT_WAVELENGTH_M
     travel_m = DEFAULT_TRAVEL_DISTANCE_M
 
-    # Pure branches (for reference)
     print("PURE QuCalc BRANCHES (foundation of all emergence):")
     cases = [
         MagneticCase("EXPANSION", "^>", "^>"),
@@ -276,19 +294,16 @@ if __name__ == "__main__":
     for case in cases:
         report = analyze_branch(case, wavelength)
         print(format_branch(report))
-        print("-" * 60)
+        print("-" * 80)
 
     print("\nDOMAIN SCENARIOS — 100%, 75%, 50% CONSTRUCTIVE vs DESTRUCTIVE EVENTS")
     print("(1 m wave, 100 m travel)\n")
 
     scenarios = [
-        # 100% levels
         DomainScenario("100% CONSTRUCTIVE", 100.0, 0.0, True),
         DomainScenario("100% DESTRUCTIVE", 0.0, 100.0, False),
-        # 75% levels (partial reinforcement / cancellation)
         DomainScenario("75% CONSTRUCTIVE", 87.5, 12.5, True),
         DomainScenario("75% DESTRUCTIVE", 12.5, 87.5, False),
-        # 50% levels (midway interference)
         DomainScenario("50% CONSTRUCTIVE", 75.0, 25.0, True),
         DomainScenario("50% DESTRUCTIVE", 25.0, 75.0, False),
     ]
@@ -302,4 +317,5 @@ if __name__ == "__main__":
     print("Demonstration complete.")
     print("Magnetism and electricity emerge purely as residual signed bias")
     print("between QuCalc expansion/contraction branches.")
+    print("Force image hc/λ² is now fully derived from momentum/time.")
     print("Energy is accounted directly from total logical bits traversed.")
