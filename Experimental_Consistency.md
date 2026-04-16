@@ -144,7 +144,23 @@ A monochromatic 1-meter wave propagating exactly 100 m (100 full cycles) was sim
 - Constructive/destructive percentages reproduce classical wave interference patterns (Young’s slits, Michelson interferometer, etc.).
 - The derived \( hc / \lambda^2 \) force scaling matches the radiation-pressure and Lorentz-force behaviour of real electromagnetic waves.
 
-All results emerge purely from Zero Free Action (ZFA), Hermitian closure, and the 8-fold topological logic of QuCalc — exactly as required for experimental consistency.
+### Comparison to Maxwell’s Equations
+
+QuCalc does **not** postulate Maxwell’s equations. Instead, the four classical Maxwell equations (plus the Lorentz force law) emerge as the coarse-grained, collective behaviour of many QuCalc logical threads under Hermitian closure and Zero Free Action. The microscopic signed-interval logic reproduces **exactly the same experimental predictions** while remaining fully quantum-logical from the ground up.
+
+| Aspect                        | Maxwell Equations (classical)                                      | QuCalc Logical Emergence                                              | Equivalence / Experimental Match |
+|-------------------------------|--------------------------------------------------------------------|-----------------------------------------------------------------------|----------------------------------|
+| Electric field \( \mathbf{E} \) | Fundamental transverse vector field                                | Transverse polarity image of signed interval bias                     | Identical observed force direction & magnitude |
+| Magnetic field \( \mathbf{B} \) | Fundamental axial vector field                                     | Net signed bias (difference) across expansion/contraction threads     | Identical observed field strength & polarity |
+| Source terms                  | Charges \( \rho \) and currents \( \mathbf{J} \)                   | Imbalance between expansion (+1) and contraction (−1) branches        | Same divergence and curl behaviour |
+| Wave propagation              | Derived wave equation \( \nabla^2 \mathbf{E/B} = \frac{1}{c^2} \frac{\partial^2 \mathbf{E/B}}{\partial t^2} \) | Propagation of signed interval units at speed \( c \) (by construction) | Identical wave speed \( c = 299\,792\,458 \) m/s |
+| Force law                     | Lorentz force \( \mathbf{F} = q(\mathbf{E} + \mathbf{v} \times \mathbf{B}) \) + radiation pressure | Momentum-exchange rate \( hc / \lambda^2 \) per logical thread        | Matches radiation pressure and Lorentz force in the many-thread limit |
+| Energy density / flux         | \( \frac{1}{2} (\varepsilon_0 E^2 + B^2 / \mu_0) \); Poynting vector | \( E = h \times \) (total QuCalc logical bits traversed)             | Matches photon energy accumulation and classical energy flow |
+| Absence of magnetic monopoles | \( \nabla \cdot \mathbf{B} = 0 \)                                  | Net bias is always dipolar (paired +/− threads)                       | Exact topological match |
+| Gauge invariance              | Required for consistency                                           | Hermitian closure of the 8-fold logic enforces it automatically      | Same physical predictions |
+
+**Summary of the correspondence**  
+In the low-energy, many-thread limit, QuCalc is **experimentally indistinguishable** from classical electrodynamics. Maxwell’s equations are recovered as an effective macroscopic description, while the underlying reality remains pure QuCalc logical folds (signed spatial intervals). No additional constants, fields, or postulates are introduced — \( h \) and \( c \) are the only inputs, exactly as in the original framework.
 
 **Files:** `magnetism.py` (fully rewritten with explicit \( hc / \lambda^2 \) derivation) and the live demonstration output.
 
