@@ -249,6 +249,20 @@ All four equations (plus the Lorentz force) are recovered **identically** in the
 
 This derivation closes the loop: QuCalc is microscopically logical, macroscopically Maxwellian, and experimentally indistinguishable from classical electrodynamics.
 
+## Quantum Gravity
+
+In QLF, gravity is not a separate force added to quantum mechanics. It emerges directly from **pure quantum-logical Zero Free Action (ZFA) events**.
+
+Each admissible QuCalc fold contributes either radial expansion or radial contraction. Stable physical reality consists only of histories that close under Hermitian adjoint with zero net free action. What we observe as gravity is the **macroscopic residual of these microscopic ZFA events** when their radial effects do not cancel perfectly.
+
+The same residual radial bias also determines the emergence of the gravitational coupling:
+
+- **Quantum events are deterministic ZFA closures**
+- **Radial signed bias in those closures generates gravitational effect**
+- **The effective strength of that residual bias emerges as \(G\)**
+- **Gravity is therefore an emergent image of pure quantum-logical structure**
+
+In this view, quantum gravity is not obtained by quantizing a classical gravitational field. It is obtained by recognizing that **gravitational effect, including the emergence of \(G\), already follows from the net radial image of deterministic ZFA events.**
 **Conclusion:** The Quantum Logical Framework does not require us to abandon the experimental triumphs of the 20th century. It provides the discrete, computational “source code” that generates them.
 
 ## constants_mapper.py Sample run (`mass_unit_kg = 1.0e-27`)
