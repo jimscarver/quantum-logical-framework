@@ -263,6 +263,21 @@ The same residual radial bias also determines the emergence of the gravitational
 - **Gravity is therefore an emergent image of pure quantum-logical structure**
 
 In this view, quantum gravity is not obtained by quantizing a classical gravitational field. It is obtained by recognizing that **gravitational effect, including the emergence of \(G\), already follows from the net radial image of deterministic ZFA events.**
+
+## Gravity, Entropy, and the Causal Frontier
+
+In QLF, gravity is not caused by a primitive force. It emerges from **deterministic Zero Free Action (ZFA) events**. Each admissible QuCalc fold contributes radial expansion or radial contraction, and stable reality consists only of histories that close under Hermitian adjoint with zero net free action.
+
+The entropy relevant to gravity is the entropy of **unresolved information beyond the local causal frontier**. That hidden continuation space represents admissible possibilities not yet resolved within the local light cone. When the radial effects of ZFA events do not cancel perfectly, the residual radial bias appears macroscopically as gravitational effect.
+
+So the QLF statement is:
+
+- **Microscopically:** gravity emerges from pure quantum-logical ZFA events  
+- **Coarse-grained:** gravity is strengthened by entropy associated with information outside local causal access  
+- **Macroscopically:** the surviving radial imbalance appears as curvature and the effective coupling \(G\)
+
+In this view, gravity is entropic only at the large-scale descriptive level. Its microscopic source remains deterministic quantum-logical closure.
+
 **Conclusion:** The Quantum Logical Framework does not require us to abandon the experimental triumphs of the 20th century. It provides the discrete, computational “source code” that generates them.
 
 ## constants_mapper.py Sample run (`mass_unit_kg = 1.0e-27`)
