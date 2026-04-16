@@ -258,7 +258,22 @@ A mixed domain should be read as:
 
 So what we observe is not a single fold. It is the image of many folds whose radial imbalance has survived closure.
 
+## Gravity, Entropy, and the Causal Frontier
+
+In QLF, gravity is not caused by a primitive force. It emerges from **deterministic Zero Free Action (ZFA) events**. Each admissible QuCalc fold contributes radial expansion or radial contraction, and stable reality consists only of histories that close under Hermitian adjoint with zero net free action.
+
+The entropy relevant to gravity is the entropy of **unresolved information beyond the local causal frontier**. That hidden continuation space represents admissible possibilities not yet resolved within the local light cone. When the radial effects of ZFA events do not cancel perfectly, the residual radial bias appears macroscopically as gravitational effect.
+
+So the QLF statement is:
+
+- **Microscopically:** gravity emerges from pure quantum-logical ZFA events  
+- **Coarse-grained:** gravity is strengthened by entropy associated with information outside local causal access  
+- **Macroscopically:** the surviving radial imbalance appears as curvature and the effective coupling \(G\)
+
+In this view, gravity is entropic only at the large-scale descriptive level. Its microscopic source remains deterministic quantum-logical closure.
+
 ---
+
 
 ## 11. Conclusion
 
