@@ -1,4 +1,4 @@
-# Infeasibility of Full-Universe Simulation via Half-Spin ZFA QuCalc under Conventional Computing
+# Infeasibility of Full-Universe Simulation with Conventional Computing
 
 **Repository:** [`qlf-qucalc` (Quantum Logical Framework)](https://github.com/jimscarver/quantum-logical-framework)  
 **Document version:** 2.1  
