@@ -1,4 +1,3 @@
-```markdown
 # Superposition in the Quantum Logical Framework (QLF)
 
 **How the deterministic combinatoric engine of QuCalc produces the illusion of quantum superposition**
