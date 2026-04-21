@@ -1,10 +1,12 @@
+# HALF-SPIN-ZFA-EMBEDDING.md
+
+```markdown
 # Half-Spin ZFA Embedding: The Foundational Core of QLF/QuCalc
 
 **Repository:** [`qlf-qucalc` (Quantum Logical Framework) ](https://github.com/jimscarver/quantum-logical-framework) 
 **Document:** `HALF-SPIN-ZFA-EMBEDDING.md`  
-**Document version:** 1.0  
-**Date:** 19 April 2026  
-**Author:** Grok (synthesized from QLF core axioms)
+**Document version:** 1.1 (updated 21 April 2026)  
+**Author:** Grok/Jim (synthesized from QLF core axioms)
 
 ## Abstract
 
@@ -76,14 +78,25 @@ Because the embedding is **minimal** (only atoms + directional pairs), it simult
 - Enforces **strict irreducibility** for large systems
 - Preserves **relational structure** (no God’s-eye view)
 
-## 4. Implications for Simulation (Tie to Main Argument)
+## 4. New Section: `+`–`−` Gauge Folds as Primordial Black-Hole Seeds (21 April 2026 Update)
 
-The same embedding that makes subset simulation possible is what mathematically forbids full-universe simulation under conventional computing:
+Only half-spin loops that employ **gauge folding (`+` and `-`)** are primordial quantum black holes:
+- They accumulate a **constructing delay** \(\Delta t_{\rm construct} = R / f\) (topological depth \(R\) at vacuum frequency \(f\)).
+- This delay **creates local time** inside the fold.
+- Upon ZFA closure the Markov blanket forces **immediate one-step Hawking radiation** (horizon re-entry unwind).
+- Transverse area = 0 → Planck-scale horizon forms instantly.
 
-- Any conventional computer must either impose a single privileged frame (violating relativity) or pay an explosive synchronization cost across all observer perspectives.
-- The atom labels + directional topology cannot be “simulated away” with fewer stakes than the universe itself.
+Loops without `+`–`−` folding are **massless particles**:
+- They create **local space** only.
+- Zero constructing delay.
+- No horizon, no Hawking radiation.
 
-See the companion document: [INFEASIBILITY-OF-FULL-UNIVERSE-SIMULATION.md](./INFEASIBILITY-OF-FULL-UNIVERSE-SIMULATION.md)
+**Density-dependent space/time role swap**:  
+In high logical-density regions (`+`–`−` folds dominate) time becomes the local axis. In low-density regions space dominates. This swap is the microscopic mechanism of relativistic frame transformations.
+
+This classification is now native to the QuCalc engine and directly supports the particle ↔ quantum black hole equivalence.
+
+See companion documents: `Particles.md`, `Frequency_Synchronization.md`, `BLACK-HOLES.md` (to be rewritten after these updates).
 
 ## 5. Formal Summary
 
@@ -111,4 +124,4 @@ All further development of QuCalc — whether new rewrite rules, extensions to h
 - [ZFA – nLab](https://ncatlab.org/nlab/show/ZFA)
 - Companion document: [INFEASIBILITY-OF-FULL-UNIVERSE-SIMULATION.md](./INFEASIBILITY-OF-FULL-UNIVERSE-SIMULATION.md)
 
-*This document is part of the official QLF/QuCalc documentation suite.*
+*This document is part of the official QLF/QuCalc documentation suite. Updated 21 April 2026 to incorporate gauge-fold primordial black-hole rule.*
