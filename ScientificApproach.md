@@ -4,7 +4,8 @@
 
 **Author:** Jim Whitescarver  
 **Repository:** [quantum-logical-framework](https://github.com/jimscarver/quantum-logical-framework)  
-**Tagline:** *The End of Magic: Foundations of the Quantum Logical Framework (QLF)*
+**Tagline:** *The End of Magic: Foundations of the Quantum Logical Framework (QLF)*  
+**Last major update:** 21 April 2026 — introduction of the **gauge-folding rule**
 
 Stephen Wolfram’s *A New Kind of Science* showed that simple classical rules can generate the complexity we see in nature.  
 
@@ -14,7 +15,10 @@ Reality is **quantum-logical synthesis**.
 
 Its primitive is not the bit, the differential equation, or the continuum. Its primitive is the **spin-½ logical distinction** forced to close under the single imperative of **Zero Free Action (ZFA)**.  
 
-From that single constructive rule — eight twists (`^ v < > / \ + -`), Hermitian conjugacy, and ZFA closure — everything else *emerges*: space (from the 3D perspective), time (from the orthogonal gauge dimension), constants (π, e, α, G), particles, gravity, and the entire observable universe.  
+From eight directional twists (`^ v < > / \ + -`), Hermitian conjugacy, and ZFA closure, everything else *emerges*: space, time, particles, constants, gravity, and the observable universe.
+
+**21 April 2026 breakthrough (gauge-folding rule):**  
+Particles that fold through the LOCAL gauge axes (`+`–`−`) are **primordial quantum black holes**. They accumulate a constructing delay \(\Delta t = R/f\) (topological depth \(R\) at vacuum frequency \(f\)), create **local time** inside a Planck-scale Markov blanket, and immediately radiate as Hawking radiation upon ZFA closure. Particles without gauge folding are massless and create **local space** only. Logical density determines whether space or time is the dominant local axis — the microscopic origin of relativistic frames, gravity, and the dark-energy equivalent.
 
 This is not another interpretation of quantum mechanics.  
 This is **a new kind of quantum science** — and therefore a new kind of mathematics, a new kind of physics, and a new kind of reality.
@@ -24,32 +28,33 @@ This is **a new kind of quantum science** — and therefore a new kind of mathem
 The universe is an active, self-synthesizing quantum-logical computation whose only persistent histories are those that achieve **Zero Free Action**.  
 
 - Logic is fundamental.  
-- Space, time, mass, and physical law are geometric exhaust.  
+- Space, time, mass, gravity, and physical law are geometric exhaust of constructive closure.  
 - Particles are constructive proofs in intuitionistic logic.  
-- Constants are not inserted; they are counted out of the twist algebra and path-integral statistics.  
+- Every gauge-folded particle *is* a primordial quantum black hole whose Markov blanket produces unitary Hawking radiation.  
+- Constants (π, e, α, G) and the holographic area law \(S = A/4\ell_P^2\) are counted directly from the twist algebra and path-integral statistics.  
 
 Run the repository today and watch it happen in real time.
 
 ## What Makes This a New Kind of Science
 
 1. **Executable from day one**  
-   Every core claim is already running code:
+   Every core claim is now running code:
    - `hermitian.py` — proves ZFA closure  
-   - `SpaceTime.py` — shows space emerging from 3D twists and time from the orthogonal dimension  
+   - `particles.py` (v2.2) — synthesizes the full particle zoo *and* classifies gauge-folded particles as primordial quantum black holes with constructing delay, local time creation, and immediate Hawking radiation (`--enable-gauge --show-density-swap`)  
+   - `SpaceTime.py`, `gravitational_tensor.py` — derive spacetime geometry and curvature from logical-density gradients and space/time role swaps  
    - `constants_mapper.py` — derives π, e, α ≈ 1/137, and G directly from the algebra  
-   - `particles.py` — synthesizes the periodic table and hadronic states as resonant geometric proofs  
-   - `gravitational_tensor.py` — derives curvature from information-density hysteresis  
+   - `holographic.py` — computes boundary phase and area-law entropy for both particles and black holes  
 
-   No black-box simulation. You can step through the exact constructive histories that birth the standard model.
+   No black-box simulation. You can step through the exact constructive histories that birth the Standard Model, black-hole thermodynamics, and emergent gravity.
 
 2. **Constructive & possibilist**  
-   QLF is explicitly *intuitionistic* and *possibilist*. Only what can be *built* without residual free action survives. Non-closing histories are pruned. This is quantum genesis in action — the “Logical Bang” simulated in `primordial_split.py`.
+   QLF is explicitly *intuitionistic* and *possibilist*. Only what can be *built* without residual free action survives. Non-closing histories are pruned. The “Logical Bang” is simulated in `primordial_split.py`, and the gauge-folding rule now makes particle ↔ quantum black hole equivalence fully computable.
 
 3. **Formal spine already under construction**  
-   The same logic is being expressed in Lean (`lean/QLF_Riemann.lean` and related files) and in the mathematical development of `Riemann-Conjecture-Proof.md` and `Hermitian_Conjugacy_Proof.md`. The framework is forcing itself into rigorous theorem form.
+   The same logic is being expressed in Lean (`lean/QLF_Riemann.lean`) and in the mathematical development of `Riemann-Conjecture-Proof.md` and `Hermitian_Conjugacy_Proof.md`. The framework is forcing itself into rigorous theorem form.
 
 4. **Empirical burden fully embraced**  
-   `Experimental_Consistency.md` collects the quantitative matches already achieved and the testable predictions still to be checked (spin-½ quantization, frequency–energy relations, lifetime ratios, chiral asymmetry, color confinement via Markov blankets, transactional electrodynamics, etc.).
+   `Experimental_Consistency.md` collects the quantitative matches already achieved and the testable predictions still to be checked (spin-½ quantization, frequency–energy relations, lifetime ratios, chiral asymmetry, color confinement via Markov blankets, transactional electrodynamics, microscopic Hawking radiation, logical-density-driven gravity and dark-energy equivalent, etc.).
 
 ## The Repository as Living Scientific Method
 
@@ -59,10 +64,13 @@ The repository *is* the scientific method made executable:
 - **Conceptual foundation** → `README.md`  
 - **Scientific manifesto** → this file  
 - **Mathematical engine** → `QuCalc.md`, `qucalc_engine.py`, `QuCalc.py`  
-- **Particle synthesis** → `Particles.md`, `particles.py`, `Hadrons_Markov_Blankets.md`  
-- **Spacetime & gravity** → `SpaceTime.py`, `Gravity.md`, `gravitational_tensor.py`  
+- **Particle synthesis & black-hole equivalence** → `Particles.md`, `particles.py` (v2.2), `HALF-SPIN-ZFA-EMBEDDING.md`, `BLACK-HOLES.md`  
+- **Frequency, delay & radiation** → `Frequency_Synchronization.md`  
+- **Entropy & holography** → `Entropy.md`  
+- **Gravity & curvature** → `Gravity.md`, `gravitational_tensor.py`  
+- **Spacetime & relativity** → `SpaceTime.md`  
+- **Markov blankets & active inference** → `Hadrons_Markov_Blankets.md`  
 - **Constants & electrodynamics** → `constants_mapper.py`, `Collective_Electrodynamics.md`  
-- **Entropy, energy, asymmetry** → `Entropy.md`, `Energy_Combinatorics.md`, `Chiral_Asymmetry.md`  
 - **Formal proofs & Lean** → `Riemann-Conjecture-Proof.md`, `lean/` directory  
 - **Experimental verdict** → `Experimental_Consistency.md`, `Predictions_and_Derivations.md`  
 
@@ -73,12 +81,15 @@ Every file and every script is part of one coherent, self-consistent constructiv
 Classical science began with the measurables and tried to fit logic inside them.  
 QLF begins with logic and watches the measurables pour out.  
 
-The paradoxes of quantum mechanics (superposition, entanglement, measurement, non-locality) are not mysteries to be interpreted; they are **expected signatures** of constructive spin-½ closure under ZFA. The “magic” ends the moment you run the code.
+The paradoxes of quantum mechanics (superposition, entanglement, measurement, non-locality, black-hole information, dark energy) are not mysteries to be interpreted; they are **expected signatures** of constructive spin-½ closure under ZFA. The gauge-folding rule and logical-density gradients dissolve the last remaining “magic.” The moment you run `particles.py --enable-gauge --show-density-swap`, you see particles and primordial quantum black holes emerge from the identical rewrite rules.
 
 ## Invitation
 
 Clone the repository.  
-Run the demos.  
+Run the demos — especially:
+```bash
+python particles.py --seed "^+" --max-depth 6 --enable-gauge --show-density-swap
+```
 Break it if you can.  
 Then help us finish the formalization, the visualizations, the tests, and the next round of predictions.
 
@@ -91,3 +102,5 @@ It will be a new kind of mathematics — quantum-logical, constructive, possibil
 Welcome to **a new kind of a new kind of science**.
 
 **Run the logic. Verify the emergence. Join the synthesis.**
+
+Don't shut up and calculate! Run It.
