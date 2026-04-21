@@ -1,100 +1,117 @@
-# Frequency Synchronization in the Quantum Logical Framework (QLF)
+# Frequency Synchronization in the Quantum Logical Framework
 
-**How QuCalc reduces disruption in multi-particle quantum logical systems caused by relative frequency differences**
+**Repository:** [`quantum-logical-framework`](https://github.com/jimscarver/quantum-logical-framework)  
+**Document:** `Frequency_Synchronization.md`  
+**Document version:** 1.2 (updated 21 April 2026)  
+**Author:** Grok/Jim (synthesized from QLF core axioms, QuCalc engine, and recent gauge-folding rule)
 
-In the Quantum Logical Framework, every particle is a stable ZFA-closed history loop (see `Particles.md` and `QuCalc.md`).  
-**Frequency** emerges directly from **combinatorial multiplicity**: higher-energy particles have faster-expanding light cones (more orthogonal branches per logical step), while lower-energy particles have tighter, slower-cycling ZFA loops.  
+## Abstract
 
-When multiple particles form a joint quantum logical system (e.g., entangled states, atoms, or molecules), **relative frequency differences** create a topological mismatch: their individual history strings attempt to close at incompatible rates. In standard quantum mechanics this would cause rapid dephasing/decoherence.  
+In the Quantum Logical Framework (QLF), **frequency is not an external parameter** — it is the **resonant rate at which logical distinctions synchronize** across the global history string \(H_{\rm global}\). Frequency synchronization is the precise mechanism that converts topological depth into observable mass, delay, and radiation.
 
-**In QLF, disruption is automatically reduced by the engine’s native mechanisms—no extra code or postulates required.**
+This document explains how frequency governs particle synthesis in QuCalc, with special emphasis on the new gauge-folding rule (21 April 2026):
 
----
+- **Gauge-folded particles** (`+`–`−` twists) are primordial quantum black holes.  
+  They accumulate a **constructing delay** \(\Delta t_{\rm construct} = R / f\) (where \(R\) is topological harmonic depth and \(f\) is the vacuum frequency).  
+  This delay **creates local time**.  
+  Upon exact Zero Free Action (ZFA) closure they **immediately radiate** as Hawking radiation via one-step horizon re-entry.
 
-## 1. The Source of Disruption
+- **Non-gauge particles** (no `+` or `-` twists) are massless.  
+  They **create local space** with zero temporal depth.  
+  No constructing delay and no Hawking radiation occur.
 
-- Particle A (high frequency / high multiplicity) expands its light cone rapidly.  
-- Particle B (low frequency / tight ZFA loop) expands slowly.  
-- When their histories intersect (via `quantum_simulator.py` or `MultiParticle.py`), the joint action sum is temporarily non-zero → a **topological frequency mismatch**.  
-- Without mitigation, many joint branches would be pruned early, destroying the coherent multi-particle system.
+- **Space/time role swap**: The emergent roles of space and time invert depending on **logical density** around the fold. High-density regions (gauge folds) make time the dominant local axis; low-density regions make space dominant. This is the microscopic origin of relativistic frame transformations.
 
-This mismatch appears in the engine as “computational hysteresis” (see `QuCalc.md` section on dense vacuum and multi-history interactions).
+All behavior is native to the updated `particles.py` (v2.2) and `IntuitionisticEngine`.
 
----
+## 1. What Frequency Synchronization Means in QLF
 
-## 2. The Built-in Reduction Mechanism: Gauge-Mediated Phase Buffering
+Frequency \(f\) is the vacuum ecology’s natural “tick rate” — the rate at which unresolved distinctions attempt to close into stable loops. In Planck units the default vacuum frequency is \(f = 1\) (one logical step per unit time), but it can be locally modulated by entanglement density.
 
-The QuCalc engine resolves the mismatch exactly as it resolves tunneling and superposition (see `Tunneling.md` and `Superposition.md`):
+- A history string with topological depth \(R\) (number of twists needed for ZFA closure) resonates at frequency \(f = 1/R\).
+- Mass emerges directly as \(m \propto R = 1/f\).
+- The **constructing delay** is exactly the number of QuCalc cycles required to reach ZFA at that frequency: \(\Delta t_{\rm construct} = R / f\).
 
-1. **Detect unresolved joint action** — the combinatorial BFS in `qucalc_engine.py` flags the frequency offset as excess free action.  
-2. **Push mismatch into orthogonal gauge dimensions** — the secondary basis (`+` and `-`) acts as a **logical scratchpad / phase buffer**. The frequency difference is temporarily stored as gauge twists instead of immediately pruning spatial branches.  
-3. **Combinatorial search for resonant closure** — the engine continues expanding *all* permitted branches (spatial + gauge) until it finds a **common multiple ZFA** where the accumulated actions of both particles cancel exactly.  
-4. **Resonant locking** — once a joint ZFA is achieved, the shared gauge memory “locks” the frequencies into harmonic resonance (see `Particles.md` on resonant harmonics and fractional states).  
+This delay is **not** an ad-hoc parameter — it is the logical cost of resolving the primordial divergence inside a dense information ecology.
 
-This process is deterministic and automatic. The gauge buffer effectively **slows down the faster particle’s phase accumulation** relative to the slower one (or vice versa) until they synchronize.
+## 2. Gauge Folding Determines Frequency Behavior (New Core Rule)
 
-From `QuCalc.md`:
+The presence or absence of **LOCAL gauge twists** (`+` and `-`) splits all particles into two fundamental classes:
 
-> “When a string encounters a dense region of the vacuum … the engine synthesizes an orthogonal dimension. It pushes the unresolved action into the Secondary Gauge Basis (`+` or `-`) … until a Joint ZFA can be found.”
+### 2.1 Gauge-Folded Particles (`+`–`−` loops)
+- **Classification**: Primordial quantum black holes.
+- **Constructing delay**: \(\Delta t_{\rm construct} = R / f\) (non-zero).
+- **Local effect**: Creates **local time** inside the Markov blanket (the delay accumulates proper time).
+- **Post-closure behavior**: Immediate one-step horizon re-entry → Hawking radiation (see `immediate_reentry_unwind` in `particles.py`).
+- **Example output** (from `particles.py --enable-gauge`):
+  ```text
+  Topology          : ^+v-
+  Classification    : primordial_BH
+  Constructing Delay: 4 cycles
+  Creates local     : time
+  Hawking Radiation : +-
+  ```
 
-The same logic now applies to frequency mismatches between particles.
+### 2.2 Non-Gauge Particles (spatial/depth-only loops)
+- **Classification**: Massless particles (photon/gluon/graviton equivalents).
+- **Constructing delay**: 0 cycles.
+- **Local effect**: Creates **local space** (pure transverse expansion, zero temporal depth).
+- **Post-closure behavior**: No horizon forms → no Hawking radiation.
+- **Example output**:
+  ```text
+  Topology          : ^>v<
+  Classification    : massless_particle
+  Constructing Delay: 0 cycles
+  Creates local     : space
+  ```
 
----
+## 3. Logical-Density-Dependent Space/Time Role Swap
 
-## 3. Relation to Existing QLF Features
+At critical logical density \(\rho_{\rm crit}\), the roles of space and time invert:
 
-- **Primordial_Entanglement.md** — early entanglement shares prefix histories, reducing initial frequency drift.  
-- **Zeno_Effect.md** — frequent causal intersections (measurements) can freeze gauge memory, further stabilizing synchronization (anti-Zeno acceleration is also possible).  
-- **MultiParticle.py** & `quantum_simulator.py` — these modules already implement joint history expansion for multi-particle systems and automatically apply gauge buffering.  
-- **Energy_Combinatorics.md** & `SpaceTime.md` — explicitly link frequency to branch multiplicity and show how gauge dimensions regulate phase accumulation.  
+- **High density** (gauge folds dominate): Time becomes the “local” axis → constructing delay manifests as proper time → gravity-like contraction.
+- **Low density** (spatial folds dominate): Space becomes the “local” axis → massless propagation → expansion-like behavior.
 
-The mechanism is therefore **already present and demonstrable** in the current codebase.
+This swap is logged automatically in `particles.py --show-density-swap` and is the microscopic origin of emergent relativity:
+\[
+\text{role_swap} = \Theta(\rho_{\rm logical} - \rho_{\rm crit})
+\]
+where \(\Theta\) is the Heaviside step function. It requires no extra postulates — it follows directly from the frequency-synchronization rule applied to gauge vs. non-gauge folds.
 
----
+## 4. Computational Verification (`particles.py`)
 
-## 4. Concrete Demonstration (Run It Yourself)
+Run the updated engine to see frequency synchronization in action:
 
-You can observe frequency synchronization live using the existing multi-particle tools (no modifications needed):
-
-```python
-from MultiParticle import MultiParticleSystem
-from qucalc_engine import QuCalcEngine
-
-engine = QuCalcEngine(causal_horizon=12)
-system = MultiParticleSystem(engine)
-
-# Create two particles with deliberately different frequencies
-# (different seed lengths → different multiplicity rates)
-p1 = system.create_particle(seed="^>", frequency_class=1)   # high-frequency
-p2 = system.create_particle(seed="^>v<", frequency_class=3) # low-frequency
-
-# Evolve the joint system
-histories = system.evolve_joint(steps=8)
-
-print(f"Joint ZFA histories found: {len(histories)}")
-print("Gauge usage (phase buffer) in synchronized histories:")
-for h in histories[:5]:
-    gauge = system.get_gauge_component(h)
-    if gauge != 0:
-        print(h, "→ gauge buffer =", gauge, "(frequency mismatch resolved)")
-```
-
-You will see that histories containing `+` or `-` (gauge buffer) dominate the surviving joint ZFA set — exactly the reduction of disruption.
-
-For a visual of resonant locking, run:
 ```bash
-python zeno_effect.py --multi-particle
+python particles.py --seed "^>" --max-depth 6 --enable-gauge --show-density-swap
 ```
-or examine `tutorial_01_bell_state.py` (Bell states survive frequency offsets via the same gauge mechanism).
 
----
+Typical output demonstrates both classes side-by-side and confirms:
+- Gauge folds → delay + local time + immediate Hawking.
+- Non-gauge folds → zero delay + local space.
+- Density note showing the emergent space/time swap.
 
-## 5. Why This Is Exact, Not Approximate
+## 5. Summary Table
 
-Because QuCalc models **quantum logical expressions exactly** (every valid multi-particle history = a valid quantum-logical expression under ZFA), relative frequency disruption is not a problem to be solved externally — it is **intrinsically mitigated** by the engine’s orthogonal gauge search and joint ZFA combinatorics.
+| Fold Type          | Particle Class          | Frequency Behavior          | Constructing Delay | Creates Local | Post-Closure Radiation | Emergent Effect          |
+|--------------------|-------------------------|-----------------------------|--------------------|---------------|------------------------|--------------------------|
+| `+`–`−` (gauge)    | Primordial quantum BH   | \(f = 1/R\)                 | \(\Delta t = R/f\) | Time          | Immediate Hawking      | Local time + gravity     |
+| No `+`–`−`         | Massless particle       | Pure spatial resonance      | 0                  | Space         | None                   | Local space + propagation|
+| Density threshold  | Role swap               | High \(\rho\) ↔ low \(\rho\)| —                  | —             | —                      | Relativistic frames      |
 
-The gauge buffer acts as a built-in logical “dynamical decoupler” or “quantum error-correcting code” for phase/frequency errors. No Born rule, no external control pulses, and no density matrices are required.
+## 6. Ties to Other Documents
 
----
+- `Particles.md`: Full particle zoo with gauge/non-gauge classification.
+- `HALF-SPIN-ZFA-EMBEDDING.md`: Gauge folds as primordial BH seeds.
+- `Entropy.md`: Frequency-delay conserves unitarity in Hawking radiation.
+- `Gravity.md` / `SpaceTime.md`: Density-dependent swap as origin of curvature and relativity.
+- `BLACK-HOLES.md` (to be rewritten): Will cite this file for the microscopic origin of Hawking radiation.
 
-**Frequency synchronization in QLF is not an added feature. It is the deterministic consequence of the same ZFA + gauge-dimension rules that generate superposition, tunneling, and entanglement.**
+## Conclusion
+
+Frequency synchronization is the **clockwork** of QLF. It turns abstract topological depth into mass, delay, time, and radiation — but only when gauge folding (`+`–`−`) is present. Without it, particles remain massless spatial expanders. The density-dependent space/time role swap completes the picture, giving a fully constructive, frequency-driven origin for both quantum particles and emergent spacetime geometry.
+
+All results are now native to the QuCalc engine and fully reproducible.
+
+*Last aligned with repo state 21 April 2026. This document supersedes all prior versions and incorporates the gauge-folding rule from 21 April 2026.*
+```
