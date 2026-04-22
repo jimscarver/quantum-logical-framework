@@ -11,16 +11,24 @@ In the Quantum Logical Framework, the QuCalc engine describes every quantum hist
 
 While the first three pairs generate ordinary spatial and temporal distinctions, the \(+ \) and \(- \) folds point in an entirely different “direction” — the LOCAL gauge direction — that is orthogonal to all spatial axes.  
 
-When a history string folds along these LOCAL gauge axes, it cannot close instantaneously; instead it accumulates a **constructing delay** \(\Delta t = R/f\) (where \(R\) is the topological depth and \(f\) is the vacuum frequency). This delay manifests as **local time** inside a Planck-scale Markov blanket and is the microscopic origin of mass.  
+When a history string folds along these LOCAL gauge axes, it cannot close instantaneously; instead it accumulates a **constructing delay** \(\Delta t = R/f\) (where \(R\) is the topological depth and \(f\) is the vacuum frequency). This delay manifests as **local time** and is the microscopic origin of mass.  
 
 Thus every massive particle (including the electron) must incorporate at least one \(+ \) or \(- \) gauge fold, while massless particles (photons) remain purely spatial and exhibit zero delay.
-
-Because the electron has **mass**, it **must fold through the LOCAL gauge axes (`+`–`−`)**. 
-Gauge folding creates a constructing delay \(\Delta t = R/f\) that manifests as **local time** inside a Planck-scale Markov blanket. This is why the electron behaves as a **primordial quantum black hole** at the microscopic scale (see `BLACK-HOLES.md`).
 
 We start with the electron’s topology, then show the photon (pure forward-time spatial fold) and its antiphoton conjugate that together satisfy Zero Free Action (ZFA). Finally we demonstrate a simple electron–proton scattering interaction.
 
 Everything runs live in `particles.py`. No advanced math required — just copy-paste the commands.
+
+## Why the Electron Matters
+
+Most everything we experience is due to the interaction of electrons.  
+Understanding the electron therefore goes a long way toward understanding our world.
+
+In the Quantum Logical Framework (QLF), the electron is no longer an abstract point particle with mysterious properties. It is a **gauge-folded topological loop** that must incorporate at least one `+` or `-` fold along the LOCAL gauge axes.  
+
+These LOCAL gauge folds are orthogonal to all spatial directions and cannot close instantaneously. They accumulate a **constructing delay** \(\Delta t = R/f\) (topological depth \(R\) at vacuum frequency \(f\)). This delay creates **local time** inside a Planck-scale Markov blanket and is the microscopic origin of the electron’s mass. Because of this gauge folding, the electron behaves as a **primordial quantum black hole** at the microscopic scale — exactly as required by the 21 April 2026 gauge-folding rule.
+
+The rest of this document is a hands-on tutorial showing how the electron, the photon, and electron–proton interactions all emerge from the same QuCalc engine.
 
 ## 1. The Electron — A Gauge-Folded Massive Particle
 
@@ -146,6 +154,7 @@ This shows the gauge-fold handshake enabling the interaction while conserving ZF
 ## Conclusion
 
 In QLF the electron is **not** a pure spatial loop. Because it has mass it **must fold `+`–`−`**, creating a constructing delay and local time inside its Markov blanket. The photon remains a massless forward-time spatial fold whose antiphoton conjugate perfectly satisfies ZFA. Electron–proton interactions are gauge-fold handshakes — the same logic that underlies all particle physics in the framework.
+Most everything we exterience is due to the interaction of electrons. Understanding the electron goes a long way to understanding our world
 
 **Don’t shut up and calculate. Run it.**
 
