@@ -7,9 +7,16 @@
 
 ## Abstract
 
-This is a **beginner-friendly tutorial** on the electron in QLF.  
+In the Quantum Logical Framework, the QuCalc engine describes every quantum history as a string of **8-directional folds** drawn from the alphabet \(\{ ^, v, <, >, /, \backslash, +, - \}\). These folds are grouped into four orthogonal pairs: vertical (\(^ v\)), horizontal (\(< >\)), depth (\(/ \backslash\)), and — crucially — the **LOCAL gauge axes** (\(+ -\)).  
 
-Because the electron has **mass**, it **must fold through the LOCAL gauge axes (`+`–`−`)**. Gauge folding creates a constructing delay \(\Delta t = R/f\) that manifests as **local time** inside a Planck-scale Markov blanket. This is why the electron behaves as a **primordial quantum black hole** at the microscopic scale (see `BLACK-HOLES.md`).
+While the first three pairs generate ordinary spatial and temporal distinctions, the \(+ \) and \(- \) folds point in an entirely different “direction” — the LOCAL gauge direction — that is orthogonal to all spatial axes.  
+
+When a history string folds along these LOCAL gauge axes, it cannot close instantaneously; instead it accumulates a **constructing delay** \(\Delta t = R/f\) (where \(R\) is the topological depth and \(f\) is the vacuum frequency). This delay manifests as **local time** inside a Planck-scale Markov blanket and is the microscopic origin of mass.  
+
+Thus every massive particle (including the electron) must incorporate at least one \(+ \) or \(- \) gauge fold, while massless particles (photons) remain purely spatial and exhibit zero delay.
+
+Because the electron has **mass**, it **must fold through the LOCAL gauge axes (`+`–`−`)**. 
+Gauge folding creates a constructing delay \(\Delta t = R/f\) that manifests as **local time** inside a Planck-scale Markov blanket. This is why the electron behaves as a **primordial quantum black hole** at the microscopic scale (see `BLACK-HOLES.md`).
 
 We start with the electron’s topology, then show the photon (pure forward-time spatial fold) and its antiphoton conjugate that together satisfy Zero Free Action (ZFA). Finally we demonstrate a simple electron–proton scattering interaction.
 
