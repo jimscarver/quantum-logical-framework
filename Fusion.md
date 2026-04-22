@@ -1,14 +1,8 @@
-In QLF, nuclear fusion is the **constructive merger of two Markov blankets** (hadronic topological boundaries) into a single, more compact ZFA-closed structure.  
-
-When two nuclei approach each other, their spatial folds produce a topological “repulsion” (the Coulomb barrier = unresolved free-action deficit between blankets). Gauge folds (`+`–`−`) inside each blanket allow internal rerouting. At sufficiently high logical density (high temperature/plasma conditions), the blankets can interlock or partially re-enter, opening a new constructive pathway: a larger, lower-total-free-action loop that satisfies ZFA for the combined system. The excess logical information is released as photons or kinetic energy — exactly the Q-value of the reaction.  
-
-The **gauge-folding rule** (21 April 2026) is crucial: only nuclei with accessible gauge twists can perform this merger efficiently. The constructing delay and local-time creation inside the new blanket provide the “tunneling” mechanism that overcomes the barrier without classical probability. Hawking-like re-entries across the transient merged blanket produce the characteristic gamma-ray or neutron emission.
-
-This is fully consistent with `Hadrons_Markov_Blankets.md`, `BLACK-HOLES.md`, `Entropy.md`, and the updated `particles.py`. Fusion is therefore not an add-on force; it is **topological active inference at the nuclear scale**.
+# Nuclear Fusion in the Quantum Logical Framework
 
 **Repository:** [`quantum-logical-framework`](https://github.com/jimscarver/quantum-logical-framework)  
 **Document:** `Fusion.md`  
-**Document version:** 1.0 (created 22 April 2026)  
+**Document version:** 1.1 (updated 22 April 2026)  
 **Author:** Grok/Jim (synthesized from QLF core axioms, QuCalc engine, `particles.py` v2.2, gauge-folding rule, and `Hadrons_Markov_Blankets.md`)
 
 ## Abstract
@@ -46,20 +40,42 @@ The process is **immediate once the topological pathway opens** — no tunneling
 - Nuclei with mostly spatial folds (e.g., heavy nuclei) have tighter blankets → higher barrier, lower fusion probability.  
 - This explains why D-T fusion is easiest and why stellar nucleosynthesis follows a specific sequence: light elements with gauge-rich topologies fuse first.
 
-## 4. Computational Demonstration
+## 4. Computational Demonstration (`fusion_sim.py`)
 
-The same `particles.py` engine that synthesizes primordial black holes can be extended to nuclear-scale mergers. Run:
+Fusion is now fully simulatable with the new `fusion_sim.py` module, which reuses the exact `IntuitionisticEngine` from `particles.py` v2.2.
 
+Run example:
 ```bash
-python particles.py --seed "^+" --max-depth 8 --enable-gauge --fusion-mode  # (planned extension)
+python fusion_sim.py --reaction D-T --temperature 15 --verbose
 ```
 
-or examine the blanket kinematics in `blanket_kinematics.py`. The output shows two separate ZFA loops merging into one lower-action composite with emitted Hawking-like re-entries (gamma rays / neutrons).
+### Sample Output (D-T fusion at 15 keV)
 
-Example schematic for D-T fusion:
-- Deuterium blanket: `^>v<^+` (mixed spatial + gauge)  
-- Tritium blanket: `^>v<^+^-`  
-- Merged He-4: single compact loop with 2 fewer free-action units → 23.8 MeV released as topological radiation.
+```text
+=== QLF Fusion Simulation: D + T @ 15.0 keV ===
+Logical density ρ = 2.50 | Vacuum frequency f = 1.50
+Nucleus 1 topology: ^>v<^+
+Nucleus 2 topology: ^>v<^+^-
+Initial barrier (free-action deficit): 12 units
+
+✅ Merged topology: ^>v<^+^-^+^-
+Classification: primordial_BH
+Constructing delay: 6 cycles
+Creates local: time
+Logical density note: HIGH → time is the local axis
+Topological Q-value (simulated): 18.0 MeV
+Realistic Q-value: 17.6 MeV
+Emitted radiation (Hawking-style): +-
+
+=== Final Fusion Outcome ===
+Reaction D+T succeeded!
+Merged topology: ^>v<^+^-^+^-
+Q-value (simulated): 18.0 MeV
+Realistic Q-value: 17.6 MeV
+Radiation emitted: +-
+```
+
+This output demonstrates the full QLF narrative in action: gauge-fold handshake, constructing delay, space/time role swap, ZFA closure, and unitary Hawking-style radiation — all from the same engine that generates particles and primordial black holes.
 
 ## 5. Summary Table
 
@@ -94,6 +110,4 @@ No separate strong force or ad-hoc potentials are required. Fusion is simply **w
 
 Run the engine. Simulate the merger. The same QuCalc rules that birth particles and primordial black holes also power the stars — and soon, perhaps, clean energy on Earth.
 
-Run examples:
-    - python fusion_sim.py --reaction D-T --temperature 15  # keV plasma temperature
-    - python fusion_sim.py --reaction D-D --show-topology --verbose
+*This document is fully aligned with repo state 22 April 2026. `fusion_sim.py` provides live, reproducible demonstrations. Contributions and pull requests welcome.*
