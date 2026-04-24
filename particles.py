@@ -1,104 +1,243 @@
 """
-QLF ENGINE: PRIMORDIAL QUANTUM BLACK HOLES & GAUGE-FOLDING
-Version 5.0
+particles.py
+Quantum Logical Framework (QLF) – Particles as Primordial Quantum Black Holes
 
-A particle is not a point-mass. It is a dense topological knot of unresolved 
-free action—a Primordial Quantum Black Hole. 
-
-Its Markov Blanket acts as an Event Horizon. By executing 'Gauge-Folding', 
-it cancels internal paradoxes against the vacuum, simultaneously synthesizing 
-Local Time (t=h/E) and emitting the geometric exhaust we perceive as Hawking Radiation. 
-The resulting 'Density Swap' between the knot and the vacuum is the emergent 
-phenomenon of Gravity.
+Updated to match the current QuCalc / RhoQuCalc architecture while preserving
+the primordial-black-hole interpretation.
 """
 
+from __future__ import annotations
+
 import argparse
-import time
+from dataclasses import dataclass, field
+from typing import Dict, List, Optional, Any
 
+from qucalc_engine import (
+    PossibilistEngine,
+    compute_imbalance,
+    hermitian_conjugate,
+    is_zfa_closed,
+)
+
+try:
+    from rho_transpiler import execute_rho
+except Exception:
+    execute_rho = None
+
+
+@dataclass
 class VacuumEcology:
-    def __init__(self):
-        self.baseline_density = 0.0
-        self.topology_grid = ["~", "~", "~", "~", "~"] # Visual representation of local vacuum
+    baseline_density: float = 0.0
+    resolved_histories: List[str] = field(default_factory=list)
 
-class PrimordialBlackHole:
-    def __init__(self, energy_density, enable_gauge):
-        self.E = energy_density # Informational mass (Unresolved free action)
-        self.enable_gauge = enable_gauge
-        self.markov_blanket_intact = True
-        self.gauge_state = "^<+" # Left-handed, positive gauge core
-        
-    def gauge_fold(self, vacuum):
-        """
-        The core engine of reality. The knot folds its geometry against the vacuum,
-        forcing a ZFA phase cancellation (+ and - annihilate).
-        """
-        # The vacuum provides the conjugate gauge (-)
-        conjugate = "->"
-        
-        if self.enable_gauge:
-            print(f"    [Gauge-Fold] Executing topology phase cancellation: `{self.gauge_state}` folds into `{conjugate}`")
-            # The Event: Mathematical annihilation
-            exhaust = (self.gauge_state + conjugate).replace('+-', '').replace('-+', '')
-            return exhaust
-        return "^<>v" # Default stable R=4 fluxoid if visualization is off
+    def absorb(self, closed_history: str) -> None:
+        self.baseline_density += 1.0
+        self.resolved_histories.append(closed_history)
 
-    def execute_tick(self, tick, vacuum, show_density_swap):
-        print(f"\n[Tick {tick:03d}] QBH Core Evaluated. Unresolved Action: {self.E}")
-        
-        # 1. GAUGE-FOLDING & HAWKING RADIATION
-        # The particle cancels a fraction of its paradox, radiating the geometric exhaust.
-        exhaust_geometry = self.gauge_fold(vacuum)
-        radiated_energy = 1.0 # 1 quantum of logical burden resolved
-        self.E -= radiated_energy
-        
-        print(f"    [Hawking Radiation] ZFA Handshake complete. Emitted geometric exhaust: `{exhaust_geometry}`")
 
-        # 2. LOCAL TIME SYNTHESIS (t = h/E)
-        topological_constant_h = 1.0
-        # Time dilates as the black hole gets less massive (E decreases)
-        local_time = topological_constant_h / self.E if self.E > 0 else 0
-        print(f"    [Local Time] Synthesized duration for event: t = {local_time:.4f}")
+@dataclass
+class ParticleRecord:
+    label: str
+    prefix: str
+    closure_name: Optional[str]
+    combined_history: Optional[str]
+    shortest_closure: Optional[str]
+    final_history: Optional[str]
+    is_zfa: bool
+    imbalance: Optional[tuple]
+    hermitian: Optional[str]
+    interpretation: str
 
-        # 3. DENSITY SWAP (EMERGENT GRAVITY)
-        # As the knot resolves, it transfers informational density to the surrounding vacuum,
-        # warping the local topology. This IS gravity.
-        if show_density_swap:
-            vacuum.baseline_density += radiated_energy
-            # Visualizing the spatial warping
-            warp_index = (tick - 1) % len(vacuum.topology_grid)
-            vacuum.topology_grid[warp_index] = "V" # 'V' represents a gravitational well/dent
-            warp_visual = "".join(vacuum.topology_grid)
-            
-            print(f"    [Density Swap] Core E: {self.E} <---> Vacuum Density: {vacuum.baseline_density}")
-            print(f"    [Emergent Gravity] Local space warped by computational burden: [{warp_visual}]")
 
-        if self.E <= 0:
-            self.markov_blanket_intact = False
-            print("\n[!] CORE RESOLVED. Markov Blanket dissolved. QBH has fully evaporated into the vacuum.")
+class PrimordialBlackHoleParticle:
+    """Interpret a particle as a dense knot of unresolved free action."""
 
-def run_simulation(args):
-    print("======================================================")
-    print("QLF ENGINE: SOURCE CODE OF REALITY INITIALIZED")
-    print("======================================================")
-    print("[*] Instantiating Primordial Quantum Black Hole...")
-    print("[*] Ruleset : Gauge-Folding Active")
-    print("======================================================")
+    def __init__(
+        self,
+        prefix: str,
+        label: str = "particle",
+        closure_name: Optional[str] = None,
+        engine: Optional[PossibilistEngine] = None,
+    ) -> None:
+        self.prefix = prefix
+        self.label = label
+        self.closure_name = closure_name
+        self.engine = engine or PossibilistEngine()
 
+    def resolve(self) -> ParticleRecord:
+        combined_history: Optional[str] = None
+        shortest_closure: Optional[str] = None
+        final_history: Optional[str] = None
+
+        if self.closure_name:
+            combined_history = self.engine.ApplyZfa(self.prefix, self.closure_name)
+
+        if combined_history and is_zfa_closed(combined_history):
+            final_history = combined_history
+        elif combined_history:
+            shortest_closure = self.engine.core_engine.find_zfa(combined_history)
+            final_history = shortest_closure
+        else:
+            shortest_closure = self.engine.core_engine.find_zfa(self.prefix)
+            final_history = shortest_closure
+
+        is_closed = bool(final_history and is_zfa_closed(final_history))
+        imbalance = compute_imbalance(final_history) if final_history else None
+        hermitian = hermitian_conjugate(final_history) if final_history else None
+
+        if is_closed:
+            interpretation = (
+                "Primordial quantum black hole successfully gauge-folded into "
+                "a stable ZFA particle closure."
+            )
+        else:
+            interpretation = (
+                "Candidate remains unresolved free action; no admissible closure "
+                "was found within the current engine constraints."
+            )
+
+        return ParticleRecord(
+            label=self.label,
+            prefix=self.prefix,
+            closure_name=self.closure_name,
+            combined_history=combined_history,
+            shortest_closure=shortest_closure,
+            final_history=final_history,
+            is_zfa=is_closed,
+            imbalance=imbalance,
+            hermitian=hermitian,
+            interpretation=interpretation,
+        )
+
+
+PARTICLE_LIBRARY: Dict[str, Dict[str, str]] = {
+    "electron": {
+        "prefix": "^<",
+        "closure_name": "ZFA_MIN_SQUARE_CCW",
+        "note": "Minimal spatial closure; electron-like pedagogical example.",
+    },
+    "positron": {
+        "prefix": "v>",
+        "closure_name": "ZFA_MIN_SQUARE",
+        "note": "Conjugate-oriented minimal spatial closure.",
+    },
+    "neutrino": {
+        "prefix": "^-",
+        "closure_name": "ZFA_GAUGE_LOOP",
+        "note": "Gauge-dominant pedagogical example.",
+    },
+    "fluxoid": {
+        "prefix": "^>/+",
+        "closure_name": "ZFA_FLUXOID",
+        "note": "Composite particle-like closure from the catalog.",
+    },
+}
+
+
+def resolve_rho_process(rho_code: str) -> Dict[str, Any]:
+    if execute_rho is None:
+        return {
+            "status": "unavailable",
+            "reason": "rho_transpiler.execute_rho could not be imported",
+        }
+    return execute_rho(rho_code)
+
+
+def print_particle_record(record: ParticleRecord, verbose: bool = False) -> None:
+    print(f"\n=== {record.label.upper()} ===")
+    print(f"open prefix         : {record.prefix}")
+    print(f"catalog closure     : {record.closure_name}")
+    if record.combined_history is not None:
+        print(f"ApplyZfa result     : {record.combined_history}")
+    if record.shortest_closure is not None:
+        print(f"engine closure      : {record.shortest_closure}")
+    print(f"final history       : {record.final_history}")
+    print(f"ZFA closed          : {record.is_zfa}")
+    print(f"hermitian conjugate : {record.hermitian}")
+    print(f"interpretation      : {record.interpretation}")
+
+    if verbose:
+        print(f"imbalance tuple     : {record.imbalance}")
+
+
+def print_catalog(engine: PossibilistEngine) -> None:
+    print("Registered ZFA closures:")
+    for name in sorted(engine.catalog._catalog.keys()):
+        print(f"  - {name}: {engine.catalog.get_by_name(name)}")
+
+
+def run_demo(args: argparse.Namespace) -> None:
+    engine = PossibilistEngine()
     vacuum = VacuumEcology()
-    qbh = PrimordialBlackHole(energy_density=5.0, enable_gauge=args.enable_gauge)
-    
-    tick = 1
-    while qbh.markov_blanket_intact and tick <= 5:
-        qbh.execute_tick(tick, vacuum, args.show_density_swap)
-        tick += 1
-        if args.verbose:
-            time.sleep(0.5)
+
+    print("============================================================")
+    print("QLF PARTICLE ENGINE: PRIMORDIAL QUANTUM BLACK HOLE DEMO")
+    print("============================================================")
+    print("A particle is treated here as a dense knot of unresolved free")
+    print("action that stabilizes only by QuCalc / RhoQuCalc ZFA closure.")
+    print("============================================================")
+
+    if args.show_catalog:
+        print_catalog(engine)
+        print("============================================================")
+
+    if args.rho:
+        print(resolve_rho_process(args.rho))
+        return
+
+    targets = list(PARTICLE_LIBRARY.keys()) if args.particle == "all" else [args.particle]
+    records: List[ParticleRecord] = []
+
+    for name in targets:
+        spec = PARTICLE_LIBRARY[name]
+        particle = PrimordialBlackHoleParticle(
+            prefix=spec["prefix"],
+            label=name,
+            closure_name=spec["closure_name"],
+            engine=engine,
+        )
+        record = particle.resolve()
+        records.append(record)
+        if record.final_history and record.is_zfa:
+            vacuum.absorb(record.final_history)
+
+    if args.parallel and len(records) > 1:
+        parallel_inputs = [r.final_history or r.prefix for r in records]
+        print("\nParallel composition:")
+        print(engine.parallel(*parallel_inputs))
+
+    if args.replicate and records:
+        replicated = engine.replicate(records[0].final_history or records[0].prefix, args.replicate)
+        print("\nReplication:")
+        print(replicated)
+
+    for record in records:
+        print_particle_record(record, verbose=args.verbose)
+
+    print("\nVacuum ecology summary:")
+    print(f"  resolved histories : {len(vacuum.resolved_histories)}")
+    print(f"  baseline density   : {vacuum.baseline_density}")
+    if args.verbose and vacuum.resolved_histories:
+        print(f"  absorbed closures  : {vacuum.resolved_histories}")
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        description="QLF particles updated for current QuCalc / RhoQuCalc support"
+    )
+    parser.add_argument(
+        "--particle",
+        choices=["electron", "positron", "neutrino", "fluxoid", "all"],
+        default="all",
+    )
+    parser.add_argument("--parallel", action="store_true")
+    parser.add_argument("--replicate", type=int, default=0)
+    parser.add_argument("--show-catalog", action="store_true")
+    parser.add_argument("--rho", type=str, default="")
+    parser.add_argument("--verbose", action="store_true")
+    return parser
+
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="QLF Particle/QBH Engine")
-    parser.add_argument("--enable-gauge", action="store_true", help="Visualize internal gauge phase cancellation")
-    parser.add_argument("--show-density-swap", action="store_true", help="Visualize emergence of gravity/warped topology")
-    parser.add_argument("--verbose", action="store_true", default=True, help="Add terminal delay for readability")
-    
-    args = parser.parse_args()
-    run_simulation(args)
+    parser = build_parser()
+    run_demo(parser.parse_args())
