@@ -1,208 +1,104 @@
 """
-particles.py
+QLF ENGINE: PRIMORDIAL QUANTUM BLACK HOLES & GAUGE-FOLDING
+Version 5.0
 
-QLF Particle Synthesis Engine — Version 2.3 (22 April 2026)
+A particle is not a point-mass. It is a dense topological knot of unresolved 
+free action—a Primordial Quantum Black Hole. 
 
-Updated to fully support:
-- Gauge-folding rule: any + or - fold → primordial quantum black hole with mass, constructing delay, and local time
-- Electron must contain gauge fold (massive)
-- Dark-matter candidates: high-R gauge knots with suppressed Hawking radiation
-- Fusion/blanket-merger logging
-- Electron.md and DarkMatter.md demonstrations
-
-All previous commands remain fully backward-compatible.
+Its Markov Blanket acts as an Event Horizon. By executing 'Gauge-Folding', 
+it cancels internal paradoxes against the vacuum, simultaneously synthesizing 
+Local Time (t=h/E) and emitting the geometric exhaust we perceive as Hawking Radiation. 
+The resulting 'Density Swap' between the knot and the vacuum is the emergent 
+phenomenon of Gravity.
 """
 
-from __future__ import annotations
-
 import argparse
-import random
-from typing import Dict, Optional, Tuple
+import time
 
-# ===================================================================
-# Core QuCalc Engine (unchanged core logic — only extended classification)
-# ===================================================================
-
-POSITIVE_TO_NEGATIVE = {
-    "VERTICAL": "v",
-    "HORIZONTAL": ">",
-    "DEPTH": "\\",
-    "LOCAL": "-",
-}
-
-NEGATIVE_TO_POSITIVE = {
-    "VERTICAL": "^",
-    "HORIZONTAL": "<",
-    "DEPTH": "/",
-    "LOCAL": "+",
-}
-
-class IntuitionisticEngine:
+class VacuumEcology:
     def __init__(self):
-        self.axis_order = ("VERTICAL", "HORIZONTAL", "DEPTH", "LOCAL")
-        self.vacuum_frequency = 1.0
+        self.baseline_density = 0.0
+        self.topology_grid = ["~", "~", "~", "~", "~"] # Visual representation of local vacuum
 
-    def evaluate_deficit(self, history: str) -> Dict[str, int]:
-        # Simple placeholder — real implementation uses action_dict from twist_core
-        # For demo we assume it returns deficits; in production import from twist_core
-        return {"VERTICAL": 1, "HORIZONTAL": 1, "DEPTH": 0, "LOCAL": 0}
-
-    def _closing_twist_for_axis(self, axis_name: str, deficit: int) -> str:
-        if deficit > 0:
-            return POSITIVE_TO_NEGATIVE[axis_name]
-        if deficit < 0:
-            return NEGATIVE_TO_POSITIVE[axis_name]
-        raise ValueError("cannot request a closing twist for zero deficit")
-
-    def has_gauge_fold(self, topology: str) -> bool:
-        """True if any LOCAL gauge twist (+ or -) is present."""
-        return any(c in topology for c in ["+", "-"])
-
-    def compute_topological_depth(self, topology: str) -> int:
-        return len(topology) if topology else 0
-
-    def immediate_reentry_unwind(self, topology: str, frequency: float) -> Optional[str]:
-        """One-step Hawking radiation for gauge-folded primordial BHs."""
-        if not self.has_gauge_fold(topology):
-            return None
-        hawking_pair = "+-"
-        print(f"    → Immediate Hawking radiation emitted: {hawking_pair} "
-              f"(frequency-matched to seed f={frequency:.2f})")
-        return hawking_pair
-
-    def synthesize_proof(
-        self,
-        seed: str,
-        max_depth: int,
-        environment_block: bool = False,
-        enable_gauge: bool = True,
-        dark_matter_mode: bool = False,
-        fusion_mode: bool = False,
-    ) -> Optional[Tuple[str, Dict[str, any]]]:
+class PrimordialBlackHole:
+    def __init__(self, energy_density, enable_gauge):
+        self.E = energy_density # Informational mass (Unresolved free action)
+        self.enable_gauge = enable_gauge
+        self.markov_blanket_intact = True
+        self.gauge_state = "^<+" # Left-handed, positive gauge core
+        
+    def gauge_fold(self, vacuum):
         """
-        Main synthesis routine.
-        New flags:
-            dark_matter_mode: forces high topological depth + suppressed radiation
-            fusion_mode: logs as blanket-merger style (for Fusion.md)
+        The core engine of reality. The knot folds its geometry against the vacuum,
+        forcing a ZFA phase cancellation (+ and - annihilate).
         """
-        current_path = seed
-        frequency = self.vacuum_frequency
+        # The vacuum provides the conjugate gauge (-)
+        conjugate = "->"
+        
+        if self.enable_gauge:
+            print(f"    [Gauge-Fold] Executing topology phase cancellation: `{self.gauge_state}` folds into `{conjugate}`")
+            # The Event: Mathematical annihilation
+            exhaust = (self.gauge_state + conjugate).replace('+-', '').replace('-+', '')
+            return exhaust
+        return "^<>v" # Default stable R=4 fluxoid if visualization is off
 
-        # Dark-matter mode: force high gauge depth
-        if dark_matter_mode:
-            max_depth = max(max_depth, 20)
-            enable_gauge = True
+    def execute_tick(self, tick, vacuum, show_density_swap):
+        print(f"\n[Tick {tick:03d}] QBH Core Evaluated. Unresolved Action: {self.E}")
+        
+        # 1. GAUGE-FOLDING & HAWKING RADIATION
+        # The particle cancels a fraction of its paradox, radiating the geometric exhaust.
+        exhaust_geometry = self.gauge_fold(vacuum)
+        radiated_energy = 1.0 # 1 quantum of logical burden resolved
+        self.E -= radiated_energy
+        
+        print(f"    [Hawking Radiation] ZFA Handshake complete. Emitted geometric exhaust: `{exhaust_geometry}`")
 
-        for step in range(max_depth):
-            deficit = self.evaluate_deficit(current_path)
-            if len(current_path) >= 2 and all(v == 0 for v in deficit.values()):
-                break
+        # 2. LOCAL TIME SYNTHESIS (t = h/E)
+        topological_constant_h = 1.0
+        # Time dilates as the black hole gets less massive (E decreases)
+        local_time = topological_constant_h / self.E if self.E > 0 else 0
+        print(f"    [Local Time] Synthesized duration for event: t = {local_time:.4f}")
 
-            appended = False
-            if not environment_block and enable_gauge:
-                for axis_name in ("VERTICAL", "HORIZONTAL", "DEPTH"):
-                    d = deficit[axis_name]
-                    if d != 0:
-                        current_path += self._closing_twist_for_axis(axis_name, d)
-                        appended = True
-                        break
+        # 3. DENSITY SWAP (EMERGENT GRAVITY)
+        # As the knot resolves, it transfers informational density to the surrounding vacuum,
+        # warping the local topology. This IS gravity.
+        if show_density_swap:
+            vacuum.baseline_density += radiated_energy
+            # Visualizing the spatial warping
+            warp_index = (tick - 1) % len(vacuum.topology_grid)
+            vacuum.topology_grid[warp_index] = "V" # 'V' represents a gravitational well/dent
+            warp_visual = "".join(vacuum.topology_grid)
+            
+            print(f"    [Density Swap] Core E: {self.E} <---> Vacuum Density: {vacuum.baseline_density}")
+            print(f"    [Emergent Gravity] Local space warped by computational burden: [{warp_visual}]")
 
-            if not appended:
-                local_d = deficit["LOCAL"]
-                if local_d != 0:
-                    current_path += self._closing_twist_for_axis("LOCAL", local_d)
-                else:
-                    current_path += "-" if not dark_matter_mode else "+"
-                environment_block = False
+        if self.E <= 0:
+            self.markov_blanket_intact = False
+            print("\n[!] CORE RESOLVED. Markov Blanket dissolved. QBH has fully evaporated into the vacuum.")
 
-        # Final classification (v2.3 update)
-        R = self.compute_topological_depth(current_path)
-        uses_gauge = self.has_gauge_fold(current_path)
+def run_simulation(args):
+    print("======================================================")
+    print("QLF ENGINE: SOURCE CODE OF REALITY INITIALIZED")
+    print("======================================================")
+    print("[*] Instantiating Primordial Quantum Black Hole...")
+    print("[*] Ruleset : Gauge-Folding Active")
+    print("======================================================")
 
-        if uses_gauge:
-            if dark_matter_mode:
-                particle_type = "dark_matter_knot"
-                hawking = None
-                delay_cycles = R * 5  # extremely large delay
-                density_note = "EXTREME → stable non-radiating gauge knot"
-            else:
-                particle_type = "primordial_BH"
-                hawking = self.immediate_reentry_unwind(current_path, frequency)
-                delay_cycles = R
-                density_note = "HIGH → time is the local axis"
-            creates_local = "time"
-            mass = R
-        else:
-            particle_type = "massless_particle"
-            mass = 0
-            delay_cycles = 0
-            creates_local = "space"
-            hawking = None
-            density_note = "LOW → space is the local axis"
-
-        classification = {
-            "type": particle_type,
-            "topology": current_path,
-            "mass": mass,
-            "delay_cycles": delay_cycles,
-            "creates_local": creates_local,
-            "hawking_emitted": hawking,
-            "density_note": density_note,
-            "frequency": frequency,
-            "is_dark_matter": dark_matter_mode,
-        }
-
-        return current_path, classification
-
+    vacuum = VacuumEcology()
+    qbh = PrimordialBlackHole(energy_density=5.0, enable_gauge=args.enable_gauge)
+    
+    tick = 1
+    while qbh.markov_blanket_intact and tick <= 5:
+        qbh.execute_tick(tick, vacuum, args.show_density_swap)
+        tick += 1
+        if args.verbose:
+            time.sleep(0.5)
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description="QLF Particle Synthesis Engine v2.3 — Electron, Photon, Dark Matter, Fusion-ready"
-    )
-    parser.add_argument("--seed", default="^<", help="Starting seed (default ^< = electron-like)")
-    parser.add_argument("--max-depth", type=int, default=6, help="Maximum synthesis depth")
-    parser.add_argument("--environment-block", action="store_true", help="Simulate dense plasma/vacuum blocking")
-    parser.add_argument("--enable-gauge", action="store_true", default=True, help="Allow LOCAL gauge folding (+/-)")
-    parser.add_argument("--dark-matter-mode", action="store_true", help="Force high-R gauge knot (DarkMatter.md)")
-    parser.add_argument("--fusion-mode", action="store_true", help="Log as blanket merger (Fusion.md)")
-    parser.add_argument("--show-density-swap", action="store_true", help="Show space/time role swap")
+    parser = argparse.ArgumentParser(description="QLF Particle/QBH Engine")
+    parser.add_argument("--enable-gauge", action="store_true", help="Visualize internal gauge phase cancellation")
+    parser.add_argument("--show-density-swap", action="store_true", help="Visualize emergence of gravity/warped topology")
+    parser.add_argument("--verbose", action="store_true", default=True, help="Add terminal delay for readability")
+    
     args = parser.parse_args()
-
-    engine = IntuitionisticEngine()
-
-    print("======================================================")
-    print("[QLF ENGINE v2.3] INTUITIONISTIC SYNTHESIS INITIATED")
-    print("======================================================")
-    print(f"Seed: {args.seed} | Max depth: {args.max_depth} | Gauge: {args.enable_gauge} | "
-          f"Dark-matter mode: {args.dark_matter_mode}")
-    print()
-
-    result = engine.synthesize_proof(
-        seed=args.seed,
-        max_depth=args.max_depth,
-        environment_block=args.environment_block,
-        enable_gauge=args.enable_gauge,
-        dark_matter_mode=args.dark_matter_mode,
-        fusion_mode=args.fusion_mode,
-    )
-
-    if result:
-        topology, cls = result
-        print(f"✅ ZFA Closure Achieved:")
-        print(f"   Topology          : {topology}")
-        print(f"   Classification    : {cls['type']}")
-        print(f"   Topological Depth R : {cls['mass']}")
-        print(f"   Constructing Delay  : {cls['delay_cycles']} cycles")
-        print(f"   Creates local     : {cls['creates_local']}")
-        print(f"   Logical Density   : {cls['density_note']}")
-        if cls['hawking_emitted']:
-            print(f"   Hawking Radiation : {cls['hawking_emitted']}")
-        if args.show_density_swap:
-            print(f"   → Space/Time roles swap at critical density (emergent relativity)")
-    else:
-        print("❌ No ZFA closure within max_depth")
-
-    print()
-    print("======================================================")
-    print("GLOBAL SYMMETRY VERIFICATION: Net Action = 0")
-    print("======================================================")
+    run_simulation(args)
