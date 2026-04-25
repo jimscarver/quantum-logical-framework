@@ -168,7 +168,8 @@ Spacetime expands because quantum events continuously synthesize new intervals. 
 
 **Further reading in the repo**  
 - [`WHITE_PAPER.md`](https://github.com/jimscarver/quantum-logical-framework/blob/main/WHITE_PAPER.md)  
-- [`possibilist-ontology.md`](https://github.com/jimscarver/quantum-logical-framework/blob/main/possibilist-ontology.md)  
+- [`possibilist-ontology.md`](https://github.com/jimscarver/quantum-logical-framework/blob/main/possibilist-ontology.md)
+- [`Philosophy.md`](https://github.com/jimscarver/quantum-logical-framework/blob/main/Philosophy.md)  
 - [`SpaceTime.md`](https://github.com/jimscarver/quantum-logical-framework/blob/main/SpaceTime.md)  
 - [`BLACK-HOLES.md`](https://github.com/jimscarver/quantum-logical-framework/blob/main/BLACK-HOLES.md)  
 - [`Gravity.md`](https://github.com/jimscarver/quantum-logical-framework/blob/main/Gravity.md)  
