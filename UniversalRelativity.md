@@ -11,7 +11,7 @@
 
 Universal Relativity is the unification of quantum physics, special relativity (SR), and general relativity (GR) under a single quantum-logical ontology. In this framework the universe is **possibilist**: all admissible logical histories exist *a priori*; only those that achieve **Zero Free Action (ZFA = 0)** are realized as physical events. Spacetime, light speed, mass, gravity, and the cosmological term emerge directly from ZFA closures in an 8-twist algebra (`^ v < > / \ + -`).
 
-Einstein postulated a constant speed of light and the equivalence principle. We postulate only ZFA and *derive* constant \(c\), local Lorentz invariance, and the equivalence principle as theorems. The resulting theory is fully covariant, singularity-free, and computable. Black-hole and Big-Bang singularities are eliminated because spacetime is synthesized discretely from quantum events; the continuum is an emergent large-scale limit.
+Einstein postulated a constant speed of light and the equivalence principle. We postulate only ZFA and *derive* constant `c`, local Lorentz invariance, and the equivalence principle as theorems. The resulting theory is fully covariant, singularity-free, and computable. Black-hole and Big-Bang singularities are eliminated because spacetime is synthesized discretely from quantum events; the continuum is an emergent large-scale limit.
 
 The framework is implemented and formally verified in the open-source **Quantum Logical Framework (QLF)** repository. It includes executable Python engines, RhoQuCalc process calculus, and Lean4 proofs.
 
@@ -37,18 +37,18 @@ See:
 
 ## 2. ZFA as the Sole Fundamental Postulate
 
-Einstein’s two postulates (constant \(c\), equivalence) are replaced by one:
+Einstein’s two postulates (constant `c`, equivalence) are replaced by one:
 
 > **Every admissible history must achieve Zero Free Action.**
 
 From this single imperative the following are derived (all proven in the repo):
 
 - Emergent spacetime intervals (`SpaceTime.py`)
-- Constant light speed \(c\) (frequency synchronization of ZFA clocks)
+- Constant light speed `c` (frequency synchronization of ZFA clocks)
 - Local Lorentz invariance
 - Equivalence principle (radial bias in spatial twists = gravity)
 - Pauli exclusion (antisymmetric RhoQuCalc parallel for fermions)
-- Dynamical dark-energy-like term (event-synthesis tensor \(T_{\mu\nu}^{(\text{synth})}\))
+- Dynamical dark-energy-like term (event-synthesis tensor `T_μν^(synth)`)
 
 ## 3. Emergence of Special Relativity
 
@@ -62,7 +62,7 @@ model = photon.model_spacetime()
 # → Clock frequency f = 1/t
 ```
 
-The invariant interval emerges because ZFA closure enforces Hermitian conjugacy (`hermitian.py`). The speed of light \(c = H_\text{CONSTANT}\) is fixed by the algebra itself (see `constants_mapper.py` and `derive_emc2.py`). Lorentz transformations are symmetries of the 8-twist balance.
+The invariant interval emerges because ZFA closure enforces Hermitian conjugacy (`hermitian.py`). The speed of light `c = H_CONSTANT` is fixed by the algebra itself (see `constants_mapper.py` and `derive_emc2.py`). Lorentz transformations are symmetries of the 8-twist balance.
 
 **Key example run** (repo `quantum_simulator.py --example sr`):
 
@@ -74,22 +74,22 @@ Boosted observer sees same invariant interval (verified)
 
 ## 4. Completion of General Relativity: No Singularities
 
-Einstein’s equation with bare cosmological constant \(\Lambda\):
+Einstein’s equation with bare cosmological constant Λ:
 
 $$
-G_{\mu\nu} + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}^{(\text{matter})}
+G_μν + Λ g_μν = (8πG / c^4) T_μν^(matter)
 $$
 
-is completed by replacing \(\Lambda g_{\mu\nu}\) with a dynamical **event-synthesis stress-energy tensor** built from the scalar field \(\phi\) (local ZFA event density):
+is completed by replacing Λ g_μν with a dynamical **event-synthesis stress-energy tensor** built from the scalar field φ (local ZFA event density):
 
 $$
-T_{\mu\nu}^{(\text{synth})} = \partial_\mu\phi\,\partial_\nu\phi - g_{\mu\nu}\Bigl[\tfrac12(\nabla\phi)^2 + V(\phi)\Bigr]
+T_μν^(synth) = ∂_μφ ∂_νφ - g_μν [½(∇φ)^2 + V(φ)]
 $$
 
-where \(\phi \propto 1/\)local free action (exactly `EventSynthesisField.fromZFA` in the Lean code and `spacetime_dynamics.py`).
+where φ ∝ 1 / local free action (exactly `EventSynthesisField.fromZFA` in the Lean code and `spacetime_dynamics.py`).
 
-- When \(\phi\) is homogeneous and static, \(T_{\mu\nu}^{(\text{synth})} = -(\Lambda_\text{eff}/8\pi G)g_{\mu\nu}\), recovering standard GR + \(\Lambda\).
-- Locally \(\phi\) fluctuates → no singularities. Curvature cannot diverge because event density is capped by Pauli exclusion and discrete ZFA closures.
+- When φ is homogeneous and static, `T_μν^(synth) = -(Λ_eff / 8πG) g_μν`, recovering standard GR + Λ.
+- Locally φ fluctuates → no singularities. Curvature cannot diverge because event density is capped by Pauli exclusion and discrete ZFA closures.
 - Black-hole interiors and the Big Bang are replaced by finite event-synthesis cascades (see [`BLACK-HOLES.md`](https://github.com/jimscarver/quantum-logical-framework/blob/main/BLACK-HOLES.md) and [`Gravity.md`](https://github.com/jimscarver/quantum-logical-framework/blob/main/Gravity.md)).
 
 **Full equivalence proofs** are in `SpacetimeDynamics.lean` (tensorial form and Friedmann-equation limit):
@@ -124,16 +124,16 @@ Quantum mechanics is the **microscopic dynamics** of the same ZFA events:
 theorem pauli_exclusion_for_identical_fermions ...
 ```
 
-Fermions cannot double-occupy the same ZFA history → local event density \(\phi\) is bounded → stable matter.
+Fermions cannot double-occupy the same ZFA history → local event density φ is bounded → stable matter.
 
 RhoQuCalc (`rho_transpiler.py`, `quantum_simulator.py`) scales polynomially for multi-particle systems while preserving ZFA closure under parallelism and replication.
 
 ## 6. Predictions and Testability
 
-Because we start from ZFA rather than assuming \(c\) and equivalence, the framework makes falsifiable predictions beyond standard \(\Lambda\)CDM:
+Because we start from ZFA rather than assuming `c` and equivalence, the framework makes falsifiable predictions beyond standard ΛCDM:
 
-- Tiny deviations in \(w\) from −1 on local scales (detectable by Euclid/DESI via event-density gradients).
-- Emergent \(G\) and \(\alpha\) from ensemble averages (`constants_mapper.py`).
+- Tiny deviations in `w` from −1 on local scales (detectable by Euclid/DESI via event-density gradients).
+- Emergent `G` and `α` from ensemble averages (`constants_mapper.py`).
 - No information loss in black-hole analogues (events are conserved).
 - Quantum-gravity regime is computable (no Planck-scale singularity).
 
@@ -175,4 +175,3 @@ Spacetime expands because quantum events continuously synthesize new intervals. 
 - [`E_mc2_derivation.md`](https://github.com/jimscarver/quantum-logical-framework/blob/main/E_mc2_derivation.md)  
 
 The framework is open, verifiable, and ready for experimental confrontation. Welcome to Universal Relativity.
-Just replace the entire content of `UniversalRelativity.md` with the block above and it will render perfectly on GitHub.
