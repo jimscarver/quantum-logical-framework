@@ -94,7 +94,7 @@ Key testable predictions include:
 
 ## 7. Philosophical Foundation
 
-The universe is logical, constructible in finite time, and contains no external source of free action. The only activity is quantum logical ZFA events. It is a distorted view of nothingness seen from a limited perspective, and a vast network of clocks each synthesizing local time. As an information ecology governed by active inference, **the universe is intelligence explaining the intelligence all around us**.
+The universe is logical, constructible in finite time, and contains no external source of free action. The only activity is quantum logical ZFA events. It is a distorted view of nothingness seen from a limited relative perspective, and a vast network of clocks each synthesizing local time. As an information ecology governed by active inference, **the universe is intelligence explaining the intelligence all around us**.
 
 Full statement: [`Philosophy.md`](Philosophy.md)
 
