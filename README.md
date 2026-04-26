@@ -24,8 +24,8 @@ From this single rule the entire physical universe emerges:
 - Gravity and the **completed Einstein equations** arise from radial bias + dynamical **event-synthesis tensor** `T_μν^(synth)`  
 - Quantum mechanics, Pauli exclusion, and entanglement emerge from **RhoQuCalc** parallelism  
 - String theory and M-theory embed naturally as higher-dimensional ZFA worldvolumes  
-
-**No extra dimensions are postulated. No supersymmetry. No landscape problem.**  
+ 
+**No fixed number of dimensions is postulated. No supersymmetry. No landscape problem.**  
 The universe is logical, constructible in finite time, and self-organising through ZFA events.
 
 **Recent breakthroughs (April 24–26, 2026)**  
