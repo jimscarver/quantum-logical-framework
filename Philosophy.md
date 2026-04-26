@@ -18,7 +18,9 @@ It is constructible and constructed in finite time.
 There is no source of free action.  
 The only thing happening is quantum logical ZFA events.  
 
-From a limited perspective this appears as a rich, evolving cosmos; in truth it is a **distorted view of nothingness** by limited perspective. Everything is a clock synthesizing local time.
+From a limited relative perspective this appears as a rich, evolving cosmos; in truth it is a **distorted view of nothingness** by limited perspective. Everything is a clock synthesizing local time.
+
+Nothing can effect us other than the information reaching us now. Every perspective is its own world.  Many worlds are all around us.
 
 ## 1. The Universe is Logical and Constructible
 
