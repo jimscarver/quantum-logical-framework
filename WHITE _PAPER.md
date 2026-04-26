@@ -85,7 +85,7 @@ Key testable predictions include tiny local deviations of \(w\) from −1, emerg
 
 ---
 
-## 7. Quantum Computation Benefits (New)
+## 7. Quantum Computation Benefits
 
 QLF offers native, massive advantages for quantum computing:
 
@@ -107,6 +107,8 @@ The universe is logical and constructible in finite time. There is no external s
 
 Everything is a clock synthesizing local time. As an information ecology governed by active inference, **the universe is intelligence explaining the intelligence all around us**.
 
+Nothing can effect you other than the information reaching you now. Every perspective is its own world.  Many worlds are all around us.
+
 Full statement: [`Philosophy.md`](Philosophy.md)
 
 ---
@@ -123,7 +125,6 @@ lean --run lean/MTheoryQLF.lean       # M-theory embedding
 lean --run lean/PauliExclusion.lean   # particle emergence
 ```
 
----
 
 ## Conclusion
 
