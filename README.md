@@ -74,7 +74,7 @@ python -m quantum_simulator --example bell
 
 ## Documentation
 
-- **[WHITE_PAPER.md](WHITE_PAPER.md)** — Full technical overview (updated April 26)
+- **[WHITE_PAPER.md](WHITE%20_PAPER.md)** — Full technical overview (updated April 26)
 - **[UniversalRelativity.md](UniversalRelativity.md)** — How QLF completes Einstein’s vision
 - **[Philosophy.md](Philosophy.md)** — Possibilist ontology, active inference, and “the universe is intelligence explaining intelligence”
 - **[StringTheory.md](StringTheory.md)** — Why QLF subsumes (and may render obsolete) string/M-theory
