@@ -17,7 +17,7 @@ He was a tinkerer, an engineer, a man who could fix anything with a screwdriver 
 
 I remember his explaing to me simplified relativity including his whitescarver flying sauser invension based on mass increase due to gravity.   He wrote letters to scientists includint Einstein without response until I was a teen ager. But to me the flying sausor was proven and I was sad when my father set my down to explain why it wouldn't work. However this was an AHA moment learning that what they teach about relativity is wrong. People still think that we see relatively is real but locally nothing changes. Mass change due to motion is a usefull illution, locally nothing changes, motion is only relative, even falling into a black hole.
 
-I was taught the only thing happening in this world was quantum mechanical events manifesting electron interaction keeping us from falling through our chain. I was taught everthing was equal and opposite action. I learned later that this requires zero free action (ZFA). The universe can't get free action from anywhere.
+I was taught the only thing happening in this world was quantum mechanical events manifesting electron interaction keeping us from falling through our chair. I was taught everthing was equal and opposite action. I learned later that this requires zero free action (ZFA). The universe can't get free action from anywhere.
 
 ### School Days and the Family Business
 
