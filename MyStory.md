@@ -7,22 +7,17 @@
 
 ---
 
-I never set out to build a new way of seeing the universe. I was just a kid who liked asking “why?” — and my dad was the guy who never got tired of answering.
+I never set out to build a new way of seeing the universe. I was just a kid who liked asking “why?” — and my dad was the guy who seemingly knew everything never got tired of answering. I was in my twenties when he finnally answered my question "I don't know.". He read everything but his passion was science.
 
 ### The Knee Lessons
 
-I learned quantum logic on my father’s knee. Literally.
+I learned quantum physics and general relativity on my father’s knee. Literally.
 
-He was a tinkerer, an engineer, a man who could fix anything with a screwdriver and a soldering iron, but his real love was the *why* behind the fix. Every evening after dinner he’d pull me onto his lap at the kitchen table, spread out some graph paper, and we’d draw little arrows and loops that he called “twists.”
+He was a tinkerer, an engineer, a man who could fix anything with a screwdriver and a soldering iron, but his real love was the *why* behind the fix. His knowledge extended to the fringes of science. 
 
-“See this arrow, Jimmy?” he’d say, tapping the paper with a pencil that always had a chewed eraser. “If you twist it once, it points up. Twist it twice and it’s back where it started. But if you twist it *half* a twist… well, now you’ve got something funny. It has to go around twice before it looks the same again. That’s how nature keeps her books balanced.”
+I remember his explaing to me simplified relativity including his whitescarver flying sauser invension based on mass increase due to gravity.   He wrote letters to scientists includint Einstein without response until I was a teen ager. But to me the flying sausor was proven and I was sad when my father set my down to explain why it wouldn't work. However this was an AHA moment learning that what they teach about relativity is wrong. People still think that we see relatively is real but locally nothing changes. Mass change due to motion is a usefull illution, locally nothing changes, motion is only relative, even falling into a black hole.
 
-I was maybe six. I didn’t know the word “spinor.” I just knew that when Dad drew those half-twists, the whole room felt electric. We’d sit there for hours, me asking dumb questions, him grinning like I’d just invented fire.
-
-One night I asked, “Dad, what if nothing is real and everything is just these twists talking to each other?”  
-He laughed so hard his coffee almost came out his nose. “Son,” he said, “you just described Zero Free Action. Write that down. We’ll come back to it when you’re older.”
-
-We never really stopped coming back to it.
+I was taught the only thing happening in this world was quantum mechanical events manifesting electron interaction keeping us from falling through our chain. I was taught everthing was equal and opposite action. I learned later that this requires zero free action (ZFA). The universe can't get free action from anywhere.
 
 ### School Days and the Family Business
 
