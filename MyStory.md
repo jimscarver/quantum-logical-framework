@@ -1,8 +1,11 @@
 # My Story
+
 **Repository:** [`quantum-logical-framework`](https://github.com/jimscarver/quantum-logical-framework)  
 **Document:** `MyStory.md`  
-**Document version:** 0.3 (2 May 2026)  
+**Document version:** 0.4 (2 May 2026)  
 **Author:** Jim Whitescarver (with a little help from my friend Grok, in the spirit of Richard Feynman)
+
+---
 
 I never set out to build a new way of seeing the universe. I was just a kid who liked asking “why?” — and my dad was the guy who seemingly knew everything and never got tired of answering. He read everything, but his real passion was science. I was already in my twenties when he finally answered one of my big questions with the honest reply, “I don’t know.”
 
@@ -48,13 +51,13 @@ I developed the idea of an interface language called Interact, allowing second-o
 
 Initially my computer experience made me valuable as a research assistant. I moved Murray into his office and set up his teletype terminal. I participated in the EIES design, and when funding came in I was hired as a programmer while continuing school part-time. It was an exciting time as the new graduate school of computer science was forming. Everyone was involved in everyone else’s research.
 
-I often had lunch with a group of physics professors, arguing fruitlessly that black holes were huge inside because time becames space and there could be no singularity — the gravity at the center of any mass is necessarily zero and gravity is local and quantum, as if spacetime itself were falling into masses and bending space. I tortured my physics professor with questions about electron interaction. We could get the answer, but never the *how* or *why*. Gradually I learned that each square root of minus one folded into a new dimension, but the folding was clearly half-spin, not the spin-one a photon was supposed to have. Finally he gave me the answer: the photon *was* half-spin, but the antiphoton going back in time (the history) was also half-spin, adding to spin one.
+I often had lunch with a group of physics professors, arguing fruitlessly that black holes were huge inside because time became space and there could be no singularity — the gravity at the center of any mass is necessarily zero. Gravity is local and quantum, as if spacetime itself were falling into masses and bending space. I tortured my physics professor with questions about electron interaction. We could get the answer, but never the *how* or *why*. Gradually I learned that each square root of minus one folded into a new dimension, but the folding was clearly half-spin, not the spin-one a photon was supposed to have. Finally he gave me the answer: the photon *was* half-spin, but the antiphoton going back in time (the history) was also half-spin, adding to spin one.
 
 In mathematics — differential equations, linear algebra, and graph theory — I got out of doing the homework by solving the extra-credit problems. I was the only one. I think other students resented me.
 
 My AI interest never faded. I became an expert in string languages and regular expressions. My senior project was a deductive prover meta-language employing second-order logic.
 
-When I became director of EIES2, things became political. I am no good at politics, and grant awards received for proposals I significantly contributed to were spent largely by other faculty members. I had insufficient funding to meet my objectives…
+When I became director of EIES2, things became political. I am no good at politics, and grant awards received for proposals I significantly contributed to were spent largely by other faculty members. I had insufficient funding to meet my objectives.
 
 ### Consulting, Shannon Labs, and the Patent
 
@@ -66,29 +69,7 @@ One of the highlights was my time at **Shannon Labs**. Out of that work came a r
 
 Eventually I retired. Most people slow down. I finally sped up.
 
-With no more day-job distractions, I sat down and started writing the code, the proofs, and the documents that became the Quantum Logical Framework. QuCalc, RhoQuCalc, the 8-twist algebra, the ZFA closure — everything that had been simmering since I was six years old finally poured out. I added the Uncertainty Principle derivation, minimum-uncertainty simulations, path-integral examples, and began the Lean4 formal verification path. Every commit still ends with a quiet “thanks, Dad” in my head.
-
-Dad passed away years ago, but every time I push new code or a new document I feel him looking over my shoulder, chewing on that pencil eraser, grinning.
-
-### Why I’m Sharing This Now
-
-This repository isn’t just code or proofs. It’s the continuation of a conversation I started on my father’s knee — through school, trucks, college, marriage, pioneering computer networks, consulting, patents, and finally into retirement where the real work could begin.
-
-If you’re reading this, you’re part of that conversation now.
-
-So pull up a chair. Ask the dumb questions. Draw the twists. Break the rules the way nature does — with perfect bookkeeping.
-
-The books have to balance.  
-Everything else is just a story we tell while we figure out how.
-
-And if you ever get stuck, remember what Dad always said:
-
-“Start from zero. Stay honest. And never be afraid to look ridiculous.”
-
-Welcome to the family business.
-
-— Jim Whitescarver
-May 2026
+With no more day-job distractions, I sat down and started writing the code, the proofs, and the documents that became the Quantum Logical Framework.
 
 ---
 
