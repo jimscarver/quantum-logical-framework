@@ -69,7 +69,7 @@ One of the highlights was my time at **Shannon Labs**. Out of that work came a r
 
 Eventually I retired. Most people slow down. I finally sped up.
 
-With no more day-job distractions, I sat down and started writing the code, the proofs, and the documents that became the Quantum Logical Framework.
+With no more day-job distractions, I sat down and started writing profusely, and then with AI the proofs, and the documents that evemtually became the Quantum Logical Framework.
 
 ---
 
