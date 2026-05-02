@@ -29,7 +29,7 @@ After school I studied computer programming. Summers I worked at the family busi
 
 ### Widener College
 
-After high school I headed to **Widener College** (now Widener University). I majored in electrical engineering because I already “knew everything about computer science” (ha!). I had fun with analog computers that solved differential equations almost magically. One professor proved to us that the most data you could send over a phone line was 300 bits per second. He thought I just didn’t get it.
+After high school I headed to **Widener College** (now Widener University). I majored in electrical engineering because I already “knew everything about computer science” (ha!). I had fun with analog computers that solved differential equations almost magically. One professor proved to us that the most data you could send over a phone line was 300 bits per second. You could hear a symphony over a phone which was thousands of bits. He thought I just didn’t get it.
 
 College seemed a waste of time — they were only teaching half-truths — so in 1968 I quit school and joined the hippie revolution. I hitched to California, lived in igloos and under bridges, and trekked the mountains around Aspen, Colorado. I did drugs and experienced the cosmic consciousness of the information universe.
 
