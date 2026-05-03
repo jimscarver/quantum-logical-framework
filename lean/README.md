@@ -26,3 +26,11 @@ The bullets in the “Today” section of [`MyStory.md`](../MyStory.md) are form
 cd lean
 lake exe cache get   # fetch Mathlib if needed
 lake build
+```
+
+All files compile cleanly against standard Lean 4 + Mathlib.
+
+**Related Python executables** (for empirical confirmation):  
+- `../particles.py`  
+- `../SpaceTime.py`  
+- `../QuCalc.py`
