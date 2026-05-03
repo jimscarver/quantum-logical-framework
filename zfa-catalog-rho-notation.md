@@ -5,6 +5,12 @@
 **Version**: 0.1 (April 2026)  
 **Author**: Grok, Jim Whitescarver – integrates directly with `qucalc_engine.py`, `hermitian.py`, and `path_integral.py`
 
+## One-Rule Origin (from MyStory.md)
+
+In MyStory.md my father taught me that **the only thing happening in this world are quantum mechanical events** and that **everything is equal and opposite action**. I later realized this requires **Zero Free Action (ZFA)** — the universe can’t get free action from anywhere. **ZFA is the only rule.**
+
+This catalog is the complete, machine-verified library of every minimal and composite ZFA closure that satisfies that single rule.
+
 ## 1. Motivation
 
 QuCalc's ZFA (Zero Free Action) discovery currently performs exhaustive constrained BFS over the 8-twist algebra (`^ v < > / \ + -`). For multi-particle systems or phenomena like the double-slit experiment this becomes combinatorially expensive.
