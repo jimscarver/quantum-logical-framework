@@ -61,6 +61,14 @@ When I became director of EIES2 things became political. I am no good at politic
 
 The fully decentralized smalltalk communication language we built is lost to history.
 
+### Ultimate Reality conference
+I attended the Science and Ultimate Reality conference held in March 2002 at Princeton University to honor John Archibald Wheeler's 90th birthday. Wheeler was my hero. He asked all the tough questions, named black holes and wrote the book on gravity. The gathering celebrated Wheeler's visionary work in Information Physics. Over 300 world-class scientists, including Freeman Dyson, Anton Zeilinger, and David Deutsch (who presented his paper "It from Qubit").
+I met discussions with many of them. Few were responsive to my ideas. At breakfast with the leaders in the field, I mentioned that the number of dimensions is the number of variables. surprisingly, nobody seemed to know what I was talking about until Wheeler chimed in. 
+
+After the conference, I visited him and had Sherri with He and his wife. we walked along the river sharing ideas. he's loved my idea that time was local and everything is a clock. 
+He commanded me to "carry the torch".  
+
+
 ### Consulting, Shannon Labs, and the Patent
 
 After NJIT I went into consulting with NJIT cohorts. Big companies, small startups, government projects — wherever someone needed systems that actually worked. Everyone was jumping on the world wide web but could only make pretty pages and not make it do anything worthwhile. We developed the first complex travel fulfillment, the first online banking system system that fulfilled accounts and loans totally online and converted documents for the likes of AT&T and the Catholic Church to the web with automatic links and glossaries. Our web expertise made us very valuable until the dot com crash. I turned to process automation and financial services, online trading and developed arbitrage products. We won a DOD cyber security research grant on determining risk based on maximum relative entropy ([Relative_Entropy.md](Relative_Entropy.md)). Finally back to my roots in transportation problems until I finally landed my dream job.
