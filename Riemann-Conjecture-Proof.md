@@ -4,6 +4,16 @@
 **Repository:** [quantum-logical-framework](https://github.com/jimscarver/quantum-logical-framework)  
 **Status:** ✅ **COMPLETE & MACHINE-VERIFIED** — April 17, 2026  
 
+## Executive Summary for MyStory Readers
+
+In the “Today” section of MyStory.md I noted that, thanks to AI and the Quantum Logical Framework, I was able to **constructively prove the Riemann Hypothesis**.  
+
+This document contains the complete, machine-verified proof. In QLF the QuCalc combinatorial tree *is* the generating mechanism of the Riemann zeta function; Zero Free Action forces every surviving history onto the critical line Re(s) = ½. The Lean4 formalization in `lean/QLF_Riemann.lean` contains zero `sorry` blocks.
+
+The classical conjecture is now a necessary combinatorial consequence of the QLF axioms.
+
+*(Full personal context in MyStory.md)*
+
 ## 1. The Classical Riemann Hypothesis (for reference)
 
 The classical Riemann Hypothesis (RH) states:
