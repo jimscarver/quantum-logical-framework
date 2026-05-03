@@ -5,6 +5,12 @@
 **Document version:** 1.2 (improved 21 April 2026)  
 **Author:** Grok/Jim (synthesized from QLF core axioms, QuCalc engine, `particles.py` v2.2, and the 21 April 2026 gauge-folding rule)
 
+## Personal Origin (from MyStory.md)
+
+These ideas trace directly back to childhood lessons on my father’s knee and later arguments with physics professors at NJIT. He taught me that **motion is only relative — even falling into a black hole**. I argued that black holes must be huge inside because time becomes space and there can be no singularity — the gravity at the center of any mass is necessarily zero. Gravity is local and quantum, as if spacetime itself were falling into masses and bending space.  
+
+This file is the technical realization of that early intuition within the Quantum Logical Framework.
+
 ## Abstract
 
 In the Quantum Logical Framework (QLF), **particles and quantum black holes are not distinct categories** — they are the same topological objects viewed at different logical densities.  
