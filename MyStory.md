@@ -7,7 +7,7 @@
 
 ---
 
-I never set out to build a new way of seeing the universe. I was just a kid who liked asking “why?” — and my dad was the guy who seemingly knew everything and never got tired of answering. He read everything, but his real passion was science. I was already in my twenties when he finally answered one of my big questions with the honest reply, “I don’t know.”
+I never set out to build a new way of seeing the universe. I was just a kid who liked asking “why?” — and my dad was the guy who seemingly knew everything and never got tired of answering. He read everything, but his real passion was science. I was already in my twenties when he finally answered one of my questions with the honest reply, “I don’t know.”. I was shocked.
 
 ### The Knee Lessons
 
