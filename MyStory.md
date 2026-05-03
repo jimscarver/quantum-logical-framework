@@ -81,14 +81,21 @@ I was always seeking a better communication language both for human communicatio
 
 With no more day-job distractions, I sat down and started writing profusely, and then the code, the proofs, and the documents that became the Quantum Logical Framework. QuCalc, RhoQuCalc ([QuCalc.py](QuCalc.py)), the 8-twist algebra ([eight-twists-sufficiency.md](eight-twists-sufficiency.md)), the ZFA closure — everything that had been simmering since I was six years old finally poured out. Thanks to AI I use QLF to constructively prove the Riemann Hypothesis ([Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md)) and Universal Relativity ([UniversalRelativity.md](UniversalRelativity.md)). Every commit still ends with a quiet “thanks, Dad” and "Thanks God" for answering all my questions.
 
-The Quantum Logical Framework has now delivered its core findings and formal verifications (see full technical overview and executable code in the repository):
+The Quantum Logical Framework has now delivered its complete set of core findings and formal verifications (see full technical overview, executable code, and Lean4 proofs in the repository):
 
-- Spacetime is synthesized event-by-event from Zero Free Action (ZFA) events, producing completed Einstein equations with a dynamical cosmological term ([SpaceTime.py](SpaceTime.py), [UniversalRelativity.md](UniversalRelativity.md), [Gravity.md](Gravity.md)).
-- Quantum mechanics, the Pauli exclusion principle, and entanglement emerge directly from RhoQuCalc parallelism ([particles.py](particles.py), Lean4 proofs in `/lean/`).
-- String theory and M-theory embed naturally as higher-dimensional ZFA worldvolumes ([StringTheory.md](StringTheory.md)).
-- The universe is singularity-free by construction, with gravity arising as local quantum event synthesis ([BLACK-HOLES.md](BLACK-HOLES.md)).
-- The framework provides a possibilist ontology and active-inference information ecology in which the universe itself is intelligence explaining intelligence ([Philosophy.md](Philosophy.md), [possibilist-ontology.md](possibilist-ontology.md)).
-- All major results are executable in Python and formally verified in Lean4.
+- **Spacetime is synthesized event-by-event** from Zero Free Action (ZFA) closures, producing the completed Einstein equations with a *dynamical cosmological term* that behaves exactly like the observed dark-energy effect ([SpaceTime.py](SpaceTime.py), [UniversalRelativity.md](UniversalRelativity.md), [Gravity.md](Gravity.md)).
+- **Quantum mechanics, the Pauli exclusion principle, entanglement, and the Heisenberg uncertainty principle** (Δx Δp ≥ ℏ/2) all emerge directly from RhoQuCalc parallelism, the 8-twist algebra, and the possibilist ontology of unresolved histories — the uncertainty principle itself is the irreducible topological shadow of discrete ZFA counting onto the emergent continuum ([particles.py](particles.py), [UncertaintyPrinciple.md](UncertaintyPrinciple.md), Lean4 proofs in `/lean/`).
+- **String theory and M-theory** embed naturally as higher-dimensional ZFA worldvolumes ([StringTheory.md](StringTheory.md)).
+- **The universe is singularity-free by construction**; gravity arises purely as local quantum event synthesis ([BLACK-HOLES.md](BLACK-HOLES.md)).
+- **Predicted physical constants emerge** directly from the single ZFA postulate with no fitting parameters, including:  
+  • Local speed of light `c = 1` in natural units (Δx = 1, Δt = 1 from ZFA closure)  
+  • Fine-structure constant **α ≈ 0.007299 (≈ 1/137)** from the gauge-to-spatial twist ratio in stable fermions  
+  • Gravitational constant **G**, π, e, Euler-Mascheroni γ, Feigenbaum δ, Planck length/time, and mean prime mass — all matching experimental values to high precision ([Experimental_Consistency.md](Experimental_Consistency.md))  
+  • Effective age of the observable universe `t₀ ≈ 13.8 Gyr` as the accumulated proper time of realized ZFA event histories  
+  • Dynamical cosmological term Λ that matches the observed cosmic acceleration without fine-tuning.
+- **The Cosmological Logical Bang** replaces the classical singular Big Bang: the universe originates through constructive possibilist quantum logical synthesis — the iterative resolution of real logical possibilities (8-twist histories) into ZFA-closed events, bootstrapping spacetime, matter, and the entire observable cosmos from pure logical structure ([Philosophy.md](Philosophy.md), [possibilist-ontology.md](possibilist-ontology.md)).
+- The framework provides a **possibilist ontology and active-inference information ecology** in which the universe itself is intelligence explaining intelligence.
+- All major results are fully executable in Python (`QuCalc.py`, `SpaceTime.py`, `particles.py`) and formally verified in Lean4 (`/lean/` directory) with zero `sorry` blocks.
 
 ---
 
