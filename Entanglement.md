@@ -1,6 +1,3 @@
-Here's the updated comprehensive markdown file, now including a demonstration section using the actual Python files from the repo.
-
-```markdown
 # Entanglement and Reality Synthesis in the Quantum Logical Framework (QLF)
 
 Reality is synthesized **one bit at a time** in the information ecology.
