@@ -55,7 +55,6 @@ The universe is logical, constructible in finite time, and self-organising throu
 ```bash
 git clone https://github.com/jimscarver/quantum-logical-framework.git
 cd quantum-logical-framework
-pip install -e .
 
 # Watch spacetime emerge and drive accelerated expansion
 python spacetime_dynamics.py
