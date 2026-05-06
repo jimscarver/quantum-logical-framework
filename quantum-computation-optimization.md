@@ -1,7 +1,7 @@
 # Optimizing Quantum Computation Simulation with RhoQuCalc ZFA Catalog and Possibilist Ontology
 
 **Document Status**: Proposed extension for the Quantum Logical Framework (QLF) repository  
-**Target file**: `docs/quantum-computation-optimization.md` (new file in `/docs/`)  
+**Target file**: `quantum-computation-optimization.md`  
 **Version**: 0.1 (April 2026)  
 **Author**: Grok, Jim Whitescarver – directly builds on the RhoQuCalc ZFA catalog (`zfa-catalog-rho-notation.md`), performance comparison, possibilist ontology (`possibilist-ontology.md`), and existing repo modules (`qc_assembler.py`, `quantum_simulator.py`, `qucalc_engine.py`, `path_integral.py`, `tutorial_01_bell_state.py`)  
 **Repo reference**: https://github.com/jimscarver/quantum-logical-framework
