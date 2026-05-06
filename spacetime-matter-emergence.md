@@ -48,7 +48,7 @@ A demonstration of how space, time, and matter emerge from logical twist histori
    print(gen)
    ```
    **Output:**  
-   Twist History: ^-v+  
+   Twist Histouhry: ^-v+  
    Length: 4 twists  
    Spatial: 2, Local: 2, Balance: 0  
    Interpretation: Stable particle-like
@@ -64,4 +64,6 @@ A demonstration of how space, time, and matter emerge from logical twist histori
    Length: 12 twists  
    Spatial: 8, Local: 4, Balance: 4  
    Interpretation: Propagating/wave-like
-!([from It from Bit 2006](https://photos.app.goo.gl/5mq43A72asEgABsXA))
+
+!([particles 2006](Particles.jpg))
+
