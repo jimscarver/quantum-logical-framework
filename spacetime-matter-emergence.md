@@ -65,5 +65,5 @@ A demonstration of how space, time, and matter emerge from logical twist histori
    Spatial: 8, Local: 4, Balance: 4  
    Interpretation: Propagating/wave-like
 
-!([particles 2006](Particles.jpg))
+![particles 2006](Particles.jpg)
 
