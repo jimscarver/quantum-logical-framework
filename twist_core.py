@@ -144,7 +144,69 @@ def generate_histories(
 
     return results
 
+def adjoint_history(history: str) -> str:
+    """
+    Return the Hermitian adjoint of a twist history.
 
+    The adjoint reverses order and replaces each twist with its
+    complementary opposite.
+    """
+    validate_history(history)
+
+    adjoint_map = {
+        '^': 'v',
+        'v': '^',
+        '<': '>',
+        '>': '<',
+        '/': '\\',
+        '\\': '/',
+        '+': '-',
+        '-': '+',
+    }
+
+    return ''.join(adjoint_map[t] for t in reversed(history))
+
+
+def is_admissible_history(history: str) -> bool:
+    """
+    True if the history is syntactically valid.
+
+    This deliberately checks only canonical twist validity.
+    Dynamical admissibility filters may be added later, but this
+    keeps topology_resolver.py from rejecting valid ZFA demonstrations
+    too early.
+    """
+    try:
+        validate_history(history)
+        return True
+    except ValueError:
+        return False
+
+
+def closure_with_adjoint(history: str) -> Dict[str, object]:
+    """
+    Audit whether a history closes with its Hermitian adjoint.
+
+    In QLF terms, a history plus its adjoint forms a zero-free-action
+    cycle when the combined action vector cancels exactly.
+    """
+    validate_history(history)
+
+    adjoint = adjoint_history(history)
+    cycle = history + adjoint
+
+    return {
+        "history": history,
+        "adjoint": adjoint,
+        "cycle": cycle,
+        "history_action": calculate_action(history),
+        "adjoint_action": calculate_action(adjoint),
+        "cycle_action": calculate_action(cycle),
+        "history_is_admissible": is_admissible_history(history),
+        "adjoint_is_admissible": is_admissible_history(adjoint),
+        "cycle_is_zfa": is_zfa(cycle),
+    }
+    
 # =============================================================================
 # GRAVITATIONAL / MAGNETIC HELPERS (used by gravitational_tensor.py etc.)
 # =============================================================================
