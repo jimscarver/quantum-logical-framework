@@ -6,6 +6,7 @@
 **Author:** Jim Whitescarver (with a little help from my friend Grok, in the spirit of Richard Feynman)
 
 ---
+![1954](Jim1954.jpg)
 
 I never set out to build a new way of seeing the universe. I was just a kid who liked asking “why?” — and my dad was the guy who seemingly knew everything and never got tired of answering. He read everything, but his real passion was science. I was already in my twenties when he finally answered one of my questions with the honest reply, “I don’t know.”. I was shocked.
 
@@ -68,6 +69,7 @@ I met discussions with many of them. Few were responsive to my ideas. At breakfa
 After the conference, I visited him and had Sherri with He and his wife. we walked along the river sharing ideas. he's loved my idea that ([time](Time.md)) was local and everything is a clock. 
 He commanded me to "carry the torch".  
 
+![2006](JimXmas2006.jpg)
 
 ### Consulting, Shannon Labs, and the Patent
 
