@@ -21,11 +21,11 @@ Dad taught me that the only thing happening in this world are quantum mechanical
 
 ### School Days and the Family Business
 
-I didn’t excel in mathematics until 8th grade. I was always bad at numbers but loved algebra and geometry. My real education still happened at home. My father and I solved syllogisms and discussed Freud and Jung in addition to physics and engineering. He challenged my brother and I to build a crystal radio when I was 7 and he was 8, it worked!.
+I didn’t excel in mathematics until 8th grade. I was always bad at numbers but loved algebra and geometry. My real education still happened at home. My father and I solved syllogisms and discussed Freud and Jung in addition to physics, economics and engineering. He challenged my brother and I to build a crystal radio when I was 7 and he was 8, it worked!.
 
 While the teacher talked about “real numbers,” I protested that numbers produced by no algorithm were not real. In my senior year, while learning calculus, I protested that limits going to infinity were impossible and worked out my own proof of the fundamental theorem of calculus using difference tables. The head of the department verified my proof, and I received a merit award in mathematics — one my mother cherished until the day she died.
 
-After school I studied computer programming. Summers I worked at the family business, **Whitescarver Transportation** — the trucking company that hauled freight for Grand Union supermarkets out of Carlstadt, New Jersey. Trucks, loading docks, diesel smells, and long nights watching my dad and uncles keep those big rigs rolling on time. I worked on the loading dock and in the repair shop until 3:30, then played with the computers until 6 when my father drove us home. Later I moved into the office as a programmer and developed warehouse scheduling and vehicle routing programs the dispatchers loved. IBM education was free for customers at the time, so I took every course I could, learning a variety of programming languages and operations research.
+After school I studied computer programming. Summers I worked at the family business, **Whitescarver Transportation** — the trucking company that hauled freight for Grand Union supermarkets out of Carlstadt, New Jersey. Trucks, loading docks, even long nights steam cleaning meat trailers in the heat. Initially I worked on the loading dock and in the repair shop until 3:30, then played with the computers until 6 when my father drove us home. Later I moved into the office as a programmer and developed warehouse scheduling and vehicle routing programs the dispatchers loved. IBM education was free for customers at the time, so I took every course I could, learning a variety of programming languages and operations research.
 
 ### Widener College
 
@@ -59,19 +59,19 @@ My AI interest never faded. I became an expert in string languages and regular e
 
 When I became director of EIES2 things became political. I am no good at politics and grant awards received for proposals I significantly contributed to got spent largely by other faculty members. I had insufficient funding to meet my objective and my work ended up satisfying the deliverables for other faculty whose projects failed. Eventually I had no funding and left NJIT. Independently I had continued the quest for collective intelligence developing the community WikiWorld which later became FreeTrust, Dividao, CoLab, and joined Rchain and became a director of the Digital live collective. All have faded into oblivion. It turns out I have not been an effective collaborator. But I have not given up.
 
-The fully decentralized smalltalk communication language we built is lost to history.
+The fully decentralized smalltalk communication language we built is lost to history. it was intellectual property of our sponsors.
 
 ### Ultimate Reality conference
 I attended the Science and Ultimate Reality conference held in March 2002 at Princeton University to honor John Archibald Wheeler's 90th birthday. Wheeler was my hero. He asked all the tough questions, named black holes and wrote the book on gravity. The gathering celebrated Wheeler's visionary work in Information Physics. Over 300 world-class scientists, including Freeman Dyson, Anton Zeilinger, and David Deutsch (who presented his paper "It from Qubit").
 I met discussions with many of them. Few were responsive to my ideas. At breakfast with the leaders in the field, I mentioned that the number of dimensions is the number of variables. surprisingly, nobody seemed to know what I was talking about until Wheeler chimed in. 
 
-After the conference, I visited him and had Sherri with He and his wife. we walked along the river sharing ideas. he's loved my idea that time was local and everything is a clock. 
+After the conference, I visited him and had Sherri with He and his wife. we walked along the river sharing ideas. he's loved my idea that ([time](Time.md)) was local and everything is a clock. 
 He commanded me to "carry the torch".  
 
 
 ### Consulting, Shannon Labs, and the Patent
 
-After NJIT I went into consulting with NJIT cohorts. Big companies, small startups, government projects — wherever someone needed systems that actually worked. Everyone was jumping on the world wide web but could only make pretty pages and not make it do anything worthwhile. We developed the first complex travel fulfillment, the first online banking system system that fulfilled accounts and loans totally online and converted documents for the likes of AT&T and the Catholic Church to the web with automatic links and glossaries. Our web expertise made us very valuable until the dot com crash. I turned to process automation and financial services, online trading and developed arbitrage products. We won a DOD cyber security research grant on determining risk based on maximum relative entropy ([Relative_Entropy.md](Relative_Entropy.md)). Finally back to my roots in transportation problems until I finally landed my dream job.
+After NJIT I went into consulting with NJIT cohorts. Big companies, small startups, government projects — wherever someone needed systems that actually worked. Everyone was jumping on the world wide web but could only make pretty pages and not make it do anything worthwhile. We developed the first complex travel fulfillment, the first online banking system system that fulfilled accounts and loans totally online and converted documents for the likes of AT&T and the Catholic Church to the web with automatic links and glossaries. Our web expertise made us very valuable until the dot com crash. I turned to process automation and financial services, online trading and  arbitrage products. We won a DOD cyber security research grant on determining risk based on maximum relative entropy ([Relative_Entropy.md](Relative_Entropy.md)). Finally back to my roots in transportation problems until I finally landed my dream job.
 
 ### AT&T Shannon Research Labs
 
@@ -83,7 +83,8 @@ Eventually I retired. Most people slow down. I finally sped up.
 
 ### Rho calculus and RChain
 
-I was always seeking a better communication language both for human communication and modeling of quantum communication. Interact in EIES1 modeled machine human communication, EIES2 modeled object communication. My thinking was based on Hoare and Communicating Sequential Processes and then I ran across Greg Meredith and pi calculus eventually the rho calculus he developed. This seemed like the ideal mathematical basis for my dream of EIES3 and modeling quantum interaction ([QuCalc.md](QuCalc.md)). It was to me, the operating system of a quantum computer. With Dan Connoly we developed a totally secure user programable group communication prototype with rank order voting, chat, multisig wallets, etc. Unfortunately, like the rest of the communities I participated in, rchain died.
+I was always seeking a better communication language both for human communication and modeling of quantum communication. Interact in EIES1 modeled machine human communication, EIES2 modeled object communication. My thinking was based on Hoare and Communicating Sequential Processes and then I ran across Greg Meredith who formally ran Microsoft process automation system, biztalk. he introduced me to Milner and pi calculus eventually the rho calculus he developed. the problem with all the process orchestration systems out there they were just mathematically wrong. This seemed like the ideal mathematical basis for my dream of EIES3 and modeling quantum interaction ([QuCalc.md](QuCalc.md)). It was to me, the operating system of a quantum computer. 
+On RChain With Dan Connoly we developed  ([Rgov](ahttps://github.com/rchain-community/rgov)) a totally secure user programable group communication prototype with rank order voting, chat, multisig wallets and trust networking. Unfortunately, like the rest of the communities I participated in, rchain died.
 
 ### Today
 
