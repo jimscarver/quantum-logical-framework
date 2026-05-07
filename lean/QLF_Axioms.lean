@@ -34,6 +34,25 @@ def count_neg : TopoString → Int
 def is_symmetric (s : TopoString) : Prop :=
   count_pos s = count_neg s
 
+-- NEW: Helper lemmas to isolate list addition logic and bypass variable binding
+lemma count_pos_cons (x : TopoElement) (l : TopoString) :
+    count_pos (x :: l) = count_pos [x] + count_pos l := by
+  cases x with
+  | gauge => 
+    simp [count_pos]
+    omega
+  | phase p => 
+    cases p <;> (simp [count_pos]; omega)
+
+lemma count_neg_cons (x : TopoElement) (l : TopoString) :
+    count_neg (x :: l) = count_neg [x] + count_neg l := by
+  cases x with
+  | gauge => 
+    simp [count_neg]
+    omega
+  | phase p => 
+    cases p <;> (simp [count_neg]; omega)
+
 -- ==========================================
 -- 2. THE HALF-SPIN TOPOLOGY
 -- ==========================================
