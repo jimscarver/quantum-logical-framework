@@ -72,7 +72,6 @@ def zeno_prune : TopoString → TopoString
   | TopoElement.phase LogicPhase.neg :: TopoElement.phase LogicPhase.pos :: tail => zeno_prune tail
   | head :: tail => head :: zeno_prune tail
 
--- RESOLVED: Bypassed internal case names using sequential bullets and the `next` tactic.
 theorem single_prune_invariant (s : TopoString) :
     count_pos (zeno_prune s) - count_neg (zeno_prune s) = count_pos s - count_neg s := by
   induction s using zeno_prune.induct
@@ -95,7 +94,7 @@ theorem single_prune_invariant (s : TopoString) :
         cases p <;> simp [zeno_prune, count_pos, count_neg, ih]
 
 -- ==========================================
--- 4. THE RECURSIVE FIXED-POINT PRUNE
+-- 4. THE RECURSIVE FIXED-POINT PRUNE (Option 2)
 -- ==========================================
 
 def full_zeno_prune (s : TopoString) : TopoString :=
