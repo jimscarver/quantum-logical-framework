@@ -55,7 +55,6 @@ lemma swap_topo_twice (x : TopoElement) : swap_topo (swap_topo x) = x := by
   case phase p => cases p <;> rfl
   case gauge => rfl
 
--- RESOLVED: Used simp to recursively push the function into the list constructor
 theorem double_fold_identity (s : TopoString) : apply_double_fold s = s := by
   unfold apply_double_fold
   induction s with
@@ -73,25 +72,27 @@ def zeno_prune : TopoString → TopoString
   | TopoElement.phase LogicPhase.neg :: TopoElement.phase LogicPhase.pos :: tail => zeno_prune tail
   | head :: tail => head :: zeno_prune tail
 
--- RESOLVED: Explicitly matched on 'head' to unblock omega's arithmetic evaluation
+-- RESOLVED: Bypassed internal case names using sequential bullets and the `next` tactic.
 theorem single_prune_invariant (s : TopoString) :
     count_pos (zeno_prune s) - count_neg (zeno_prune s) = count_pos s - count_neg s := by
-  induction s using zeno_prune.induct with
-  | case1 => rfl
-  | case2 tail ih =>
-    simp [zeno_prune, count_pos, count_neg]
-    omega
-  | case3 tail ih =>
-    simp [zeno_prune, count_pos, count_neg]
-    omega
-  | case4 head tail ih =>
-    cases head with
-    | gauge => 
-      simp [zeno_prune, count_pos, count_neg, ih]
-    | phase p =>
-      cases p with
-      | pos => simp [zeno_prune, count_pos, count_neg, ih]
-      | neg => simp [zeno_prune, count_pos, count_neg, ih]
+  induction s using zeno_prune.induct
+  · -- 1st equation: Empty list
+    rfl
+  · -- 2nd equation: pos :: neg :: tail
+    next tail ih =>
+      simp [zeno_prune, count_pos, count_neg]
+      omega
+  · -- 3rd equation: neg :: pos :: tail
+    next tail ih =>
+      simp [zeno_prune, count_pos, count_neg]
+      omega
+  · -- 4th equation: head :: tail (catch-all)
+    next head tail ih =>
+      cases head with
+      | gauge => 
+        simp [zeno_prune, count_pos, count_neg, ih]
+      | phase p => 
+        cases p <;> simp [zeno_prune, count_pos, count_neg, ih]
 
 -- ==========================================
 -- 4. THE RECURSIVE FIXED-POINT PRUNE
