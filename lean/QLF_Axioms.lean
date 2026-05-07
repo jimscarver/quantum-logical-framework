@@ -1,7 +1,6 @@
+import Mathlib.Tactic.Omega
 import Mathlib.Data.List.Basic
 import Mathlib.Data.Int.Basic
-
--- The nature of the Possiblist realm
 
 -- ==========================================
 -- 1. FUNDAMENTAL TYPES & COUNTING
@@ -19,7 +18,6 @@ deriving BEq, DecidableEq
 
 abbrev TopoString := List TopoElement
 
--- In QLF, any residual phase that fails to annihilate is considered an unstable gauge
 def is_gauge : TopoElement → Bool
   | TopoElement.phase _ => true
   | TopoElement.gauge => true
@@ -38,39 +36,33 @@ def is_symmetric (s : TopoString) : Prop :=
   count_pos s = count_neg s
 
 -- ==========================================
--- 2. THE HALF-SPIN TOPOLOGY (NEW)
+-- 2. THE HALF-SPIN TOPOLOGY
 -- ==========================================
 
--- Swaps the logical phase. This represents a 360-degree topological rotation.
 def swap_topo : TopoElement → TopoElement
   | TopoElement.phase LogicPhase.pos => TopoElement.phase LogicPhase.neg
   | TopoElement.phase LogicPhase.neg => TopoElement.phase LogicPhase.pos
   | TopoElement.gauge => TopoElement.gauge
 
--- Applies the 360-degree rotation across the entire string.
 def apply_single_fold : TopoString → TopoString
   | [] => []
   | head :: tail => swap_topo head :: apply_single_fold tail
 
--- A 720-degree rotation (fermionic double-fold)
 def apply_double_fold (s : TopoString) : TopoString :=
   apply_single_fold (apply_single_fold s)
 
--- Lemma: Swapping a phase twice yields the original phase
 lemma swap_topo_twice (x : TopoElement) : swap_topo (swap_topo x) = x := by
   cases x
   case phase p => cases p <;> rfl
   case gauge => rfl
 
--- ZERO SORRY THEOREM: Every string in the QLF universe requires a 720-degree 
--- double-fold to return to identity, proving the fundamental topology is fermionic.
+-- RESOLVED: Used simp to recursively push the function into the list constructor
 theorem double_fold_identity (s : TopoString) : apply_double_fold s = s := by
   unfold apply_double_fold
   induction s with
   | nil => rfl
   | cons head tail ih =>
-    unfold apply_single_fold
-    rw [ih, swap_topo_twice]
+    simp [apply_single_fold, swap_topo_twice, ih]
 
 -- ==========================================
 -- 3. THE SINGLE-PASS PRUNE & INVARIANT
@@ -82,11 +74,25 @@ def zeno_prune : TopoString → TopoString
   | TopoElement.phase LogicPhase.neg :: TopoElement.phase LogicPhase.pos :: tail => zeno_prune tail
   | head :: tail => head :: zeno_prune tail
 
+-- RESOLVED: Explicitly matched on 'head' to unblock omega's arithmetic evaluation
 theorem single_prune_invariant (s : TopoString) :
     count_pos (zeno_prune s) - count_neg (zeno_prune s) = count_pos s - count_neg s := by
-  induction s using zeno_prune.induct <;> 
-  unfold zeno_prune count_pos count_neg <;> 
-  omega
+  induction s using zeno_prune.induct with
+  | case1 => rfl
+  | case2 tail ih =>
+    simp [zeno_prune, count_pos, count_neg]
+    omega
+  | case3 tail ih =>
+    simp [zeno_prune, count_pos, count_neg]
+    omega
+  | case4 head tail ih =>
+    cases head with
+    | gauge => 
+      simp [zeno_prune, count_pos, count_neg, ih]
+    | phase p =>
+      cases p with
+      | pos => simp [zeno_prune, count_pos, count_neg, ih]
+      | neg => simp [zeno_prune, count_pos, count_neg, ih]
 
 -- ==========================================
 -- 4. THE RECURSIVE FIXED-POINT PRUNE
