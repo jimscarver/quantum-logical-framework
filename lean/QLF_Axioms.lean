@@ -72,29 +72,37 @@ def zeno_prune : TopoString → TopoString
   | TopoElement.phase LogicPhase.neg :: TopoElement.phase LogicPhase.pos :: tail => zeno_prune tail
   | head :: tail => head :: zeno_prune tail
 
+-- NEW: Helper lemmas to isolate list addition logic and bypass variable binding
+lemma count_pos_cons (x : TopoElement) (l : TopoString) :
+    count_pos (x :: l) = count_pos [x] + count_pos l := by
+  cases x with
+  | gauge => rfl
+  | phase p => cases p <;> rfl
+
+lemma count_neg_cons (x : TopoElement) (l : TopoString) :
+    count_neg (x :: l) = count_neg [x] + count_neg l := by
+  cases x with
+  | gauge => rfl
+  | phase p => cases p <;> rfl
+
+-- RESOLVED: Using intros to capture all hidden hypotheses anonymously, 
+-- and letting simp + omega handle the arithmetic universally.
 theorem single_prune_invariant (s : TopoString) :
     count_pos (zeno_prune s) - count_neg (zeno_prune s) = count_pos s - count_neg s := by
   induction s using zeno_prune.induct
-  · -- 1st equation: Empty list
-    rfl
-  · -- 2nd equation: pos :: neg :: tail
-    next tail ih =>
-      simp [zeno_prune, count_pos, count_neg]
-      omega
-  · -- 3rd equation: neg :: pos :: tail
-    next tail ih =>
-      simp [zeno_prune, count_pos, count_neg]
-      omega
-  · -- 4th equation: head :: tail (catch-all)
-    next head tail ih =>
-      cases head with
-      | gauge => 
-        simp [zeno_prune, count_pos, count_neg, ih]
-      | phase p => 
-        cases p <;> simp [zeno_prune, count_pos, count_neg, ih]
+  · rfl
+  · intros
+    simp [zeno_prune, count_pos, count_neg]
+    omega
+  · intros
+    simp [zeno_prune, count_pos, count_neg]
+    omega
+  · intros
+    simp only [zeno_prune, count_pos_cons, count_neg_cons]
+    omega
 
 -- ==========================================
--- 4. THE RECURSIVE FIXED-POINT PRUNE (Option 2)
+-- 4. THE RECURSIVE FIXED-POINT PRUNE
 -- ==========================================
 
 def full_zeno_prune (s : TopoString) : TopoString :=
