@@ -1,16 +1,19 @@
-name «quantum-logical-framework»
-version "0.1.0"
+import Lake
+open Lake DSL
+
+package «quantum_logical_framework»
 
 require mathlib from git
   "https://github.com/leanprover-community/mathlib4.git"
 
 @[default_target]
-lean_lib «QLFAxioms» {
+lean_lib «QLF_Axioms» where
   srcDir := "lean"
-}
-lean_lib «QLFQuCalc» {
+
+@[default_target]
+lean_lib «QLF_QuCalc» where
   srcDir := "lean"
-}
-lean_lib «QLFRiemann» {
+
+@[default_target]
+lean_lib «QLF_Riemann» where
   srcDir := "lean"
-}
