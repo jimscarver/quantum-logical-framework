@@ -1,4 +1,3 @@
-import Mathlib.Tactic.Omega
 import Mathlib.Data.List.Basic
 import Mathlib.Data.Int.Basic
 
