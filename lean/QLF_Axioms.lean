@@ -1,11 +1,11 @@
 import Mathlib.Data.List.Basic
 import Mathlib.Data.Int.Basic
 
+set_option linter.unusedVariables false
+
 -- ==========================================
 -- 1. FUNDAMENTAL TYPES & COUNTING
 -- ==========================================
--- We define the base ontology of the possibilist universe. 
--- Counters use Int instead of Nat to avoid subtraction edge cases in proofs.
 
 inductive LogicPhase
   | pos
@@ -19,7 +19,6 @@ deriving BEq, DecidableEq
 
 abbrev TopoString := List TopoElement
 
--- Any residual phase that fails to annihilate is considered an unstable gauge
 def is_gauge : TopoElement → Bool
   | TopoElement.phase _ => true
   | TopoElement.gauge => true
@@ -40,8 +39,6 @@ def is_symmetric (s : TopoString) : Prop :=
 -- ==========================================
 -- 2. THE HALF-SPIN TOPOLOGY
 -- ==========================================
--- Formalizes the fermionic nature of the QLF universe. A 720-degree 
--- double-fold is required to return a state to its original identity.
 
 def swap_topo : TopoElement → TopoElement
   | TopoElement.phase LogicPhase.pos => TopoElement.phase LogicPhase.neg
@@ -70,8 +67,6 @@ theorem double_fold_identity (s : TopoString) : apply_double_fold s = s := by
 -- ==========================================
 -- 3. THE SINGLE-PASS PRUNE & INVARIANT
 -- ==========================================
--- The foundational annihilation pass. We prove that a single iteration 
--- perfectly preserves the net difference between positive and negative phases.
 
 def zeno_prune : TopoString → TopoString
   | [] => []
@@ -79,18 +74,26 @@ def zeno_prune : TopoString → TopoString
   | TopoElement.phase LogicPhase.neg :: TopoElement.phase LogicPhase.pos :: tail => zeno_prune tail
   | head :: tail => head :: zeno_prune tail
 
--- Helper lemmas to isolate list addition logic and bypass variable binding
+-- NEW: Integer value extractors to prevent infinite list recursion in simp
+def val_pos : TopoElement → Int
+  | TopoElement.phase LogicPhase.pos => 1
+  | _ => 0
+
+def val_neg : TopoElement → Int
+  | TopoElement.phase LogicPhase.neg => 1
+  | _ => 0
+
 lemma count_pos_cons (x : TopoElement) (l : TopoString) :
-    count_pos (x :: l) = count_pos [x] + count_pos l := by
+    count_pos (x :: l) = val_pos x + count_pos l := by
   cases x with
-  | gauge => simp [count_pos]
-  | phase p => cases p <;> simp [count_pos]
+  | gauge => simp [count_pos, val_pos]
+  | phase p => cases p <;> simp [count_pos, val_pos]
 
 lemma count_neg_cons (x : TopoElement) (l : TopoString) :
-    count_neg (x :: l) = count_neg [x] + count_neg l := by
+    count_neg (x :: l) = val_neg x + count_neg l := by
   cases x with
-  | gauge => simp [count_neg]
-  | phase p => cases p <;> simp [count_neg]
+  | gauge => simp [count_neg, val_neg]
+  | phase p => cases p <;> simp [count_neg, val_neg]
 
 theorem single_prune_invariant (s : TopoString) :
     count_pos (zeno_prune s) - count_neg (zeno_prune s) = count_pos s - count_neg s := by
@@ -109,21 +112,19 @@ theorem single_prune_invariant (s : TopoString) :
 -- ==========================================
 -- 4. THE RECURSIVE FIXED-POINT PRUNE
 -- ==========================================
--- A true topological collapse. Repeats zeno_prune until the string length 
--- stops decreasing, representing the system reaching a stable standing wave.
+-- RESOLVED: Removed the 'let' binding so 'split' can cleanly target the if-statement
 
 def full_zeno_prune (s : TopoString) : TopoString :=
-  let pruned := zeno_prune s
-  if h : pruned.length < s.length then
-    full_zeno_prune pruned
+  if _h : (zeno_prune s).length < s.length then
+    full_zeno_prune (zeno_prune s)
   else
     s
 termination_by s.length
 
 theorem full_prune_invariant (s : TopoString) :
     count_pos (full_zeno_prune s) - count_neg (full_zeno_prune s) = count_pos s - count_neg s := by
-  induction s using full_zeno_prune.induct with
-  | case1 s ih =>
+  induction s using full_zeno_prune.induct
+  next s ih =>
     unfold full_zeno_prune
     split
     · rw [ih]
@@ -133,8 +134,6 @@ theorem full_prune_invariant (s : TopoString) :
 -- ==========================================
 -- 5. ZERO FREE ACTION (ZFA) & ZERO-COUNT LEMMAS
 -- ==========================================
--- Defines the physical filter. If any gauge phases remain after a full collapse,
--- the state has non-zero action and cannot persist physically.
 
 def achieves_ZFA (s : TopoString) : Prop :=
   (full_zeno_prune s).any is_gauge = false
@@ -164,7 +163,6 @@ theorem zfa_implies_zero_count_neg (s : TopoString) (h_zfa : achieves_ZFA s) :
 -- ==========================================
 -- 6. THE BRIDGE TO THE CRITICAL LINE
 -- ==========================================
--- The master theorem linking physical persistence to topological symmetry.
 
 theorem zfa_implies_critical_line (s : TopoString) :
     achieves_ZFA s → is_symmetric s := by
