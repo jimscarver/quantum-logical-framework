@@ -1,0 +1,28 @@
+name: Lean 4 Formal Verification
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# Silences the Node.js 20 deprecation warning
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install elan (Lean version manager)
+      run: |
+        curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+        sh elan-init.sh -y
+        echo "$HOME/.elan/bin" >> $GITHUB_PATH
+
+    - name: Build and Verify Framework
+      run: lake build
