@@ -11,7 +11,7 @@ It is not merely Turing-complete in the sequential sense. It is universal in a s
 
 Therefore QLF does not need to simulate logical systems from the outside. They are already present within its closure space.
 
-![](YinYangYin.png)
+![](universal.png)
 
 ## Shannon and the Reduction of Logic to Distinction
 
@@ -43,6 +43,18 @@ A universal Turing machine is universal because it can emulate any other computa
 That distinction matters.
 
 A Turing machine searches or executes a path. QLF generates the full space of admissible local paths and retains those that close. Universality in QLF is therefore not based on stepwise emulation but on exhaustive generative completeness.
+
+## Gödel Does Not Apply to QLF
+
+Gödel incompleteness depends on self-reference. A formal system becomes vulnerable to Gödel’s construction when it can encode statements that refer back to their own provability through unrestricted recursion.
+
+QLF excludes that possibility.
+
+QLF is built from finite local distinction-closures under uniform half-spin rules. A structure persists only when it closes locally with Zero Free Action. Unclosed self-reference does not persist. Infinite recursive regress does not persist. A Gödel sentence requires exactly that kind of self-embedding structure.
+
+For that reason, QLF is not subject to Gödel incompleteness in the usual sense. The framework excludes the self-referential constructions on which Gödel’s theorem depends.
+
+This is not a weakness of QLF. It is part of its design. QLF is universal not because it permits every abstract formal pathology, but because it generates all finite local logical closures. Gödel marks the limit of self-referential formal systems. QLF begins by excluding self-reference and grounding logic in local closure instead.
 
 ## The Core Theorem
 
