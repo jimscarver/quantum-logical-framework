@@ -106,7 +106,6 @@ theorem single_prune_invariant (s : TopoString) :
     simp [zeno_prune, count_pos, count_neg, ih]
     omega
   · next head tail ih =>
-    -- RESOLVED: Removed unused `ih` from simp to clear the linter warning
     simp only [zeno_prune, count_pos_cons, count_neg_cons]
     omega
 
@@ -121,7 +120,6 @@ def full_zeno_prune (s : TopoString) : TopoString :=
     s
 termination_by s.length
 
--- RESOLVED: Bypassed `full_zeno_prune.induct` using strong induction on list length
 theorem full_prune_invariant (s : TopoString) :
     count_pos (full_zeno_prune s) - count_neg (full_zeno_prune s) =
       count_pos s - count_neg s := by
@@ -145,7 +143,7 @@ theorem full_prune_invariant (s : TopoString) :
         hrec (zeno_prune t) rfl
       exact hrec'.trans (single_prune_invariant t)
     · rw [full_zeno_prune, dif_neg hlt]
-      rfl
+      -- RESOLVED: The explicit `rfl` was deleted here. `rw` automatically closes it!
 
   exact hP s.length s rfl
 
@@ -156,19 +154,19 @@ theorem full_prune_invariant (s : TopoString) :
 def achieves_ZFA (s : TopoString) : Prop :=
   (full_zeno_prune s).any is_gauge = false
 
--- RESOLVED: Stripped unreachable simp code. Since `is_gauge` is always true, 
--- `l.any is_gauge = false` is an instant contradiction for any populated list.
+-- RESOLVED: Pushed `h` into the goal with `revert` so `simp` automatically evaluates
+-- `is_gauge` to true, rendering the hypothesis `true = false` and closing the proof.
 lemma no_gauge_zero_pos : ∀ (l : TopoString), l.any is_gauge = false → count_pos l = 0
   | [], _ => rfl
   | head :: tail, h => by
-    simp only [List.any_cons, Bool.or_eq_false_iff] at h
-    cases head <;> contradiction
+    revert h
+    cases head <;> simp [is_gauge]
 
 lemma no_gauge_zero_neg : ∀ (l : TopoString), l.any is_gauge = false → count_neg l = 0
   | [], _ => rfl
   | head :: tail, h => by
-    simp only [List.any_cons, Bool.or_eq_false_iff] at h
-    cases head <;> contradiction
+    revert h
+    cases head <;> simp [is_gauge]
 
 theorem zfa_implies_zero_count_pos (s : TopoString) (h_zfa : achieves_ZFA s) : 
     count_pos (full_zeno_prune s) = 0 := by
