@@ -3,6 +3,7 @@ import QLF_QuCalc
 import Mathlib.NumberTheory.LSeries.RiemannZeta
 import Mathlib.Data.Complex.Basic
 import Mathlib.Data.Set.Basic
+import Mathlib.Data.Nat.Prime
 
 -- ==========================================
 -- 1. THE POSSIBILIST UNIVERSE AS MATHEMATICAL SETS
@@ -31,17 +32,26 @@ def CriticalLine : Set TopoString :=
 -- This machine-verifies that every stable state in the universe lies on the critical line.
 theorem zfa_subset_critical_line : ZFA_States ⊆ CriticalLine := by
   intro s h_in
-  -- h_in is the property that (s ∈ QuCalcTree ∧ achieves_ZFA s)
-  -- We extract the topological ZFA condition and pass it to our master theorem.
-  exact zfa_implies_critical_line s h_in.right
+  -- h_in contains BOTH (s ∈ QuCalcTree) and (achieves_ZFA s).
+  -- We extract the tree membership (h_in.1) and pass the ZFA property (h_in.2) 
+  -- to our master theorem to satisfy both requirements of the CriticalLine Set.
+  exact ⟨h_in.1, zfa_implies_critical_line s h_in.2⟩
 
 -- ==========================================
--- 3. THE "IT FROM BIT" PHYSICAL AXIOM
+-- 3. THE "IT FROM BIT" & PRIME AXIOMS
 -- ==========================================
 
 -- Definition of a non-trivial zero of the classical Riemann zeta function
 def NonTrivialZero (ρ : ℂ) : Prop := 
   riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1
+
+-- THE EULER PRIME HOMOMORPHISM
+-- In QLF, the discrete combinatorial steps n of the QuCalcTree correspond identically 
+-- to the prime numbers p in the Euler Product formula. 
+-- A state achieving Zero Free Action at a prime generation is synonymous with a Zeta zero.
+axiom Prime_Euler_Correspondence (p : ℕ) [Fact p.Prime] (s : TopoString) :
+  (s ∈ expand_generation p ∧ achieves_ZFA s) ↔ 
+  (∃ ρ : ℂ, NonTrivialZero ρ ∧ ρ.re = 1/2)
 
 -- The Core Epistemological Axiom of QLF:
 -- Classical continuous mathematics (the zeta function) is merely the analytic shadow 
