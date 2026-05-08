@@ -11,6 +11,8 @@ It is not merely Turing-complete in the sequential sense. It is universal in a s
 
 Therefore QLF does not need to simulate logical systems from the outside. They are already present within its closure space.
 
+![](YinYangYin.png)
+
 ## Shannon and the Reduction of Logic to Distinction
 
 Claude Shannon established the decisive starting point for modern logic and computation: finite logical structure can be built from binary switching distinctions. Boolean logic is not an abstraction floating above physics; it is physically realizable through binary switching structure.
