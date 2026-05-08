@@ -74,7 +74,6 @@ def zeno_prune : TopoString → TopoString
   | TopoElement.phase LogicPhase.neg :: TopoElement.phase LogicPhase.pos :: tail => zeno_prune tail
   | head :: tail => head :: zeno_prune tail
 
--- NEW: Integer value extractors to prevent infinite list recursion in simp
 def val_pos : TopoElement → Int
   | TopoElement.phase LogicPhase.pos => 1
   | _ => 0
@@ -95,24 +94,24 @@ lemma count_neg_cons (x : TopoElement) (l : TopoString) :
   | gauge => simp [count_neg, val_neg]
   | phase p => cases p <;> simp [count_neg, val_neg]
 
+-- RESOLVED: Explicitly naming the induction hypothesis (`ih`) to fix Error 3
 theorem single_prune_invariant (s : TopoString) :
     count_pos (zeno_prune s) - count_neg (zeno_prune s) = count_pos s - count_neg s := by
   induction s using zeno_prune.induct
   · rfl
-  · intros
-    simp [zeno_prune, count_pos, count_neg]
+  · next tail ih =>
+    simp [zeno_prune, count_pos, count_neg, ih]
     omega
-  · intros
-    simp [zeno_prune, count_pos, count_neg]
+  · next tail ih =>
+    simp [zeno_prune, count_pos, count_neg, ih]
     omega
-  · intros
-    simp only [zeno_prune, count_pos_cons, count_neg_cons]
+  · next head tail ih =>
+    simp only [zeno_prune, count_pos_cons, count_neg_cons, ih]
     omega
 
 -- ==========================================
 -- 4. THE RECURSIVE FIXED-POINT PRUNE
 -- ==========================================
--- RESOLVED: Removed the 'let' binding so 'split' can cleanly target the if-statement
 
 def full_zeno_prune (s : TopoString) : TopoString :=
   if _h : (zeno_prune s).length < s.length then
@@ -121,15 +120,23 @@ def full_zeno_prune (s : TopoString) : TopoString :=
     s
 termination_by s.length
 
+-- RESOLVED: Bypassing `split` entirely with explicit `by_cases` logic to stop variable shadowing
 theorem full_prune_invariant (s : TopoString) :
     count_pos (full_zeno_prune s) - count_neg (full_zeno_prune s) = count_pos s - count_neg s := by
   induction s using full_zeno_prune.induct
-  next s ih =>
-    unfold full_zeno_prune
-    split
-    · rw [ih]
-      exact single_prune_invariant s
-    · rfl
+  next x ih =>
+    by_cases h : (zeno_prune x).length < x.length
+    · have h_eq : full_zeno_prune x = full_zeno_prune (zeno_prune x) := by
+        rw [full_zeno_prune]
+        simp [h]
+      rw [h_eq]
+      rw [ih]
+      exact single_prune_invariant x
+    · have h_eq : full_zeno_prune x = x := by
+        rw [full_zeno_prune]
+        simp [h]
+      rw [h_eq]
+      rfl
 
 -- ==========================================
 -- 5. ZERO FREE ACTION (ZFA) & ZERO-COUNT LEMMAS
