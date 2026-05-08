@@ -1,4 +1,4 @@
-import Mathlib
+import Mathlib.Data.Nat.Prime
 import QLF_Axioms
 import QLF_QuCalc
 import Mathlib.NumberTheory.LSeries.RiemannZeta
