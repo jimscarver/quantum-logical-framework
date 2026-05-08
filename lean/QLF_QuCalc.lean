@@ -46,21 +46,19 @@ def is_resonant_generation (n : Nat) : Bool :=
 -- ZERO SORRY THEOREM: The Generator Respects the Critical Line.
 -- This is the mathematical bridge proving that no matter how the universe expands,
 -- the physical constraint of ZFA forces all surviving reality onto strict symmetry.
-theorem generated_stable_states_are_symmetric (n : Nat) (s : TopoString)
-    (h_in : s ∈ find_stable_states n) : is_symmetric s := by
-  
+theorem generated_stable_states_are_symmetric (n : Nat) (s : TopoString) (h_in : s ∈ find_stable_states n) : is_symmetric s := by
   -- 1. Extract the filtering condition from the list membership
   have h_filter : achieves_ZFA_bool s = true := 
     List.of_mem_filter h_in
-    
+  
   -- 2. Unfold the boolean evaluation to match our logical Axiom Prop
   unfold achieves_ZFA_bool at h_filter
   
   -- 3. Construct the logical Prop required by the Axioms theorem
   have h_zfa : achieves_ZFA s := by
     unfold achieves_ZFA
-    -- In Lean 4, if a boolean equality evaluates to true, the Prop is logically true
-    exact h_filter
+    -- Lean 4's `simpa` bridges the gap, translating the boolean `==` to the logical `=`
+    simpa using h_filter
     
   -- 4. Invoke the master topological theorem from QLF_Axioms.lean
   exact zfa_implies_critical_line s h_zfa
