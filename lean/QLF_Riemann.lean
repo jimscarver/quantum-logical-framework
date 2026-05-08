@@ -1,10 +1,8 @@
-import Mathlib.Data.Nat.Prime
 import QLF_Axioms
 import QLF_QuCalc
 import Mathlib.NumberTheory.LSeries.RiemannZeta
 import Mathlib.Data.Complex.Basic
 import Mathlib.Data.Set.Basic
-import Mathlib.Data.Nat.Prime
 
 -- ==========================================
 -- 1. THE POSSIBILIST UNIVERSE AS MATHEMATICAL SETS
@@ -50,7 +48,7 @@ def NonTrivialZero (ρ : ℂ) : Prop :=
 -- In QLF, the discrete combinatorial steps n of the QuCalcTree correspond identically 
 -- to the prime numbers p in the Euler Product formula. 
 -- A state achieving Zero Free Action at a prime generation is synonymous with a Zeta zero.
-axiom Prime_Euler_Correspondence (p : ℕ) [Fact p.Prime] (s : TopoString) :
+axiom Prime_Euler_Correspondence (p : ℕ) (hp : Nat.Prime p) (s : TopoString) :
   (s ∈ expand_generation p ∧ achieves_ZFA s) ↔ 
   (∃ ρ : ℂ, NonTrivialZero ρ ∧ ρ.re = 1/2)
 
