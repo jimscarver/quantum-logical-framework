@@ -81,7 +81,10 @@ One of the highlights was my time at **AT&T Shannon Research Labs**. (Yes, *that
 
 ### Retirement — and the Real Work Begins
 
-Eventually I retired. Most people slow down. I finally sped up.
+When I retired, I was done. I realized my dreams would not be fulfilled in my lifetime, but I had planted the seeds. It was time to get out of the rat race of information technology and enjoy myself.
+
+That was the plan, anyway — until artificial intelligence came along and made the impossible possible.
+
 
 ### Rho calculus and RChain
 
