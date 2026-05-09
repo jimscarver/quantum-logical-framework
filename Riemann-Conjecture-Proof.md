@@ -8,7 +8,7 @@ In contrast, the Quantum Logical Framework (QLF) is constructive, intuitionistic
 
 The universality of this logic has been formally proven and machine-verified. Because any computable function can be represented within this framework (consistent with Shannon’s theory of information and Turing’s universality), the Riemann zeta function can be fully embedded inside QLF.
 
-Within this framework, the QuCalc combinatorial tree generates the zeta function. The imaginary part of \( s \) is encoded in the depth along the complex dimension, while the real part is determined by phase balance between conjugate half-spin primitives. Under Zero Free Action, only perfectly balanced strings survive. These strings necessarily have real part exactly equal to 1/2.
+Within this framework, the QuCalc combinatorial tree generates the zeta function. The imaginary part of \( s \) is encoded in the depth along the second dimension, while the real part is determined by phase balance between conjugate half-spin primitives. Under Zero Free Action, only perfectly balanced strings survive. These strings necessarily have real part exactly equal to 1/2.
 
 **Main Result**
 
