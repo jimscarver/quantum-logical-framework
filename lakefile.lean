@@ -3,7 +3,8 @@ open Lake DSL
 
 package «quantum_logical_framework»
 
-require "leanprover-community" / "Mathlib"
+require mathlib from git
+  "https://github.com/leanprover-community/mathlib4.git"
 
 @[default_target]
 lean_lib QLF where
