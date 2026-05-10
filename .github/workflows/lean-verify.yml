@@ -35,6 +35,12 @@ jobs:
           rm -rf .lake/build
           lake exe cache clean || true
 
+      - name: Update Lake dependencies
+        run: lake update
+
+      - name: Fetch Mathlib cache
+        run: lake exe cache get
+
       - name: Build all Lean files (in safe order)
-        run: |          
-          lake build                    # everything
+        run: |
+          lake build
