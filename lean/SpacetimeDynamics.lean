@@ -68,6 +68,8 @@ theorem determinant_is_minkowski (f : Form) :
   simp [det_fin_two, Complex.I]
   ring
 
+exact zfa_implies_zero_count (zeno_prune s) (by simpa using h_pruned_clean)
+
 /--
   Theorem: Boundary Interaction Exists.
   PROOFS: By demonstrating that the commutator of x-distinction and y-distinction 
