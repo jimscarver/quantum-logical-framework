@@ -36,7 +36,5 @@ jobs:
           lake exe cache clean || true
 
       - name: Build all Lean files (in safe order)
-        run: |
-          lake build QLF_Universality   # new file first
-          lake build QLF_Riemann        # file that imports it
-          lake build                    # everything else
+        run: |          
+          lake build                    # everything
