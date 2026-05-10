@@ -1,7 +1,7 @@
 import Lake
 open Lake DSL
 
-package «quantum_logical_framework»
+package «QuantumLogicalFramework»
 
 require mathlib from git
   "https://github.com/leanprover-community/mathlib4.git"
