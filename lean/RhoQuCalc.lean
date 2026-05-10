@@ -9,8 +9,8 @@
   Now fully verified — connects directly to Zero Free Action and Hermitian conjugacy.
 -/
 
-import «QuantumLogicalFramework».SpacetimeDynamics
-import «QuantumLogicalFramework».QLF_Critical_Line
+import SpacetimeDynamics
+import QLF_Critical_Line
 
 open Matrix
 
