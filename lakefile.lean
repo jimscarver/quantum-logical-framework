@@ -21,3 +21,7 @@ lean_lib «QLF_Riemann» where
 @[default_target]
 lean_lib «QLF_Universality» where
   srcDir := "lean"
+
+@[default_target]
+lean_lib «QLF_Critical_Line» where
+  srcDir := "lean"
