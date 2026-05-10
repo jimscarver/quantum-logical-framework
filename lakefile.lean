@@ -1,7 +1,7 @@
 import Lake
 open Lake DSL
 
-package QuantumLogicalFramework
+package «quantum_logical_framework»
 
 require "leanprover-community" / "mathlib"
 
