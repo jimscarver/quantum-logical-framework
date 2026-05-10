@@ -14,8 +14,10 @@ lean_lib «QLF_Axioms» where
 lean_lib «QLF_QuCalc» where
   srcDir := "lean"
 
-
-
 @[default_target]
 lean_lib «QLF_Riemann» where
+  srcDir := "lean"
+
+@[default_target]
+lean_lib «QLF_Universality» where
   srcDir := "lean"
