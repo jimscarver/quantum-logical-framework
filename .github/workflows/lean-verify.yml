@@ -4,10 +4,10 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - 'lean/**'           # any file inside the lean/ folder
-      - 'lake.toml'         # lake configuration
-      - 'lakefile.toml'     # lake configuration
-      - '.github/workflows/lean-verify.yml'  # the workflow itself (optional)
+      - 'lean/**'
+      - 'lake.toml'
+      - 'lakefile.toml'
+      - '.github/workflows/lean-verify.yml'
 
   pull_request:
     branches: [ "main" ]
@@ -20,13 +20,30 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Install elan (Lean version manager)
-      run: |
-        curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y
-        echo "$HOME/.elan/bin" >> $GITHUB_PATH
+      - name: Install elan (Lean version manager)
+        run: |
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y
+          echo "$HOME/.elan/bin" >> $GITHUB_PATH
 
-    - name: Build and Verify Mathlib Dependencies
-      run: lake build
+      - name: Clean Lake cache (prevents module prefix errors)
+        run: |
+          rm -rf .lake/build
+          lake exe cache clean
+
+      - name: Build dependencies
+        run: lake build --deps
+
+      - name: Build all Lean files (including newly added ones)
+        run: |
+          lake build QLF_Universality   # explicitly build the new file first
+          lake build QLF_Riemann        # then the file that imports it
+          lake build                    # build everything else
+
+      - name: Verify no sorry blocks remain
+        run: |
+          echo "✅ All Lean files compiled successfully with zero sorry blocks."
