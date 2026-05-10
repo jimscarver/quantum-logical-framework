@@ -30,20 +30,13 @@ jobs:
           curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y
           echo "$HOME/.elan/bin" >> $GITHUB_PATH
 
-      - name: Clean Lake cache (prevents module prefix errors)
+      - name: Clean Lake cache (prevents "unknown module prefix" errors)
         run: |
           rm -rf .lake/build
-          lake exe cache clean
+          lake exe cache clean || true
 
-      - name: Build dependencies
-        run: lake build --deps
-
-      - name: Build all Lean files (including newly added ones)
+      - name: Build all Lean files (in safe order)
         run: |
-          lake build QLF_Universality   # explicitly build the new file first
-          lake build QLF_Riemann        # then the file that imports it
-          lake build                    # build everything else
-
-      - name: Verify no sorry blocks remain
-        run: |
-          echo "✅ All Lean files compiled successfully with zero sorry blocks."
+          lake build QLF_Universality   # new file first
+          lake build QLF_Riemann        # file that imports it
+          lake build                    # everything else
