@@ -8,6 +8,15 @@ In contrast, the Quantum Logical Framework (QLF) is constructive, intuitionistic
 
 The universality of this logic has been formally proven and machine-verified. Because any computable function can be represented within this framework, the Riemann zeta function can be fully embedded inside QLF.
 
+
+QLF departs from the classical ZFC route at the level of foundations.
+
+The standard ZFC-style program treats mathematics as an open-ended formal universe in which unbounded symbolic recursion and arithmetic self-reference remain admissible. Gödel showed that any consistent recursively axiomatized system strong enough for arithmetic is inevitably incomplete. In that sense, the classical framework carries a built-in failure mode: as formal complexity rises, symbolic derivation outruns constructive closure. :contentReference[oaicite:1]{index=1}
+
+QLF is designed to avoid that failure mode. It does not admit realized mathematics as arbitrary formal drift through an infinite axiomatic universe. It admits only finite local distinction-closures under Zero Free Action. What does not close does not persist. Unclosed recursion does not persist. Self-referential formal pathologies do not persist. In this sense, QLF avoids what may be called the ultraviolet catastrophe of mathematics: the blow-up of unconstrained formal infinity inside classical axiomatic systems.
+
+This document therefore does not present the Riemann program as one more analytic search inside ZFC. It presents a constructive alternative. In QLF, the critical line is not first an unexplained analytic regularity. It is first the symmetry condition forced by Zero Free Action. The current Lean development already reflects that structure: `QLF_Axioms.lean` formalizes ZFA and symmetry, `QLF_Universality.lean` formalizes exhaustiveness of represented finite closures, and the remaining load-bearing bridge is the explicit Dirichlet/Euler identification.
+
 **Main Result**
 
 In the QuCalc system, any number with factors (composite structures) necessarily carries unpaired half-spin twists, which create a net phase imbalance. Zero Free Action forbids such imbalance. Therefore, any term that contains factors cannot survive the pruning process.
