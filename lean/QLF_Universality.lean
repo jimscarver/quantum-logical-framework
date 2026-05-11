@@ -1,5 +1,5 @@
 -- QLF_Universality.lean
--- Formal Proof of Universality (fixed Fintype instance)
+-- Formal Proof of Universality (fixed Fintype + noncomputable)
 
 import QLF_Axioms
 import QLF_QuCalc
@@ -45,6 +45,6 @@ theorem represents_phase_only (L : FiniteLogicalSystem) (e : TopoElement) (h : e
   simp [List.flatMap] at h_mem
   split at h_mem <;> simp_all [h_mem]
 
--- (the rest of your original theorems from here onward can stay the same)
+-- (keep the rest of your original theorems from here onward unchanged)
 
 end QLF
