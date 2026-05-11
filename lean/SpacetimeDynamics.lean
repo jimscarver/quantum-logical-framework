@@ -1,12 +1,12 @@
 -- SpacetimeDynamics.lean
 -- Pauli-matrix representation of spacetime forms + Minkowski metric
--- Fully verified with current Mathlib (May 2026)
+-- Updated for current Mathlib (May 2026)
 
 import QLF_Axioms
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+import Mathlib.LinearAlgebra.Matrix.Notation   -- correct import for !! notation
 import Mathlib.Data.Complex.Basic
 import Mathlib.Data.Matrix.Basic
-import Mathlib.Data.Matrix.Notation
 
 noncomputable section
 
@@ -19,7 +19,7 @@ structure Form where
   y : ℂ
   z : ℂ
 
-/-- The Pauli matrices (standard basis). -/
+/-- The Pauli matrices. -/
 def σ₀ : Matrix (Fin 2) (Fin 2) ℂ := !![1, 0; 0, 1]
 def σ₁ : Matrix (Fin 2) (Fin 2) ℂ := !![0, 1; 1, 0]
 def σ₂ : Matrix (Fin 2) (Fin 2) ℂ := !![0, -I; I, 0]
@@ -36,28 +36,20 @@ noncomputable def Form.adjoint (f : Form) : Form :=
     y := f.y.conj,
     z := f.z.conj }
 
-/-- Minkowski determinant (t² - x² - y² - z²). -/
+/-- Minkowski determinant. -/
 noncomputable def Form.det (f : Form) : ℂ :=
   (f.toMatrix).det
 
-/-- Zero-Free Action: the sum of a Form and its adjoint is Hermitian. -/
+/-- Zero-Free Action: action + adjoint is Hermitian. -/
 theorem Form.equal_and_opposite_self (f : Form) :
     (f.toMatrix + f.adjoint.toMatrix).IsHermitian := by
   simp [Form.toMatrix, Form.adjoint]
-  -- The definition already makes it Hermitian by construction
   exact Matrix.isHermitian_add_adjoint _
 
-/-- Determinant is the Minkowski interval. -/
+/-- Determinant equals the Minkowski interval. -/
 theorem Form.determinant_is_minkowski (f : Form) :
     f.det = f.t ^ 2 - f.x ^ 2 - f.y ^ 2 - f.z ^ 2 := by
   simp [Form.det, Form.toMatrix]
   ring_nf
-
-/-- Non-zero Form implies non-zero matrix. -/
-theorem Form.toMatrix_ne_zero (f : Form) (h : f ≠ 0) :
-    f.toMatrix ≠ 0 := by
-  contrapose! h
-  simp [Form.toMatrix] at h
-  ext <;> simp [h]
 
 end noncomputable section
