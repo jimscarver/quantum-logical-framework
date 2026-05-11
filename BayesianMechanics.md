@@ -8,6 +8,8 @@ This idea is mathematically isomorphic to Bayesian mechanics: the outcome with t
 
 This principle directly grounds the path integral formulation. See: path_integral.md
 
-It also explains active inference and the emergence of order. See: active_inference.md
+It also connects to Karl Friston's Markov blankets and Bayesian mechanics. See: hadron_markov_blankets.md
+
+It explains active inference and the emergence of order. See: active_inference.md
 
 See also: AI.md
