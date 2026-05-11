@@ -7,8 +7,6 @@ import QLF_Critical_Line
 import Mathlib.Data.Finset.Basic
 import Mathlib.Data.Fintype.Basic
 
-open Fintype   -- this fixes the instance resolution
-
 namespace QLF
 
 structure FiniteLogicalSystem where
@@ -17,7 +15,7 @@ structure FiniteLogicalSystem where
   distinction : carrier → carrier → Prop
   [decidable : ∀ a b, Decidable (distinction a b)]
 
--- Correct instance (this was the main error)
+-- Correct Fintype instance for the product type
 instance (L : FiniteLogicalSystem) : Fintype (L.carrier × L.carrier) :=
   Fintype.prod L.fintype L.fintype
 
@@ -47,6 +45,6 @@ theorem represents_phase_only (L : FiniteLogicalSystem) (e : TopoElement) (h : e
   simp [List.flatMap] at h_mem
   split at h_mem <;> simp_all [h_mem]
 
--- (keep the rest of your original theorems from here onward unchanged)
+-- (the rest of your original theorems from here onward can stay the same)
 
 end QLF
