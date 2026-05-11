@@ -4,14 +4,10 @@ In QFL, the foundational principle is that **the thing that can happen in the mo
 
 This idea is mathematically isomorphic to Bayesian mechanics: the outcome with the highest number of possible paths naturally carries the highest probability.
 
-## Connection to Path Integrals
+**In physical systems, this occurs because the number of ways a thing can happen corresponds directly to the number of bits of information. Each bit contributes the energy of one Planck action.** Systems with more microstates are naturally selected because they align with zero-free action.
 
-This principle directly grounds the path integral formulation, where all possible paths contribute according to their multiplicity. See: path_integral.md
+This principle directly grounds the path integral formulation. See: path_integral.md
 
-## Connection to Active Inference
+It also explains active inference and the emergence of order. See: active_inference.md
 
-The same multiplicity principle explains why active inference creates order rather than disorder — systems that can happen in more ways are inherently favored. See: active_inference.md
-
-## Connection to AI
-
-This Bayesian foundation provides the logical basis for intelligence and agency within the framework. See: AI.md
+See also: AI.md
