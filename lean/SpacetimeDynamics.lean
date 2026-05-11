@@ -28,9 +28,9 @@ noncomputable def Form.toMatrix (f : Form) : Matrix (Fin 2) (Fin 2) ℂ :=
 
 noncomputable def Form.adjoint (f : Form) : Form :=
   { t := f.t,
-    x := f.x.conjugate,
-    y := f.y.conjugate,
-    z := f.z.conjugate }
+    x := f.x.conj,
+    y := f.y.conj,
+    z := f.z.conj }
 
 noncomputable def Form.det (f : Form) : ℂ :=
   (f.toMatrix).det
