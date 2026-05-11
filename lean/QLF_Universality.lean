@@ -15,7 +15,7 @@ structure FiniteLogicalSystem where
   distinction : carrier → carrier → Prop
   [decidable : ∀ a b, Decidable (distinction a b)]
 
--- Correct Fintype instance for the product type
+-- Correct Fintype instance for the product (this fixes the type mismatch)
 instance (L : FiniteLogicalSystem) : Fintype (L.carrier × L.carrier) :=
   Fintype.prod L.fintype L.fintype
 
@@ -45,6 +45,6 @@ theorem represents_phase_only (L : FiniteLogicalSystem) (e : TopoElement) (h : e
   simp [List.flatMap] at h_mem
   split at h_mem <;> simp_all [h_mem]
 
--- (rest of your original theorems from here onward can stay the same)
+-- (the rest of your original theorems from here onward can stay exactly as they were)
 
 end QLF
