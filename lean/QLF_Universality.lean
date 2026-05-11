@@ -1,5 +1,5 @@
 -- QLF_Universality.lean
--- Formal Proof of Universality (fixed Fintype + noncomputable + reduction)
+-- Formal Proof of Universality (fixed Fintype instance)
 
 import QLF_Axioms
 import QLF_QuCalc
@@ -15,7 +15,7 @@ structure FiniteLogicalSystem where
   distinction : carrier → carrier → Prop
   [decidable : ∀ a b, Decidable (distinction a b)]
 
--- Explicit Fintype instance for the product (this fixes the type mismatch)
+-- Correct Fintype instance for the product type
 instance (L : FiniteLogicalSystem) : Fintype (L.carrier × L.carrier) :=
   Fintype.prod L.fintype L.fintype
 
@@ -45,6 +45,6 @@ theorem represents_phase_only (L : FiniteLogicalSystem) (e : TopoElement) (h : e
   simp [List.flatMap] at h_mem
   split at h_mem <;> simp_all [h_mem]
 
--- (the rest of your original theorems can stay unchanged from here)
+-- (rest of your original theorems from here onward can stay the same)
 
 end QLF
