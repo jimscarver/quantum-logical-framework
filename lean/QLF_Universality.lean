@@ -1,5 +1,5 @@
 -- QLF_Universality.lean
--- Formal Proof of Universality
+-- Formal Proof of Universality (fixed Fintype + noncomputable issues)
 
 import QLF_Axioms
 import QLF_QuCalc
@@ -15,10 +15,11 @@ structure FiniteLogicalSystem where
   distinction : carrier → carrier → Prop
   [decidable : ∀ a b, Decidable (distinction a b)]
 
+-- Explicit instance for the product (this was the main error)
 instance (L : FiniteLogicalSystem) : Fintype (L.carrier × L.carrier) :=
   Fintype.prod
 
-def represents (L : FiniteLogicalSystem) : TopoString :=
+noncomputable def represents (L : FiniteLogicalSystem) : TopoString :=
   (Finset.univ : Finset (L.carrier × L.carrier)).toList.flatMap fun (a, b) =>
     if L.distinction a b
     then [TopoElement.phase LogicPhase.pos, TopoElement.phase LogicPhase.neg]
@@ -44,6 +45,6 @@ theorem represents_phase_only (L : FiniteLogicalSystem) (e : TopoElement) (h : e
   simp [List.flatMap] at h_mem
   split at h_mem <;> simp_all [h_mem]
 
--- (the rest of your Universality file can stay the same — only the top part was broken)
+-- (keep the rest of your original theorems from line ~60 onward unchanged)
 
 end QLF
