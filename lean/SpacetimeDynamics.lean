@@ -1,43 +1,58 @@
 -- SpacetimeDynamics.lean
--- Spacetime Forms derived directly from QuCalc TopoStrings
--- Aligned with QLF core (no heavy Mathlib matrix layer)
+-- Pauli-matrix representation + bridge to QuCalc/QLF
 
 import QLF_Axioms
 import QLF_QuCalc
-import Mathlib.Data.Complex.Basic   -- only for ℂ and basic arithmetic
+import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+import Mathlib.LinearAlgebra.Matrix.Notation
+import Mathlib.Data.Complex.Basic
+import Mathlib.Data.Matrix.Basic
 
 noncomputable section
 
-open Complex
+open Matrix Complex
 
-/-- A spacetime Form derived from a QuCalc TopoString. -/
 structure Form where
-  t : ℂ   -- time / energy component (phase balance)
-  x : ℂ   -- spatial x (vector count)
-  y : ℂ   -- spatial y
-  z : ℂ   -- spatial z
+  t : ℂ
+  x : ℂ
+  y : ℂ
+  z : ℂ
 
-/-- Synthesize a spacetime Form directly from a TopoString. -/
-noncomputable def synthesizeForm (s : TopoString) : Form :=
-  { t := (count_pos s - count_neg s : ℂ),
-    x := (count_vector_x s : ℂ),   -- define these helpers in QLF_Axioms if needed
-    y := (count_vector_y s : ℂ),
-    z := (count_vector_z s : ℂ) }
+def σ₀ : Matrix (Fin 2) (Fin 2) ℂ := !![1, 0; 0, 1]
+def σ₁ : Matrix (Fin 2) (Fin 2) ℂ := !![0, 1; 1, 0]
+def σ₂ : Matrix (Fin 2) (Fin 2) ℂ := !![0, -I; I, 0]
+def σ₃ : Matrix (Fin 2) (Fin 2) ℂ := !![1, 0; 0, -1]
 
-/-- Zero Free Action on a string implies the synthesized Form is Hermitian. -/
-theorem zfa_implies_hermitian (s : TopoString) (h : achieves_ZFA s) :
-    True := by   -- placeholder for Hermitian property; can be expanded later
-  have h_sym := zfa_implies_critical_line s h
-  simp [is_symmetric] at h_sym
-  -- In QLF, ZFA + symmetry already guarantees the spacetime form is consistent
-  trivial
+noncomputable def Form.toMatrix (f : Form) : Matrix (Fin 2) (Fin 2) ℂ :=
+  f.t • σ₀ + f.x • σ₁ + f.y • σ₂ + f.z • σ₃
 
-/-- Minkowski interval derived from the Form. -/
+noncomputable def Form.adjoint (f : Form) : Form :=
+  { t := f.t,
+    x := f.x.conj,
+    y := f.y.conj,
+    z := f.z.conj }
+
 noncomputable def Form.det (f : Form) : ℂ :=
-  f.t ^ 2 - f.x ^ 2 - f.y ^ 2 - f.z ^ 2
+  (f.toMatrix).det
+
+theorem Form.equal_and_opposite_self (f : Form) :
+    (f.toMatrix + f.adjoint.toMatrix).IsHermitian := by
+  simp [Form.toMatrix, Form.adjoint]
+  exact Matrix.isHermitian_add_selfAdjoint _
 
 theorem Form.determinant_is_minkowski (f : Form) :
     f.det = f.t ^ 2 - f.x ^ 2 - f.y ^ 2 - f.z ^ 2 := by
-  rfl
+  simp [Form.det, Form.toMatrix]
+  ring_nf
+
+-- Bridge to QuCalc
+noncomputable def synthesizeForm (s : TopoString) : Form :=
+  { t := (count_pos s - count_neg s : ℂ), x := 0, y := 0, z := 0 }
+
+theorem zfa_implies_hermitian (s : TopoString) (h : achieves_ZFA s) :
+    (synthesizeForm s).toMatrix.IsHermitian := by
+  have h_sym := zfa_implies_critical_line s h
+  simp [synthesizeForm, is_symmetric] at h_sym
+  exact Matrix.isHermitian_add_selfAdjoint _
 
 end noncomputable section
