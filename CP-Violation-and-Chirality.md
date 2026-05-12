@@ -11,7 +11,7 @@ In the Quantum Logical Framework (QLF), this asymmetry is not an anomaly. It is 
 To survive in a possibilist universe, a logical history must maintain its structural integrity against a chaotic environment. It does this by forming a **Markov blanket**—a statistical boundary that separates internal, stable states from external, unclosed free action, a concept central to the Free Energy Principle and active inference [2].
 
 Consider the hydrogen atom:
-* The massive, tightly bound inner closure (the proton) is protected by a peripheral, dynamically balancing closure (the electron shell).
+* The massive, tightly bound inner closure (the proton) is protected by a peripheral, dynamically balancing closure (the electron shell) with half-spin interaction with electrons exhibiting, virtual, rather than physical positrons halfway through it's 720 degree cycle.
 * This electron shell acts as the Markov blanket. It is a surface of contextual gauge twists (`+` and `-`, defined in [`QuCalc.md`](./QuCalc.md)) that actively negotiates with the external environment.
 * When hydrogen atoms cluster, their Markov blankets merge. They form covalent and van der Waals bonds, sharing their peripheral ZFA closures to create a structurally "thicker" topological defense.
 
