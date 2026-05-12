@@ -4,7 +4,7 @@
 
 import QLF_Axioms
 import QLF_QuCalc
-import QLF_Universality
+-- import QLF_Universality
 import QLF_Critical_Line
 import Mathlib.NumberTheory.LSeries.RiemannZeta
 import Mathlib.Data.Complex.Basic
