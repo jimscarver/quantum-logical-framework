@@ -28,7 +28,7 @@ Every fundamental breakthrough in our understanding of reality has demanded the 
 
 As exposed by the Busy Beaver function, the classical ZFC framework collapses under the weight of unconstrained formal infinity. It inevitably leads to uncomputable paradoxes, runaway recursion, and Gödelian incompleteness. A purely Neo-Platonist universal reality, however, is strictly constructive and harmonious. In a physical, possibilist universe, unclosed recursion and self-referential pathologies cannot physically persist. 
 
-To model this reality, we had to build a new foundational mathematics, detailed in `RhoQuCalc.md`. By replacing the continuous infinite tape of classical computation with discrete, possibilist topology, RhoQuCalc physically solves the Busy Beaver flaw. It enforces finite local distinction-closures under Zero Free Action, ensuring that any unbalanced, infinitely recursive path is topologically annihilated before it can break the system. We are not just describing the universe differently; we are justifying and providing the exact new mathematics required to compute it. In this framework, the fundamental bits of Shannon's information theory cease to be mere abstractions; they are physically realized, achieving perfect mathematical harmony under the strict law of Zero Free Action.
+To model this reality, we had to build a new foundational mathematics, detailed in `QuCalc.md`. By replacing the continuous infinite tape of classical computation with discrete, possibilist topology, RhoQuCalc physically solves the Busy Beaver flaw. It enforces finite local distinction-closures under Zero Free Action, ensuring that any unbalanced, infinitely recursive path is topologically annihilated before it can break the system. We are not just describing the universe differently; we are justifying and providing the exact new mathematics required to compute it. In this framework, the fundamental bits of Shannon's information theory cease to be mere abstractions; they are physically realized, achieving perfect mathematical harmony under the strict law of Zero Free Action.
 
 ZFC is flawed logic, suitable only where there are not exploding infinities. ZFA is correct logic. (Universality.md) (Riemann-Conjecture-Proof.md)
 
@@ -78,7 +78,7 @@ From this single constraint everything else is derived (all proven in the repo):
 - Gravity as net radial bias in spatial twists (`gravitational_tensor.py`)
 - The dynamical event-synthesis tensor that completes Einstein’s equations (`SpacetimeDynamics.lean`)
 - Pauli exclusion as antisymmetric parallel composition (`PauliExclusion.lean`)
-- RhoQuCalc parallelism and replication (`RhoQuCalc.lean`)
+- RhoQuCalc parallelism and replication (`QuCalc.lean`)
 
 Nothing else is postulated. Constants are derived, not inserted. Singularities are impossible because curvature is bounded by discrete event density.
 
