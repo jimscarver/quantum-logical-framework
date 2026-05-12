@@ -8,10 +8,10 @@ In the Standard Model of particle physics, CP violation (Charge Parity violation
 In the Quantum Logical Framework (QLF), this asymmetry is not an anomaly. It is the inevitable mathematical outcome of **evolutionary game theory** operating over a discrete, possibilist topology. As outlined in [`Philosophy.md`](./Philosophy.md), the universe is an information ecology driven by active inference [2]. In this ecology, conjugate topologies (Matter and Antimatter) compete for stable Zero Free Action (ZFA) closure. 
 
 ## 2. The Markov Blanket of Matter
-To survive in a possibilist universe, a logical history must maintain its structural integrity against a chaotic environment. It does this by forming a **Markov blanket**—a statistical boundary that separates internal, stable states from external, unclosed free action, a concept central to the Free Energy Principle and active inference [2].
+To survive in a possibilist universe, a logical history must maintain its structural integrity against a chaotic environment. It does this by forming a **Markov blanket**—a statistical boundary that separates internal, stable states from external, unclosed free action, a concept central to the Free Energy Principle and active inference [2]. See ([Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md))
 
 Consider the hydrogen atom:
-* The massive, tightly bound inner closure (the proton) is protected by a peripheral, dynamically balancing closure (the electron shell) with half-spin interaction with electrons exhibiting, virtual, rather than physical positrons halfway through it's 720 degree cycle.
+* The massive, tightly bound inner closure (the proton) is protected by a peripheral, dynamically balancing closure (the electron shell) with half-spin interaction with electrons exhibiting, virtual, rather than persistant positrons halfway through it's 720 degree cycle.
 * This electron shell acts as the Markov blanket. It is a surface of contextual gauge twists (`+` and `-`, defined in [`QuCalc.md`](./QuCalc.md)) that actively negotiates with the external environment.
 * When hydrogen atoms cluster, their Markov blankets merge. They form covalent and van der Waals bonds, sharing their peripheral ZFA closures to create a structurally "thicker" topological defense.
 
