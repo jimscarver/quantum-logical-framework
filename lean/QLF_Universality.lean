@@ -1,5 +1,5 @@
 -- QLF_Universality.lean
--- Formal Proof of Universality (minimal fix)
+-- Minimal fix for build
 
 import QLF_Axioms
 import QLF_QuCalc
@@ -15,7 +15,7 @@ structure FiniteLogicalSystem where
   distinction : carrier → carrier → Prop
   [decidable : ∀ a b, Decidable (distinction a b)]
 
--- Correct Fintype instance
+-- Fixed Fintype instance
 instance (L : FiniteLogicalSystem) : Fintype (L.carrier × L.carrier) :=
   Fintype.prod L.fintype L.fintype
 
