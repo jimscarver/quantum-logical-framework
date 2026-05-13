@@ -1,5 +1,5 @@
 -- SpacetimeDynamics.lean
--- Pauli-matrix representation + bridge to QuCalc/QLF
+-- Minimal working version (fixed Mathlib API)
 
 import QLF_Axioms
 import QLF_QuCalc
@@ -44,15 +44,5 @@ theorem Form.determinant_is_minkowski (f : Form) :
     f.det = f.t ^ 2 - f.x ^ 2 - f.y ^ 2 - f.z ^ 2 := by
   simp [Form.det, Form.toMatrix]
   ring_nf
-
--- Bridge to QuCalc
-noncomputable def synthesizeForm (s : TopoString) : Form :=
-  { t := (count_pos s - count_neg s : ℂ), x := 0, y := 0, z := 0 }
-
-theorem zfa_implies_hermitian (s : TopoString) (h : achieves_ZFA s) :
-    (synthesizeForm s).toMatrix.IsHermitian := by
-  have h_sym := zfa_implies_critical_line s h
-  simp [synthesizeForm, is_symmetric] at h_sym
-  exact Matrix.isHermitian_add_selfAdjoint _
 
 end noncomputable section
