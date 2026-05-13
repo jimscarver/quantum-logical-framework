@@ -401,3 +401,29 @@ The next step is to extend the same construction from single histories to
 networks of interacting histories, so that full emergent geometry can be shown
 at the multi-event level.
 
+## Holographic Emergence: de Sitter Expansion and Anti-de Sitter Stability
+
+In the Quantum Logical Framework, the holographic principle is not a duality between two separate theories — it is an **identity** between the internal branching logic of the QuCalc tree and the boundary closures that survive Zero Free Action.
+
+**de Sitter space** arises naturally as the geometry of **possibilist expansion**. When independent replication processes (`*P`) dominate, each new distinction increases the event density outward. The positive cosmological constant emerges directly from the imbalance of unresolved twists: the manifold expands because more logical possibilities are continuously being generated than can be immediately closed.
+
+**Anti-de Sitter (AdS) space**, by contrast, is the stable, high-density phase of **interlocking ZFA closures**. When multiple processes become entangled (`P | Q`) and share Markov blankets, the frequency of local clocks increases and the twist manifold develops a contractive “sink.” The negative cosmological constant is not an arbitrary parameter — it is the measurable signature of high-density logical clustering. In QLF, AdS geometry is the topological consequence of many overlapping ZFA-stable boundaries reinforcing one another.
+
+### The AdS/CFT Identity in QLF
+
+In classical physics the AdS/CFT correspondence is a conjectured duality. In QLF it is a **provable identity**:
+
+- The **bulk** (AdS interior) is the space of unresolved internal nodes of the QuCalc generator tree.
+- The **boundary** (CFT) consists of the terminal leaves that satisfy the ZFA condition (exact phase balance, `sum imbalance = 0`).
+- Because a bulk path only persists if it terminates in a ZFA-stable boundary, the entire bulk is mathematically identical to the sum of its boundary states. The holographic principle is therefore a topological necessity of closure, not an extra assumption.
+
+This identity is machine-verified in `RhoQuCalc.lean` and `ZFAEventDynamics.lean`: a single replication process drives de Sitter-like expansion, while parallel composition of entangled closures with shared ZFA constraints produces the contractive, stable geometry of Anti-de Sitter space.
+
+### Solving the Ultraviolet Catastrophe
+
+The holographic boundary in QLF acts as a natural ultraviolet shield. Self-reference, unbounded recursion, and the Busy Beaver explosion — the pathologies that destroy ZFC-based mathematics — are structurally screened at the boundary. Only finite, balanced distinction closures survive. The “ultraviolet catastrophe of mathematics” simply does not occur inside the generated closure space.
+
+Thus, the geometry of the universe in QLF is not imposed from outside; it is the direct consequence of its information-theoretic cooperation level. de Sitter expansion reflects the open generation of new distinctions; Anti-de Sitter stability reflects the deep interlocking of already-resolved closures. Both are different phases of the same underlying logical dynamics.
+
+This is Neo-Platonist universality in physical form: the One (the uniform QuCalc algebra) generates the Many (all possible geometries) without ever losing coherence.
+
