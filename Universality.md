@@ -32,6 +32,8 @@ QLF then supplies the stronger completion:
 - all such local distinction-closures are generated,
 - and those that close in the greatest number of ways dominate realized history.
 
+Because these binary distinctions require a finite resolution step, the time delay between logical states is determined by $1/W_{ZFA}$ (where $W_{ZFA}$ is the degeneracy of possible Zero Free Action paths). This makes QLF a **Universal NAND-Delay system**, where the physical emergence of time and the logic of binary switching are one and the same.
+
 ## Turing and the Difference Between Simulation and Generation
 
 Alan Turing showed that a universal machine can simulate any effective procedure by sequential symbolic steps.
@@ -43,6 +45,8 @@ A universal Turing machine is universal because it can emulate any other computa
 ## Gödel Does Not Apply to QLF
 
 Gödel incompleteness depends on self-reference. QLF excludes that possibility by construction: only finite local distinction-closures under Zero Free Action persist.
+
+Furthermore, QLF avoids the **"Busy Beaver" ultraviolet catastrophe** of standard computation: because every admissible system must successfully pass the `full_zeno_prune` operation (reducing to the empty vacuum string), there are no uncomputable, non-halting, or infinite histories in the observable space. If a logical sequence doesn't formally close, it simply is not physically realized.
 
 ## The Core Theorem (now formally proved)
 
@@ -112,7 +116,7 @@ The universality claim is now supported by:
 - `lean/QLF_Riemann.lean` — concrete mathematical consequence of the same closure logic
 - `lean/QLF_Critical_Line.lean`, `QLF_QuCalc.lean`, `QLF_Axioms.lean` — the verified foundation
 - `qucalc_engine.py` — computational driver confirming the generative engine
-- [Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md) — strong formal consequence
+- [`Riemann-Conjecture-Proof.md`](Riemann-Conjecture-Proof.md) — strong formal consequence
 
 ## Final Statement
 
