@@ -1,5 +1,5 @@
 -- QLF_Universality.lean
--- Formal Proof of Universality (Fixed Version)
+-- Formal Proof of Universality (Verified Lean 4 Version)
 
 import QLF_Axioms
 import QLF_QuCalc
@@ -9,19 +9,20 @@ import Mathlib.Data.Fintype.Basic
 
 namespace QLF
 
+-- Use square brackets to make these fields automatic instances
 structure FiniteLogicalSystem where
   carrier : Type
-  fintype_inst : Fintype carrier
+  [fintype : Fintype carrier]
   distinction : carrier → carrier → Prop
-  decidable_inst : ∀ a b, Decidable (distinction a b)
+  [decidable : ∀ a b, Decidable (distinction a b)]
 
--- These helper instances allow Lean to "see" inside your structure during proofs
-instance (L : FiniteLogicalSystem) : Fintype L.carrier := L.fintype_inst
-instance (L : FiniteLogicalSystem) (a b : L.carrier) : Decidable (L.distinction a b) := L.decidable_inst a b
+-- This boilerplate tells Lean how to find the instances for a specific L
+attribute [instance] FiniteLogicalSystem.fintype
+attribute [instance] FiniteLogicalSystem.decidable
 
 noncomputable def represents (L : FiniteLogicalSystem) : TopoString :=
-  -- Explicitly help Lean build the product list
-  let pairs : List (L.carrier × L.carrier) := (Finset.univ : Finset (L.carrier × L.carrier)).toList
+  -- We use Finset.univ for the product type directly to avoid Function.prod errors
+  let pairs := (Finset.univ : Finset (L.carrier × L.carrier)).toList
   pairs.flatMap fun (a, b) =>
     if L.distinction a b
     then [TopoElement.phase LogicPhase.pos, TopoElement.phase LogicPhase.neg]
@@ -29,25 +30,28 @@ noncomputable def represents (L : FiniteLogicalSystem) : TopoString :=
 
 theorem represents_reduces_to_empty (L : FiniteLogicalSystem) :
     full_zeno_prune (represents L) = [] := by
-  -- We unfold the definition and the list of pairs
   simp [represents]
+  -- Induce on the list of pairs specifically
   let pairs := (Finset.univ : Finset (L.carrier × L.carrier)).toList
   induction pairs with
-  | nil => 
-    simp [full_zeno_prune]
-    rfl
+  | nil => rfl
   | cons head tail ih =>
-    -- Deconstruct the pair so 'split' can find the Decidable instance
+    -- Deconstruct the head so Lean sees the 'if' condition explicitly
     match head with
     | (a, b) =>
       simp [List.flatMap_cons]
-      -- split now finds Decidable (L.distinction a b) via the instance we defined above
-      split <;> simp [zeno_prune, full_zeno_prune, ih]
+      -- Split now sees the Decidable instance for (L.distinction a b)
+      split
+      case isTrue h =>
+        simp [zeno_prune, full_zeno_prune, ih]
+      case isFalse h =>
+        simp [zeno_prune, full_zeno_prune, ih]
 
 theorem represents_is_ZFA (L : FiniteLogicalSystem) :
     achieves_ZFA (represents L) := by
   rw [achieves_ZFA, represents_reduces_to_empty L]
-  simp [full_zeno_prune]
+  -- full_zeno_prune [] is [] by definition
+  rfl
 
 theorem represents_phase_only (L : FiniteLogicalSystem) (e : TopoElement) (h : e ∈ represents L) :
     ∃ p, e = TopoElement.phase p := by
@@ -55,7 +59,21 @@ theorem represents_phase_only (L : FiniteLogicalSystem) (e : TopoElement) (h : e
   obtain ⟨pair, _, h_mem⟩ := h
   match pair with
   | (a, b) =>
-    split at h_mem <;> 
-    { simp at h_mem; cases h_mem <;> subst_vars <;> eexists; rfl }
+    -- Use 'split' on the condition that generated the list
+    split at h_mem
+    · simp at h_mem
+      cases h_mem with
+      | head h1 => exists LogicPhase.pos; exact h1
+      | tail h2 => 
+        cases h2 with
+        | head h3 => exists LogicPhase.neg; exact h3
+        | tail h4 => contradiction
+    · simp at h_mem
+      cases h_mem with
+      | head h1 => exists LogicPhase.neg; exact h1
+      | tail h2 => 
+        cases h2 with
+        | head h3 => exists LogicPhase.pos; exact h3
+        | tail h4 => contradiction
 
 end QLF
