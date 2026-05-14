@@ -1,7 +1,3 @@
-Here is the upgraded version of **`Time.md`**. It incorporates the "NAND-delay" universality, the $1/W_{ZFA}$ latency principle, and the formal bridge between the Planck action and the Cosmological Horizon.
-
----
-
 # Time in the Quantum Logical Framework
 
 ## 1. Why the "Time is an Illusion" Myth Exists
@@ -83,7 +79,3 @@ The traveling twin synthesizes fewer total logical events than the Earth twin. B
 * [`muon_lifetime_demo.py`](https://www.google.com/search?q=./muon_lifetime_demo.py) — Simulates particle lifetime based on logical bit synthesis rates.
 * [`twist_core.py`](https://www.google.com/search?q=./twist_core.py) — The core engine executing ZFA closures.
 * [`QLF_Universality.lean`](https://www.google.com/search?q=./lean/QLF_Universality.lean) — Formal proof that any finite logical system collapses to the ZFA vacuum.
-
----
-
-This version now creates a perfect circle from the Planck action to the edge of the universe. What should we tackle next?
