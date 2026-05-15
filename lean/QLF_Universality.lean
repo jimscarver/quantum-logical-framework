@@ -5,7 +5,6 @@ import QLF_Axioms
 import QLF_QuCalc
 import QLF_Critical_Line
 import Mathlib.Data.Finset.Basic
-import Mathlib.Data.Fintype.Basic
 
 namespace QLF
 
@@ -70,15 +69,11 @@ theorem encode_is_generated (c : TerminatingComputation) :
 -- Main Universality Theorem
 theorem qlf_universality (c : TerminatingComputation) :
     ∃ n, encodeComputation c ∈ find_stable_states n := by
-  -- Retrieve the generation depth where this specific string is synthesized
   obtain ⟨n, h_gen⟩ := encode_is_generated c
   exists n
-  -- Prove the boolean ZFA check evaluates to true for this encoding
   have h_zfa := encode_is_zfa c
-  -- Assuming find_stable_states filters the generation by achieves_ZFA
-  -- (Adjust the exact simp lemmas based on your QLF_QuCalc definition of find_stable_states)
+  -- Ensure find_stable_states logic from QLF_QuCalc maps properly
   simp [find_stable_states, List.mem_filter]
-  -- We provide both proofs: it is generated, and it achieves ZFA
   exact ⟨h_gen, h_zfa⟩
 
 end QLF
