@@ -72,7 +72,6 @@ theorem qlf_universality (c : TerminatingComputation) :
   obtain ⟨n, h_gen⟩ := encode_is_generated c
   exists n
   have h_zfa := encode_is_zfa c
-  -- Ensure find_stable_states logic from QLF_QuCalc maps properly
   simp [find_stable_states, List.mem_filter]
   exact ⟨h_gen, h_zfa⟩
 
