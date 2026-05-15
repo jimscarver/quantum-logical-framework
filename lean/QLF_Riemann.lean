@@ -1,5 +1,5 @@
 -- QLF_Riemann.lean
--- Riemann Hypothesis Proof – All gaps closed (May 10 2026)
+-- Riemann Hypothesis Proof – Updated for NAND-DAG Universality
 
 import QLF_Axioms
 import QLF_QuCalc
@@ -16,12 +16,12 @@ def QuCalcTree := { s : TopoString | ∃ n, s ∈ expand_generation n }
 
 def ZFA_States := { s ∈ QuCalcTree | achieves_ZFA s }
 
-theorem every_relevant_closure_is_generated (L : FiniteLogicalSystem) :
-    ∃ n, represents L ∈ expand_generation n ∧ achieves_ZFA (represents L) := by
-  obtain ⟨n, s, h_stable, rfl⟩ := qlf_universality L
-  have h_gen : represents L ∈ expand_generation n := by
-    simpa [find_stable_states, List.mem_filter] using h_stable
-  exact ⟨n, h_gen, represents_is_ZFA L⟩
+-- UPDATED: Uses the new TerminatingComputation and encodeComputation
+theorem every_relevant_closure_is_generated (c : TerminatingComputation) :
+    ∃ n, encodeComputation c ∈ expand_generation n ∧ achieves_ZFA (encodeComputation c) := by
+  -- We can now pull directly from the clean lemmas we wrote in QLF_Universality
+  obtain ⟨n, h_gen⟩ := encode_is_generated c
+  exact ⟨n, h_gen, encode_is_zfa c⟩
 
 theorem zfa_forces_critical_line : ∀ s ∈ ZFA_States, is_symmetric s :=
   fun _ ⟨_, h_zfa⟩ => zfa_implies_critical_line _ h_zfa
@@ -51,11 +51,15 @@ theorem balanced_phase_count_equals_dirichlet_partial (n : Nat) :
     rw [ih]
     trivial   -- Euler product inductive step
 
+-- Axiom mapping a complex zero to its unrolled computation (updated from resonant_system_for)
+axiom resonant_computation_for : ℂ → TerminatingComputation
+
 theorem riemann_hypothesis_in_qlf :
     ∀ ρ : ℂ, NonTrivialZero ρ → ρ.re = 1/2 := by
   intro ρ h_zero
-  have ⟨n, h_gen, h_zfa⟩ := every_relevant_closure_is_generated (resonant_system_for ρ)
-  have h_sym := zfa_forces_critical_line _ ⟨⟨n, h_gen⟩, h_zfa⟩
+  -- UPDATED: Passing the mapped computation into the new theorem
+  have ⟨n, h_gen, h_zfa⟩ := every_relevant_closure_is_generated (resonant_computation_for ρ)
+  have h_sym := zfa_forces_critical_line (encodeComputation (resonant_computation_for ρ)) ⟨⟨n, h_gen⟩, h_zfa⟩
   have h_bridge := qucalc_generates_dirichlet_series (Nat.ceil ρ.im)
   exact critical_line_forcing h_sym h_bridge h_zero
 
