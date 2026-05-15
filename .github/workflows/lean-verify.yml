@@ -32,8 +32,9 @@ jobs:
 
       - name: Clean Lake cache (prevents "unknown module prefix" errors)
         run: |
-          rm -rf .lake/build
-          lake exe cache clean || true
+          pkill lean
+          rm -rf .lake
+          lake clean
 
       - name: Update Lake dependencies
         run: lake update
