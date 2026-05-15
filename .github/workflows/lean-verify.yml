@@ -32,7 +32,7 @@ jobs:
 
       - name: Clean Lake cache (prevents "unknown module prefix" errors)
         run: |
-          pkill lean
+          pkill lean || true
           rm -rf .lake
           lake clean
 
