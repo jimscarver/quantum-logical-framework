@@ -4,7 +4,6 @@
 import QLF_Axioms
 import QLF_QuCalc
 import QLF_Critical_Line
-import Mathlib.Data.Finset.Basic
 
 namespace QLF
 
@@ -47,7 +46,6 @@ theorem encode_is_generated (c : TerminatingComputation) :
   have h_phase := encode_is_phase_only c
   exact qucalc_generates_all_phase_strings s.length s ⟨rfl, h_phase⟩
 
--- Main Universality Theorem
 theorem qlf_universality (c : TerminatingComputation) :
     ∃ n, encodeComputation c ∈ find_stable_states n := by
   have ⟨n, h_gen⟩ := encode_is_generated c
