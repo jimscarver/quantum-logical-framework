@@ -26,11 +26,11 @@ theorem encode_is_phase_only (c : TerminatingComputation) :
   obtain ⟨⟨_, _, isNand⟩, _, hmem⟩ := h
   simp only at hmem
   split_ifs at hmem with hif
-  · simp only [List.mem_cons, List.mem_singleton] at hmem
+  · simp only [List.mem_cons, List.mem_nil_iff, or_false] at hmem
     rcases hmem with rfl | rfl
     · exact ⟨LogicPhase.pos, rfl⟩
     · exact ⟨LogicPhase.neg, rfl⟩
-  · simp only [List.mem_cons, List.mem_singleton] at hmem
+  · simp only [List.mem_cons, List.mem_nil_iff, or_false] at hmem
     rcases hmem with rfl | rfl
     · exact ⟨LogicPhase.neg, rfl⟩
     · exact ⟨LogicPhase.pos, rfl⟩

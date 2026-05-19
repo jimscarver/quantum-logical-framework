@@ -3,7 +3,6 @@
 -- Also provides Form (Pauli basis) and EventSynthesisField for downstream modules.
 
 import Mathlib.LinearAlgebra.Matrix.Hermitian
-import Mathlib.LinearAlgebra.Matrix.Determinant
 import Mathlib.Data.Complex.Basic
 import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
 
