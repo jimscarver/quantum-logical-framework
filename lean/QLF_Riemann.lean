@@ -35,7 +35,7 @@ theorem zfa_forces_critical_line : ∀ s ∈ ZFA_States, is_symmetric s :=
 def sum_of_resonant_generations (n : Nat) : ℕ :=
   (find_stable_states n).length
 
-def zeta_partial_sum (n : Nat) : ℂ :=
+noncomputable def zeta_partial_sum (n : Nat) : ℂ :=
   ∑ k ∈ Finset.range n, 1 / (k + 1 : ℂ) ^ (1/2 : ℂ)
 
 theorem balanced_phase_count_equals_dirichlet_partial (n : Nat) :
@@ -60,6 +60,6 @@ theorem riemann_hypothesis_in_qlf :
   have ⟨n, h_gen, h_zfa⟩ := every_relevant_closure_is_generated (resonant_computation_for ρ)
   have h_sym := zfa_forces_critical_line (encodeComputation (resonant_computation_for ρ))
     ⟨⟨n, h_gen⟩, h_zfa⟩
-  exact critical_line_forcing h_sym (by sorry) h_zero
+  exact critical_line_forcing (n := n) h_sym (by sorry) h_zero
 
 end QLF
