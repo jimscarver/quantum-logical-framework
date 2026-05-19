@@ -63,7 +63,7 @@ def charToTwist : Char → Option Twist
   | '-' => some .minus
   | _   => none
 
-def History := List Twist
+abbrev History := List Twist
 
 def historyToString (h : History) : String :=
   String.ofList (h.map twistToChar)

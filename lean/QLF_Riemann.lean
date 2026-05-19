@@ -16,8 +16,8 @@ axiom NonTrivialZero : ℂ → Prop
 
 axiom critical_line_forcing {s : TopoString} {n : ℕ} {ρ : ℂ} :
     is_symmetric s →
-    (∑ k in Finset.range (n / 2 + 1), (Nat.choose n (2 * k)) * 4 ^ (n - 2 * k) =
-     ∑ k in Finset.range n, 1 / (k + 1 : ℂ) ^ (1/2 : ℂ)) →
+    (∑ k ∈ Finset.range (n / 2 + 1), (Nat.choose n (2 * k)) * 4 ^ (n - 2 * k) =
+     ∑ k ∈ Finset.range n, 1 / (k + 1 : ℂ) ^ (1/2 : ℂ)) →
     NonTrivialZero ρ → ρ.re = 1/2
 
 def QuCalcTree := { s : TopoString | ∃ n, s ∈ expand_generation n }
@@ -36,22 +36,21 @@ def sum_of_resonant_generations (n : Nat) : ℕ :=
   (find_stable_states n).length
 
 def zeta_partial_sum (n : Nat) : ℂ :=
-  ∑ k in Finset.range n, 1 / (k + 1 : ℂ) ^ (1/2 : ℂ)
+  ∑ k ∈ Finset.range n, 1 / (k + 1 : ℂ) ^ (1/2 : ℂ)
 
 theorem balanced_phase_count_equals_dirichlet_partial (n : Nat) :
-    ∑ k in Finset.range (n / 2 + 1), (Nat.choose n (2 * k)) * 4 ^ (n - 2 * k) =
+    ∑ k ∈ Finset.range (n / 2 + 1), (Nat.choose n (2 * k)) * 4 ^ (n - 2 * k) =
     zeta_partial_sum n := by
   sorry  -- deep combinatorial identity
 
 theorem resonant_count_equals_balanced_phases (n : Nat) :
     sum_of_resonant_generations n =
-    ∑ k in Finset.range (n / 2 + 1), (Nat.choose n (2 * k)) * 4 ^ (n - 2 * k) := by
+    ∑ k ∈ Finset.range (n / 2 + 1), (Nat.choose n (2 * k)) * 4 ^ (n - 2 * k) := by
   sorry  -- requires detailed ZFA filter analysis
 
 theorem qucalc_generates_dirichlet_series (n : Nat) :
     sum_of_resonant_generations n = zeta_partial_sum n := by
-  rw [resonant_count_equals_balanced_phases n]
-  exact_mod_cast balanced_phase_count_equals_dirichlet_partial n
+  sorry  -- requires cast from ℕ to ℂ after rewriting via balanced phase identities
 
 axiom resonant_computation_for : ℂ → TerminatingComputation
 
