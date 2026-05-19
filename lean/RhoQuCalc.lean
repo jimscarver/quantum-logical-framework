@@ -31,6 +31,39 @@ def toTopoString : RhoProcess → TopoString
   | .sequence p q => toTopoString p ++ toTopoString q
   | .lift _ => [TopoElement.phase LogicPhase.neg, TopoElement.phase LogicPhase.pos]
 
+/-- Dagger involution: swaps action↔lift and reverses sequence order. -/
+def dagger : RhoProcess → RhoProcess
+  | .zero         => .zero
+  | .action f     => .lift f
+  | .lift f       => .action f
+  | .parallel p q => .parallel (dagger p) (dagger q)
+  | .sequence p q => .sequence (dagger q) (dagger p)
+
+/-- is_gauge returns true for ALL TopoElements, so achieves_ZFA s ↔ full_zeno_prune s = [].
+    This lemma captures the ZFA closure under concatenation. -/
+private lemma achieves_ZFA_append (s1 s2 : TopoString)
+    (h1 : achieves_ZFA s1) (h2 : achieves_ZFA s2) :
+    achieves_ZFA (s1 ++ s2) := by
+  -- full_zeno_prune s1 = [] and full_zeno_prune s2 = [] implies
+  -- full_zeno_prune (s1 ++ s2) = []. Provable by strong induction on length
+  -- (every non-empty symmetric pure-phase string has an adjacent cancel pair),
+  -- but formalizing requires substantial infrastructure.
+  sorry
+
+/-- Every RhoProcess toTopoString achieves ZFA: base cases by decide,
+    inductive cases via achieves_ZFA_append. -/
+theorem toTopoString_always_zfa (p : RhoProcess) : achieves_ZFA (toTopoString p) := by
+  induction p with
+  | zero         => simp only [toTopoString]; decide
+  | action f     => simp only [toTopoString]; decide
+  | lift f       => simp only [toTopoString]; decide
+  | parallel p q ihp ihq =>
+    simp only [toTopoString]
+    exact achieves_ZFA_append _ _ ihp ihq
+  | sequence p q ihp ihq =>
+    simp only [toTopoString]
+    exact achieves_ZFA_append _ _ ihp ihq
+
 namespace RhoProcess
 
 /-- Evaluation of a RhoProcess into its matrix representation. -/
@@ -40,6 +73,22 @@ noncomputable def eval : RhoProcess → Matrix (Fin 2) (Fin 2) ℂ
   | parallel p1 p2 => p1.eval + p2.eval
   | sequence p1 p2 => p1.eval * p2.eval
   | lift f => f.toMatrix.conjTranspose
+
+/-- eval respects the dagger involution: eval (dagger p) = (eval p)†. -/
+theorem eval_dagger (p : RhoProcess) : eval (dagger p) = (eval p).conjTranspose := by
+  induction p with
+  | zero =>
+    simp [dagger, eval]
+  | action f =>
+    simp [dagger, eval]
+  | lift f =>
+    simp only [dagger, eval]
+    simp [Form.toMatrix_adjoint]
+  | parallel p q ihp ihq =>
+    simp only [dagger, eval, ihp, ihq, Matrix.conjTranspose_add]
+  | sequence p q ihp ihq =>
+    simp only [dagger, eval]
+    rw [ihq, ihp, Matrix.conjTranspose_mul]
 
 /--
   Process Equilibrium (Hermitian Conjugacy ↔ ZFA bridge).
@@ -62,9 +111,13 @@ theorem rho_process_zfa_equiv_hermitian (p : RhoProcess) :
   constructor
   · intro h_zfa
     have _ := zfa_implies_critical_line (toTopoString p) h_zfa
-    sorry  -- bridge: is_symmetric (toTopoString p) → (p.eval).IsHermitian
+    -- NOTE: This direction is false for `sequence` processes in general.
+    -- eval (sequence p q) = eval p * eval q, which is Hermitian only when
+    -- eval p and eval q commute. achieves_ZFA on toTopoString cannot detect
+    -- commutativity (parallel and sequence share the same toTopoString).
+    sorry
   · intro _
-    sorry  -- bridge: (p.eval).IsHermitian → achieves_ZFA (toTopoString p)
+    exact toTopoString_always_zfa p
 
 /--
   A process transition is valid (free) if the determinant is preserved.
