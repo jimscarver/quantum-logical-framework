@@ -39,7 +39,20 @@ theorem encode_is_phase_only (c : TerminatingComputation) :
 -- reduces to [] because every phase element is paired with its complement.
 theorem encode_reduces_to_empty (c : TerminatingComputation) :
     full_zeno_prune (encodeComputation c) = [] := by
-  sorry
+  have h_zp : zeno_prune (encodeComputation c) = [] := by
+    simp only [encodeComputation]
+    induction c.edges with
+    | nil => rfl
+    | cons edge rest ih =>
+      obtain ⟨_, _, b⟩ := edge
+      simp only [List.flatMap_cons]
+      -- each edge maps to [pos,neg] or [neg,pos]; both are stripped by zeno_prune
+      cases b <;> exact ih
+  by_cases hempty : encodeComputation c = []
+  · rw [hempty, full_zeno_prune, dif_neg (by decide)]
+  · have hlt : (zeno_prune (encodeComputation c)).length < (encodeComputation c).length := by
+      rw [h_zp]; exact List.length_pos.mpr hempty
+    rw [full_zeno_prune, dif_pos hlt, h_zp, full_zeno_prune, dif_neg (by decide)]
 
 theorem encode_is_zfa (c : TerminatingComputation) :
     achieves_ZFA (encodeComputation c) := by

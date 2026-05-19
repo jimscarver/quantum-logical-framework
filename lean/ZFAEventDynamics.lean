@@ -172,9 +172,20 @@ theorem event_synthesis_phi_positive (e : ZFAEvent) (h_local : e.localFreeAction
 theorem spacetime_from_zfa_preserves_synthesis (e : ZFAEvent) :
     let st := e.synthesizeSpacetime
     st.2.2 = 1 / st.2.1 := by
-  sorry
+  -- f is defined as (if t > 0 then 1/t else 0); t is always ≥ 0 so f = 1/t holds
+  -- (in ℝ, 1/0 = 0 by convention)
+  simp only [ZFAEvent.synthesizeSpacetime]
+  by_cases h : e.localFreeAction > 0
+  · have hH : (H_CONSTANT : ℝ) > 0 := by norm_num [H_CONSTANT]
+    have ht : H_CONSTANT / e.localFreeAction > 0 := div_pos hH h
+    simp [h, ht]
+  · simp only [h, ↓reduceIte, lt_irrefl, ↓reduceIte, div_zero]
 
 theorem zfa_dynamics_drive_acceleration (φ : EventSynthesisField)
     (h_static : φ.dphi_dt = 0) (h_V : φ.V_phi > 0) :
     φ.w = -1 := by
-  sorry
+  have hne : φ.V_phi ≠ 0 := ne_of_gt h_V
+  simp only [EventSynthesisField.w, EventSynthesisField.stressEnergy, h_static,
+             zero_pow, ne_eq, OfNat.ofNat_ne_zero, not_false_eq_true, mul_zero, zero_add,
+             hne, not_false_eq_true, ↓reduceIte]
+  field_simp
