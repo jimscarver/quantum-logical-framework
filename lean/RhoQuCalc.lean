@@ -57,9 +57,9 @@ private lemma achieves_ZFA_append (s1 s2 : TopoString)
     inductive cases via achieves_ZFA_append. -/
 theorem toTopoString_always_zfa (p : RhoProcess) : achieves_ZFA (toTopoString p) := by
   induction p with
-  | zero         => simp only [toTopoString]; decide
-  | action f     => simp only [toTopoString]; decide
-  | lift f       => simp only [toTopoString]; decide
+  | zero         => simp only [toTopoString]; native_decide
+  | action f     => simp only [toTopoString]; native_decide
+  | lift f       => simp only [toTopoString]; native_decide
   | parallel p q ihp ihq =>
     simp only [toTopoString]
     exact achieves_ZFA_append _ _ ihp ihq
