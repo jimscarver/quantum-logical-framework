@@ -27,7 +27,7 @@ All results emerge purely from Zero Free Action (ZFA), Hermitian closure, and th
 """
 
 from dataclasses import dataclass
-from typing import Dict
+from typing import Dict, List, Sequence
 
 # QuCalc core (identical to magnetism.py)
 from twist_core import magnetic_interval_audit, signed_spatial_interval_units
@@ -242,6 +242,68 @@ def format_domain(image: GravitationalImage) -> str:
         f"emergence                            : Gravity = net radial signed bias (uncanceled spatial action).",
         f"                                     Pure QuCalc logical folds → observed GR/Newtonian behavior.",
     ])
+
+
+# =============================================================================
+# GravitationalTensor – entropy-network model used by constants_mapper.py
+# =============================================================================
+
+@dataclass
+class ClosureNode:
+    history: str
+    period: int       # topological depth = len(history)
+    prime_mass: float  # native mass units = period / min_zfa_length
+
+
+class GravitationalTensor:
+    """
+    Entropy-network model of the QLF gravitational coupling.
+
+    Populated from a stable-history ensemble via compute_native_fields();
+    exposes .nodes, .entropy_density, and native_entropy_coupling() (dimensionless G_Q).
+    """
+
+    def __init__(
+        self,
+        seeds: Sequence[str] = ("^", "<", "/", "+"),
+        causal_horizon: int = 12,
+        min_zfa_length: int = 4,
+        max_histories: int = 256,
+    ) -> None:
+        self.seeds = tuple(seeds)
+        self.causal_horizon = causal_horizon
+        self.min_zfa_length = min_zfa_length
+        self.max_histories = max_histories
+        self.nodes: Dict[str, ClosureNode] = {}
+        self.entropy_density: Dict[str, float] = {}
+
+    def compute_native_fields(self, stable_histories: List[str]) -> None:
+        """Compute period, prime_mass, and entropy density for each stable history."""
+        self.nodes = {}
+        self.entropy_density = {}
+        for hist in stable_histories:
+            n = len(hist)
+            prime_mass = n / self.min_zfa_length
+            self.nodes[hist] = ClosureNode(history=hist, period=n, prime_mass=prime_mass)
+            # Entropy density: information per unit length (shorter closures = denser)
+            self.entropy_density[hist] = 1.0 / n if n > 0 else 0.0
+
+    def native_entropy_coupling(self) -> float:
+        """
+        Dimensionless QLF gravitational coupling G_Q.
+
+        Ratio of the second moment of entropy density to the first moment squared —
+        the excess coupling relative to a uniform (non-interacting) ensemble.
+        """
+        if not self.entropy_density:
+            return 0.0
+        densities = list(self.entropy_density.values())
+        n = len(densities)
+        mean_d = sum(densities) / n
+        mean_d2 = sum(d * d for d in densities) / n
+        if mean_d == 0.0:
+            return 0.0
+        return mean_d2 / (mean_d * mean_d)
 
 
 if __name__ == "__main__":

@@ -11,10 +11,17 @@ lean_lib QLF where
   srcDir := "lean"
   roots := #[
     `QLF_Axioms,
+    `QLF_Combinatorics,
     `QLF_QuCalc,
     `QLF_Universality,
     `QLF_Critical_Line,
     `QLF_Riemann,
     `SpacetimeDynamics,
-    `RhoQuCalc
+    `RhoQuCalc,
+    `ZFAEventDynamics,
+    `PauliExclusion,
+    `AgeOfUniverse,
+    `ER_EPR_QLF,
+    `StringTheoryQLF,
+    `MTheoryQLF
   ]

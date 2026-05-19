@@ -31,8 +31,12 @@ def compute_imbalance(history: str) -> Tuple[int, ...]:
 
 
 def is_zfa_closed(history: str) -> bool:
-    """True if the history string satisfies Zero Free Action (net imbalance = 0)."""
-    return all(x == 0 for x in compute_imbalance(history))
+    """True if the history string satisfies Zero Free Action (pairwise twist balance = 0)."""
+    count = Counter(history)
+    return (count.get('^', 0) == count.get('v', 0) and
+            count.get('<', 0) == count.get('>', 0) and
+            count.get('/', 0) == count.get('\\', 0) and
+            count.get('+', 0) == count.get('-', 0))
 
 
 def hermitian_conjugate(history: str) -> str:
@@ -109,6 +113,32 @@ class QuCalcEngine:
                 queue.append((next_hist, depth + 1))
 
         return None
+
+    def find_all_zfa(self, prefix: str, extra_depth: int = 4) -> List[str]:
+        """Return all distinct ZFA closures reachable from prefix within extra_depth steps."""
+        results: List[str] = []
+        seen: Set[str] = set()
+        queue: deque = deque([(prefix, 0)])
+
+        while queue:
+            current, depth = queue.popleft()
+            if current in seen:
+                continue
+            seen.add(current)
+
+            if is_zfa_closed(current) and len(current) >= 4:
+                results.append(current)
+
+            if depth >= extra_depth:
+                continue
+
+            for t in TWISTS:
+                next_hist = current + t
+                if len(next_hist) >= 2 and next_hist[-2] == hermitian_conjugate(next_hist[-1]):
+                    continue
+                queue.append((next_hist, depth + 1))
+
+        return results
 
 
 # =============================================================================

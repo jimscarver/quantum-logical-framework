@@ -134,6 +134,45 @@ PARTICLE_LIBRARY: Dict[str, Dict[str, str]] = {
 }
 
 
+class IntuitionisticEngine:
+    """ZFA-based intuitionistic synthesis engine for particle interactions and fusion."""
+
+    def __init__(self) -> None:
+        self._possibilist = PossibilistEngine()
+        self.vacuum_frequency: float = 1.0
+
+    def synthesize_proof(
+        self,
+        seed: str,
+        max_depth: int = 12,
+        environment_block: bool = False,
+        enable_gauge: bool = True,
+    ) -> Optional[tuple]:
+        """Find a ZFA closure for seed. Returns (topology, classification) or None."""
+        closed = self._possibilist.core_engine.find_zfa(seed)
+        if not closed:
+            return None
+        n = len(closed)
+        classification: Dict[str, Any] = {
+            "mass": n // 4,
+            "type": "fermion" if (n // 4) % 2 == 1 else "boson",
+            "delay_cycles": max(1, max_depth // 4),
+            "creates_local": enable_gauge and ('+' in closed or '-' in closed),
+            "density_note": (
+                f"rho={'high (environment blocked)' if environment_block else 'low'}, "
+                f"gauge={'enabled' if enable_gauge else 'disabled'}"
+            ),
+            "hawking_emitted": n > 8,
+        }
+        return (closed, classification)
+
+    def immediate_reentry_unwind(self, topology: str, frequency: float) -> str:
+        """Simulate Hawking-style re-entry emission from a closed topology."""
+        fragment = topology[:4] if len(topology) >= 4 else topology
+        conjugate = hermitian_conjugate(fragment)
+        return f"gamma({conjugate}) @ f={frequency:.2f}"
+
+
 def resolve_rho_process(rho_code: str) -> Dict[str, Any]:
     if execute_rho is None:
         return {

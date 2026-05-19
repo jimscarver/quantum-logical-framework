@@ -5,7 +5,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-from doubler import frequency_doubler  # or integrate Pauli folding from quantum_simulator
+from doubler import construct_logical_doubler  # frequency doubling via QuCalc closure extension
 # from quantum_simulator import pauli_fold, energy_from_dimension
 # from path_integral import sample_zero_action_histories  # future quantum extension
 

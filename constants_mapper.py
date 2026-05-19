@@ -35,7 +35,7 @@ from holographic import project_history
 from twist_core import (
     bound_action_estimate,
     calculate_action,
-    conjugate_history,
+    adjoint_history,
     generate_histories,
     is_admissible_history,
     is_zfa,
@@ -573,7 +573,7 @@ class ConstantsMapper:
         validate_history(hist)
 
         action = calculate_action(hist)
-        adjoint = conjugate_history(hist)
+        adjoint = adjoint_history(hist)
         e_spatial_free, e_local_free, e_bound_total, time_folds = (
             self.extract_topological_action(hist)
         )

@@ -47,10 +47,9 @@ def count_history_multiplicity(processes: Union[str, List[str]]) -> Dict[str, An
             closed = engine.core_engine.find_zfa(proc)
 
         if closed and is_zfa_closed(closed):
-            # For replicated histories we multiply the count
-            # (engine.replicate() already expanded them into the list)
             closed_histories.append(closed)
-            total_multiplicity += 1
+            # Count all ZFA closures reachable from this prefix (path-integral multiplicity)
+            total_multiplicity += len(engine.core_engine.find_all_zfa(closed, extra_depth=4))
         else:
             open_prefixes.append(proc)
 
