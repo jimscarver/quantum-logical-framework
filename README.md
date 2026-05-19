@@ -204,7 +204,3 @@ If the universe is ultimately logical, then physics is not just something to des
 
 It is something to generate.
 
-```
-
-I can also compress this into a shorter, more declarative README if you want.
-```
