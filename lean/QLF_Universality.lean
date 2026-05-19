@@ -52,9 +52,9 @@ theorem encode_reduces_to_empty (c : TerminatingComputation) :
   · rw [hempty, full_zeno_prune, dif_neg (by decide)]
   · have hlt : (zeno_prune (encodeComputation c)).length < (encodeComputation c).length := by
       rw [h_zp]
-      have hne : (encodeComputation c).length ≠ 0 :=
-        fun h => hempty (List.length_eq_zero.mp h)
-      omega
+      cases hec : encodeComputation c with
+      | nil => exact absurd hec hempty
+      | cons _ _ => exact Nat.succ_pos _
     rw [full_zeno_prune, dif_pos hlt, h_zp, full_zeno_prune, dif_neg (by decide)]
 
 theorem encode_is_zfa (c : TerminatingComputation) :
