@@ -1,41 +1,29 @@
 -- QLF FORMALIZATION: LEVEL 2 COMBINATORICS
 -- Defining Multiplicity and the Search for Zero Free Action
 
--- (Assuming imports of TopoElement, TopoString, Phase, Vector, achieves_ZFA from Level 1)
+import QLF_QuCalc
 
--- 1. THE COMPLETE TOPOLOGICAL ALPHABET
--- The 6 fundamental building blocks of the QuCalc combinatorial space.
-def all_elements : List TopoElement := [
-  TopoElement.phase Phase.pos,  -- '+'
-  TopoElement.phase Phase.neg,  -- '-'
-  TopoElement.vec Vector.up,    -- '^'
-  TopoElement.vec Vector.down,  -- 'v'
-  TopoElement.vec Vector.left,  -- '<'
-  TopoElement.vec Vector.right  -- '>'
-]
+-- 1. THE COMPLETE PHASE ALPHABET
+-- The 2 fundamental phase elements of the QLF (+ and - only; gauge is implicit).
+def all_phase_elements : List TopoElement :=
+  [TopoElement.phase LogicPhase.pos, TopoElement.phase LogicPhase.neg]
 
 -- 2. THE COMBINATORIC EXPANSION AXIOM
--- When an open string is unresolved, the engine explores all 6 orthogonal possibilities.
--- This function takes a single history string and branches it into 6 new parallel strings.
+-- A single open string branches into 2 new parallel strings.
 def expand_string (s : TopoString) : List TopoString :=
-  all_elements.map (fun e => s ++ [e])
+  all_phase_elements.map (fun e => s ++ [e])
 
--- 3. THE GENERATIONAL MULTIPLICITY (Energy / E)
--- This takes an entire generation of strings and expands them all.
--- Generation 1 = 6 states. Generation 2 = 36 states. Generation 3 = 216 states...
-def expand_generation (gen : List TopoString) : List TopoString :=
-  gen.bind expand_string
+-- 3. THE GENERATIONAL MULTIPLICITY (list-based, complements Nat-indexed expand_generation)
+-- Generation 1 = 2 states. Generation 2 = 4 states. Generation n = 2^n states.
+def expand_generation_list (gen : List TopoString) : List TopoString :=
+  gen.flatMap expand_string
 
 -- 4. THE ZETA FILTER (Environmental Pressure)
--- The environment relentlessly evaluates the expanding possibility tree.
--- It filters the generation, returning ONLY the topological strings that 
--- mathematically evaluate to Zero Free Action (ZFA).
-def find_stable_states (gen : List TopoString) : List TopoString :=
-  gen.filter achieves_ZFA
+-- Filters the generation, returning only strings that achieve Zero Free Action.
+def find_stable_states_list (gen : List TopoString) : List TopoString :=
+  gen.filter achieves_ZFA_bool
 
--- 5. DEFINING THE "ZERO" (The Prime Lock)
--- A "Zero" in our framework is a generation where `find_stable_states` 
--- returns a non-empty list of unfactorable, closed Markov Blankets.
--- (This represents a resonant frequency or stable atomic energy level).
-def is_resonant_generation (gen : List TopoString) : Bool :=
-  not (find_stable_states gen).isEmpty
+-- 5. RESONANCE DETECTION
+-- A generation is resonant if any ZFA-achieving strings survive.
+def is_resonant_generation_list (gen : List TopoString) : Bool :=
+  !(find_stable_states_list gen).isEmpty

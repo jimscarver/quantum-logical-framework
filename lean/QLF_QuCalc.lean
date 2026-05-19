@@ -40,7 +40,52 @@ def is_resonant_generation (n : Nat) : Bool :=
   (find_stable_states n).length > 0
 
 -- ==========================================
--- 3. THE GENERATOR CRITICAL LINE PROOF
+-- 3. COMPLETENESS: ALL PHASE STRINGS ARE GENERATED
+-- ==========================================
+
+-- Every string of length n whose elements are all phases appears in expand_generation n.
+
+private lemma expand_states_contains (gen : List TopoString) (init : TopoString)
+    (h_init : init ∈ gen) (p : LogicPhase) :
+    init ++ [TopoElement.phase p] ∈ expand_states gen := by
+  induction gen with
+  | nil => exact absurd h_init (List.not_mem_nil _)
+  | cons head tail ih =>
+    simp only [expand_states, branch_state, List.mem_append, List.mem_cons, List.mem_singleton]
+    rcases List.mem_cons.mp h_init with rfl | htail
+    · left; cases p
+      · left; rfl
+      · right; rfl
+    · right; exact ih htail
+
+theorem qucalc_generates_all_phase_strings (n : Nat) (s : TopoString)
+    (h : s.length = n ∧ ∀ e ∈ s, ∃ p, e = TopoElement.phase p) :
+    s ∈ expand_generation n := by
+  obtain ⟨h_len, h_phase⟩ := h
+  induction n generalizing s with
+  | zero =>
+    simp only [expand_generation, List.mem_singleton]
+    exact List.length_eq_zero.mp h_len
+  | succ n ih =>
+    have h_ne : s ≠ [] := by intro h; simp [h] at h_len
+    let init := s.dropLast
+    have h_init_len : init.length = n := by
+      simp [init, List.length_dropLast]; omega
+    have h_s_eq : init ++ [s.getLast h_ne] = s :=
+      List.dropLast_append_getLast h_ne
+    have h_init_phase : ∀ e ∈ init, ∃ p, e = TopoElement.phase p := by
+      intro e he
+      apply h_phase; rw [← h_s_eq]; exact List.mem_append_left _ he
+    have h_last_phase : ∃ p, s.getLast h_ne = TopoElement.phase p := by
+      apply h_phase; rw [← h_s_eq]; exact List.mem_append_right _ (List.mem_singleton.mpr rfl)
+    have h_init_gen : init ∈ expand_generation n := ih init h_init_len h_init_phase
+    obtain ⟨p, hp⟩ := h_last_phase
+    rw [← h_s_eq, hp]
+    simp only [expand_generation]
+    exact expand_states_contains (expand_generation n) init h_init_gen p
+
+-- ==========================================
+-- 4. THE GENERATOR CRITICAL LINE PROOF
 -- ==========================================
 
 -- ZERO SORRY THEOREM: The Generator Respects the Critical Line.
