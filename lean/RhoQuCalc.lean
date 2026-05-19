@@ -12,6 +12,9 @@ import QLF_Critical_Line
 
 open Matrix
 
+instance (s : TopoString) : Decidable (achieves_ZFA s) := by
+  unfold achieves_ZFA; exact inferInstance
+
 /--
   A Rho-Process represents a transformation of a Logical Form.
   Core operators of ρ-calculus lifted into the QLF spacetime layer.
