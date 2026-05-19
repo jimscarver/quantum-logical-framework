@@ -1,128 +1,210 @@
 # Quantum Logical Framework (QLF)
 
-**The universe is logical.  
-Spacetime is synthesized.  
-Everything emerges from Zero Free Action.**
+**The universe is logical.**  
+**Spacetime is synthesized.**  
+**Physical reality is the subset of possibility that achieves Zero Free Action.**
 
-**A constructive, possibilist, formally verified unification of quantum mechanics, relativity, and gravity — with string/M-theory as natural emergent descriptions.**
+The **Quantum Logical Framework (QLF)** is a constructive research program that treats physics as a problem of **logical generation and closure** rather than one of brute-force formalism or fixed background geometry.
 
-[![GitHub stars](https://img.shields.io/github/stars/jimscarver/quantum-logical-framework.svg)](https://github.com/jimscarver/quantum-logical-framework/stargazers)
-[![License](https://img.shields.io/github/license/jimscarver/quantum-logical-framework)](LICENSE)
-**Latest:** April 26, 2026 • Fully executable • Lean4 verified
+At its core is a simple claim:
 
----
+> **Only histories that achieve Zero Free Action (ZFA) persist.**
 
-## What is QLF?
-
-The **Quantum Logical Framework** is a radical new foundation for physics.
-
-It rests on **one single postulate**: every admissible history in the 8-twist algebra (`^ v < > / \ + -`) must achieve **Zero Free Action (ZFA = 0)**.
-
-From this single rule the entire physical universe emerges:
-
-- Spacetime is **synthesized event-by-event**  
-- Gravity and the **completed Einstein equations** arise from radial bias + dynamical **event-synthesis tensor** `T_μν^(synth)`  
-- Quantum mechanics, Pauli exclusion, and entanglement emerge from **RhoQuCalc** parallelism  
-- String theory and M-theory embed naturally as higher-dimensional ZFA worldvolumes  
- 
-**No fixed number of dimensions is postulated. No supersymmetry. No landscape problem.**  
-The universe is logical, constructible in finite time, and self-organising through ZFA events.
-
-**Recent breakthroughs (April 24–26, 2026)**  
-- Full Lean4 proofs of Pauli exclusion, string theory embedding, and M-theory embedding  
-- Completed Einstein equations with dynamical cosmological term  
-- New documentation: `Philosophy.md`, `UniversalRelativity.md`, `StringTheory.md`, updated `WHITE_PAPER.md`
+From that starting point, QLF explores how spacetime, measurement, entanglement, symmetry, gravity, and computation can emerge from finite local logical distinction.
 
 ---
 
-## Key Features
+## What QLF Is
 
-| Feature                          | Status                  | Description |
-|----------------------------------|-------------------------|-----------|
-| ZFA Event Engine                 | ✅ Executable          | 8-twist algebra + RhoQuCalc parallelism |
-| Spacetime Synthesis              | ✅ Executable          | `SpaceTime.py` → local clocks & intervals |
-| Completed General Relativity     | ✅ Lean4 proven         | Einstein + event-synthesis tensor `T_μν^(synth)` |
-| Pauli Exclusion                  | ✅ Lean4 proven         | Emergent from antisymmetric RhoQuCalc |
-| String Theory Embedding          | ✅ Lean4 proven         | Worldsheets = 2D ZFA processes |
-| M-Theory Embedding               | ✅ Lean4 proven         | M2/M5-branes = higher-D ZFA worldvolumes |
-| Active-Inference Information Ecology | ✅ Philosophy.md     | Universe as intelligence explaining intelligence |
-| Singularity-Free                 | ✅ By construction     | Discrete ZFA events cap all divergences |
+QLF is not just an interpretation of quantum mechanics. It is a broader attempt to build a unified framework in which:
+
+- **logical distinction is fundamental**
+- **spacetime is synthesized event by event**
+- **symmetry is enforced by Zero Free Action**
+- **measurement is closure, not mystery**
+- **gravity is emergent, not primitive**
+- **formal infinities are replaced by constructive finite generation**
+
+The repository combines:
+
+- **conceptual essays**
+- **Python experiments and demonstrations**
+- **Lean 4 formalization of key structural claims**
+- **mathematical and physical speculation under active development**
 
 ---
 
-## Quick Start (Run in < 60 seconds)
+## Why This Repo Exists
+
+Standard physics is extraordinarily successful, but its foundations remain unsettled:
+
+- the measurement problem
+- the role of the observer
+- the status of spacetime
+- quantum gravity
+- the relation between information and physics
+- the limits of classical formalism
+
+QLF approaches these problems from the bottom up. Instead of starting with continuum fields, collapse postulates, or open-ended formal infinities, it starts with **finite logical possibilities** and asks which histories can actually close.
+
+That makes QLF both a physical proposal and a foundational proposal about mathematics, computation, and explanation.
+
+---
+
+## Start Here
+
+### 1. Big-picture orientation
+- [**Philosophy.md**](Philosophy.md) — the possibilist foundation of QLF, Zero Free Action, local time synthesis, active inference, holography, and the critique of ZFC-style infinity
+- [**TheBigProblem.md**](TheBigProblem.md) — how QLF addresses the measurement problem, entanglement, spacetime, time, and consciousness
+- [**GodCreatedTheIntegers.md**](GodCreatedTheIntegers.md) — a broad framing of QLF in relation to Kronecker, Einstein, Wheeler, Gödel, Bohm, Bell, Penrose, Mead, Cramer, Wolfram, ’t Hooft, Hawking, and Susskind
+
+### 2. Core theoretical claims
+- [**Universality.md**](Universality.md) — the claim that QLF generates finite local logical closures
+- [**Riemann-Conjecture-Proof.md**](Riemann-Conjecture-Proof.md) — the current QLF program relating ZFA symmetry, universality, and the critical line
+- [**Measurement_Problem.md**](Measurement_Problem.md) — QLF treatment of measurement and observer-dependent closure
+- [**UniversalRelativity.md**](UniversalRelativity.md) — emergent relativity and spacetime interpretation inside QLF
+
+### 3. Physics and experiments
+- [**Experimental_Consistency.md**](Experimental_Consistency.md) — numerical and conceptual links between QLF and known physics
+- [**SpaceTime.md**](SpaceTime.md) — event-synthesized space and time
+- [**Gravity.md**](Gravity.md) — emergent gravity in the QLF picture
+- [**ER_EPR_QLF.md**](ER_EPR_QLF.md) — entanglement, geometry, and logical structure
+- [**VacuumEnergy.md**](VacuumEnergy.md), [**BLACK-HOLES.md**](BLACK-HOLES.md), [**Entropy.md**](Entropy.md) — topic-specific extensions
+
+### 4. Formal and executable work
+- [**lean/README.md**](lean/README.md) — Lean 4 formalization directory
+- `lean/QLF_Axioms.lean` — core counting, pruning, and ZFA machinery
+- `lean/QLF_QuCalc.lean` — phase-generation engine and stable-state filter
+- `lean/QLF_Universality.lean` — current universality formalization
+- `lean/QLF_Critical_Line.lean` — wrapper around the ZFA-to-symmetry bridge
+- `lean/SpacetimeDynamics.lean` — spacetime/logical-form matrix layer
+- `qucalc_engine.py`, `spacetime_dynamics.py`, `constants_mapper.py`, `path_integral.py` — executable experiments
+
+---
+
+## Newer Themes Now Central to the Repo
+
+Several themes now deserve to be front-and-center in the README because they tie the repo together:
+
+### Possibilism
+Reality is not one pre-written story. QLF treats all admissible logical histories as possible, with physical reality emerging from those that close under ZFA.
+
+### Universality
+QLF is not framed merely as a simulator. It is framed as a generator of finite local logical closure structures.
+
+### Gödel, Busy Beaver, and the limits of classical formalism
+The newer philosophical documents argue that unconstrained self-reference and open-ended formal infinity create a kind of mathematical ultraviolet catastrophe. QLF answers this by restricting realized structure to finite local closure.
+
+### Holography, information, and logical boundary conditions
+The repo increasingly treats bulk structure as constrained by closure at the boundary, linking QLF to Shannon, Wheeler, holography, and error-correction style thinking.
+
+---
+
+## Current Status
+
+This repository is a mix of:
+
+- **core ideas that are stable**
+- **formalization that is actively being repaired and strengthened**
+- **executable demonstrations**
+- **speculative extensions that are clearly broader than the currently proved core**
+
+The Lean side has seen recent build and tooling updates. The repo should be read as an actively evolving formal-executable research program, not as a finished closed theory.
+
+---
+
+## How to Explore the Repo
+
+### Read
+Start with:
+
+1. `Philosophy.md`
+2. `TheBigProblem.md`
+3. `Universality.md`
+4. `Experimental_Consistency.md`
+
+Then go deeper into the Lean files and topic documents.
+
+### Run
+Examples:
 
 ```bash
 git clone https://github.com/jimscarver/quantum-logical-framework.git
 cd quantum-logical-framework
 
-# Watch spacetime emerge and drive accelerated expansion
 python spacetime_dynamics.py
+python constants_mapper.py
+python path_integral.py
+````
 
-# See formal proofs (Lean4)
-lean --run lean/SpacetimeDynamics.lean
-lean --run lean/MTheoryQLF.lean          # M-theory embedding demo
-```
+### Build Lean
 
-**Try the Bell-state quantum simulation:**
 ```bash
-python -m quantum_simulator --example bell
+lake update
+lake exe cache get
+lake build
 ```
 
 ---
 
-## Documentation
+## Recommended Reading Paths
 
-- **[WHITE_PAPER.md](WHITE%20_PAPER.md)** — Full technical overview (updated April 26)
-- **[UniversalRelativity.md](UniversalRelativity.md)** — How QLF completes Einstein’s vision
-- **[Philosophy.md](Philosophy.md)** — Possibilist ontology, active inference, and “the universe is intelligence explaining intelligence”
-- **[StringTheory.md](StringTheory.md)** — Why QLF subsumes (and may render obsolete) string/M-theory
-- `possibilist-ontology.md` — Core idea in plain language
+### If you care most about foundations
 
-**Lean4 Formal Verification** — `/lean/` directory contains machine-checked proofs of:
-- Einstein equation equivalence
-- Pauli exclusion
-- String & M-theory embeddings
+`Philosophy.md` → `GodCreatedTheIntegers.md` → `Universality.md`
 
----
+### If you care most about physics
 
-## Philosophy in One Paragraph
+`TheBigProblem.md` → `Measurement_Problem.md` → `SpaceTime.md` → `Gravity.md`
 
-The universe is **logical** and constructed in finite time.  
-There is no external source of free action — only quantum logical ZFA events.  
-From a limited perspective it appears as a rich cosmos; in truth it is a **distorted view of nothingness**.  
-Everything is a clock synthesizing local time.  
-It is an **information ecology** where active inference wins — **thus the universe is intelligence explaining the intelligence all around us.**
+### If you care most about formal structure
 
-(See full [`Philosophy.md`](Philosophy.md))
+`lean/README.md` → `lean/QLF_Axioms.lean` → `lean/QLF_QuCalc.lean` → `lean/QLF_Universality.lean`
+
+### If you care most about the Riemann program
+
+`Universality.md` → `Riemann-Conjecture-Proof.md` → `lean/QLF_Riemann.lean`
 
 ---
 
-## Why This Matters
+## What Makes QLF Different
 
-QLF does not compete with string theory — it **provides the deeper ontology** in which string and M-theory naturally live, while eliminating their foundational problems (landscape, singularities, non-computability).
+QLF is unusual because it tries to hold all of these together at once:
 
-It is:
-- **Fully computable** (Python engine)
-- **Formally verified** (Lean4)
-- **Singularity-free** by construction
-- **Philosophically coherent**
+* a constructive ontology
+* a finite logical generator
+* a physical interpretation of information and symmetry
+* an executable engine
+* a formal proof program
+* a critique of classical foundational assumptions
 
----
+Whether one ultimately accepts the framework or not, the repo is built around a single unifying question:
 
-## Get Involved
-
-- **Star** the repo if you find it exciting
-- **Run the demos** and open issues with your results
-- **Contribute** — Lean proofs, new RhoQuCalc examples, or experimental predictions are all welcome
-- **Discuss** in the GitHub Discussions tab
-
-**The framework is open, verifiable, and actively evolving.**
-
-**Welcome to the possibilist universe — where logic *is* physics.**
+> **What if physics is the closure of logical possibility under Zero Free Action?**
 
 ---
 
-**Repository:** [github.com/jimscarver/quantum-logical-framework](https://github.com/jimscarver/quantum-logical-framework)  
-**License:** MIT  
-**Status:** April 26, 2026 — Major update complete
+## Contributing
+
+The most useful contributions right now are:
+
+* tightening README and document consistency
+* aligning prose claims with current Lean status
+* improving the Lean build and theorem structure
+* adding small executable examples that clarify one claim at a time
+* opening issues where a document overstates, understates, or mismatches the code
+
+---
+
+## Repository
+
+**GitHub:** [jimscarver/quantum-logical-framework](https://github.com/jimscarver/quantum-logical-framework)
+
+If the universe is ultimately logical, then physics is not just something to describe.
+
+It is something to generate.
+
+```
+
+I can also compress this into a shorter, more declarative README if you want.
+```
