@@ -189,3 +189,4 @@ theorem zfa_dynamics_drive_acceleration (φ : EventSynthesisField)
              zero_pow, ne_eq, OfNat.ofNat_ne_zero, not_false_eq_true, mul_zero, zero_add,
              hne, not_false_eq_true, ↓reduceIte]
   field_simp
+  ring
