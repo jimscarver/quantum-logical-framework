@@ -49,13 +49,13 @@ private lemma expand_states_contains (gen : List TopoString) (init : TopoString)
     (h_init : init ∈ gen) (p : LogicPhase) :
     init ++ [TopoElement.phase p] ∈ expand_states gen := by
   induction gen with
-  | nil => exact absurd h_init (List.not_mem_nil _)
+  | nil => simp at h_init
   | cons head tail ih =>
-    simp only [expand_states, branch_state, List.mem_append, List.mem_cons, List.mem_singleton]
+    simp only [expand_states, branch_state, List.mem_append, List.mem_cons]
     rcases List.mem_cons.mp h_init with rfl | htail
     · left; cases p
       · left; rfl
-      · right; rfl
+      · right; left; rfl
     · right; exact ih htail
 
 theorem qucalc_generates_all_phase_strings (n : Nat) (s : TopoString)
@@ -65,7 +65,9 @@ theorem qucalc_generates_all_phase_strings (n : Nat) (s : TopoString)
   induction n generalizing s with
   | zero =>
     simp only [expand_generation, List.mem_singleton]
-    exact List.length_eq_zero.mp h_len
+    cases s with
+    | nil => rfl
+    | cons _ _ => simp at h_len
   | succ n ih =>
     have h_ne : s ≠ [] := by intro h; simp [h] at h_len
     let init := s.dropLast
@@ -76,10 +78,8 @@ theorem qucalc_generates_all_phase_strings (n : Nat) (s : TopoString)
     have h_init_phase : ∀ e ∈ init, ∃ p, e = TopoElement.phase p := by
       intro e he
       apply h_phase; rw [← h_s_eq]; exact List.mem_append_left _ he
-    have h_last_phase : ∃ p, s.getLast h_ne = TopoElement.phase p := by
-      apply h_phase; rw [← h_s_eq]; exact List.mem_append_right _ (List.mem_singleton.mpr rfl)
     have h_init_gen : init ∈ expand_generation n := ih init h_init_len h_init_phase
-    obtain ⟨p, hp⟩ := h_last_phase
+    obtain ⟨p, hp⟩ := h_phase _ (List.getLast_mem h_ne)
     rw [← h_s_eq, hp]
     simp only [expand_generation]
     exact expand_states_contains (expand_generation n) init h_init_gen p
