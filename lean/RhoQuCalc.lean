@@ -360,20 +360,26 @@ theorem action_lift_hermitian (f : Form) : (parallel (action f) (lift f)).eval.I
     exact (Form.toMatrix_adjoint f).symm)
 
 /--
-  Zero Free Action is equivalent to Hermitian equilibrium in RhoQuCalc.
+  ZFA stability implies the toTopoString is symmetric (critical-line condition).
+  The converse direction (ZFA ↔ Hermitian) is NOT stated here: for `sequence`
+  processes, eval(p * q) is Hermitian only when p and q commute, which ZFA on
+  the shared toTopoString cannot detect.
 -/
-theorem rho_process_zfa_equiv_hermitian (p : RhoProcess) :
-    achieves_ZFA (toTopoString p) ↔ (p.eval).IsHermitian := by
-  constructor
-  · intro h_zfa
-    have _ := zfa_implies_critical_line (toTopoString p) h_zfa
-    -- NOTE: This direction is false for `sequence` processes in general.
-    -- eval (sequence p q) = eval p * eval q, which is Hermitian only when
-    -- eval p and eval q commute. achieves_ZFA on toTopoString cannot detect
-    -- commutativity (parallel and sequence share the same toTopoString).
-    sorry
-  · intro _
-    exact toTopoString_always_zfa p
+theorem rho_process_zfa_implies_symmetric (p : RhoProcess) :
+    achieves_ZFA (toTopoString p) → is_symmetric (toTopoString p) :=
+  zfa_implies_critical_line (toTopoString p)
+
+/--
+  Every RhoProcess is ZFA-stable (the toTopoString always achieves ZFA).
+-/
+theorem rho_process_always_zfa (p : RhoProcess) : achieves_ZFA (toTopoString p) :=
+  toTopoString_always_zfa p
+
+/--
+  Every RhoProcess toTopoString lies on the critical line.
+-/
+theorem rho_process_always_symmetric (p : RhoProcess) : is_symmetric (toTopoString p) :=
+  rho_process_zfa_implies_symmetric p (rho_process_always_zfa p)
 
 /--
   A process transition is valid (free) if the determinant is preserved.
@@ -382,19 +388,19 @@ def is_valid_transition (p1 p2 : RhoProcess) : Prop :=
   True  -- placeholder: determinant-preserving transition (det API not imported)
 
 /--
-  Unitary Evolution is Free (sorry'd: proof requires unitary matrix API).
+  Unitary Evolution is Free (trivial since is_valid_transition = True).
 -/
 theorem unitary_transition_is_free (p : RhoProcess) (U : Matrix (Fin 2) (Fin 2) ℂ)
     (hU : U.conjTranspose * U = 1 ∧ U * U.conjTranspose = 1) :
     is_valid_transition p (sequence (lift (Form.fromMatrix U))
       (action (Form.fromMatrix (U * p.eval * U.conjTranspose)))) := by
-  trivial  -- is_valid_transition = True (det placeholder)
+  trivial
 
 /--
-  Bridge to the core QLF: every RhoProcess that is in equilibrium is ZFA-stable.
+  Every RhoProcess that is in Hermitian equilibrium is ZFA-stable.
 -/
 theorem rho_process_equilibrium_implies_zfa (p : RhoProcess) (h_eq : (p.eval).IsHermitian) :
     achieves_ZFA (toTopoString p) :=
-  (rho_process_zfa_equiv_hermitian p).mpr h_eq
+  toTopoString_always_zfa p
 
 end RhoProcess
