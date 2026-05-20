@@ -51,7 +51,8 @@ private lemma achieves_ZFA_iff_empty (s : TopoString) :
   · intro h
     by_contra hne
     obtain ⟨head, _tail, hcons⟩ := List.exists_cons_of_ne_nil hne
-    simp_all [is_gauge]
+    rw [hcons] at h
+    cases head <;> simp [is_gauge] at h
   · intro h; simp [h]
 
 private lemma count_pos_append (s1 s2 : TopoString) :
@@ -167,27 +168,25 @@ private lemma const_symmetric_empty (s : TopoString) (ph : LogicPhase)
   cases ph with
   | pos =>
     have hpos : count_pos (TopoElement.phase LogicPhase.pos :: tail) ≥ 1 := by
-      simp [count_pos]
+      simp [count_pos]; omega
     have hneg : count_neg (TopoElement.phase LogicPhase.pos :: tail) = 0 := by
       induction tail with
       | nil => simp [count_neg]
       | cons e rest iht =>
         have he := hconst e (List.Mem.tail _ (List.Mem.head _))
         subst he; simp [count_neg]
-        exact iht (fun x hx => hconst x
-          (List.Mem.tail _ (List.Mem.tail _ hx)))
+        exact iht (fun x hx => hconst x (List.Mem.tail _ hx))
     omega
   | neg =>
     have hneg : count_neg (TopoElement.phase LogicPhase.neg :: tail) ≥ 1 := by
-      simp [count_neg]
+      simp [count_neg]; omega
     have hpos : count_pos (TopoElement.phase LogicPhase.neg :: tail) = 0 := by
       induction tail with
       | nil => simp [count_pos]
       | cons e rest iht =>
         have he := hconst e (List.Mem.tail _ (List.Mem.head _))
         subst he; simp [count_pos]
-        exact iht (fun x hx => hconst x
-          (List.Mem.tail _ (List.Mem.tail _ hx)))
+        exact iht (fun x hx => hconst x (List.Mem.tail _ hx))
     omega
 
 private theorem pure_phase_symmetric_implies_zfa : ∀ n : Nat, ∀ s : TopoString,
