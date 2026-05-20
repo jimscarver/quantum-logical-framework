@@ -290,6 +290,30 @@ theorem process_equilibrium (f : Form) :
   exact Form.equal_and_opposite_self f
 
 /--
+  Half-spin closure: parallel composition preserves Hermitian structure.
+  If each component is Hermitian, their sum is Hermitian — because
+  (A + B)† = A† + B†, so A† = A and B† = B implies (A + B)† = A + B.
+  This formalizes the idea that parallel action/lift pairs close under
+  the half-spin conjugate structure without needing commutativity.
+-/
+theorem parallel_hermitian (p q : RhoProcess)
+    (hp : p.eval.IsHermitian) (hq : q.eval.IsHermitian) :
+    (parallel p q).eval.IsHermitian := by
+  simp only [eval]
+  exact hp.add hq
+
+/--
+  The base action/lift pair is the atomic unit of half-spin closure:
+  every Form generates a Hermitian parallel process via action + lift.
+-/
+theorem action_lift_hermitian (f : Form) : (parallel (action f) (lift f)).eval.IsHermitian :=
+  parallel_hermitian _ _ (Form.toMatrix_adjoint f) (by
+    simp only [eval]
+    unfold Matrix.IsHermitian
+    rw [Matrix.conjTranspose_conjTranspose]
+    exact (Form.toMatrix_adjoint f).symm)
+
+/--
   Zero Free Action is equivalent to Hermitian equilibrium in RhoQuCalc.
 -/
 theorem rho_process_zfa_equiv_hermitian (p : RhoProcess) :
