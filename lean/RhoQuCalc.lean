@@ -157,6 +157,58 @@ private lemma zeno_prune_fixed_implies_const (s : TopoString)
       · exact ⟨LogicPhase.neg, fun e he => by
           rcases List.mem_cons.mp he with rfl | hmem; rfl; exact hconst e hmem⟩
 
+-- count_pos/count_neg return Int; these helpers establish bounds for const strings.
+-- Induction inside a `have` auto-reverts all context hypotheses mentioning the
+-- induction variable, so these must be standalone lemmas to keep the IH clean.
+
+private lemma count_neg_zero_of_all_pos (s : TopoString)
+    (h : ∀ e ∈ s, e = TopoElement.phase LogicPhase.pos) :
+    count_neg s = 0 := by
+  induction s with
+  | nil => simp [count_neg]
+  | cons head tail ih =>
+    have hhead := h head (List.Mem.head _)
+    subst hhead
+    simp only [count_neg_cons, val_neg]
+    have := ih (fun e he => h e (List.Mem.tail _ he))
+    omega
+
+private lemma count_pos_nonneg_of_all_pos (s : TopoString)
+    (h : ∀ e ∈ s, e = TopoElement.phase LogicPhase.pos) :
+    count_pos s ≥ 0 := by
+  induction s with
+  | nil => simp [count_pos]
+  | cons head tail ih =>
+    have hhead := h head (List.Mem.head _)
+    subst hhead
+    simp only [count_pos_cons, val_pos]
+    have := ih (fun e he => h e (List.Mem.tail _ he))
+    omega
+
+private lemma count_pos_zero_of_all_neg (s : TopoString)
+    (h : ∀ e ∈ s, e = TopoElement.phase LogicPhase.neg) :
+    count_pos s = 0 := by
+  induction s with
+  | nil => simp [count_pos]
+  | cons head tail ih =>
+    have hhead := h head (List.Mem.head _)
+    subst hhead
+    simp only [count_pos_cons, val_pos]
+    have := ih (fun e he => h e (List.Mem.tail _ he))
+    omega
+
+private lemma count_neg_nonneg_of_all_neg (s : TopoString)
+    (h : ∀ e ∈ s, e = TopoElement.phase LogicPhase.neg) :
+    count_neg s ≥ 0 := by
+  induction s with
+  | nil => simp [count_neg]
+  | cons head tail ih =>
+    have hhead := h head (List.Mem.head _)
+    subst hhead
+    simp only [count_neg_cons, val_neg]
+    have := ih (fun e he => h e (List.Mem.tail _ he))
+    omega
+
 private lemma const_symmetric_empty (s : TopoString) (ph : LogicPhase)
     (hconst : ∀ e ∈ s, e = TopoElement.phase ph)
     (hsym : is_symmetric s) : s = [] := by
@@ -164,29 +216,23 @@ private lemma const_symmetric_empty (s : TopoString) (ph : LogicPhase)
   obtain ⟨head, tail, rfl⟩ := List.exists_cons_of_ne_nil hne
   have hhead := hconst head (List.Mem.head _)
   subst hhead
+  have htail : ∀ e ∈ tail, e = TopoElement.phase ph :=
+    fun e he => hconst e (List.Mem.tail _ he)
   unfold is_symmetric at hsym
   cases ph with
   | pos =>
-    have hpos : count_pos (TopoElement.phase LogicPhase.pos :: tail) ≥ 1 := by
-      simp [count_pos]; omega
-    have hneg : count_neg (TopoElement.phase LogicPhase.pos :: tail) = 0 := by
-      induction tail with
-      | nil => simp [count_neg]
-      | cons e rest iht =>
-        have he := hconst e (List.Mem.tail _ (List.Mem.head _))
-        subst he; simp [count_neg]
-        exact iht (fun x hx => hconst x (List.Mem.tail _ hx))
+    have hcneg : count_neg (TopoElement.phase LogicPhase.pos :: tail) = 0 := by
+      simp only [count_neg_cons, val_neg]
+      have := count_neg_zero_of_all_pos tail htail; omega
+    have hnn : count_pos tail ≥ 0 := count_pos_nonneg_of_all_pos tail htail
+    simp only [count_pos_cons, val_pos] at hsym
     omega
   | neg =>
-    have hneg : count_neg (TopoElement.phase LogicPhase.neg :: tail) ≥ 1 := by
-      simp [count_neg]; omega
-    have hpos : count_pos (TopoElement.phase LogicPhase.neg :: tail) = 0 := by
-      induction tail with
-      | nil => simp [count_pos]
-      | cons e rest iht =>
-        have he := hconst e (List.Mem.tail _ (List.Mem.head _))
-        subst he; simp [count_pos]
-        exact iht (fun x hx => hconst x (List.Mem.tail _ hx))
+    have hcpos : count_pos (TopoElement.phase LogicPhase.neg :: tail) = 0 := by
+      simp only [count_pos_cons, val_pos]
+      have := count_pos_zero_of_all_neg tail htail; omega
+    have hnn : count_neg tail ≥ 0 := count_neg_nonneg_of_all_neg tail htail
+    simp only [count_neg_cons, val_neg] at hsym
     omega
 
 private theorem pure_phase_symmetric_implies_zfa : ∀ n : Nat, ∀ s : TopoString,
