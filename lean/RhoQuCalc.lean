@@ -1,7 +1,7 @@
 /-
   RhoQuCalc.lean
   Project: Quantum Logical Framework
-  Author: Jim Whitescarver
+  Author: Jim Scarver
 
   Formalization of Rho-Calculus (ρ-QuCalc) integrated with the Pauli-basis
   dynamics from SpacetimeDynamics.lean.
