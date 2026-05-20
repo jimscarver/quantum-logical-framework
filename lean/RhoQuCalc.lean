@@ -51,7 +51,7 @@ private lemma achieves_ZFA_iff_empty (s : TopoString) :
   · intro h
     by_contra hne
     obtain ⟨head, _tail, hcons⟩ := List.exists_cons_of_ne_nil hne
-    simp [hcons, is_gauge] at h
+    simp_all [is_gauge]
   · intro h; simp [h]
 
 private lemma count_pos_append (s1 s2 : TopoString) :
@@ -82,17 +82,17 @@ private lemma zeno_prune_preserves_pure_phase (s : TopoString)
   · next tail ih =>
     intro e he
     simp only [zeno_prune] at he
-    exact ih (fun e' he' => hpure e' (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ he'))) he
+    exact ih (fun e' he' => hpure e' (List.Mem.tail _ (List.Mem.tail _ he'))) e he
   · next tail ih =>
     intro e he
     simp only [zeno_prune] at he
-    exact ih (fun e' he' => hpure e' (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ he'))) he
+    exact ih (fun e' he' => hpure e' (List.Mem.tail _ (List.Mem.tail _ he'))) e he
   · next head tail ih =>
     intro e he
     simp only [zeno_prune] at he
     rcases List.mem_cons.mp he with rfl | hmem
-    · exact hpure head (List.mem_cons_self head tail)
-    · exact ih (fun e' he' => hpure e' (List.mem_cons_of_mem head he')) hmem
+    · exact hpure e (List.Mem.head _)
+    · exact ih (fun e' he' => hpure e' (List.Mem.tail _ he')) e hmem
 
 private lemma zeno_preserves_symmetric (s : TopoString) (h : is_symmetric s) :
     is_symmetric (zeno_prune s) := by
@@ -125,43 +125,43 @@ private lemma zeno_prune_fixed_implies_const (s : TopoString)
     simp only [zeno_prune] at hfix
     have hle := zeno_prune_length_le tail
     have hlen : (TopoElement.phase LogicPhase.pos :: TopoElement.phase LogicPhase.neg :: tail).length =
-                (zeno_prune tail).length := by rw [hfix]; simp
+                (zeno_prune tail).length := by rw [hfix]
     simp at hlen; omega
   · next tail _ih =>
     simp only [zeno_prune] at hfix
     have hle := zeno_prune_length_le tail
     have hlen : (TopoElement.phase LogicPhase.neg :: TopoElement.phase LogicPhase.pos :: tail).length =
-                (zeno_prune tail).length := by rw [hfix]; simp
+                (zeno_prune tail).length := by rw [hfix]
     simp at hlen; omega
   · next head tail ih =>
+    rename_i ha ta
     simp only [zeno_prune] at hfix
-    have hfix_tail : zeno_prune tail = tail := (List.cons.inj hfix).2
-    have hpure_head : ∃ p, head = TopoElement.phase p :=
-      hpure head (List.mem_cons_self head tail)
-    have hpure_tail : ∀ e ∈ tail, ∃ p, e = TopoElement.phase p :=
-      fun e he => hpure e (List.mem_cons_of_mem head he)
+    have hfix_tail : zeno_prune ta = ta := (List.cons.inj hfix).2
+    have hpure_head : ∃ p, ha = TopoElement.phase p :=
+      hpure ha (List.Mem.head _)
+    have hpure_tail : ∀ e ∈ ta, ∃ p, e = TopoElement.phase p :=
+      fun e he => hpure e (List.Mem.tail _ he)
     obtain ⟨ph, hconst⟩ := ih hpure_tail hfix_tail
     obtain ⟨phHead, rfl⟩ := hpure_head
-    by_cases htail : tail = []
+    by_cases htail : ta = []
     · subst htail; exact ⟨phHead, by simp⟩
-    · obtain ⟨e0, rest, rfl⟩ := List.exists_cons_of_ne_nil tail htail
-      have he0 : e0 = TopoElement.phase ph :=
-        hconst e0 (List.mem_cons_self e0 rest)
+    · obtain ⟨e0, rest, rfl⟩ := List.exists_cons_of_ne_nil htail
+      have he0 : e0 = TopoElement.phase ph := hconst e0 (List.Mem.head _)
       subst he0
-      -- For cancel-pair combinations (pos,neg) or (neg,pos): zeno_prune would have applied
-      -- the cancel case, but we're in the keep-head case — simp_all derives the contradiction
-      cases phHead <;> cases ph <;> simp_all [zeno_prune] <;>
-        exact ⟨_, fun e he => by
-          rcases List.mem_cons.mp he with rfl | hmem
-          · simp
-          · exact hconst e hmem⟩
+      cases phHead <;> cases ph
+      · exact ⟨LogicPhase.pos, fun e he => by
+          rcases List.mem_cons.mp he with rfl | hmem; rfl; exact hconst e hmem⟩
+      · exfalso; exact head rest rfl rfl
+      · exfalso; exact tail rest rfl rfl
+      · exact ⟨LogicPhase.neg, fun e he => by
+          rcases List.mem_cons.mp he with rfl | hmem; rfl; exact hconst e hmem⟩
 
 private lemma const_symmetric_empty (s : TopoString) (ph : LogicPhase)
     (hconst : ∀ e ∈ s, e = TopoElement.phase ph)
     (hsym : is_symmetric s) : s = [] := by
   by_contra hne
   obtain ⟨head, tail, rfl⟩ := List.exists_cons_of_ne_nil hne
-  have hhead := hconst head (List.mem_cons_self head tail)
+  have hhead := hconst head (List.Mem.head _)
   subst hhead
   unfold is_symmetric at hsym
   cases ph with
@@ -172,10 +172,10 @@ private lemma const_symmetric_empty (s : TopoString) (ph : LogicPhase)
       induction tail with
       | nil => simp [count_neg]
       | cons e rest iht =>
-        have he := hconst e (List.mem_cons_of_mem _ (List.mem_cons_self e rest))
+        have he := hconst e (List.Mem.tail _ (List.Mem.head _))
         subst he; simp [count_neg]
         exact iht (fun x hx => hconst x
-          (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ hx)))
+          (List.Mem.tail _ (List.Mem.tail _ hx)))
     omega
   | neg =>
     have hneg : count_neg (TopoElement.phase LogicPhase.neg :: tail) ≥ 1 := by
@@ -184,10 +184,10 @@ private lemma const_symmetric_empty (s : TopoString) (ph : LogicPhase)
       induction tail with
       | nil => simp [count_pos]
       | cons e rest iht =>
-        have he := hconst e (List.mem_cons_of_mem _ (List.mem_cons_self e rest))
+        have he := hconst e (List.Mem.tail _ (List.Mem.head _))
         subst he; simp [count_pos]
         exact iht (fun x hx => hconst x
-          (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ hx)))
+          (List.Mem.tail _ (List.Mem.tail _ hx)))
     omega
 
 private theorem pure_phase_symmetric_implies_zfa : ∀ n : Nat, ∀ s : TopoString,
