@@ -50,7 +50,7 @@ private lemma achieves_ZFA_iff_empty (s : TopoString) :
   constructor
   · intro h
     by_contra hne
-    obtain ⟨head, _tail, hcons⟩ := List.exists_cons_of_ne_nil _ hne
+    obtain ⟨head, _tail, hcons⟩ := List.exists_cons_of_ne_nil hne
     simp [hcons, is_gauge] at h
   · intro h; simp [h]
 
@@ -68,7 +68,7 @@ private lemma count_neg_append (s1 s2 : TopoString) :
 
 private lemma zeno_prune_length_le (s : TopoString) :
     (zeno_prune s).length ≤ s.length := by
-  induction s using zeno_prune.induct with
+  induction s using zeno_prune.induct
   · simp [zeno_prune]
   · next tail ih => simp [zeno_prune]; omega
   · next tail ih => simp [zeno_prune]; omega
@@ -77,7 +77,7 @@ private lemma zeno_prune_length_le (s : TopoString) :
 private lemma zeno_prune_preserves_pure_phase (s : TopoString)
     (hpure : ∀ e ∈ s, ∃ p, e = TopoElement.phase p) :
     ∀ e ∈ zeno_prune s, ∃ p, e = TopoElement.phase p := by
-  induction s using zeno_prune.induct with
+  induction s using zeno_prune.induct
   · simp [zeno_prune]
   · next tail ih =>
     intro e he
@@ -103,7 +103,7 @@ private lemma zeno_preserves_symmetric (s : TopoString) (h : is_symmetric s) :
 private lemma zeno_prune_eq_self_of_no_reduce (s : TopoString)
     (hlen : (zeno_prune s).length = s.length) :
     zeno_prune s = s := by
-  induction s using zeno_prune.induct with
+  induction s using zeno_prune.induct
   · rfl
   · next tail ih =>
     simp only [zeno_prune, List.length_cons] at hlen
@@ -119,7 +119,7 @@ private lemma zeno_prune_fixed_implies_const (s : TopoString)
     (hpure : ∀ e ∈ s, ∃ p, e = TopoElement.phase p)
     (hfix : zeno_prune s = s) :
     ∃ p, ∀ e ∈ s, e = TopoElement.phase p := by
-  induction s using zeno_prune.induct with
+  induction s using zeno_prune.induct
   · exact ⟨LogicPhase.pos, by simp⟩
   · next tail _ih =>
     simp only [zeno_prune] at hfix
@@ -160,7 +160,7 @@ private lemma const_symmetric_empty (s : TopoString) (ph : LogicPhase)
     (hconst : ∀ e ∈ s, e = TopoElement.phase ph)
     (hsym : is_symmetric s) : s = [] := by
   by_contra hne
-  obtain ⟨head, tail, rfl⟩ := List.exists_cons_of_ne_nil s hne
+  obtain ⟨head, tail, rfl⟩ := List.exists_cons_of_ne_nil hne
   have hhead := hconst head (List.mem_cons_self head tail)
   subst hhead
   unfold is_symmetric at hsym
