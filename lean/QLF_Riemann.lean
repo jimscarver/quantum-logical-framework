@@ -51,7 +51,7 @@ private lemma expand_states_mem_length (gen : List TopoString) (n : Nat)
   | cons head tail ih =>
     simp only [expand_states, branch_state, List.mem_append, List.mem_cons,
                List.mem_nil_iff, or_false] at hs
-    rcases hs with rfl | rfl | htail
+    rcases hs with (rfl | rfl) | htail
     · simp only [List.length_append, List.length_cons, List.length_nil]
       have hn := hall head (List.Mem.head _); omega
     · simp only [List.length_append, List.length_cons, List.length_nil]
@@ -79,7 +79,7 @@ private lemma expand_states_mem_pure_phase (gen : List TopoString)
   | cons head tail ih =>
     simp only [expand_states, branch_state, List.mem_append, List.mem_cons,
                List.mem_nil_iff, or_false] at hs
-    rcases hs with rfl | rfl | htail
+    rcases hs with (rfl | rfl) | htail
     · intro e he
       simp only [List.mem_append, List.mem_cons, List.mem_nil_iff, or_false] at he
       rcases he with h | rfl
