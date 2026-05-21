@@ -120,6 +120,38 @@ theorem find_stable_states_iff (n : Nat) (s : TopoString) :
            (achieves_ZFA_bool_iff_zfa s).mpr (phase_symmetric_achieves_zfa s hpure hsym)⟩
 
 -- ==========================================
+-- QUANTITATIVE COUNT OF STABLE STATES
+-- ==========================================
+
+-- For pure-phase strings, pos-count + neg-count equals the string length
+-- (each element contributes exactly 1 to exactly one of the two counts).
+private lemma count_pos_add_neg_eq_length (s : TopoString)
+    (hpure : ∀ e ∈ s, ∃ p, e = TopoElement.phase p) :
+    count_pos s + count_neg s = (s.length : Int) := by
+  induction s with
+  | nil => simp [count_pos, count_neg]
+  | cons head tail ih =>
+    obtain ⟨p, rfl⟩ := hpure head (List.Mem.head _)
+    simp only [count_pos_cons, count_neg_cons, val_pos, val_neg, List.length_cons]
+    have iht := ih (fun e he => hpure e (List.Mem.tail _ he))
+    cases p <;> push_cast <;> omega
+
+/-- No symmetric pure-phase strings of odd length exist: equal pos/neg counts
+    force even total, so 2*n+1 elements can never be balanced. -/
+theorem find_stable_states_length_odd (n : ℕ) :
+    (find_stable_states (2 * n + 1)).length = 0 := by
+  rcases h : find_stable_states (2 * n + 1) with _ | ⟨s, rest⟩
+  · simp
+  · exfalso
+    have hs : s ∈ find_stable_states (2 * n + 1) := h ▸ List.mem_cons_self s rest
+    rw [find_stable_states_iff] at hs
+    obtain ⟨hlen, hpure, hsym⟩ := hs
+    have hcount := count_pos_add_neg_eq_length s hpure
+    have hlen_int : (s.length : Int) = 2 * n + 1 := by exact_mod_cast hlen
+    unfold is_symmetric at hsym
+    omega
+
+-- ==========================================
 -- RIEMANN HYPOTHESIS IN QLF
 -- ==========================================
 
