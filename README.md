@@ -82,7 +82,7 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 
 ---
 
-## Newer Themes Now Central to the Repo
+## Themes Now Central to the Repo
 
 Several themes now deserve to be front-and-center in the README because they tie the repo together:
 
@@ -93,12 +93,13 @@ Reality is not one pre-written story. QLF treats all admissible logical historie
 QLF is not framed merely as a simulator. It is framed as a generator of finite local logical closure structures.
 
 ### Gödel, Busy Beaver, and the limits of classical formalism
-The newer philosophical documents argue that unconstrained self-reference and open-ended formal infinity create a kind of mathematical ultraviolet catastrophe. QLF answers this by restricting realized structure to finite local closure.
+The philosophical documents argue that unconstrained self-reference and open-ended formal infinity create a kind of mathematical ultraviolet catastrophe. QLF answers this by restricting realized structure to finite local closure.
 
 ### Holography, information, and logical boundary conditions
 The repo increasingly treats bulk structure as constrained by closure at the boundary, linking QLF to Shannon, Wheeler, holography, and error-correction style thinking.
 
----
+### The Spectral Structure of QLF
+While the discrete combinatorial generation of QLF is verified using ZFA and phase symmetry, the geometric and physical layer of the framework admits a spectral reformulation. In geometric-algebra terms, QLF's half-spin closures operate as multivector modes, and the requirement of Zero Free Action manifests as a geometric-adjoint symmetry. This cleanly separates the non-commutative spinor mechanics of the universe from the discrete combinatorics underlying its statistical limits.
 
 ## Current Status
 
