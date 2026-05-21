@@ -296,6 +296,13 @@ theorem toTopoString_always_zfa (p : RhoProcess) : achieves_ZFA (toTopoString p)
     (toTopoString_pure_phase p)
     (toTopoString_symmetric p)
 
+/-- Any pure-phase symmetric TopoString achieves ZFA stability.
+    Public wrapper for use by downstream modules (e.g. QLF_Riemann). -/
+theorem phase_symmetric_achieves_zfa (s : TopoString)
+    (hpure : ∀ e ∈ s, ∃ p, e = TopoElement.phase p)
+    (hsym : is_symmetric s) : achieves_ZFA s :=
+  pure_phase_symmetric_implies_zfa s.length s rfl hpure hsym
+
 namespace RhoProcess
 
 /-- Evaluation of a RhoProcess into its matrix representation. -/
