@@ -143,7 +143,7 @@ theorem find_stable_states_length_odd (n : ℕ) :
   rcases h : find_stable_states (2 * n + 1) with _ | ⟨s, rest⟩
   · simp
   · exfalso
-    have hs : s ∈ find_stable_states (2 * n + 1) := h ▸ List.mem_cons_self s rest
+    have hs : s ∈ find_stable_states (2 * n + 1) := h ▸ List.Mem.head _
     rw [find_stable_states_iff] at hs
     obtain ⟨hlen, hpure, hsym⟩ := hs
     have hcount := count_pos_add_neg_eq_length s hpure
