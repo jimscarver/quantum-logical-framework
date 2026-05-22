@@ -60,5 +60,6 @@ These Python scripts confirm the Lean theorems numerically:
 | Script | What it checks |
 |---|---|
 | [`../qlf_spectral.py`](../qlf_spectral.py) | All pure-phase strings are Hermitian; symmetric strings give scalar × I |
+| [`../qlf_zfa_frequency.py`](../qlf_zfa_frequency.py) | ZFA count by length = C(n, n/2); full imbalance distribution; Stirling growth |
 | [`../qlf_dirichlet_search.py`](../qlf_dirichlet_search.py) | Stable-state counts vs. Dirichlet partial sums (asymptotic, not exact) |
 | [`../qucalc_engine.py`](../qucalc_engine.py) | Phase-string generation and ZFA filtering |

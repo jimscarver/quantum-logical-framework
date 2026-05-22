@@ -87,6 +87,7 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 - [**qucalc_engine.py**](qucalc_engine.py), [**spacetime_dynamics.py**](spacetime_dynamics.py), [**constants_mapper.py**](constants_mapper.py), [**path_integral.py**](path_integral.py) — executable experiments
 - [**qlf_dirichlet_search.py**](qlf_dirichlet_search.py) — empirical search for Dirichlet/stable-state connection
 - [**qlf_spectral.py**](qlf_spectral.py) — empirical verification of spectral Hermitian and scalar-identity theorems
+- [**qlf_zfa_frequency.py**](qlf_zfa_frequency.py) — frequency distribution of ZFA states; confirms count = C(n, n/2) via exhaustive enumeration
 
 ---
 
