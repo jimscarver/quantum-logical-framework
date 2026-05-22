@@ -216,13 +216,13 @@ private lemma expand_states_filter_pos_eq (gen : List TopoString) (p : ℤ) :
       · omega
       · rw [show decide (count_pos head = p - 1) = true from decide_eq_true_eq.mpr h1,
             show decide (count_pos head = p) = false from decide_eq_false_iff_not.mpr h2]
-        simp [h1, h2]
+        simp [h1, h2]; try omega
       · rw [show decide (count_pos head = p - 1) = false from decide_eq_false_iff_not.mpr h1,
             show decide (count_pos head = p) = true from decide_eq_true_eq.mpr h2]
-        simp [h1, h2]
+        simp [h1, h2]; try omega
       · rw [show decide (count_pos head = p - 1) = false from decide_eq_false_iff_not.mpr h1,
             show decide (count_pos head = p) = false from decide_eq_false_iff_not.mpr h2]
-        simp [h1, h2]
+        simp [h1, h2]; try omega
     rw [hbranch]
     simp only [List.filter_cons]
     rcases Decidable.em (count_pos head = p - 1) with h1 | h1 <;>
@@ -230,13 +230,13 @@ private lemma expand_states_filter_pos_eq (gen : List TopoString) (p : ℤ) :
     · omega
     · rw [show decide (count_pos head = p - 1) = true from decide_eq_true_eq.mpr h1,
           show decide (count_pos head = p) = false from decide_eq_false_iff_not.mpr h2]
-      simp [h1, h2]
+      simp [h1, h2]; try omega
     · rw [show decide (count_pos head = p - 1) = false from decide_eq_false_iff_not.mpr h1,
           show decide (count_pos head = p) = true from decide_eq_true_eq.mpr h2]
-      simp [h1, h2]
+      simp [h1, h2]; try omega
     · rw [show decide (count_pos head = p - 1) = false from decide_eq_false_iff_not.mpr h1,
           show decide (count_pos head = p) = false from decide_eq_false_iff_not.mpr h2]
-      simp [h1, h2]
+      simp [h1, h2]; try omega
 
 -- Main counting lemma: exactly C(k,p) strings in expand_generation k have count_pos = p
 private lemma expand_generation_filter_pos_count (k p : ℕ) :
@@ -249,7 +249,7 @@ private lemma expand_generation_filter_pos_count (k p : ℕ) :
     cases p with
     | zero => simp
     | succ p =>
-      have hd : decide ((0 : ℤ) = ((p.succ : ℕ) : ℤ)) = false := by
+      have hd : decide ((0 : ℤ) = (↑(p + 1) : ℤ)) = false := by
         rw [decide_eq_false_iff_not]; push_cast; omega
       rw [hd]
       simp [Nat.choose_zero_succ]
@@ -273,7 +273,9 @@ private lemma expand_generation_filter_pos_count (k p : ℕ) :
             exact ihl
         simp [hnil]
       rw [hzero, zero_add]
-      simp [ih 0, Nat.choose_zero_right]
+      have ih0 := ih 0
+      simp only [Nat.cast_zero] at ih0
+      rw [ih0, Nat.choose_zero_right]
     | succ p =>
       -- p = q+1: use ih twice and Pascal's rule
       have hcast : ((p.succ : ℕ) : ℤ) - 1 = (p : ℤ) := by push_cast; ring
