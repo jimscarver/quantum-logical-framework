@@ -199,20 +199,46 @@ private lemma expand_states_filter_pos_eq (gen : List TopoString) (p : ℤ) :
   | cons head tail ih =>
     simp only [expand_states, List.filter_append, List.length_append]
     rw [ih]
-    have hpos : count_pos (head ++ [TopoElement.phase LogicPhase.pos]) = count_pos head + 1 :=
-      count_pos_append_pos head
-    have hneg : count_pos (head ++ [TopoElement.phase LogicPhase.neg]) = count_pos head :=
-      count_pos_append_neg head
     -- Filter over [head++pos, head++neg] contributes based on count_pos head vs p
+    have hd1 : decide (count_pos (head ++ [TopoElement.phase LogicPhase.pos]) = p) =
+               decide (count_pos head = p - 1) := by
+      cases h : decide (count_pos head = p - 1)
+      · rw [decide_eq_false_iff_not] at h ⊢; rw [count_pos_append_pos]; omega
+      · rw [decide_eq_true_eq] at h ⊢; rw [count_pos_append_pos]; omega
+    have hd2 : decide (count_pos (head ++ [TopoElement.phase LogicPhase.neg]) = p) =
+               decide (count_pos head = p) := by rw [count_pos_append_neg]
     have hbranch :
         ((branch_state head).filter (fun s => decide (count_pos s = p))).length =
         (if count_pos head = p - 1 then 1 else 0) + (if count_pos head = p then 1 else 0) := by
-      simp only [branch_state, List.filter_cons, List.filter_nil, hpos, hneg,
-                 decide_eq_true_eq, List.length_nil, List.length_cons]
-      split_ifs <;> omega
+      simp only [branch_state, List.filter_cons, List.filter_nil, hd1, hd2]
+      rcases Decidable.em (count_pos head = p - 1) with h1 | h1 <;>
+        rcases Decidable.em (count_pos head = p) with h2 | h2
+      · omega
+      · rw [show decide (count_pos head = p - 1) = true from decide_eq_true_eq.mpr h1,
+            show decide (count_pos head = p) = false from decide_eq_false_iff_not.mpr h2]
+        simp
+      · rw [show decide (count_pos head = p - 1) = false from decide_eq_false_iff_not.mpr h1,
+            show decide (count_pos head = p) = true from decide_eq_true_eq.mpr h2]
+        simp
+      · rw [show decide (count_pos head = p - 1) = false from decide_eq_false_iff_not.mpr h1,
+            show decide (count_pos head = p) = false from decide_eq_false_iff_not.mpr h2]
+        simp
     rw [hbranch]
-    simp only [List.filter_cons, decide_eq_true_eq, List.length_cons, List.length_nil]
-    split_ifs <;> omega
+    simp only [List.filter_cons]
+    rcases Decidable.em (count_pos head = p - 1) with h1 | h1 <;>
+      rcases Decidable.em (count_pos head = p) with h2 | h2
+    · omega
+    · rw [show decide (count_pos head = p - 1) = true from decide_eq_true_eq.mpr h1,
+          show decide (count_pos head = p) = false from decide_eq_false_iff_not.mpr h2]
+      simp only [if_true, if_false, List.length_cons, List.length_nil, if_pos h1, if_neg h2]
+      omega
+    · rw [show decide (count_pos head = p - 1) = false from decide_eq_false_iff_not.mpr h1,
+          show decide (count_pos head = p) = true from decide_eq_true_eq.mpr h2]
+      simp only [if_true, if_false, List.length_cons, List.length_nil, if_neg h1, if_pos h2]
+      omega
+    · rw [show decide (count_pos head = p - 1) = false from decide_eq_false_iff_not.mpr h1,
+          show decide (count_pos head = p) = false from decide_eq_false_iff_not.mpr h2]
+      simp only [if_false, if_neg h1, if_neg h2]
 
 -- Main counting lemma: exactly C(k,p) strings in expand_generation k have count_pos = p
 private lemma expand_generation_filter_pos_count (k p : ℕ) :
@@ -225,9 +251,9 @@ private lemma expand_generation_filter_pos_count (k p : ℕ) :
     cases p with
     | zero => simp
     | succ p =>
-      have : decide ((0 : ℤ) = (p.succ : ℤ)) = false := by
+      have hd : decide ((0 : ℤ) = ((p.succ : ℕ) : ℤ)) = false := by
         rw [decide_eq_false_iff_not]; push_cast; omega
-      simp [this, Nat.choose]
+      simp [hd, Nat.choose_zero_succ]
   | succ k ih =>
     simp only [expand_generation]
     rw [expand_states_filter_pos_eq]
@@ -235,11 +261,17 @@ private lemma expand_generation_filter_pos_count (k p : ℕ) :
     | zero =>
       -- p=0: the p-1 = -1 filter is empty (count_pos ≥ 0), and C(k,0) = 1 = C(k+1,0)
       simp only [Nat.cast_zero, zero_sub, Nat.choose_zero_right]
-      have hzero : (expand_generation k).filter
-          (fun s => decide (count_pos s = (-1 : ℤ))).length = 0 := by
-        have hneg : ∀ s : TopoString, decide (count_pos s = (-1 : ℤ)) = false := fun s => by
-          rw [decide_eq_false_iff_not]; exact fun h => absurd h (by linarith [count_pos_nonneg s])
-        simp [List.filter_congr (fun s (_ : s ∈ expand_generation k) => hneg s)]
+      have hzero : ((expand_generation k).filter
+          (fun s => decide (count_pos s = (-1 : ℤ)))).length = 0 := by
+        have hneg : ∀ s : TopoString, decide (count_pos s = (-1 : ℤ)) = false := fun s =>
+          decide_eq_false_iff_not.mpr (by linarith [count_pos_nonneg s])
+        rw [List.length_eq_zero]
+        generalize expand_generation k = l
+        induction l with
+        | nil => simp
+        | cons h t ih =>
+          simp only [List.filter_cons, hneg h, if_false]
+          exact ih
       rw [hzero, zero_add, ih 0, Nat.choose_zero_right]
     | succ p =>
       -- p = q+1: use ih twice and Pascal's rule
@@ -277,8 +309,8 @@ private lemma achieves_ZFA_bool_eq_decide_count (n : ℕ) (s : TopoString)
     intro hpos
     have := key.mpr hpos; rw [h] at this
     exact absurd this (by decide)
-  · -- true branch: show decide (count_pos s = n) = true
-    rw [h]; exact (decide_eq_true_eq.mpr (key.mp h)).symm
+  · -- true branch: goal is `true = decide (count_pos s = n)` (achieves_ZFA_bool s substituted)
+    exact (decide_eq_true_eq.mpr (key.mp h)).symm
 
 /-- The number of symmetric pure-phase strings of length 2n is C(2n, n). -/
 theorem find_stable_states_length_even (n : ℕ) :
