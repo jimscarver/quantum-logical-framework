@@ -161,6 +161,133 @@ theorem find_stable_states_length_odd (n : ℕ) :
     omega
 
 -- ==========================================
+-- QUANTITATIVE COUNT: find_stable_states_length_even
+-- ==========================================
+
+-- count_pos is non-negative (ZFA definitions never go below 0)
+private lemma count_pos_nonneg (s : TopoString) : 0 ≤ count_pos s := by
+  induction s with
+  | nil => simp [count_pos]
+  | cons h t ih =>
+    rw [count_pos_cons]
+    have : 0 ≤ val_pos h := by
+      cases h with
+      | gauge => simp [val_pos]
+      | phase p => cases p <;> simp [val_pos]
+    omega
+
+-- count_pos after appending a pos or neg element
+private lemma count_pos_append_pos (s : TopoString) :
+    count_pos (s ++ [TopoElement.phase LogicPhase.pos]) = count_pos s + 1 := by
+  induction s with
+  | nil => simp [count_pos]
+  | cons h t ih => simp only [List.cons_append, count_pos_cons, ih]; ring
+
+private lemma count_pos_append_neg (s : TopoString) :
+    count_pos (s ++ [TopoElement.phase LogicPhase.neg]) = count_pos s := by
+  induction s with
+  | nil => simp [count_pos, val_pos]
+  | cons h t ih => simp only [List.cons_append, count_pos_cons, ih]
+
+-- Filter length over expand_states splits by pos-count: Pascal step
+private lemma expand_states_filter_pos_eq (gen : List TopoString) (p : ℤ) :
+    ((expand_states gen).filter (fun s => decide (count_pos s = p))).length =
+    (gen.filter (fun s => decide (count_pos s = p - 1))).length +
+    (gen.filter (fun s => decide (count_pos s = p))).length := by
+  induction gen with
+  | nil => simp [expand_states]
+  | cons head tail ih =>
+    simp only [expand_states, List.filter_append, List.length_append]
+    rw [ih]
+    have hpos : count_pos (head ++ [TopoElement.phase LogicPhase.pos]) = count_pos head + 1 :=
+      count_pos_append_pos head
+    have hneg : count_pos (head ++ [TopoElement.phase LogicPhase.neg]) = count_pos head :=
+      count_pos_append_neg head
+    -- Filter over [head++pos, head++neg] contributes based on count_pos head vs p
+    have hbranch :
+        ((branch_state head).filter (fun s => decide (count_pos s = p))).length =
+        (if count_pos head = p - 1 then 1 else 0) + (if count_pos head = p then 1 else 0) := by
+      simp only [branch_state, List.filter_cons, List.filter_nil, hpos, hneg,
+                 decide_eq_true_eq, List.length_nil, List.length_cons]
+      split_ifs <;> omega
+    rw [hbranch]
+    simp only [List.filter_cons, decide_eq_true_eq, List.length_cons, List.length_nil]
+    split_ifs <;> omega
+
+-- Main counting lemma: exactly C(k,p) strings in expand_generation k have count_pos = p
+private lemma expand_generation_filter_pos_count (k p : ℕ) :
+    ((expand_generation k).filter (fun s => decide (count_pos s = (p : ℤ)))).length =
+    Nat.choose k p := by
+  induction k generalizing p with
+  | zero =>
+    simp only [expand_generation, List.filter_cons, List.filter_nil, List.length_cons,
+               List.length_nil, count_pos]
+    cases p with
+    | zero => simp
+    | succ p =>
+      have : decide ((0 : ℤ) = (p.succ : ℤ)) = false := by
+        rw [decide_eq_false_iff_not]; push_cast; omega
+      simp [this, Nat.choose]
+  | succ k ih =>
+    simp only [expand_generation]
+    rw [expand_states_filter_pos_eq]
+    cases p with
+    | zero =>
+      -- p=0: the p-1 = -1 filter is empty (count_pos ≥ 0), and C(k,0) = 1 = C(k+1,0)
+      simp only [Nat.cast_zero, zero_sub, Nat.choose_zero_right]
+      have hzero : (expand_generation k).filter
+          (fun s => decide (count_pos s = (-1 : ℤ))).length = 0 := by
+        have hneg : ∀ s : TopoString, decide (count_pos s = (-1 : ℤ)) = false := fun s => by
+          rw [decide_eq_false_iff_not]; exact fun h => absurd h (by linarith [count_pos_nonneg s])
+        simp [List.filter_congr (fun s (_ : s ∈ expand_generation k) => hneg s)]
+      rw [hzero, zero_add, ih 0, Nat.choose_zero_right]
+    | succ p =>
+      -- p = q+1: use ih twice and Pascal's rule
+      have hcast : ((p.succ : ℕ) : ℤ) - 1 = (p : ℤ) := by push_cast; ring
+      have heq : (expand_generation k).filter
+          (fun s => decide (count_pos s = ((p.succ : ℕ) : ℤ) - 1)) =
+          (expand_generation k).filter
+          (fun s => decide (count_pos s = (p : ℤ))) := by
+        apply List.filter_congr
+        intro s _; rw [hcast]
+      rw [heq, ih p, ih p.succ]
+      exact (Nat.choose_succ_succ k p).symm
+
+-- achieves_ZFA_bool agrees with "count_pos = n" on elements of expand_generation(2n)
+private lemma achieves_ZFA_bool_eq_decide_count (n : ℕ) (s : TopoString)
+    (hs : s ∈ expand_generation (2 * n)) :
+    achieves_ZFA_bool s = decide (count_pos s = (n : ℤ)) := by
+  have h_pure  := expand_generation_pure_phase (2 * n) s hs
+  have h_len   := expand_generation_length (2 * n) s hs
+  have h_count := count_pos_add_neg_eq_length s h_pure
+  have h_lint  : (s.length : ℤ) = 2 * n := by exact_mod_cast h_len
+  -- achieves_ZFA_bool s = true ↔ count_pos s = n  (for these strings)
+  have key : achieves_ZFA_bool s = true ↔ count_pos s = (n : ℤ) := by
+    rw [achieves_ZFA_bool_iff_zfa]
+    constructor
+    · intro h
+      have h_sym := zfa_implies_critical_line s h
+      unfold is_symmetric at h_sym; omega
+    · intro h_pos
+      exact phase_symmetric_achieves_zfa s h_pure (by unfold is_symmetric; omega)
+  -- Lift iff to Bool equality
+  cases h : achieves_ZFA_bool s
+  · -- false branch: show decide (count_pos s = n) = false
+    symm; rw [decide_eq_false_iff_not]
+    intro hpos
+    have := key.mpr hpos; rw [h] at this
+    exact absurd this (by decide)
+  · -- true branch: show decide (count_pos s = n) = true
+    rw [h]; exact (decide_eq_true_eq.mpr (key.mp h)).symm
+
+/-- The number of symmetric pure-phase strings of length 2n is C(2n, n). -/
+theorem find_stable_states_length_even (n : ℕ) :
+    (find_stable_states (2 * n)).length = Nat.choose (2 * n) n := by
+  simp only [find_stable_states]
+  rw [List.filter_congr (fun s hs => achieves_ZFA_bool_eq_decide_count n s hs)]
+  exact expand_generation_filter_pos_count (2 * n) n
+
+-- ==========================================
 -- RIEMANN HYPOTHESIS IN QLF
 -- ==========================================
 
