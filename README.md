@@ -73,12 +73,18 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 
 ### 4. Formal and executable work
 - [**lean/README.md**](lean/README.md) — Lean 4 formalization directory
-- `lean/QLF_Axioms.lean` — core counting, pruning, and ZFA machinery
-- `lean/QLF_QuCalc.lean` — phase-generation engine and stable-state filter
-- `lean/QLF_Universality.lean` — current universality formalization
-- `lean/QLF_Critical_Line.lean` — wrapper around the ZFA-to-symmetry bridge
-- `lean/SpacetimeDynamics.lean` — spacetime/logical-form matrix layer
-- `qucalc_engine.py`, `spacetime_dynamics.py`, `constants_mapper.py`, `path_integral.py` — executable experiments
+- [**lean/QLF_Axioms.lean**](lean/QLF_Axioms.lean) — core counting, pruning, and ZFA machinery
+- [**lean/QLF_QuCalc.lean**](lean/QLF_QuCalc.lean) — phase-generation engine and stable-state filter
+- [**lean/QLF_Universality.lean**](lean/QLF_Universality.lean) — current universality formalization
+- [**lean/QLF_Critical_Line.lean**](lean/QLF_Critical_Line.lean) — wrapper around the ZFA-to-symmetry bridge
+- [**lean/QLF_Riemann.lean**](lean/QLF_Riemann.lean) — Riemann hypothesis program in QLF
+- [**lean/RhoQuCalc.lean**](lean/RhoQuCalc.lean) — ρ-process algebra and Hermitian structure
+- [**lean/SpacetimeDynamics.lean**](lean/SpacetimeDynamics.lean) — spacetime/logical-form matrix layer
+- [**lean/ZFAEventDynamics.lean**](lean/ZFAEventDynamics.lean) — ZFA-driven event and acceleration dynamics
+- [**lean/ER_EPR_QLF.lean**](lean/ER_EPR_QLF.lean) — entanglement-geometry formalization
+- [**lean/AgeOfUniverse.lean**](lean/AgeOfUniverse.lean) — cosmological age estimate in QLF
+- [**qucalc_engine.py**](qucalc_engine.py), [**spacetime_dynamics.py**](spacetime_dynamics.py), [**constants_mapper.py**](constants_mapper.py), [**path_integral.py**](path_integral.py) — executable experiments
+- [**qlf_dirichlet_search.py**](qlf_dirichlet_search.py) — empirical search for Dirichlet/stable-state connection
 
 ---
 
@@ -119,10 +125,10 @@ The Lean side has seen recent build and tooling updates. The repo should be read
 ### Read
 Start with:
 
-1. `Philosophy.md`
-2. `TheBigProblem.md`
-3. `Universality.md`
-4. `Experimental_Consistency.md`
+1. [Philosophy.md](Philosophy.md)
+2. [TheBigProblem.md](TheBigProblem.md)
+3. [Universality.md](Universality.md)
+4. [Experimental_Consistency.md](Experimental_Consistency.md)
 
 Then go deeper into the Lean files and topic documents.
 
@@ -152,19 +158,19 @@ lake build
 
 ### If you care most about foundations
 
-`Philosophy.md` → `GodCreatedTheIntegers.md` → `Universality.md`
+[Philosophy.md](Philosophy.md) → [GodCreatedTheIntegers.md](GodCreatedTheIntegers.md) → [Universality.md](Universality.md)
 
 ### If you care most about physics
 
-`TheBigProblem.md` → `Measurement_Problem.md` → `SpaceTime.md` → `Gravity.md`
+[TheBigProblem.md](TheBigProblem.md) → [Measurement_Problem.md](Measurement_Problem.md) → [SpaceTime.md](SpaceTime.md) → [Gravity.md](Gravity.md)
 
 ### If you care most about formal structure
 
-`lean/README.md` → `lean/QLF_Axioms.lean` → `lean/QLF_QuCalc.lean` → `lean/QLF_Universality.lean`
+[lean/README.md](lean/README.md) → [lean/QLF_Axioms.lean](lean/QLF_Axioms.lean) → [lean/QLF_QuCalc.lean](lean/QLF_QuCalc.lean) → [lean/QLF_Universality.lean](lean/QLF_Universality.lean)
 
 ### If you care most about the Riemann program
 
-`Universality.md` → `Riemann-Conjecture-Proof.md` → `lean/QLF_Riemann.lean`
+[Universality.md](Universality.md) → [Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md) → [lean/QLF_Riemann.lean](lean/QLF_Riemann.lean)
 
 ---
 
