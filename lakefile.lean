@@ -15,6 +15,7 @@ lean_lib QLF where
     `QLF_QuCalc,
     `QLF_Universality,
     `QLF_Critical_Line,
+    `QLF_Spectral,
     `QLF_Riemann,
     `SpacetimeDynamics,
     `RhoQuCalc,

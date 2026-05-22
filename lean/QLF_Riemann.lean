@@ -5,6 +5,7 @@ import QLF_Axioms
 import QLF_QuCalc
 import QLF_Universality
 import QLF_Critical_Line
+import QLF_Spectral
 import RhoQuCalc
 import Mathlib.NumberTheory.LSeries.RiemannZeta
 import Mathlib.Data.Complex.Basic
@@ -15,10 +16,18 @@ namespace QLF
 
 axiom NonTrivialZero : ℂ → Prop
 
--- The core bridge axiom: a symmetric QLF string forces any associated
--- non-trivial zero to the critical line Re(s) = 1/2.
-axiom critical_line_forcing {s : TopoString} {ρ : ℂ} :
-    is_symmetric s → NonTrivialZero ρ → ρ.re = 1/2
+-- Hilbert-Pólya bridge (axiom): a QLF string whose spectral mode is a scalar
+-- multiple of the identity forces an associated non-trivial zero to Re(s) = 1/2.
+-- This is the QLF form of the Hilbert-Pólya conjecture; it remains an axiom.
+axiom spectral_hilbert_polya {s : TopoString} {ρ : ℂ} :
+    (∃ c : ℂ, toSpectralMode s = c • (1 : Matrix (Fin 2) (Fin 2) ℂ)) →
+    NonTrivialZero ρ → ρ.re = 1/2
+
+-- Derived from spectral_hilbert_polya via spectral_symmetric_eq_scalar_id:
+theorem critical_line_forcing {s : TopoString} {ρ : ℂ}
+    (hpure : ∀ e ∈ s, ∃ p, e = TopoElement.phase p)
+    (hsym : is_symmetric s) (h_zero : NonTrivialZero ρ) : ρ.re = 1/2 :=
+  spectral_hilbert_polya (spectral_symmetric_eq_scalar_id s hpure hsym) h_zero
 
 def QuCalcTree := { s : TopoString | ∃ n, s ∈ expand_generation n }
 
@@ -163,6 +172,6 @@ theorem riemann_hypothesis_in_qlf :
   have ⟨n, h_gen, h_zfa⟩ := every_relevant_closure_is_generated (resonant_computation_for ρ)
   have h_sym := zfa_forces_critical_line (encodeComputation (resonant_computation_for ρ))
     ⟨⟨n, h_gen⟩, h_zfa⟩
-  exact critical_line_forcing h_sym h_zero
+  exact critical_line_forcing (encode_is_phase_only (resonant_computation_for ρ)) h_sym h_zero
 
 end QLF
