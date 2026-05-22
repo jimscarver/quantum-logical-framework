@@ -74,9 +74,10 @@ private lemma toSpectralMode_diag (s : TopoString)
   | cons head tail ih =>
     obtain ⟨p, rfl⟩ := hpure head (List.Mem.head _)
     have iht := ih (fun e he => hpure e (List.Mem.tail _ he))
-    simp only [toSpectralMode, List.map_cons, List.sum_cons, iht,
+    simp only [toSpectralMode, List.map_cons, List.sum_cons,
                elementMatrix, phaseMatrix, count_pos_cons, count_neg_cons,
                val_pos, val_neg]
+    rw [show (List.map elementMatrix tail).sum = toSpectralMode tail from rfl, iht]
     cases p <;> push_cast <;>
     simp only [add_smul, one_smul, zero_smul, zero_add, add_zero] <;>
     abel
