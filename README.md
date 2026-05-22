@@ -72,12 +72,13 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 - [**VacuumEnergy.md**](VacuumEnergy.md), [**BLACK-HOLES.md**](BLACK-HOLES.md), [**Entropy.md**](Entropy.md) — topic-specific extensions
 
 ### 4. Formal and executable work
-- [**lean/README.md**](lean/README.md) — Lean 4 formalization directory
+- [**lean/README.md**](lean/README.md) — Lean 4 formalization directory (zero `sorry` blocks)
 - [**lean/QLF_Axioms.lean**](lean/QLF_Axioms.lean) — core counting, pruning, and ZFA machinery
 - [**lean/QLF_QuCalc.lean**](lean/QLF_QuCalc.lean) — phase-generation engine and stable-state filter
-- [**lean/QLF_Universality.lean**](lean/QLF_Universality.lean) — current universality formalization
-- [**lean/QLF_Critical_Line.lean**](lean/QLF_Critical_Line.lean) — wrapper around the ZFA-to-symmetry bridge
-- [**lean/QLF_Riemann.lean**](lean/QLF_Riemann.lean) — Riemann hypothesis program in QLF
+- [**lean/QLF_Universality.lean**](lean/QLF_Universality.lean) — universality: every terminating computation encodes as a ZFA string
+- [**lean/QLF_Critical_Line.lean**](lean/QLF_Critical_Line.lean) — ZFA-to-symmetry bridge
+- [**lean/QLF_Spectral.lean**](lean/QLF_Spectral.lean) — spectral projector operators; Hermitian structure; Hilbert-Pólya bridge
+- [**lean/QLF_Riemann.lean**](lean/QLF_Riemann.lean) — Riemann hypothesis program; stable-state characterization and count
 - [**lean/RhoQuCalc.lean**](lean/RhoQuCalc.lean) — ρ-process algebra and Hermitian structure
 - [**lean/SpacetimeDynamics.lean**](lean/SpacetimeDynamics.lean) — spacetime/logical-form matrix layer
 - [**lean/ZFAEventDynamics.lean**](lean/ZFAEventDynamics.lean) — ZFA-driven event and acceleration dynamics
@@ -85,6 +86,7 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 - [**lean/AgeOfUniverse.lean**](lean/AgeOfUniverse.lean) — cosmological age estimate in QLF
 - [**qucalc_engine.py**](qucalc_engine.py), [**spacetime_dynamics.py**](spacetime_dynamics.py), [**constants_mapper.py**](constants_mapper.py), [**path_integral.py**](path_integral.py) — executable experiments
 - [**qlf_dirichlet_search.py**](qlf_dirichlet_search.py) — empirical search for Dirichlet/stable-state connection
+- [**qlf_spectral.py**](qlf_spectral.py) — empirical verification of spectral Hermitian and scalar-identity theorems
 
 ---
 
@@ -105,18 +107,20 @@ The philosophical documents argue that unconstrained self-reference and open-end
 The repo increasingly treats bulk structure as constrained by closure at the boundary, linking QLF to Shannon, Wheeler, holography, and error-correction style thinking.
 
 ### The Spectral Structure of QLF
-While the discrete combinatorial generation of QLF is verified using ZFA and phase symmetry, the geometric and physical layer of the framework admits a spectral reformulation. In geometric-algebra terms, QLF's half-spin closures operate as multivector modes, and the requirement of Zero Free Action manifests as a geometric-adjoint symmetry. This cleanly separates the non-commutative spinor mechanics of the universe from the discrete combinatorics underlying its statistical limits.
+Every QLF string maps to a 2×2 Hermitian operator (its *spectral mode*) built from rank-1 phase projectors. This is formalized in [`lean/QLF_Spectral.lean`](lean/QLF_Spectral.lean), which proves two machine-verified theorems: (1) the spectral mode of any string is always Hermitian; (2) for symmetric strings (equal pos/neg counts), the spectral mode is a scalar multiple of the identity — the QLF spectral analog of sitting on the critical line. The Hilbert-Pólya conjecture, that Riemann zeros are eigenvalues of a Hermitian operator, is encoded as a single geometric axiom (`spectral_hilbert_polya`) from which `critical_line_forcing` is now a derived theorem rather than a bare axiom.
 
 ## Current Status
 
-This repository is a mix of:
+The Lean formalization compiles with **zero `sorry` blocks** across all active modules. Key proven results include:
 
-- **core ideas that are stable**
-- **formalization that is actively being repaired and strengthened**
-- **executable demonstrations**
-- **speculative extensions that are clearly broader than the currently proved core**
+- ZFA implies symmetry (`zfa_implies_critical_line`)
+- Every terminating computation encodes as a ZFA string (`encode_is_zfa`, `qlf_universality`)
+- Stable states are exactly the symmetric pure-phase strings (`find_stable_states_iff`)
+- No symmetric pure-phase strings of odd length exist (`find_stable_states_length_odd`)
+- Every QLF string has a Hermitian spectral mode (`toSpectralMode_hermitian`)
+- Symmetric strings produce a scalar multiple of the identity (`spectral_symmetric_eq_scalar_id`)
 
-The Lean side has seen recent build and tooling updates. The repo should be read as an actively evolving formal-executable research program, not as a finished closed theory.
+The repo should be read as an actively evolving formal-executable research program. Speculative extensions (ER=EPR, age of universe) are clearly broader than the currently proved core.
 
 ---
 
