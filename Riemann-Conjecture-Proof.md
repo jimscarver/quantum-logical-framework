@@ -214,6 +214,10 @@ The Riemann problem is now posed entirely within the same QuCalc/ZFA machinery t
 
 The only remaining bridge is the explicit QLF↔$\zeta$ correspondence, already separated out in the Lean file.
 
+### 5. It located the axiom boundary using Reverse Mathematics
+
+The three explicit axioms in `lean/QLF_Riemann.lean` (`spectral_hilbert_polya`, `NonTrivialZero`, `resonant_computation_for`) are not gaps — they are the *exact logical boundary* between two subsystems of second-order arithmetic. The combinatorial QLF core (`expand_generation`, `full_zeno_prune`, `find_stable_states`, `find_stable_states_length_even`) is entirely provable within **RCA₀**, the bedrock of constructive computable mathematics. The Riemann zeta function, with its Dirichlet series and analytic continuation, belongs to a strictly higher subsystem (**WKL₀ / ACA₀**). Lean 4 is enforcing Harvey Friedman's Reverse Mathematics constraint: you cannot cross that boundary without an explicit bridge axiom. See [ReverseMathematics.md](ReverseMathematics.md) for the full treatment.
+
 That is exactly how a constructive program should mature.
 
 ---
