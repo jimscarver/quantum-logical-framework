@@ -13,7 +13,7 @@
 | [QLF_Critical_Line.lean](QLF_Critical_Line.lean) | ZFA-to-symmetry bridge wrappers | `riemann_zfa_critical_line`, `riemann_zfa_critical_line_sym` |
 | [QLF_Universality.lean](QLF_Universality.lean) | Every terminating computation encodes as a ZFA string | `encode_is_zfa`, `encode_is_generated`, `qlf_universality`, `encode_is_phase_only` |
 | [QLF_Spectral.lean](QLF_Spectral.lean) | Spectral projector operators; Hermitian structure; Hilbert-Pólya bridge | `toSpectralMode_hermitian`, `spectral_symmetric_eq_scalar_id` |
-| [QLF_Riemann.lean](QLF_Riemann.lean) | Riemann hypothesis program in QLF | `find_stable_states_iff`, `find_stable_states_length_odd`, `critical_line_forcing`, `riemann_hypothesis_in_qlf` |
+| [QLF_Riemann.lean](QLF_Riemann.lean) | Riemann hypothesis program in QLF | `find_stable_states_iff`, `find_stable_states_length_odd`, `find_stable_states_length_even`, `critical_line_forcing`, `riemann_hypothesis_in_qlf` |
 | [SpacetimeDynamics.lean](SpacetimeDynamics.lean) | Pauli-basis Form matrices; spacetime synthesis | `Form.toMatrix_adjoint`, `Form.equal_and_opposite_self` |
 | [RhoQuCalc.lean](RhoQuCalc.lean) | ρ-process algebra, Hermitian structure, ZFA stability | `parallel_hermitian`, `action_lift_hermitian`, `rho_process_always_zfa`, `rho_process_always_symmetric`, `phase_symmetric_achieves_zfa` |
 | [ZFAEventDynamics.lean](ZFAEventDynamics.lean) | ZFA events, spacetime synthesis, acceleration | `spacetime_from_zfa_preserves_synthesis`, `zfa_dynamics_drive_acceleration` |

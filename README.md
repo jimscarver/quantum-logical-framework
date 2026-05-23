@@ -118,6 +118,7 @@ The Lean formalization compiles with **zero `sorry` blocks** across all active m
 - Every terminating computation encodes as a ZFA string (`encode_is_zfa`, `qlf_universality`)
 - Stable states are exactly the symmetric pure-phase strings (`find_stable_states_iff`)
 - No symmetric pure-phase strings of odd length exist (`find_stable_states_length_odd`)
+- The number of stable states of length 2n equals C(2n, n) (`find_stable_states_length_even`)
 - Every QLF string has a Hermitian spectral mode (`toSpectralMode_hermitian`)
 - Symmetric strings produce a scalar multiple of the identity (`spectral_symmetric_eq_scalar_id`)
 
