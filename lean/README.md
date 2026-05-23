@@ -19,6 +19,8 @@
 | [ZFAEventDynamics.lean](ZFAEventDynamics.lean) | ZFA events, spacetime synthesis, acceleration | `spacetime_from_zfa_preserves_synthesis`, `zfa_dynamics_drive_acceleration` |
 | [AgeOfUniverse.lean](AgeOfUniverse.lean) | Cosmological age from ZFA event rate | `age_is_finite_and_positive` |
 | [ER_EPR_QLF.lean](ER_EPR_QLF.lean) | Entanglement-geometry axioms | philosophical axioms (speculative extension) |
+| [PauliExclusion.lean](PauliExclusion.lean) | ρ-process antisymmetry; Pauli exclusion principle | `pauli_exclusion`, `bosonic_double_occupancy`, `fermi_antisym_action_lift` |
+| [StringTheoryQLF.lean](StringTheoryQLF.lean) | String theory via gauge-fold depth; closed string excitation tower; mode degeneracy | `string_mass_spectrum`, `string_mode_count`, `landscape_zfa_stable` |
 
 ## Axiom Inventory
 

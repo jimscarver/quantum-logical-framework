@@ -74,6 +74,7 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 - [**Higgs.md**](Higgs.md) — QLF mass generation via gauge-fold depth; constructive alternative to the Higgs mechanism
 - [**HadronicDepth.md**](HadronicDepth.md) — Hadronic Depth Hypothesis: n ~ (m_P/m_p)³ fixes cosmic size, age, and G from the proton mass
 - [**VacuumEnergy.md**](VacuumEnergy.md), [**BLACK-HOLES.md**](BLACK-HOLES.md), [**Entropy.md**](Entropy.md) — topic-specific extensions
+- [**QuantumOS.md**](QuantumOS.md) — QLF as a native OS kernel for quantum simulators: rhoqcalc engine, ZFA as hardware GC, ρ-calculus capability security, and active inference as the system loop
 
 ### 4. Formal and executable work
 - [**lean/README.md**](lean/README.md) — Lean 4 formalization directory (zero `sorry` blocks)
@@ -88,6 +89,8 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 - [**lean/ZFAEventDynamics.lean**](lean/ZFAEventDynamics.lean) — ZFA-driven event and acceleration dynamics
 - [**lean/ER_EPR_QLF.lean**](lean/ER_EPR_QLF.lean) — entanglement-geometry formalization
 - [**lean/AgeOfUniverse.lean**](lean/AgeOfUniverse.lean) — cosmological age estimate in QLF
+- [**lean/PauliExclusion.lean**](lean/PauliExclusion.lean) — Pauli exclusion via ρ-process antisymmetry; bosonic double occupancy
+- [**lean/StringTheoryQLF.lean**](lean/StringTheoryQLF.lean) — string theory via gauge-fold depth: infinite excitation tower (infinities = folds), mode degeneracy C(2n,n) (modes = ways it can happen)
 - [**qucalc_engine.py**](qucalc_engine.py), [**spacetime_dynamics.py**](spacetime_dynamics.py), [**constants_mapper.py**](constants_mapper.py), [**path_integral.py**](path_integral.py) — executable experiments
 - [**qlf_dirichlet_search.py**](qlf_dirichlet_search.py) — empirical search for Dirichlet/stable-state connection
 - [**qlf_spectral.py**](qlf_spectral.py) — empirical verification of spectral Hermitian and scalar-identity theorems
@@ -118,9 +121,19 @@ Every QLF string maps to a 2×2 Hermitian operator (its *spectral mode*) built f
 
 QLF refactors physical laws using the structural framework of Harvey Friedman's **Reverse Mathematics** program. The core QLF engine — `expand_generation`, `full_zeno_prune`, `find_stable_states`, `find_stable_states_length_even` — operates strictly within **RCA₀**, the bedrock of constructive computable mathematics: no axiom of choice, no continuity, no non-constructive existence. The transition from discrete QLF combinatorics to the continuous Riemann zeta function (Dirichlet series, analytic continuation) represents a genuine jump to a higher logical subsystem (WKL₀/ACA₀). Isolating `spectral_hilbert_polya` as an explicit axiom in `lean/QLF_Riemann.lean` is a meta-mathematical necessity — it marks the exact logical boundary where discrete computation projects its continuous statistical shadow. See [**ReverseMathematics.md**](ReverseMathematics.md) for the full treatment.
 
+### QuantumOS: QLF as a Native OS Kernel for Quantum Simulators
+
+QLF is not only a theoretical framework — it is an executable architecture for quantum hardware. [**QuantumOS.md**](QuantumOS.md) specifies how the QLF stack maps onto a native operating system for QPUs and quantum simulators:
+
+- **rhoqcalc as kernel**: The ρ-process algebra (`RhoQuCalc.lean`) is the execution engine — capability-secure, reflective, and geometrically typed. Names are topological structures built from the 8-axis twist alphabet; possessing a name *is* the capability to interact with that computational subspace.
+- **ZFA as hardware garbage collector**: `full_zeno_prune` runs as a real-time kernel process. Hardware noise and decoherence are identified as uncompensated phase asymmetries and pruned before they can register as physical events.
+- **No-Cloning via linear logic**: The quantum no-cloning theorem is not a law imported from outside — it is a structural consequence of the linear-logic enforcement of capability names. Duplicating a name mid-transit introduces a ZFA violation, causing the cloned branch to self-annihilate.
+- **Active inference as the system loop**: The OS drives a continuous Perceive → Predict → Act → Prune cycle to minimize system-wide Free Action, replacing fixed circuit schedules with adaptive logical closure.
+- **The Ruliad connection**: `expand_generation` explores the full ruliadic multiway space; `full_zeno_prune` filters it to physical reality — only ZFA-balanced branches persist as stable matter and spacetime.
+
 ## Current Status
 
-The Lean formalization compiles with **zero `sorry` blocks** across all active modules. Key proven results include:
+The Lean formalization compiles with **zero `sorry` blocks** across all active modules (14 modules total). Key proven results include:
 
 - ZFA implies symmetry (`zfa_implies_critical_line`)
 - Every terminating computation encodes as a ZFA string (`encode_is_zfa`, `qlf_universality`)
@@ -129,6 +142,9 @@ The Lean formalization compiles with **zero `sorry` blocks** across all active m
 - The number of stable states of length 2n equals C(2n, n) (`find_stable_states_length_even`)
 - Every QLF string has a Hermitian spectral mode (`toSpectralMode_hermitian`)
 - Symmetric strings produce a scalar multiple of the identity (`spectral_symmetric_eq_scalar_id`)
+- Pauli exclusion: the antisymmetric fermionic combination of any identical ρ-processes is zero (`pauli_exclusion`)
+- String mass spectrum: eval of the n-th closed string excitation level = n • (fold-pair matrix) (`string_mass_spectrum`)
+- String mode degeneracy at level n equals C(2n, n) — forced by ZFA balance, not a free parameter (`string_mode_count`)
 
 The repo should be read as an actively evolving formal-executable research program. Speculative extensions (ER=EPR, age of universe) are clearly broader than the currently proved core.
 
