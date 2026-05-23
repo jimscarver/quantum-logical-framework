@@ -207,10 +207,9 @@ private lemma expand_states_filter_pos_eq (gen : List TopoString) (p : ℤ) :
       · rw [decide_eq_true_eq] at h ⊢; rw [count_pos_append_pos]; omega
     have hd2 : decide (count_pos (head ++ [TopoElement.phase LogicPhase.neg]) = p) =
                decide (count_pos head = p) := by rw [count_pos_append_neg]
-    -- Inline branch_state and filter_cons, then close all 4 cases with split_ifs + omega
-    simp only [branch_state, List.filter_cons, List.filter_nil,
-               List.length_cons, List.length_nil, List.length_append, hd1, hd2]
-    split_ifs <;> omega
+    -- Reduce filters to if-expressions over lists, then split and compute lengths
+    simp only [branch_state, List.filter_cons, List.filter_nil, hd1, hd2]
+    split_ifs <;> simp [List.length_cons, List.length_nil] <;> omega
 
 -- Main counting lemma: exactly C(k,p) strings in expand_generation k have count_pos = p
 private lemma expand_generation_filter_pos_count (k p : ℕ) :
