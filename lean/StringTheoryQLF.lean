@@ -82,7 +82,7 @@ theorem string_mass_spectrum (f : Form) (n : ℕ) :
     (ClosedStringLevel f n).eval = n • (f.toMatrix + f.toMatrix) := by
   induction n with
   | zero => simp
-  | succ n ih => rw [closedString_succ_eval, ih]; abel
+  | succ n ih => rw [closedString_succ_eval, ih, succ_nsmul]
 
 /-! ## ZFA stability and Hermitian structure -/
 
@@ -124,7 +124,7 @@ theorem string_level_hermitian (f : Form) (n : ℕ) :
     the same constraint that drives the QLF Riemann program. -/
 theorem string_mode_count (n : ℕ) :
     (find_stable_states (2 * n)).length = Nat.choose (2 * n) n :=
-  find_stable_states_length_even n
+  QLF.find_stable_states_length_even n
 
 /-- The list of distinct string modes at excitation level n -/
 def stringModesAtLevel (n : ℕ) : List TopoString :=
@@ -133,13 +133,14 @@ def stringModesAtLevel (n : ℕ) : List TopoString :=
 /-- Mode count is C(2n,n) ≈ 4^n / √(πn) — consistent with exponential (Hagedorn) growth -/
 theorem string_modes_count_eq_choose (n : ℕ) :
     (stringModesAtLevel n).length = Nat.choose (2 * n) n :=
-  find_stable_states_length_even n
+  QLF.find_stable_states_length_even n
 
 /-- Every mode in the list is ZFA-stable (all elements of find_stable_states are ZFA-closed) -/
 theorem string_modes_all_zfa (n : ℕ) (s : TopoString) (hs : s ∈ stringModesAtLevel n) :
     achieves_ZFA s := by
-  simp [stringModesAtLevel, find_stable_states] at hs
-  exact achieves_ZFA_bool_iff.mp hs.2
+  simp only [stringModesAtLevel] at hs
+  obtain ⟨_, hpure, hsym⟩ := (QLF.find_stable_states_iff (2 * n) s).mp hs
+  exact phase_symmetric_achieves_zfa s hpure hsym
 
 /-! ## Compactification -/
 
