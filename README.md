@@ -71,6 +71,7 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 - [**SpaceTime.md**](SpaceTime.md) — event-synthesized space and time
 - [**Gravity.md**](Gravity.md) — emergent gravity in the QLF picture
 - [**ER_EPR_QLF.md**](ER_EPR_QLF.md) — entanglement, geometry, and logical structure
+- [**Higgs.md**](Higgs.md) — QLF mass generation via gauge-fold depth; constructive alternative to the Higgs mechanism
 - [**VacuumEnergy.md**](VacuumEnergy.md), [**BLACK-HOLES.md**](BLACK-HOLES.md), [**Entropy.md**](Entropy.md) — topic-specific extensions
 
 ### 4. Formal and executable work
