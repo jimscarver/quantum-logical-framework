@@ -104,7 +104,7 @@ Nothing else is postulated. Constants are derived, not inserted. Singularities a
 
 QLF does not reduce physics to smaller “bits.” It shows how macroscopic physics (spacetime, gravity, quantum statistics) *emerges* from the global constraint of ZFA closure acting on discrete logical events.
 
-The continuum, the metric, and the cosmological constant are large-scale approximations. The only thing actually happening is quantum logical ZFA events.
+The continuum, the metric, and the cosmological constant are large-scale approximations. The only thing actually happening is quantum logical ZFA events. The Axiom of Choice is not needed: physical existence is constructive termination under `full_zeno_prune`, not a non-constructive selection function. See [TheContinuum.md](TheContinuum.md) for the full treatment of how QLF dissolves Zeno's paradoxes, the Lorentz invariance problem, and the continuum.
 
 ## 6. The Universe as an Information Ecology
 
