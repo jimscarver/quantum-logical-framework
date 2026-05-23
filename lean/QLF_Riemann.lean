@@ -232,8 +232,9 @@ private lemma expand_states_filter_pos_eq (gen : List TopoString) (p : ℤ) :
           show decide (count_pos head = p) = false from decide_eq_false_iff_not.mpr h2]
       simp [h1, h2]; try omega
     · rw [show decide (count_pos head = p - 1) = false from decide_eq_false_iff_not.mpr h1,
-          show decide (count_pos head = p) = true from decide_eq_true_eq.mpr h2]
-      simp [h1, h2]; try omega
+          show decide (count_pos head = p) = true from decide_eq_true_eq.mpr h2,
+          if_neg h1, if_pos h2]
+      omega
     · rw [show decide (count_pos head = p - 1) = false from decide_eq_false_iff_not.mpr h1,
           show decide (count_pos head = p) = false from decide_eq_false_iff_not.mpr h2]
       simp [h1, h2]; try omega
@@ -251,8 +252,7 @@ private lemma expand_generation_filter_pos_count (k p : ℕ) :
     | succ p =>
       have hd : decide ((0 : ℤ) = (↑(p + 1) : ℤ)) = false := by
         rw [decide_eq_false_iff_not]; push_cast; omega
-      rw [hd]
-      simp [Nat.choose_zero_succ]
+      simp [hd, Nat.choose_zero_succ]
   | succ k ih =>
     simp only [expand_generation]
     rw [expand_states_filter_pos_eq]
