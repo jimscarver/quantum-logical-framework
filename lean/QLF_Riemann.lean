@@ -207,37 +207,10 @@ private lemma expand_states_filter_pos_eq (gen : List TopoString) (p : ℤ) :
       · rw [decide_eq_true_eq] at h ⊢; rw [count_pos_append_pos]; omega
     have hd2 : decide (count_pos (head ++ [TopoElement.phase LogicPhase.neg]) = p) =
                decide (count_pos head = p) := by rw [count_pos_append_neg]
-    have hbranch :
-        ((branch_state head).filter (fun s => decide (count_pos s = p))).length =
-        (if count_pos head = p - 1 then 1 else 0) + (if count_pos head = p then 1 else 0) := by
-      simp only [branch_state, List.filter_cons, List.filter_nil, hd1, hd2]
-      rcases Decidable.em (count_pos head = p - 1) with h1 | h1 <;>
-        rcases Decidable.em (count_pos head = p) with h2 | h2
-      · omega
-      · rw [show decide (count_pos head = p - 1) = true from decide_eq_true_eq.mpr h1,
-            show decide (count_pos head = p) = false from decide_eq_false_iff_not.mpr h2]
-        simp [h1, h2]; try omega
-      · rw [show decide (count_pos head = p - 1) = false from decide_eq_false_iff_not.mpr h1,
-            show decide (count_pos head = p) = true from decide_eq_true_eq.mpr h2]
-        simp [h1, h2]; try omega
-      · rw [show decide (count_pos head = p - 1) = false from decide_eq_false_iff_not.mpr h1,
-            show decide (count_pos head = p) = false from decide_eq_false_iff_not.mpr h2]
-        simp [h1, h2]; try omega
-    rw [hbranch]
-    simp only [List.filter_cons]
-    rcases Decidable.em (count_pos head = p - 1) with h1 | h1 <;>
-      rcases Decidable.em (count_pos head = p) with h2 | h2
-    · omega
-    · rw [show decide (count_pos head = p - 1) = true from decide_eq_true_eq.mpr h1,
-          show decide (count_pos head = p) = false from decide_eq_false_iff_not.mpr h2]
-      simp [h1, h2]; try omega
-    · rw [show decide (count_pos head = p - 1) = false from decide_eq_false_iff_not.mpr h1,
-          show decide (count_pos head = p) = true from decide_eq_true_eq.mpr h2,
-          if_neg h1, if_pos h2]
-      omega
-    · rw [show decide (count_pos head = p - 1) = false from decide_eq_false_iff_not.mpr h1,
-          show decide (count_pos head = p) = false from decide_eq_false_iff_not.mpr h2]
-      simp [h1, h2]; try omega
+    -- Inline branch_state and filter_cons, then close all 4 cases with split_ifs + omega
+    simp only [branch_state, List.filter_cons, List.filter_nil,
+               List.length_cons, List.length_nil, List.length_append, hd1, hd2]
+    split_ifs <;> omega
 
 -- Main counting lemma: exactly C(k,p) strings in expand_generation k have count_pos = p
 private lemma expand_generation_filter_pos_count (k p : ℕ) :
@@ -250,9 +223,11 @@ private lemma expand_generation_filter_pos_count (k p : ℕ) :
     cases p with
     | zero => simp
     | succ p =>
-      have hd : decide ((0 : ℤ) = (↑(p + 1) : ℤ)) = false := by
-        rw [decide_eq_false_iff_not]; push_cast; omega
-      simp [hd, Nat.choose_zero_succ]
+      -- avoid decide-matching issues by using split_ifs directly
+      simp only [Nat.choose_zero_succ]
+      split_ifs with h
+      · rw [decide_eq_true_eq] at h; push_cast at h; omega
+      · rfl
   | succ k ih =>
     simp only [expand_generation]
     rw [expand_states_filter_pos_eq]
