@@ -1,4 +1,4 @@
-QuantumOS: The Native Operating System Kernel for Quantum Simulators (QOS)
+# QuantumOS: The Native Operating System Kernel for Quantum Simulators (QOS)
 
 This document defines the structural specification for **QuantumOS**, a next-generation decentralized runtime environment that positions the **Quantum Logical Framework (QLF)** as a native operating system kernel for Quantum Processing Units (QPUs) and hardware quantum simulators.
 
