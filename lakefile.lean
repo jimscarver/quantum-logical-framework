@@ -21,5 +21,8 @@ lean_lib QLF where
     `RhoQuCalc,
     `ZFAEventDynamics,
     `AgeOfUniverse,
-    `ER_EPR_QLF
+    `ER_EPR_QLF,
+    `PauliExclusion,
+    `StringTheoryQLF,
+    `MTheoryQLF
   ]
