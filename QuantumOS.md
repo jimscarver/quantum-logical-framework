@@ -8,7 +8,7 @@
 | Pauli exclusion / no-cloning (`pauli_exclusion`, `fermi_nonzero_example`) | Machine-verified in Lean 4 (this repo) |
 | Capability security via ρ-calculus names | Established in the ρ-calculus and object-capability literature (Meredith & Radestock, Miller et al.) — QLF inherits this by construction |
 | ZFA as hardware garbage collector | Formalized kernel primitive; hardware mapping is an engineering claim |
-| Error correction via Zeno pruning | Conceptual — formal connection to quantum error-correction codes pending |
+| Error correction via Zeno pruning | `full_zeno_prune` machine-verified (this repo); Zeno-subspace error correction established in physics literature (Beige et al. 2000, Facchi & Pascazio 2002, Viola/Knill/Lloyd 1999) — QLF instantiates the mechanism natively; formal mapping to stabilizer/surface codes pending |
 | Hardware-native AI (Cognitive Geometries) | Architectural narrative pending formalization |
 
 **Repository:** [`jimscarver/quantum-logical-framework`](https://github.com/jimscarver/quantum-logical-framework)
