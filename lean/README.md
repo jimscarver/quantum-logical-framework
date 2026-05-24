@@ -21,6 +21,7 @@
 | [ER_EPR_QLF.lean](ER_EPR_QLF.lean) | Entanglement-geometry axioms | philosophical axioms (speculative extension) |
 | [PauliExclusion.lean](PauliExclusion.lean) | ρ-process antisymmetry; Pauli exclusion principle | `pauli_exclusion`, `bosonic_double_occupancy`, `fermi_antisym_action_lift` |
 | [StringTheoryQLF.lean](StringTheoryQLF.lean) | String theory via gauge-fold depth; closed string excitation tower; mode degeneracy | `string_mass_spectrum`, `string_mode_count`, `landscape_zfa_stable` |
+| [MTheoryQLF.lean](MTheoryQLF.lean) | M-theory via gauge-fold stacks; M2/M5-branes; S/T-duality; 11D compactification | `mbrane2_hermitian`, `m2_mass_spectrum`, `s_dual_involution`, `m11d_zfa_stable` |
 
 ## Axiom Inventory
 

@@ -91,6 +91,7 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 - [**lean/AgeOfUniverse.lean**](lean/AgeOfUniverse.lean) — cosmological age estimate in QLF
 - [**lean/PauliExclusion.lean**](lean/PauliExclusion.lean) — Pauli exclusion via ρ-process antisymmetry; bosonic double occupancy
 - [**lean/StringTheoryQLF.lean**](lean/StringTheoryQLF.lean) — string theory via gauge-fold depth: infinite excitation tower (infinities = folds), mode degeneracy C(2n,n) (modes = ways it can happen)
+- [**lean/MTheoryQLF.lean**](lean/MTheoryQLF.lean) — M-theory via gauge-fold stacks: M2/M5-branes, S/T-duality as Form transformations, 11D via compactifyForm
 - [**qucalc_engine.py**](qucalc_engine.py), [**spacetime_dynamics.py**](spacetime_dynamics.py), [**constants_mapper.py**](constants_mapper.py), [**path_integral.py**](path_integral.py) — executable experiments
 - [**qlf_dirichlet_search.py**](qlf_dirichlet_search.py) — empirical search for Dirichlet/stable-state connection
 - [**qlf_spectral.py**](qlf_spectral.py) — empirical verification of spectral Hermitian and scalar-identity theorems
@@ -133,7 +134,7 @@ QLF is not only a theoretical framework — it is an executable architecture for
 
 ## Current Status
 
-The Lean formalization compiles with **zero `sorry` blocks** across all active modules (14 modules total). Key proven results include:
+The Lean formalization compiles with **zero `sorry` blocks** across all active modules (15 modules total). Key proven results include:
 
 - ZFA implies symmetry (`zfa_implies_critical_line`)
 - Every terminating computation encodes as a ZFA string (`encode_is_zfa`, `qlf_universality`)
@@ -145,6 +146,9 @@ The Lean formalization compiles with **zero `sorry` blocks** across all active m
 - Pauli exclusion: the antisymmetric fermionic combination of any identical ρ-processes is zero (`pauli_exclusion`)
 - String mass spectrum: eval of the n-th closed string excitation level = n • (fold-pair matrix) (`string_mass_spectrum`)
 - String mode degeneracy at level n equals C(2n, n) — forced by ZFA balance, not a free parameter (`string_mode_count`)
+- M2/M5-branes as parallel gauge-fold stacks; S-duality is an involution on Form; T-duality doubles the mass spectrum (`m2_mass_spectrum`, `s_dual_involution`, `t_duality_mass_spectrum`)
+
+The Lean formalization now covers **15 modules** with zero `sorry` blocks.
 
 The repo should be read as an actively evolving formal-executable research program. Speculative extensions (ER=EPR, age of universe) are clearly broader than the currently proved core.
 
