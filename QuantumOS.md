@@ -1,6 +1,15 @@
 # QuantumOS: The Native Operating System Kernel for Quantum Simulators (QOS)
 
-**Status:** Architectural proposal grounded in the QLF formal core. The kernel primitives (`rhoqcalc`, `full_zeno_prune`, `expand_generation`) are machine-verified in Lean 4. The OS-level claims (capability security, error correction, hardware-native AI) are conceptual extrapolations pending further formalization.
+**Status:** Architectural proposal grounded in the QLF formal core and established process-calculus results.
+
+| Claim | Basis |
+|---|---|
+| Kernel primitives (`rhoqcalc`, `full_zeno_prune`, `expand_generation`) | Machine-verified in Lean 4 (this repo) |
+| Pauli exclusion / no-cloning (`pauli_exclusion`, `fermi_nonzero_example`) | Machine-verified in Lean 4 (this repo) |
+| Capability security via ρ-calculus names | Established in the ρ-calculus and object-capability literature (Meredith & Radestock, Miller et al.) — QLF inherits this by construction |
+| ZFA as hardware garbage collector | Formalized kernel primitive; hardware mapping is an engineering claim |
+| Error correction via Zeno pruning | Conceptual — formal connection to quantum error-correction codes pending |
+| Hardware-native AI (Cognitive Geometries) | Architectural narrative pending formalization |
 
 **Repository:** [`jimscarver/quantum-logical-framework`](https://github.com/jimscarver/quantum-logical-framework)
 
