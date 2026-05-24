@@ -83,38 +83,67 @@ This is machine-verified in [`lean/PauliExclusion.lean`](lean/PauliExclusion.lea
 
 ## 3. System Architecture & Component Relatability
 
-QuantumOS organizes the quantum simulator into a highly optimized, multi-layered stack where higher-order AI operations and physical hardware boundaries are bound to a single unified loop.
+QuantumOS is a **capability-secure, formally-verified microkernel** — the quantum analogue of seL4 (Klein et al. 2009, the first formally verified OS kernel) but with ZFA as the hardware-enforced invariant rather than memory isolation. Every layer has a formal backing:
 
 ```
-┌────────────────────────────────────────────────────────┐
-│  APPLICATION LAYER: Cognitive Geometries & AI Agents   │  (AI.md)
-│  - Conceptual tokens mapped to reflective ρ-expressions │
-└───────────────────────────┬────────────────────────────┘
-                            ▼
-┌────────────────────────────────────────────────────────┐
-│  OPERATING SYSTEM LAYER: Active Inference Loop         │  (active_inference.md)
-│  - Dynamic minimization of system Free Action          │
-│  - Zeno Pruning functioning as hardware GC             │
-└───────────────────────────┬────────────────────────────┘
-                            ▼
-┌────────────────────────────────────────────────────────┐
-│  VIRTUAL MACHINE KERNEL: rhoqcalc Engine               │
-│  - Bounded multiway execution across the Ruliad       │
-│  - Linear-logic capability name-routing                │
-└───────────────────────────┬────────────────────────────┘
-                            ▼
-┌────────────────────────────────────────────────────────┐
-│  HARDWARE FABRIC: Zero Free Action (ZFA) QPU           │
-│  - Phase-locked execution of discrete twist sequences   │
-└────────────────────────────────────────────────────────┘
-
+┌─────────────────────────────────────────────────────────────────┐
+│  APPLICATION LAYER: Cognitive Geometries & AI Agents            │
+│  - Form.toMatrix: Clifford algebra elements (GDL, Bronstein 2021)│
+│  - Neuro-symbolic: LLM sensory layer + QuCalc coprocessor       │
+│  - Output = ZFA proof → absolute interpretability               │
+└──────────────────────────────┬──────────────────────────────────┘
+                               ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  OPERATING SYSTEM LAYER: Active Inference Loop                  │
+│  - Perceive: expand_generation explores multiway graph          │
+│  - Predict:  ZFA symmetry (zfa_implies_critical_line)           │
+│  - Act:      parallel / sequence compositions (RhoQuCalc.lean)  │
+│  - Prune:    full_zeno_prune enforces count_pos = count_neg     │
+│  Formal basis: Friston FEP; no separate scheduler needed —      │
+│  ZFA minimization IS the scheduling decision                    │
+└──────────────────────────────┬──────────────────────────────────┘
+                               ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  VIRTUAL MACHINE KERNEL: rhoqcalc Engine                        │
+│  - ρ-calculus: name-as-capability (Meredith & Radestock 2005)   │
+│  - Linear logic: no-cloning enforced at type level (Girard 1987)│
+│  - Hermitian observables throughout: parallel_hermitian,        │
+│    action_lift_hermitian (machine-verified, RhoQuCalc.lean)     │
+└──────────────────────────────┬──────────────────────────────────┘
+                               ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  HARDWARE FABRIC: Zero Free Action (ZFA) QPU                    │
+│  - qlf_universality: ZFA strings = all terminating computations │
+│  - find_stable_states_length_even: C(2n,n) stable states at 2n  │
+│  - Hardware spec is complete: ZFA filter = full specification   │
+└─────────────────────────────────────────────────────────────────┘
 ```
+
+### Comparison to Classical OS Architecture
+
+| Classical OS | QuantumOS |
+|---|---|
+| von Neumann fetch-decode-execute cycle | expand_generation → full_zeno_prune cycle |
+| Memory isolation via page tables | Capability isolation via linear ρ-calculus names |
+| Scheduler determines execution order | ZFA minimization IS the scheduling decision |
+| Garbage collector reclaims dead memory | full_zeno_prune reclaims non-ZFA branches |
+| seL4: formally verified memory safety | QLF: formally verified ZFA safety (`qlf_universality`) |
+| Error correction: external ECC codes | Error correction: intrinsic ZFA balance (`full_zeno_prune`) |
+
+The key inversion: in a classical OS, the scheduler, GC, and security layers are separate subsystems layered on top of hardware. In QuantumOS, they are the same operation — ZFA enforcement — running at the hardware level.
 
 ### Active Inference as the System Loop ([`active_inference.md`](active_inference.md))
 
-The operating system kernel does not run standard linear schedules. It drives a continuous **Active Inference cycle** (Perceive $\rightarrow$ Predict $\rightarrow$ Act $\rightarrow$ Prune) designed to minimize system-wide Free Action.
+The kernel does not run standard linear schedules. It drives a continuous **Active Inference cycle** that maps directly to formal operations:
 
-Hardware noise and decoherence are recognized by the kernel as un-pruned, asymmetric phase discrepancies. The `full_zeno_prune` protocol functions as a real-time, hardware-level garbage collector, ruthlessly pruning faulty or drifting qubit pathways to return the active system registers to a pristine, phase-stable ZFA state. The intrinsic error correction mechanism is detailed in [`Error_Correction.md`](Error_Correction.md); the Zeno freezing interpretation is in [`Zeno_Effect.md`](Zeno_Effect.md). The connection to Karl Friston's Bayesian mechanics and Markov blankets is developed in [`BayesianMechanics.md`](BayesianMechanics.md) and [`Hadrons_Markov_Blankets.md`](Hadrons_Markov_Blankets.md).
+| Cycle step | Operation | Formal grounding |
+|---|---|---|
+| **Perceive** | `expand_generation` branches the multiway graph | `qucalc_generates_all_phase_strings` |
+| **Predict** | ZFA symmetry predicts which branches survive | `zfa_implies_critical_line` |
+| **Act** | `parallel` / `sequence` compose the next process step | `parallel_hermitian`, `action_lift_hermitian` |
+| **Prune** | `full_zeno_prune` eliminates asymmetric branches | `full_prune_invariant`, `single_prune_invariant` |
+
+Each pruned branch corresponds to a falsified prediction — the kernel learns by physical elimination, not gradient descent. Decoherence is not fought; it is recognized as a failed prediction and pruned before it registers as a physical event. The connection to Friston's Bayesian mechanics and Markov blankets is in [`BayesianMechanics.md`](BayesianMechanics.md) and [`Hadrons_Markov_Blankets.md`](Hadrons_Markov_Blankets.md).
 
 ### Cognitive Geometries ([`AI.md`](AI.md))
 
