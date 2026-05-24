@@ -24,7 +24,7 @@ $$\Sigma = \{ \wedge, \vee, \langle, \rangle, /, \backslash, +, - \}$$
 
 These tokens dictate spatial orientation, phase, and localized transitions within the generative engine ([`QuCalc.md`](QuCalc.md), [`lean/QLF_QuCalc.lean`](lean/QLF_QuCalc.lean)). The `+` and `−` phase axes are the ones currently formalized as `LogicPhase.pos` and `LogicPhase.neg`; the full 8-twist alphabet is developed in [`eight-twists-sufficiency.md`](eight-twists-sufficiency.md).
 * **Zero Free Action (ZFA):** The ultimate governing principle and loss function of the universe. Every admissible physical transformation must achieve local structural balance. The network only permits history paths where:
-$$\text{count\_pos} = \text{count\_neg}$$
+$$\text{count-pos} = \text{count-neg}$$
 
 Any computational path that introduces an uncompensated, asymmetric phase fluctuation represents a logical contradiction and is immediately eradicated via the **Zeno Pruning** (`full_zeno_prune`) mechanism. The Zeno effect interpretation is developed in [`Zeno_Effect.md`](Zeno_Effect.md). ZFA is formally defined in [`lean/QLF_Axioms.lean`](lean/QLF_Axioms.lean) and the filter is implemented in [`lean/QLF_QuCalc.lean`](lean/QLF_QuCalc.lean).
 
