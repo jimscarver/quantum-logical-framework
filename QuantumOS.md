@@ -6,7 +6,7 @@
 |---|---|
 | Kernel primitives (`rhoqcalc`, `full_zeno_prune`, `expand_generation`) | Machine-verified in Lean 4 (this repo) |
 | Pauli exclusion / no-cloning (`pauli_exclusion`, `fermi_nonzero_example`) | Machine-verified in Lean 4 (this repo) |
-| Capability security via ρ-calculus names | Established in the ρ-calculus and object-capability literature (Meredith & Radestock, Miller et al.) — QLF inherits this by construction |
+| Capability security via ρ-calculus names | Five converging formal foundations: Girard linear logic (1987), Miller object capabilities (2006), Meredith & Radestock ρ-calculus (2005), Honda session types (1993), Wootters & Zurek no-cloning (1982) — QLF inherits all five by construction |
 | ZFA as hardware garbage collector | `full_zeno_prune` machine-verified; `qlf_universality` proves every terminating computation IS a ZFA string — ZFA filter is the complete hardware specification, not an analogy |
 | Error correction via Zeno pruning | `full_zeno_prune` machine-verified; Zeno-subspace QEC established (Beige 2000, Facchi/Pascazio 2002, Viola/Knill/Lloyd 1999); spacetime-as-QECC established (Almheiri/Dong/Harlow, HaPPY code, AdS/CFT); active inference as real-time decoder established (Friston FEP) — QLF instantiates all three natively |
 | Hardware-native AI (Cognitive Geometries) | Active inference grounded in Friston FEP (["The Physics of Sentience"](active_inference.md)); `Form.toMatrix` is a Clifford algebra element — Geometric Deep Learning (Bronstein et al. 2021) establishes these as the correct geometric inductive bias for AI; neuro-symbolic architecture (LLM sensory layer + QuCalc coprocessor) established in [`AI.md`](AI.md); `qlf_universality` proves the execution model is complete, so AI running on QLF hardware runs in machine-verified ZFA-correct code |
@@ -45,7 +45,7 @@ At the absolute bedrock of QuantumOS sits the **`rhoqcalc` execution engine**, a
 
 ### Formal Security Foundations
 
-QuantumOS security is not engineered on top of the physics — it is a consequence of three converging formal results, each independently established:
+QuantumOS security is not engineered on top of the physics — it is a consequence of five converging formal results, each independently established:
 
 | Foundation | Result | QLF instantiation |
 |---|---|---|
@@ -209,7 +209,7 @@ Standard QEC treats error correction as an artificial software layer bolted on t
 
 Modern quantum gravity has established that the fabric of spacetime is itself a quantum error-correcting code. The AdS/CFT correspondence and the HaPPY code tensor network (Almheiri, Dong, Harlow) show that bulk spatial geometry emerges from the entanglement structure of boundary degrees of freedom — a structure that is precisely an erasure-protecting QECC. TQFT-based work further shows that LOCC protocols between agents induce QECCs on the agent-environment boundary, from which spacetime connectivity emerges.
 
-QLF instantiates this natively. The `expand_generation` loop explores the full ruliadic multiway space; `full_zeno_prune` enforces ZFA balance at every step. The stable geometries that survive are exactly those satisfying the error-correction condition. A stable particle — a localized three-fold closure — is a fault-tolerant, error-corrected logical codeword in the ruliadic network. Spacetime geometry emerges because the kernel is running a topological error-correction routine. This is not an analogy: `qlf_universality` proves every terminating computation encodes as a ZFA string, making ZFA balance the complete hardware specification.
+QLF instantiates this natively (see [`Holographic.md`](Holographic.md), [`QLF_Holographic_Computational_Universe.md`](QLF_Holographic_Computational_Universe.md)). The `expand_generation` loop explores the full ruliadic multiway space; `full_zeno_prune` enforces ZFA balance at every step. The stable geometries that survive are exactly those satisfying the error-correction condition. A stable particle — a localized gauge-fold closure (see [`HadronicDepth.md`](HadronicDepth.md)) — is a fault-tolerant, error-corrected logical codeword in the ruliadic network. Spacetime geometry emerges because the kernel is running a topological error-correction routine. This is not an analogy: `qlf_universality` proves every terminating computation encodes as a ZFA string, making ZFA balance the complete hardware specification.
 
 ### Active Inference as the Native Decoder
 
@@ -298,6 +298,7 @@ QLF is the framework in which all of them are the same theorem.
 | [`Holographic.md`](Holographic.md) | 3D observable structure as projection of 2-component QuCalc logic; holographic boundary |
 | [`QLF_Holographic_Computational_Universe.md`](QLF_Holographic_Computational_Universe.md) | QLF alignment with published holographic computational universe research |
 | [`Measurement_Problem.md`](Measurement_Problem.md) | Measurement dissolved as ZFA closure; no collapse postulate needed |
+| [`ER_EPR_QLF.md`](ER_EPR_QLF.md) | Entanglement = geometry (ER=EPR); ZFA boundary conditions link bulk geometry to error-correcting code |
 
 ### AI & Active Inference
 
