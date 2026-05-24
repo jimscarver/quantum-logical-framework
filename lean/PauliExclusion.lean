@@ -109,11 +109,13 @@ private def f_z : Form := { t := 0, x := 0, y := 0, z := 1 }
 theorem fermi_nonzero_example :
     fermi_antisym (RhoProcess.action f_x) (RhoProcess.action f_z) ≠ 0 := by
   intro h
-  have key := Matrix.ext_iff.mp h 0 1
+  have key : (fermi_antisym (RhoProcess.action f_x) (RhoProcess.action f_z)) 0 1 =
+      (0 : Matrix (Fin 2) (Fin 2) ℂ) 0 1 :=
+    congr_fun (congr_fun h 0) 1
   simp only [Matrix.zero_apply, fermi_antisym, RhoProcess.eval, f_x, f_z, Form.toMatrix,
     Matrix.sub_apply, Matrix.mul_apply, Fin.sum_univ_two,
-    Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
-    Matrix.head_fin_const] at key
+    Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.head_fin_const,
+    Complex.ofReal_zero, Complex.ofReal_one, Complex.ofReal_neg] at key
   norm_num at key
 
 /-! ## Bosonic double occupancy -/
