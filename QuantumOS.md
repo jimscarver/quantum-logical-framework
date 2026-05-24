@@ -118,29 +118,45 @@ The architecture is neuro-symbolic: an LLM or classical sensory layer extracts t
 
 ## 4. The Meta-Mathematical Ceiling: Pruning the Ruliad
 
-QuantumOS positions its runtime environment relative to Stephen Wolfram’s concept of the **Ruliad**—the infinite entangled limit of all computationally possible rules and formal states.
-
-Left unconstrained, the Ruliad is an infinite, chaotic multiway graph containing a vast infinity of unphysical, non-local, and logically contradictory universes.
+QuantumOS positions its runtime environment relative to Stephen Wolfram’s concept of the **Ruliad** — the infinite entangled limit of all computationally possible rules and formal states. Left unconstrained, the Ruliad is an infinite, chaotic multiway graph containing a vast infinity of unphysical, non-local, and logically contradictory universes.
 
 ```
-                  THE RULIAD
-    (All Computationally Possible Graph Branches)
-                       │
-                       ▼
+        ALL COMPUTATIONALLY POSSIBLE HISTORIES
+           (The Ruliad — Church-Turing universe)
+                           │
+                           ▼
+               [ expand_generation loop ]
+          (Explores the full multiway graph)
+                           │
+                           ▼
            [ full_zeno_prune Kernel ]
-     (Enforces strict ZFA phase symmetry)
-                       │
-                       ▼
+     (ZFA filter: count_pos = count_neg enforced)
+                           │
+                           ▼
           OUR PHYSICAL INFORMATION UNIVERSE
-     (Stable States & Localized Closure Cycles)
-
+     (Stable ZFA closures — RCA₀ terminating computations)
 ```
 
-In QuantumOS, the raw, unconstrained `expand_generation` loop represents the exploration of this ruliadic multiway space. However, physical reality only manifests where the Ruliad is explicitly filtered by the **Zero Free Action constraint**.
+### Machine-Verified Universality
 
-The `full_zeno_prune` kernel continuously scans the branching paths of the Ruliad, immediately extinguishing any computational history that introduces a broken phase symmetry. Spacetime, local causality, and stable hadronic matter (such as the localized three-Querk folds that dictate the proton mass scale) emerge precisely because the operating system filters out the non-local, chaotic paths of the Ruliad before they can register as physical events.
+This is not an analogy. `qlf_universality` (proved in [`lean/QLF_Universality.lean`](lean/QLF_Universality.lean)) establishes that `expand_generation` + `full_zeno_prune` generates **all and only** the terminating computations encodable as ZFA strings — a formal Church-Turing completeness statement. The ZFA filter is not a restriction on computation; it is the *selection principle* that picks physical reality out of the full computational universe. The `full_zeno_prune` kernel continuously extinguishes any history that introduces broken phase symmetry, so spacetime, local causality, and stable matter emerge precisely because the OS filters the non-local, chaotic Ruliad branches before they can register as physical events.
 
-The Ruliad framing and its relation to Wolfram's computational universe are discussed in [`GodCreatedTheIntegers.md`](GodCreatedTheIntegers.md). The QLF treatment of universality — that `expand_generation` + `full_zeno_prune` generates all and only the terminating computations — is proved in [`lean/QLF_Universality.lean`](lean/QLF_Universality.lean) (`qlf_universality`). The Reverse Mathematics analysis of which logical subsystem the QLF engine inhabits is in [`ReverseMathematics.md`](ReverseMathematics.md).
+### Minimal Logical Subsystem: RCA₀
+
+The QLF engine operates strictly within **RCA₀** (Harvey Friedman’s Reverse Mathematics, 1975) — the bedrock of constructive computable mathematics. Every QLF construct (`expand_generation`, `full_zeno_prune`, `find_stable_states`, `encode_is_zfa`) is provable without the Axiom of Choice, non-constructive existence, or continuity. This is not a limitation: it is a formal statement that QLF computes in the *minimum* logical subsystem consistent with physics. The non-constructive parts of the Ruliad — non-terminating computations, Busy Beaver values, uncountable sets — are exactly what ZFA pruning eliminates. See [`ReverseMathematics.md`](ReverseMathematics.md).
+
+### Convergent External Theories
+
+QLF is not alone in deriving spacetime from discrete causal selection. Independent research programs arrive at the same structural conclusion:
+
+| Program | Mechanism | QLF parallel |
+|---|---|---|
+| **Causal Set Theory** (Bombelli, Lee, Meyer, Sorkin 1987) | Spacetime = partially ordered set of discrete causal events | ZFA events as a causal poset; `expand_generation` grows the causal set |
+| **Causal Dynamical Triangulations** (Ambjørn, Jurkiewicz, Loll) | Path integral over causally consistent triangulations only | `full_zeno_prune` enforces causal consistency; ZFA strings are the surviving triangulations |
+| **Wolfram’s Ruliad** (Wolfram Physics Project) | Physical universe = Ruliad filtered by observer equivalence | `full_zeno_prune` = observer equivalence filter; ZFA = the equivalence relation |
+| **It from Bit / Loop Quantum Gravity** (Wheeler, Rovelli) | Spacetime geometry from discrete informational events | 8-twist alphabet generates the spin-network basis; ZFA closure = geometric consistency |
+
+The Ruliad framing and its philosophical context are in [`GodCreatedTheIntegers.md`](GodCreatedTheIntegers.md).
 
 ---
 
