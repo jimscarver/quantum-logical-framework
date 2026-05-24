@@ -24,5 +24,6 @@ lean_lib QLF where
     `ER_EPR_QLF,
     `PauliExclusion,
     `StringTheoryQLF,
-    `MTheoryQLF
+    `MTheoryQLF,
+    `BraKetRhoQuCalc
   ]

@@ -1,7 +1,7 @@
 # Lean 4 Formalization — Quantum Logical Framework
 
 **Build:** `lake build` on Lean 4.30.0-rc2 + Mathlib  
-**Status:** CI passing, zero `sorry` blocks across all 15 active modules
+**Status:** CI passing, zero `sorry` blocks across all 16 active modules
 
 ## What This Formalization Proves
 
@@ -12,6 +12,7 @@ This is not just a type-checked implementation — it is a machine-verified form
 3. **The stable-state count is C(2n, n)**: `find_stable_states_length_even` proves there are exactly C(2n, n) ZFA-stable strings of length 2n — the same combinatorial structure that appears in string mode degeneracy.
 4. **Every QLF string has a Hermitian spectral mode**: `toSpectralMode_hermitian` — the physical observables are Hermitian by construction, not postulate.
 5. **The Riemann Hypothesis in QLF**: under `spectral_hilbert_polya` (an explicit axiom marking the RCA₀ → WKL₀ boundary), non-trivial zeros lie on the critical line (`riemann_hypothesis_in_qlf`).
+6. **Bra-ket notation is RhoQuCalc**: `action f` = ket direction [pos,neg], `lift f` = bra direction [neg,pos], `parallel` = superposition, `sequence` = composition — `bra_ket_always_balanced` proves ZFA balance IS bra-ket well-typedness, machine-verified.
 
 The entire combinatorial core operates strictly within **RCA₀** — the minimum constructive logical subsystem (Harvey Friedman's Reverse Mathematics). No Axiom of Choice, no non-constructive existence, no continuity assumptions. See the [Logical Subsystems](#logical-subsystems-reverse-mathematics) section below.
 
@@ -49,6 +50,7 @@ The entire combinatorial core operates strictly within **RCA₀** — the minimu
 | [RhoQuCalc.lean](RhoQuCalc.lean) | ρ-process algebra; Hermitian structure; ZFA stability; capability-secure concurrency | `parallel_hermitian`, `action_lift_hermitian`, `rho_process_always_zfa`, `rho_process_always_symmetric`, `phase_symmetric_achieves_zfa` |
 | [ZFAEventDynamics.lean](ZFAEventDynamics.lean) | ZFA event dynamics; spacetime synthesis; acceleration | `spacetime_from_zfa_preserves_synthesis`, `zfa_dynamics_drive_acceleration` |
 | [PauliExclusion.lean](PauliExclusion.lean) | Bosonic vs. fermionic statistics via matrix commutator; Pauli exclusion as genuine constraint | `pauli_exclusion`, `fermi_nonzero_example`, `bosonic_double_occupancy`, `fermi_antisym_action_lift` |
+| [BraKetRhoQuCalc.lean](BraKetRhoQuCalc.lean) | Formal correspondence between Dirac bra-ket notation and RhoQuCalc operators in the density-matrix picture | `action_topo_is_ket`, `lift_topo_is_bra`, `action_lift_eval_eq`, `bra_ket_always_balanced`, `completeness_01`, `projector_idempotent_0`, `orthogonality_01`, `pauli_x_sq`, `pauli_y_sq`, `pauli_z_sq` |
 
 ### Physical Theories
 
