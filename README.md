@@ -74,7 +74,7 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 - [**Higgs.md**](Higgs.md) — QLF mass generation via gauge-fold depth; constructive alternative to the Higgs mechanism
 - [**HadronicDepth.md**](HadronicDepth.md) — Hadronic Depth Hypothesis: n ~ (m_P/m_p)³ fixes cosmic size, age, and G from the proton mass
 - [**VacuumEnergy.md**](VacuumEnergy.md), [**BLACK-HOLES.md**](BLACK-HOLES.md), [**Entropy.md**](Entropy.md) — topic-specific extensions
-- [**QuantumOS.md**](QuantumOS.md) — QLF as a native OS kernel for quantum simulators: rhoqcalc engine, ZFA as hardware GC, ρ-calculus capability security, and active inference as the system loop
+- [**QuantumOS.md**](QuantumOS.md) — QLF as a capability-secure, formally-verified OS kernel for QPUs: five converging security foundations, intrinsic holographic QEC, hardware-native AI with absolute interpretability, Ruliad/RCA₀ unification — security + error correction + scheduling + GC + AI are all one operation (ZFA enforcement)
 
 ### 4. Formal and executable work
 - [**lean/README.md**](lean/README.md) — Lean 4 formalization directory (zero `sorry` blocks)
@@ -124,13 +124,16 @@ QLF refactors physical laws using the structural framework of Harvey Friedman's 
 
 ### QuantumOS: QLF as a Native OS Kernel for Quantum Simulators
 
-QLF is not only a theoretical framework — it is an executable architecture for quantum hardware. [**QuantumOS.md**](QuantumOS.md) specifies how the QLF stack maps onto a native operating system for QPUs and quantum simulators:
+QLF is not only a theoretical framework — it is an executable architecture for quantum hardware. [**QuantumOS.md**](QuantumOS.md) specifies how the QLF stack maps onto a native operating system for QPUs and quantum simulators. It is the quantum analogue of seL4 (the first formally verified OS kernel) with ZFA as the hardware-enforced invariant.
 
-- **rhoqcalc as kernel**: The ρ-process algebra (`RhoQuCalc.lean`) is the execution engine — capability-secure, reflective, and geometrically typed. Names are topological structures built from the 8-axis twist alphabet; possessing a name *is* the capability to interact with that computational subspace.
-- **ZFA as hardware garbage collector**: `full_zeno_prune` runs as a real-time kernel process. Hardware noise and decoherence are identified as uncompensated phase asymmetries and pruned before they can register as physical events.
-- **No-Cloning via linear logic**: The quantum no-cloning theorem is not a law imported from outside — it is a structural consequence of the linear-logic enforcement of capability names. Duplicating a name mid-transit introduces a ZFA violation, causing the cloned branch to self-annihilate.
-- **Active inference as the system loop**: The OS drives a continuous Perceive → Predict → Act → Prune cycle to minimize system-wide Free Action, replacing fixed circuit schedules with adaptive logical closure.
-- **The Ruliad connection**: `expand_generation` explores the full ruliadic multiway space; `full_zeno_prune` filters it to physical reality — only ZFA-balanced branches persist as stable matter and spacetime.
+**The unification thesis:** in a classical OS, security, error correction, scheduling, garbage collection, and AI are five separate engineered subsystems. In QuantumOS, all five are the same operation — ZFA enforcement (`full_zeno_prune`) — because `qlf_universality` proves ZFA balance is the single invariant that subsumes all correctness properties at once.
+
+- **rhoqcalc as kernel**: The ρ-process algebra (`RhoQuCalc.lean`) is the execution engine. Security is grounded in five converging formal foundations: Girard's linear logic (1987), Miller's object capability model (2006), Meredith & Radestock's ρ-calculus security (2005), Honda's session types (1993), and Wootters & Zurek's no-cloning theorem (1982). Capability names are topological structures — by Curry-Howard, possessing a name *is* a proof of authorization.
+- **ZFA as complete hardware specification**: `full_zeno_prune` is the machine-verified kernel. `qlf_universality` proves every terminating computation IS a ZFA string — ZFA balance is the complete hardware specification, not an analogy. Decoherence registers as a ZFA asymmetry and is pruned before it can become a physical event.
+- **Intrinsic holographic QEC**: Error correction is not patched on top — it is the mechanism by which physical reality maintains structural stability. Three independent research streams converge: Zeno-subspace QEC (Beige 2000, Facchi/Pascazio 2002), holographic spacetime-as-QECC (Almheiri/Dong/Harlow, HaPPY code, AdS/CFT), and active inference as real-time decoder (Friston FEP). `full_zeno_prune` is the machine-verified implementation of all three simultaneously.
+- **Active inference as the system loop**: The OS drives a continuous Perceive (`expand_generation`) → Predict (`zfa_implies_critical_line`) → Act (`parallel`/`sequence`) → Prune (`full_zeno_prune`) cycle. No separate scheduler is needed — ZFA minimization IS the scheduling decision. Grounded in Friston's Free Energy Principle.
+- **Hardware-native AI with absolute interpretability**: `Form.toMatrix` maps cognitive constructs to Clifford algebra elements — the correct geometric inductive bias for physical AI (Bronstein et al. 2021, Geometric Deep Learning). Every AI program running on QLF hardware runs in machine-verified ZFA-correct code; the output is a geometric proof of Zero Free Action, not a probabilistic best-guess.
+- **Ruliad/RCA₀**: `expand_generation` explores the full ruliadic multiway space (Wheeler, Zuse, Lloyd, Wolfram); `full_zeno_prune` filters it to physical reality. The engine operates strictly within RCA₀ (Harvey Friedman's Reverse Mathematics) — the minimum constructive logical subsystem consistent with physics. Convergent with Causal Set Theory, Causal Dynamical Triangulations, and Loop Quantum Gravity.
 
 ## Current Status
 
