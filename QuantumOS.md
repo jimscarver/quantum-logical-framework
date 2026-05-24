@@ -267,20 +267,62 @@ QLF is the framework in which all of them are the same theorem.
 
 ## Related Documents
 
+### Formal Core (machine-verified)
+
+| Document | Key theorems / definitions |
+|---|---|
+| [`lean/QLF_QuCalc.lean`](lean/QLF_QuCalc.lean) | `expand_generation`, `full_zeno_prune`, `find_stable_states` |
+| [`lean/RhoQuCalc.lean`](lean/RhoQuCalc.lean) | `action`, `lift`, `parallel`, `sequence`, `eval`, `parallel_hermitian`, `action_lift_hermitian` |
+| [`lean/PauliExclusion.lean`](lean/PauliExclusion.lean) | `pauli_exclusion`, `fermi_nonzero_example`, `bosonic_double_occupancy` |
+| [`lean/QLF_Universality.lean`](lean/QLF_Universality.lean) | `encode_is_zfa`, `qlf_universality` — ZFA strings = all terminating computations |
+| [`lean/QLF_Axioms.lean`](lean/QLF_Axioms.lean) | `zfa_implies_critical_line`, `full_prune_invariant`, `single_prune_invariant` |
+| [`lean/QLF_Riemann.lean`](lean/QLF_Riemann.lean) | `find_stable_states_length_even` — C(2n,n) stable states; Riemann hypothesis program |
+| [`lean/SpacetimeDynamics.lean`](lean/SpacetimeDynamics.lean) | `Form.toMatrix_adjoint` — Hermitian Clifford algebra elements |
+| [`lean/StringTheoryQLF.lean`](lean/StringTheoryQLF.lean) | `string_mass_spectrum`, `string_mode_count` — gauge-fold excitation tower |
+
+### Security & Concurrency
+
+| Document | Relevance |
+|---|---|
+| [`QuCalc.md`](QuCalc.md) | 8-twist algebra and ZFA engine; the kernel's native instruction set |
+| [`Event_Naming.md`](Event_Naming.md) | Unforgeable topological names; ρ-calculus hierarchy; capability geometry |
+| [`Intuitionistic_Logic.md`](Intuitionistic_Logic.md) | Constructive particle generation; particle = ZFA proof; no excluded middle |
+| [`Simulation_Impossibility.md`](Simulation_Impossibility.md) | Why classical simulation of QLF is infeasible; motivates native quantum hardware |
+
+### Error Correction & Zeno
+
+| Document | Relevance |
+|---|---|
+| [`Error_Correction.md`](Error_Correction.md) | Dual-layer intrinsic QEC: gauge-buffered ZFA search + clocked dual-phase evaluation |
+| [`Zeno_Effect.md`](Zeno_Effect.md) | Path-count data for Zeno freezing; continuous pruning = observation-locked stability |
+| [`Holographic.md`](Holographic.md) | 3D observable structure as projection of 2-component QuCalc logic; holographic boundary |
+| [`QLF_Holographic_Computational_Universe.md`](QLF_Holographic_Computational_Universe.md) | QLF alignment with published holographic computational universe research |
+| [`Measurement_Problem.md`](Measurement_Problem.md) | Measurement dissolved as ZFA closure; no collapse postulate needed |
+
+### AI & Active Inference
+
+| Document | Relevance |
+|---|---|
+| [`AI.md`](AI.md) | Cognitive Geometries; neuro-symbolic coprocessor; dialectical synthesis via QuCalc |
+| [`active_inference.md`](active_inference.md) | Friston FEP; ZFA minimization as the OS scheduling loop |
+| [`BayesianMechanics.md`](BayesianMechanics.md) | Path-integral multiplicity as Bayesian probability; QLF and Friston's Bayesian mechanics |
+| [`Hadrons_Markov_Blankets.md`](Hadrons_Markov_Blankets.md) | Hadrons as Markov blankets; active inference at the particle level |
+
+### Physics Grounding
+
+| Document | Relevance |
+|---|---|
+| [`TheBigProblem.md`](TheBigProblem.md) | Measurement, entanglement, spacetime, time — QLF treatment of each |
+| [`TheContinuum.md`](TheContinuum.md) | Why the continuum is emergent; ZFA replaces Axiom of Choice |
+| [`SpaceTime.md`](SpaceTime.md) | Event-synthesized spacetime; local time from ZFA handshakes |
+| [`HadronicDepth.md`](HadronicDepth.md) | Gauge-fold depth; proton mass anchoring the cosmic generation scale |
+| [`Entanglement.md`](Entanglement.md) | Entanglement as shared ZFA closure; no spooky action needed |
+
+### Foundations & Meta-Mathematics
+
 | Document | Relevance |
 |---|---|
 | [`Philosophy.md`](Philosophy.md) | Possibilist ontology; ZFA as the logical loss function of reality |
-| [`QuCalc.md`](QuCalc.md) | The 8-twist algebra and ZFA engine in prose |
-| [`lean/QLF_QuCalc.lean`](lean/QLF_QuCalc.lean) | `expand_generation`, `full_zeno_prune`, `find_stable_states` — formalized |
-| [`lean/RhoQuCalc.lean`](lean/RhoQuCalc.lean) | ρ-process algebra: `action`, `lift`, `parallel`, `sequence`, `eval` — formalized |
-| [`lean/PauliExclusion.lean`](lean/PauliExclusion.lean) | No-cloning / Pauli exclusion via fermionic antisymmetry — formalized |
-| [`lean/QLF_Universality.lean`](lean/QLF_Universality.lean) | Every terminating computation encodes as a ZFA string — formalized |
-| [`lean/StringTheoryQLF.lean`](lean/StringTheoryQLF.lean) | Gauge-fold depth as string excitation; mode count = C(2n,n) — formalized |
-| [`active_inference.md`](active_inference.md) | Active Inference cycle; ZFA minimization as the OS loop |
-| [`AI.md`](AI.md) | Cognitive Geometries; dialectical synthesis via QuCalc |
-| [`BayesianMechanics.md`](BayesianMechanics.md) | QLF and Karl Friston's Bayesian mechanics; Markov blankets |
-| [`Error_Correction.md`](Error_Correction.md) | Intrinsic error correction via ZFA gauge-buffering |
-| [`Zeno_Effect.md`](Zeno_Effect.md) | Zeno pruning as freezing mechanism |
-| [`GodCreatedTheIntegers.md`](GodCreatedTheIntegers.md) | Wolfram Ruliad; QLF as a filter on computational possibility |
-| [`HadronicDepth.md`](HadronicDepth.md) | Querk folds; proton mass anchoring the cosmic generation depth |
-| [`ReverseMathematics.md`](ReverseMathematics.md) | Logical subsystem of the QLF engine (RCA₀ core) |
+| [`ReverseMathematics.md`](ReverseMathematics.md) | QLF engine is RCA₀ — the minimal constructive logical subsystem |
+| [`Universality.md`](Universality.md) | Precise universality claim; Gödelian bounds on self-reference |
+| [`GodCreatedTheIntegers.md`](GodCreatedTheIntegers.md) | Wolfram, Wheeler, Gödel, Penrose — QLF in the landscape of computational physics |
