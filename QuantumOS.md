@@ -41,31 +41,43 @@ Any computational path that introduces an uncompensated, asymmetric phase fluctu
 
 ## 2. The `rhoqcalc` Kernel & Object-Capability Security
 
-At the absolute bedrock of QuantumOS sits the **`rhoqcalc` execution engine**, a physical realization of Greg Meredith’s **$\rho$-calculus (Reflective Higher-Order Calculus)** mapped directly onto discrete quantum topologies. The formal Lean 4 implementation is in [`lean/RhoQuCalc.lean`](lean/RhoQuCalc.lean); the process algebra (constructors `action`, `lift`, `parallel`, `sequence`) is defined there, with machine-verified Hermitian structure and ZFA stability. The prose companion is [`QuCalc.md`](QuCalc.md).
+At the absolute bedrock of QuantumOS sits the **`rhoqcalc` execution engine**, a physical realization of Greg Meredith’s **ρ-calculus (Reflective Higher-Order Calculus)** mapped directly onto discrete quantum topologies. The formal Lean 4 implementation is in [`lean/RhoQuCalc.lean`](lean/RhoQuCalc.lean); the process algebra (constructors `action`, `lift`, `parallel`, `sequence`) is defined there, with machine-verified Hermitian structure and ZFA stability. The prose companion is [`QuCalc.md`](QuCalc.md).
+
+### Formal Security Foundations
+
+QuantumOS security is not engineered on top of the physics — it is a consequence of three converging formal results, each independently established:
+
+| Foundation | Result | QLF instantiation |
+|---|---|---|
+| **Linear Logic** (Girard 1987) | Resources used exactly once; duplication is a type error | Capability names are linear resources; cloning is a type violation before ZFA even runs |
+| **Object Capability Model** (Miller 2006, *Robust Composition*) | Possession of an unforgeable reference = authority; prevents confused deputy attacks | ρ-calculus names are topological structures from the 8-twist alphabet; possession IS authority |
+| **ρ-calculus security** (Meredith & Radestock 2005) | Reflective higher-order names are structurally unforgeable | `rhoqcalc` names encode process topology; knowing the name requires having computed the process |
+| **Session Types** (Honda 1993) | Typed channels enforce protocol compliance statically | ZFA adds physical enforcement: protocol violation = ZFA asymmetry = instant pruning |
+| **No-Cloning Theorem** (Wootters & Zurek 1982) | No unknown quantum state can be copied | QLF *derives* this from linear logic structure — it is not imported as an axiom |
 
 ### Name-Reflection as Coordinate Geometry
 
-In traditional concurrency models, communication channels are flat primitives. The $\rho$-calculus introduces structural reflection, allowing an active process to be quoted into a name, and a name evaluated back into a process:
+In traditional concurrency models, communication channels are flat primitives. The ρ-calculus introduces structural reflection, allowing an active process to be quoted into a name, and a name evaluated back into a process:
 
 $$\text{Process} \xrightarrow{\text{Quote } \langle P \rangle} \text{Name} \xrightarrow{\text{Eval } !x} \text{Process}$$
 
-In `rhoqcalc`, these names are not arbitrary strings; they are serialized, structured topologies constructed from the core 8-axis twist alphabet. Possession of a specific name *is* the absolute capability to interact with that computational subspace. Because names possess geometric architecture, they cannot be guessed or spoofed. See [`Event_Naming.md`](Event_Naming.md) for the naming geometry.
+In `rhoqcalc`, these names are not arbitrary strings — they are serialized topologies constructed from the 8-axis twist alphabet. Possession of a name *is* the absolute capability to interact with that subspace. By the Curry-Howard correspondence, a capability name is simultaneously a process, a topological structure, and a **proof of authorization** — forging one requires constructing the proof from scratch, which is computationally equivalent to solving the full topological matching problem. See [`Event_Naming.md`](Event_Naming.md).
 
-### The Linear-Logic Enforcement of the No-Cloning Rule
+### The Linear-Logic Enforcement of No-Cloning
 
-In QuantumOS, the quantum **No-Cloning Theorem** is not a mysterious law of physics; it is a strict, hardware-enforced linear-logic constraint of higher-order message passing.
-
-When a capability name is transmitted over a channel, it executes a strict, consuming read-write operation. It is physically impossible to duplicate a capability name without triggering an instant double-read race condition in the graph topology.
+When a capability name is transmitted, it executes a consuming read-write operation. Duplication triggers an instant double-read race in the graph topology — a linear logic type error that manifests physically as a ZFA asymmetry.
 
 ```
 [Sender Process] ───(Capability Name x)───> [Receiver Process]
-    (Consumed)                                 (Acquired)
-
+    (Consumed — linear resource exhausted)       (Acquired)
+         │
+         └── Any interception attempt:
+             introduces count_pos ≠ count_neg
+             → full_zeno_prune fires
+             → hijacked branch self-annihilates
 ```
 
-If an adversary attempts to intercept or clone a capability name mid-transit, the unauthorized duplicate introduces a local asymmetry—a non-zero Free Action violation. The underlying ZFA engine flags the contradiction, causing the hijacked communication branch to instantly self-annihilate via `full_zeno_prune`.
-
-This is now formalized in [`lean/PauliExclusion.lean`](lean/PauliExclusion.lean): `pauli_exclusion` proves that the matrix commutator of any identical ρ-processes is zero (fermionic exclusion), and `fermi_nonzero_example` machine-verifies that the commutator of distinct non-commuting processes (σ_x and σ_z) is provably *non-zero* — making exclusion a genuine structural constraint, not a vacuous identity. `fermi_antisym_action_lift` shows that the equilibrium action/lift pair satisfies the no-cloning constraint algebraically.
+This is machine-verified in [`lean/PauliExclusion.lean`](lean/PauliExclusion.lean): `pauli_exclusion` proves the matrix commutator of identical ρ-processes is zero (fermionic exclusion), `fermi_nonzero_example` proves the commutator is *non-zero* for distinct non-commuting processes — making exclusion a genuine structural constraint, not a vacuous identity. `fermi_antisym_action_lift` shows the equilibrium action/lift pair satisfies the no-cloning constraint algebraically.
 
 ---
 
