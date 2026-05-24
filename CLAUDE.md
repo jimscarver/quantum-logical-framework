@@ -184,6 +184,97 @@ theorem foo (p : RhoProcess) : achieves_ZFA (toTopoString p) :=
 
 ---
 
+## Philosophical foundations
+
+These commitments are load-bearing for all prose, documentation, and new module framing. New sessions must be consistent with them.
+
+### Core ontology: possibilism + ZFA selection
+
+QLF is built on a **possibilist ontology**: all logically admissible histories exist *a priori* as pure possibility. Physical reality is not one pre-written story — it is the self-selecting subset of the full computational possibility space that achieves **Zero Free Action (ZFA = 0)**. The universe is the closure of logical possibility under ZFA.
+
+> The universe is logical. Spacetime is synthesized. Physical reality is the subset of possibility that achieves Zero Free Action.
+
+This is a **computable** form of modal realism (Lewis 1986) with a selection rule: where Lewis says all logically possible worlds are real, QLF says all computationally generable histories are real, and ZFA identifies the ones that persist. `full_zeno_prune` is the machine-verified implementation of this filter.
+
+### ZFA is the only filter — not a restriction
+
+A critical framing point: **ZFA is not a restriction on what can be computed.** `qlf_universality` proves the ZFA filter is Church-Turing complete — every *terminating* computation IS a ZFA string. What is pruned is not computation; it is the physically unrealizable tail (non-terminating, Turing-undecidable, Busy Beaver-class computations). The ZFA filter selects physical reality from the full ruliadic computational universe without discarding any computable physics.
+
+### ZFC ultraviolet catastrophe
+
+Classical ZFC mathematics is founded on open-ended formal infinity. This leads to: Gödelian incompleteness (truths unprovable in sufficiently strong systems), Turing undecidability, and the Busy Beaver function (uncomputable growth without bound). These are shadows of the same problem — logic that can construct objects with no finite closure.
+
+QLF's answer: the QLF core operates strictly within **RCA₀** — below the Busy Beaver horizon, below the Axiom of Choice, below ZFC. Non-terminating computations fail to achieve ZFA closure and are pruned by `full_zeno_prune` before they can become physical events. Gödel's theorem cannot bite where unprovability has been physically excised.
+
+> **ZFC is flawed logic, suitable only where there are not exploding infinities. ZFA is correct logic.**
+
+The Axiom of Choice asserts the existence of sets with no constructive selection procedure; the ZFA filter replaces it with a computable one. Chaitin's Ω (the halting probability) is the information content of the pruning boundary — physically realized as `full_zeno_prune` itself.
+
+### Spacetime is synthesized, not background
+
+Spacetime is not given — it is the **output** of ZFA event generation. Every ZFA-closed event synthesizes its own local space and time. Space emerges from spatial free-action components; time emerges as the inverse of local free action (`f = 1/t`). The universe is a distributed network of clocks, each synthesizing local time through ZFA closure. This is formalized in `ZFAEventDynamics.lean`.
+
+There is no background absolute time. There is no fixed external geometry. Gravity is emergent from ZFA event rate and gauge-fold depth — a thermodynamic consequence of information geometry (Jacobson 1995, Verlinde 2011), derived rather than postulated.
+
+### Holography as topological necessity
+
+The holographic principle (Bekenstein 1972, 't Hooft 1993, Susskind 1995) and AdS/CFT correspondence are not separate conjectures in QLF — they are direct consequences of ZFA closure. The bulk spacetime (AdS interior) is the space of unresolved internal nodes of the QuCalc generator tree. The boundary (CFT) consists of the terminal leaves that satisfy exact ZFA balance.
+
+Because a bulk path only persists if it terminates in a ZFA-stable boundary, the entire bulk is mathematically identical to the sum of its boundary states. The holographic principle is therefore a **topological necessity of closure**, not a duality.
+
+Modern sharpening: Almheiri, Dong, Harlow (2015) and the HaPPY code (Pastawski et al. 2015) show that bulk spacetime geometry IS a quantum error-correcting code on the boundary. In QLF, `full_zeno_prune` is the machine-verified boundary decoder — it filters the event stream to those whose boundary information is logically self-consistent.
+
+### Measurement without collapse
+
+ZFA closure IS the measurement event. No separate collapse postulate is needed; no observer-dependence beyond what the logical structure demands. Compare: Zurek decoherence (2003), Everett (1957). `full_zeno_prune` is the decoherence cutoff that Everett's many-worlds interpretation lacks — it eliminates histories that cannot achieve ZFA closure before they become physical events.
+
+The apparent "many worlds" are the many local relative worlds created by observers whose local information determines their own consistent perspective. Every observer experiences its own coherent reality because its local information defines its own relative world. (There are not many worlds in the Everettian sense — there are many observers. Smolin.)
+
+### Spectral structure and the Riemann program
+
+Every QLF string maps to a 2×2 Hermitian operator (its spectral mode). Machine-verified: (1) every spectral mode is Hermitian (`toSpectralMode_hermitian`); (2) for symmetric strings, the spectral mode is scalar × identity (`spectral_symmetric_eq_scalar_id`). The Hilbert-Pólya conjecture is encoded as `spectral_hilbert_polya` (explicit axiom marking the RCA₀ → WKL₀ boundary), from which `critical_line_forcing` is a derived theorem.
+
+The chain: `qlf_universality` → `zfa_implies_critical_line` → `spectral_symmetric_eq_scalar_id` → `spectral_hilbert_polya` → `riemann_hypothesis_in_qlf`.
+
+### QuantumOS: QLF as a hardware-native OS
+
+QLF is not only a theoretical framework — it is an executable architecture for quantum hardware. In a classical OS, security, error correction, scheduling, garbage collection, and AI are five separate subsystems. In QuantumOS, all five are the same operation — ZFA enforcement (`full_zeno_prune`) — because `qlf_universality` proves ZFA balance is the single invariant that subsumes all correctness properties.
+
+Security grounds in five converging foundations: Girard's linear logic (1987), Miller's object capability model (2006), Meredith & Radestock's ρ-calculus (2005), Honda's session types (1993), Wootters & Zurek no-cloning (1982). Capability names are topological structures; possessing a name IS a proof of authorization (Curry-Howard).
+
+### Convergence: 14 independent programs
+
+The most striking feature of QLF is that 14 independent research programs — with no coordination — have each arrived at the same picture: **reality is informational, computable, and bounded by a logical closure condition**.
+
+| Program | Key figure(s) | Convergent claim |
+|---|---|---|
+| Digital physics | Konrad Zuse (1969) | The universe is a computation |
+| It from bit | John Wheeler (1990) | Every physical quantity derives from binary yes/no questions |
+| Holographic principle | Bekenstein, Hawking, 't Hooft, Susskind (1972–1995) | Bulk physics bounded by boundary information |
+| Causal Set Theory | Bombelli, Sorkin, Henson (1987–present) | Spacetime is a discrete partial order of causal events |
+| Girard linear logic | Jean-Yves Girard (1987) | Resource-sensitive reasoning; proof = process; use-once tokens |
+| Reverse Mathematics | Harvey Friedman (1975–present) | Physical laws stratified by minimum logical strength; RCA₀ is the computable floor |
+| Session types | Kohei Honda (1993) | Communication protocols have types; safety = type-checking |
+| Holographic QEC | Almheiri, Dong, Harlow; HaPPY code (2015) | Spacetime bulk = quantum error-correcting code on boundary |
+| Object capability model | Mark Miller (2006) | Security from first principles: unforgeable names = capability tokens |
+| ρ-calculus | Meredith & Radestock (2005) | Programs as processes; names as reflective proof terms |
+| Free Energy Principle | Karl Friston (2010) | All adaptive systems minimize variational free energy |
+| Geometric Deep Learning | Bronstein et al. (2021) | Correct geometric inductive bias for physical AI = Clifford algebra elements |
+| Ruliad | Stephen Wolfram (2020) | Entangled limit of all possible computations; physical reality = observer slice |
+| No-cloning theorem | Wootters & Zurek (1982) | Quantum information cannot be copied — physical foundation of capability security |
+
+### What NOT to say
+
+Avoid framings that contradict the above:
+- Do not describe ZFA as a *restriction* on computation — it is a selection principle (ZFA-balanced strings are all computations that terminate).
+- Do not describe spacetime as a background or given — it is synthesized event by event.
+- Do not describe collapse as a separate physical process — ZFA closure IS the measurement event.
+- Do not describe the Axiom of Choice as needed — it is replaced by the ZFA filter.
+- Do not describe QLF as "just an interpretation" of quantum mechanics — it is a broader constructive foundation from which QM is derived.
+- Do not describe the Riemann hypothesis as proved — `spectral_hilbert_polya` is an explicit axiom marking an open logical boundary, not a proof.
+
+---
+
 ## Key files
 
 | Path | Purpose |
