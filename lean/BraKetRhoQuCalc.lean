@@ -115,11 +115,11 @@ theorem bra_ket_always_balanced (p : RhoProcess) : achieves_ZFA (toTopoString p)
 -- The density matrix representation: |ψ⟩⟨ψ| = Form.toMatrix
 
 /-- |0⟩ as density matrix |0⟩⟨0| = [[1,0],[0,0]] -/
-noncomputable private def ket0 : Form := { t := 1/2, x := 0,   y := 0, z :=  1/2 }
+private noncomputable def ket0 : Form := { t := 1/2, x := 0,   y := 0, z :=  1/2 }
 /-- |1⟩ as density matrix |1⟩⟨1| = [[0,0],[0,1]] -/
-noncomputable private def ket1 : Form := { t := 1/2, x := 0,   y := 0, z := -1/2 }
+private noncomputable def ket1 : Form := { t := 1/2, x := 0,   y := 0, z := -1/2 }
 /-- |+⟩ as density matrix |+⟩⟨+| = [[½,½],[½,½]] -/
-noncomputable private def ket_plus : Form := { t := 1/2, x := 1/2, y := 0, z :=    0 }
+private noncomputable def ket_plus : Form := { t := 1/2, x := 1/2, y := 0, z :=    0 }
 
 -- Pauli observables (traceless Hermitian, eigenvalues ±1)
 private def σx : Form := { t := 0, x := 1, y := 0, z := 0 }  -- [[0,1],[1,0]]
@@ -140,7 +140,7 @@ theorem completeness_01 :
   norm_num
 
 /-- The Hadamard basis {|+⟩, |-⟩} is also complete: |+⟩⟨+| + |-⟩⟨-| = I. -/
-noncomputable private def ket_minus : Form := { t := 1/2, x := -1/2, y := 0, z := 0 }
+private noncomputable def ket_minus : Form := { t := 1/2, x := -1/2, y := 0, z := 0 }
 
 theorem completeness_pm :
     (RhoProcess.parallel (RhoProcess.action ket_plus) (RhoProcess.action ket_minus)).eval = 1 := by
