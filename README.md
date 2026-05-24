@@ -89,7 +89,7 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 - [**lean/ZFAEventDynamics.lean**](lean/ZFAEventDynamics.lean) — ZFA-driven event and acceleration dynamics
 - [**lean/ER_EPR_QLF.lean**](lean/ER_EPR_QLF.lean) — entanglement-geometry formalization
 - [**lean/AgeOfUniverse.lean**](lean/AgeOfUniverse.lean) — cosmological age estimate in QLF
-- [**lean/PauliExclusion.lean**](lean/PauliExclusion.lean) — Pauli exclusion via ρ-process antisymmetry; bosonic double occupancy
+- [**lean/PauliExclusion.lean**](lean/PauliExclusion.lean) — Pauli exclusion via matrix commutator antisymmetry; `fermi_nonzero_example` non-triviality witness; bosonic double occupancy
 - [**lean/StringTheoryQLF.lean**](lean/StringTheoryQLF.lean) — string theory via gauge-fold depth: infinite excitation tower (infinities = folds), mode degeneracy C(2n,n) (modes = ways it can happen)
 - [**lean/MTheoryQLF.lean**](lean/MTheoryQLF.lean) — M-theory via gauge-fold stacks: M2/M5-branes, S/T-duality as Form transformations, 11D via compactifyForm
 - [**qucalc_engine.py**](qucalc_engine.py), [**spacetime_dynamics.py**](spacetime_dynamics.py), [**constants_mapper.py**](constants_mapper.py), [**path_integral.py**](path_integral.py) — executable experiments
