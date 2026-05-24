@@ -23,5 +23,6 @@ lean_lib QLF where
     `AgeOfUniverse,
     `ER_EPR_QLF,
     `PauliExclusion,
-    `StringTheoryQLF
+    `StringTheoryQLF,
+    `MTheoryQLF
   ]

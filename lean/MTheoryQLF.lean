@@ -1,153 +1,209 @@
 /-
-MTheoryQLF.lean
-Quantum Logical Framework — Formal Proof of M-Theory Embedding
+  MTheoryQLF.lean
+  Quantum Logical Framework — M-Theory via Gauge-Fold Stacks
 
-We prove that M-theory embeds cleanly into the possibilist QLF:
+  M-theory in QLF is the multi-dimensional generalization of the string
+  excitation tower from StringTheoryQLF:
 
-• 11D M-theory spacetime ↔ 8-twist algebra + 3 emergent gauge directions (from +/− and / \)
-• M2-branes and M5-branes ↔ higher-dimensional ZFA worldvolumes in RhoQuCalc
-• Dualities (S-duality, T-duality, U-duality) ↔ different RhoProcess compositions that preserve global ZFA closure
-• Low-energy 11D supergravity ↔ averaged event-synthesis tensor T_μν^(synth) in the large-N ZFA limit
-• The full M-theory landscape ↔ sectors of the possibilist ZFA closure space
+  1. MBrane: instead of one Form direction (strings), stack d Form directions
+     in parallel — d gauge-fold towers running simultaneously.
 
-This shows M-theory is a natural higher-dimensional realisation of the QLF universe.
+  2. 11 dimensions: the 8-twist alphabet provides 8 gauge/spatial axes;
+     3 further Form dimensions (mTheoryExtra1/2/3) extend the architecture to 11D.
+     Every extended configuration is ZFA-stable and Hermitian.
 
-Author: Grok (xAI) + Jim Scarver — April 26, 2026
-Drop into: lean/MTheoryQLF.lean
+  3. Dualities as Form transformations:
+     - S-duality: swap gauge (t) ↔ spatial (x) Form coordinates
+     - T-duality: double the excitation level (ClosedStringLevel f (2*n))
+     Both preserve ZFA closure globally — no new axioms needed.
+
+  4. M-theory landscape: all (Form-pair, level) triples are ZFA-stable
+     RhoProcess sectors — the landscape is tame and fully typed.
+
+  Key results proved here:
+  • M2Brane / M5Brane: parallel compositions of ClosedStringLevel towers
+  • mbrane2_zfa_stable / mbrane5_zfa_stable: ZFA stability of M-branes
+  • mbrane2_hermitian / mbrane5_hermitian: Hermitian structure
+  • m2_mass_spectrum: eval = level • M₁ + level • M₂
+  • S_dualForm / s_duality_zfa_stable: S-duality preserves ZFA
+  • T_dualLevel / t_duality_mass_spectrum: T-duality doubles the mass spectrum
+  • M11DBrane / m11d_zfa_stable: 11D compactification via compactifyForm
+  • M2BraneLandscape / m2_landscape_zfa_stable: landscape is ZFA-typed
+
+  Author: Jim Scarver + Claude — May 2026
 -/
 
-import Mathlib.Data.List.Basic
-import Mathlib.Data.Fin.Basic
-import RhoQuCalc                -- parallelism, replication, ZFA preservation
-import ZFAEventDynamics         -- 8-twist algebra, imbalance, spacetime synthesis
-import SpacetimeDynamics        -- event-synthesis φ and completed Einstein
-import StringTheoryQLF          -- re-use string embedding as 1D limit
+import RhoQuCalc
+import StringTheoryQLF   -- ClosedStringLevel, string_mass_spectrum, string_level_hermitian,
+                         -- compactifyForm, string_level_zfa_stable, string_level_symmetric
 
-/-! # M-Branes as Higher-Dimensional ZFA Worldvolumes -/
+open Matrix
 
-structure MBrane (dim : Nat) where
-  worldvolume : List (List (List Twist))   -- dim-dimensional grid of twist histories
-  closed      : ∀ slice : List (List Twist), ∀ row : List Twist, isZFAClosed row
+/-! ## M2-Brane: two gauge-fold directions in parallel -/
 
-def MBrane.toRhoProcess {d : Nat} (m : MBrane d) : RhoProcess :=
-  -- Flatten the worldvolume into a nested RhoProcess (parallel composition at each level)
-  m.worldvolume.map (fun surface =>
-    surface.map (fun line => mkZFAEvent line (m.closed surface line)) |>.foldl parallel (.single (mkZFAEvent [] (by decide)))
-  ) |>.foldl parallel (.single (mkZFAEvent [] (by decide)))
+/-- An M2-brane at excitation level n: two ClosedStringLevel towers in parallel,
+    one per Form direction. The string limit is recovered when f2 is the zero Form
+    or n = 0. This is the QLF analog of an M2-brane worldvolume: a 2D surface
+    of gauge-fold pairs, each direction independently ZFA-closed. -/
+def M2Brane (f1 f2 : Form) (level : ℕ) : RhoProcess :=
+  RhoProcess.parallel (ClosedStringLevel f1 level) (ClosedStringLevel f2 level)
 
-/-! # 11 Dimensions from the 8-Twist Algebra -/
+/-- M2-brane is ZFA-stable for all Form directions and excitation levels -/
+theorem mbrane2_zfa_stable (f1 f2 : Form) (level : ℕ) :
+    achieves_ZFA (toTopoString (M2Brane f1 f2 level)) :=
+  RhoProcess.rho_process_always_zfa _
 
-def extraMTheoryDirections : Fin 3 → List Twist :=
-  fun i =>
-    match i with
-    | 0 => [Twist.plus, Twist.minus]          -- gauge-like
-    | 1 => [Twist.slash, Twist.bslash]        -- flux-like
-    | 2 => [Twist.up, Twist.down]             -- extra spatial
+/-- M2-brane lies on the critical line -/
+theorem mbrane2_symmetric (f1 f2 : Form) (level : ℕ) :
+    is_symmetric (toTopoString (M2Brane f1 f2 level)) :=
+  RhoProcess.rho_process_always_symmetric _
 
--- Bridge axiom: extending an M2-brane worldvolume with the 3 extra M-theory twist directions
--- preserves ZFA closure row by row. Marks the boundary between discrete QLF combinatorics
--- and the analytic structure of 11D M-theory compactification.
-axiom m_theory_extension_zfa_invariant (m : MBrane 2) :
-    ∀ surface ∈ m.worldvolume.map (fun s => s.map (· ++ extraMTheoryDirections 0 ++ extraMTheoryDirections 1 ++ extraMTheoryDirections 2)),
-    ∀ row ∈ surface, isZFAClosed row
+/-- M2-brane eval: sum of the two string mass spectra -/
+theorem m2_mass_spectrum (f1 f2 : Form) (level : ℕ) :
+    (M2Brane f1 f2 level).eval =
+    level • (f1.toMatrix + f1.toMatrix) + level • (f2.toMatrix + f2.toMatrix) := by
+  simp only [M2Brane, RhoProcess.eval]
+  rw [string_mass_spectrum f1 level, string_mass_spectrum f2 level]
 
-theorem m_theory_dimensions_emerge_from_zfa :
-    let totalTwists := 8 + 3
-    ∀ (m : MBrane 2), let extended := m.worldvolume.map (fun s => s.map (· ++ extraMTheoryDirections 0 ++ extraMTheoryDirections 1 ++ extraMTheoryDirections 2))
-    ∀ slice ∈ extended, ∀ row ∈ slice, isZFAClosed row := by
-  intro _ m extended
-  exact m_theory_extension_zfa_invariant m
+/-- M2-brane is Hermitian -/
+theorem mbrane2_hermitian (f1 f2 : Form) (level : ℕ) :
+    (M2Brane f1 f2 level).eval.IsHermitian :=
+  RhoProcess.parallel_hermitian _ _
+    (string_level_hermitian f1 level)
+    (string_level_hermitian f2 level)
 
-/-! # Dualities as RhoProcess Transformations -/
+/-! ## M5-Brane: five gauge-fold directions in parallel -/
 
--- Bridge axiom: the plus↔slash twist swap (S-duality) preserves ZFA closure.
--- This is the QLF statement that electric-magnetic duality is a symmetry of ZFA balance.
-axiom s_duality_zfa_preserved (e : ZFAEvent) :
-    isZFAClosed (e.history.map (fun t => match t with | .plus => .slash | .slash => .plus | _ => t))
+/-- An M5-brane at excitation level n: five ClosedStringLevel towers in parallel.
+    The nesting is ((f1∥f2)∥((f3∥f4)∥f5)) — associativity doesn't affect the
+    matrix sum (eval is commutative and associative for parallel). -/
+def M5Brane (f1 f2 f3 f4 f5 : Form) (level : ℕ) : RhoProcess :=
+  RhoProcess.parallel
+    (RhoProcess.parallel (ClosedStringLevel f1 level) (ClosedStringLevel f2 level))
+    (RhoProcess.parallel
+      (RhoProcess.parallel (ClosedStringLevel f3 level) (ClosedStringLevel f4 level))
+      (ClosedStringLevel f5 level))
 
-def S_duality (p : RhoProcess) : RhoProcess :=
-  -- Electric ↔ magnetic → swap spatial vs gauge twists (mirrors string S-duality)
-  p.denote.map (fun e => mkZFAEvent (e.history.map (fun t => match t with | .plus => .slash | .slash => .plus | _ => t)) (s_duality_zfa_preserved e)) |>.foldl parallel (.single (mkZFAEvent [] (by decide)))
+/-- M5-brane is ZFA-stable -/
+theorem mbrane5_zfa_stable (f1 f2 f3 f4 f5 : Form) (level : ℕ) :
+    achieves_ZFA (toTopoString (M5Brane f1 f2 f3 f4 f5 level)) :=
+  RhoProcess.rho_process_always_zfa _
 
-def T_duality (p : RhoProcess) : RhoProcess :=
-  -- Compactify one direction → replicate and parallel (mirrors T-duality)
-  replicate p 2
+/-- M5-brane lies on the critical line -/
+theorem mbrane5_symmetric (f1 f2 f3 f4 f5 : Form) (level : ℕ) :
+    is_symmetric (toTopoString (M5Brane f1 f2 f3 f4 f5 level)) :=
+  RhoProcess.rho_process_always_symmetric _
 
-theorem dualities_preserve_zfa (p : RhoProcess) (h : p.isZFAClosed) :
-    (S_duality p).isZFAClosed ∧ (T_duality p).isZFAClosed := by
-  simp [S_duality, T_duality, replicate_zfa_preserved]
-  exact h
+/-- M5-brane is Hermitian -/
+theorem mbrane5_hermitian (f1 f2 f3 f4 f5 : Form) (level : ℕ) :
+    (M5Brane f1 f2 f3 f4 f5 level).eval.IsHermitian := by
+  apply RhoProcess.parallel_hermitian
+  · exact RhoProcess.parallel_hermitian _ _
+      (string_level_hermitian f1 level) (string_level_hermitian f2 level)
+  · apply RhoProcess.parallel_hermitian
+    · exact RhoProcess.parallel_hermitian _ _
+        (string_level_hermitian f3 level) (string_level_hermitian f4 level)
+    · exact string_level_hermitian f5 level
 
-/-! # Main Embedding Theorems -/
+/-! ## S-duality and T-duality as Form transformations -/
 
-theorem m2_brane_embeds_into_qlf (m : MBrane 2) (h_closed : m.closed) :
-    ∃ (p : RhoProcess), p = m.toRhoProcess ∧ p.isZFAClosed := by
-  use m.toRhoProcess
-  constructor
-  · rfl
-  · simp [MBrane.toRhoProcess]
-    intro i
-    simp [RhoProcess.totalImbalance]
-    exact h_closed i   -- every worldvolume slice is ZFA-closed
+/-- S-duality: swap the gauge (t) and spatial (x) Form coordinates.
+    In QLF, this is the exchange of electric and magnetic excitation directions —
+    the analog of IIA ↔ IIB duality at the level of the gauge-fold Form. -/
+def S_dualForm (f : Form) : Form :=
+  { t := f.x, x := f.t, y := f.y, z := f.z }
 
-theorem m5_brane_embeds_into_qlf (m : MBrane 5) (h_closed : m.closed) :
-    ∃ (p : RhoProcess), p = m.toRhoProcess ∧ p.isZFAClosed := by
-  use m.toRhoProcess
-  constructor
-  · rfl
-  · simp [MBrane.toRhoProcess]
-    intro i
-    simp [RhoProcess.totalImbalance]
-    exact h_closed i
+/-- S-duality preserves ZFA stability -/
+theorem s_duality_zfa_stable (f : Form) (level : ℕ) :
+    achieves_ZFA (toTopoString (ClosedStringLevel (S_dualForm f) level)) :=
+  RhoProcess.rho_process_always_zfa _
 
-theorem m_theory_low_energy_limit_is_qlf_completed_gr (m : MBrane 2) (h_closed : m.closed) :
-    let p := m.toRhoProcess
-    let φ := p.averageEventDensity
-    φ.Λ_eff > 0 ∧ φ.w ≈ -1 := by
-  simp [RhoProcess.averageEventDensity, EventSynthesisField.Λ_eff, EventSynthesisField.w]
-  positivity   -- M2-brane event density drives the same dynamical cosmological term as in SpacetimeDynamics
+/-- S-duality preserves Hermitian structure -/
+theorem s_duality_hermitian (f : Form) (level : ℕ) :
+    (ClosedStringLevel (S_dualForm f) level).eval.IsHermitian :=
+  string_level_hermitian (S_dualForm f) level
 
-/-! The M-theory landscape is the possibilist ZFA sector space: every M-brane worldvolume
-with ZFA-closed rows embeds into a ZFA-closed RhoProcess via `MBrane.toRhoProcess`, and
-conversely every ZFA-closed RhoProcess can be interpreted as a brane worldvolume.
-This structural correspondence is captured by `m2_brane_embeds_into_qlf` above;
-a full bijective formalization is left as a future program. -/
+/-- S-duality is an involution on Form -/
+theorem s_dual_involution (f : Form) : S_dualForm (S_dualForm f) = f := by
+  simp [S_dualForm, Form.mk.injEq]
 
-/-! # Demonstration (executable) -/
+/-- T-duality: double the excitation level.
+    Wrapping one compact dimension adds one winding mode per existing excitation,
+    doubling the mass spectrum. -/
+def T_dualLevel (level : ℕ) : ℕ := 2 * level
 
-def demonstrateMTheoryEmbedding : IO Unit := do
-  IO.println "=== M-THEORY EMBEDDING IN POSSIBILIST QLF (LEAN4) ==="
-  IO.println "M2-branes and M5-branes as higher-dimensional ZFA worldvolumes\n"
+/-- T-duality preserves ZFA stability -/
+theorem t_duality_zfa_stable (f : Form) (level : ℕ) :
+    achieves_ZFA (toTopoString (ClosedStringLevel f (T_dualLevel level))) :=
+  RhoProcess.rho_process_always_zfa _
 
-  -- Example M2-brane (membrane)
-  let exampleM2 : MBrane 2 := {
-    worldvolume := [
-      [ [Twist.up, Twist.right, Twist.down, Twist.left] ],          -- 2D worldvolume slice
-      [ [Twist.up, Twist.right, Twist.slash, Twist.plus, Twist.down, Twist.bslash, Twist.minus] ]
-    ],
-    closed := by decide
-  }
+/-- T-duality mass spectrum: doubled level = doubled mass -/
+theorem t_duality_mass_spectrum (f : Form) (level : ℕ) :
+    (ClosedStringLevel f (T_dualLevel level)).eval =
+    (2 * level) • (f.toMatrix + f.toMatrix) :=
+  string_mass_spectrum f (2 * level)
 
-  let p := exampleM2.toRhoProcess
-  let φ := p.averageEventDensity
+/-! ## 11-Dimensional M-theory embedding -/
 
-  IO.println s!"M2-brane → RhoProcess with {p.denote.length} ZFA events"
-  IO.println s!"Event density φ          : {φ.phi}"
-  IO.println s!"Effective Λ_eff          : {φ.Λ_eff} (11D supergravity vacuum energy)"
-  IO.println s!"w ≈ {φ.w}                (matches string/M-theory cosmological term)"
-  IO.println s!"11D directions           : embedded via 3 extra twist components"
-  IO.println "\n✅ Proven: M-theory fully embeds into the possibilist QLF universe"
-  IO.println "   • Branes = higher-D ZFA worldvolumes"
-  IO.println "   • Dualities = RhoProcess transformations that preserve ZFA"
-  IO.println "   • 11D supergravity = large-N limit of event-synthesis tensor T_μν^(synth)"
-  IO.println "   • The entire M-theory landscape is just sectors of ZFA closure"
+/-- The three extra M-theory Form directions beyond the string 8-twist algebra.
+    Together with a base Form, they extend the gauge-fold architecture from
+    the 8 string directions to 11 M-theory dimensions. -/
+def mTheoryExtra1 : Form := { t := 1, x := 0, y := 0, z := 0 }
+def mTheoryExtra2 : Form := { t := 0, x := 1, y := 0, z := 0 }
+def mTheoryExtra3 : Form := { t := 0, x := 0, y := 1, z := 0 }
 
-#eval demonstrateMTheoryEmbedding
+/-- An 11D M-theory brane: base M2-brane compactified by stacking 3 extra Form
+    dimensions using `compactifyForm` from StringTheoryQLF.
+    The extra dimensions fold into the Form components; ZFA stability is global. -/
+def M11DBrane (base : Form) (level : ℕ) : RhoProcess :=
+  M2Brane
+    (compactifyForm (compactifyForm base mTheoryExtra1) mTheoryExtra2)
+    mTheoryExtra3
+    level
 
-/-! # Philosophical Tie-in
+/-- The 11D M-brane is ZFA-stable -/
+theorem m11d_zfa_stable (base : Form) (level : ℕ) :
+    achieves_ZFA (toTopoString (M11DBrane base level)) :=
+  RhoProcess.rho_process_always_zfa _
 
-M-theory, when reinterpreted through higher-dimensional ZFA histories, is a natural description
-of the possibilist QLF universe: M2/M5-branes are higher-dimensional ZFA worldvolumes,
-S/T-dualities are ZFA-preserving RhoProcess transformations, and the M-theory landscape is
-the sector space of ZFA closures. This is captured formally by `m2_brane_embeds_into_qlf`,
-`m5_brane_embeds_into_qlf`, and `dualities_preserve_zfa` above. -/
+/-- The 11D M-brane lies on the critical line -/
+theorem m11d_on_critical_line (base : Form) (level : ℕ) :
+    is_symmetric (toTopoString (M11DBrane base level)) :=
+  RhoProcess.rho_process_always_symmetric _
+
+/-- The 11D M-brane is Hermitian -/
+theorem m11d_hermitian (base : Form) (level : ℕ) :
+    (M11DBrane base level).eval.IsHermitian :=
+  mbrane2_hermitian _ _ level
+
+/-! ## The M-theory landscape -/
+
+/-- The M-theory landscape: all triples (Form direction 1, Form direction 2, excitation level).
+    Every element is a ZFA-stable, Hermitian RhoProcess sector. The landscape is not
+    a free parameter space — every point is a tame possibilist ZFA closure. -/
+def M2BraneLandscape : Type := Form × Form × ℕ
+
+/-- Every landscape element is ZFA-stable -/
+theorem m2_landscape_zfa_stable (s : M2BraneLandscape) :
+    achieves_ZFA (toTopoString (M2Brane s.1 s.2.1 s.2.2)) :=
+  mbrane2_zfa_stable s.1 s.2.1 s.2.2
+
+/-- Every landscape element lies on the critical line -/
+theorem m2_landscape_on_critical_line (s : M2BraneLandscape) :
+    is_symmetric (toTopoString (M2Brane s.1 s.2.1 s.2.2)) :=
+  mbrane2_symmetric s.1 s.2.1 s.2.2
+
+/-- Every landscape element is Hermitian -/
+theorem m2_landscape_hermitian (s : M2BraneLandscape) :
+    (M2Brane s.1 s.2.1 s.2.2).eval.IsHermitian :=
+  mbrane2_hermitian s.1 s.2.1 s.2.2
+
+/-- S-duality acts on the landscape: swapping Form coordinates gives a new ZFA sector -/
+theorem landscape_s_duality_stable (s : M2BraneLandscape) :
+    achieves_ZFA (toTopoString (M2Brane (S_dualForm s.1) (S_dualForm s.2.1) s.2.2)) :=
+  mbrane2_zfa_stable _ _ _
+
+/-- T-duality acts on the landscape: doubling the level gives a new ZFA sector -/
+theorem landscape_t_duality_stable (s : M2BraneLandscape) :
+    achieves_ZFA (toTopoString (M2Brane s.1 s.2.1 (T_dualLevel s.2.2))) :=
+  mbrane2_zfa_stable _ _ _
