@@ -9,7 +9,7 @@
 | Capability security via ρ-calculus names | Established in the ρ-calculus and object-capability literature (Meredith & Radestock, Miller et al.) — QLF inherits this by construction |
 | ZFA as hardware garbage collector | `full_zeno_prune` machine-verified; `qlf_universality` proves every terminating computation IS a ZFA string — ZFA filter is the complete hardware specification, not an analogy |
 | Error correction via Zeno pruning | `full_zeno_prune` machine-verified; Zeno-subspace QEC established (Beige 2000, Facchi/Pascazio 2002, Viola/Knill/Lloyd 1999); spacetime-as-QECC established (Almheiri/Dong/Harlow, HaPPY code, AdS/CFT); active inference as real-time decoder established (Friston FEP) — QLF instantiates all three natively |
-| Hardware-native AI (Cognitive Geometries) | Active inference loop grounded in [`active_inference.md`](active_inference.md) and Friston FEP literature; `qlf_universality` proves the execution model is complete; Cognitive Geometries spec in [`AI.md`](AI.md) |
+| Hardware-native AI (Cognitive Geometries) | Active inference grounded in Friston FEP (["The Physics of Sentience"](active_inference.md)); `Form.toMatrix` is a Clifford algebra element — Geometric Deep Learning (Bronstein et al. 2021) establishes these as the correct geometric inductive bias for AI; neuro-symbolic architecture (LLM sensory layer + QuCalc coprocessor) established in [`AI.md`](AI.md); `qlf_universality` proves the execution model is complete, so AI running on QLF hardware runs in machine-verified ZFA-correct code |
 
 **Repository:** [`jimscarver/quantum-logical-framework`](https://github.com/jimscarver/quantum-logical-framework)
 
@@ -108,7 +108,11 @@ Hardware noise and decoherence are recognized by the kernel as un-pruned, asymme
 
 High-level applications and AI models do not evaluate float-based vector matrices. Cognitive constructs are encoded directly as geometric twists within the simulator's Clifford Space.
 
-Programs execute as self-assembling topological structures. Because execution paths must conform to the hardware's ZFA constraint, software routines literally *grow* as machine-verified, phase-stable history graphs, guaranteeing that code execution cannot deviate from structural logical correctness.
+`Form.toMatrix` maps every QLF form to a 2×2 Pauli-basis Clifford algebra element — a Hermitian matrix over ℂ. This is not an implementation choice: Geometric Deep Learning (Bronstein et al. 2021, "Geometric Deep Learning: Grids, Groups, Graphs, Geodesics, and Gauges") establishes that Clifford/geometric algebra structures are the correct inductive bias for AI systems that must respect physical symmetries. QLF implements this at the hardware level: the native data type of the QPU *is* the geometric algebra element.
+
+Programs execute as self-assembling topological structures. Because execution paths must conform to the hardware's ZFA constraint, software routines literally *grow* as machine-verified, phase-stable history graphs, guaranteeing that code execution cannot deviate from structural logical correctness. `qlf_universality` proves this is complete: every terminating computation IS a ZFA string, so every AI program running on QLF hardware runs in machine-verified ZFA-correct code.
+
+The architecture is neuro-symbolic: an LLM or classical sensory layer extracts topological vectors from human-readable input; the QuCalc coprocessor enforces ZFA closure deterministically; the result is a synthesis that is not a probabilistic best-guess but a geometric proof of Zero Free Action. Absolute interpretability follows — the output IS the proof. See the working demonstration in [`ai_demonstration.py`](ai_demonstration.py).
 
 ---
 
