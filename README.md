@@ -143,7 +143,7 @@ The Lean formalization compiles with **zero `sorry` blocks** across all active m
 - The number of stable states of length 2n equals C(2n, n) (`find_stable_states_length_even`)
 - Every QLF string has a Hermitian spectral mode (`toSpectralMode_hermitian`)
 - Symmetric strings produce a scalar multiple of the identity (`spectral_symmetric_eq_scalar_id`)
-- Pauli exclusion: the antisymmetric fermionic combination of any identical ρ-processes is zero (`pauli_exclusion`)
+- Pauli exclusion: the matrix commutator of identical ρ-processes is zero (`pauli_exclusion`); non-triviality witnessed by [σ_x, σ_z] ≠ 0 (`fermi_nonzero_example`)
 - String mass spectrum: eval of the n-th closed string excitation level = n • (fold-pair matrix) (`string_mass_spectrum`)
 - String mode degeneracy at level n equals C(2n, n) — forced by ZFA balance, not a free parameter (`string_mode_count`)
 - M2/M5-branes as parallel gauge-fold stacks; S-duality is an involution on Form; T-duality doubles the mass spectrum (`m2_mass_spectrum`, `s_dual_involution`, `t_duality_mass_spectrum`)
