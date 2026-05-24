@@ -77,25 +77,41 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 - [**QuantumOS.md**](QuantumOS.md) — QLF as a capability-secure, formally-verified OS kernel for QPUs: five converging security foundations, intrinsic holographic QEC, hardware-native AI with absolute interpretability, Ruliad/RCA₀ unification — security + error correction + scheduling + GC + AI are all one operation (ZFA enforcement)
 
 ### 4. Formal and executable work
-- [**lean/README.md**](lean/README.md) — Lean 4 formalization directory (zero `sorry` blocks)
-- [**lean/QLF_Axioms.lean**](lean/QLF_Axioms.lean) — core counting, pruning, and ZFA machinery
-- [**lean/QLF_QuCalc.lean**](lean/QLF_QuCalc.lean) — phase-generation engine and stable-state filter
-- [**lean/QLF_Universality.lean**](lean/QLF_Universality.lean) — universality: every terminating computation encodes as a ZFA string
-- [**lean/QLF_Critical_Line.lean**](lean/QLF_Critical_Line.lean) — ZFA-to-symmetry bridge
-- [**lean/QLF_Spectral.lean**](lean/QLF_Spectral.lean) — spectral projector operators; Hermitian structure; Hilbert-Pólya bridge
-- [**lean/QLF_Riemann.lean**](lean/QLF_Riemann.lean) — Riemann hypothesis program; stable-state characterization and count
-- [**lean/RhoQuCalc.lean**](lean/RhoQuCalc.lean) — ρ-process algebra and Hermitian structure
-- [**lean/SpacetimeDynamics.lean**](lean/SpacetimeDynamics.lean) — spacetime/logical-form matrix layer
-- [**lean/ZFAEventDynamics.lean**](lean/ZFAEventDynamics.lean) — ZFA-driven event and acceleration dynamics
-- [**lean/ER_EPR_QLF.lean**](lean/ER_EPR_QLF.lean) — entanglement-geometry formalization
-- [**lean/AgeOfUniverse.lean**](lean/AgeOfUniverse.lean) — cosmological age estimate in QLF
-- [**lean/PauliExclusion.lean**](lean/PauliExclusion.lean) — Pauli exclusion via matrix commutator antisymmetry; `fermi_nonzero_example` non-triviality witness; bosonic double occupancy
-- [**lean/StringTheoryQLF.lean**](lean/StringTheoryQLF.lean) — string theory via gauge-fold depth: infinite excitation tower (infinities = folds), mode degeneracy C(2n,n) (modes = ways it can happen)
-- [**lean/MTheoryQLF.lean**](lean/MTheoryQLF.lean) — M-theory via gauge-fold stacks: M2/M5-branes, S/T-duality as Form transformations, 11D via compactifyForm
+
+See [**lean/README.md**](lean/README.md) for the full module reference, proof chains, axiom inventory, and RCA₀ logical subsystem map.
+
+**Core ZFA combinatorics** — the constructive RCA₀ heart:
+- [**lean/QLF_Axioms.lean**](lean/QLF_Axioms.lean) — ZFA definition, pruning, symmetry; `zfa_implies_critical_line`, `full_prune_invariant`
+- [**lean/QLF_QuCalc.lean**](lean/QLF_QuCalc.lean) — phase-generation engine and stable-state filter; `expand_generation`, `full_zeno_prune`, `qucalc_generates_all_phase_strings`
+- [**lean/QLF_Combinatorics.lean**](lean/QLF_Combinatorics.lean) — generation helpers
+
+**Universality & computability:**
+- [**lean/QLF_Universality.lean**](lean/QLF_Universality.lean) — Church-Turing completeness in QLF: every terminating computation IS a ZFA string (`encode_is_zfa`, `qlf_universality`)
+
+**Spectral structure & Riemann program:**
+- [**lean/QLF_Spectral.lean**](lean/QLF_Spectral.lean) — Hermitian spectral modes; Hilbert-Pólya bridge; `toSpectralMode_hermitian`, `spectral_symmetric_eq_scalar_id`
+- [**lean/QLF_Riemann.lean**](lean/QLF_Riemann.lean) — Riemann hypothesis program; `find_stable_states_length_even` (C(2n,n)), `riemann_hypothesis_in_qlf`
+- [**lean/QLF_Critical_Line.lean**](lean/QLF_Critical_Line.lean) — ZFA-to-symmetry bridge wrappers
+
+**Physics layer:**
+- [**lean/SpacetimeDynamics.lean**](lean/SpacetimeDynamics.lean) — Pauli-basis Clifford algebra elements; `Form.toMatrix_adjoint`
+- [**lean/RhoQuCalc.lean**](lean/RhoQuCalc.lean) — ρ-process algebra; capability-secure concurrency; `parallel_hermitian`, `rho_process_always_zfa`
+- [**lean/ZFAEventDynamics.lean**](lean/ZFAEventDynamics.lean) — ZFA event dynamics and acceleration
+- [**lean/PauliExclusion.lean**](lean/PauliExclusion.lean) — bosonic vs. fermionic statistics; `pauli_exclusion`, `fermi_nonzero_example` ([σ_x,σ_z]≠0 non-triviality witness)
+
+**Physical theories:**
+- [**lean/StringTheoryQLF.lean**](lean/StringTheoryQLF.lean) — gauge-fold excitation tower; `string_mass_spectrum`, `string_mode_count` (C(2n,n) forced by ZFA)
+- [**lean/MTheoryQLF.lean**](lean/MTheoryQLF.lean) — M2/M5-branes, S/T-duality, 11D; `m2_mass_spectrum`, `s_dual_involution`
+
+**Speculative extensions** (explicitly beyond the proved core):
+- [**lean/AgeOfUniverse.lean**](lean/AgeOfUniverse.lean) — cosmological age estimate; `age_is_finite_and_positive`
+- [**lean/ER_EPR_QLF.lean**](lean/ER_EPR_QLF.lean) — entanglement-geometry axioms; philosophical axioms only, not used by other modules
+
+**Empirical verification** (independent numerical confirmation of Lean theorems):
+- [**qlf_spectral.py**](qlf_spectral.py) — confirms `toSpectralMode_hermitian`, `spectral_symmetric_eq_scalar_id`
+- [**qlf_zfa_frequency.py**](qlf_zfa_frequency.py) — confirms `find_stable_states_length_even` (C(n,n/2))
+- [**qlf_dirichlet_search.py**](qlf_dirichlet_search.py) — empirical shadow of `riemann_hypothesis_in_qlf`
 - [**qucalc_engine.py**](qucalc_engine.py), [**spacetime_dynamics.py**](spacetime_dynamics.py), [**constants_mapper.py**](constants_mapper.py), [**path_integral.py**](path_integral.py) — executable experiments
-- [**qlf_dirichlet_search.py**](qlf_dirichlet_search.py) — empirical search for Dirichlet/stable-state connection
-- [**qlf_spectral.py**](qlf_spectral.py) — empirical verification of spectral Hermitian and scalar-identity theorems
-- [**qlf_zfa_frequency.py**](qlf_zfa_frequency.py) — frequency distribution of ZFA states; confirms count = C(n, n/2) via exhaustive enumeration
 
 ---
 
@@ -107,7 +123,7 @@ Several themes now deserve to be front-and-center in the README because they tie
 Reality is not one pre-written story. QLF treats all admissible logical histories as possible, with physical reality emerging from those that close under ZFA.
 
 ### Universality
-QLF is not framed merely as a simulator. It is framed as a generator of finite local logical closure structures.
+QLF is not framed merely as a simulator. It is a generator of finite local logical closure structures — and `qlf_universality` proves this is Church-Turing complete: every terminating computation encodes as a ZFA string, so the ZFA filter is not a restriction on computation but the selection principle that picks physical reality out of the full computational universe.
 
 ### Gödel, Busy Beaver, and the limits of classical formalism
 The philosophical documents argue that unconstrained self-reference and open-ended formal infinity create a kind of mathematical ultraviolet catastrophe. QLF answers this by restricting realized structure to finite local closure.
@@ -137,7 +153,16 @@ QLF is not only a theoretical framework — it is an executable architecture for
 
 ## Current Status
 
-The Lean formalization compiles with **zero `sorry` blocks** across all active modules (15 modules total). Key proven results include:
+The Lean formalization compiles with **zero `sorry` blocks** across all 15 modules. The entire combinatorial core operates within **RCA₀** — the minimum constructive logical subsystem (no Axiom of Choice, no continuity). The only axioms are three in `QLF_Riemann` marking the exact RCA₀ → WKL₀ boundary, and philosophical axioms in `ER_EPR_QLF` (not used by other modules).
+
+**Key proof chains** (see [lean/README.md](lean/README.md) for full detail):
+
+- **Universality**: `encode_is_phase_only` → `encode_is_zfa` → `encode_is_generated` → `qlf_universality` — every terminating computation IS a ZFA string
+- **Riemann**: `encode_is_zfa` → `zfa_implies_critical_line` → `spectral_symmetric_eq_scalar_id` → `spectral_hilbert_polya` (axiom) → `riemann_hypothesis_in_qlf`
+- **Pauli exclusion (non-vacuous)**: `fermi_antisym_eq_commutator` → `fermi_antisym_self` + `fermi_nonzero_example` → `pauli_exclusion` is a genuine constraint, not a trivial identity
+- **Stable-state count**: `find_stable_states_iff` → `find_stable_states_length_even` → C(2n,n) → `string_mode_count` (same count derived independently via ZFA)
+
+**All proven results:**
 
 - ZFA implies symmetry (`zfa_implies_critical_line`)
 - Every terminating computation encodes as a ZFA string (`encode_is_zfa`, `qlf_universality`)
@@ -146,14 +171,12 @@ The Lean formalization compiles with **zero `sorry` blocks** across all active m
 - The number of stable states of length 2n equals C(2n, n) (`find_stable_states_length_even`)
 - Every QLF string has a Hermitian spectral mode (`toSpectralMode_hermitian`)
 - Symmetric strings produce a scalar multiple of the identity (`spectral_symmetric_eq_scalar_id`)
-- Pauli exclusion: the matrix commutator of identical ρ-processes is zero (`pauli_exclusion`); non-triviality witnessed by [σ_x, σ_z] ≠ 0 (`fermi_nonzero_example`)
-- String mass spectrum: eval of the n-th closed string excitation level = n • (fold-pair matrix) (`string_mass_spectrum`)
+- Pauli exclusion: matrix commutator of identical ρ-processes is zero (`pauli_exclusion`); non-triviality witnessed by [σ_x, σ_z] ≠ 0 (`fermi_nonzero_example`)
+- String mass spectrum: eval of the n-th excitation level = n • (fold-pair matrix) (`string_mass_spectrum`)
 - String mode degeneracy at level n equals C(2n, n) — forced by ZFA balance, not a free parameter (`string_mode_count`)
 - M2/M5-branes as parallel gauge-fold stacks; S-duality is an involution on Form; T-duality doubles the mass spectrum (`m2_mass_spectrum`, `s_dual_involution`, `t_duality_mass_spectrum`)
 
-The Lean formalization now covers **15 modules** with zero `sorry` blocks.
-
-The repo should be read as an actively evolving formal-executable research program. Speculative extensions (ER=EPR, age of universe) are clearly broader than the currently proved core.
+Speculative extensions (ER=EPR, age of universe) are clearly broader than the proved core and marked explicitly in `lean/README.md`.
 
 ---
 
