@@ -75,6 +75,7 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 
 ### 3. Physics and experiments
 - [**Experimental_Consistency.md**](Experimental_Consistency.md) — numerical and conceptual links between QLF and known physics
+- [**Maxwell.md**](Maxwell.md) — all four Maxwell equations derived from ZFA: ∇·B=0 machine-verified (`no_magnetic_monopoles`), Gauss duality identity `divB=−charge`, Faraday and Ampère-Maxwell confirmed numerically in `maxwell_qlf.py`
 - [**SpaceTime.md**](SpaceTime.md) — event-synthesized space and time
 - [**Gravity.md**](Gravity.md) — emergent gravity in the QLF picture
 - [**ER_EPR_QLF.md**](ER_EPR_QLF.md) — entanglement, geometry, and logical structure
@@ -103,7 +104,7 @@ See [**lean/README.md**](lean/README.md) for the full module reference, proof ch
 **Physics layer:**
 - [**lean/SpacetimeDynamics.lean**](lean/SpacetimeDynamics.lean) — Pauli-basis Clifford algebra elements; `Form.toMatrix_adjoint`
 - [**lean/RhoQuCalc.lean**](lean/RhoQuCalc.lean) — ρ-process algebra; capability-secure concurrency; `parallel_hermitian`, `rho_process_always_zfa`
-- [**lean/ZFAEventDynamics.lean**](lean/ZFAEventDynamics.lean) — ZFA event dynamics and acceleration
+- [**lean/ZFAEventDynamics.lean**](lean/ZFAEventDynamics.lean) — ZFA event dynamics, acceleration, and `no_magnetic_monopoles` (∇·B=0, Maxwell eq. 2)
 - [**lean/PauliExclusion.lean**](lean/PauliExclusion.lean) — bosonic vs. fermionic statistics; `pauli_exclusion`, `fermi_nonzero_example` ([σ_x,σ_z]≠0 non-triviality witness)
 - [**lean/BraKetRhoQuCalc.lean**](lean/BraKetRhoQuCalc.lean) — formal correspondence of Dirac bra-ket notation to RhoQuCalc: `action_topo_is_ket`, `lift_topo_is_bra`, `action_lift_eval_eq`, `bra_ket_always_balanced`, completeness relations, Pauli algebra σᵢ²=I (see [BraKetRhoQuCalc.md](BraKetRhoQuCalc.md))
 
@@ -118,7 +119,8 @@ See [**lean/README.md**](lean/README.md) for the full module reference, proof ch
 **Empirical verification** (independent numerical confirmation of Lean theorems):
 - [**qlf_spectral.py**](qlf_spectral.py) — confirms `toSpectralMode_hermitian`, `spectral_symmetric_eq_scalar_id`
 - [**qlf_zfa_frequency.py**](qlf_zfa_frequency.py) — confirms `find_stable_states_length_even` (C(n,n/2))
-- [**qlf_dirichlet_search.py**](qlf_dirichlet_search.py) — empirical shadow of `riemann_hypothesis_in_qlf`
+- [**qlf_dirichlet_search.py**](qlf_dirichlet_search.py) — confirms C(2k,k)/4^k ~ (1/√π)k^{-1/2} is asymptotic only (Stirling), ruling out a purely combinatorial bypass of `spectral_hilbert_polya`
+- [**maxwell_qlf.py**](maxwell_qlf.py) — numerically derives all four Maxwell equations from ZFA: Gauss duality `divB=−charge`, ∇·B=0 for neutral events, Faraday curl, wave speed c
 - [**braket_rho.py**](braket_rho.py) — bra-ket ↔ RhoQuCalc correspondence: all 8 identities checked numerically
 - [**qucalc_engine.py**](qucalc_engine.py), [**spacetime_dynamics.py**](spacetime_dynamics.py), [**constants_mapper.py**](constants_mapper.py), [**path_integral.py**](path_integral.py) — executable experiments
 
