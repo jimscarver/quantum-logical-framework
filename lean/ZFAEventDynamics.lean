@@ -241,8 +241,7 @@ private lemma empty_of_isZFAClosed (h : History) (hclosed : isZFAClosed h) : h =
     exfalso
     have hz := hclosed (twistToFin t)
     rw [computeImbalance_eq_count] at hz
-    have hmem : t ∈ t :: ts := List.mem_cons_self t ts
-    exact absurd hmem (List.count_eq_zero.mp hz)
+    exact (List.count_eq_zero.mp hz) (by simp)
 
 /-- One-directional bridge: `isZFAClosed` (8-component) implies `achieves_ZFA` (binary pos/neg).
     The bridge is trivial because `isZFAClosed` forces `h = []` and `achieves_ZFA []` holds
