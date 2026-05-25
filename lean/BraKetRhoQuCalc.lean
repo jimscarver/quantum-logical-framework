@@ -448,3 +448,47 @@ theorem commutator_zero_ket1_sigmaz :
 theorem decoherence_impossibility (ρ_S env : RhoProcess) :
     achieves_ZFA (toTopoString (RhoProcess.parallel ρ_S env)) :=
   RhoProcess.rho_process_always_zfa _
+
+/-! ## 20. Lagrangian density ℒ = 0 (physics-notation alias) -/
+
+/-- Every constructible RhoProcess achieves Zero Free Action: ℒ = 0.
+    Physics-notation alias for `RhoProcess.rho_process_always_zfa`.
+    ℒ = 0 is not a constraint imposed from outside — it is the intrinsic
+    nature of the RhoProcess algebra.  The universe IS what achieves ZFA.
+    See Lagrangian_Formulation.md §Core Principle and Philosophy.md. -/
+theorem lagrangian_density_zero (p : RhoProcess) :
+    achieves_ZFA (toTopoString p) :=
+  RhoProcess.rho_process_always_zfa p
+
+/-! ## 21. eval is Hermitian for action and lift -/
+
+/-- The eval of `action f` is Hermitian: (action f).eval† = (action f).eval.
+    Every ket direction is a Hermitian operator — consistent with density-matrix
+    formulation where states are self-adjoint. -/
+theorem eval_is_hermitian_action (f : Form) : (action f).eval.IsHermitian :=
+  Form.toMatrix_adjoint f
+
+/-- The eval of `lift f` is Hermitian: (lift f).eval† = (lift f).eval.
+    Since lift evaluates to f.toMatrix† = f.toMatrix (Form.toMatrix_adjoint),
+    the bra direction is also self-adjoint. -/
+theorem eval_is_hermitian_lift (f : Form) : (lift f).eval.IsHermitian := by
+  show (f.toMatrix.conjTranspose).conjTranspose = f.toMatrix.conjTranspose
+  rw [Matrix.conjTranspose_conjTranspose, Form.toMatrix_adjoint]
+
+/-! ## 22. PhiCore: Φ₀ = U + M -/
+
+/-- Φ₀ = U + M: the fundamental QPU object bundling a RhoProcess with its ZFA proof.
+    - U = zero-action component: `achieves_ZFA (toTopoString proc)` — enforced by `rho_process_always_zfa`.
+    - M = symmetry component: carried by the `action/lift/parallel/sequence/dagger` constructors.
+    Every physical process is a Φ₀-structured object.  See QuantumOS.md and
+    Lagrangian_Formulation.md §QPU Core Definition. -/
+structure PhiCore where
+  proc : RhoProcess
+  zfa  : achieves_ZFA (toTopoString proc)
+
+/-- Every RhoProcess canonically lifts to a PhiCore — Φ₀ construction is total. -/
+def PhiCore.ofRho (p : RhoProcess) : PhiCore :=
+  ⟨p, RhoProcess.rho_process_always_zfa p⟩
+
+/-- The bundled ZFA proof is accessible from any PhiCore. -/
+theorem phi_core_always_zfa (c : PhiCore) : achieves_ZFA (toTopoString c.proc) := c.zfa

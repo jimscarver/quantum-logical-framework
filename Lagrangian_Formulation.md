@@ -88,8 +88,10 @@ These ensure the system state is a constant of motion and orthogonal to the envi
 Machine-verified anchors:
 
 - `rho_process_always_symmetric` ([RhoQuCalc.lean:388](lean/RhoQuCalc.lean)): every RhoProcess lies on the critical line (is_symmetric) — the ZFA formulation of `[H, ρ_S] = 0`.
+- `commutator_zero_diagonal` ([BraKetRhoQuCalc.lean](lean/BraKetRhoQuCalc.lean)): for any Form f with f.x = f.y = 0 (diagonal in the σz basis), `[σz, f.toMatrix] = 0` — the matrix-level proof of `[H, ρ_S] = 0` for ZFA-symmetric states. Corollaries: `commutator_zero_ket0_sigmaz`, `commutator_zero_ket1_sigmaz`.
 - `orthogonality_01` ([BraKetRhoQuCalc.lean:173](lean/BraKetRhoQuCalc.lean)): ρ₁ · ρ₀ = 0, machine-verified by matrix computation — the density-matrix formulation of Tr(ρ_S ρ_E) = 0 for orthogonal basis states.
 - `bra_ket_always_balanced` ([BraKetRhoQuCalc.lean:109](lean/BraKetRhoQuCalc.lean)): it is impossible to construct a ZFA-unbalanced RhoProcess — the type system enforces the security condition at construction time.
+- `decoherence_impossibility` ([BraKetRhoQuCalc.lean](lean/BraKetRhoQuCalc.lean)): parallel composition (ρ_S ⊗ env) is always ZFA-closed — no decoherence event is algebraically constructible.
 
 Any decohering interaction would require violating either the zero-action condition or the algebraic structure. Since both are enforced by construction and machine-verified, decoherence is a logical contradiction rather than environmental noise. See [Measurement_Problem.md](Measurement_Problem.md) for the full treatment of measurement as ZFA closure, and [ER_EPR_QLF.md](ER_EPR_QLF.md) for the entanglement-geometry connection.
 
@@ -122,7 +124,7 @@ In RhoProcess terms: U is the ZFA closure condition (the action component, satis
 | Stable-state count C(2n,n) | [lean/QLF_QuCalc.lean](lean/QLF_QuCalc.lean), [lean/QLF_Riemann.lean](lean/QLF_Riemann.lean) | [Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md) |
 | String mode degeneracy | [lean/StringTheoryQLF.lean](lean/StringTheoryQLF.lean) | [StringTheory.md](StringTheory.md) |
 | Church-Turing universality | [lean/QLF_Universality.lean](lean/QLF_Universality.lean) | [Universality.md](Universality.md), [ReverseMathematics.md](ReverseMathematics.md) |
-| Measurement / decoherence | — | [Measurement_Problem.md](Measurement_Problem.md), [TheBigProblem.md](TheBigProblem.md) |
+| Measurement / decoherence | [lean/BraKetRhoQuCalc.lean](lean/BraKetRhoQuCalc.lean) (`decoherence_impossibility`, `commutator_zero_diagonal`) | [Measurement_Problem.md](Measurement_Problem.md), [TheBigProblem.md](TheBigProblem.md) |
 | Entanglement / ER=EPR | [lean/ER_EPR_QLF.lean](lean/ER_EPR_QLF.lean) | [ER_EPR_QLF.md](ER_EPR_QLF.md) |
 | Possibilist origin / ZFA | — | [Philosophy.md](Philosophy.md), [TheContinuum.md](TheContinuum.md) |
 | QPU / security / OS | — | [QuantumOS.md](QuantumOS.md) |
