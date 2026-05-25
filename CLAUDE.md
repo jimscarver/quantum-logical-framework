@@ -176,13 +176,16 @@ theorem foo (p : RhoProcess) : achieves_ZFA (toTopoString p) :=
 
 ## Workflow
 
-1. Edit Lean files in `lean/`
-2. Push to GitHub: `git add lean/<file> && git commit -m "..." && git push`
-3. Check CI: `gh run list --limit 5` or view at GitHub Actions
-4. Read CI logs on failure: `gh run view <run-id> --log-failed`
+### Lean file changes (`.lean` files only)
+1. Edit files in `lean/`
+2. `git add lean/<file> && git commit -m "..." && git push`
+3. Check CI: `gh run list --limit 5`
+4. On failure: `gh run view <run-id> --log-failed`
 5. Do NOT run `lake build` locally — Lean is not installed
 
-**md-only changes** (README.md, .md files, Python scripts) do not need CI verification.
+### md-only changes (`.md`, `.py`, `lakefile.lean` roots array, `README.md`)
+1. Edit, commit, push — **CI does not run and does not need to.**
+2. Do NOT mention CI, check CI, or wait for CI after a docs-only commit.
 
 **Zero sorry policy**: Do not introduce `sorry`. For genuinely unprovable goals, use `axiom` declarations following the `spectral_hilbert_polya` precedent — makes the logical boundary explicit.
 
