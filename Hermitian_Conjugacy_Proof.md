@@ -1,7 +1,3 @@
-Here is the complete, formatted `Hermitian_Conjugacy_Proof.md` file ready to be committed to your repository. It provides the formal algebraic definition of unitarity within the QuCalc framework and includes the Python proof.
-
------
-
 # Computable Unitarity: Adjoint Evolution and Zero Free Action
 
 In standard quantum mechanics, observable physical events must correspond to Hermitian operators ($H = H^\dagger$), ensuring real eigenvalues. Furthermore, the time evolution of a closed quantum system is strictly unitary, meaning a process governed by an operator $U$ can be perfectly reversed by its adjoint $U^\dagger$, such that:
@@ -99,6 +95,3 @@ This establishes that the fundamental conservation laws of quantum mechanics are
 
 See also: [BraKetRhoQuCalc.md](BraKetRhoQuCalc.md) — the bra-ket ↔ RhoQuCalc correspondence, where Hermitian self-adjointness of `Form.toMatrix` is the machine-verified foundation of the density-matrix picture.
 
------
-
-\<FollowUp label="Write the discrete path\_integral.py file next?" query="Please write the path\_integral.py file as outlined in the README, focusing on calculating discrete topological action instead of a continuous Lagrangian." /\>
