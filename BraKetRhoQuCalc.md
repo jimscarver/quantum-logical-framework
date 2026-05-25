@@ -78,8 +78,6 @@ braket> <0|σz|0>
 
 ```
 
----
-
 ## The Key Shift: Density Matrix Picture
 
 Standard bra-ket introduces two kinds of objects:
