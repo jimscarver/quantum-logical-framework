@@ -6,6 +6,8 @@ Standard quantum mechanics uses Dirac's bra-ket notation to describe states and 
 
 Here is the exact terminal input and output of the running `braket_rho.py` validation sandbox:
 
+python braket_rho.py -repl
+
 ### Application 1: QuantumOS Virtualization & Register Isolation
 
 ```text
