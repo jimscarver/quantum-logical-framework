@@ -23,6 +23,12 @@
     5. projector_idempotent_0                  — ρ₀² = ρ₀ (pure state)
     6. orthogonality_01                         — ρ₁ · ρ₀ = 0
     7. pauli_x_sq / pauli_y_sq / pauli_z_sq    — σᵢ² = I
+    8. trace_orthogonality_01                   — Tr(ρ₁ρ₀) = 0
+    9. orthogonality_pm                         — |+⟩ ⊥ |−⟩: ρ₋ · ρ₊ = 0
+   10. sigma_comm_xy/yz/zx                      — [σᵢ,σⱼ] = 2i εᵢⱼₖ σₖ (su(2) algebra)
+   11. tau_x/y/z_sq                             — τᵢ² = −I (Σ₈ quaternionic squares)
+   12. tau_xy/yz/zx_product                     — quaternionic products (anti-cyclic with τᵢ=iσᵢ)
+   13. trace_preservation_unitary               — Tr(UρU†) = Tr(ρ)
 
   Author: Jim Scarver + Claude — May 2026
 -/
@@ -227,3 +233,176 @@ theorem lift_is_zfa (f : Form) : achieves_ZFA (toTopoString (RhoProcess.lift f))
 theorem action_lift_sequence_is_zfa (f : Form) :
     achieves_ZFA (toTopoString (RhoProcess.sequence (RhoProcess.action f) (RhoProcess.lift f))) :=
   RhoProcess.rho_process_always_zfa _
+
+/-! ## 13. Trace -/
+
+/-- Tr(ρ₁ · ρ₀) = 0: orthogonal states have zero inner product in the density-matrix picture.
+    The Lagrangian_Formulation.md security condition Tr(ρ_S ρ_E) = 0 is realised here.
+    Follows immediately from orthogonality_01 (the matrix product itself is the zero matrix). -/
+theorem trace_orthogonality_01 :
+    Matrix.trace ((RhoProcess.sequence (RhoProcess.lift ket1) (RhoProcess.action ket0)).eval) = 0 := by
+  simp [orthogonality_01]
+
+/-! ## 14. Extended orthogonality: |+⟩ ⊥ |−⟩ -/
+
+/-- |+⟩ and |−⟩ are orthogonal: ρ₋ · ρ₊ = 0.
+    Extends orthogonality_01 to the Hadamard basis; pattern is identical. -/
+theorem orthogonality_pm :
+    (RhoProcess.sequence (RhoProcess.lift ket_minus) (RhoProcess.action ket_plus)).eval = 0 := by
+  simp only [RhoProcess.eval, Form.toMatrix_adjoint]
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+  simp only [ket_plus, ket_minus, Form.toMatrix, Matrix.mul_apply, Fin.sum_univ_two,
+    Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.head_fin_const,
+    Complex.ofReal_zero, Complex.ofReal_neg, Matrix.zero_apply] <;>
+  norm_num
+
+/-! ## 15. Pauli commutator algebra: [σᵢ, σⱼ] = 2i εᵢⱼₖ σₖ -/
+
+-- These three theorems formalise the su(2) Lie algebra underlying the Σ₈ symmetry
+-- structure of the 8-twist alphabet (Lagrangian_Formulation.md §3 Algebraic Backbone).
+
+/-- [σx, σy] = 2i σz. -/
+theorem sigma_comm_xy :
+    σx.toMatrix * σy.toMatrix - σy.toMatrix * σx.toMatrix =
+    (2 * Complex.I) • σz.toMatrix := by
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+  simp only [σx, σy, σz, Form.toMatrix, Matrix.mul_apply, Fin.sum_univ_two,
+    Matrix.sub_apply, Matrix.smul_apply,
+    Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.head_fin_const,
+    Complex.ofReal_zero, Complex.ofReal_one] <;>
+  apply Complex.ext <;>
+  simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+        Complex.sub_re, Complex.sub_im, Complex.neg_re, Complex.neg_im,
+        Complex.I_re, Complex.I_im, Complex.ofReal_re, Complex.ofReal_im,
+        Complex.smul_re, Complex.smul_im] <;>
+  ring
+
+/-- [σy, σz] = 2i σx. -/
+theorem sigma_comm_yz :
+    σy.toMatrix * σz.toMatrix - σz.toMatrix * σy.toMatrix =
+    (2 * Complex.I) • σx.toMatrix := by
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+  simp only [σx, σy, σz, Form.toMatrix, Matrix.mul_apply, Fin.sum_univ_two,
+    Matrix.sub_apply, Matrix.smul_apply,
+    Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.head_fin_const,
+    Complex.ofReal_zero, Complex.ofReal_one] <;>
+  apply Complex.ext <;>
+  simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+        Complex.sub_re, Complex.sub_im, Complex.neg_re, Complex.neg_im,
+        Complex.I_re, Complex.I_im, Complex.ofReal_re, Complex.ofReal_im,
+        Complex.smul_re, Complex.smul_im] <;>
+  ring
+
+/-- [σz, σx] = 2i σy. -/
+theorem sigma_comm_zx :
+    σz.toMatrix * σx.toMatrix - σx.toMatrix * σz.toMatrix =
+    (2 * Complex.I) • σy.toMatrix := by
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+  simp only [σx, σy, σz, Form.toMatrix, Matrix.mul_apply, Fin.sum_univ_two,
+    Matrix.sub_apply, Matrix.smul_apply,
+    Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.head_fin_const,
+    Complex.ofReal_zero, Complex.ofReal_one] <;>
+  apply Complex.ext <;>
+  simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+        Complex.sub_re, Complex.sub_im, Complex.neg_re, Complex.neg_im,
+        Complex.I_re, Complex.I_im, Complex.ofReal_re, Complex.ofReal_im,
+        Complex.smul_re, Complex.smul_im] <;>
+  ring
+
+/-! ## 16. Σ₈ algebra bridge: τᵢ = i · σᵢ satisfies τᵢ² = −I -/
+
+-- The Σ₈ generators τᵢ are defined as i·σᵢ (Pauli matrix scaled by Complex.I).
+-- This gives the quaternionic squares τᵢ² = −I (anti-involutory), versus σᵢ² = I.
+-- Products are anti-cyclic: τxτy = −τz, τyτz = −τx, τzτx = −τy.
+-- (The cyclic convention τxτy = +τz corresponds to τᵢ = −iσᵢ.)
+-- Reference: Lagrangian_Formulation.md §3 Algebraic Backbone.
+
+private noncomputable def τx : Matrix (Fin 2) (Fin 2) ℂ := !![0, Complex.I; Complex.I, 0]
+private noncomputable def τy : Matrix (Fin 2) (Fin 2) ℂ := !![0, 1; -1, 0]
+private noncomputable def τz : Matrix (Fin 2) (Fin 2) ℂ := !![Complex.I, 0; 0, -Complex.I]
+
+/-- τx² = −I. -/
+theorem tau_x_sq : τx * τx = -(1 : Matrix (Fin 2) (Fin 2) ℂ) := by
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+  simp only [τx, Matrix.mul_apply, Fin.sum_univ_two, Matrix.neg_apply, Matrix.one_apply,
+    Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.head_fin_const] <;>
+  apply Complex.ext <;>
+  simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+        Complex.neg_re, Complex.neg_im, Complex.I_re, Complex.I_im,
+        Complex.ofReal_re, Complex.ofReal_im] <;>
+  norm_num
+
+/-- τy² = −I. -/
+theorem tau_y_sq : τy * τy = -(1 : Matrix (Fin 2) (Fin 2) ℂ) := by
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+  simp only [τy, Matrix.mul_apply, Fin.sum_univ_two, Matrix.neg_apply, Matrix.one_apply,
+    Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.head_fin_const] <;>
+  apply Complex.ext <;>
+  simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+        Complex.neg_re, Complex.neg_im, Complex.I_re, Complex.I_im,
+        Complex.ofReal_re, Complex.ofReal_im] <;>
+  norm_num
+
+/-- τz² = −I. -/
+theorem tau_z_sq : τz * τz = -(1 : Matrix (Fin 2) (Fin 2) ℂ) := by
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+  simp only [τz, Matrix.mul_apply, Fin.sum_univ_two, Matrix.neg_apply, Matrix.one_apply,
+    Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.head_fin_const] <;>
+  apply Complex.ext <;>
+  simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+        Complex.neg_re, Complex.neg_im, Complex.I_re, Complex.I_im,
+        Complex.ofReal_re, Complex.ofReal_im] <;>
+  norm_num
+
+/-- τx · τy = −τz  (anti-cyclic product). -/
+theorem tau_xy_product : τx * τy = -τz := by
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+  simp only [τx, τy, τz, Matrix.mul_apply, Fin.sum_univ_two, Matrix.neg_apply,
+    Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.head_fin_const] <;>
+  apply Complex.ext <;>
+  simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+        Complex.neg_re, Complex.neg_im, Complex.I_re, Complex.I_im,
+        Complex.ofReal_re, Complex.ofReal_im] <;>
+  ring
+
+/-- τy · τz = −τx. -/
+theorem tau_yz_product : τy * τz = -τx := by
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+  simp only [τx, τy, τz, Matrix.mul_apply, Fin.sum_univ_two, Matrix.neg_apply,
+    Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.head_fin_const] <;>
+  apply Complex.ext <;>
+  simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+        Complex.neg_re, Complex.neg_im, Complex.I_re, Complex.I_im,
+        Complex.ofReal_re, Complex.ofReal_im] <;>
+  ring
+
+/-- τz · τx = −τy. -/
+theorem tau_zx_product : τz * τx = -τy := by
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+  simp only [τx, τy, τz, Matrix.mul_apply, Fin.sum_univ_two, Matrix.neg_apply,
+    Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.head_fin_const] <;>
+  apply Complex.ext <;>
+  simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+        Complex.neg_re, Complex.neg_im, Complex.I_re, Complex.I_im,
+        Complex.ofReal_re, Complex.ofReal_im] <;>
+  ring
+
+/-! ## 17. Trace preservation under unitary evolution -/
+
+/-- Tr(UρU†) = Tr(ρ) for any unitary U (U†U = I).
+    Quantum probabilities are invariant under unitary evolution.
+    Proof uses cyclic property: Tr(AB) = Tr(BA). -/
+theorem trace_preservation_unitary (U ρ : Matrix (Fin 2) (Fin 2) ℂ)
+    (hU : U.conjTranspose * U = 1) :
+    Matrix.trace (U * ρ * U.conjTranspose) = Matrix.trace ρ := by
+  rw [Matrix.trace_mul_comm (U * ρ) U.conjTranspose, ← mul_assoc, hU, one_mul]
