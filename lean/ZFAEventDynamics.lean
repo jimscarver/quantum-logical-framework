@@ -27,6 +27,7 @@ import Mathlib.Tactic
 import Mathlib.Analysis.Calculus.Deriv.Basic   -- for potential future continuous limit
 
 import SpacetimeDynamics   -- re-uses EventSynthesisField and tensors
+import QLF_Axioms           -- TopoString, full_zeno_prune, achieves_ZFA bridge target
 
 /-! # 8-Twist Algebra -/
 
@@ -190,3 +191,67 @@ theorem zfa_dynamics_drive_acceleration (φ : EventSynthesisField)
              hne, not_false_eq_true, ↓reduceIte]
   field_simp
   ring
+
+/-! # §Bridge: ZFAEventDynamics.isZFAClosed ↔ QLF_Axioms.achieves_ZFA
+
+Two separate ZFA formalizations coexist in QLF:
+
+* `QLF_Axioms.achieves_ZFA`      : works on `TopoString` (binary pos/neg phases);
+  closure means `full_zeno_prune s = []`.
+* `ZFAEventDynamics.isZFAClosed` : works on `History` (List Twist, 8-component counts);
+  closure means every individual twist-type count equals 0.
+
+`isZFAClosed` is strictly stronger — requiring all 8 counts to be 0 forces `h = []`.
+The bridge theorem is therefore one-directional and trivially sound:
+an isZFAClosed history is empty, and the empty TopoString achieves ZFA vacuously. -/
+
+/-- Maps each Twist to its index in `computeImbalance`. -/
+def twistToFin : Twist → Fin 8
+  | .up     => ⟨0, by norm_num⟩
+  | .down   => ⟨1, by norm_num⟩
+  | .left   => ⟨2, by norm_num⟩
+  | .right  => ⟨3, by norm_num⟩
+  | .slash  => ⟨4, by norm_num⟩
+  | .bslash => ⟨5, by norm_num⟩
+  | .plus   => ⟨6, by norm_num⟩
+  | .minus  => ⟨7, by norm_num⟩
+
+/-- Embeds the 8-twist alphabet into binary pos/neg topology:
+    conjugate pairs (up,down), (right,left), (slash,bslash), (plus,minus)
+    map to (phase pos, phase neg) respectively. -/
+def twistToTopoElement : Twist → TopoElement
+  | .up | .right | .slash | .plus    => .phase .pos
+  | .down | .left | .bslash | .minus => .phase .neg
+
+def twistHistoryToTopoString (h : History) : TopoString :=
+  h.map twistToTopoElement
+
+private lemma computeImbalance_eq_count (h : History) (t : Twist) :
+    computeImbalance h (twistToFin t) = h.count t := by
+  cases t <;> simp [computeImbalance, twistToFin]
+
+private lemma full_zeno_prune_nil : full_zeno_prune ([] : TopoString) = [] := by
+  native_decide
+
+/-- `isZFAClosed` forces every twist-type count to 0, so the history must be empty. -/
+private lemma empty_of_isZFAClosed (h : History) (hclosed : isZFAClosed h) : h = [] := by
+  cases h with
+  | nil => rfl
+  | cons t ts =>
+    exfalso
+    have hz := hclosed (twistToFin t)
+    rw [computeImbalance_eq_count] at hz
+    have hmem : t ∈ t :: ts := List.mem_cons_self t ts
+    exact absurd hmem (List.count_eq_zero.mp hz)
+
+/-- One-directional bridge: `isZFAClosed` (8-component) implies `achieves_ZFA` (binary pos/neg).
+    The bridge is trivial because `isZFAClosed` forces `h = []` and `achieves_ZFA []` holds
+    vacuously. Machine-verified in Batch 2 of the Lagrangian_Formulation.md proof program. -/
+theorem zfa_bridge (h : History) (hclosed : isZFAClosed h) :
+    achieves_ZFA (twistHistoryToTopoString h) := by
+  have hempty := empty_of_isZFAClosed h hclosed
+  subst hempty
+  simp only [twistHistoryToTopoString, List.map_nil]
+  unfold achieves_ZFA
+  rw [full_zeno_prune_nil]
+  rfl
