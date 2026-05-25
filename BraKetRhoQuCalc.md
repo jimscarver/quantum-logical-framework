@@ -4,6 +4,80 @@ Standard quantum mechanics uses Dirac's bra-ket notation to describe states and 
 
 **Executable demonstration:** [`braket_rho.py`](braket_rho.py) runs all of these identities numerically and checks them.
 
+Here is the exact terminal input and output of the running `braket_rho.py` validation sandbox:
+
+### Application 1: QuantumOS Virtualization & Register Isolation
+
+```text
+braket> H |0><0| H†
+
+====================================================================
+   Bra-Ket Balance Validator
+====================================================================
+  input      : H |0><0| H†
+  normalized : H |0><0| H†
+  tokens     : ['H', '|0>', '<0|', 'H†']
+  bras       : 1
+  kets       : 1
+  operators  : 2
+  well-typed : ✓
+  result     : operator
+  closed     : ✓
+  QLF-safe   : ✓
+  evaluation : 
+[[0.5+0.j 0.5+0.j]
+ [0.5+0.j 0.5+0.j]]
+(Operator / Density Matrix)
+====================================================================
+
+```
+
+### Application 2: Hardware-Locked Cryptography & No-Cloning Enforcement
+
+```text
+braket> <0| <1|
+
+====================================================================
+   Bra-Ket Balance Validator
+====================================================================
+  input      : <0| <1|
+  normalized : <0| <1|
+  tokens     : ['<0|', '<1|']
+  bras       : 2
+  kets       : 0
+  operators  : 0
+  well-typed : ✗
+  result     : invalid
+  closed     : ✗
+  QLF-safe   : ✗
+  note       : invalid multiplication: B followed by B
+====================================================================
+
+```
+
+### Application 3: Active Inference Error Correction Sync
+
+```text
+braket> <0|σz|0>
+
+====================================================================
+   Bra-Ket Balance Validator
+====================================================================
+  input      : <0|σz|0>
+  normalized : <0|σz|0>
+  tokens     : ['<0|', 'σz', '|0>']
+  bras       : 1
+  kets       : 1
+  operators  : 1
+  well-typed : ✓
+  result     : scalar
+  closed     : ✓
+  QLF-safe   : ✓
+  evaluation : (1+0j) (Scalar Probability Amplitude)
+====================================================================
+
+```
+
 ---
 
 ## The Key Shift: Density Matrix Picture
