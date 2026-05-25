@@ -465,13 +465,13 @@ theorem lagrangian_density_zero (p : RhoProcess) :
 /-- The eval of `action f` is Hermitian: (action f).eval† = (action f).eval.
     Every ket direction is a Hermitian operator — consistent with density-matrix
     formulation where states are self-adjoint. -/
-theorem eval_is_hermitian_action (f : Form) : (action f).eval.IsHermitian :=
+theorem eval_is_hermitian_action (f : Form) : (RhoProcess.action f).eval.IsHermitian :=
   Form.toMatrix_adjoint f
 
 /-- The eval of `lift f` is Hermitian: (lift f).eval† = (lift f).eval.
     Since lift evaluates to f.toMatrix† = f.toMatrix (Form.toMatrix_adjoint),
     the bra direction is also self-adjoint. -/
-theorem eval_is_hermitian_lift (f : Form) : (lift f).eval.IsHermitian := by
+theorem eval_is_hermitian_lift (f : Form) : (RhoProcess.lift f).eval.IsHermitian := by
   show (f.toMatrix.conjTranspose).conjTranspose = f.toMatrix.conjTranspose
   rw [Matrix.conjTranspose_conjTranspose, Form.toMatrix_adjoint]
 
