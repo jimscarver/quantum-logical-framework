@@ -71,6 +71,7 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 - [**UniversalRelativity.md**](UniversalRelativity.md) — emergent relativity and spacetime interpretation inside QLF
 - [**TheContinuum.md**](TheContinuum.md) — why the continuum is emergent (not foundational), how QLF dissolves Zeno's paradoxes and the Lorentz invariance trap, and why the Axiom of Choice is replaced by the ZFA filter
 - [**ReverseMathematics.md**](ReverseMathematics.md) — QLF as a physical realization of Reverse Mathematics; the RCA₀ core and the WKL₀ axiom boundary
+- [**Lagrangian_Formulation.md**](Lagrangian_Formulation.md) — variational formulation of QLF: ℒ=0 as condition of origin, Zeno stationarity, Σ₈ symmetry algebra, decoherence impossibility, and QPU core (Φ₀=U+M); all claims anchored in machine-verified Lean theorems
 
 ### 3. Physics and experiments
 - [**Experimental_Consistency.md**](Experimental_Consistency.md) — numerical and conceptual links between QLF and known physics
