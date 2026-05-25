@@ -73,7 +73,7 @@ This closure enforces:
 * **Perspective-Relativity**: Each observer only ever sees the atoms and moves they have synchronized with; there is no “God’s-eye” set containing all possible outcomes simultaneously.
 * **No preferred basis**: The basis is chosen locally by the topology of the re-entry, exactly as experiments show.
 
-Result: The measurement problem vanishes. What looks like “collapse” is simply the observer’s history string reaching ZFA closure at the moment of interaction.
+Result: The measurement problem vanishes. What looks like “collapse” is simply the observer’s history string reaching ZFA closure at the moment of interaction. The variational expression of this closure — ℒ=0 as condition of origin, not a cutting rule — is developed in [Lagrangian_Formulation.md](Lagrangian_Formulation.md); decoherence impossibility is machine-verified as `orthogonality_01` (BraKetRhoQuCalc.lean:173) and `rho_process_always_symmetric` (RhoQuCalc.lean:388).
 
 ## 5. Empirical and Theoretical Support
 

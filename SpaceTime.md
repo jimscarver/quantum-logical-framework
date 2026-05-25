@@ -23,6 +23,7 @@ Every terminating logical computation can be unrolled into a finite, acyclic NAN
 
 * **Formal Proof:** See [`lean/QLF_Universality.lean`](lean/QLF_Universality.lean). This file contains the machine-verified Lean 4 proof that QLF generates all terminating finitely-encoded logical computations. It proves that any valid system annihilates completely under `full_zeno_prune` and achieves ZFA.
 * **Core Engine:** See [`twist_core.py`](twist_core.py) to observe the raw twist operations and ZFA closures in action.
+* **Variational physics:** The connection between ZFA closures and the Lagrangian principle S=∫ℒ dΩ — including the continuous limit via `EventSynthesisField → Λ_eff` (SpacetimeDynamics.lean:57) — is formalized in [`Lagrangian_Formulation.md`](Lagrangian_Formulation.md).
 
 ## 2. Time as Logical Latency
 

@@ -76,7 +76,7 @@ So the logical chain is:
 * only balanced closures survive,
 * and balanced closure is the QLF image of critical-line structure.
 
-The critical line is therefore the symmetry signature of admissible half-spin closure.
+The critical line is therefore the symmetry signature of admissible half-spin closure. The variational physics underlying this symmetry — ZFA balance as the discrete form of ℒ=0, with `zfa_implies_critical_line` and `rho_process_always_symmetric` machine-verified — is developed in [Lagrangian_Formulation.md](Lagrangian_Formulation.md).
 
 ---
 

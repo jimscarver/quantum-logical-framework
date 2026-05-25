@@ -2,7 +2,7 @@
 
 From the top down, quantum mechanics appears magical. From the bottom up, it becomes inevitable.
 
-The Quantum Logical Framework is built on the principle of **Zero Free Action (ZFA)**. All major physical theories seek to minimize action, and we believe the universe is not magic — it cannot create free action from nothing. Therefore, only Zero Free Action can truly exist at the fundamental level.
+The Quantum Logical Framework is built on the principle of **Zero Free Action (ZFA)**. All major physical theories seek to minimize action, and we believe the universe is not magic — it cannot create free action from nothing. Therefore, only Zero Free Action can truly exist at the fundamental level. The variational expression of this principle — S = ∫ℒ dΩ with ℒ=0 as the condition of origin, not a minimization target — is formalized in [Lagrangian_Formulation.md](Lagrangian_Formulation.md).
 
 In this constructive framework, everything — including observers and consciousness — emerges from the same basic building blocks. As described in **Philosophy.md**, the QLF builds reality from quantum logical possibilities, where physical laws, spacetime, measurement, entanglement, and even consciousness all arise naturally through simple logical processes.
 

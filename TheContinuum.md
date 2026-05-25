@@ -56,7 +56,7 @@ QLF does not model spacetime as a pre-existing continuous manifold. It generates
 
 **The continuum emerges in the statistical limit.** As the generation depth n grows, the density of ZFA-stable states, their distribution (`C(2n,n)` symmetric strings among `4^n` total), and the phase correlations between them converge to smooth statistical distributions. What we perceive as a continuous field is the macroscale coarse-graining of a dense, discrete, constructive graph.
 
-This is not an approximation made for convenience. It is the claim that the *only* things that physically exist are the discrete closures, and that the continuum is the emergent statistical language we use to describe their aggregate behavior.
+This is not an approximation made for convenience. It is the claim that the *only* things that physically exist are the discrete closures, and that the continuum is the emergent statistical language we use to describe their aggregate behavior. The variational expression of the ZFA selection principle — ℒ=0 as condition of origin, with the continuous limit developed via `EventSynthesisField → Λ_eff` — is formalized in [Lagrangian_Formulation.md](Lagrangian_Formulation.md).
 
 ### The Lean Enforcement
 

@@ -40,7 +40,7 @@ Every piece of QLF's combinatorial machinery is strictly inside RCA₀:
 
 No axiom of choice, no existential witness extracted from infinity, no appeal to continuous limits. The Lean 4 proofs in `lean/QLF_Axioms.lean`, `lean/QLF_QuCalc.lean`, `lean/QLF_Universality.lean`, and the combinatorial core of `lean/QLF_Riemann.lean` are all machine-verified within constructive, computable bounds.
 
-**QLF asserts a radical physical hypothesis: nature executes its code strictly within RCA₀.**
+**QLF asserts a radical physical hypothesis: nature executes its code strictly within RCA₀.** The continuous-limit bridge — how ZFA discrete closures converge to a field theory with variational principle S=∫ℒ dΩ — is developed in [Lagrangian_Formulation.md](Lagrangian_Formulation.md), with `EventSynthesisField → Λ_eff` (SpacetimeDynamics.lean:57) as the continuous limit.
 
 ---
 

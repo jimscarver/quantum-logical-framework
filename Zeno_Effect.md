@@ -47,3 +47,5 @@ Here is the data comparing an unobserved expanding light cone against two differ
 The visualization was designed to plot these three curves. The unobserved cone skyrockets off the top of the chart, the Interval 2 line steps up like a staircase, and the Zeno Limit is literally a flat, horizontal line at $Y=1$. 
 
 In the Possibilist Universe, this proves that a continuously watched system doesn't just "fail" to evolve—it is mathematically denied the logical volume required to do so.
+
+The variational physics underlying the Zeno mechanism — Zeno protection as the discrete expression of stationary action (ℒ=0) — is formalized in [Lagrangian_Formulation.md](Lagrangian_Formulation.md), with Lean anchors `find_stable_states` (QLF_QuCalc.lean:35) and `find_stable_states_length_even` (QLF_Riemann.lean:293).
