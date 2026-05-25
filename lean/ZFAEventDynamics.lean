@@ -254,3 +254,47 @@ theorem zfa_bridge (h : History) (hclosed : isZFAClosed h) :
   unfold achieves_ZFA
   rw [full_zeno_prune_nil]
   rfl
+
+/-! # §Maxwell: ∇·B = 0 (Gauss's law for magnetism)
+
+The magnetic field B is the net signed spatial twist imbalance per axis:
+  B_x ∝ right − left   (indices 3 − 2)
+  B_y ∝ up   − down    (indices 0 − 1)
+  B_z ∝ slash − bslash (indices 4 − 5)
+Gauge twists +/− (indices 6/7) carry charge, not spatial flux.
+
+ZFA closure (`isZFAClosed`) forces every individual twist count to 0,
+so every B-component is 0 and the divergence vanishes identically.
+This is the discrete machine-verified analog of ∇·B = 0 — no magnetic
+monopoles can exist in a ZFA-closed event history. -/
+
+def BField_x (h : History) : ℤ :=
+  (computeImbalance h ⟨3, by norm_num⟩ : ℤ) - (computeImbalance h ⟨2, by norm_num⟩ : ℤ)
+
+def BField_y (h : History) : ℤ :=
+  (computeImbalance h ⟨0, by norm_num⟩ : ℤ) - (computeImbalance h ⟨1, by norm_num⟩ : ℤ)
+
+def BField_z (h : History) : ℤ :=
+  (computeImbalance h ⟨4, by norm_num⟩ : ℤ) - (computeImbalance h ⟨5, by norm_num⟩ : ℤ)
+
+def divB (h : History) : ℤ := BField_x h + BField_y h + BField_z h
+
+/-- ∇·B = 0: no magnetic monopoles.
+    ZFA closure forces every individual twist count to zero, so each spatial
+    imbalance component B_x, B_y, B_z is zero and their sum (the divergence) vanishes.
+    Discrete machine-verified analog of Maxwell's second equation. -/
+theorem no_magnetic_monopoles (e : ZFAEvent) : divB e.history = 0 := by
+  simp only [divB, BField_x, BField_y, BField_z]
+  have h0 : (computeImbalance e.history ⟨0, by norm_num⟩ : ℤ) = 0 := by
+    exact_mod_cast e.closed ⟨0, by norm_num⟩
+  have h1 : (computeImbalance e.history ⟨1, by norm_num⟩ : ℤ) = 0 := by
+    exact_mod_cast e.closed ⟨1, by norm_num⟩
+  have h2 : (computeImbalance e.history ⟨2, by norm_num⟩ : ℤ) = 0 := by
+    exact_mod_cast e.closed ⟨2, by norm_num⟩
+  have h3 : (computeImbalance e.history ⟨3, by norm_num⟩ : ℤ) = 0 := by
+    exact_mod_cast e.closed ⟨3, by norm_num⟩
+  have h4 : (computeImbalance e.history ⟨4, by norm_num⟩ : ℤ) = 0 := by
+    exact_mod_cast e.closed ⟨4, by norm_num⟩
+  have h5 : (computeImbalance e.history ⟨5, by norm_num⟩ : ℤ) = 0 := by
+    exact_mod_cast e.closed ⟨5, by norm_num⟩
+  linarith
