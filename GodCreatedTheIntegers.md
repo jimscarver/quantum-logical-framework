@@ -35,3 +35,5 @@ Gödel: Kurt Gödel’s incompleteness theorems revealed fundamental limits in f
 **Susskind**: Leonard Susskind proposed ER = EPR, linking entanglement with spacetime geometry. The quantum logical framework demonstrates the deep equivalence between gravity and quantum logical entanglement.
 
 In conclusion, the quantum logical framework is not just another interpretation — it is the fulfillment of a century-long dream. By grounding reality in deterministic quantum logic, it completes the vision that these great minds have been reaching toward. The age of quantum probability gives way to quantum logic.
+
+See also: [ReverseMathematics.md](ReverseMathematics.md) — the formal logical stratification (RCA₀ → WKL₀) that grounds this discrete vision in machine-verified Lean proofs.

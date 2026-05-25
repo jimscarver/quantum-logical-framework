@@ -395,3 +395,5 @@ With RhoQuCalc support, it becomes a language for building systems of histories 
 That is the decisive change.
 
 The framework now treats a stable closure not only as the end of a search, but as a named constructive unit in a larger possibilist process algebra.
+
+See also: [zfa-catalog-rho-notation.md](zfa-catalog-rho-notation.md) — pre-verified ZFA closure catalog in RhoLang notation; orders-of-magnitude speedup by reusing named closures instead of re-running BFS.

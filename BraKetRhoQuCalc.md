@@ -207,4 +207,6 @@ RhoQuCalc is bra-ket notation made algebraic, constructive, and type-safe:
 
 The formal proof `rho_process_always_zfa` is not just a restatement of bra-ket conventions — it is the machine-verified claim that the QLF type system cannot represent a physically ill-typed quantum expression.
 
+See also: [Hermitian_Conjugacy_Proof.md](Hermitian_Conjugacy_Proof.md) — constructive proof that ZFA closure enforces unitarity; `Form.toMatrix_adjoint` is the formal bridge.
+
 The variational physics foundation underlying this correspondence is covered in [Lagrangian_Formulation.md](Lagrangian_Formulation.md): ZFA balance (`achieves_ZFA`) is the discrete form of S = ∫ℒ dΩ with ℒ = 0, and the security conditions `[H, ρ_S] = 0`, Tr(ρ_S ρ_E) = 0 are grounded there in `rho_process_always_symmetric` and `orthogonality_01`.

@@ -86,4 +86,6 @@ This possibilist ontology is not an add-on — it *is* the native metaphysics of
 
 The framework thus offers a complete, self-consistent, and computationally superior foundation for quantum reality: **possibilities are real, closure is actual, and the universe constructs itself**.
 
+See also: [Philosophy.md](Philosophy.md) — the broader philosophical commitments (possibilism, ZFA as sole axiom, synthesized spacetime) that this ontology formalizes via RhoQuCalc.
+
 Feedback, issues, or extensions welcome — this is the philosophical heart of the “constructive possibilist quantum logical synthesis” the repo was built for.

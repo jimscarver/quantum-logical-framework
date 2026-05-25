@@ -123,3 +123,5 @@ The full axiom inventory and proof chain are documented in [`lean/README.md`](le
 - [`lean/QLF_Riemann.lean`](lean/QLF_Riemann.lean) — the full proof chain including the axiom boundary
 
 The Reverse Mathematics perspective is the meta-mathematical justification for the entire Lean formalization strategy: prove everything that can be proved in RCA₀, isolate everything that genuinely requires more, and label the boundary explicitly.
+
+See also: [GodCreatedTheIntegers.md](GodCreatedTheIntegers.md) — historical context: the discrete/deterministic vision of Zuse, Wheeler, Wolfram, 't Hooft, and Mead that QLF fulfills.

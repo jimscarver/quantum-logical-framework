@@ -110,6 +110,7 @@ There was no “t = 0”. The cosmos has always been becoming — and continues 
 - [`WHITE_PAPER.md`](WHITE_PAPER.md) — full framework overview
 - [`SpacetimeDynamics.lean`](lean/SpacetimeDynamics.lean) — modified Friedmann solver
 - [`Philosophy.md`](Philosophy.md) — limited relative perspective
+- [`Frequency_Synchronization.md`](Frequency_Synchronization.md) — frequency as the fundamental clock; ZFA event rate as the origin of cosmic age
 
 **The universe does not have a beginning — it has a history that we can measure today through the frequencies of the vacuum itself.**
 

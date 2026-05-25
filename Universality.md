@@ -52,3 +52,5 @@ See: [`lean/QLF_Universality.lean`](lean/QLF_Universality.lean)
 - [`ReverseMathematics.md`](ReverseMathematics.md) — why the ZFA universality proof operates in RCA₀ below the Busy Beaver horizon
 
 The framework is open, verifiable, and ready for anyone who wishes to explore the logical structure of existence itself.
+
+See also: [Simulation_Impossibility.md](Simulation_Impossibility.md) — the complementary bound: while QLF generates all terminating computations, the full universe cannot be simulated by any sub-universe substrate.

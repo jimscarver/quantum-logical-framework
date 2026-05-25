@@ -106,6 +106,7 @@ Typical output demonstrates both classes side-by-side and confirms:
 - `Entropy.md`: Frequency-delay conserves unitarity in Hawking radiation.
 - `Gravity.md` / `SpaceTime.md`: Density-dependent swap as origin of curvature and relativity.
 - `BLACK-HOLES.md` (to be rewritten): Will cite this file for the microscopic origin of Hawking radiation.
+- [`AgeOfUniverse.md`](AgeOfUniverse.md): Cosmic age derived from ZFA event-synthesis rate — the macroscopic integral of the frequency clock defined here.
 
 ## Conclusion
 

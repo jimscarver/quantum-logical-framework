@@ -97,6 +97,8 @@ Histories that fail to close under this adjoint evolution represent mathematical
 
 This establishes that the fundamental conservation laws of quantum mechanics are not merely simulated by the framework; they are emergent, necessary properties of its underlying logic.
 
+See also: [BraKetRhoQuCalc.md](BraKetRhoQuCalc.md) — the bra-ket ↔ RhoQuCalc correspondence, where Hermitian self-adjointness of `Form.toMatrix` is the machine-verified foundation of the density-matrix picture.
+
 -----
 
 \<FollowUp label="Write the discrete path\_integral.py file next?" query="Please write the path\_integral.py file as outlined in the README, focusing on calculating discrete topological action instead of a continuous Lagrangian." /\>

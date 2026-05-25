@@ -76,6 +76,8 @@ The quantum logical state is already the most compact, relational description po
 
 **We are not living in a conventional computing simulation.**
 
+See also: [Universality.md](Universality.md) — the complementary result: while the full universe cannot be simulated, QLF IS universal for all terminating computations; the two results together bound what is and isn't computable about physical reality.
+
 ---
 
 *This argument is derived directly from the foundational axioms of QLF/QuCalc (8-axis alphabet, history-string irreducibility, half-spin ZFA embedding, and relational rewrite rules). See also:*

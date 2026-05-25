@@ -49,3 +49,5 @@ The visualization was designed to plot these three curves. The unobserved cone s
 In the Possibilist Universe, this proves that a continuously watched system doesn't just "fail" to evolve—it is mathematically denied the logical volume required to do so.
 
 The variational physics underlying the Zeno mechanism — Zeno protection as the discrete expression of stationary action (ℒ=0) — is formalized in [Lagrangian_Formulation.md](Lagrangian_Formulation.md), with Lean anchors `find_stable_states` (QLF_QuCalc.lean:35) and `find_stable_states_length_even` (QLF_Riemann.lean:293).
+
+See also: [Superposition.md](Superposition.md) — the expanding light-cone branching that the Zeno mechanism freezes; [Error_Correction.md](Error_Correction.md) — Zeno pruning as the foundation of intrinsic quantum error correction.

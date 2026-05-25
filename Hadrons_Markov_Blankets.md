@@ -104,6 +104,7 @@ The same `blanket_kinematics.py` module now treats the `+`–`−` gauge fold as
 - `Frequency_Synchronization.md`: Constructing delay inside the blanket = source of local time.  
 - `Particles.md` & `HALF-SPIN-ZFA-EMBEDDING.md`: Explicit classification of gauge vs. non-gauge folds.  
 - `BLACK-HOLES.md` (to be rewritten): Full particle ↔ quantum black hole equivalence via blankets.
+- [`active_inference.md`](active_inference.md): Active-inference interpretation of Markov blanket closure as ZFA minimization.
 
 ## Conclusion
 

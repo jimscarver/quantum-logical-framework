@@ -38,5 +38,6 @@ Lou’s involvement strengthens the connection: knot theory is not peripheral to
 - `twist_core.py` — Core RhoQuCalc twist operations and ZFA closures
 - `Time.md` — How time and events emerge from gauge folds and frequency-based bit resolution
 - `Entanglement.md` — Shared logical constraints without FTL signaling
+- [`StringTheory.md`](StringTheory.md) — QLF's constructive supersession of string theory; string modes as ZFA histories in the twist algebra
 
 This Nature paper is strong experimental and topological support for the Quantum Logical Framework.

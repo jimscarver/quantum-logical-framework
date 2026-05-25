@@ -123,5 +123,6 @@ All further development of QuCalc — whether new rewrite rules, extensions to h
 - [Relational Quantum Mechanics – Rovelli (1996)](https://arxiv.org/abs/quant-ph/9609002)
 - [ZFA – nLab](https://ncatlab.org/nlab/show/ZFA)
 - Companion document: [INFEASIBILITY-OF-FULL-UNIVERSE-SIMULATION.md](./INFEASIBILITY-OF-FULL-UNIVERSE-SIMULATION.md)
+- [Measurement_Problem.md](Measurement_Problem.md) — the half-spin ZFA embedding IS the foundational resolution: ZFA closure at causal intersection dissolves collapse without extra postulates
 
 *This document is part of the official QLF/QuCalc documentation suite. Updated 21 April 2026 to incorporate gauge-fold primordial black-hole rule.*

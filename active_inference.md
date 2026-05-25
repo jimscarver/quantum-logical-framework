@@ -12,4 +12,4 @@ This mirrors how agency works in the larger framework — selecting among timele
 
 This work directly builds on Karl Friston's "The Physics of Sentience."
 
-See also: (AI.md)
+See also: [AI.md](AI.md) — neuro-symbolic coprocessor architecture; [Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md) — Markov blankets as ZFA-enforcement boundaries at the particle scale; [BayesianMechanics.md](BayesianMechanics.md) — multiplicity principle as the root of probability and Bayesian update.

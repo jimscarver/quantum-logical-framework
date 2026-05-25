@@ -274,3 +274,5 @@ References (within repo):
 - Original ZFA catalog section above
 
 this positions QuCalc as a **superior computational engine** for quantum simulation while staying faithful to the 8-twist logical foundation.
+
+See also: [QuCalc.md](QuCalc.md) — the BFS generative engine that this catalog accelerates; the catalog entries are named units in the RhoQuCalc process algebra described there.

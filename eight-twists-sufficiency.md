@@ -92,6 +92,7 @@ The framework thereby achieves both ontological minimalism and computational uni
 
 References (within repo):
 - `qucalc_engine.py` (BFS & 8-twist definition)
+- [`Particles.md`](Particles.md) — particle zoo derived from the 8-twist alphabet via ZFA closure
 - `hermitian.py` (closure completeness)
 - `path_integral.py` (emergent dimensionality via history counts)
 - `zfa-catalog-rho-notation.md`, `possibilist-ontology.md`, `quantum-computation-optimization.md`

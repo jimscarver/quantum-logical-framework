@@ -80,7 +80,7 @@ $$
 
 (exact balance of `^ v < > / \ + -`)
 
-Only ZFA-closed histories become events. All other histories remain pure possibility. This is the precise mathematical realization of possibilism: the set of all logically admissible systems exists *a priori*; physics is simply the subset that satisfies ZFA.
+Only ZFA-closed histories become events. All other histories remain pure possibility. This is the precise mathematical realization of possibilism: the set of all logically admissible systems exists *a priori*; physics is simply the subset that satisfies ZFA. The RhoQuCalc formalization of this ontology is in [possibilist-ontology.md](possibilist-ontology.md).
 
 ## 4. Zero Free Action as the Sole Fundamental Axiom
 

@@ -45,3 +45,5 @@ to simulate shared logical constraints and bit-by-bit resolution.
 ## Persistence is Memory
 Persistence is memory in the logical lattice. 
 Stable objects are consistent chains of resolved states carried forward.
+
+See also: [ER_EPR_QLF.md](ER_EPR_QLF.md) — entanglement as logical wormhole; shared ZFA constraints are spacetime connectivity.

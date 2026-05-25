@@ -133,5 +133,6 @@ Pull request ready — implements the full “quantum-logical synthesis” visio
 - `qc_assembler.py`, `quantum_simulator.py`, `tutorial_01_bell_state.py`
 - `qucalc_engine.py`, `path_integral.py`
 - Prior docs: `zfa-catalog-rho-notation.md`, `possibilist-ontology.md`
+- [`QuantumOS.md`](QuantumOS.md) — OS-level specification of the ZFA kernel this optimization layer runs on
 
 Feedback or circuit examples welcome in issues!

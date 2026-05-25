@@ -84,6 +84,7 @@ Result: The measurement problem vanishes. What looks like “collapse” is simp
 Companion documents:
 
 * [HALF-SPIN-ZFA-EMBEDDING.md](./HALF-SPIN-ZFA-EMBEDDING.md)
+* [BayesianMechanics.md](BayesianMechanics.md) — multiplicity principle as the root of probability; ZFA as Bayesian update
 * [Simulation_Impossibility.md](https://github.com/jimscarver/quantum-logical-framework/blob/main/Simulation_Impossibility.md)
 
 ## 6. Philosophical Implications

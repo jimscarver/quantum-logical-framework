@@ -122,3 +122,5 @@ No extra postulates are required. Superposition is not added to the framework �
 
 **Superposition in QLF is not a mystery. It is the deterministic, exhaustive, simultaneous exploration of every orthogonal logical possibility while the universe computes its way back to Zero Free Action.**
 
+See also: [Zeno_Effect.md](Zeno_Effect.md) — the mechanism that freezes this branching under high-frequency observation; [Error_Correction.md](Error_Correction.md) — superposition supplies the redundant branches for intrinsic ZFA error correction.
+

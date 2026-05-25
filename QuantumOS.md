@@ -299,6 +299,7 @@ QLF is the framework in which all of them are the same theorem.
 | [`QLF_Holographic_Computational_Universe.md`](QLF_Holographic_Computational_Universe.md) | QLF alignment with published holographic computational universe research |
 | [`Measurement_Problem.md`](Measurement_Problem.md) | Measurement dissolved as ZFA closure; no collapse postulate needed |
 | [`ER_EPR_QLF.md`](ER_EPR_QLF.md) | Entanglement = geometry (ER=EPR); ZFA boundary conditions link bulk geometry to error-correcting code |
+| [`quantum-computation-optimization.md`](quantum-computation-optimization.md) | Practical circuit optimization using ZFA catalog; Rho transpilation pipeline from OS kernel to QPU |
 
 ### AI & Active Inference
 

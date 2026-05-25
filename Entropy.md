@@ -68,6 +68,8 @@ Output demonstrates:
 - `Gravity.md` / `SpaceTime.md`: Density swap as origin of curvature.
 - `Hadrons_Markov_Blankets.md`: Blanket = horizon for radiation.
 - `BLACK-HOLES.md` (to be rewritten): Full equivalence proven here.
+- [`Holographic.md`](Holographic.md): Bulk/boundary duality and UV catastrophe resolution via ZFA closure.
+- [`Relative_Entropy.md`](Relative_Entropy.md): Observer-relative entropy; bisimilarity masking of internal complexity.
 
 ## Conclusion
 

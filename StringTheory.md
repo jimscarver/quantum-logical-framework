@@ -145,3 +145,4 @@ Welcome to the possibilist universe.
 - [`WHITE_PAPER.md`](https://github.com/jimscarver/quantum-logical-framework/blob/main/WHITE_PAPER.md)  
 
 The framework is open, verifiable, and ready for anyone who wants to explore the logical structure of existence.
+- [`QLF_Knot_Theory_Nature_2025.md`](QLF_Knot_Theory_Nature_2025.md) — experimental knot-theory evidence (Nature 2025) linking topological string structures to QLF's twist algebra.

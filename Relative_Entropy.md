@@ -18,3 +18,5 @@ Entropy is not "disorder"; it is the combinatoric volume of unresolved logical d
 A topological string may be highly knotted (high entropy) relative to a Right-Handed Environment, because it requires massive computational effort to achieve ZFA. However, relative to its exact Hermitian conjugate (its antiparticle), that exact same string requires only a single, seamless transactional handshake. Relative to its conjugate, its entropy is zero. 
 
 Entropy is simply the measure of how much logical history must be processed to bring two specific, intersecting causal horizons back to the Identity.
+
+See also: [Entropy.md](Entropy.md) — gauge-fold area law and absolute entropy per particle; [Error_Correction.md](Error_Correction.md) — bisimilarity masking in action: gauge-buffered ZFA search resolves relative-entropy debt.
