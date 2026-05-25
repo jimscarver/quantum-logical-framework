@@ -13,7 +13,7 @@ At its core is a simple claim, now formally proved:
 
 From that starting point, QLF derives spacetime, measurement, entanglement, symmetry, gravity, Pauli exclusion, and the Riemann zeta function's critical line — all from finite local logical distinction.
 
-The deepest result is `qlf_universality`: the ZFA filter is not a restriction on what can be computed. It is Church-Turing complete. The filter is a selection principle — it picks physical reality out of the full ruliadic computational universe (Wheeler 1990, Wolfram 2020).
+The deepest result is `qlf_universality`: the ZFA filter is not a restriction on what can be computed. It is Church-Turing complete. The filter is a selection principle — it picks physical reality out of the full ruliadic computational universe (Wheeler 1990, Wolfram 2020). The variational physics expression of this principle is S = ∫ℒ dΩ with ℒ = 0 — a null Lagrangian that is the condition of origin, not a cutting rule. See [**Lagrangian_Formulation.md**](Lagrangian_Formulation.md) for the full treatment with machine-verified Lean theorem anchors.
 
 ---
 
@@ -132,7 +132,7 @@ Several themes now deserve to be front-and-center in the README because they tie
 Reality is not one pre-written story. QLF treats all admissible logical histories as possible, with physical reality emerging from those that close under ZFA. This is a computable form of modal realism (David Lewis 1986) — but with a selection rule. Lewis said all logically possible worlds are real; QLF says all *computationally generable* histories are real, and ZFA identifies the ones that persist. The connection to Everett (1957) is direct: the many-worlds interpretation says all branches exist, but provides no decoherence cutoff from first principles. `full_zeno_prune` is the cutoff — it eliminates histories that cannot achieve ZFA closure before they become physical events. QLF is also a computable version of Tegmark's Mathematical Universe Hypothesis (Level IV multiverse) — the difference is that QLF's computable filter is now machine-verified.
 
 ### Universality
-QLF is not framed merely as a simulator. It is a generator of finite local logical closure structures — and `qlf_universality` proves this is Church-Turing complete: every terminating computation encodes as a ZFA string, so the ZFA filter is not a restriction on computation but the selection principle that picks physical reality out of the full computational universe.
+QLF is not framed merely as a simulator. It is a generator of finite local logical closure structures — and `qlf_universality` proves this is Church-Turing complete: every terminating computation encodes as a ZFA string, so the ZFA filter is not a restriction on computation but the selection principle that picks physical reality out of the full computational universe. The variational form of this principle — ℒ = 0 as the condition of origin — is developed in [**Lagrangian_Formulation.md**](Lagrangian_Formulation.md), where `qlf_universality` anchors the pruning-as-selection argument.
 
 ### Gödel, Busy Beaver, and the limits of classical formalism
 Classical formalism has three overlapping failure modes: Gödelian incompleteness (unprovable truths in sufficiently strong systems), Turing undecidability (functions that cannot be computed in finite time), and Chaitin complexity (Kolmogorov complexity grows without bound as you climb the Busy Beaver hierarchy). These are not separate curiosities — they are all shadows of the same problem: a logic that can construct objects with no finite closure.
@@ -141,7 +141,7 @@ QLF's answer is `full_zeno_prune`. Non-terminating computations — exactly the 
 
 The Gödel sentences of ZFC — the ones that are true but unprovable — correspond precisely to the configurations with no finite ZFA closure. The Axiom of Choice exists to assert the existence of sets with no constructive selection procedure; the ZFA filter replaces it with a computable one. Chaitin's Ω (the halting probability) is the information content of the pruning boundary — physically realized as the ZFA filter itself.
 
-This is why the QLF core operates in RCA₀, below the Busy Beaver horizon, with no Axiom of Choice and no continuity: Gödel's theorem cannot bite where unprovability has been physically excised.
+This is why the QLF core operates in RCA₀, below the Busy Beaver horizon, with no Axiom of Choice and no continuity: Gödel's theorem cannot bite where unprovability has been physically excised. See [**Lagrangian_Formulation.md**](Lagrangian_Formulation.md) for how this pruning mechanism maps to the Lagrangian condition ℒ = 0 and is machine-verified via `encode_is_zfa` and `qlf_universality`.
 
 ### Holography, information, and logical boundary conditions
 The holographic principle (Bekenstein 1972, Hawking 1975, 't Hooft 1993, Susskind 1995) says the information content of a bulk region is bounded by its surface area, not its volume — implying that bulk physics is reconstructable from boundary data. The modern sharpening of this insight is Almheiri, Dong, and Harlow (2015): **spacetime bulk geometry is a quantum error-correcting code on the boundary**. The HaPPY code (Pastawski, Yoshida, Harlow, Preskill 2015) constructs an explicit QECC (a perfect tensor network) that reproduces bulk-boundary entanglement structure.
@@ -164,7 +164,7 @@ QLF is not only a theoretical framework — it is an executable architecture for
 **The unification thesis:** in a classical OS, security, error correction, scheduling, garbage collection, and AI are five separate engineered subsystems. In QuantumOS, all five are the same operation — ZFA enforcement (`full_zeno_prune`) — because `qlf_universality` proves ZFA balance is the single invariant that subsumes all correctness properties at once.
 
 - **rhoqcalc as kernel**: The ρ-process algebra (`RhoQuCalc.lean`) is the execution engine. Security is grounded in five converging formal foundations: Girard's linear logic (1987), Miller's object capability model (2006), Meredith & Radestock's ρ-calculus security (2005), Honda's session types (1993), and Wootters & Zurek's no-cloning theorem (1982). Capability names are topological structures — by Curry-Howard, possessing a name *is* a proof of authorization.
-- **ZFA as complete hardware specification**: `full_zeno_prune` is the machine-verified kernel. `qlf_universality` proves every terminating computation IS a ZFA string — ZFA balance is the complete hardware specification, not an analogy. Decoherence registers as a ZFA asymmetry and is pruned before it can become a physical event.
+- **ZFA as complete hardware specification**: `full_zeno_prune` is the machine-verified kernel. `qlf_universality` proves every terminating computation IS a ZFA string — ZFA balance is the complete hardware specification, not an analogy. Decoherence registers as a ZFA asymmetry and is pruned before it can become a physical event. The formal QPU core is Φ₀ = U + M (ZFA condition + Σ₈ algebra) — see [**Lagrangian_Formulation.md**](Lagrangian_Formulation.md) for the variational derivation and the security conditions `[H, ρ_S] = 0`, Tr(ρ_S ρ_E) = 0 proved there.
 - **Intrinsic holographic QEC**: Error correction is not patched on top — it is the mechanism by which physical reality maintains structural stability. Three independent research streams converge: Zeno-subspace QEC (Beige 2000, Facchi/Pascazio 2002), holographic spacetime-as-QECC (Almheiri/Dong/Harlow, HaPPY code, AdS/CFT), and active inference as real-time decoder (Friston FEP). `full_zeno_prune` is the machine-verified implementation of all three simultaneously.
 - **Active inference as the system loop**: The OS drives a continuous Perceive (`expand_generation`) → Predict (`zfa_implies_critical_line`) → Act (`parallel`/`sequence`) → Prune (`full_zeno_prune`) cycle. No separate scheduler is needed — ZFA minimization IS the scheduling decision. Grounded in Friston's Free Energy Principle.
 - **Hardware-native AI with absolute interpretability**: `Form.toMatrix` maps cognitive constructs to Clifford algebra elements — the correct geometric inductive bias for physical AI (Bronstein et al. 2021, Geometric Deep Learning). Every AI program running on QLF hardware runs in machine-verified ZFA-correct code; the output is a geometric proof of Zero Free Action, not a probabilistic best-guess.
@@ -262,11 +262,15 @@ lake build
 
 ### If you care most about foundations
 
-[Philosophy.md](Philosophy.md) → [GodCreatedTheIntegers.md](GodCreatedTheIntegers.md) → [Universality.md](Universality.md)
+[Philosophy.md](Philosophy.md) → [GodCreatedTheIntegers.md](GodCreatedTheIntegers.md) → [Universality.md](Universality.md) → [Lagrangian_Formulation.md](Lagrangian_Formulation.md)
 
 ### If you care most about physics
 
-[TheBigProblem.md](TheBigProblem.md) → [Measurement_Problem.md](Measurement_Problem.md) → [SpaceTime.md](SpaceTime.md) → [Gravity.md](Gravity.md)
+[TheBigProblem.md](TheBigProblem.md) → [Measurement_Problem.md](Measurement_Problem.md) → [SpaceTime.md](SpaceTime.md) → [Gravity.md](Gravity.md) → [Lagrangian_Formulation.md](Lagrangian_Formulation.md)
+
+### If you care most about the variational / Lagrangian formulation
+
+[Lagrangian_Formulation.md](Lagrangian_Formulation.md) → [Philosophy.md](Philosophy.md) → [lean/RhoQuCalc.lean](lean/RhoQuCalc.lean) → [lean/BraKetRhoQuCalc.lean](lean/BraKetRhoQuCalc.lean)
 
 ### If you care most about formal structure
 
