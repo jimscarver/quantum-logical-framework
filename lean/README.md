@@ -165,7 +165,7 @@ These Python scripts independently confirm the Lean theorems numerically — the
 
 | Script | What it checks | Lean theorem confirmed |
 |---|---|---|
-| [`../qlf_spectral.py`](../qlf_spectral.py) | All pure-phase strings are Hermitian; symmetric strings give scalar × I | `toSpectralMode_hermitian`, `spectral_symmetric_eq_scalar_id` |
-| [`../qlf_zfa_frequency.py`](../qlf_zfa_frequency.py) | ZFA count by length = C(n, n/2); Stirling growth | `find_stable_states_length_even` |
-| [`../qlf_dirichlet_search.py`](../qlf_dirichlet_search.py) | Stable-state counts vs. Dirichlet partial sums (asymptotic) | `riemann_hypothesis_in_qlf` (empirical shadow) |
-| [`../qucalc_engine.py`](../qucalc_engine.py) | Phase-string generation and ZFA filtering | `expand_generation`, `full_zeno_prune` |
+| [`experiments/qlf_spectral.py`](../experiments/qlf_spectral.py) | All pure-phase strings are Hermitian; symmetric strings give scalar × I | `toSpectralMode_hermitian`, `spectral_symmetric_eq_scalar_id` |
+| [`experiments/qlf_zfa_frequency.py`](../experiments/qlf_zfa_frequency.py) | ZFA count by length = C(n, n/2); Stirling growth | `find_stable_states_length_even` |
+| [`experiments/qlf_dirichlet_search.py`](../experiments/qlf_dirichlet_search.py) | Stable-state counts vs. Dirichlet partial sums (asymptotic) | `riemann_hypothesis_in_qlf` (empirical shadow) |
+| [`src/qlf/qucalc_engine.py`](../src/qlf/qucalc_engine.py) | Phase-string generation and ZFA filtering | `expand_generation`, `full_zeno_prune` |

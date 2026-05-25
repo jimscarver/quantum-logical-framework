@@ -13,7 +13,7 @@ At its core is a simple claim, now formally proved:
 
 From that starting point, QLF derives spacetime, measurement, entanglement, symmetry, gravity, Pauli exclusion, and the Riemann zeta function's critical line — all from finite local logical distinction.
 
-The deepest result is `qlf_universality`: the ZFA filter is not a restriction on what can be computed. It is Church-Turing complete. The filter is a selection principle — it picks physical reality out of the full ruliadic computational universe (Wheeler 1990, Wolfram 2020). The variational physics expression of this principle is S = ∫ℒ dΩ with ℒ = 0 — a null Lagrangian that is the condition of origin, not a cutting rule. See [**Lagrangian_Formulation.md**](Lagrangian_Formulation.md) for the full treatment with machine-verified Lean theorem anchors.
+The deepest result is `qlf_universality`: the ZFA filter is not a restriction on what can be computed. It is Church-Turing complete. The filter is a selection principle — it picks physical reality out of the full ruliadic computational universe (Wheeler 1990, Wolfram 2020). The variational physics expression of this principle is S = ∫ℒ dΩ with ℒ = 0 — a null Lagrangian that is the condition of origin, not a cutting rule. See [**Lagrangian_Formulation.md**](docs/formal/Lagrangian_Formulation.md) for the full treatment with machine-verified Lean theorem anchors.
 
 ---
 
@@ -58,31 +58,34 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 
 ## Start Here
 
+For the full reorganized repository map, see [docs/navigation.md](docs/navigation.md)
+and [docs/repository-layout.md](docs/repository-layout.md).
+
 ### 1. Big-picture orientation
-- [**Philosophy.md**](Philosophy.md) — the possibilist foundation of QLF, Zero Free Action, local time synthesis, active inference, holography, and the critique of ZFC-style infinity
-- [**TheBigProblem.md**](TheBigProblem.md) — how QLF addresses the measurement problem, entanglement, spacetime, time, and consciousness
-- [**GodCreatedTheIntegers.md**](GodCreatedTheIntegers.md) — a broad framing of QLF in relation to Kronecker, Einstein, Wheeler, Gödel, Bohm, Bell, Penrose, Mead, Cramer, Wolfram, ’t Hooft, Hawking, and Susskind
+- [**Philosophy.md**](docs/foundations/Philosophy.md) — the possibilist foundation of QLF, Zero Free Action, local time synthesis, active inference, holography, and the critique of ZFC-style infinity
+- [**TheBigProblem.md**](docs/foundations/TheBigProblem.md) — how QLF addresses the measurement problem, entanglement, spacetime, time, and consciousness
+- [**GodCreatedTheIntegers.md**](docs/foundations/GodCreatedTheIntegers.md) — a broad framing of QLF in relation to Kronecker, Einstein, Wheeler, Gödel, Bohm, Bell, Penrose, Mead, Cramer, Wolfram, ’t Hooft, Hawking, and Susskind
 
 ### 2. Core theoretical claims
-- [**BraKetRhoQuCalc.md**](BraKetRhoQuCalc.md) — how bra-ket notation maps onto RhoQuCalc: action=ket, lift=bra, parallel=superposition, sequence=composition, ZFA=bra-ket balance (with numerical demos in `braket_rho.py`)
-- [**Universality.md**](Universality.md) — the claim that QLF generates finite local logical closures
-- [**Riemann-Conjecture-Proof.md**](Riemann-Conjecture-Proof.md) — the current QLF program relating ZFA symmetry, universality, and the critical line
-- [**Measurement_Problem.md**](Measurement_Problem.md) — QLF treatment of measurement and observer-dependent closure
-- [**UniversalRelativity.md**](UniversalRelativity.md) — emergent relativity and spacetime interpretation inside QLF
-- [**TheContinuum.md**](TheContinuum.md) — why the continuum is emergent (not foundational), how QLF dissolves Zeno's paradoxes and the Lorentz invariance trap, and why the Axiom of Choice is replaced by the ZFA filter
-- [**ReverseMathematics.md**](ReverseMathematics.md) — QLF as a physical realization of Reverse Mathematics; the RCA₀ core and the WKL₀ axiom boundary
-- [**Lagrangian_Formulation.md**](Lagrangian_Formulation.md) — variational formulation of QLF: ℒ=0 as condition of origin, Zeno stationarity, Σ₈ symmetry algebra, decoherence impossibility, and QPU core (Φ₀=U+M); all claims anchored in machine-verified Lean theorems
+- [**BraKetRhoQuCalc.md**](docs/formal/BraKetRhoQuCalc.md) — how bra-ket notation maps onto RhoQuCalc: action=ket, lift=bra, parallel=superposition, sequence=composition, ZFA=bra-ket balance (with numerical demos in `braket_rho.py`)
+- [**Universality.md**](docs/foundations/Universality.md) — the claim that QLF generates finite local logical closures
+- [**Riemann-Conjecture-Proof.md**](docs/formal/Riemann-Conjecture-Proof.md) — the current QLF program relating ZFA symmetry, universality, and the critical line
+- [**Measurement_Problem.md**](docs/physics/Measurement_Problem.md) — QLF treatment of measurement and observer-dependent closure
+- [**UniversalRelativity.md**](docs/physics/UniversalRelativity.md) — emergent relativity and spacetime interpretation inside QLF
+- [**TheContinuum.md**](docs/foundations/TheContinuum.md) — why the continuum is emergent (not foundational), how QLF dissolves Zeno's paradoxes and the Lorentz invariance trap, and why the Axiom of Choice is replaced by the ZFA filter
+- [**ReverseMathematics.md**](docs/foundations/ReverseMathematics.md) — QLF as a physical realization of Reverse Mathematics; the RCA₀ core and the WKL₀ axiom boundary
+- [**Lagrangian_Formulation.md**](docs/formal/Lagrangian_Formulation.md) — variational formulation of QLF: ℒ=0 as condition of origin, Zeno stationarity, Σ₈ symmetry algebra, decoherence impossibility, and QPU core (Φ₀=U+M); all claims anchored in machine-verified Lean theorems
 
 ### 3. Physics and experiments
-- [**Experimental_Consistency.md**](Experimental_Consistency.md) — numerical and conceptual links between QLF and known physics
-- [**Maxwell.md**](Maxwell.md) — all four Maxwell equations derived from ZFA: ∇·B=0 machine-verified (`no_magnetic_monopoles`), Gauss duality identity `divB=−charge`, Faraday and Ampère-Maxwell confirmed numerically in `maxwell_qlf.py`
-- [**SpaceTime.md**](SpaceTime.md) — event-synthesized space and time
-- [**Gravity.md**](Gravity.md) — emergent gravity in the QLF picture
-- [**ER_EPR_QLF.md**](ER_EPR_QLF.md) — entanglement, geometry, and logical structure
-- [**Higgs.md**](Higgs.md) — QLF mass generation via gauge-fold depth; constructive alternative to the Higgs mechanism
-- [**HadronicDepth.md**](HadronicDepth.md) — Hadronic Depth Hypothesis: n ~ (m_P/m_p)³ fixes cosmic size, age, and G from the proton mass
-- [**VacuumEnergy.md**](VacuumEnergy.md), [**BLACK-HOLES.md**](BLACK-HOLES.md), [**Entropy.md**](Entropy.md) — topic-specific extensions
-- [**QuantumOS.md**](QuantumOS.md) — QLF as a capability-secure, formally-verified OS kernel for QPUs: five converging security foundations, intrinsic holographic QEC, hardware-native AI with absolute interpretability, Ruliad/RCA₀ unification — security + error correction + scheduling + GC + AI are all one operation (ZFA enforcement)
+- [**Experimental_Consistency.md**](docs/physics/Experimental_Consistency.md) — numerical and conceptual links between QLF and known physics
+- [**Maxwell.md**](docs/physics/Maxwell.md) — all four Maxwell equations derived from ZFA: ∇·B=0 machine-verified (`no_magnetic_monopoles`), Gauss duality identity `divB=−charge`, Faraday and Ampère-Maxwell confirmed numerically in `maxwell_qlf.py`
+- [**SpaceTime.md**](docs/physics/SpaceTime.md) — event-synthesized space and time
+- [**Gravity.md**](docs/physics/Gravity.md) — emergent gravity in the QLF picture
+- [**ER_EPR_QLF.md**](docs/physics/ER_EPR_QLF.md) — entanglement, geometry, and logical structure
+- [**Higgs.md**](docs/physics/Higgs.md) — QLF mass generation via gauge-fold depth; constructive alternative to the Higgs mechanism
+- [**HadronicDepth.md**](docs/physics/HadronicDepth.md) — Hadronic Depth Hypothesis: n ~ (m_P/m_p)³ fixes cosmic size, age, and G from the proton mass
+- [**VacuumEnergy.md**](docs/physics/VacuumEnergy.md), [**BLACK-HOLES.md**](docs/physics/BLACK-HOLES.md), [**Entropy.md**](docs/physics/Entropy.md) — topic-specific extensions
+- [**QuantumOS.md**](docs/computing/QuantumOS.md) — QLF as a capability-secure, formally-verified OS kernel for QPUs: five converging security foundations, intrinsic holographic QEC, hardware-native AI with absolute interpretability, Ruliad/RCA₀ unification — security + error correction + scheduling + GC + AI are all one operation (ZFA enforcement)
 
 ### 4. Formal and executable work
 
@@ -106,7 +109,7 @@ See [**lean/README.md**](lean/README.md) for the full module reference, proof ch
 - [**lean/RhoQuCalc.lean**](lean/RhoQuCalc.lean) — ρ-process algebra; capability-secure concurrency; `parallel_hermitian`, `rho_process_always_zfa`
 - [**lean/ZFAEventDynamics.lean**](lean/ZFAEventDynamics.lean) — ZFA event dynamics, acceleration, and `no_magnetic_monopoles` (∇·B=0, Maxwell eq. 2)
 - [**lean/PauliExclusion.lean**](lean/PauliExclusion.lean) — bosonic vs. fermionic statistics; `pauli_exclusion`, `fermi_nonzero_example` ([σ_x,σ_z]≠0 non-triviality witness)
-- [**lean/BraKetRhoQuCalc.lean**](lean/BraKetRhoQuCalc.lean) — formal correspondence of Dirac bra-ket notation to RhoQuCalc: `action_topo_is_ket`, `lift_topo_is_bra`, `action_lift_eval_eq`, `bra_ket_always_balanced`, completeness relations, Pauli algebra σᵢ²=I (see [BraKetRhoQuCalc.md](BraKetRhoQuCalc.md))
+- [**lean/BraKetRhoQuCalc.lean**](lean/BraKetRhoQuCalc.lean) — formal correspondence of Dirac bra-ket notation to RhoQuCalc: `action_topo_is_ket`, `lift_topo_is_bra`, `action_lift_eval_eq`, `bra_ket_always_balanced`, completeness relations, Pauli algebra σᵢ²=I (see [BraKetRhoQuCalc.md](docs/formal/BraKetRhoQuCalc.md))
 
 **Physical theories:**
 - [**lean/StringTheoryQLF.lean**](lean/StringTheoryQLF.lean) — gauge-fold excitation tower; `string_mass_spectrum`, `string_mode_count` (C(2n,n) forced by ZFA)
@@ -117,12 +120,12 @@ See [**lean/README.md**](lean/README.md) for the full module reference, proof ch
 - [**lean/ER_EPR_QLF.lean**](lean/ER_EPR_QLF.lean) — entanglement-geometry axioms; philosophical axioms only, not used by other modules
 
 **Empirical verification** (independent numerical confirmation of Lean theorems):
-- [**qlf_spectral.py**](qlf_spectral.py) — confirms `toSpectralMode_hermitian`, `spectral_symmetric_eq_scalar_id`
-- [**qlf_zfa_frequency.py**](qlf_zfa_frequency.py) — confirms `find_stable_states_length_even` (C(n,n/2))
-- [**qlf_dirichlet_search.py**](qlf_dirichlet_search.py) — confirms C(2k,k)/4^k ~ (1/√π)k^{-1/2} is asymptotic only (Stirling), ruling out a purely combinatorial bypass of `spectral_hilbert_polya`
-- [**maxwell_qlf.py**](maxwell_qlf.py) — numerically derives all four Maxwell equations from ZFA: Gauss duality `divB=−charge`, ∇·B=0 for neutral events, Faraday curl, wave speed c
-- [**braket_rho.py**](braket_rho.py) — bra-ket ↔ RhoQuCalc correspondence: all 8 identities checked numerically
-- [**qucalc_engine.py**](qucalc_engine.py), [**spacetime_dynamics.py**](spacetime_dynamics.py), [**constants_mapper.py**](constants_mapper.py), [**path_integral.py**](path_integral.py) — executable experiments
+- [**qlf_spectral.py**](experiments/qlf_spectral.py) — confirms `toSpectralMode_hermitian`, `spectral_symmetric_eq_scalar_id`
+- [**qlf_zfa_frequency.py**](experiments/qlf_zfa_frequency.py) — confirms `find_stable_states_length_even` (C(n,n/2))
+- [**qlf_dirichlet_search.py**](experiments/qlf_dirichlet_search.py) — confirms C(2k,k)/4^k ~ (1/√π)k^{-1/2} is asymptotic only (Stirling), ruling out a purely combinatorial bypass of `spectral_hilbert_polya`
+- [**maxwell_qlf.py**](experiments/maxwell_qlf.py) — numerically derives all four Maxwell equations from ZFA: Gauss duality `divB=−charge`, ∇·B=0 for neutral events, Faraday curl, wave speed c
+- [**braket_rho.py**](src/qlf/braket_rho.py) — bra-ket ↔ RhoQuCalc correspondence: all 8 identities checked numerically
+- [**qucalc_engine.py**](src/qlf/qucalc_engine.py), [**spacetime_dynamics.py**](src/qlf/spacetime_dynamics.py), [**constants_mapper.py**](src/qlf/constants_mapper.py), [**path_integral.py**](src/qlf/path_integral.py) — executable experiments
 
 ---
 
@@ -134,7 +137,7 @@ Several themes now deserve to be front-and-center in the README because they tie
 Reality is not one pre-written story. QLF treats all admissible logical histories as possible, with physical reality emerging from those that close under ZFA. This is a computable form of modal realism (David Lewis 1986) — but with a selection rule. Lewis said all logically possible worlds are real; QLF says all *computationally generable* histories are real, and ZFA identifies the ones that persist. The connection to Everett (1957) is direct: the many-worlds interpretation says all branches exist, but provides no decoherence cutoff from first principles. `full_zeno_prune` is the cutoff — it eliminates histories that cannot achieve ZFA closure before they become physical events. QLF is also a computable version of Tegmark's Mathematical Universe Hypothesis (Level IV multiverse) — the difference is that QLF's computable filter is now machine-verified.
 
 ### Universality
-QLF is not framed merely as a simulator. It is a generator of finite local logical closure structures — and `qlf_universality` proves this is Church-Turing complete: every terminating computation encodes as a ZFA string, so the ZFA filter is not a restriction on computation but the selection principle that picks physical reality out of the full computational universe. The variational form of this principle — ℒ = 0 as the condition of origin — is developed in [**Lagrangian_Formulation.md**](Lagrangian_Formulation.md), where `qlf_universality` anchors the pruning-as-selection argument.
+QLF is not framed merely as a simulator. It is a generator of finite local logical closure structures — and `qlf_universality` proves this is Church-Turing complete: every terminating computation encodes as a ZFA string, so the ZFA filter is not a restriction on computation but the selection principle that picks physical reality out of the full computational universe. The variational form of this principle — ℒ = 0 as the condition of origin — is developed in [**Lagrangian_Formulation.md**](docs/formal/Lagrangian_Formulation.md), where `qlf_universality` anchors the pruning-as-selection argument.
 
 ### Gödel, Busy Beaver, and the limits of classical formalism
 Classical formalism has three overlapping failure modes: Gödelian incompleteness (unprovable truths in sufficiently strong systems), Turing undecidability (functions that cannot be computed in finite time), and Chaitin complexity (Kolmogorov complexity grows without bound as you climb the Busy Beaver hierarchy). These are not separate curiosities — they are all shadows of the same problem: a logic that can construct objects with no finite closure.
@@ -143,7 +146,7 @@ QLF's answer is `full_zeno_prune`. Non-terminating computations — exactly the 
 
 The Gödel sentences of ZFC — the ones that are true but unprovable — correspond precisely to the configurations with no finite ZFA closure. The Axiom of Choice exists to assert the existence of sets with no constructive selection procedure; the ZFA filter replaces it with a computable one. Chaitin's Ω (the halting probability) is the information content of the pruning boundary — physically realized as the ZFA filter itself.
 
-This is why the QLF core operates in RCA₀, below the Busy Beaver horizon, with no Axiom of Choice and no continuity: Gödel's theorem cannot bite where unprovability has been physically excised. See [**Lagrangian_Formulation.md**](Lagrangian_Formulation.md) for how this pruning mechanism maps to the Lagrangian condition ℒ = 0 and is machine-verified via `encode_is_zfa` and `qlf_universality`.
+This is why the QLF core operates in RCA₀, below the Busy Beaver horizon, with no Axiom of Choice and no continuity: Gödel's theorem cannot bite where unprovability has been physically excised. See [**Lagrangian_Formulation.md**](docs/formal/Lagrangian_Formulation.md) for how this pruning mechanism maps to the Lagrangian condition ℒ = 0 and is machine-verified via `encode_is_zfa` and `qlf_universality`.
 
 ### Holography, information, and logical boundary conditions
 The holographic principle (Bekenstein 1972, Hawking 1975, 't Hooft 1993, Susskind 1995) says the information content of a bulk region is bounded by its surface area, not its volume — implying that bulk physics is reconstructable from boundary data. The modern sharpening of this insight is Almheiri, Dong, and Harlow (2015): **spacetime bulk geometry is a quantum error-correcting code on the boundary**. The HaPPY code (Pastawski, Yoshida, Harlow, Preskill 2015) constructs an explicit QECC (a perfect tensor network) that reproduces bulk-boundary entanglement structure.
@@ -157,16 +160,16 @@ Every QLF string maps to a 2×2 Hermitian operator (its *spectral mode*) built f
 
 ### QLF and Reverse Mathematics
 
-QLF refactors physical laws using the structural framework of Harvey Friedman's **Reverse Mathematics** program. The core QLF engine — `expand_generation`, `full_zeno_prune`, `find_stable_states`, `find_stable_states_length_even` — operates strictly within **RCA₀**, the bedrock of constructive computable mathematics: no axiom of choice, no continuity, no non-constructive existence. The transition from discrete QLF combinatorics to the continuous Riemann zeta function (Dirichlet series, analytic continuation) represents a genuine jump to a higher logical subsystem (WKL₀/ACA₀). Isolating `spectral_hilbert_polya` as an explicit axiom in `lean/QLF_Riemann.lean` is a meta-mathematical necessity — it marks the exact logical boundary where discrete computation projects its continuous statistical shadow. See [**ReverseMathematics.md**](ReverseMathematics.md) for the full treatment.
+QLF refactors physical laws using the structural framework of Harvey Friedman's **Reverse Mathematics** program. The core QLF engine — `expand_generation`, `full_zeno_prune`, `find_stable_states`, `find_stable_states_length_even` — operates strictly within **RCA₀**, the bedrock of constructive computable mathematics: no axiom of choice, no continuity, no non-constructive existence. The transition from discrete QLF combinatorics to the continuous Riemann zeta function (Dirichlet series, analytic continuation) represents a genuine jump to a higher logical subsystem (WKL₀/ACA₀). Isolating `spectral_hilbert_polya` as an explicit axiom in `lean/QLF_Riemann.lean` is a meta-mathematical necessity — it marks the exact logical boundary where discrete computation projects its continuous statistical shadow. See [**ReverseMathematics.md**](docs/foundations/ReverseMathematics.md) for the full treatment.
 
 ### QuantumOS: QLF as a Native OS Kernel for Quantum Simulators
 
-QLF is not only a theoretical framework — it is an executable architecture for quantum hardware. [**QuantumOS.md**](QuantumOS.md) specifies how the QLF stack maps onto a native operating system for QPUs and quantum simulators. It is the quantum analogue of seL4 (the first formally verified OS kernel) with ZFA as the hardware-enforced invariant.
+QLF is not only a theoretical framework — it is an executable architecture for quantum hardware. [**QuantumOS.md**](docs/computing/QuantumOS.md) specifies how the QLF stack maps onto a native operating system for QPUs and quantum simulators. It is the quantum analogue of seL4 (the first formally verified OS kernel) with ZFA as the hardware-enforced invariant.
 
 **The unification thesis:** in a classical OS, security, error correction, scheduling, garbage collection, and AI are five separate engineered subsystems. In QuantumOS, all five are the same operation — ZFA enforcement (`full_zeno_prune`) — because `qlf_universality` proves ZFA balance is the single invariant that subsumes all correctness properties at once.
 
 - **rhoqcalc as kernel**: The ρ-process algebra (`RhoQuCalc.lean`) is the execution engine. Security is grounded in five converging formal foundations: Girard's linear logic (1987), Miller's object capability model (2006), Meredith & Radestock's ρ-calculus security (2005), Honda's session types (1993), and Wootters & Zurek's no-cloning theorem (1982). Capability names are topological structures — by Curry-Howard, possessing a name *is* a proof of authorization.
-- **ZFA as complete hardware specification**: `full_zeno_prune` is the machine-verified kernel. `qlf_universality` proves every terminating computation IS a ZFA string — ZFA balance is the complete hardware specification, not an analogy. Decoherence registers as a ZFA asymmetry and is pruned before it can become a physical event. The formal QPU core is Φ₀ = U + M (ZFA condition + Σ₈ algebra) — see [**Lagrangian_Formulation.md**](Lagrangian_Formulation.md) for the variational derivation and the security conditions `[H, ρ_S] = 0`, Tr(ρ_S ρ_E) = 0 proved there.
+- **ZFA as complete hardware specification**: `full_zeno_prune` is the machine-verified kernel. `qlf_universality` proves every terminating computation IS a ZFA string — ZFA balance is the complete hardware specification, not an analogy. Decoherence registers as a ZFA asymmetry and is pruned before it can become a physical event. The formal QPU core is Φ₀ = U + M (ZFA condition + Σ₈ algebra) — see [**Lagrangian_Formulation.md**](docs/formal/Lagrangian_Formulation.md) for the variational derivation and the security conditions `[H, ρ_S] = 0`, Tr(ρ_S ρ_E) = 0 proved there.
 - **Intrinsic holographic QEC**: Error correction is not patched on top — it is the mechanism by which physical reality maintains structural stability. Three independent research streams converge: Zeno-subspace QEC (Beige 2000, Facchi/Pascazio 2002), holographic spacetime-as-QECC (Almheiri/Dong/Harlow, HaPPY code, AdS/CFT), and active inference as real-time decoder (Friston FEP). `full_zeno_prune` is the machine-verified implementation of all three simultaneously.
 - **Active inference as the system loop**: The OS drives a continuous Perceive (`expand_generation`) → Predict (`zfa_implies_critical_line`) → Act (`parallel`/`sequence`) → Prune (`full_zeno_prune`) cycle. No separate scheduler is needed — ZFA minimization IS the scheduling decision. Grounded in Friston's Free Energy Principle.
 - **Hardware-native AI with absolute interpretability**: `Form.toMatrix` maps cognitive constructs to Clifford algebra elements — the correct geometric inductive bias for physical AI (Bronstein et al. 2021, Geometric Deep Learning). Every AI program running on QLF hardware runs in machine-verified ZFA-correct code; the output is a geometric proof of Zero Free Action, not a probabilistic best-guess.
@@ -231,10 +234,10 @@ Speculative extensions (ER=EPR, age of universe) are clearly broader than the pr
 ### Read
 Start with:
 
-1. [Philosophy.md](Philosophy.md)
-2. [TheBigProblem.md](TheBigProblem.md)
-3. [Universality.md](Universality.md)
-4. [Experimental_Consistency.md](Experimental_Consistency.md)
+1. [Philosophy.md](docs/foundations/Philosophy.md)
+2. [TheBigProblem.md](docs/foundations/TheBigProblem.md)
+3. [Universality.md](docs/foundations/Universality.md)
+4. [Experimental_Consistency.md](docs/physics/Experimental_Consistency.md)
 
 Then go deeper into the Lean files and topic documents.
 
@@ -245,10 +248,16 @@ Examples:
 git clone https://github.com/jimscarver/quantum-logical-framework.git
 cd quantum-logical-framework
 
-python spacetime_dynamics.py
-python constants_mapper.py
-python path_integral.py
-````
+python -m pip install -e ".[test]"
+
+qlf action "^<v>"
+qlf zfa "^<v>"
+qlf close "^>"
+
+python -m experiments.qlf_spectral
+python -m experiments.qlf_zfa_frequency
+python -m experiments.maxwell_qlf
+```
 
 ### Build Lean
 
@@ -264,15 +273,15 @@ lake build
 
 ### If you care most about foundations
 
-[Philosophy.md](Philosophy.md) → [GodCreatedTheIntegers.md](GodCreatedTheIntegers.md) → [Universality.md](Universality.md) → [Lagrangian_Formulation.md](Lagrangian_Formulation.md)
+[Philosophy.md](docs/foundations/Philosophy.md) → [GodCreatedTheIntegers.md](docs/foundations/GodCreatedTheIntegers.md) → [Universality.md](docs/foundations/Universality.md) → [Lagrangian_Formulation.md](docs/formal/Lagrangian_Formulation.md)
 
 ### If you care most about physics
 
-[TheBigProblem.md](TheBigProblem.md) → [Measurement_Problem.md](Measurement_Problem.md) → [SpaceTime.md](SpaceTime.md) → [Gravity.md](Gravity.md) → [Lagrangian_Formulation.md](Lagrangian_Formulation.md)
+[TheBigProblem.md](docs/foundations/TheBigProblem.md) → [Measurement_Problem.md](docs/physics/Measurement_Problem.md) → [SpaceTime.md](docs/physics/SpaceTime.md) → [Gravity.md](docs/physics/Gravity.md) → [Lagrangian_Formulation.md](docs/formal/Lagrangian_Formulation.md)
 
 ### If you care most about the variational / Lagrangian formulation
 
-[Lagrangian_Formulation.md](Lagrangian_Formulation.md) → [Philosophy.md](Philosophy.md) → [lean/RhoQuCalc.lean](lean/RhoQuCalc.lean) → [lean/BraKetRhoQuCalc.lean](lean/BraKetRhoQuCalc.lean)
+[Lagrangian_Formulation.md](docs/formal/Lagrangian_Formulation.md) → [Philosophy.md](docs/foundations/Philosophy.md) → [lean/RhoQuCalc.lean](lean/RhoQuCalc.lean) → [lean/BraKetRhoQuCalc.lean](lean/BraKetRhoQuCalc.lean)
 
 ### If you care most about formal structure
 
@@ -280,7 +289,7 @@ lake build
 
 ### If you care most about the Riemann program
 
-[Universality.md](Universality.md) → [Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md) → [lean/QLF_Riemann.lean](lean/QLF_Riemann.lean)
+[Universality.md](docs/foundations/Universality.md) → [Riemann-Conjecture-Proof.md](docs/formal/Riemann-Conjecture-Proof.md) → [lean/QLF_Riemann.lean](lean/QLF_Riemann.lean)
 
 ---
 
@@ -320,4 +329,3 @@ The most useful contributions right now are:
 If the universe is ultimately logical, then physics is not just something to describe.
 
 It is something to generate.
-

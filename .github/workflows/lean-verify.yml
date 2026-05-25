@@ -5,16 +5,18 @@ on:
     branches: [ "main" ]
     paths:
       - 'lean/**'
-      - 'lake.toml'
-      - 'lakefile.toml'
+      - 'lakefile.lean'
+      - 'lake-manifest.json'
+      - 'lean-toolchain'
       - '.github/workflows/lean-verify.yml'
 
   pull_request:
     branches: [ "main" ]
     paths:
       - 'lean/**'
-      - 'lake.toml'
-      - 'lakefile.toml'
+      - 'lakefile.lean'
+      - 'lake-manifest.json'
+      - 'lean-toolchain'
       - '.github/workflows/lean-verify.yml'
 
 jobs:

@@ -1,0 +1,43 @@
+name: Python Tests
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'docs/**'
+      - 'experiments/**'
+      - 'src/**'
+      - 'tests/**'
+      - 'tools/**'
+      - 'pyproject.toml'
+      - '.github/workflows/python-tests.yml'
+
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 'docs/**'
+      - 'experiments/**'
+      - 'src/**'
+      - 'tests/**'
+      - 'tools/**'
+      - 'pyproject.toml'
+      - '.github/workflows/python-tests.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install package and test dependencies
+        run: python -m pip install -e ".[test]"
+
+      - name: Run tests
+        run: pytest
