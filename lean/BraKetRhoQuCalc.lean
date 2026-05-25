@@ -447,4 +447,4 @@ theorem commutator_zero_ket1_sigmaz :
     "decoherence is a logical contradiction rather than environmental noise." -/
 theorem decoherence_impossibility (ρ_S env : RhoProcess) :
     achieves_ZFA (toTopoString (RhoProcess.parallel ρ_S env)) :=
-  rho_process_always_zfa _
+  RhoProcess.rho_process_always_zfa _
