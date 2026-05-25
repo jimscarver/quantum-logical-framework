@@ -90,7 +90,7 @@ ZFA balance IS bra-ket well-typedness: `action f` gives topo `[pos,neg]`, `lift 
 
 ### Σ₈ vs Pauli algebra (important for new modules)
 
-The Lagrangian formulation uses a Σ₈ = {τ¹…τ⁸} algebra with τᵢτⱼ = −δᵢⱼ + εᵢⱼₖτₖ (quaternionic: τᵢ² = −1). QLF's `Form` algebra uses Pauli matrices with σᵢ² = I. The relationship is **τᵢ = iσᵢ**. When writing new Lean modules that reference either algebra, use the Pauli basis (σᵢ) — the Σ₈ form is the physics-notation bridge. Both encode 8 degrees of freedom with the same commutator structure. See `Lagrangian_Formulation.md` for the full correspondence.
+The Lagrangian formulation uses a Σ₈ = {τ¹…τ⁸} algebra with **τᵢτⱼ = −δᵢⱼI − εᵢⱼₖτₖ** (quaternionic: τᵢ² = −I, anti-cyclic products). QLF's `Form` algebra uses Pauli matrices with σᵢ² = I. The relationship is **τᵢ = iσᵢ**. With this convention products are anti-cyclic: τxτy = −τz (NOT +τz). The commutator is **[τᵢ,τⱼ] = −2εᵢⱼₖτₖ**; anti-commutator {τᵢ,τⱼ} = −2δᵢⱼI. Machine-verified: `tau_x_sq`, `tau_xy_product`, `tau_yz_product`, `tau_zx_product` in `lean/BraKetRhoQuCalc.lean`. When writing new Lean modules that reference either algebra, use the Pauli basis (σᵢ) — the Σ₈ form is the physics-notation bridge. See `Lagrangian_Formulation.md` for the full correspondence.
 
 ---
 

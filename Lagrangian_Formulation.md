@@ -49,13 +49,15 @@ The symmetry structure is carried by the eight-generator algebra:
 
 **Σ₈ = {τ¹ … τ⁸}**
 
-with the full product rule (quaternionic form):
+with the full product rule (machine-verified via `tau_xy_product`, `tau_yz_product`, `tau_zx_product` in [lean/BraKetRhoQuCalc.lean](lean/BraKetRhoQuCalc.lean)):
 
-**τᵢ τⱼ = −δᵢⱼ + εᵢⱼₖ τₖ**
+**τᵢ τⱼ = −δᵢⱼ I − εᵢⱼₖ τₖ**
 
-This gives commutator `[τᵢ, τⱼ] = 2 εᵢⱼₖ τₖ` and anti-commutator `{τᵢ, τⱼ} = −2 δᵢⱼ`.
+This gives commutator `[τᵢ, τⱼ] = −2 εᵢⱼₖ τₖ` and anti-commutator `{τᵢ, τⱼ} = −2 δᵢⱼ I`.
 
-**Relation to QLF's Pauli algebra.** QLF's Form structure ([SpacetimeDynamics.lean](lean/SpacetimeDynamics.lean)) uses the Pauli basis with σᵢ² = I (not −I) and `[σᵢ, σⱼ] = 2i εᵢⱼₖ σₖ`. The connection is τᵢ = i σᵢ: the Σ₈ generators are the Pauli matrices multiplied by i. Both algebras encode 8 degrees of freedom with the same antisymmetric commutator structure; only the sign of the square differs (quaternionic τᵢ² = −1 vs Hermitian σᵢ² = +1). QLF's 8-twist alphabet organizes these as 4 Hermitian-conjugate pairs. The density-matrix realization of this algebra — how Form maps to bra-ket notation — is worked out in [BraKetRhoQuCalc.md](BraKetRhoQuCalc.md) and machine-verified in [lean/BraKetRhoQuCalc.lean](lean/BraKetRhoQuCalc.lean). The Pauli exclusion consequence (fermionic antisymmetry via matrix commutator) is proved in [lean/PauliExclusion.lean](lean/PauliExclusion.lean).
+Note: with τᵢ = iσᵢ, products are **anti-cyclic** (τxτy = −τz, not +τz). The cyclic convention τxτy = +τz would require τᵢ = −iσᵢ. Both conventions encode the same commutator algebra up to overall sign; QLF uses τᵢ = iσᵢ throughout (machine-verified: `tau_x_sq`, `tau_xy_product` etc.).
+
+**Relation to QLF's Pauli algebra.** QLF's Form structure ([SpacetimeDynamics.lean](lean/SpacetimeDynamics.lean)) uses the Pauli basis with σᵢ² = I (not −I) and `[σᵢ, σⱼ] = 2i εᵢⱼₖ σₖ` (machine-verified: `sigma_comm_xy`, `sigma_comm_yz`, `sigma_comm_zx` in [lean/BraKetRhoQuCalc.lean](lean/BraKetRhoQuCalc.lean)). The connection is τᵢ = i σᵢ: the Σ₈ generators are the Pauli matrices multiplied by i. Both algebras encode 8 degrees of freedom; only the sign of the square differs (quaternionic τᵢ² = −I vs Hermitian σᵢ² = I). QLF's 8-twist alphabet organizes these as 4 Hermitian-conjugate pairs. The density-matrix realization of this algebra — how Form maps to bra-ket notation — is worked out in [BraKetRhoQuCalc.md](BraKetRhoQuCalc.md) and machine-verified in [lean/BraKetRhoQuCalc.lean](lean/BraKetRhoQuCalc.lean). The Pauli exclusion consequence (fermionic antisymmetry via matrix commutator) is proved in [lean/PauliExclusion.lean](lean/PauliExclusion.lean).
 
 This algebra provides the non-commutative structure that protects valid logical distinctions.
 
