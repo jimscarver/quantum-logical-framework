@@ -48,5 +48,7 @@ See: [`lean/QLF_Universality.lean`](lean/QLF_Universality.lean)
 - [`QuCalc.md`](QuCalc.md) — the generative engine
 - [`Philosophy.md`](Philosophy.md) — the broader philosophical context
 - [`Riemann-Conjecture-Proof.md`](Riemann-Conjecture-Proof.md) — a concrete consequence of this universality
+- [`Lagrangian_Formulation.md`](Lagrangian_Formulation.md) — the variational physics formulation of ZFA; `qlf_universality` anchors the pruning-as-selection argument there
+- [`ReverseMathematics.md`](ReverseMathematics.md) — why the ZFA universality proof operates in RCA₀ below the Busy Beaver horizon
 
 The framework is open, verifiable, and ready for anyone who wishes to explore the logical structure of existence itself.

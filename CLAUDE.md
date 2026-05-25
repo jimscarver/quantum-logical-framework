@@ -88,6 +88,10 @@ ZFA balance IS bra-ket well-typedness: `action f` gives topo `[pos,neg]`, `lift 
 - `achieves_ZFA s ↔ full_zeno_prune s = []`
 - `is_gauge : TopoElement → Bool` returns `true` for ALL elements
 
+### Σ₈ vs Pauli algebra (important for new modules)
+
+The Lagrangian formulation uses a Σ₈ = {τ¹…τ⁸} algebra with τᵢτⱼ = −δᵢⱼ + εᵢⱼₖτₖ (quaternionic: τᵢ² = −1). QLF's `Form` algebra uses Pauli matrices with σᵢ² = I. The relationship is **τᵢ = iσᵢ**. When writing new Lean modules that reference either algebra, use the Pauli basis (σᵢ) — the Σ₈ form is the physics-notation bridge. Both encode 8 degrees of freedom with the same commutator structure. See `Lagrangian_Formulation.md` for the full correspondence.
+
 ---
 
 ## Lean 4.30 gotchas — read before writing any Lean code
@@ -200,6 +204,8 @@ This is a **computable** form of modal realism (Lewis 1986) with a selection rul
 
 A critical framing point: **ZFA is not a restriction on what can be computed.** `qlf_universality` proves the ZFA filter is Church-Turing complete — every *terminating* computation IS a ZFA string. What is pruned is not computation; it is the physically unrealizable tail (non-terminating, Turing-undecidable, Busy Beaver-class computations). The ZFA filter selects physical reality from the full ruliadic computational universe without discarding any computable physics.
 
+The variational physics expression of ZFA is S = ∫ℒ dΩ with **ℒ = 0** — a null Lagrangian that is the condition of origin, not a cutting rule. The discrete form (`isZFAClosed`) and the continuous limit (`EventSynthesisField → Λ_eff`) are both covered in `Lagrangian_Formulation.md`.
+
 ### ZFC ultraviolet catastrophe
 
 Classical ZFC mathematics is founded on open-ended formal infinity. This leads to: Gödelian incompleteness (truths unprovable in sufficiently strong systems), Turing undecidability, and the Busy Beaver function (uncomputable growth without bound). These are shadows of the same problem — logic that can construct objects with no finite closure.
@@ -283,6 +289,10 @@ Avoid framings that contradict the above:
 | `lakefile.lean` | Build config; `roots` array lists all 16 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
+| `CLAUDE.md` | This file — project context for new Claude sessions |
 | `braket_rho.py` | Numerical demo of bra-ket ↔ RhoQuCalc correspondence |
-| `BraKetRhoQuCalc.md` | Reference doc for the correspondence |
+| `BraKetRhoQuCalc.md` | Reference doc for bra-ket ↔ RhoQuCalc correspondence |
+| `Lagrangian_Formulation.md` | Variational formulation: ℒ=0 as origin, Σ₈ algebra, Zeno stationarity, decoherence impossibility; Lean theorem anchors for all claims |
+| `Philosophy.md` | Possibilist ontology; ZFA as sole fundamental axiom |
+| `QuantumOS.md` | QLF as capability-secure OS kernel for QPUs |
 | `.github/workflows/` | CI configuration |

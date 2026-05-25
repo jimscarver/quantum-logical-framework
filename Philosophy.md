@@ -100,6 +100,8 @@ From this single constraint everything else is derived (all proven in the repo):
 
 Nothing else is postulated. Constants are derived, not inserted. Singularities are impossible because curvature is bounded by discrete event density.
 
+The variational physics expression of this single axiom is S = ∫ℒ dΩ with ℒ = 0 — a null Lagrangian that is the condition of origin, not a filter. See [Lagrangian_Formulation.md](Lagrangian_Formulation.md) for the full variational treatment with machine-verified Lean theorem anchors.
+
 ## 5. Emergence, Not Reduction
 
 QLF does not reduce physics to smaller “bits.” It shows how macroscopic physics (spacetime, gravity, quantum statistics) *emerges* from the global constraint of ZFA closure acting on discrete logical events.
