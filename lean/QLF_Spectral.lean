@@ -103,4 +103,20 @@ theorem spectral_symmetric_eq_scalar_id (s : TopoString)
         Matrix.cons_val_zero, Matrix.cons_val_one,
         Matrix.head_cons, Matrix.head_fin_const]
 
+-- ==========================================
+-- SPECTRAL GAP
+-- ==========================================
+
+/-- The spectral gap: absolute imbalance between the two diagonal eigenvalues
+    of `toSpectralMode`. For a pure-phase string these are `count_pos s` and
+    `count_neg s`; the gap measures how far the string is from the critical line. -/
+def spectral_gap (s : TopoString) : ℤ := |count_pos s - count_neg s|
+
+/-- The spectral gap vanishes iff the string is ZFA-symmetric (on the critical line).
+    Eigenvalue-level counterpart of `spectral_symmetric_eq_scalar_id`:
+    scalar × I ↔ equal eigenvalues ↔ gap = 0 ↔ is_symmetric. -/
+theorem spectral_gap_zero_iff_symmetric (s : TopoString) :
+    spectral_gap s = 0 ↔ is_symmetric s := by
+  simp [spectral_gap, abs_eq_zero, sub_eq_zero, is_symmetric]
+
 end QLF
