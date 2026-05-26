@@ -77,6 +77,7 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 - [**Experimental_Consistency.md**](Experimental_Consistency.md) — numerical and conceptual links between QLF and known physics
 - [**SpectralGap.md**](SpectralGap.md) — the spectral gap `|count_pos − count_neg|` vanishes iff ZFA-symmetric; unifies Riemann zero spacing (Wigner-Dyson ~ √(πn)), Maxwell Gauss duality (`divB + charge = 0`), and quantum stability (`decoherence_impossibility`)
 - [**Maxwell.md**](Maxwell.md) — all four Maxwell equations derived from ZFA: ∇·B=0 machine-verified (`no_magnetic_monopoles`), Gauss duality identity `divB=−charge`, Faraday and Ampère-Maxwell confirmed numerically in `maxwell_qlf.py`
+- [**Hydrogen.md**](Hydrogen.md) — hydrogen energy levels E_n = −13.6 eV/n² derived from ZFA (Bohr model): Coulomb from gauge-twist exchange, quantization from ZFA generation depth n, α from `constants_mapper.emerge_alpha()`; numerically verified to 0.05% in `hydrogen_qlf.py`
 - [**SpaceTime.md**](SpaceTime.md) — event-synthesized space and time
 - [**Gravity.md**](Gravity.md) — emergent gravity in the QLF picture
 - [**ER_EPR_QLF.md**](ER_EPR_QLF.md) — entanglement, geometry, and logical structure
@@ -122,6 +123,7 @@ See [**lean/README.md**](lean/README.md) for the full module reference, proof ch
 - [**qlf_zfa_frequency.py**](qlf_zfa_frequency.py) — confirms `find_stable_states_length_even` (C(n,n/2))
 - [**qlf_dirichlet_search.py**](qlf_dirichlet_search.py) — confirms C(2k,k)/4^k ~ (1/√π)k^{-1/2} is asymptotic only (Stirling); the gap-zero state density 1/√(πn) implies spacing ~ √(πn) (Wigner-Dyson), ruling out a combinatorial bypass of `spectral_hilbert_polya`
 - [**maxwell_qlf.py**](maxwell_qlf.py) — numerically derives all four Maxwell equations from ZFA: Gauss duality `divB=−charge`, ∇·B=0 for neutral events, Faraday curl, wave speed c
+- [**hydrogen_qlf.py**](hydrogen_qlf.py) — E_n = −½ α² m_e c² / n² from ZFA parameters; Lyman/Balmer/Paschen spectral lines; Bohr radius; 0.05% agreement with NIST
 - [**braket_rho.py**](braket_rho.py) — bra-ket ↔ RhoQuCalc correspondence: all 8 identities checked numerically
 - [**qucalc_engine.py**](qucalc_engine.py), [**spacetime_dynamics.py**](spacetime_dynamics.py), [**constants_mapper.py**](constants_mapper.py), [**path_integral.py**](path_integral.py) — executable experiments
 
