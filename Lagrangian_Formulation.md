@@ -92,6 +92,7 @@ Machine-verified anchors:
 - `orthogonality_01` ([BraKetRhoQuCalc.lean:173](lean/BraKetRhoQuCalc.lean)): ρ₁ · ρ₀ = 0, machine-verified by matrix computation — the density-matrix formulation of Tr(ρ_S ρ_E) = 0 for orthogonal basis states.
 - `bra_ket_always_balanced` ([BraKetRhoQuCalc.lean:109](lean/BraKetRhoQuCalc.lean)): it is impossible to construct a ZFA-unbalanced RhoProcess — the type system enforces the security condition at construction time.
 - `decoherence_impossibility` ([BraKetRhoQuCalc.lean](lean/BraKetRhoQuCalc.lean)): parallel composition (ρ_S ⊗ env) is always ZFA-closed — no decoherence event is algebraically constructible.
+- `spectral_gap_zero_iff_symmetric` ([QLF_Spectral.lean](lean/QLF_Spectral.lean)): the spectral gap `|count_pos − count_neg|` vanishes iff the string is ZFA-symmetric — eigenvalue-level proof that all ZFA-symmetric states have degenerate spectra (scalar × I). See [SpectralGap.md](SpectralGap.md) for the connection to Wigner-Dyson spacing and Maxwell's Gauss duality.
 
 Any decohering interaction would require violating either the zero-action condition or the algebraic structure. Since both are enforced by construction and machine-verified, decoherence is a logical contradiction rather than environmental noise. See [Measurement_Problem.md](Measurement_Problem.md) for the full treatment of measurement as ZFA closure, and [ER_EPR_QLF.md](ER_EPR_QLF.md) for the entanglement-geometry connection.
 
