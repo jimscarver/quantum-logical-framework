@@ -64,7 +64,7 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 - [**GodCreatedTheIntegers.md**](GodCreatedTheIntegers.md) — a broad framing of QLF in relation to Kronecker, Einstein, Wheeler, Gödel, Bohm, Bell, Penrose, Mead, Cramer, Wolfram, ’t Hooft, Hawking, and Susskind
 
 ### 2. Core theoretical claims
-- [**BraKetRhoQuCalc.md**](BraKetRhoQuCalc.md) — how bra-ket notation maps onto RhoQuCalc: action=ket, lift=bra, parallel=superposition, sequence=composition, ZFA=bra-ket balance (with numerical demos in `braket_rho.py`)
+- [**BraKetRhoQuCalc.md**](BraKetRhoQuCalc.md) — how bra-ket notation maps onto RhoQuCalc: action=ket, lift=bra, parallel=superposition, sequence=composition, ZFA=bra-ket balance (numerical demos in `braket_rho.py`; live evaluation via `/braket` in [quantum-os](https://github.com/jimscarver/quantum-os))
 - [**Universality.md**](Universality.md) — the claim that QLF generates finite local logical closures
 - [**Riemann-Conjecture-Proof.md**](Riemann-Conjecture-Proof.md) — the current QLF program relating ZFA symmetry, universality, and the critical line
 - [**Measurement_Problem.md**](Measurement_Problem.md) — QLF treatment of measurement and observer-dependent closure
@@ -84,7 +84,7 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 - [**Higgs.md**](Higgs.md) — QLF mass generation via gauge-fold depth; constructive alternative to the Higgs mechanism
 - [**HadronicDepth.md**](HadronicDepth.md) — Hadronic Depth Hypothesis: n ~ (m_P/m_p)³ fixes cosmic size, age, and G from the proton mass
 - [**VacuumEnergy.md**](VacuumEnergy.md), [**BLACK-HOLES.md**](BLACK-HOLES.md), [**Entropy.md**](Entropy.md) — topic-specific extensions
-- [**QuantumOS.md**](QuantumOS.md) — QLF as a capability-secure, formally-verified OS kernel for QPUs: five converging security foundations, intrinsic holographic QEC, hardware-native AI with absolute interpretability, Ruliad/RCA₀ unification — security + error correction + scheduling + GC + AI are all one operation (ZFA enforcement)
+- [**QuantumOS.md**](QuantumOS.md) — QLF as a capability-secure, formally-verified OS kernel for QPUs: five converging security foundations, intrinsic holographic QEC, hardware-native AI with absolute interpretability, Ruliad/RCA₀ unification — security + error correction + scheduling + GC + AI are all one operation (ZFA enforcement); live demo via `/qucalc` in [quantum-os](https://github.com/jimscarver/quantum-os)
 
 ### 4. Formal and executable work
 
@@ -251,7 +251,50 @@ cd quantum-logical-framework
 python spacetime_dynamics.py
 python constants_mapper.py
 python path_integral.py
-````
+```
+
+### Try in the browser
+
+The [**quantum-os**](https://github.com/jimscarver/quantum-os) P2P app runs the ZFA kernel (Rust/WASM) live. Open **https://jimscarver.github.io/quantum-os/**, click Connect, then type in the chat input:
+
+**`/braket +`** — evaluates `action(Form_+)`, the `|+⟩` density matrix:
+```
+ket: |+⟩
+  RhoProcess: action(Form_+)
+  eval = Form.toMatrix:
+  ⎡ 0.5  0.5 ⎤
+  ⎣ 0.5  0.5 ⎦
+bra: ⟨+|  (eval = ket†  =  ket  [Hermitian: Form.toMatrix_adjoint ✓])
+  ZFA: action [+,−]  lift [−,+]  both balanced: ✓
+  bra_ket_always_balanced: ✓ (BraKetRhoQuCalc.lean)
+```
+
+**`/braket 0 1`** — completeness relation `|0⟩⟨0| + |1⟩⟨1| = I`:
+```
+eval = Form.toMatrix:
+  ⎡ 1  0 ⎤
+  ⎣ 0  1 ⎦
+```
+
+**`/qucalc +-+-`** — ZFA-balanced 4-twist sequence, stable under `full_zeno_prune`:
+```
+twists: +-+-  (4 total)
+action (pos): count=2   lift (neg): count=2
+spectral gap: 0  ZFA-balanced: ✓
+process: parallel(action(Form), lift(Form))  → ZFA stable
+achieves_ZFA: ✓  rho_process_always_zfa: ✓ (Lean-verified)
+```
+
+**`/qucalc +++`** — unbalanced, pruned before it can become a physical event:
+```
+twists: +++  (3 total)
+action (pos): count=3   lift (neg): count=0
+spectral gap: 3  ZFA-balanced: ✗
+process: UNBALANCED  → pruned by full_zeno_prune
+achieves_ZFA: ✗  gap=3  (not a physical process)
+```
+
+States supported by `/braket`: `0`, `1`, `+`, `-`, `i`, `-i`. Twist alphabet for `/qucalc`: `^v<>/\+-` or hex `0-7` or any `cap:label:hex` capability token. Type `/help` for the full list.
 
 ### Build Lean
 
