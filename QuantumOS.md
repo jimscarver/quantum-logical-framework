@@ -265,6 +265,41 @@ QLF is the framework in which all of them are the same theorem.
 
 ---
 
+## Live Demo: quantum-os `/qucalc` command
+
+The [quantum-os](https://github.com/jimscarver/quantum-os) browser app runs ZFA evaluation live in the browser (Rust/WASM kernel). After connecting at **https://jimscarver.github.io/quantum-os/**, type in the chat input:
+
+**`/qucalc +-+-`** — a balanced 4-twist sequence: `+`=6 (pos), `-`=7 (neg), alternating:
+
+```
+RhoQuCalc process:
+  input: +-+-
+  twists: +-+-  (4 total)
+  action (pos): count=2   lift (neg): count=2
+  spectral gap: 0  ZFA-balanced: ✓
+  process: parallel(action(Form), lift(Form))  → ZFA stable
+  achieves_ZFA: ✓  stable under full_zeno_prune
+  rho_process_always_zfa: ✓ (Lean-verified)
+```
+
+**`/qucalc +++`** — three positive twists, no lift: unbalanced, non-physical:
+
+```
+RhoQuCalc process:
+  input: +++
+  twists: +++  (3 total)
+  action (pos): count=3   lift (neg): count=0
+  spectral gap: 3  ZFA-balanced: ✗
+  process: UNBALANCED  → pruned by full_zeno_prune
+  achieves_ZFA: ✗  gap=3  (not a physical process)
+```
+
+This is the selection principle in action: `+-+-` (gap=0) survives as a physical process; `+++` (gap=3) is immediately pruned by `full_zeno_prune` before becoming a physical event. The twist alphabet `{^=0, v=1, >=2, <=3, /=4, \=5, +=6, -=7}` maps directly to the 8-axis generators described in Section 1. Pass any `cap:label:hex` capability token to inspect a peer or room identity.
+
+See [`BraKetRhoQuCalc.md`](BraKetRhoQuCalc.md) for the `/braket` command that evaluates `Form.toMatrix` directly.
+
+---
+
 ## Related Documents
 
 ### Formal Core (machine-verified)

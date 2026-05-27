@@ -284,3 +284,39 @@ The formal proof `rho_process_always_zfa` is not just a restatement of bra-ket c
 See also: [Hermitian_Conjugacy_Proof.md](Hermitian_Conjugacy_Proof.md) — constructive proof that ZFA closure enforces unitarity; `Form.toMatrix_adjoint` is the formal bridge.
 
 The variational physics foundation underlying this correspondence is covered in [Lagrangian_Formulation.md](Lagrangian_Formulation.md): ZFA balance (`achieves_ZFA`) is the discrete form of S = ∫ℒ dΩ with ℒ = 0, and the security conditions `[H, ρ_S] = 0`, Tr(ρ_S ρ_E) = 0 are grounded there in `rho_process_always_symmetric` and `orthogonality_01`.
+
+---
+
+## Live Evaluation: quantum-os `/braket` command
+
+The [quantum-os](https://github.com/jimscarver/quantum-os) browser app implements these evaluations live. After connecting, type in the chat input:
+
+**`/braket +`** — evaluates `action(Form_+)`, shows the density matrix of `|+⟩`:
+
+```
+ket: |+⟩
+  RhoProcess: action(Form_+)
+  eval = Form.toMatrix:
+  ⎡ 0.5  0.5 ⎤
+  ⎣ 0.5  0.5 ⎦
+bra: ⟨+|  (eval = ket†  =  ket  [Hermitian: Form.toMatrix_adjoint ✓])
+  ZFA: action [+,−]  lift [−,+]  both balanced: ✓
+  bra_ket_always_balanced: ✓ (BraKetRhoQuCalc.lean)
+```
+
+This matches the table entry `|+⟩⟨+|` = `[[½,½],[½,½]]` exactly.
+
+**`/braket 0 1`** — evaluates `parallel(action(Form_0), action(Form_1))`, the completeness relation:
+
+```
+ket: |0⟩ + |1⟩
+  RhoProcess: parallel(action(Form_0), action(Form_1))
+  eval = Form.toMatrix:
+  ⎡ 1  0 ⎤
+  ⎣ 0  1 ⎦
+bra: ⟨0| + ⟨1|  (eval = ket†  =  ket  [Hermitian: Form.toMatrix_adjoint ✓])
+  ZFA: action [+,−]  lift [−,+]  both balanced: ✓
+  bra_ket_always_balanced: ✓ (BraKetRhoQuCalc.lean)
+```
+
+`|0⟩⟨0| + |1⟩⟨1| = I` — the identity matrix, confirming `{|0⟩, |1⟩}` is a complete orthonormal basis. States supported: `0`, `1`, `+`, `-`, `i`, `-i`. Open the app at **https://jimscarver.github.io/quantum-os/** and type `/help` for the full command list.
