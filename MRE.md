@@ -56,7 +56,7 @@ In QuCalc notation (see [QuCalc.md](./QuCalc.md) and [BraKetRhoQuCalc.md](./BraK
 
 $$\text{ZFA}_{1/2} \equiv \text{fluxoid}(t, t^\dagger) \quad \mapsto \quad \rho \to \tfrac{1}{2} I$$
 
-where $\rho$ is the reduced density matrix after the minimal loop. The maximally mixed $\rho = I/2$ has von Neumann entropy $S(\rho) = -\operatorname{Tr}(\rho \ln \rho) = \log 2$.
+where $\rho$ is the reduced density matrix after the minimal loop. The maximally mixed $\rho = I/2$ has von Neumann entropy $S(\rho) = -\mathrm{Tr}(\rho \ln \rho) = \log 2$.
 
 ### 2.3 Topological equivalence (SU(2) and the 720° spinor)
 
