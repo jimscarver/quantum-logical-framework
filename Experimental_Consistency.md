@@ -18,6 +18,8 @@ Every claim in this document carries one of three status markers:
 
 We avoid stating digits the code does not currently produce. Where a calibration choice is required (e.g. anchoring a mass scale to bridge SI units), it is called out explicitly as a calibration, not a fit.
 
+ZFA is the conjunction of two algebraic conditions: **count balance** (signed action vector vanishes) and **Pauli closure** (matrix product folds to a scalar). Both are enforced in every reference implementation — see §2.1.
+
 ---
 
 ## §2 The Spectral Gap as Unifying Frame
@@ -42,6 +44,33 @@ The gap vanishes exactly when the string is ZFA-symmetric. Three further machine
 - `decoherence_impossibility` ([BraKetRhoQuCalc.lean](lean/BraKetRhoQuCalc.lean)) — parallel composition stays ZFA-balanced
 
 Together: the gap-zero subspace is algebraically closed and contains every physically constructible object. Everything that follows is a corollary or a numerical consequence of these facts.
+
+### §2.1 ZFA has two conditions: count balance AND Pauli closure
+
+The count-balance check (signed action vector vanishes) is the **bosonic** half of the ZFA condition — it treats the 8-twist alphabet as commutative. The 8 twists are also generators of a Pauli-like non-commutative algebra (the Σ₈ algebra of [Lagrangian_Formulation.md](Lagrangian_Formulation.md), with τᵢ = iσᵢ). The order-sensitive **fermionic** half — Pauli closure — requires that the matrix product of twists folds to a scalar multiple of identity (a member of `{+I, −I, +iI, −iI}`).
+
+Twist → Pauli matrix mapping per the [Maxwell.md](Maxwell.md) axis assignments:
+
+| Twist | Matrix | Axis |
+|---|---|---|
+| `^`, `v` | ±σ_y | Y |
+| `>`, `<` | ±σ_x | X |
+| `/`, `\` | ±σ_z | Z |
+| `+`, `−` | ±I | gauge / U(1) phase |
+
+Full ZFA is the conjunction:
+
+```
+achieves_zfa(h)  ≡  count_balanced(h)  ∧  pauli_closed(h)
+```
+
+This is now enforced in every implementation of the kernel:
+
+- **Python** (`twist_core.py`): `is_zfa` calls `is_pauli_closed` after the count check.
+- **Rust** (`crates/zfa-core/src/history.rs` and `pauli.rs` in [quantum-os](https://github.com/jimscarver/quantum-os)): `achieves_zfa` returns `is_count_balanced ∧ is_pauli_closed`; capability tokens use deterministic rejection sampling to guarantee closure.
+- **TypeScript** (`packages/browser/src/zfa.ts`): mirrors the Rust check end-to-end, including the pure-TS Pauli matrix fold for the no-WASM fallback.
+
+Empirically, **every admissible (no immediate Hermitian reversal) count-balanced history is automatically Pauli-closed** in the QLF Python BFS ensemble at every length tested (4, 6, 8). So the tightened check is non-breaking for the stable-history ensemble used throughout this document; the explicit enforcement formalizes an invariant that was already present in the data.
 
 ---
 
@@ -287,6 +316,7 @@ The Quantum Logical Framework does not abandon the experimental triumphs of the 
 - Shell structure 2-2-6 from Pauli-blocking, through Z = 10 ([Atom.md](Atom.md), `atomic_routing.py`)
 - Hydrogen E_n = −Ry/n² and the Lyman/Balmer line spectrum, 0.053% vs NIST, residual attributed to Bohr-not-Dirac ([Hydrogen.md](Hydrogen.md), `hydrogen_qlf.py`)
 - γ from the harmonic-excess formula `H_N − log N`, converging to Euler's constant at 0.017% over composed ensembles (§6.2)
+- ZFA enforced as the conjunction of count balance and Pauli matrix closure across all three reference implementations — Python (`twist_core.py`), Rust (`crates/zfa-core/`), TypeScript (`packages/browser/src/zfa.ts`) — see §2.1
 
 **High-priority open work:**
 - Full derivations of π, e, α, δ from the twist algebra (§6.3); α in particular has a clear research path through the gauge/spatial coupling structure.
