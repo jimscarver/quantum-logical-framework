@@ -3,8 +3,14 @@ twist_core.py
 Core twist-action engine for the Quantum Logical Framework (QLF).
 
 Provides the canonical 8-twist algebra, signed action vector,
-Zero-Free-Action (ZFA) detection, history generation, and auxiliary
-functions used by spacetime_dynamics, doubler, gravitational_tensor, etc.
+Zero-Free-Action (ZFA) detection, Pauli-matrix folding, history
+generation, and auxiliary functions used by spacetime_dynamics,
+doubler, gravitational_tensor, etc.
+
+ZFA is the conjunction of two conditions:
+  1. Count balance — the signed action vector vanishes
+  2. Pauli closure — the matrix product of twists folds to a scalar
+     multiple of the identity (closure in the Pauli group)
 """
 
 from __future__ import annotations
@@ -24,6 +30,79 @@ VALID_CHARS = set(TWISTS)
 
 # Default minimum length for considering a history "ZFA-stable"
 MIN_ZFA_LENGTH: int = 4
+
+# =============================================================================
+# PAULI MATRIX ALGEBRA
+# =============================================================================
+# 2x2 complex matrices represented as 4-tuples (a, b, c, d) where
+# M = [[a, b], [c, d]]. Pure-Python implementation — no numpy dependency.
+#
+# Twist → Pauli matrix mapping per Maxwell.md axis assignments:
+#   ^ = +σ_y     v = -σ_y     (Y axis)
+#   > = +σ_x     < = -σ_x     (X axis)
+#   / = +σ_z     \ = -σ_z     (Z axis)
+#   + = +I       - = -I       (gauge / U(1) phase)
+PauliMatrix = Tuple[complex, complex, complex, complex]
+
+_PI: PauliMatrix = (1+0j, 0j, 0j, 1+0j)
+_NI: PauliMatrix = (-1+0j, 0j, 0j, -1+0j)
+_SX: PauliMatrix = (0j, 1+0j, 1+0j, 0j)
+_NSX: PauliMatrix = (0j, -1+0j, -1+0j, 0j)
+_SY: PauliMatrix = (0j, -1j, 1j, 0j)
+_NSY: PauliMatrix = (0j, 1j, -1j, 0j)
+_SZ: PauliMatrix = (1+0j, 0j, 0j, -1+0j)
+_NSZ: PauliMatrix = (-1+0j, 0j, 0j, 1+0j)
+
+PAULI_MAP: Dict[str, PauliMatrix] = {
+    '^': _SY,  'v': _NSY,
+    '>': _SX,  '<': _NSX,
+    '/': _SZ,  '\\': _NSZ,
+    '+': _PI,  '-': _NI,
+}
+
+PAULI_TOLERANCE: float = 1e-9
+
+
+def _mat_mul(m1: PauliMatrix, m2: PauliMatrix) -> PauliMatrix:
+    """Multiply two 2x2 matrices stored as (a, b, c, d)."""
+    a, b, c, d = m1
+    e, f, g, h = m2
+    return (a*e + b*g, a*f + b*h, c*e + d*g, c*f + d*h)
+
+
+def pauli_fold(history: str) -> PauliMatrix:
+    """Return the Pauli matrix product of the history sequence.
+
+    Computes M = M_1 · M_2 · … · M_n where each M_i is the Pauli matrix
+    assigned to twist t_i in PAULI_MAP. The product is evaluated
+    left-to-right. The result is a 2x2 complex matrix as a 4-tuple.
+    """
+    validate_history(history)
+    M = _PI
+    for t in history:
+        M = _mat_mul(M, PAULI_MAP[t])
+    return M
+
+
+def is_pauli_closed(history: str, tol: float = PAULI_TOLERANCE) -> bool:
+    """True if history's Pauli fold is a scalar multiple of identity (±I or ±iI).
+
+    This is the Pauli-product closure condition: the history forms a closed
+    loop in the Pauli group (returns to identity up to overall phase ∈ {1, -1, i, -i}).
+
+    Stronger than count balance: count balance requires equal counts of
+    pos and neg twists; Pauli closure requires the matrix product to fold
+    to ±I or ±iI, which is order-sensitive because Pauli matrices anti-commute
+    ({σ_i, σ_j} = 0 for i ≠ j).
+    """
+    a, b, c, d = pauli_fold(history)
+    # Closed iff M = λI for some scalar λ — diagonal entries equal, off-diagonals zero
+    if abs(b) > tol or abs(c) > tol:
+        return False
+    if abs(a - d) > tol:
+        return False
+    # The scalar must be ±1 or ±i (the four scalar elements of the Pauli group)
+    return any(abs(a - s) < tol for s in (1+0j, -1+0j, 1j, -1j))
 
 # =============================================================================
 # VALIDATION
@@ -86,11 +165,23 @@ def bound_action_estimate(history: str) -> float:
 
 
 def is_zfa(history: str, min_length: int = MIN_ZFA_LENGTH) -> bool:
-    """True if history is Zero-Free-Action (balanced vector) and long enough."""
+    """True if history achieves Zero Free Action.
+
+    ZFA is the conjunction of two algebraic conditions:
+      1. **Count balance**: every twist-pair count vanishes (signed action vector is zero)
+      2. **Pauli closure**: the matrix product of twists folds to a scalar multiple
+         of the identity (±I or ±iI), reflecting closure in the Pauli group
+
+    The second condition is order-sensitive: histories with the same counts but
+    different twist order can have different Pauli folds. Count balance is
+    necessary but not sufficient for full ZFA.
+    """
     validate_history(history)
     if len(history) < min_length:
         return False
-    return all(x == 0 for x in calculate_action(history))
+    if not all(x == 0 for x in calculate_action(history)):
+        return False
+    return is_pauli_closed(history)
 
 
 # =============================================================================
