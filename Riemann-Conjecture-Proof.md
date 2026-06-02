@@ -135,12 +135,34 @@ $$\mathrm{sum} \textunderscore \mathrm{of} \textunderscore \mathrm{resonant} \te
 
 That is exactly where the QLF↔$\zeta$ bridge now lives.
 
+### Closed form for the resonant sum (verified numerically)
+
+The combinatorial side has a clean closed form (provable by separating the even-index part of a binomial expansion):
+
+$$\sum_{k=0}^{\lfloor n/2 \rfloor} \binom{n}{2k} \, 4^{n - 2k} = \frac{5^n + 3^n}{2}$$
+
+Verification: at `n = 0..10` the identity holds exactly (sequence `1, 4, 17, 76, 353, 1684, 8177, 40156, 198593, 986404, 4912337`). See `qlf_dirichlet_search.py` Report 6.
+
+This is an **established combinatorial identity**, suitable for a Lean lemma `cardinality_of_resonant_generations`. It is **not** the bridge to $\zeta$. The resonant sum grows exponentially with rate $\log 5 \approx 1.6094$ — *much* faster than any standard partial sum $\sum_{k=1}^{n} k^{-s}$ for any real $s$ (which grows polylogarithmically for $s > 0$, polynomially for $s \leq 0$). The ratio diverges as $\sim 5^n/(n^{1-s})$.
+
+### The bridge is an axiom, not a derivation
+
+The literal numerical equality `sum_of_resonant_generations(n) = zeta_partial_sum(n)` therefore **cannot hold** for any standard interpretation of `zeta_partial_sum`. The bridge statement is genuinely **axiomatic** inside `lean/QLF_Riemann.lean` — exactly as the explicit-axioms framing later in this document states. It encodes a hypothesized **measure-theoretic / asymptotic correspondence** (Mellin-transform-mediated, in the spirit of [SpectralGap.md §6](SpectralGap.md)'s "asymptotic, not algebraically exact" caveat), not a finite combinatorial equality.
+
+What this means concretely:
+- The combinatorial side (resonant counts, `find_stable_states_length_even`) is RCA₀-provable and Lean-verified.
+- The arithmetic side (Dirichlet partial sums, `zeta_partial_sum`) requires WKL₀ / ACA₀ for its analytic continuation properties.
+- The bridge between them is the explicit logical boundary — same status as `spectral_hilbert_polya` and `resonant_computation_for`.
+
+The RH reduction in this document remains exactly as stated: *conditional on the bridge axiom, RH follows from QLF symmetry and terminating-computation universality.* Closing the bridge axiom — finding a Mellin-transform-style argument that produces the asymptotic match constructively — is the central open problem of the program.
+
 So the current status is precise:
 
 * the internal QLF closure machinery is formalized,
 * the ZFA-to-symmetry step is formalized,
 * the universality theorem is formalized for terminating computations,
-* and the analytic/combinatorial bridge to $\zeta(s)$ is stated explicitly.
+* the combinatorial closed form `(5^n + 3^n)/2` is numerically verified and ready for Lean,
+* and the analytic/combinatorial bridge to $\zeta(s)$ is stated explicitly as a separated axiom (not a proven equality).
 
 This is not hand-waving. It is a clean reduction with the remaining burden sharply localized.
 

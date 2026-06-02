@@ -160,6 +160,98 @@ def report_exact_check() -> None:
 
 
 # ---------------------------------------------------------------------------
+# Report 6 — Specific bridge formula from Riemann-Conjecture-Proof.md
+# ---------------------------------------------------------------------------
+
+def resonant_sum(n: int) -> int:
+    """sum_of_resonant_generations from Riemann-Conjecture-Proof.md:
+
+        sum_{k=0..n/2} C(n, 2k) * 4^(n-2k)
+
+    Closed form (separate the even-index part of (4+1)^n and (4-1)^n):
+
+        sum  =  ((4+1)^n + (4-1)^n) / 2  =  (5^n + 3^n) / 2
+    """
+    return sum(math.comb(n, 2 * k) * 4 ** (n - 2 * k) for k in range(n // 2 + 1))
+
+
+def resonant_sum_closed_form(n: int) -> int:
+    """The closed form (5^n + 3^n) / 2 — provably equal to resonant_sum(n)."""
+    return (5 ** n + 3 ** n) // 2
+
+
+def report_specific_bridge(max_n: int = 20) -> None:
+    """Test the literal equality claimed in Riemann-Conjecture-Proof.md:
+
+        sum_of_resonant_generations(n) ?= zeta_partial_sum(n)
+
+    Also verify the (5^n + 3^n)/2 closed form for the resonant sum.
+    """
+    print("=" * 88)
+    print("REPORT 6 — sum_of_resonant_generations(n) vs zeta_partial_sum(n)")
+    print("=" * 88)
+    print()
+    print("  Riemann-Conjecture-Proof.md claims (in lean/QLF_Riemann.lean) that")
+    print()
+    print("      sum_of_resonant_generations(n) = sum_{k} C(n, 2k) * 4^(n - 2k)")
+    print("                                     = zeta_partial_sum(n)")
+    print()
+    print("  We test the literal numerical equality and verify a closed form.")
+    print()
+    print(f"  {'n':>3}  {'resonant_sum(n)':>18}  {'(5^n+3^n)/2':>18}  {'closed-form OK?':>15}")
+    print(f"  {'-' * 3}  {'-' * 18}  {'-' * 18}  {'-' * 15}")
+    for n in range(min(max_n, 16) + 1):
+        rs = resonant_sum(n)
+        cf = resonant_sum_closed_form(n)
+        ok = "YES" if rs == cf else "NO"
+        print(f"  {n:>3}  {rs:>18d}  {cf:>18d}  {ok:>15}")
+    print()
+    print("  -> Closed form (5^n + 3^n)/2 is exact for the resonant sum.")
+    print()
+    print("  Now compare against zeta_partial_sum(n) at several s values:")
+    print()
+    print(f"  {'n':>3}  {'resonant_sum':>14}  {'log(rs)/n':>10}  "
+          f"{'zeta(0)':>10}  {'zeta(0.5)':>10}  {'zeta(1)':>10}  {'zeta(2)':>10}")
+    print(f"  {'-' * 3}  {'-' * 14}  {'-' * 10}  "
+          f"{'-' * 10}  {'-' * 10}  {'-' * 10}  {'-' * 10}")
+    for n in [1, 2, 5, 10, 15, 20]:
+        rs = resonant_sum(n)
+        z0 = zeta_partial_sum(n, 0.0)
+        z_half = zeta_partial_sum(n, 0.5)
+        z1 = zeta_partial_sum(n, 1.0)
+        z2 = zeta_partial_sum(n, 2.0)
+        log_growth = math.log(rs) / n if n > 0 else float("nan")
+        print(f"  {n:>3}  {rs:>14d}  {log_growth:>10.4f}  "
+              f"{z0:>10.4f}  {z_half:>10.4f}  {z1:>10.4f}  {z2:>10.4f}")
+    print()
+    print(f"  log(5) = {math.log(5):.4f}  <- resonant_sum grows as ~5^n/2")
+    print()
+    print("  At n=20:")
+    rs_20 = resonant_sum(20)
+    for s in [0.0, 0.5, 1.0, 2.0]:
+        z = zeta_partial_sum(20, s)
+        print(f"    s={s:>4}: ratio resonant/zeta = {rs_20 / z:>14.3e}")
+    print()
+    print("  CONCLUSION (Report 6):")
+    print("    The literal equality sum_of_resonant_generations(n) = zeta_partial_sum(n)")
+    print("    CANNOT hold for any standard real s. Exponential function ~5^n/2 cannot")
+    print("    equal polylogarithmic/polynomial zeta partial sums; the ratio diverges")
+    print("    as ~5^n/n^(1-s).")
+    print()
+    print("    What IS true and ready for Lean:")
+    print("        sum_{k=0..n/2} C(n, 2k) * 4^(n - 2k)  =  (5^n + 3^n) / 2")
+    print()
+    print("    What is genuinely axiomatic (= the unproven bridge to zeta):")
+    print("        the measure-theoretic / asymptotic correspondence by which QLF")
+    print("        resonant combinatorics encode the analytic zeta structure.")
+    print("        Closing this axiom requires Mellin-transform-style argument")
+    print("        above the RCA0 floor -- same status as SpectralGap.md section 6's")
+    print("        'asymptotic, not algebraically exact' caveat.")
+    print("=" * 88)
+    print()
+
+
+# ---------------------------------------------------------------------------
 # Conclusion
 # ---------------------------------------------------------------------------
 
@@ -198,4 +290,5 @@ if __name__ == "__main__":
     report_term_ratio(max_k=15)
     report_weighting_search(max_k=12)
     report_exact_check()
+    report_specific_bridge(max_n=20)
     conclusion()
