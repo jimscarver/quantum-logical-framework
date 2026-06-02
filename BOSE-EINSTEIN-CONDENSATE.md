@@ -152,3 +152,5 @@ This is yet another confirmation that our universe is most likely a closed quant
 - [Relational Quantum Mechanics – Rovelli (1996)](https://arxiv.org/abs/quant-ph/9609002)
 
 Contributions, formal QuCalc rewrite traces for larger N, extensions to interacting BECs, or refinements of the $T_c$ derivation are warmly welcomed via pull request.
+
+See also: [Spin_Statistics.md](Spin_Statistics.md) — bosonic stacking derived from the parallel composition of an even number of 1/2-spin atoms; the spin-statistics theorem stated as the arithmetic of the per-atom $-I$ Pauli fold.

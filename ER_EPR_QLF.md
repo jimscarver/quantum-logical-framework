@@ -31,4 +31,4 @@ This proof formally shows that:
 ## Implications
 This unification suggests that spacetime connectivity itself emerges from entanglement. The logical lattice, not spacetime, is fundamental.
 
-See also: [Entanglement.md](Entanglement.md) — shared logical constraints and bit-by-bit resolution without FTL signaling; [Holographic.md](Holographic.md) — holographic principle as topological necessity of ZFA closure.
+See also: [Entanglement.md](Entanglement.md) — unified synthesis covering bit-halving, primordial pair-creation, monogamy, no-signaling, Bell violations, with this file's ER=EPR identity as §3; [Holographic.md](Holographic.md) — holographic principle as topological necessity of ZFA closure.

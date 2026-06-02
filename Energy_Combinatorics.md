@@ -23,3 +23,5 @@ Because the multiplicity of the collection drops instantly (e.g., from 256 paths
 This is a profound connection. We are bridging the QuCalc logic directly into the foundation of statistical mechanics.In standard physics, Boltzmann established that entropy (and by extension, energy) is determined by the number of microstates ($\Omega$) available to a system. 
 
 If a particle is a collection of event histories, then the "number of ways" it can express a specific spatial radius is its multiplicity.Therefore, Topological Energy is exactly equal to the combinatoric volume of the history collection.When an unobserved particle expands, its possibility space multiplies, and its energy grows. When it is observed (measured), the ZFA requirement collapses the multiplicity, binding the energy and resetting the system.
+
+See also: [Conservation.md](Conservation.md) — energy conservation derived as the time-translation symmetry of the QuCalc engine; §2 develops the multiplicity ↔ energy correspondence introduced here in the full Noether-in-QLF framework.

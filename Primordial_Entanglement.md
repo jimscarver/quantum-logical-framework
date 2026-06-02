@@ -117,3 +117,5 @@ Global Action Verification : (^>v<) + (^<v>) = 0 (Void)
 3. **Perfect Symmetry:** The output proves the global universe remains perfectly symmetric. Perspective A generated a Right-Handed base fermion, and Perspective B generated a Left-Handed base fermion. The total net action of the universe remains exactly Zero.
 
 By increasing the `--max_depth` parameter in `particles.py` to 8 or 12, the engine will automatically discover the higher-order resonant harmonics (Muons, Taus) and the fractional knots (Quarks) required to stabilize the expanding Information Ecology.
+
+See also: [Entanglement.md](Entanglement.md) — unified synthesis treating this primordial pair-creation as the cosmological origin of all entanglement (§2); [Annihilation.md](Annihilation.md) — the reverse Hermitian-pair event that returns the action to the Void.
