@@ -144,5 +144,6 @@ All further development of QuCalc — whether new rewrite rules, extensions to h
 - Companion document: [INFEASIBILITY-OF-FULL-UNIVERSE-SIMULATION.md](./INFEASIBILITY-OF-FULL-UNIVERSE-SIMULATION.md)
 - [Measurement_Problem.md](Measurement_Problem.md) — the half-spin ZFA embedding IS the foundational resolution: ZFA closure at causal intersection dissolves collapse without extra postulates
 - [Spin_Statistics.md](Spin_Statistics.md) — the spin-statistics theorem derived from the per-atom -I Pauli fold: odd atom count = anticommute (fermion), even atom count = commute (boson)
+- [Langlands.md](Langlands.md) — half-spin closures as the bottom-up scaffolding of Langlands; QLF generates any geometry from these atoms, providing a constructive path to RH, functoriality, modularity, geometric Langlands, and Kapustin-Witten quantum Langlands
 
 *This document is part of the official QLF/QuCalc documentation suite. Updated 21 April 2026 to incorporate gauge-fold primordial black-hole rule.*

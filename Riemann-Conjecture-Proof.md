@@ -244,3 +244,5 @@ That is already stronger and cleaner than leaving RH as an unexplained analytic 
 
 QLF does not treat the critical line as an analytic miracle.
 It treats it as a strict conservation law of information physics—the necessary symmetry signature of any universe generated through admissible, zero-free logical closure.
+
+See also: [Langlands.md](Langlands.md) — treats this RH reduction as §5.1's most-developed application of the bottom-up Langlands scaffolding; the same reduction pattern is then applied to functoriality, modularity, geometric Langlands, and Kapustin-Witten quantum Langlands.

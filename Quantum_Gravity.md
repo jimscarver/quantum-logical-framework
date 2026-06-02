@@ -128,3 +128,7 @@ These are the algebraic foundation. The four faces of §1–§6 follow as physic
 - Maldacena, J., Susskind, L. (2013). *Cool horizons for entangled black holes.* Fortschr. Phys. 61, 781 — ER=EPR conjecture.
 - Verlinde, E. P. (2011). *On the origin of gravity and the laws of Newton.* JHEP 04, 029 — entropic gravity, closest standard-physics reading to QLF's gravity-as-residual.
 - Ryu, S., Takayanagi, T. (2006). *Holographic derivation of entanglement entropy from AdS/CFT.* Phys. Rev. Lett. 96, 181602 — entropy-area formula.
+
+### See also
+
+- [Langlands.md](Langlands.md) — the boundary↔bulk holography of §4 IS the geometric-Langlands categorical equivalence at the QLF substrate (D-modules on Bun_G(X) ↔ coherent sheaves on local systems); the gauge-fold ↔ spatial-fold duality is the discrete analog of Kapustin-Witten S-duality.

@@ -137,3 +137,5 @@ In RhoProcess terms: U is the ZFA closure condition (the action component, satis
 This formulation shows that QLF's Zero Free Action principle can be expressed variationally as a null Lagrangian. Decoherence becomes mathematically impossible within this framework, as it would require violating either the zero-action condition or the algebraic structure — both enforced by construction and machine-verified.
 
 The Lagrangian formulation provides a bridge between the distinction-based language of QLF and standard physics notation, with every claim anchored in a specific machine-verified Lean theorem.
+
+See also: [Langlands.md](Langlands.md) — the Σ₈ algebra developed here is the elementary-representation source for the QLF-as-bottom-up-Langlands scaffolding; `tau_xy_product` etc. are read there as the Langlands product relations.
