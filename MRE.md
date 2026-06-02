@@ -116,3 +116,5 @@ As defined in [Relative_Entropy.md](./Relative_Entropy.md) and [Entropy.md](./En
 1. Add a Lean theorem `max_relative_entropy_at_half_spin` capturing $D_\text{KL} = \log 2$ saturation at $k = 1$ under uniform prior over symmetric strings.
 2. Extend `particles.py` or `path_integral.py` to log KL divergence on each 1/2-spin closure during BFS enumeration.
 3. Link this file from [README.md](./README.md) and [Philosophy.md](./Philosophy.md).
+
+**See also:** [Hierarchical_Control.md](./Hierarchical_Control.md) — uses the $\log 2$-per-atom result here as the per-event quantum of free-energy minimization in deriving Friston's free energy principle from ZFA.

@@ -99,8 +99,21 @@ Typical output demonstrates both classes side-by-side and confirms:
 | No `+`–`−`         | Massless particle       | Pure spatial resonance      | 0                  | Space         | None                   | Local space + propagation|
 | Density threshold  | Role swap               | High \(\rho\) ↔ low \(\rho\)| —                  | —             | —                      | Relativistic frames      |
 
-## 6. Ties to Other Documents
+## 6. Bottom-up synthesis and top-down constraint
 
+The frequency-synchronization rule above is one face of a deeper architecture: **relativity crosses frequencies, fast controls bottom-up, slow controls top-down.** ZFA closures at the vacuum frequency drive structure up through the scales; Markov-blanket boundaries at each scale screen admissible micro-events from above; cross-frequency time dilation is the relativistic shadow of frequency mismatch between observer scales.
+
+Concretely:
+
+- **Bottom-up (fast → slow, causation)**. Each 1/2-spin ZFA atom ([MRE.md](MRE.md)) is one quantum of free-energy minimization at vacuum frequency. Parallel composition of atoms builds particles, nuclei, atoms, matter. Causation flows up through composition at the rate $f$.
+- **Top-down (slow → fast, constraint)**. Each Markov blanket — particle, atomic, hadronic, cosmic ([Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md)) — integrates many fast events into a slowly-evolving boundary state. That state is the prior the agent inside conditions its next closure on. Cosmic-horizon entropy ([AgeOfUniverse.md](AgeOfUniverse.md)) and gravitational warping ([Gravity.md](Gravity.md)) are the highest-level top-down constraints.
+- **Cross-frequency = relativity**. The §3 space/time role swap is the local face of this. Lorentz transformations between two observer frames at different logical densities ARE the change of basis between their internal ZFA event rates. Time dilation is forced by ZFA closure consistency, not postulated.
+
+This bottom-up/top-down architecture also **derives Friston's free energy principle from ZFA**: each ZFA closure minimizes free energy by $\log 2$ nats (the per-event maximum, from [MRE.md §2.1](MRE.md)), the topological Markov blanket coincides with Friston's statistical blanket, and active inference is the agent's selection among admissible next ZFA closures. The full development, including the derivation and its open-work caveats (Lean theorem, numerical demo), is in [Hierarchical_Control.md](Hierarchical_Control.md).
+
+## 7. Ties to Other Documents
+
+- [Hierarchical_Control.md](Hierarchical_Control.md): The bottom-up / top-down architecture in full, with the constructive derivation of Friston's free energy principle.
 - `Particles.md`: Full particle zoo with gauge/non-gauge classification.
 - `HALF-SPIN-ZFA-EMBEDDING.md`: Gauge folds as primordial BH seeds.
 - `Entropy.md`: Frequency-delay conserves unitarity in Hawking radiation.

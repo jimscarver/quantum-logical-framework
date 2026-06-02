@@ -311,5 +311,6 @@ The universe does not have to begin as a singular object in pre-existing time. I
 - [`AgeOfUniverse.md`](AgeOfUniverse.md)
 - [`StringTheory.md`](StringTheory.md)
 - [`E_mc2_derivation.md`](E_mc2_derivation.md)
+- [`Hierarchical_Control.md`](Hierarchical_Control.md) — cross-frequency relativity as the bridge between bottom-up ZFA event synthesis and top-down Markov-blanket constraint; Lorentz transformations as change-of-basis between frame-local ZFA event rates.
 
 Welcome to Universal Relativity.

@@ -66,6 +66,7 @@ This bias is passed directly to the spin-network geometry in the QuCalc engine, 
 - `Particles.md` & `HALF-SPIN-ZFA-EMBEDDING.md`: Explicit particle classification.
 - `Hadrons_Markov_Blankets.md`: Markov blanket = horizon for gauge-folded radiation.
 - `BLACK-HOLES.md` (to be rewritten): Full particle ↔ black-hole equivalence proven here.
+- [`Hierarchical_Control.md`](Hierarchical_Control.md): Gravity is the macroscopic top-down constraint in the bottom-up/top-down architecture; cosmic-horizon entropy is the highest-level prior.
 
 ## Conclusion
 

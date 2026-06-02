@@ -12,4 +12,4 @@ It also connects to Karl Friston's Markov blankets and Bayesian mechanics. See: 
 
 It explains active inference and the emergence of order. See: active_inference.md
 
-See also: [AI.md](AI.md); [Measurement_Problem.md](Measurement_Problem.md) — ZFA closure as the physical realization of Bayesian update / measurement.
+See also: [AI.md](AI.md); [Measurement_Problem.md](Measurement_Problem.md) — ZFA closure as the physical realization of Bayesian update / measurement; [Hierarchical_Control.md](Hierarchical_Control.md) — multiplicity principle as bottom-up driver, Markov-blanket-screened prior as top-down constraint; derives Friston's free energy principle from ZFA.
