@@ -113,6 +113,85 @@ The same pattern extends to the counting structure. `find_stable_states_length_e
 
 ---
 
+## 4. The MRE bridge: structurally motivating the WKL₀ axiom
+
+§2 isolates `spectral_hilbert_polya : scalar mode → ρ.re = 1/2` as a WKL₀-level axiom — well-defined, explicitly separated, but unmotivated beyond *"this is where RCA₀ ends."* This section gives the axiom an information-theoretic motivation drawn from [MRE.md](MRE.md), without changing its proof-theoretic strength. The bridge stays an axiom; the axiom becomes principled.
+
+### 4.1 The combinatorial closed form (RCA₀)
+
+The QLF resonant sum has a clean closed form derivable inside RCA₀ — separate the even-index part of $(4+1)^n + (4-1)^n$:
+
+$$\sum_{k=0}^{\lfloor n/2 \rfloor} \binom{n}{2k} \, 4^{n - 2k} = \frac{5^n + 3^n}{2}$$
+
+Verified at `n = 0..10` (sequence `1, 4, 17, 76, 353, 1684, 8177, 40156, 198593, 986404, 4912337`; see [`qlf_dirichlet_search.py`](qlf_dirichlet_search.py) Report 6). This is suitable for a Lean lemma `cardinality_of_resonant_generations`.
+
+The associated generating function is
+
+$$Z_{\mathrm{QLF}}(x) = \sum_{n \geq 0} \frac{5^n + 3^n}{2} \cdot x^n = \frac{1}{2} \cdot \left( \frac{1}{1 - 5x} + \frac{1}{1 - 3x} \right)$$
+
+— an algebraic function with simple poles at $x = 1/5$ and $x = 1/3$. Both the sum and the generating function are RCA₀ objects.
+
+### 4.2 What MRE adds (still RCA₀)
+
+[MRE.md §2.1](MRE.md) proves the **binary-partition information-gain bound**:
+
+$$D_{\mathrm{KL}}(q \mathbin{\Vert} p) \leq \log 2$$
+
+with equality only at the 50/50 split. The argument is fully constructive (count balance, max-entropy event shape) and RCA₀-statable. Any deviation from exact 1/2 balance leaves residual free action — a positive spectral gap (`spectral_gap_zero_iff_symmetric`, [SpectralGap.md](SpectralGap.md)) — which is forbidden by `rho_process_always_zfa`.
+
+The **MRE saturation principle**: every admissible ZFA closure sits at the 1/2 balance locus. This is an RCA₀ theorem about TopoStrings.
+
+### 4.3 The Mellin transform (WKL₀)
+
+The Mellin transform
+
+$$\mathcal{M}[f](s) = \int_0^\infty f(t) \cdot t^{s-1} \, dt$$
+
+requires compactness arguments — Heine-Borel, dominated convergence — that live at the **WKL₀** level of the Reverse Mathematics hierarchy. Mellin transforms of algebraic generating functions like $Z_{\mathrm{QLF}}$ are well-defined WKL₀ objects: their existence and analytic continuation properties are WKL₀-provable for the specific function classes QLF generates.
+
+This is the bridge layer. The combinatorial input (resonant sum, generating function) is RCA₀; the analytic output ($\mathcal{M}[Z_{\mathrm{QLF}}]$ as a function on $\mathbb{C}$) is WKL₀. No ACA₀ machinery is invoked.
+
+### 4.4 The proposed MRE-motivated axiom
+
+```
+RCA₀:     Σ C(n, 2k) · 4^(n-2k) = (5^n + 3^n)/2          [closed form, Lean-ready]
+            ↓ generating function
+RCA₀:     Z_QLF(x) = (1/(1-5x) + 1/(1-3x))/2             [algebraic]
+            ↓ Mellin transform (WKL₀: compactness)
+WKL₀:     M[Z_QLF](s) — analytic object on ℂ
+            ↓ MRE saturation: only the 1/2 balance locus is admissible
+WKL₀+MRE: structural singularities of the QLF Mellin image lie on Re(s) = 1/2
+            ↓ ζ correspondence (the bridge axiom we want to motivate)
+ACA₀:     ζ(s) has its non-trivial zeros on Re(s) = 1/2
+```
+
+The bridge can then be stated as:
+
+**`MRE_bridge`** (proposed WKL₀-level axiom): under the Mellin-transform encoding (provable WKL₀-side), the MRE-saturation principle (RCA₀-statable) forces the structural singularities of $\mathcal{M}[Z_{\mathrm{QLF}}]$ — and hence of the QLF-encoded $\zeta$ — to lie on $\Re(s) = 1/2$.
+
+This is the same logical strength as the existing `spectral_hilbert_polya`. The change is **content**: the axiom is now justified by an information-theoretic principle internal to QLF (MRE saturation), not by appeal to external Hilbert-Pólya conjectures.
+
+### 4.5 Why this is progress
+
+- **Same proof-theoretic strength.** Still a WKL₀ axiom; the Reverse Mathematics classification of §2 is unchanged.
+- **Structurally motivated.** The axiom now expresses a chain `(RCA₀ closed form) → (RCA₀ MRE saturation) → (WKL₀ Mellin compactness) → (WKL₀ critical-line condition)` instead of being a bare placeholder.
+- **Falsifiable.** A specific Mellin-image identity is now the bridge to verify. Future work can attempt to discharge the axiom by either (a) constructing the explicit Mellin identity within WKL₀ + MRE saturation, or (b) finding a counterexample where MRE saturation fails to force the critical-line condition. [`qlf_dirichlet_search.py`](qlf_dirichlet_search.py) Report 7 supplies the numerical demo.
+- **Connects two of QLF's deepest results.** [MRE.md](MRE.md) (Hermitian-pair max entropy) and [Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md) (RH reduction) become a single argument: the critical line is the locus of maximum information-gain ZFA pruning.
+
+### 4.6 What's still axiomatic
+
+The Mellin-MRE-bridge step is still an axiom. The numerical evidence in [`qlf_dirichlet_search.py`](qlf_dirichlet_search.py) Reports 4 and 7 is **consistent with** such a bridge (the asymptotic $1/\sqrt{\pi}$ factor in Report 4 is the Stirling-derived Mellin factor), but the formal identity is open work. The promotion path:
+
+- Lean theorem: state `MRE_bridge` in `lean/QLF_Riemann.lean` with the Mellin-image formulation that explicitly invokes MRE saturation. A commented sketch is staged in the Lean source.
+- Numerical: extend Report 7 to higher resolution and a wider class of generating functions; check whether structural singularities always sit on $\Re(s) = 1/2$ as predicted.
+- Analytic: identify the precise compactness theorem that, combined with MRE saturation, would discharge the axiom inside WKL₀.
+
+### 4.7 Connection to Montgomery-Odlyzko / GUE spacing
+
+The GUE spacing of Riemann zeros (Montgomery 1973, Odlyzko 1987) is the deepest empirical signature of the analytic side. The QLF gap-zero density `C(2n, n) / 4^n ~ 1/√(πn)` produces matching $\sqrt{\pi n}$ spacing asymptotically ([SpectralGap.md §2](SpectralGap.md)) — but only asymptotically, not exactly. Under the MRE-bridge framing, this is exactly the expected behavior: the Mellin image of the QLF generating function carries the discrete GUE-like density across the bridge into the asymptotic spacing of the analytic zeros. The bridge axiom IS the statement that this asymptotic match is exact in the limit.
+
+---
+
 ## Connection to the Lean Repository
 
 The full axiom inventory and proof chain are documented in [`lean/README.md`](lean/README.md). The combinatorial core theorems referenced above are in:
@@ -120,8 +199,8 @@ The full axiom inventory and proof chain are documented in [`lean/README.md`](le
 - [`lean/QLF_Axioms.lean`](lean/QLF_Axioms.lean) — ZFA, pruning, symmetry
 - [`lean/QLF_Universality.lean`](lean/QLF_Universality.lean) — every terminating computation encodes as ZFA
 - [`lean/QLF_Spectral.lean`](lean/QLF_Spectral.lean) — Hermitian structure, scalar identity
-- [`lean/QLF_Riemann.lean`](lean/QLF_Riemann.lean) — the full proof chain including the axiom boundary
+- [`lean/QLF_Riemann.lean`](lean/QLF_Riemann.lean) — the full proof chain including the axiom boundary; the proposed `MRE_bridge` refinement of §4 is sketched as a comment block here
 
-The Reverse Mathematics perspective is the meta-mathematical justification for the entire Lean formalization strategy: prove everything that can be proved in RCA₀, isolate everything that genuinely requires more, and label the boundary explicitly.
+The Reverse Mathematics perspective is the meta-mathematical justification for the entire Lean formalization strategy: prove everything that can be proved in RCA₀, isolate everything that genuinely requires more, and label the boundary explicitly. §4 refines this further: when an axiom must sit on the boundary, give it a structural motivation drawn from RCA₀ principles internal to the framework.
 
-See also: [GodCreatedTheIntegers.md](GodCreatedTheIntegers.md) — historical context: the discrete/deterministic vision of Zuse, Wheeler, Wolfram, 't Hooft, and Mead that QLF fulfills.
+See also: [GodCreatedTheIntegers.md](GodCreatedTheIntegers.md) — historical context: the discrete/deterministic vision of Zuse, Wheeler, Wolfram, 't Hooft, and Mead that QLF fulfills; [MRE.md](MRE.md) — the per-event log 2 saturation that motivates §4's bridge; [Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md) — the RH reduction whose bridge axiom §4 refines; [SpectralGap.md](SpectralGap.md) — the "asymptotic, not algebraically exact" caveat that §4's Mellin form respects.

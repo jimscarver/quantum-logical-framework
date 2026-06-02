@@ -310,4 +310,57 @@ theorem riemann_hypothesis_in_qlf :
     ⟨⟨n, h_gen⟩, h_zfa⟩
   exact critical_line_forcing (encode_is_phase_only (resonant_computation_for ρ)) h_sym h_zero
 
+-- =====================================================================
+-- PROPOSED REFINEMENT: MRE_bridge (commented sketch, not yet adopted)
+-- =====================================================================
+--
+-- See ReverseMathematics.md §4 ("The MRE bridge: structurally motivating
+-- the WKL₀ axiom") for the full development. Numerical evidence: see
+-- qlf_dirichlet_search.py Report 7.
+--
+-- The existing `spectral_hilbert_polya` / `critical_line_forcing` axiom is
+-- WKL₀-level but unmotivated beyond "this is where RCA₀ ends." The proposed
+-- refinement keeps the same proof-theoretic strength but expresses the axiom
+-- as the *Mellin image of the MRE saturation principle*. Concretely:
+--
+--   axiom MRE_bridge :
+--     -- For any complex number ρ that names a structural singularity of
+--     -- the Mellin transform of the QLF generating function,
+--     ∀ ρ : ℂ,
+--       MellinStructuralSingularity Z_QLF ρ →
+--       -- the MRE-saturation principle (RCA₀-statable: the binary partition
+--       -- information-gain bound is saturated only at the 50/50 split, see
+--       -- MRE.md §2.1) forces ρ to lie on the critical line.
+--       MRE_Saturated ρ →
+--       ρ.re = 1/2
+--
+--   theorem riemann_hypothesis_in_qlf_via_MRE :
+--       ∀ ρ : ℂ, NonTrivialZero ρ → ρ.re = 1/2 := by
+--     intro ρ h_zero
+--     -- (1) Every non-trivial zero corresponds to a structural singularity
+--     --     of the Mellin image (via the resonant_computation_for encoding).
+--     have h_sing : MellinStructuralSingularity Z_QLF ρ := …
+--     -- (2) MRE saturation holds for every admissible ZFA closure (RCA₀).
+--     have h_mre : MRE_Saturated ρ := …
+--     -- (3) Apply the bridge axiom.
+--     exact MRE_bridge ρ h_sing h_mre
+--
+-- The bridge is still axiomatic — Z_QLF, MellinStructuralSingularity, and
+-- MRE_Saturated are WKL₀-level objects that QLF currently treats as
+-- definitions rather than derived constructions. The refinement does not
+-- change the Lean axiom count; it gives the axiom a structural motivation
+-- (MRE saturation) drawn from RCA₀ principles internal to the framework.
+--
+-- Promotion path:
+--   1. Define Z_QLF in Lean: Z_QLF(x) = (1/(1-5x) + 1/(1-3x))/2 — already
+--      verified numerically (qlf_dirichlet_search.py Report 6).
+--   2. State MellinStructuralSingularity using available WKL₀ analytic
+--      machinery in Mathlib (Mellin-transform compactness theorems).
+--   3. Define MRE_Saturated as the RCA₀-statable condition: the underlying
+--      binary partition satisfies count_pos s = count_neg s (already in
+--      QLF_Axioms.lean as is_symmetric).
+--   4. Either discharge MRE_bridge as a theorem (combining WKL₀ compactness
+--      + RCA₀ MRE saturation), or retain it as the explicit refined axiom
+--      with full structural motivation.
+
 end QLF

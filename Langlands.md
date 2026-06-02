@@ -204,3 +204,7 @@ Specific Lean theorems and numerical demos that would convert paths to proofs:
 - Lurie, J. (2009). *Higher Topos Theory.* Annals of Math. Studies 170 — categorical infrastructure underlying modern Langlands.
 - Montgomery, H. L. (1973). *The pair correlation of zeros of the zeta function.* In *Analytic Number Theory*, Proc. Symp. Pure Math. 24, 181 — Montgomery-Odlyzko / GUE spacing.
 - Wiles, A. (1995). *Modular elliptic curves and Fermat's Last Theorem.* Ann. Math. 141, 443 — modularity / Taniyama-Shimura case.
+
+### See also
+
+- [ReverseMathematics.md §4](ReverseMathematics.md) — refines §5.1's bridge axiom for RH with an MRE-saturation motivation; the same pattern is the natural starting point for refining the bridge axioms in this document's §5.2–§5.6 (functoriality, modularity, geometric Langlands, Kapustin-Witten). Numerical evidence in [`qlf_dirichlet_search.py`](qlf_dirichlet_search.py) Report 7.
