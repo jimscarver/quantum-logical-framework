@@ -177,3 +177,5 @@ What the QLF Higgs program still needs:
 4. **Lean formalization.** Encode gauge-fold depth and mass generation in the Lean 4 formalization as ZFA structural theorems.
 
 These are natural next targets for the QLF physics program.
+
+See also: [Standard_Model.md](Standard_Model.md) — honest scoreboard placing the Higgs sector among partial derivations (the *why mass exists* part is qualitatively derived; the specific Higgs boson mass and Yukawa coupling structure are open).

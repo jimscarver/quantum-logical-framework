@@ -120,4 +120,4 @@ There was no “t = 0”. The cosmos has always been becoming — and continues 
 **✅ Ready to push**  
 This file is self-contained, uses only GitHub-compatible Markdown, links to the Lean proof, and directly addresses your requirement: the age is derived **purely from the observed frequency distribution** (no tuning to Hubble constant or dark-energy density).
 
-Would you like me to also add a one-line reference to this file in `WHITE_PAPER.md` or `README.md`?
+See also: [Quantum_Gravity.md](Quantum_Gravity.md) — master synthesis tying cosmic expansion (this doc) to gravity, holography, and ER=EPR as four faces of the same algebraic event.

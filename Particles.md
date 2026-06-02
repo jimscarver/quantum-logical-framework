@@ -39,4 +39,4 @@ By running the `particles.py` Intuitionistic Engine and allowing it to explore b
 ```bash
 $ python particles.py --seed "primordial" --max_depth 4 --intuitionistic True --enable_gauge True
 
-See also: [eight-twists-sufficiency.md](eight-twists-sufficiency.md) — proof that the 8-twist alphabet is the complete generative kernel for all particles and dimensions.
+See also: [eight-twists-sufficiency.md](eight-twists-sufficiency.md) — proof that the 8-twist alphabet is the complete generative kernel for all particles and dimensions; [Standard_Model.md](Standard_Model.md) — honest synthesis mapping every Standard Model sector to its QLF derivation status (derived / partial / open).

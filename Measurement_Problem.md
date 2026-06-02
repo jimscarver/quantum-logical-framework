@@ -136,6 +136,7 @@ Measurement is not a problem. It is the inevitable consequence of living inside 
 * [ZFA – nLab](https://ncatlab.org/nlab/show/ZFA)
 * [Relational Quantum Mechanics – Rovelli (1996)](https://arxiv.org/abs/quant-ph/9609002)
 * [Born_Rule.md](Born_Rule.md) — the Born rule derived as the probability assignment for the per-event log 2 information gain established in §4a of this doc
+* [Decoherence.md](Decoherence.md) — the apparent-classical-limit story that complements §4a: decoherence is not a real process; it is the Markov-blanket coarse-graining that filters fast micro-events from the observer's macro state
 
 Contributions, formal proofs, alternative derivations, and experimental tests of the history-closure picture are warmly welcomed via pull request.
 
