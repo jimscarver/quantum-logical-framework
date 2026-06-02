@@ -15,3 +15,5 @@ A free Neutron contains a topological stress (excess Bound Action) relative to t
 * **The Ejection:** This logic must immediately resolve to preserve global ZFA. It splits into two Unforgeable Names:
   1. **The Electron:** A highly chiral, tightly bound ZFA loop that carries away the asymmetric logical debt.
   2. **The Majorana Neutrino:** A non-chiral, nearly massless string that carries away the residual relational momentum without violating the chiral balance of the new system.
+
+See also: [Annihilation.md](Annihilation.md) — develops the LH `^<v>` vs RH `^>v<` chiral twist patterns from §1 as Hermitian pairs whose composition folds to identity (the algebraic content of pair annihilation); the unspooling described in §2 is the same topological unwinding read at the hadron scale.

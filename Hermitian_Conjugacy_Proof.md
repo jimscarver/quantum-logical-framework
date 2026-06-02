@@ -93,5 +93,5 @@ Histories that fail to close under this adjoint evolution represent mathematical
 
 This establishes that the fundamental conservation laws of quantum mechanics are not merely simulated by the framework; they are emergent, necessary properties of its underlying logic.
 
-See also: [BraKetRhoQuCalc.md](BraKetRhoQuCalc.md) — the bra-ket ↔ RhoQuCalc correspondence, where Hermitian self-adjointness of `Form.toMatrix` is the machine-verified foundation of the density-matrix picture.
+See also: [BraKetRhoQuCalc.md](BraKetRhoQuCalc.md) — the bra-ket ↔ RhoQuCalc correspondence, where Hermitian self-adjointness of `Form.toMatrix` is the machine-verified foundation of the density-matrix picture; [Annihilation.md](Annihilation.md) — the `E + E† ≡ ZFA` identity proved here is exactly the topological-unwinding event read at the physical level (LH closure unwound by RH closure), with the per-event released-information quantum tied to [MRE.md](MRE.md).
 

@@ -181,3 +181,5 @@ The atom is completely topologically sealed. It will not interact chemically.
 
 ```
 *(Note: Electrons #9 and #10 hit the critical block in the simplistic routing of version 4.1 because this specific script is capped at completing the p-shell to strictly model up to Neon. In a fully expanded QuCalc engine, those final ticks would initialize the d-shell tensor.)*
+
+See also: [Annihilation.md](Annihilation.md) — the LH proton / RH electron chirality assignment used in §1 of this doc is what makes hydrogen + antihydrogen a joint Hermitian pair that unwinds completely on contact.

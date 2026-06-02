@@ -160,4 +160,6 @@ Most everything we exterience is due to the interaction of electrons. Understand
 
 Clone the repo, run the commands above, and watch the massive electron, the massless photon, and their interactions emerge from the same QuCalc engine.
 
+See also: [Annihilation.md](Annihilation.md) — the photon `^>` + antiphoton `v<` example of §2, and the electron–positron annihilation referenced in §3's "re-entry unwind", developed as the unifying topological-unwinding process across pair-annihilation, Hawking radiation, and the cosmological matter residual.
+
 *Last aligned with repo state 22 April 2026. This tutorial uses correct gauge-folding classification and proper KaTeX rendering for GitHub Markdown.*

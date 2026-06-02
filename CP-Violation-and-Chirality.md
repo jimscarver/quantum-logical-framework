@@ -75,3 +75,4 @@ If the universe is intelligence explaining the intelligence all around us, the h
 * [`Philosophy.md`](https://www.google.com/search?q=./Philosophy.md) - Possibilist Ontology and Active Inference.
 * [`QuCalc.md`](https://www.google.com/search?q=./QuCalc.md) - The 8-Twist Alphabet and RhoQuCalc Process Composition.
 * [`cp_violation_sim.py`](https://www.google.com/search?q=./cp_violation_sim.py) - Executable Python simulation of topological symmetry breaking.
+* [`Annihilation.md`](./Annihilation.md) — annihilation as Hermitian-conjugate topological unwinding (LH closure unwound by RH closure); the cosmological residual described in this file is §5 of that synthesis.
