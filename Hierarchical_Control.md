@@ -119,3 +119,7 @@ The hierarchical-control architecture follows from §1–§3.
 - Friston, K. (2019). *A free energy principle for a particular physics*. arXiv:1906.10184.
 - Friston, K., Da Costa, L., Sajid, N., Heins, C., Ueltzhöffer, K., Pavliotis, G. A., & Parr, T. (2023). *The free energy principle made simpler but not too simple*. Physics Reports 1024, 1–29.
 - Carver Mead, *Collective Electrodynamics* (2000) — fluxoid as phase coupling, foundational to QLF's micro-event picture.
+
+### See also
+
+- [Active_Inference_Mathematics.md](Active_Inference_Mathematics.md) — uses §3's Friston-FEP derivation as the **selection principle of a new mathematical system**: math whose objects are admissible trajectories of a free-energy-minimizing agent. Where this doc derives the FEP from QLF, the meta-doc reads QLF *as* the mathematics that has active inference built into its foundation.
