@@ -78,6 +78,25 @@ Because the embedding is **minimal** (only atoms + directional pairs), it simult
 - Enforces **strict irreducibility** for large systems
 - Preserves **relational structure** (no God’s-eye view)
 
+## 3a. Information-Theoretic Complement (Maximal Relative Entropy)
+
+The §3 table gives the **set-theoretic** reason half-spin is foundational: atoms + directional pairs are the minimal ZFA realization of the spin-1/2 representation. [MRE.md](MRE.md) gives the **information-theoretic** reason, and the two together exhaust the foundational status of 1/2-spin in QLF.
+
+Concretely:
+
+- ZFA forces each event to be a **Hermitian-conjugate pair** (`bra_ket_always_balanced` in `lean/BraKetRhoQuCalc.lean`). The minimal such closure is binary — one twist plus its conjugate.
+- A binary partition has at most $\log 2$ nats of information gain, and saturates the bound only when the two pieces are equal in size.
+- Therefore the 1/2-spin closure is the **unique** event-shape that simultaneously satisfies ZFA (Hermitian pair) AND saturates per-event information gain. Anything coarser is a composite of 1/2-spin atoms; anything finer is forbidden by the Hermitian-pair structure.
+
+The four base 1/2-spin atoms — `^v`, `<>`, `/\`, `+-` — each fold to $-I$ in the Pauli group, witnessing both:
+- Topological closure (the set-theoretic claim of this document)
+- Pauli closure (the algebraic claim of [Experimental_Consistency.md §2.1](Experimental_Consistency.md))
+- Maximum information gain (the information-theoretic claim of [MRE.md](MRE.md))
+
+The 720° spinor statistics of fermions are the macroscopic signature of this $-I$ fold: a single 1/2-spin atom contributes the $-1$ phase a fermion picks up under 360° rotation; two atoms in parallel restore $+I$ at 720°. **Half-spin is foundational not as a choice but as the unique fixed point of three independent constraints — set-theoretic minimality, algebraic closure, and information-theoretic optimality — that all coincide on the same object.**
+
+See [MRE.md](MRE.md) for the per-event $\log 2$ derivation and [Hierarchical_Control.md](Hierarchical_Control.md) for the consequences in the bottom-up/top-down architecture (each 1/2-spin atom is one quantum of free-energy minimization).
+
 ## 4. New Section: `+`–`−` Gauge Folds as Primordial Black-Hole Seeds (21 April 2026 Update)
 
 Only half-spin loops that employ **gauge folding (`+` and `-`)** are primordial quantum black holes:

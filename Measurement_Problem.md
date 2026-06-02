@@ -75,6 +75,21 @@ This closure enforces:
 
 Result: The measurement problem vanishes. What looks like “collapse” is simply the observer’s history string reaching ZFA closure at the moment of interaction. The variational expression of this closure — ℒ=0 as condition of origin, not a cutting rule — is developed in [Lagrangian_Formulation.md](Lagrangian_Formulation.md); decoherence impossibility is machine-verified as `orthogonality_01` (BraKetRhoQuCalc.lean:173) and `rho_process_always_symmetric` (RhoQuCalc.lean:388).
 
+## 4a. The Quantitative Content of a Measurement
+
+A measurement event in QLF is a **ZFA closure**, and [MRE.md](MRE.md) gives its quantitative content: each 1/2-spin closure realizes exactly $\log 2$ nats of information gain — the unique per-event maximum under the ZFA Hermitian-pair constraint. The KL divergence from posterior (the realized history) to prior (the uniform distribution over admissible branches at the local Markov blanket's causal frontier) is
+
+$$D_{\mathrm{KL}}(q \mathbin{\Vert} p) = \log 2$$
+
+per atomic measurement, equivalently the surprise $-\log p(\text{realized branch}) = -\log(1/2)$.
+
+This **reframes wavefunction collapse as binary-partition information extraction**:
+
+- Standard QM: collapse is a mysterious projection from superposition to eigenstate; the Born rule is postulated; the information gained by the observer is asserted to be $-\log p$.
+- QLF: closure is the Hermitian-pair partition forced by the ZFA algebra; the Born rule is the uniform-prior structure of the possibility tree; the information gained is **derived** as $\log 2$ per 1/2-spin atom from the binary-partition optimum (see [MRE.md §2.1](MRE.md)).
+
+The measurement apparatus is not a special object — it is whichever Markov blanket the closure happens inside ([Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md)). Different observers at different blanket scales extract different ZFA closures from the same underlying history, each contributing $\log 2$ nats to their own causal-frontier ledger. This is the bottom-up half of the [Hierarchical_Control.md](Hierarchical_Control.md) architecture: measurement IS the fast-clock event that drives structure upward.
+
 ## 5. Empirical and Theoretical Support
 
 * **Exact subset simulation**: For laboratory systems ($n \lesssim 100$ spins) QLF/QuCalc reproduces all interference, entanglement, and measurement statistics with perfect fidelity — no ad-hoc collapse term is ever inserted.
@@ -84,7 +99,9 @@ Result: The measurement problem vanishes. What looks like “collapse” is simp
 Companion documents:
 
 * [HALF-SPIN-ZFA-EMBEDDING.md](./HALF-SPIN-ZFA-EMBEDDING.md)
+* [MRE.md](MRE.md) — per-event $\log 2$ derivation; gives §4a its quantitative content
 * [BayesianMechanics.md](BayesianMechanics.md) — multiplicity principle as the root of probability; ZFA as Bayesian update
+* [Hierarchical_Control.md](Hierarchical_Control.md) — measurement as the bottom-up fast-clock event in the hierarchical-control architecture
 * [Simulation_Impossibility.md](https://github.com/jimscarver/quantum-logical-framework/blob/main/Simulation_Impossibility.md)
 
 ## 6. Philosophical Implications

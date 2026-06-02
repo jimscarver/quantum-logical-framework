@@ -26,6 +26,14 @@ where \(\rho\) is the reduced density matrix after tracing out distinctions beyo
 
 Entropy therefore equals the number of irreducible ZFA loops hidden behind that blanket.
 
+## 1a. The Per-Event Quantum of Entropy Production
+
+Every 1/2-spin ZFA atom contributes exactly $\log 2$ nats to the entropy budget. This is the **per-event quantum**: each closure resolves one Hermitian-pair partition of the local possibility tree, and the binary-partition information bound $D_{\mathrm{KL}} \leq \log 2$ is saturated only by 50/50 binary closures — exactly the shape ZFA enforces ([MRE.md §2.1](MRE.md)).
+
+The maximally mixed reduced density matrix $\rho = I/2$ after a single 1/2-spin closure has von Neumann entropy $S(\rho) = -\mathrm{Tr}(\rho \ln \rho) = \log 2$, in agreement with the §1 formula. The two halves coincide because the 1/2-spin atom IS the unique fixed point of three independent constraints (set-theoretic minimality from [HALF-SPIN-ZFA-EMBEDDING.md](HALF-SPIN-ZFA-EMBEDDING.md), algebraic Pauli closure from [Experimental_Consistency.md §2.1](Experimental_Consistency.md), and information-theoretic optimality from [MRE.md](MRE.md)).
+
+This gives QLF entropy a **constructive microscopic foundation**: the $\log 2$ values appearing throughout this document (per gauge-folded loop, per minimal closure, per Planck area) are not coincidences but consequences of the per-event optimum. Multi-atom structures inherit the rate: a Pauli-closed history of length $2k$ carries $\log \binom{2k}{k}$ nats, recovering $\log 2$ for $k=1$ and the area law in the large-$k$ asymptotic.
+
 ## 2. Gauge Folding and Microscopic Entropy (New Rule)
 
 | Fold Type          | Particle Class          | Hidden Information          | Constructing Delay | Horizon Type      | Entropy Contribution                  | Radiation Mechanism                  |
@@ -70,6 +78,8 @@ Output demonstrates:
 - `BLACK-HOLES.md` (to be rewritten): Full equivalence proven here.
 - [`Holographic.md`](Holographic.md): Bulk/boundary duality and UV catastrophe resolution via ZFA closure.
 - [`Relative_Entropy.md`](Relative_Entropy.md): Observer-relative entropy; bisimilarity masking of internal complexity.
+- [`MRE.md`](MRE.md): Per-event $\log 2$ derivation as the binary-partition information-bound saturation; foundational for §1a.
+- [`Hierarchical_Control.md`](Hierarchical_Control.md): Per-event entropy production as the bottom-up rate driving the cross-scale architecture.
 
 ## Conclusion
 
