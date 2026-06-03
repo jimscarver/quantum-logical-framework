@@ -127,9 +127,9 @@ The path forward is to:
 ## 6. Open work
 
 - **Lean theorem**: `standard_model_particles_are_zfa_closures` formalizing the §2 derivations.
-- **Numerical demo**: enumerate the first three generations via `path_integral.py` and report the multiplicity-as-energy ratios; compare to observed lepton mass ratios.
+- **Numerical demo**: ⚠ Done with **falsified result** — [`lepton_mass_demo.py`](lepton_mass_demo.py) enumerates ZFA-closed multiplicities at depths N=4,6,8 (M(4)=48, M(6)=1200, M(8)=36432 via the QuCalcEngine BFS) and tests six candidate "mass ∝ f(N, M(N))" formulas against measured PDG ratios m_μ/m_e ≈ 206.77 and m_τ/m_μ ≈ 16.82. **No candidate matches.** M(N) grows monotonically by ~25–30× per N step, but measured ratios are non-monotonic (207 ≫ 17). Useful falsifiable negative result that pins down what the eventual derivation cannot be (pure monotone function of N and M(N) alone).
 - **Gauge-group identification**: identify the specific SU(3), SU(2), U(1) subgroups of the 8-twist algebra in Lean. The U(1) is done (`no_magnetic_monopoles` already encodes it); SU(2) and SU(3) are open.
-- **Mass ratios from multiplicity**: pursue the quantitative bridge from Energy_Combinatorics to specific mass values.
+- **Mass ratios from multiplicity**: pursue the quantitative bridge from Energy_Combinatorics to specific mass values. *Status:* the naive "mass ∝ multiplicity at depth" hypothesis is falsified by `lepton_mass_demo.py` (above); the right formula must include at least one ingredient beyond (N, M(N)) — topology-class restricted subsets, a different generation ↔ depth mapping, multiplicative running, or a non-multiplicity quantum number.
 - **Mixing angles from chirality rotation**: develop the structural account into a quantitative prediction.
 - **Higgs particle**: distinguish the Higgs *field* (vacuum gauge-fold density, qualitatively derived) from the Higgs *boson* (excitation of that field, observed at 125 GeV); derive the boson mass.
 
