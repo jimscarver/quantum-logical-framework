@@ -27,5 +27,6 @@ lean_lib QLF where
     `MTheoryQLF,
     `BraKetRhoQuCalc,
     `QLF_FreeEnergy,
-    `QLF_Pauli
+    `QLF_Pauli,
+    `QLF_TwistAlphabet
   ]
