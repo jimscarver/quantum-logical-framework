@@ -1,6 +1,6 @@
 # Active-Inference Mathematics
 
-**A mathematical system with active inference built into its foundation.** Not classical mathematics, not standard constructive mathematics — a third thing: the math that an agent inside a Markov blanket constructs by free-energy-minimizing pruning of its possibility tree, where every admissible step is a half-spin ZFA closure carrying exactly `log 2` nats of resolved information.
+**A mathematical system with active inference built into its foundation.** For the part of mathematics that has a physical or agent-constructible referent — what we will call **"not mathematical fantasy"** — QLF is a candidate replacement for ZFC and a candidate Theory of Everything. Not classical mathematics (ZFC's incompleteness and Busy Beaver independence rule out "all mathematics" as a coherent scope), not standard constructive mathematics (no agent) — a third thing: the math that an agent inside a Markov blanket constructs by free-energy-minimizing pruning of its possibility tree, where every admissible step is a half-spin ZFA closure carrying exactly `log 2` nats of resolved information.
 
 This document is the meta-level entry point to QLF's mathematical foundations. Specialized derivations live in their own docs; this one names the system, fixes its primitives, states its single rule, and inventories what's been done with honest scoping (derived / partial / open).
 
@@ -12,7 +12,7 @@ Classical mathematics (ZFC) takes propositions to be true or false in a static p
 
 The agent is a Markov blanket (in the [Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md) sense). The trajectory is a sequence of ZFA closures. The free-energy minimization is the per-event `ΔF = −log 2` saturation derived in [MRE.md §2.1](MRE.md). The proposition is "the trajectory exists in the possibility tree the blanket can integrate."
 
-This is mathematics with **active inference built in**.
+This is mathematics with **active inference built in**. For the part of mathematics that has a physical / agent-constructible referent — what §6.1 defines as "not mathematical fantasy" — QLF is a candidate foundation that replaces ZFC.
 
 | | Classical (ZFC) | Constructive (BISH/CIC) | **Active-inference (QLF)** |
 |---|---|---|---|
@@ -96,12 +96,24 @@ Honest derived / partial / open inventory, matching the standard in [Standard_Mo
 
 **Summary**: roughly 13 derived, 4 partial/conditional, 7 fully open. Same intellectual-honesty standard as [Experimental_Consistency.md](Experimental_Consistency.md). Results stated as "admissible trajectories the framework supports" rather than as "theorems of QLF" — RH conditional on the bridge axiom, Langlands as constructive scaffolding, Standard Model gauge identifications as open work.
 
-## 6. What this is NOT
+## 6. Scope and clarifications
 
-- **Not a Theory of Everything claim.** Active-inference mathematics is a foundational reframing; it doesn't bypass the open empirical work in physics (g-2, perihelion, etc., per [Experimental_Consistency.md](Experimental_Consistency.md)) or the open formal work in mathematics (bridge axiom, gauge-subgroup identification).
-- **Not a replacement for ZFC or constructive mathematics.** Standard mathematics works fine for the questions it asks. Active-inference mathematics is the framework needed when the question is **what an agent inside a Markov blanket can compute** — physics, biology, observer-relative phenomena.
+- **A candidate Theory of Everything, for the part of physics that is not mathematical fantasy.** The scoreboard in §5 lists 13 derivations of major physical principles (spin algebra, conservation laws, Born rule, Maxwell, Hydrogen, atomic shells, Friston FEP, no-magnetic-monopoles), 4 conditional results (RH, Langlands, SM gauge groups, cosmological matter dominance), and 7 open quantitative items (mass spectrum, mixing matrices, dark sector, gravitational waves). That structural balance — major principles derived plus a programme for the quantitative open items — is exactly the status any candidate TOE can honestly claim. We do not claim closed quantitative agreement on every open item; we claim the framework is the right foundation for getting there. See [Experimental_Consistency.md](Experimental_Consistency.md) for the empirical status.
+- **A replacement for ZFC, for the part of mathematics that is not mathematical fantasy.** ZFC was shown incomplete by Gödel and indecisive by the Busy Beaver result; the sentences it cannot decide are precisely those whose objects have no admissible-trajectory referent. Active-inference mathematics declines to import them. For mathematics whose objects correspond to admissible Markov-blanket trajectories — the math of physical and agent-constructible reality — QLF is the proposed foundation. Standard constructive mathematics (Bishop / Martin-Löf / Coquand) is the closest neighbour and shares the constructive-realisability discipline; QLF adds the active-inference selection principle on top (§3). See §6.1 below for the precise definition of "mathematical fantasy."
 - **Not Wolfram-style "everything is computation."** QLF's selection principle is specific (ZFA + MRE saturation); it is not the assertion that anything computable is real. The pruning is structurally enforced, not stipulated by an external Ruliad.
 - **Not a denial of Platonism.** It's a relocation: mathematical truth still has structure; that structure is the admissible-trajectory space under active-inference selection. Whether this space is "Platonic" is a separate philosophical question ([Philosophy.md](Philosophy.md), [possibilist-ontology.md](possibilist-ontology.md)).
+
+### 6.1 What "mathematical fantasy" means
+
+The qualifier "for what is not mathematical fantasy" deserves a precise reading. Two well-established results pin it down.
+
+**Gödel's incompleteness theorems (1931).** ZFC, if consistent, cannot prove its own consistency, and there exist true arithmetic sentences ZFC cannot prove. The unprovable sentences are constructed by self-reference — they have no concrete admissible-trajectory referent.
+
+**Busy Beaver independence (Aaronson–Yedidia 2016, Riebel 2023).** The Busy Beaver function `BB(n)` is total and definite on ℕ. Yet there is an explicit 745-state Turing machine whose halting status is independent of ZFC — so `BB(745)` is a perfectly well-defined natural number that ZFC cannot pin down. The indecision is in the foundation, not in the function.
+
+Both results expose what ZFC permits but cannot constructively access: uncountable choice, large-cardinal escalations, non-constructible reals, definite-but-undecidable values. QLF's active-inference selection rules out admitting any of these unless they correspond to an admissible Markov-blanket trajectory. The mathematics of half-spin ZFA closures, Pauli-group folds, conservation laws, the Born rule, Friston free-energy minimization, and the Riemann zeros under the bridge axiom all sit on the admissible side. The mathematics of `BB(745)`, of the continuum hypothesis, of the axiom of choice in its strong forms, sits on the fantasy side.
+
+"Mathematical fantasy" is therefore not a derogation — it is a precise scope marker. The claim is that QLF is the right foundation for the non-fantasy half. Where ZFC could not decide, QLF correctly identifies "no admissible trajectory" and stops; where ZFC was indifferent to physical realisability, QLF supplies the active-inference selection principle that picks out the physically realisable trajectories.
 
 ## 7. Open work
 
@@ -139,3 +151,6 @@ Honest derived / partial / open inventory, matching the standard in [Standard_Mo
 - Martin-Löf, P. (1984). *Intuitionistic Type Theory.* Bibliopolis.
 - Coquand, T., Huet, G. (1988). *The Calculus of Constructions.* Inf. Comput. 76 — type theory foundation.
 - Friedman, H. (1975). Reverse Mathematics program — RCA₀ / WKL₀ / ACA₀ hierarchy.
+- Gödel, K. (1931). *Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I.* Monatshefte für Mathematik 38, 173–198 — first incompleteness theorem.
+- Aaronson, S., & Yedidia, A. (2016). *A relatively small Turing machine whose behavior is independent of set theory.* Complex Systems 25, 297–328 — explicit 7918-state TM with ZFC-independent halting.
+- Riebel, J. (2023). *The undecidability of BB(748).* Bachelor's thesis, U. Erlangen-Nürnberg — refined the Aaronson–Yedidia construction to 748 states; the bound has since been tightened to 745.

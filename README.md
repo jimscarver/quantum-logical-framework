@@ -62,7 +62,7 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 
 QLF is the mathematics that has **active inference built into its foundation**. Mathematical objects are admissible trajectories of a free-energy-minimizing agent (a Markov blanket); the single rule is per-event ΔF = −log 2 saturation by half-spin ZFA closure. Not classical mathematics (ZFC), not standard constructive mathematics (no agent), a third thing.
 
-- [**Active_Inference_Mathematics.md**](Active_Inference_Mathematics.md) — meta-doc framing the QLF program as active-inference mathematics: primitives, single rule, classical/constructive/active-inference comparison table, honest derived/partial/open scoreboard
+- [**Active_Inference_Mathematics.md**](Active_Inference_Mathematics.md) — meta-doc framing the QLF program as active-inference mathematics: primitives, single rule, classical/constructive/active-inference comparison table, honest derived/partial/open scoreboard. Names the system as a candidate TOE and ZFC-replacement for the part of mathematics that is not mathematical fantasy (with the Gödel + Busy Beaver scope marker)
 - [**Hierarchical_Control.md**](Hierarchical_Control.md) — the bottom-up/top-down architecture; §3 derives Friston's free energy principle from ZFA
 - [**MRE.md**](MRE.md) — the per-event log 2 quantum that is the math's selection principle
 
