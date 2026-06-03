@@ -91,7 +91,7 @@ The hierarchical-control architecture follows from §1–§3.
 
 ## 6. Open work
 
-- **Lean theorem**: formalize the per-event $\Delta F = -\log 2$ statement as `zfa_closure_minimizes_free_energy`. Companion to MRE.md's proposed `max_relative_entropy_at_half_spin`.
+- **Lean theorem**: ✓ Done — `zfa_closure_minimizes_free_energy` is machine-verified in [`lean/QLF_FreeEnergy.lean`](lean/QLF_FreeEnergy.lean). The proof reduces to the binary-partition identity `binary_kl 1 (1/2) = Real.log 2`, lifting the standard convention `0·log 0 = 0` via Mathlib's `Real.log` (which is 0 on non-positive inputs). The 50/50 case of MRE.md's proposed `max_relative_entropy_at_half_spin` is captured directly; the strict-inequality bound on non-50/50 partitions remains open.
 - **Numerical demonstration**: ✓ Done — `active_inference_vfe_demo.py` enumerates all 4 Hermitian-conjugate pair types, verifies both orderings of each pair achieve ZFA closure (all 8 sequences fold to $-I$ in the Pauli group), and computes $D_{KL}(q \mathbin{\Vert} p) = \log 2 \approx 0.6931$ nats per binary-partition closure event. Enumerates all 384 ZFA-closed 4-twist atoms (of 4096 candidates) and confirms cumulative $\Delta F = -2 \log 2 = -\log 4$ per atom via the additivity of independent closures.
 - **Cross-frequency Lorentz derivation**: write out the Lorentz boost between two Markov-blanket frames as a change of basis on their internal ZFA event rates, complementing [UniversalRelativity.md](UniversalRelativity.md)'s spacetime-emergence argument.
 - **Cosmological-constant estimate**: quantify the top-down/bottom-up residual at the cosmic horizon — does it match the observed $\Lambda$?

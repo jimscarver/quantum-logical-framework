@@ -75,7 +75,7 @@ Honest derived / partial / open inventory, matching the standard in [Standard_Mo
 | **1/2-spin algebra (Pauli, Dirac)** | `tau_xy_product` etc. machine-verified | ✓ Derived |
 | **Spin-statistics theorem** | parallel-vs-sequence composition; per-atom `−I` fold | ✓ Derived |
 | **Hermitian conjugacy as duality** | `E + E^† ≡ ZFA` Lean-verified | ✓ Derived |
-| **Per-event `log 2` quantum** | binary-partition info-gain bound; numerically verified in `active_inference_vfe_demo.py` | ✓ Derived + verified |
+| **Per-event `log 2` quantum** | binary-partition info-gain bound; numerically verified in `active_inference_vfe_demo.py`; Lean-anchored as `zfa_closure_minimizes_free_energy` in `lean/QLF_FreeEnergy.lean` | ✓ Lean-verified |
 | **Born rule** | path-counting + uniform prior on possibility tree | ✓ Derived ([Born_Rule.md](Born_Rule.md)) |
 | **Conservation laws (energy / momentum / charge / information / CPT)** | 8-twist symmetries → conserved currents | ✓ Derived ([Conservation.md](Conservation.md)) |
 | **No magnetic monopoles** | ZFA closure forces ∇·B = 0 | ✓ Lean-verified (`no_magnetic_monopoles`) |
@@ -119,7 +119,7 @@ Both results expose what ZFC permits but cannot constructively access: uncountab
 
 ## 7. Open work
 
-- **Lean formalization** of `Active_Inference_Selection` as a unified principle: every admissible RhoProcess minimises a per-event free-energy functional. Connects to the existing `rho_process_always_zfa`, `bra_ket_always_balanced`, `decoherence_impossibility`.
+- **Lean formalization** of `Active_Inference_Selection` as a unified principle: every admissible RhoProcess minimises a per-event free-energy functional. The per-event quantum is anchored — `zfa_closure_minimizes_free_energy` in [`lean/QLF_FreeEnergy.lean`](lean/QLF_FreeEnergy.lean) — and the closure structure of admissible processes is anchored — `rho_process_always_zfa`, `bra_ket_always_balanced`, `decoherence_impossibility`. The remaining work is the *selection-rule* statement that ties them: every constructible RhoProcess is the trajectory of an agent minimising the per-event KL divergence.
 - **Discharge the bridge axioms** flagged across [Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md), [Langlands.md](Langlands.md), [Standard_Model.md](Standard_Model.md), [Quantum_Gravity.md](Quantum_Gravity.md). Each is a specific WKL₀-level claim with an MRE-saturation motivation ([ReverseMathematics.md §4](ReverseMathematics.md)).
 - **Quantitative match** against the open items in §5 — mass ratios, mixing matrices, dark sector, gravitational tests.
 - **Categorical embedding** — express active-inference mathematics as a category whose objects are admissible trajectories and whose morphisms are ZFA-preserving compositions. Would tie the framework to homotopy type theory and to Friston's own category-theoretic FEP formulation.
