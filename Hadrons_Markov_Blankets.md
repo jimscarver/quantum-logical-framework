@@ -107,6 +107,7 @@ The same `blanket_kinematics.py` module now treats the `+`–`−` gauge fold as
 - [`active_inference.md`](active_inference.md): Active-inference interpretation of Markov blanket closure as ZFA minimization.
 - [`Hierarchical_Control.md`](Hierarchical_Control.md): The cross-scale "same blanket strategy at different logical densities" is the middle tier of the bottom-up/top-down architecture; this file is cited for the derivation of Friston's free energy principle from ZFA.
 - [`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md): The Markov blanket developed here is one of the three primitives of active-inference math (§2 of the meta-doc) — the agent boundary inside every closure.
+- [`Emergent_Markov_Blankets.md`](Emergent_Markov_Blankets.md): Applies the multi-scale blanket primitive at the **quiet-frequency-isolated atom-group scale** for crystal-QPU logical-qubit emergence (resonant groups of ~10–10⁶ atoms forming deep collective fluxoids); the natural mid-scale layer between single-defect qubits and macroscopic-collective registers.
 
 ## Conclusion
 

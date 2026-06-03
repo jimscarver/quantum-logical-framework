@@ -75,7 +75,7 @@ Honest derived / partial / open inventory, matching the standard in [Standard_Mo
 | **1/2-spin algebra (Pauli, Dirac)** | `tau_xy_product` etc. machine-verified | ✓ Derived |
 | **Spin-statistics theorem** | parallel-vs-sequence composition; per-atom `−I` fold | ✓ Derived |
 | **Hermitian conjugacy as duality** | `E + E^† ≡ ZFA` Lean-verified | ✓ Derived |
-| **Per-event `log 2` quantum** | binary-partition info-gain bound; numerically verified in `active_inference_vfe_demo.py`; Lean-anchored as `zfa_closure_minimizes_free_energy` in `lean/QLF_FreeEnergy.lean` | ✓ Lean-verified |
+| **Per-event `log 2` quantum** | binary-partition info-gain bound; numerically verified in `active_inference_vfe_demo.py`; Lean-anchored as `zfa_closure_minimizes_free_energy` (saturation: delta-on-uniform = log 2) AND `binary_kl_uniform_lt_log_two` (strict bound: every non-delta recognition density on the uniform binary prior achieves strictly less) in `lean/QLF_FreeEnergy.lean` — half-spin closure uniquely maximises per-event information | ✓ Lean-verified (both directions) |
 | **Born rule** | path-counting + uniform prior on possibility tree | ✓ Derived ([Born_Rule.md](Born_Rule.md)) |
 | **Conservation laws (energy / momentum / charge / information / CPT)** | 8-twist symmetries → conserved currents | ✓ Derived ([Conservation.md](Conservation.md)) |
 | **No magnetic monopoles** | ZFA closure forces ∇·B = 0 | ✓ Lean-verified (`no_magnetic_monopoles`) |

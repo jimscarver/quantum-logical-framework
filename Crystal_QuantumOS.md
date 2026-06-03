@@ -215,6 +215,7 @@ Brief disclaimer to head off the rhetorical traps:
 ### Internal
 
 - [QuantumOS.md](QuantumOS.md) — abstract QOS architecture; this doc is the platform-specific companion.
+- [Emergent_Markov_Blankets.md](Emergent_Markov_Blankets.md) — fills in the qubit-register-scale Markov-blanket layer this doc flagged: resonating atom groups at quiet frequencies self-organising into collective fluxoids that act as protected logical qubits. Reads §8's "control-pulse compilation" / "multi-crystal network" open items at a finer granularity.
 - [Error_Correction.md](Error_Correction.md) — intrinsic ZFA-based correction; two-layer scheme for frequency/phase-clock mismatch.
 - [Frequency_Synchronization.md](Frequency_Synchronization.md) — `Δt = R/f` and the resonant-frequency framing.
 - [Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md) — Markov-blanket isolation; the conceptual axis for "quiet frequency."
