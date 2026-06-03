@@ -98,3 +98,5 @@ References (within repo):
 - `zfa-catalog-rho-notation.md`, `possibilist-ontology.md`, `quantum-computation-optimization.md`
 
 This completes the foundational justification for why RhoQuCalc needs nothing beyond the original 8 twists to model the full richness of quantum reality.
+
+See also: [Active_Inference_Mathematics.md](Active_Inference_Mathematics.md) — the 8-twist alphabet sufficiency proved here is what makes it the generative kernel of active-inference math (§2 of the meta-doc).

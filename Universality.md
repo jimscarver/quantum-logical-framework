@@ -53,4 +53,4 @@ See: [`lean/QLF_Universality.lean`](lean/QLF_Universality.lean)
 
 The framework is open, verifiable, and ready for anyone who wishes to explore the logical structure of existence itself.
 
-See also: [Simulation_Impossibility.md](Simulation_Impossibility.md) — the complementary bound: while QLF generates all terminating computations, the full universe cannot be simulated by any sub-universe substrate.
+See also: [Simulation_Impossibility.md](Simulation_Impossibility.md) — the complementary bound: while QLF generates all terminating computations, the full universe cannot be simulated by any sub-universe substrate; [Active_Inference_Mathematics.md](Active_Inference_Mathematics.md) — terminating-computation universality is what makes active-inference math the right foundation for the non-fantasy half of mathematics.

@@ -138,4 +138,4 @@ This formulation shows that QLF's Zero Free Action principle can be expressed va
 
 The Lagrangian formulation provides a bridge between the distinction-based language of QLF and standard physics notation, with every claim anchored in a specific machine-verified Lean theorem.
 
-See also: [Langlands.md](Langlands.md) — the Σ₈ algebra developed here is the elementary-representation source for the QLF-as-bottom-up-Langlands scaffolding; `tau_xy_product` etc. are read there as the Langlands product relations.
+See also: [Langlands.md](Langlands.md) — the Σ₈ algebra developed here is the elementary-representation source for the QLF-as-bottom-up-Langlands scaffolding; `tau_xy_product` etc. are read there as the Langlands product relations; [Active_Inference_Mathematics.md](Active_Inference_Mathematics.md) — the Σ₈ algebra surfaces in the meta as the Pauli closure half of ZFA, completing the single rule of active-inference math (§2 of the meta-doc).

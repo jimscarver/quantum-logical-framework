@@ -106,6 +106,7 @@ The same `blanket_kinematics.py` module now treats the `+`–`−` gauge fold as
 - `BLACK-HOLES.md` (to be rewritten): Full particle ↔ quantum black hole equivalence via blankets.
 - [`active_inference.md`](active_inference.md): Active-inference interpretation of Markov blanket closure as ZFA minimization.
 - [`Hierarchical_Control.md`](Hierarchical_Control.md): The cross-scale "same blanket strategy at different logical densities" is the middle tier of the bottom-up/top-down architecture; this file is cited for the derivation of Friston's free energy principle from ZFA.
+- [`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md): The Markov blanket developed here is one of the three primitives of active-inference math (§2 of the meta-doc) — the agent boundary inside every closure.
 
 ## Conclusion
 
