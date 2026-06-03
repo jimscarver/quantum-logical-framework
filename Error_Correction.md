@@ -117,6 +117,7 @@ Histories containing `+` or `-` (gauge) and/or non-zero out-of-phase ticks show 
 - **Zeno_Effect.md** — frequent clock ticks can freeze the buffer (enhanced suppression).  
 - **Frequency_Synchronization.md** — the broader phenomenon that these two mechanisms implement.  
 - **Primordial_Entanglement.md** — early shared histories reduce initial mismatch.
+- **Crystal_QuantumOS.md** — applies this intrinsic-EC scheme to a concrete crystal-substrate sketch (Eu:YSO worked example, rare-earth and defect-centre platforms); quiet frequencies are the specific transitions where the algebraic guarantee is operationally realised.
 
 Error correction is therefore not an added feature — it is the **native operating mode** of the QuCalc engine whenever joint ZFA is threatened. The variational physics grounding joint ZFA — ℒ=0 as condition of origin, with `orthogonality_01` (BraKetRhoQuCalc.lean:173) and `bra_ket_always_balanced` (BraKetRhoQuCalc.lean:109) machine-verified — is in [Lagrangian_Formulation.md](Lagrangian_Formulation.md).
 
