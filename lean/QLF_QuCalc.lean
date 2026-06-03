@@ -107,3 +107,74 @@ theorem generated_stable_states_are_symmetric (n : Nat) (s : TopoString) (h_in :
     
   -- 4. Invoke the master topological theorem from QLF_Axioms.lean
   exact zfa_implies_critical_line s h_zfa
+
+-- ==========================================
+-- 5. EMERGENT MARKOV BLANKET FORMATION
+-- ==========================================
+--
+-- A "blanket" in the `Emergent_Markov_Blankets.md` sense is a group of
+-- ZFA-balanced atoms whose collective concatenation forms a higher-order
+-- closed structure. Here we prove the count-balance half of ZFA is
+-- preserved under pairwise and N-ary concatenation: symmetric atoms
+-- compose into a symmetric collective.
+--
+-- The full ZFA condition (count balance ∧ Pauli closure, per
+-- Experimental_Consistency.md §2.1) is enforced at runtime
+-- (twist_core.py, zfa-core Rust kernel, the browser app's tokenTwists).
+-- Promoting Pauli closure to a Lean theorem (`pauli_closed_of_admissible_zfa`)
+-- remains open work and is the natural next round; see CLAUDE.md
+-- "Runtime layer requires more than count balance."
+
+private lemma count_pos_append (s₁ s₂ : TopoString) :
+    count_pos (s₁ ++ s₂) = count_pos s₁ + count_pos s₂ := by
+  induction s₁ with
+  | nil => simp [count_pos]
+  | cons head tail ih =>
+    show count_pos (head :: (tail ++ s₂)) = count_pos (head :: tail) + count_pos s₂
+    rw [count_pos_cons, count_pos_cons, ih]
+    ring
+
+private lemma count_neg_append (s₁ s₂ : TopoString) :
+    count_neg (s₁ ++ s₂) = count_neg s₁ + count_neg s₂ := by
+  induction s₁ with
+  | nil => simp [count_neg]
+  | cons head tail ih =>
+    show count_neg (head :: (tail ++ s₂)) = count_neg (head :: tail) + count_neg s₂
+    rw [count_neg_cons, count_neg_cons, ih]
+    ring
+
+/-- Binary emergent blanket formation: the count-balance half of ZFA
+    closure is preserved under pairwise concatenation. Two symmetric
+    atoms compose into a symmetric collective. -/
+theorem emergent_blanket_formation_binary
+    (s₁ s₂ : TopoString) (h₁ : is_symmetric s₁) (h₂ : is_symmetric s₂) :
+    is_symmetric (s₁ ++ s₂) := by
+  unfold is_symmetric at h₁ h₂ ⊢
+  rw [count_pos_append, count_neg_append]
+  omega
+
+/-- **Emergent Markov blanket formation**: any list of symmetric (count-
+    balanced) atoms concatenates into a symmetric collective.
+
+    Formal Lean witness for the §2.1 claim of `Emergent_Markov_Blankets.md`:
+    a resonating group `G` of `N` atoms forms a Markov blanket whose
+    boundary satisfies the count-balance half of ZFA. The Pauli-closure
+    half is a runtime-checked invariant (`twist_core.py`, `zfa-core`
+    Rust kernel) whose Lean formalisation remains open work
+    (`pauli_closed_of_admissible_zfa`, per Experimental_Consistency.md
+    §2.1 and the CLAUDE.md note that the runtime layer requires more
+    than count balance). -/
+theorem emergent_blanket_formation
+    (atoms : List TopoString) (h : ∀ a ∈ atoms, is_symmetric a) :
+    is_symmetric (atoms.foldr (· ++ ·) []) := by
+  induction atoms with
+  | nil =>
+    unfold is_symmetric
+    simp [count_pos, count_neg]
+  | cons head tail ih =>
+    simp only [List.foldr]
+    apply emergent_blanket_formation_binary
+    · exact h head (List.Mem.head _)
+    · apply ih
+      intro a ha
+      exact h a (List.Mem.tail _ ha)
