@@ -132,7 +132,7 @@ private lemma count_pos_append (s₁ s₂ : TopoString) :
   | cons head tail ih =>
     show count_pos (head :: (tail ++ s₂)) = count_pos (head :: tail) + count_pos s₂
     rw [count_pos_cons, count_pos_cons, ih]
-    ring
+    omega
 
 private lemma count_neg_append (s₁ s₂ : TopoString) :
     count_neg (s₁ ++ s₂) = count_neg s₁ + count_neg s₂ := by
@@ -141,7 +141,7 @@ private lemma count_neg_append (s₁ s₂ : TopoString) :
   | cons head tail ih =>
     show count_neg (head :: (tail ++ s₂)) = count_neg (head :: tail) + count_neg s₂
     rw [count_neg_cons, count_neg_cons, ih]
-    ring
+    omega
 
 /-- Binary emergent blanket formation: the count-balance half of ZFA
     closure is preserved under pairwise concatenation. Two symmetric
