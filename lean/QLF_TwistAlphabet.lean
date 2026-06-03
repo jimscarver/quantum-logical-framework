@@ -174,4 +174,75 @@ theorem hermitian_pair_is_pauli_scalar (t : Twist) :
   show t.toMatrix * t.conj.toMatrix = -(1 : M)
   exact hermitian_pair_folds_to_negI t
 
+-- ==========================================
+-- N-pair concatenation: the natural generalisation
+-- ==========================================
+--
+-- The N=1 case (a single Hermitian pair folds to -I) is
+-- `hermitian_pair_folds_to_negI` / `hermitian_pair_is_pauli_scalar`
+-- above. The N>1 case (a concatenation of N Hermitian pairs) follows
+-- by induction: each pair contributes -I, and (-1)^N is +I when N is
+-- even and -I when N is odd.
+--
+-- Scope: this covers ZFA-closed sequences built BY CONCATENATION of
+-- complete Hermitian pairs (e.g. `^v^v`, `<><>+-`, `^v/\+-`). It does
+-- NOT cover cross-axis interleaving of partial pairs (e.g. `^<v>`,
+-- where σ_y · -σ_x · -σ_y · σ_x still folds to -I but the algebra
+-- requires the σ-product identities `σ_x σ_y = i σ_z` etc. and
+-- doesn't reduce to a sequence of independent pair contributions).
+-- That fuller bridge is a separate round.
+
+/-- The matrix-product fold over a list of Hermitian-conjugate pairs.
+    Each list element `t` represents the first member of its pair; the
+    pair `(t, t.conj)` contributes `t.toMatrix * t.conj.toMatrix` to
+    the fold. -/
+noncomputable def concatPairsMatrixFold (ts : List Twist) : M :=
+  ts.foldr (fun t acc => (t.toMatrix * t.conj.toMatrix) * acc) 1
+
+/-- Each list element contributes `-1` (by `hermitian_pair_folds_to_negI`),
+    so a list of `N` Hermitian pairs folds to `(-1 : M)^N`. -/
+theorem concat_pairs_eq_neg_one_pow (ts : List Twist) :
+    concatPairsMatrixFold ts = (-1 : M) ^ ts.length := by
+  induction ts with
+  | nil => simp [concatPairsMatrixFold]
+  | cons t rest ih =>
+    show (t.toMatrix * t.conj.toMatrix) * concatPairsMatrixFold rest
+        = (-1 : M) ^ (rest.length + 1)
+    rw [hermitian_pair_folds_to_negI t, ih, pow_succ']
+
+/-- Concatenation of an EVEN number of Hermitian pairs folds to `+I`. -/
+theorem concat_pairs_even (ts : List Twist) (h : Even ts.length) :
+    concatPairsMatrixFold ts = (1 : M) := by
+  rw [concat_pairs_eq_neg_one_pow]
+  exact h.neg_one_pow
+
+/-- Concatenation of an ODD number of Hermitian pairs folds to `-I`. -/
+theorem concat_pairs_odd (ts : List Twist) (h : Odd ts.length) :
+    concatPairsMatrixFold ts = -(1 : M) := by
+  rw [concat_pairs_eq_neg_one_pow]
+  exact h.neg_one_pow
+
+/-- **N-pair concatenation closure**: the matrix product of any
+    concatenation of N Hermitian-conjugate pairs from the 8-twist
+    alphabet lands in the Pauli scalar group `{+I, -I}` — specifically
+    `pauliScalarToMatrix PauliScalar.one` when N is even, and
+    `pauliScalarToMatrix PauliScalar.negOne` when N is odd.
+
+    The natural N-pair generalisation of `hermitian_pair_is_pauli_scalar`
+    (the N=1 case). Closes the concatenation-only subset of the multi-
+    pair hardware-mapping bridge — every concatenated-pair ZFA-closed
+    sequence (like `^v^v`, `<><>+-`, `^v/\+-`) lands in the Pauli scalar
+    group at the matrix level.
+
+    Cross-axis interleaving of partial pairs (e.g., `^<v>`) is OUT of
+    scope here; that case still produces a Pauli scalar at the matrix
+    level (numerically verified in `active_inference_vfe_demo.py`) but
+    the algebra requires the σ-product identities `σ_x σ_y = i σ_z`
+    etc., not the pair-by-pair structure used here. -/
+theorem concat_pairs_is_pauli_scalar (ts : List Twist) :
+    ∃ p : PauliScalar, concatPairsMatrixFold ts = pauliScalarToMatrix p := by
+  rcases Nat.even_or_odd ts.length with h | h
+  · exact ⟨PauliScalar.one, by rw [concat_pairs_even ts h]; rfl⟩
+  · exact ⟨PauliScalar.negOne, by rw [concat_pairs_odd ts h]; rfl⟩
+
 end QLF
