@@ -105,3 +105,5 @@ This places electromagnetism within the same derivational chain as gravity ([Gra
 See [Lagrangian_Formulation.md](Lagrangian_Formulation.md) for the variational form (ℒ = 0) that unifies all of these.
 
 See [Conservation.md](Conservation.md) for charge conservation as the gauge-swap (+ ↔ −) symmetry of the 8-twist algebra — Noether's theorem applied to the discrete QLF case.
+
+See also: [Collective_Electrodynamics.md](Collective_Electrodynamics.md) — the photon as a joint emitter-absorber ZFA handshake (transactional, relational, not a projectile); [Delayed_Choice_Eraser.md](Delayed_Choice_Eraser.md) — applies the joint-ZFA reading to the canonical retrocausality-puzzle experiment and dissolves it.

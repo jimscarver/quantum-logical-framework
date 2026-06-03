@@ -82,6 +82,8 @@ Honest derived / partial / open inventory, matching the standard in [Standard_Mo
 | **Friston free energy principle** | each ZFA closure minimizes F by `log 2` | ✓ Derived ([Hierarchical_Control.md §3](Hierarchical_Control.md)) |
 | **Hydrogen spectrum** | Bohr derivation in ZFA language; 0.053 % NIST match | ✓ Derived ([Hydrogen.md](Hydrogen.md)) |
 | **Maxwell field operators** | per-axis Pauli mapping; Lean-verified ∇·B = 0 | ✓ Derived ([Maxwell.md](Maxwell.md)) |
+| **Photon as joint ZFA handshake (relational, not projectile)** | Hermitian-conjugate pair across two causal diamonds; null logical loop; no in-flight state | ✓ Derived ([Collective_Electrodynamics.md §2](Collective_Electrodynamics.md)) |
+| **Delayed-choice quantum eraser without retrocausality** | half-closure at signal detector + half-closure at idler detector = one joint ZFA event; no preferred temporal order | ✓ Derived ([Delayed_Choice_Eraser.md](Delayed_Choice_Eraser.md)) |
 | **No decoherence (universal coherence)** | `decoherence_impossibility` Lean-verified | ✓ Derived ([Decoherence.md](Decoherence.md)) |
 | **Atomic shells (s, p through Z = 10)** | Pauli-blocking + orthogonal-axis routing | ✓ Derived ([Atom.md](Atom.md)) |
 | **Combinatorial closed form (5ⁿ+3ⁿ)/2 for resonant sum** | binomial expansion separation | ✓ Derived ([Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md)) |
@@ -143,7 +145,7 @@ Both results expose what ZFC permits but cannot constructively access: uncountab
 
 ### Specialized derivations (internal)
 
-- [Born_Rule.md](Born_Rule.md), [Measurement_Problem.md](Measurement_Problem.md), [Decoherence.md](Decoherence.md), [Conservation.md](Conservation.md), [Spin_Statistics.md](Spin_Statistics.md), [Entanglement.md](Entanglement.md), [Annihilation.md](Annihilation.md), [Maxwell.md](Maxwell.md), [Hydrogen.md](Hydrogen.md), [Atom.md](Atom.md), [Quantum_Gravity.md](Quantum_Gravity.md), [Standard_Model.md](Standard_Model.md), [Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md), [Langlands.md](Langlands.md), [Experimental_Consistency.md](Experimental_Consistency.md)
+- [Born_Rule.md](Born_Rule.md), [Measurement_Problem.md](Measurement_Problem.md), [Decoherence.md](Decoherence.md), [Conservation.md](Conservation.md), [Spin_Statistics.md](Spin_Statistics.md), [Entanglement.md](Entanglement.md), [Annihilation.md](Annihilation.md), [Maxwell.md](Maxwell.md), [Collective_Electrodynamics.md](Collective_Electrodynamics.md), [Delayed_Choice_Eraser.md](Delayed_Choice_Eraser.md), [Hydrogen.md](Hydrogen.md), [Atom.md](Atom.md), [Quantum_Gravity.md](Quantum_Gravity.md), [Standard_Model.md](Standard_Model.md), [Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md), [Langlands.md](Langlands.md), [Experimental_Consistency.md](Experimental_Consistency.md)
 
 ### External
 

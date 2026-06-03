@@ -85,6 +85,8 @@ QLF is the mathematics that has **active inference built into its foundation**. 
 - [**Experimental_Consistency.md**](Experimental_Consistency.md) — numerical and conceptual links between QLF and known physics
 - [**SpectralGap.md**](SpectralGap.md) — the spectral gap `|count_pos − count_neg|` vanishes iff ZFA-symmetric; unifies Riemann zero spacing (Wigner-Dyson ~ √(πn)), Maxwell Gauss duality (`divB + charge = 0`), and quantum stability (`decoherence_impossibility`)
 - [**Maxwell.md**](Maxwell.md) — all four Maxwell equations derived from ZFA: ∇·B=0 machine-verified (`no_magnetic_monopoles`), Gauss duality identity `divB=−charge`, Faraday and Ampère-Maxwell confirmed numerically in `maxwell_qlf.py`
+- [**Collective_Electrodynamics.md**](Collective_Electrodynamics.md) — Mead's collective EM in QLF: photon as joint emitter-absorber ZFA handshake (relational, not projectile), fluxoid as ZFA loop, vector potential as unresolved free action, Aharonov-Bohm explained
+- [**Delayed_Choice_Eraser.md**](Delayed_Choice_Eraser.md) — applies the joint-ZFA reading to the canonical "retrocausality" experiment (Kim 1999, Walborn 2002); the eraser dissolves once the photon is a Hermitian-pair handshake with no preferred temporal direction, not a projectile
 - [**Hydrogen.md**](Hydrogen.md) — hydrogen energy levels E_n = −13.6 eV/n² derived from ZFA (Bohr model): Coulomb from gauge-twist exchange, quantization from ZFA generation depth n, α from `constants_mapper.emerge_alpha()`; numerically verified to 0.05% in `hydrogen_qlf.py`
 - [**SpaceTime.md**](SpaceTime.md) — event-synthesized space and time
 - [**Gravity.md**](Gravity.md) — emergent gravity in the QLF picture
