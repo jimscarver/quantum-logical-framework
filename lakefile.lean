@@ -25,5 +25,6 @@ lean_lib QLF where
     `PauliExclusion,
     `StringTheoryQLF,
     `MTheoryQLF,
-    `BraKetRhoQuCalc
+    `BraKetRhoQuCalc,
+    `QLF_FreeEnergy
   ]
