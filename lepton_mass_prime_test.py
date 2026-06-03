@@ -5,6 +5,13 @@ Tests the hypothesis: "lepton masses correspond to closures at PRIME qubit
 counts" — i.e., gen-k ↔ depth N = 2·p_k, where p_k is the k-th prime
 (p_1=2, p_2=3, p_3=5, ...).
 
+⚠ FRAMING NOTE (added after this script's negative result):
+   Bound_States_QLF.md argues that free-lepton mass ratios are not
+   direct QLF observables. The natural QLF observables are atomic-
+   system masses. The P2 (m ∝ p_k!) partial hit on m_τ/m_μ within 19%
+   may turn out to be an accident OR may be a hint about atomic-system
+   structure when read through the bound-state framing.
+
 Companion to lepton_mass_demo.py. That script tested mass ∝ f(N, M(N))
 formulas using every even depth; this one restricts to prime-qubit depths
 and tests TWO classes of candidate formulas:

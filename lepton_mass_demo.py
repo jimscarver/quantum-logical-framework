@@ -5,6 +5,15 @@ QLF lepton-mass-ratio probe: a structured exploration of the
 multiplicity-as-energy hypothesis (per Standard_Model.md §4.1 and
 Energy_Combinatorics.md).
 
+⚠ FRAMING NOTE (added after this script's negative result):
+   Bound_States_QLF.md argues that free-lepton mass ratios are not
+   direct QLF observables. The natural QLF observables are atomic-
+   system masses (positronium, muonium, hydrogen) — bound, balanced
+   joint-ZFA closures. This script's falsification stands as a
+   refutation of "QLF multiplicity → free-lepton mass" formulas, but
+   the right target for a future demo is atomic-system mass, not
+   free-lepton mass.
+
 Standard_Model.md §6 lists "Mass ratios from multiplicity" as open work
 ("pursue the quantitative bridge from Energy_Combinatorics to specific
 mass values"). This script provides a falsifiable structured test:

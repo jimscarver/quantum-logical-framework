@@ -4,6 +4,15 @@ lepton_mass_irreducible_test.py
 Tests the refined hypothesis: stable particles correspond to TOTALLY
 IRREDUCIBLE ZFA closures at prime qubit counts.
 
+⚠ FRAMING NOTE (added after this script's negative result):
+   Bound_States_QLF.md argues that free-lepton mass ratios are not
+   direct QLF observables. The natural QLF observables are atomic-
+   system masses. The nested-irreducible-closure family identified
+   here (^<v>, ^^<vv>, ^^^<vvv>, ...) is a STRUCTURAL finding worth
+   keeping — it identifies candidate joint-closure topologies — but
+   the mass-ratio mismatch is now better understood as "target was
+   wrong" rather than "filter was wrong".
+
 User intuition (rephrased): "stable particles pairs close together, not
 separately. Prime numbers of qubits are needed for stability."
 
