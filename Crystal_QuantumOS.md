@@ -129,6 +129,8 @@ Walkthrough:
 5. **Entanglement distribution.** `/rdv swap` synchronises two Eu:YSO crystals connected by an optical link. The atomic-swap protocol (5 wire kinds: propose / accept / reject / commit / abort) ensures the entangling operation either completes on both sides or aborts cleanly with no orphan states. The locking semantics (`lockedNotes` / `lockedQubits` analogue) prevent double-use.
 6. **Error correction.** No ancilla qubits, no syndrome extraction, no classical decoder. The hyperfine clock transition lives inside the ZFA-closed subspace where `decoherence_impossibility` is the operative description. Frequency/phase-clock mismatch is corrected intrinsically per `Error_Correction.md`'s two-layer scheme.
 
+A runnable sketch of step 3's twist → pulse compilation lives in [`compile_qpu.py`](compile_qpu.py) at the QLF repo root. It compiles any `/qucalc` twist string into a notional pulse sequence on the Eu:YSO platform — Y/-Y/X/-X gates via Rabi π pulses on the hyperfine drive (≈10 MHz carrier, ≈500 ns/pulse at Ω = 1 MHz Rabi rate), Z/-Z gates as virtual-Z frame changes, and ±I as zero-duration waits. The mapping matches `lean/QLF_TwistAlphabet.lean` exactly modulo the global-phase freedom captured by `PauliScalar`. Honest scoping in the script's footer: notional numbers, no in-situ calibration, single-ion compiler only — but enough to show the QLF→hardware translation is concrete and mechanical, not metaphorical.
+
 ### Inline stack diagram
 
 ```
@@ -182,7 +184,7 @@ Honest inventory, same standard as [Active_Inference_Mathematics.md §5](Active_
 | Mapping the 8-twist alphabet to crystal-hardware pulses (§3 table) | ⚠ Sketched in this doc |
 | Eu:YSO 6-hour T₂ ↔ Markov-blanket-isolation depth via `Δt = R/f` | ⚠ Sketched (relation named, not quantitatively fit) |
 | Single-platform worked example consistent with literature numbers | ⚠ Sketched (this doc §7); no new experimental data |
-| Specific control-pulse compilation from `/qucalc` twists | ✗ Open |
+| Specific control-pulse compilation from `/qucalc` twists | ⚠ Sketched (`compile_qpu.py`) |
 | Multi-crystal optical-network synchronisation protocol | ⚠ Sketched (`/rdv` is the primitive; full integration open) |
 | Active-inference scheduler resident on QPU silicon | ✗ Open (today's QuantumOS is external control plane only) |
 | Quantitative gate-fidelity prediction vs. measured platforms | ✗ Open |
