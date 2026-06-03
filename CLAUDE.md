@@ -22,7 +22,7 @@ In `lean/`, registered in `lakefile.lean` roots array:
 |---|---|
 | `QLF_Axioms` | Types, counting, pruning, ZFA definition; `zfa_implies_critical_line` |
 | `QLF_Combinatorics` | Phase-string generation helpers |
-| `QLF_QuCalc` | Phase-generation engine; `find_stable_states_length_even` = C(2n,n) |
+| `QLF_QuCalc` | Phase-generation engine; `find_stable_states_length_even` = C(2n,n); `emergent_blanket_formation` (count-balance preserved under concatenation) |
 | `QLF_Universality` | Every terminating computation IS a ZFA string (Church-Turing) |
 | `QLF_Critical_Line` | ZFA → symmetry bridge |
 | `QLF_Spectral` | Hermitian spectral projectors; Hilbert-Pólya bridge |

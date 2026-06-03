@@ -116,6 +116,6 @@ Explicit scoping disclaimers, matching the discipline of [Crystal_QuantumOS.md](
 
 ## 8. Next Steps
 
-1. Add `emergent_blanket_formation` lemma to `lean/QLF_QuCalc.lean` (or a new module `QLF_EmergentBlanket.lean`) — formalising the hypothesis that resonant atom groups satisfying a stated coherence condition produce a Lean-typed `LogicalQubit` value. Open formalisation.
+1. Add `emergent_blanket_formation` lemma to `lean/QLF_QuCalc.lean`. ✓ **Done** — three results landed: `count_pos_append`, `count_neg_append` (count distributes over concatenation), and `emergent_blanket_formation_binary` + `emergent_blanket_formation` proving that any list of symmetric (count-balanced) atoms concatenates into a symmetric collective. Pure RCA₀ induction, no new axioms. Scope: the **count-balance half** of ZFA is now Lean-anchored under concatenation; the **Pauli-closure half** (order-sensitive matrix-product constraint) remains a runtime-checked invariant in `twist_core.py` and the `zfa-core` Rust kernel. Promoting Pauli closure to a Lean theorem (`pauli_closed_of_admissible_zfa`) is the natural next round.
 2. Extend browser demo (`/qucalc`) to visualise blanket nucleation — a small interactive that shows atom groups synchronising into collective fluxoids on the QuantumOS app.
 3. Prototype quiet-frequency synchronisation in small crystal samples — experimental track; uses existing Eu:YSO or NV-diamond platforms; measures whether resonant-group coherence times scale per the `Δt = R/f` Markov-blanket-isolation relation of `Frequency_Synchronization.md`.
