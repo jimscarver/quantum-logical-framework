@@ -23,19 +23,15 @@ This mechanism turns a macroscopic crystal into a **self-organizing quantum fabr
 
 ### 2.1 Blanket Formation via Resonance
 
-A resonating group \( G \) of \( N \) atoms forms a Markov blanket when the collective phase satisfies the **ZFA closure condition** across the group boundary:
+A resonating group $G$ of $N$ atoms forms a Markov blanket when the collective phase satisfies the **ZFA closure condition** across the group boundary:
 
-\[
-\forall \text{twists crossing boundary}: \quad \text{count}_{\text{pos}} = \text{count}_{\text{neg}} \quad \text{(half-spin balance)}
-\]
+$$\forall \text{ twists crossing boundary}: \quad \text{count}_{\text{pos}} = \text{count}_{\text{neg}} \quad \text{(half-spin balance)}$$
 
 In QuCalc notation (see `BraKetRhoQuCalc.md`):
 
-\[
-\text{collective\_fluxoid}(G) \equiv \bigotimes_{i \in G} \text{ZFA}_{1/2}^{(i)}
-\]
+$$\text{collective\_fluxoid}(G) \equiv \bigotimes_{i \in G} \text{ZFA}_{1/2}^{(i)}$$
 
-The blanket boundary is the surface where the **environment's reduced view of the interior** becomes maximally mixed (\( \rho_G^{\text{ext}} \to \tfrac{1}{2} I_G \) — no information leaks out), while the **interior's own state remains a coherent ZFA-balanced superposition**. This is the standard decoherence-free-subspace picture: the exterior cannot resolve which interior history is realised, so it cannot extract the logical state; the interior continues to run half-spin ZFA closures normally. The two views are dual — one ledger, two observer-relative cross-sections.
+The blanket boundary is the surface where the **environment's reduced view of the interior** becomes maximally mixed ($\rho_G^{\text{ext}} \to \tfrac{1}{2} I_G$ — no information leaks out), while the **interior's own state remains a coherent ZFA-balanced superposition**. This is the standard decoherence-free-subspace picture: the exterior cannot resolve which interior history is realised, so it cannot extract the logical state; the interior continues to run half-spin ZFA closures normally. The two views are dual — one ledger, two observer-relative cross-sections.
 
 ### 2.2 QuCalc Pseudocode for Emergent Blanket Formation
 

@@ -96,6 +96,7 @@ QLF is the mathematics that has **active inference built into its foundation**. 
 - [**VacuumEnergy.md**](VacuumEnergy.md), [**BLACK-HOLES.md**](BLACK-HOLES.md), [**Entropy.md**](Entropy.md) — topic-specific extensions
 - [**QuantumOS.md**](QuantumOS.md) — QLF as a capability-secure, formally-verified OS kernel for QPUs: five converging security foundations, intrinsic holographic QEC, hardware-native AI with absolute interpretability, Ruliad/RCA₀ unification — security + error correction + scheduling + GC + AI are all one operation (ZFA enforcement); live demo via `/qucalc` in [quantum-os](https://github.com/jimscarver/quantum-os)
 - [**Crystal_QuantumOS.md**](Crystal_QuantumOS.md) — concrete platform sketch: a QuantumOS-controlled QPU on a quiet-frequency crystal substrate (Eu:YSO worked example; rare-earth and defect-centre platforms). Maps 8-twist primitives to Rabi cycles, slash commands to control pulses, and `decoherence_impossibility` to the intrinsic-EC layer. Inspirational tooling: Kazansky 5D optical storage in fused silica
+- [**Emergent_Markov_Blankets.md**](Emergent_Markov_Blankets.md) — qubit-register-scale Markov-blanket layer for the crystal-QPU substrate: resonating atom groups at quiet frequencies self-organising into collective fluxoids that act as protected logical qubits. Fills the mid-scale layer between single-defect qubits and macroscopic-collective registers; honest scoping on physical-density vs. logical-qubit-count distinction
 
 ### 4. Formal and executable work
 
