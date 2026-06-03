@@ -312,6 +312,7 @@ The universe does not have to begin as a singular object in pre-existing time. I
 - [`StringTheory.md`](StringTheory.md)
 - [`E_mc2_derivation.md`](E_mc2_derivation.md)
 - [`Hierarchical_Control.md`](Hierarchical_Control.md) — cross-frequency relativity as the bridge between bottom-up ZFA event synthesis and top-down Markov-blanket constraint; Lorentz transformations as change-of-basis between frame-local ZFA event rates.
+- [`Cross_Frequency_Lorentz.md`](Cross_Frequency_Lorentz.md) — explicit derivation of the Lorentz boost as a change of basis on Markov-blanket internal frequencies; identifies γ = cosh(rapidity) with the frequency-ratio Doppler factor; recovers time dilation, length contraction, and interval invariance.
 - [`Quantum_Gravity.md`](Quantum_Gravity.md) — master synthesis treating this doc's relativity completion as one face of a unified algebraic event (gravity, holography, expansion, ER=EPR).
 
 Welcome to Universal Relativity.
