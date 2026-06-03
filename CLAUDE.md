@@ -38,7 +38,7 @@ In `lean/`, registered in `lakefile.lean` roots array:
 | `BraKetRhoQuCalc` | Bra-ket ↔ RhoQuCalc correspondence; `bra_ket_always_balanced` |
 | `QLF_FreeEnergy` | Per-event ΔF = -log 2 at half-spin ZFA closure; `zfa_closure_minimizes_free_energy` |
 | `QLF_Pauli` | 4-element Pauli scalar group {±I, ±iI}; group closure + `pauli_closed_of_admissible_zfa` |
-| `QLF_TwistAlphabet` | 8-twist alphabet with σ-matrix mapping; `hermitian_pair_is_pauli_scalar` (every Hermitian pair folds to -I) |
+| `QLF_TwistAlphabet` | 8-twist alphabet with σ-matrix mapping; `hermitian_pair_is_pauli_scalar` (every Hermitian pair folds to -I); `concat_pairs_is_pauli_scalar` (N-pair concatenations land in {+I, -I}) |
 
 ---
 
