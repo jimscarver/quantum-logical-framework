@@ -113,7 +113,7 @@ As defined in [Relative_Entropy.md](./Relative_Entropy.md) and [Entropy.md](./En
 ---
 
 **Next steps** (suggested):
-1. Add a Lean theorem `max_relative_entropy_at_half_spin` capturing $D_\text{KL} = \log 2$ saturation at $k = 1$ under uniform prior over symmetric strings. *Partial progress:* the 50/50 case is now Lean-verified as `binary_kl_delta_uniform` / `zfa_closure_minimizes_free_energy` in [`lean/QLF_FreeEnergy.lean`](lean/QLF_FreeEnergy.lean). The remaining work is the strict-inequality bound on non-50/50 partitions and the connection to the symmetric-string ensemble.
+1. Add a Lean theorem `max_relative_entropy_at_half_spin` capturing $D_\text{KL} = \log 2$ saturation at $k = 1$ under uniform prior over symmetric strings. *Status:* both halves now Lean-verified in [`lean/QLF_FreeEnergy.lean`](lean/QLF_FreeEnergy.lean) — `binary_kl_delta_uniform` (the saturation: delta-on-uniform = $\log 2$) and `binary_kl_uniform_lt_log_two` (the strict-inequality bound: every non-delta Bernoulli(q) recognition density under the uniform binary prior achieves strictly less than $\log 2$). Together they say the half-spin ZFA closure event uniquely maximises per-event information at exactly $\log 2$ nats. The remaining open piece is the generalisation to composite $k > 1$ atoms — showing that larger atoms have strictly lower per-event information than the $k = 1$ case.
 2. Extend `particles.py` or `path_integral.py` to log KL divergence on each 1/2-spin closure during BFS enumeration.
 3. Link this file from [README.md](./README.md) and [Philosophy.md](./Philosophy.md).
 
