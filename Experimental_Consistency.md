@@ -72,6 +72,13 @@ This is now enforced in every implementation of the kernel:
 
 Empirically, **every admissible (no immediate Hermitian reversal) count-balanced history is automatically Pauli-closed** in the QLF Python BFS ensemble at every length tested (4, 6, 8). So the tightened check is non-breaking for the stable-history ensemble used throughout this document; the explicit enforcement formalizes an invariant that was already present in the data.
 
+**Lean status (both halves anchored under concatenation).** The two algebraic kernels of the runtime `is_zfa = is_count_balanced ∧ is_pauli_closed` check are now Lean-verified to be closed under concatenation:
+
+- **Count balance**: `emergent_blanket_formation` in [`lean/QLF_QuCalc.lean`](lean/QLF_QuCalc.lean) §5 — any list of symmetric atoms concatenates into a symmetric collective. Pure RCA₀ induction.
+- **Pauli closure**: `pauli_closed_of_admissible_zfa` in [`lean/QLF_Pauli.lean`](lean/QLF_Pauli.lean) — the four-element Pauli scalar group `{+I, -I, +iI, -iI}` is closed under multiplication, and `pauli_fold` is a multiplicative homomorphism. Captures the algebraic kernel of the runtime `is_pauli_closed` check.
+
+The full hardware-mapping claim (which specific 8-twist sequences land in the Pauli scalar group under the runtime `^v ↔ ±σ_y, <> ↔ ∓σ_x, /\ ↔ ±σ_z, +- ↔ ±I` mapping, beyond just count balance + the algebraic kernel) is a stronger statement that would require the explicit 8-twist alphabet in Lean and remains open.
+
 ---
 
 ## §3 Spacetime Emergence
