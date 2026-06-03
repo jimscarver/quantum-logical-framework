@@ -50,6 +50,8 @@ The closure event carries information `D_KL(q ‖ p) ≤ log 2`, saturated only 
 - Folds to `−I` in the Pauli group, contributing the −1 phase of a fermion 360° rotation (the spin-statistics origin per [Spin_Statistics.md](Spin_Statistics.md))
 - Conserves information bit-for-bit across creation and annihilation ([MRE.md](MRE.md) ↔ [Annihilation.md](Annihilation.md), [Conservation.md §6](Conservation.md))
 
+**Numerical anchor:** the `−log 2` per-closure decrement is verified numerically in `active_inference_vfe_demo.py`: all 4 Hermitian-conjugate pair types produce ZFA closure in both orderings (all 8 sequences fold to `−I` in the Pauli group), the binary partition saturates `D_KL(q ‖ p) = log 2 ≈ 0.6931` nats per closure event, and the brute-force enumeration of all 4-twist sequences shows 384 of 4096 candidates achieve ZFA closure with cumulative `ΔF = −2 log 2` per atom.
+
 This is the math's selection principle. A trajectory is admissible iff every step is a half-spin ZFA closure. The 1/2-spin atom is the unique fixed point of three independent constraints — set-theoretic minimality, algebraic Pauli closure, information-theoretic optimality — that all coincide on the same object ([HALF-SPIN-ZFA-EMBEDDING.md §3a](HALF-SPIN-ZFA-EMBEDDING.md)).
 
 ## 4. Mathematical objects as admissible trajectories
@@ -73,7 +75,7 @@ Honest derived / partial / open inventory, matching the standard in [Standard_Mo
 | **1/2-spin algebra (Pauli, Dirac)** | `tau_xy_product` etc. machine-verified | ✓ Derived |
 | **Spin-statistics theorem** | parallel-vs-sequence composition; per-atom `−I` fold | ✓ Derived |
 | **Hermitian conjugacy as duality** | `E + E^† ≡ ZFA` Lean-verified | ✓ Derived |
-| **Per-event `log 2` quantum** | binary-partition info-gain bound | ✓ Derived |
+| **Per-event `log 2` quantum** | binary-partition info-gain bound; numerically verified in `active_inference_vfe_demo.py` | ✓ Derived + verified |
 | **Born rule** | path-counting + uniform prior on possibility tree | ✓ Derived ([Born_Rule.md](Born_Rule.md)) |
 | **Conservation laws (energy / momentum / charge / information / CPT)** | 8-twist symmetries → conserved currents | ✓ Derived ([Conservation.md](Conservation.md)) |
 | **No magnetic monopoles** | ZFA closure forces ∇·B = 0 | ✓ Lean-verified (`no_magnetic_monopoles`) |
