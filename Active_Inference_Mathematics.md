@@ -92,7 +92,7 @@ Honest derived / partial / open inventory, matching the standard in [Standard_Mo
 | **Cosmological matter dominance** | residual-clustering of LH/RH topology | ⚠ Qualitative ([CP-Violation-and-Chirality.md](CP-Violation-and-Chirality.md), [Annihilation.md §5](Annihilation.md)) |
 | **Cosmic expansion / age** | ZFA event rate as cosmic clock | ⚠ Order-of-magnitude ([AgeOfUniverse.md](AgeOfUniverse.md)) |
 | **Standard Model gauge groups (SU(3), SU(2), U(1))** | structural sketch; U(1) derived, others open | ⚠ Partial ([Standard_Model.md](Standard_Model.md)) |
-| **Quantitative mass spectrum** | gauge-fold depth → mass; naive "mass ∝ M(N)" falsified for leptons by `lepton_mass_demo.py` (M grows ~25× per N step, ratios non-monotonic at 207 ≫ 17) | ✗ Open (with falsified candidates) |
+| **Quantitative mass spectrum** | gauge-fold depth → mass; naive "mass ∝ M(N)" falsified for leptons by `lepton_mass_demo.py` (M grows ~25× per N step, ratios non-monotonic at 207 ≫ 17); prime-qubit-count hypothesis tested in `lepton_mass_prime_test.py` (one partial hit: m ∝ p_k! gives m_τ/m_μ within 19%, but m_μ/m_e wildly off) | ✗ Open (constrained by two falsifiable demos) |
 | **CKM / PMNS mixing angles** | chirality rotation between generations | ✗ Open |
 | **Lorentz covariance of EM at all scales** | τ_i = iσ_i algebra suggests path | ✗ Open |
 | **Gravitational waves, Mercury perihelion, full GR** | discrete-to-continuum bridge | ✗ Open |
