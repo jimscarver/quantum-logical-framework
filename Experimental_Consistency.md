@@ -76,8 +76,9 @@ Empirically, **every admissible (no immediate Hermitian reversal) count-balanced
 
 - **Count balance**: `emergent_blanket_formation` in [`lean/QLF_QuCalc.lean`](lean/QLF_QuCalc.lean) §5 — any list of symmetric atoms concatenates into a symmetric collective. Pure RCA₀ induction.
 - **Pauli closure**: `pauli_closed_of_admissible_zfa` in [`lean/QLF_Pauli.lean`](lean/QLF_Pauli.lean) — the four-element Pauli scalar group `{+I, -I, +iI, -iI}` is closed under multiplication, and `pauli_fold` is a multiplicative homomorphism. Captures the algebraic kernel of the runtime `is_pauli_closed` check.
+- **Hardware-mapping bridge**: `hermitian_pair_is_pauli_scalar` in [`lean/QLF_TwistAlphabet.lean`](lean/QLF_TwistAlphabet.lean) — every Hermitian-conjugate pair from the 8-twist alphabet folds, under its explicit σ-matrix mapping (`^v ↔ ±σ_y, <> ↔ ∓σ_x, /\ ↔ ±σ_z, +- ↔ ±I`), to the matrix `-I` (= image of `PauliScalar.negOne` under the canonical embedding). Bridges the abstract Pauli scalar group to the concrete matrix interpretation; closes the runtime-mapping caveat for Hermitian-pair atoms.
 
-The full hardware-mapping claim (which specific 8-twist sequences land in the Pauli scalar group under the runtime `^v ↔ ±σ_y, <> ↔ ∓σ_x, /\ ↔ ±σ_z, +- ↔ ±I` mapping, beyond just count balance + the algebraic kernel) is a stronger statement that would require the explicit 8-twist alphabet in Lean and remains open.
+For longer twist sequences (composite atoms beyond the basic Hermitian pair), the empirical observation that admissible-balanced sequences are automatically Pauli-closed remains the working invariant; a Lean theorem for arbitrary-length sequences would generalise `hermitian_pair_is_pauli_scalar` via the homomorphism in `QLF_Pauli` and is the natural next round.
 
 ---
 

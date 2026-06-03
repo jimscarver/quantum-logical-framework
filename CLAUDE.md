@@ -6,7 +6,7 @@ Project context for Claude Code sessions. Read this before making any changes.
 
 ## Project overview
 
-**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **18 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
+**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **19 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
 
 Core claim: *ZFA balance is the selection principle for physical reality.* Every terminating computation is a ZFA string; every ZFA string is symmetric (lies on the critical line). The Church-Turing universe filtered to ZFA-balanced strings is our physical universe.
 
@@ -14,7 +14,7 @@ Core claim: *ZFA balance is the selection principle for physical reality.* Every
 
 ---
 
-## 18 active modules
+## 19 active modules
 
 In `lean/`, registered in `lakefile.lean` roots array:
 
@@ -38,6 +38,7 @@ In `lean/`, registered in `lakefile.lean` roots array:
 | `BraKetRhoQuCalc` | Bra-ket ↔ RhoQuCalc correspondence; `bra_ket_always_balanced` |
 | `QLF_FreeEnergy` | Per-event ΔF = -log 2 at half-spin ZFA closure; `zfa_closure_minimizes_free_energy` |
 | `QLF_Pauli` | 4-element Pauli scalar group {±I, ±iI}; group closure + `pauli_closed_of_admissible_zfa` |
+| `QLF_TwistAlphabet` | 8-twist alphabet with σ-matrix mapping; `hermitian_pair_is_pauli_scalar` (every Hermitian pair folds to -I) |
 
 ---
 
@@ -295,7 +296,7 @@ Avoid framings that contradict the above:
 | Path | Purpose |
 |---|---|
 | `lean/` | All Lean source files |
-| `lakefile.lean` | Build config; `roots` array lists all 18 modules |
+| `lakefile.lean` | Build config; `roots` array lists all 19 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |
