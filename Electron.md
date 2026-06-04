@@ -1,84 +1,87 @@
 # Electron in the Quantum Logical Framework (QLF)
 
-**Repository:** [`quantum-logical-framework`](https://github.com/jimscarver/quantum-logical-framework)  
-**Document:** `Electron.md`  
-**Document version:** 1.1 (updated 22 April 2026)  
-**Author:** Jim/Grok (synthesized from QLF core axioms, QuCalc engine, `particles.py` v2.2, and gauge-folding rule)
+**Repository:** [`quantum-logical-framework`](https://github.com/jimscarver/quantum-logical-framework)
+**Document:** `Electron.md`
+**Document version:** 2.0 — aligned with [`Bound_States_QLF.md`](Bound_States_QLF.md)
+**Author:** Jim/Grok (synthesized from QLF core axioms, QuCalc engine, `particles.py` v2.2, gauge-folding rule, and the bound-state framing)
 
 ## Abstract
 
-In the Quantum Logical Framework, the QuCalc engine describes every quantum history as a string of **8-directional folds** drawn from the alphabet \(\{ ^, v, <, >, /, \backslash, +, - \}\). These folds are grouped into four orthogonal pairs: vertical (\(^ v\)), horizontal (\(< >\)), depth (\(/ \backslash\)), and — crucially — the **LOCAL gauge axes** (\(+ -\)).  
+In QLF, **the electron does not exist as an independent stable observable**. A free electron is an **open Hermitian deficit** — a partial twist sequence that has not completed a joint Zero Free Action closure. The electron becomes a QLF-physical event only when it joins a Hermitian-conjugate partner (positron → positronium), a heavier lepton (antimuon → muonium), or a baryon (proton → hydrogen) in a joint-ZFA bound state. The "electron's mass" reported by experiment, `m_e ≈ 0.511 MeV`, is the electron's **gauge-fold-depth contribution** to the bound-state mass — half of `m(positronium)`, the analogous contribution to `m(hydrogen)`, and so on.
 
-While the first three pairs generate ordinary spatial and temporal distinctions, the \(+ \) and \(- \) folds point in an entirely different “direction” — the LOCAL gauge direction — that is orthogonal to all spatial axes.  
+This is the same structural move that [`Delayed_Choice_Eraser.md`](Delayed_Choice_Eraser.md) makes for photons (joint emitter-absorber closure, not free projectile) and that [`Hadrons_Markov_Blankets.md`](Hadrons_Markov_Blankets.md) makes for quarks (no asymptotic free quarks, only bound hadrons). Applied to electrons: an electron is one half of a joint closure, not an isolated particle whose mass can be extracted in isolation. The QLF observables are atomic systems; the "electron" is the gauge-fold contribution of one constituent.
 
-When a history string folds along these LOCAL gauge axes, it cannot close instantaneously; instead it accumulates a **constructing delay** \(\Delta t = R/f\) (where \(R\) is the topological depth and \(f\) is the vacuum frequency). This delay manifests as **local time** and is the microscopic origin of mass.  
-
-Thus every massive particle (including the electron) must incorporate at least one \(+ \) or \(- \) gauge fold, while massless particles (photons) remain purely spatial and exhibit zero delay.
-
-We start with the electron’s topology, then show the photon (pure forward-time spatial fold) and its antiphoton conjugate that together satisfy Zero Free Action (ZFA). Finally we demonstrate a simple electron–proton scattering interaction.
-
-Everything runs live in `particles.py`. No advanced math required — just copy-paste the commands.
+The remainder of this document is a hands-on tutorial. We give the electron's QuCalc topology (the half it contributes to a joint closure), the photon and antiphoton (which jointly satisfy ZFA), and the electron–proton hydrogen formation (a joint-ZFA bound state). Everything runs live in `particles.py`.
 
 ## Why the Electron Matters
 
-Most everything we experience is due to the interaction of electrons.  
-Understanding the electron therefore goes a long way toward understanding our world.
+Most everything we experience is due to electrons participating in joint closures — chemistry, light emission, electric currents, biological membranes. The "electron" of standard physics is shorthand for "the leptonic half of a joint-ZFA closure event." Understanding the electron in QLF means understanding which joint closures it can participate in and how its gauge-fold depth contributes to the bound-state mass and binding.
 
-In the Quantum Logical Framework (QLF), the electron is no longer an abstract point particle with mysterious properties. It is a **gauge-folded topological loop** that must incorporate at least one `+` or `-` fold along the LOCAL gauge axes.  
+In QLF the electron is not an abstract point particle with mysterious properties. It is a **gauge-folded topological half-loop** — a partial twist sequence containing at least one `+` or `-` fold along the LOCAL gauge axis. By itself the half-loop has not closed; it carries an open Hermitian deficit. When it intersects a Hermitian-conjugate partner's causal frontier, the joint ZFA closure completes, and the gauge-fold depth of the electron's half contributes its share of the bound system's constructing delay and rest energy.
 
-These LOCAL gauge folds are orthogonal to all spatial directions and cannot close instantaneously. They accumulate a **constructing delay** \(\Delta t = R/f\) (topological depth \(R\) at vacuum frequency \(f\)). This delay creates **local time** inside a Planck-scale Markov blanket and is the microscopic origin of the electron’s mass. Because of this gauge folding, the electron behaves as a **primordial quantum black hole** at the microscopic scale — exactly as required by the 21 April 2026 gauge-folding rule.
+## 1. The Electron's Half of a Joint Closure
 
-The rest of this document is a hands-on tutorial showing how the electron, the photon, and electron–proton interactions all emerge from the same QuCalc engine.
+The electron is the **gauge-folded half-loop** that completes a joint ZFA closure when paired with its Hermitian-conjugate partner.
 
-## 1. The Electron — A Gauge-Folded Massive Particle
+Minimal electron half-topology (spatial + gauge):
 
-In QLF an electron is an **irreducible topological proof** of Zero Free Action that includes **gauge folding**.  
+$$^<v^+$$
 
-Minimal electron topology (spatial + gauge):  
-\[ ^<v^+ \]  
-or more fully:  
-\[ ^<v>^+ \]
+or more fully:
 
-- `^` = forward-time seed  
-- `< >` = spatial folds (transverse area)  
-- `+` = gauge fold → **mass and constructing delay**  
+$$^<v>^+$$
 
-Because it contains `+` (gauge), the electron:  
-- Accumulates a constructing delay \(\Delta t = R/f\) (topological depth \(R\) at vacuum frequency \(f\)).  
-- Creates **local time** inside its Markov blanket.  
-- Is classified as a **primordial quantum black hole** (microscopic).  
-- Has mass \(m \propto R\).
+- `^` = forward-time seed
+- `<` `>` = spatial folds (transverse area)
+- `+` = gauge fold → **gauge-fold-depth contribution to bound-state mass**
 
-### Run the electron yourself
+The electron's half-loop carries an unresolved gauge deficit. It accumulates a **constructing delay** $\Delta t = R/f$ (topological depth $R$ at vacuum frequency $f$) only when its closure is completed by a partner. In isolation it is an open Hermitian deficit; in a positronium binding it joins the positron's mirror half and the joint closure creates a finite local time at depth $2R$, with rest energy `m(Ps) ≈ 1.022 MeV`. Half of this — `0.511 MeV` — is what conventional physics attributes to the "free electron mass."
+
+### Bound systems the electron half-loop completes
+
+| Joint closure | Partner | Bound-state mass | Joint topology (schematic) |
+|---|---|---|---|
+| **Positronium** | Positron `v>v-` | 1.022 MeV | `^<v>^+ · v<v>v-` (electron half + positron half) |
+| **Hydrogen** | Proton (three-quark composite) | 938.78 MeV | electron half + proton internal closure |
+| **Muonium** | Antimuon (deeper-blanket gauge half) | 106.17 MeV | electron half + antimuon half (asymmetric blanket depths) |
+
+In each case the "electron" of this document contributes the same gauge-fold-depth `R_e` to the joint closure. The bound-state mass is `R_e + R_partner` (modulo joint-closure binding corrections), not `R_e` alone. See [`Bound_States_QLF.md`](Bound_States_QLF.md) for the spectrum.
+
+### Run the electron half-loop yourself
 
 ```bash
 python particles.py --seed "^<" --max-depth 4 --enable-gauge True
 ```
 
-**Sample output (gauge-folded electron):**
+**Sample output (electron half-loop, awaiting joint closure):**
 ```text
 ✅ ZFA Closure Achieved:
    Topology          : ^<v>^+
-   Classification    : primordial_BH
+   Classification    : gauge-folded half-loop
    Topological Depth R : 4
-   Constructing Delay  : 4 cycles
-   Creates local     : time
-   Logical Density   : HIGH → time is the local axis
-   Hawking Radiation : +-
+   Constructing Delay  : 4 cycles (becomes physical in joint closure)
+   Creates local     : time (in joint closure with conjugate partner)
+   Logical Density   : HIGH → time is the local axis in the bound state
+   Joint partner needed : positron, proton, antimuon, ...
+   Hawking Radiation : +- (released on bound-state breakup)
 ```
 
-This demonstrates the gauge fold (`+`) producing mass, delay, and local time — exactly as required for a massive electron.
+This is the electron's half. To become a QLF-physical event the joint partner must close the deficit.
 
 ## 2. Photon Folds Forward in Time — Antiphoton Satisfies ZFA
 
-A photon is **massless** and therefore **does not fold `+`–`−`**. It is a pure forward-time spatial fold:
+A photon is a **massless joint closure** that requires no gauge fold. It is a pure forward-time spatial closure between an emitter and an absorber — see [`Delayed_Choice_Eraser.md`](Delayed_Choice_Eraser.md) and [`Collective_Electrodynamics.md`](Collective_Electrodynamics.md).
 
-- Photon (forward-time): \( ^> \)  
-- Antiphoton (conjugate, backward-time): \( v< \)
+The two halves of the joint photon closure:
 
-When they meet they annihilate into pure vacuum because their combined history string is exactly ZFA:
+- Photon half (forward-time): $^>$
+- Antiphoton half (conjugate, backward-time): $v<$
 
-\[ H_{\rm photon} \circ H_{\rm antiphoton} = ^> \circ v< \quad \Rightarrow \quad \text{net action} = 0 \]
+When they meet they form the joint closure with exactly Zero Free Action:
+
+$$H_{\rm photon} \circ H_{\rm antiphoton} = ^> \circ v< \quad \Rightarrow \quad \text{net action} = 0$$
+
+This is the **same structural move** as for the electron — both photons and electrons are halves of joint closures. The difference: the photon's halves have no gauge fold, so the joint closure has zero constructing delay and the photon is massless; the electron's halves have a gauge fold, so the joint closure has finite delay and finite rest energy.
 
 ### Run the photon–antiphoton pair
 
@@ -93,27 +96,24 @@ python particles.py --seed "v<" --max-depth 2 --enable-gauge False
 **Sample photon output:**
 ```text
 Topology          : ^>
-Classification    : massless_particle
-Creates local     : space
+Classification    : massless joint-closure half
+Creates local     : space (in joint closure with conjugate half)
 Delay             : 0 cycles
+Joint partner needed : antiphoton (forms the EM-interaction event)
 No Hawking radiation
 ```
 
-The two topologies together close with zero free action — the QLF description of photon–antiphoton annihilation.
+The two halves together close with zero free action — this is the QLF reading of every "photon" we ever detect: a joint emitter-absorber event, not a free projectile.
 
-## 3. Electron–Proton Interaction (Scattering)
+## 3. Electron–Proton Joint Closure (Hydrogen)
 
-A proton is a composite Markov blanket with both spatial and gauge folds.  
+The proton is a composite Markov blanket with three-quark internal closures and gauge folds ([`Hadrons_Markov_Blankets.md`](Hadrons_Markov_Blankets.md), [`HadronicDepth.md`](HadronicDepth.md)). The electron half-loop joins the proton in a joint-ZFA bound state — **hydrogen**.
 
-Electron–proton scattering is a **gauge-fold handshake** across their blankets:
+Hydrogen is the natural QLF observable: a charge-balanced, ZFA-closed joint event with mass `m(H) ≈ 938.78 MeV` and binding `E_bind ≈ 13.6 eV`. The electron's gauge-fold-depth contribution to the bound state is `m_e ≈ 0.511 MeV`; the proton contributes the rest. The binding energy is the residual joint-closure correction after the constituent rest energies.
 
-- Electron brings spatial folds + gauge (`+`).  
-- Proton brings internal gauge folds.  
-- At close approach the gauge folds partially re-enter, creating a transient higher-order loop.  
-- The system resolves to a new ZFA state (scattering or bound hydrogen).  
-- Excess distinctions are emitted as a photon (re-entry unwind).
+Electron–proton **scattering** (rather than binding) is a transient joint closure that does not stabilise. Excess distinctions are emitted as photon joint closures (per §2). Hydrogen formation is the stable case.
 
-### Run a simple e⁻–p interaction
+### Run the hydrogen joint closure
 
 ```bash
 python particles.py --seed "^<" --max-depth 6 --enable-gauge True --environment-block
@@ -121,45 +121,52 @@ python particles.py --seed "^<" --max-depth 6 --enable-gauge True --environment-
 
 **Sample interaction output:**
 ```text
-Seed: ^< (electron) approaching proton-like gauge seed
+Seed: ^< (electron half-loop) approaching proton internal closure
 Merged topology   : ^<v>^+^-
-Classification    : primordial_BH (transient)
-Constructing delay: 5 cycles
-Creates local     : time (during interaction)
-Emitted radiation : +-   ← photon emission
-Logical density note: HIGH → time is the local axis
+Classification    : hydrogen-class joint closure (bound state)
+Constructing delay: 5 cycles (joint, distributed between electron and proton halves)
+Creates local     : time (in the joint hydrogen Markov blanket)
+Emitted radiation : +-   ← excess distinctions released as photon joint closure
+Logical density note: HIGH → time is the local axis in the bound state
 ```
 
-This shows the gauge-fold handshake enabling the interaction while conserving ZFA.
+The output describes the **joint** closure, not the electron alone. The "electron's mass" of `m_e ≈ 0.511 MeV` is its share of the constructing delay distributed across the bound system.
 
 ## 4. Quick Reference Commands
 
-| Demonstration                  | Command                                                                 | What you see                     |
-|--------------------------------|-------------------------------------------------------------------------|----------------------------------|
-| Electron (massive, gauge-folded) | `python particles.py --seed "^<" --max-depth 4 --enable-gauge True`   | Gauge fold → mass + local time   |
-| Photon (massless)              | `python particles.py --seed "^>" --max-depth 2 --enable-gauge False`   | Pure forward-time spatial fold   |
-| Photon + antiphoton ZFA        | Run both seeds above                                                    | Net action = 0 (annihilation)    |
-| Electron–proton scattering     | `python particles.py --seed "^<" --max-depth 6 --enable-gauge True`    | Gauge handshake + photon emission|
+| Demonstration | Command | What you see |
+|---|---|---|
+| Electron half-loop (gauge-folded, awaiting joint closure) | `python particles.py --seed "^<" --max-depth 4 --enable-gauge True` | Gauge fold → contribution to bound-state mass and local time |
+| Photon half (massless) | `python particles.py --seed "^>" --max-depth 2 --enable-gauge False` | Pure forward-time spatial half-closure |
+| Photon + antiphoton joint closure | Run both seeds above | Net action = 0 (joint event) |
+| Hydrogen joint closure (e⁻ + p) | `python particles.py --seed "^<" --max-depth 6 --enable-gauge True` | Gauge handshake + photon emission; joint hydrogen bound state |
 
 ## 5. Links to More Advanced Reading
 
-- `Particles.md` — full particle zoo and gauge-folding rule  
-- `BLACK-HOLES.md` — electron as primordial quantum black hole  
-- `Frequency_Synchronization.md` — constructing delay \(\Delta t = R/f\)  
-- `Entropy.md` — entropy conservation in interactions  
-- `Hadrons_Markov_Blankets.md` — proton as composite blanket  
-- `Fusion.md` — nuclear-scale blanket mergers  
-- `fusion_sim.py` — live fusion/blanket simulations  
+- [`Bound_States_QLF.md`](Bound_States_QLF.md) — **the framing of this doc**: free leptons are not QLF observables; atomic systems are. Positronium, muonium, hydrogen as the natural mass observables. Reduced-mass Bohr binding structure.
+- [`Delayed_Choice_Eraser.md`](Delayed_Choice_Eraser.md) — the same joint-closure framing applied to photons; the canonical "retrocausality" experiment dissolves once the photon is a Hermitian-pair handshake with no free-projectile interpretation.
+- [`Collective_Electrodynamics.md`](Collective_Electrodynamics.md) — joint ZFA closures as the unit of EM interaction; vector potential as unresolved free action.
+- [`HALF-SPIN-ZFA-EMBEDDING.md`](HALF-SPIN-ZFA-EMBEDDING.md) — the half-spin ZFA atom (Hermitian pair) as the minimal joint closure; the QLF unit of physical existence.
+- [`Particles.md`](Particles.md) — full particle zoo and gauge-folding rule.
+- [`Hadrons_Markov_Blankets.md`](Hadrons_Markov_Blankets.md) — proton as composite Markov blanket; bound-state framing at the hadronic scale.
+- [`Frequency_Synchronization.md`](Frequency_Synchronization.md) — constructing delay $\Delta t = R/f$.
+- [`Hydrogen.md`](Hydrogen.md) — existing Bohr derivation of hydrogen levels in QLF language.
+- [`Annihilation.md`](Annihilation.md) — the photon `^>` + antiphoton `v<` joint closure; electron–positron annihilation as a positronium-class joint event.
+- [`Higgs.md`](Higgs.md) — gauge-fold-depth as the QLF mechanism for the gauge-fold contribution to bound-state mass.
+- [`Entropy.md`](Entropy.md) — entropy conservation in joint closures.
 
 ## Conclusion
 
-In QLF the electron is **not** a pure spatial loop. Because it has mass it **must fold `+`–`−`**, creating a constructing delay and local time inside its Markov blanket. The photon remains a massless forward-time spatial fold whose antiphoton conjugate perfectly satisfies ZFA. Electron–proton interactions are gauge-fold handshakes — the same logic that underlies all particle physics in the framework.
-Most everything we exterience is due to the interaction of electrons. Understanding the electron goes a long way to understanding our world
+In QLF the electron is **not a free particle with mass `m_e ≈ 0.511 MeV`**. It is the **gauge-folded half of a joint ZFA closure** — bound with a positron to form positronium, with an antimuon to form muonium, or with a proton to form hydrogen. The "electron mass" of conventional physics is the electron half-loop's gauge-fold-depth contribution to the joint closure, half of `m(positronium)` and the analogous contribution to `m(hydrogen)`.
 
-**Don’t shut up and calculate. Run it.**
+Photons are the same structural class: joint emitter-absorber closures, not free projectiles. The difference is the gauge fold — present in the electron half-loop, absent in the photon half-loop. Hence electrons contribute mass to their joint closures and photons do not.
 
-Clone the repo, run the commands above, and watch the massive electron, the massless photon, and their interactions emerge from the same QuCalc engine.
+Most everything we experience is the chemistry, light, and electric current of these joint closures. Understanding the electron in QLF means understanding which joint closures it can participate in — and the QLF observables are those joint closures, not the constituent halves.
 
-See also: [Annihilation.md](Annihilation.md) — the photon `^>` + antiphoton `v<` example of §2, and the electron–positron annihilation referenced in §3's "re-entry unwind", developed as the unifying topological-unwinding process across pair-annihilation, Hawking radiation, and the cosmological matter residual; [Bound_States_QLF.md](Bound_States_QLF.md) — the "electron mass" of this doc is the gauge-fold-depth contribution to a joint-ZFA closure; the QLF observable is the bound atomic system (positronium, hydrogen, muonium), not the free electron. The same structural move applies as `Delayed_Choice_Eraser.md` makes for photons (joint emitter-absorber closure, not free projectile).
+**Don't shut up and calculate. Run it.**
 
-*Last aligned with repo state 22 April 2026. This tutorial uses correct gauge-folding classification and proper KaTeX rendering for GitHub Markdown.*
+Clone the repo, run the commands above, and watch the joint closures emerge from the same QuCalc engine.
+
+See also: [`Bound_States_QLF.md`](Bound_States_QLF.md) — the framing of this doc, made explicit and scoped across positronium, muonium, hydrogen, and the τ-decay-vertex closure.
+
+*Last aligned with repo state 22 April 2026. Reframed 03 June 2026 to align with `Bound_States_QLF.md` — free leptons are not QLF observables; atomic systems are.*
