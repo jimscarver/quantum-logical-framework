@@ -214,6 +214,8 @@ Two paths to a discharge worth flagging:
 
 **An empirically testable prediction implied by the per-qubit reading**: if the QLF per-qubit accounting is correct, the discrete spectrum of admissible Markov-blanket depths `{R_e, R_μ, R_p, R_τ, …}` should exhibit Wigner-Dyson GUE spacing statistics in the large-depth limit — the same spectral signature §4.7 already identifies for the Montgomery-Odlyzko law. Confirmation would constitute independent evidence for the bridge parallel to the Mellin-image structural argument.
 
+**Empirical status** (added after the test was run; see [`Wigner_Dyson_QLF_Test.md`](Wigner_Dyson_QLF_Test.md) and [`wigner_dyson_qlf_test.py`](wigner_dyson_qlf_test.py)). A direct test on 74 PDG-derived QLF-admissible bound-state depths (hadronic ground states plus light atomic systems) does **not** support the GUE prediction. In the cleanest single-sector cuts (pseudoscalar mesons J^P^C = 0⁻⁺, and 1/2⁺ baryons), spacing variance is closer to Poisson (1.0) than to GUE (≈ 0.18); in the symmetry-deduplicated hadron block the Kolmogorov-Smirnov test rejects GUE at α = 0.05 while remaining consistent with Poisson. The structural §4.9 correspondence below is unaffected, but the spacing-statistics extension is empirically weakened.
+
 ### 4.9 Adjoint involution and the critical-line fixed locus
 
 §4.8 records three coincident interpretations of `Re(s) = 1/2`. The QLF adjoint operator on twist histories supplies a fourth — and, in the process, identifies the Hilbert space the Berry-Keating path needs.
@@ -258,7 +260,7 @@ $$\hat R = \hat R^\dagger \quad\text{by construction,}$$
 
 since the QLF adjoint preserves `Σ_sa` (by `H†† = H`) and the Markov-blanket depth is invariant under `H ↔ H†` (depth counts admissible nested closures, which the adjoint preserves). The spectrum is therefore real, discrete, and consists of admissible depths.
 
-Combined with §4.8's Wigner-Dyson empirical prediction on `{R_e, R_μ, R_p, R_τ, …}`, this is the missing structural piece of the Berry-Keating construction: a defined Hilbert space, a self-adjoint operator on it, and a candidate spectrum.
+This is the missing structural piece of the Berry-Keating construction: a defined Hilbert space, a self-adjoint operator on it, and a candidate spectrum. §4.8's Wigner-Dyson empirical extension was a separate, stronger claim; a first-pass test of it on currently-available QLF-admissible bound-state depths (see [`Wigner_Dyson_QLF_Test.md`](Wigner_Dyson_QLF_Test.md)) does not support the spacing-statistics prediction in observable data. The structural correspondence in this §4.9 is independent of that result and stands on its own.
 
 **Status.** The bridge axiom `spectral_hilbert_polya` is still a WKL₀-level axiom; §4.9 does not discharge it. What §4.9 changes is the *target Lean theorem*: instead of an abstract "such a self-adjoint operator exists," the target becomes the concrete
 
