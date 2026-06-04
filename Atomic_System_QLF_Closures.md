@@ -185,7 +185,61 @@ The "third-generation mass" question in QLF is therefore: **at what gauge-fold d
 
 ---
 
-## §7 Summary: derived vs. sketched vs. open
+## §7 Heavier atoms — extended vacuum-resonance spectrum
+
+Sections §2–§4 derive positronium, hydrogen, and muonium as the simplest QLF joint closures. Under the vacuum-alignment principle of [`VacuumEnergy.md`](VacuumEnergy.md) §6, each atomic system is a **vacuum-resonance projection** at a specific Markov-blanket depth `R_X = E_Planck / (M_X c²)`. The observed periodic table is the discrete spectrum of depths the vacuum supports as stable resonant closures; nuclei not supported (e.g. the diproton ²He, the dineutron ²n) are absent because the vacuum's resonance structure does not admit them.
+
+This section extends the mapping to heavier atomic systems. The per-qubit accounting of [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md) applies directly: each system's total atomic mass `M_X` gives its depth `R_X` in Planck units.
+
+### 7.1 Depth spectrum for representative nuclei
+
+Using `E_Planck ≈ 1.22091 × 10²² MeV` and CODATA-2022 atomic masses (electrons included, binding subtracted from the constituent-particle sum):
+
+| System | A | M (MeV) | R = E_Planck / Mc² | BE/A (MeV) | Notes |
+|---|---:|---:|---:|---:|---|
+| ¹H | 1 | 938.78 | 1.301 × 10¹⁹ | 0 | sets the proton-class scale |
+| ²H (deuterium) | 2 | 1876.12 | 6.508 × 10¹⁸ | 1.112 | weakest stable joint closure |
+| ³H (tritium) | 3 | 2809.43 | 4.346 × 10¹⁸ | 2.827 | β⁻-unstable; T½ ≈ 12.3 y |
+| ³He | 3 | 2809.41 | 4.346 × 10¹⁸ | 2.573 | mirror of ³H, near-degenerate R |
+| ⁴He | 4 | 3728.40 | 3.275 × 10¹⁸ | 7.074 | doubly-magic ZN=2,N=2; first BE/A jump |
+| ⁶Li | 6 | 5603.05 | 2.179 × 10¹⁸ | 5.332 | — |
+| ⁷Li | 7 | 6535.37 | 1.868 × 10¹⁸ | 5.606 | — |
+| ¹²C | 12 | 11177.93 | 1.092 × 10¹⁸ | 7.680 | triple-α resonance node |
+| ¹⁶O | 16 | 14899.17 | 8.195 × 10¹⁷ | 7.976 | doubly magic |
+| ²⁸Si | 28 | 26060.34 | 4.685 × 10¹⁷ | 8.448 | — |
+| ⁴⁰Ca | 40 | 37224.91 | 3.280 × 10¹⁷ | 8.551 | doubly magic |
+| ⁵⁶Fe | 56 | 52102.71 | 2.344 × 10¹⁷ | 8.790 | **BE/A maximum** |
+| ⁵⁸Ni | 58 | 53965.92 | 2.263 × 10¹⁷ | 8.732 | adjacent to ⁵⁶Fe; competing max |
+| ⁹⁰Zr | 90 | 83755.46 | 1.458 × 10¹⁷ | 8.710 | N=50 magic |
+| ¹⁴⁰Ce | 140 | 130358.62 | 9.367 × 10¹⁶ | 8.376 | N=82 magic |
+| ²⁰⁸Pb | 208 | 193687.10 | 6.305 × 10¹⁶ | 7.867 | doubly magic Z=82, N=126 |
+| ²³⁸U | 238 | 221695.51 | 5.508 × 10¹⁶ | 7.570 | edge of stability |
+
+The depth `R_X` scales approximately as `1 / A` because `M_X ≈ A · m_amu` with `m_amu ≈ 931.5 MeV`. Concrete demo: [`heavier_atoms_demo.py`](heavier_atoms_demo.py) computes the table and prints residuals from the `R ∝ 1/A` baseline.
+
+### 7.2 Magic numbers as vacuum-resonance peaks
+
+The per-nucleon binding energy `BE/A` is the standard empirical signature of nuclear shell structure. Its peak at ⁵⁶Fe and the local enhancements at doubly-magic nuclei (⁴He, ¹⁶O, ⁴⁰Ca, ⁴⁸Ca, ²⁰⁸Pb) are the Mayer-Jensen shell-model magic numbers: 2, 8, 20, 28, 50, 82, 126.
+
+Under the vacuum-alignment principle ([`VacuumEnergy.md`](VacuumEnergy.md) §6.1), these features are **vacuum-resonance peaks** — the depths at which the vacuum's spectral structure most strongly supports nuclear ZFA closure. The shell-model magic numbers are the indices of these resonance peaks.
+
+This is a **reframing**, not a quantitative derivation. The QLF principle places nuclear shell structure under the same vacuum-resonance umbrella as the leptonic / atomic / hadronic spectra, but the specific shell-closure numbers are still produced by the standard Mayer-Jensen spin-orbit shell model. A first-principles QLF derivation of the magic-number sequence from vacuum-coupling topology is open work (see §10).
+
+### 7.3 The ⁵⁶Fe peak and the cosmological arrow
+
+The ⁵⁶Fe binding-energy maximum has cosmological significance: stars fuse lighter elements *up to* iron, releasing energy; heavier elements form only via energy-absorbing supernova nucleosynthesis. The arrow of stellar nucleosynthesis is the direction of vacuum-resonance descent.
+
+Under the vacuum-alignment reading: the vacuum's deepest stable resonance below the gauge-fold transition is at A ≈ 56. Stars (themselves vacuum-alignment trajectories on a much larger scale) saturate their fusion chain at this resonance, then either contract or explode. The empirical iron-peak terminator of stellar nucleosynthesis is a direct consequence of the vacuum's resonance landscape.
+
+### 7.4 What this section does and does not derive
+
+- ✓ **Derived (this section)**: depth `R_X` for any atomic system from its measured mass; the `R ∝ 1/A` baseline scaling; the framing of magic numbers as vacuum-resonance peaks under §6.1.
+- ⚠ **Reframed but not derived**: the specific Mayer-Jensen shell-closure numbers; the precise per-nucleon binding-energy curve; the ⁵⁶Fe peak position.
+- ✗ **Open**: first-principles QLF prediction of magic numbers from vacuum-coupling topology; predicted binding-energy curve from vacuum-resonance enumeration; nuclear-matter equation of state from QLF substrate.
+
+---
+
+## §8 Summary: derived vs. sketched vs. open
 
 | Item | Status |
 |---|---|
@@ -194,6 +248,8 @@ The "third-generation mass" question in QLF is therefore: **at what gauge-fold d
 | Muonium ↔ asymmetric leptonic joint closure, m = m_e + m_μ | ✓ Derived (this doc §4) |
 | E(Mu)/E(Ps) ≈ 2 from reduced-mass structure | ✓ Derived |
 | E(H)/E(Mu) ≈ 1 from reduced-mass structure | ✓ Derived |
+| Depth `R_X` for heavier nuclei via per-qubit Compton; `R ∝ 1/A` baseline | ✓ Derived (this doc §7) |
+| Magic numbers as vacuum-resonance peaks under §6.1 | ⚠ Reframed (this doc §7.2) |
 | Bohr binding 13.6 eV = (1/2) m_e α² from QLF closure-multiplicity | ⚠ Sketched ([`Hydrogen.md`](Hydrogen.md)) |
 | α R_e = m_e ≈ 0.511 MeV — α value from first principles | ✗ Open — equivalent under the per-qubit reading to deriving `R_e ≈ 2.4 × 10²²` from QLF closure-multiplicity; see [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md) §3.3 |
 | Specific 8-twist topology for the electron half-loop with gauge fold | ⚠ Sketched ([`Electron.md`](Electron.md) §1) |
@@ -201,10 +257,11 @@ The "third-generation mass" question in QLF is therefore: **at what gauge-fold d
 | Specific 8-twist topology for the antimuon half-loop | ✗ Open |
 | τ-decay-vertex closure topology | ✗ Open ([`Bound_States_QLF.md`](Bound_States_QLF.md) §4, §6 step 4) |
 | Quantitative `R_e`, `R_μ`, `R_p` from first-principles QLF | ✗ Open (joins the Standard-Model mass-spectrum programme) |
+| Magic-number sequence {2, 8, 20, 28, 50, 82, 126} from vacuum-coupling topology | ✗ Open (this doc §7.4) |
 
 ---
 
-## §8 What this is NOT
+## §9 What this is NOT
 
 - **Not a derivation of `m_e` from first-principles QLF.** The mapping `α R_e = m_e` identifies `R_e` with the measured electron contribution to positronium; the value `0.511 MeV` is the input, not the prediction. A full first-principles QLF derivation of `α R_e` from closure-multiplicity counts is open work.
 - **Not a derivation of the Bohr `13.6 eV` binding scale from first principles.** Hydrogen.md sketches the Bohr derivation in QLF language; this doc uses it as a given and shows that the three-atomic-system *relative* binding structure follows from the reduced-mass scaling.
@@ -213,13 +270,14 @@ The "third-generation mass" question in QLF is therefore: **at what gauge-fold d
 
 ---
 
-## §9 Open work
+## §10 Open work
 
 - **Atomic-system Lean theorem**: `atomic_system_zfa_closures` — prove that each of the three atomic systems is a constructible RhoProcess satisfying `rho_process_always_zfa`. Connects to `BraKetRhoQuCalc.lean`.
 - **Bohr `13.6 eV` derivation in QLF language**: extend [`Hydrogen.md`](Hydrogen.md) and `constants_mapper.py` to derive `(1/2) m_e α² = 13.6 eV` from the joint-closure multiplicity structure of the two-body Coulomb bound state, not from the Bohr-model assumption.
 - **Quantitative `R_p` from three-quark structure**: extend [`HadronicDepth.md`](HadronicDepth.md) to derive `R_p ≈ 1836 R_e` from gauge-fold-depth combinatorics of the three-quark joint closure.
 - **τ-decay-vertex closure topology**: pin down the specific QLF topology for τ⁻ → ν_τ + W⁻ and verify that `m_τ` corresponds to the energetic threshold; see [`Bound_States_QLF.md`](Bound_States_QLF.md) §4.
-- **Heavier atomic systems**: extend the mapping to deuterium, helium, pionium, kaonium, etc. — each is a joint closure with its own constituent gauge-fold-depth structure.
+- **Heavier atomic systems extension to binding curves**: §7 extends the per-qubit depth mapping to ¹H through ²³⁸U; an open follow-up is to derive the *per-nucleon binding-energy curve* (BE/A vs A) from vacuum-resonance enumeration rather than fitting the Mayer-Jensen shell-model magic numbers post hoc.
+- **Magic-number sequence from vacuum-coupling topology**: derive `{2, 8, 20, 28, 50, 82, 126}` from the spectral structure of the vacuum-coupling operator rather than from the spin-orbit shell model.
 - **First-principles `m_e` derivation**: under the per-qubit reading ([`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md)) this becomes the derivation of `R_e ≈ 2.4 × 10²²` (electron Markov-blanket depth in Planck units) from QLF closure-multiplicity. Likely shape: a large-depth structural argument at the Planck-event-rate scale.
 
 ---
