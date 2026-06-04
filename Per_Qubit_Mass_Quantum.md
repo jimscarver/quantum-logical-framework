@@ -100,6 +100,14 @@ This is a cleaner statement of the open problem than "derive `α R_e = m_e`" bec
 
 The required depth `R_e ≈ 2.4 × 10²²` is far beyond any tractable BFS enumeration. A first-principles derivation will involve depth-as-mass scaling at the Planck-event scale plus a structural argument for why the electron's specific Markov-blanket sits at that depth.
 
+**Numerical anchor via the hydrogen spectrum.** Given the QLF Bohr derivation in [`Hydrogen.md`](Hydrogen.md) §4, the relation `E_n = −(1/2) α² m_e c² / n²` inverts at the measured Rydberg to
+
+```
+α² = 2 · Ry / m_e c² = 2 · Ry · R_e / E_Planck
+```
+
+recovering CODATA `α = 0.0072973526` (`1/α = 137.036`) to 10⁻¹⁰ relative error from measured Ry and measured m_e (equivalently, calibrated `R_e`). See [`fine_structure_demo.py`](fine_structure_demo.py). This makes α a calibrated relation among three QLF natural-units quantities — hydrogen binding (Ry), electron depth (R_e), and the Planck energy quantum (E_Planck) — but it does **not** derive α from first principles. Both Ry and R_e are observational inputs; deriving either from QLF closure-multiplicity (without using α as input) remains the residual research target.
+
 ---
 
 ## §4 Connection to per-event log-2 quantum

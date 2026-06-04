@@ -43,13 +43,21 @@ In natural units the force is:
 F = α ħc / r²
 ```
 
-where **α is the fine-structure constant** — the ratio of gauge (electric) to spatial (magnetic) twist exchange rates. In QLF, α emerges directly from the gauge-to-spatial fold ratio over stable ZFA closures:
+where **α is the fine-structure constant** — the coupling rate between gauge-fold structures (the QLF analog of the EM coupling). Within the QLF Bohr derivation here, α appears as the calibrated coupling strength in the Coulomb form `F = α ħc / r²`. The numerical value follows from inverting the §4 Bohr energy formula at the measured hydrogen ground-state binding:
 
-```python
-α_QLF = total_local / total_spatial   # constants_mapper.emerge_alpha()
+```
+E_1 = − (1/2) α² m_e c²  ⇒  α = sqrt(2 Ry / m_e c²)
 ```
 
-This gives α_QLF ≈ 1/137.036 (0.022% error relative to CODATA). See [constants_mapper.py](constants_mapper.py).
+With CODATA `Ry = 13.6057 eV` and `m_e c² = 511 keV`, this gives `α = 0.0072973526 = 1/137.036` to 10⁻¹⁰ relative error. Equivalently, in QLF Planck units via the per-qubit relation `m_e c² = E_Planck / R_e` ([Per_Qubit_Mass_Quantum.md](Per_Qubit_Mass_Quantum.md)):
+
+```
+α² = 2 Ry R_e / E_Planck
+```
+
+Runnable demo: [`fine_structure_demo.py`](fine_structure_demo.py).
+
+**Honest scoping.** The QLF Bohr derivation here recovers α to CODATA precision from measured Ry and measured m_e. It is **not** a first-principles derivation of α: both Ry and m_e (equivalently R_e ≈ 2.4 × 10²²) are calibrated from observation. The first-principles questions — derive Ry from the hydrogen joint-closure topology without using α as input, and derive R_e from QLF closure-multiplicity at the Planck-event scale — remain open (see [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md) §3.3 and [`Experimental_Consistency.md`](Experimental_Consistency.md) §6.3).
 
 Coulomb potential: V(r) = −α ħc / r (attractive for opposite gauge).
 
