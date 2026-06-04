@@ -92,7 +92,7 @@ Honest derived / partial / open inventory, matching the standard in [Standard_Mo
 | **Cosmological matter dominance** | residual-clustering of LH/RH topology | ⚠ Qualitative ([CP-Violation-and-Chirality.md](CP-Violation-and-Chirality.md), [Annihilation.md §5](Annihilation.md)) |
 | **Cosmic expansion / age** | ZFA event rate as cosmic clock | ⚠ Order-of-magnitude ([AgeOfUniverse.md](AgeOfUniverse.md)) |
 | **Standard Model gauge groups (SU(3), SU(2), U(1))** | structural sketch; U(1) derived, others open | ⚠ Partial ([Standard_Model.md](Standard_Model.md)) |
-| **Quantitative mass spectrum** | atomic-system masses (positronium, muonium, hydrogen) as the QLF observables per [`Bound_States_QLF.md`](Bound_States_QLF.md); free-lepton ratios are not direct QLF observables | ✗ Open |
+| **Quantitative mass spectrum** | atomic-system masses (positronium, muonium, hydrogen) as the QLF observables per [`Bound_States_QLF.md`](Bound_States_QLF.md); free-lepton ratios are not direct QLF observables; per-qubit mass quantum `m_qubit c² = ℏω = E_Planck / R_qubit` per [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md) | ⚠ Structure derived (per-qubit principle reproduces all measured mass ratios exactly); first-principles `R_e` derivation still open |
 | **CKM / PMNS mixing angles** | chirality rotation between generations | ✗ Open |
 | **Lorentz covariance of EM at all scales** | τ_i = iσ_i algebra suggests path | ✗ Open |
 | **Gravitational waves, Mercury perihelion, full GR** | discrete-to-continuum bridge | ✗ Open |

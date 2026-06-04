@@ -145,6 +145,8 @@ $$\frac{m_e}{m_p} \;=\; \frac{R_e}{R_p} \;\stackrel{?}{=}\; \frac{(\text{electro
 
 A successful Path C would need either (a) an argument that the depths `N_p` and `N_e` at which the relevant gauge classes "saturate" or "first dominate" scale as `R_p / R_e ≈ 1836`, or (b) a different gauge-class interpretation that maps multiplicity to mass scaling. Neither is delivered by the same-depth multiplicity count.
 
+**Reformulated target via [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md).** Under the per-qubit reading `m_qubit c² = ℏω = E_Planck / R_qubit`, the open question becomes: **derive `R_e ≈ 2.389 × 10²²` (in Planck units) from QLF closure-multiplicity.** This is a sharper version of "α R_e = m_e" because α is now the defined Planck-energy unit and R_e is a single dimensionless depth. The empirical depth required (≈ 2.4 × 10²²) is far beyond any tractable BFS enumeration, confirming that the right derivation must involve large-depth structural arguments or MRE-cost-weighted enumeration, not direct counting at small N.
+
 **Useful negative result.** The script falsifies a specific simple reading of Path C and identifies the structural reasons. The right derivation must involve depth-as-mass scaling, not raw multiplicity at fixed depth — the `(m_P / m_X)³` HadronicDepth combinatorial argument at the joint-closure level, not the gauge-class count at one depth.
 
 **Tractability:** the *simple* form is no longer tractable (it's falsified). A more elaborate Path C combining depth-scaling with gauge-class structure would require a substantive new theoretical hypothesis.

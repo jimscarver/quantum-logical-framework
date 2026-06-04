@@ -1,5 +1,8 @@
 # Atomic Systems as QLF Joint Closures — Specific Mappings
 
+> **Per-qubit reading** (see [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md)): each qubit contributes `ℏω = E_Planck / R_qubit` of rest energy, so the mass formulas below — `m(Ps) = 2 m_e`, `m(H) = m_e + m_p`, `m(Mu) = m_e + m_μ` — are direct sums of constituent-qubit `ℏω` contributions. The Compton relation per qubit, with `ω` set by the qubit's Markov-blanket depth.
+
+
 Per [`Bound_States_QLF.md`](Bound_States_QLF.md), the natural QLF mass observables are atomic systems: positronium, muonium, hydrogen. This document writes out the **specific QLF closure topology for each** — the joint-closure pattern, the gauge-fold-depth decomposition, and the structural derivation of the measured masses and binding energies. It closes [`Bound_States_QLF.md`](Bound_States_QLF.md) §6 step 1 (the mapping) and partial-closes step 2 (the mass-from-mapping) and step 3 (the Bohr reduced-mass scaling).
 
 The picture: each atomic system is a **joint ZFA closure between two half-loops**, in the same structural sense that a photon is a joint emitter-absorber closure ([`Delayed_Choice_Eraser.md`](Delayed_Choice_Eraser.md)). The constituent halves carry **gauge-fold-depth** contributions `R_constituent` (per [`Electron.md`](Electron.md) v2.0 and [`Higgs.md`](Higgs.md) §2); the joint closure has total depth `R_joint = R_A + R_B` (modulo binding-energy corrections); the mass is `m = α R_joint` with `α` the QLF-natural-units → MeV conversion.
