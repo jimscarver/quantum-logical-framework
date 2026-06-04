@@ -173,9 +173,9 @@ What the QLF Higgs program still needs:
 
 1. **Quantitative derivation of R_W, R_Z.** The precise integer values of the W and Z gauge-fold depths have not yet been derived from first principles.
 2. **Derivation of the Weinberg angle.** Showing cos θ_W = R_W/R_Z = 0.881 requires matching the fold depth ratio to the measured value.
-3. **Fermion mass ratios from fold depths.** Explaining why the muon is 207× the electron mass in terms of fold depth differences.
+3. **Fermion mass ratios from fold depths.** Scoped per [`Bound_States_QLF.md`](Bound_States_QLF.md) to the atomic-system spectrum — free-lepton ratios `m_μ / m_e ≈ 207` and `m_τ / m_μ ≈ 17` are derived quantities, not direct QLF observables. The right targets are atomic-system mass ratios `m(Mu) / m(Ps) ≈ 104`, `m(H) / m(Ps) ≈ 919`, and the τ-decay-vertex closure that determines `m_τ` via its energetic threshold.
 4. **Lean formalization.** Encode gauge-fold depth and mass generation in the Lean 4 formalization as ZFA structural theorems.
 
 These are natural next targets for the QLF physics program.
 
-See also: [Standard_Model.md](Standard_Model.md) — honest scoreboard placing the Higgs sector among partial derivations (the *why mass exists* part is qualitatively derived; the specific Higgs boson mass and Yukawa coupling structure are open).
+See also: [Standard_Model.md](Standard_Model.md) — honest scoreboard placing the Higgs sector among partial derivations (the *why mass exists* part is qualitatively derived; the specific Higgs boson mass and Yukawa coupling structure are open); [Bound_States_QLF.md](Bound_States_QLF.md) — gauge-fold depth contributions to fermion mass should be read as contributions to atomic-system mass (positronium, muonium, hydrogen), not to free-fermion mass directly. Free fermions are not stable QLF observables.

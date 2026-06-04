@@ -160,6 +160,6 @@ Most everything we exterience is due to the interaction of electrons. Understand
 
 Clone the repo, run the commands above, and watch the massive electron, the massless photon, and their interactions emerge from the same QuCalc engine.
 
-See also: [Annihilation.md](Annihilation.md) — the photon `^>` + antiphoton `v<` example of §2, and the electron–positron annihilation referenced in §3's "re-entry unwind", developed as the unifying topological-unwinding process across pair-annihilation, Hawking radiation, and the cosmological matter residual.
+See also: [Annihilation.md](Annihilation.md) — the photon `^>` + antiphoton `v<` example of §2, and the electron–positron annihilation referenced in §3's "re-entry unwind", developed as the unifying topological-unwinding process across pair-annihilation, Hawking radiation, and the cosmological matter residual; [Bound_States_QLF.md](Bound_States_QLF.md) — the "electron mass" of this doc is the gauge-fold-depth contribution to a joint-ZFA closure; the QLF observable is the bound atomic system (positronium, hydrogen, muonium), not the free electron. The same structural move applies as `Delayed_Choice_Eraser.md` makes for photons (joint emitter-absorber closure, not free projectile).
 
 *Last aligned with repo state 22 April 2026. This tutorial uses correct gauge-folding classification and proper KaTeX rendering for GitHub Markdown.*
