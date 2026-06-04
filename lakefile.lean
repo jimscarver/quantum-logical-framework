@@ -29,5 +29,6 @@ lean_lib QLF where
     `QLF_FreeEnergy,
     `QLF_Pauli,
     `QLF_TwistAlphabet,
-    `QLF_VacuumAlignment
+    `QLF_VacuumAlignment,
+    `QLF_RhoProcessBridge
   ]

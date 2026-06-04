@@ -178,7 +178,17 @@ This is the **per-event** anchor of the unifying claim. The **N-event global sel
 
 The proof structure is an induction on the trajectory: at each step, the cumulative KL bound `length × log 2` saturates iff the head event and the tail trajectory each saturate, which by the per-event iff and the inductive hypothesis forces every event to be a delta realisation.
 
-The remaining open layer is the **RhoProcess bridge**: showing that every constructible RhoProcess from [`lean/RhoQuCalc.lean`](lean/RhoQuCalc.lean) corresponds to a saturating list-of-densities trajectory — i.e., that the global selection rule in the cumulative-KL formulation transfers to the RhoProcess type system. That bridge sits at the intersection of `RhoQuCalc.lean` (process algebra), `QLF_FreeEnergy.lean` / `QLF_VacuumAlignment.lean` (information-theoretic content), and the `rho_process_always_zfa` theorem (closure-structure side). It is the next-tier formalisation work the principle now enables. Quantitative consequences (Standard-Model gauge groups, first-principles mass spectrum, sterile-sector predictions) remain open work the principle is meant to unblock.
+The **RhoProcess bridge** — showing that every constructible RhoProcess from [`lean/RhoQuCalc.lean`](lean/RhoQuCalc.lean) corresponds to a saturating list-of-densities trajectory — is now anchored as `rho_process_alignment_saturates` in [`lean/QLF_RhoProcessBridge.lean`](lean/QLF_RhoProcessBridge.lean). The bridge function `events : RhoProcess → List ℝ` extracts one recognition density per leaf (action → 1, lift → 0); `events_all_delta` shows every event is a delta realisation by structural induction on the process; the master theorem combines this with `global_alignment_selects_zfa` to conclude saturation. Combined with `rho_process_always_zfa` (every constructible RhoProcess achieves ZFA balance via `full_zeno_prune`), this completes the formal link:
+
+> *The QLF constructible processes are exactly the trajectories of agents maximising cumulative mutual information against the vacuum prior subject to ZFA closure.*
+
+All three formalisation layers of the global selection rule are now Lean-anchored:
+
+1. **Per-event** — `vacuum_alignment_selects_zfa` (one event: saturation ⇔ delta realisation)
+2. **N-event** — `global_alignment_selects_zfa` (trajectory of densities: cumulative saturation ⇔ every event is a delta)
+3. **RhoProcess** — `rho_process_alignment_saturates` (every constructible process: events-trajectory saturates the bound by structural recursion)
+
+Quantitative consequences (Standard-Model gauge groups, first-principles mass spectrum, sterile-sector predictions) remain open work the principle is meant to unblock.
 
 ---
 
