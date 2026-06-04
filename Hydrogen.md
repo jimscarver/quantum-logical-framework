@@ -57,7 +57,7 @@ With CODATA `Ry = 13.6057 eV` and `m_e c² = 511 keV`, this gives `α = 0.007297
 
 Runnable demo: [`fine_structure_demo.py`](fine_structure_demo.py).
 
-**Honest scoping.** The QLF Bohr derivation here recovers α to CODATA precision from measured Ry and measured m_e. It is **not** a first-principles derivation of α: both Ry and m_e (equivalently R_e ≈ 2.4 × 10²²) are calibrated from observation. The first-principles questions — derive Ry from the hydrogen joint-closure topology without using α as input, and derive R_e from QLF closure-multiplicity at the Planck-event scale — remain open (see [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md) §3.3 and [`Experimental_Consistency.md`](Experimental_Consistency.md) §6.3).
+**Honest scoping.** The QLF Bohr derivation here gives the **structural relation** `Ry = ½ α² m_e c²` from Coulomb-via-gauge-twist-exchange (§2) plus ZFA-depth quantization (§3). Given any two of {α, Ry, m_e}, the third is **derived** (not measured): we could equivalently use measured α and m_e to derive Ry, or measured α and Ry to derive m_e. The numerical match to CODATA at 10⁻¹⁰ is therefore a check on the structural relation itself, holding under any consistent two-of-three calibration choice. The first-principles question is to derive **at least one** of these quantities from QLF closure-multiplicity without using observation as input — equivalently, derive `R_e ≈ 2.4 × 10²²` or `R_1 ≈ 9 × 10²⁶` from the Planck-event-scale structural argument flagged in [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md) §3.3.
 
 Coulomb potential: V(r) = −α ħc / r (attractive for opposite gauge).
 
