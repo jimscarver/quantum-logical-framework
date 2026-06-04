@@ -225,6 +225,7 @@ Brief disclaimer to head off the rhetorical traps:
 - [Decoherence.md](Decoherence.md) — the no-decoherence reading anchored by `decoherence_impossibility`.
 - [Maxwell.md](Maxwell.md), [Collective_Electrodynamics.md](Collective_Electrodynamics.md) — EM-field side and the relational-photon reading.
 - [Active_Inference_Mathematics.md](Active_Inference_Mathematics.md) — the math substrate; §5 scoreboard for derivation-status conventions.
+- [VacuumEnergy.md §6](VacuumEnergy.md) — promotes "quiet frequency" to the **vacuum-resonance mode** reading: quiet frequencies are not engineering accidents but vacuum-supported resonance modes from §6.1 of the vacuum-alignment TOE-completing layer. Eu:YSO's 6-hour coherence becomes a worked example of the alignment principle.
 - `lean/QLF_FreeEnergy.lean` — Lean module containing `zfa_closure_minimizes_free_energy`.
 - `lean/BraKetRhoQuCalc.lean` — Lean module containing `decoherence_impossibility`, `bra_ket_always_balanced`.
 - `lean/RhoQuCalc.lean` — Lean module containing `rho_process_always_zfa`.

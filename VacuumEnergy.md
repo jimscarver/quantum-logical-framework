@@ -96,6 +96,18 @@ This produces a **nearly scale-invariant spectrum** that peaks in the sub-microw
 
 See the detailed experimental mapping in [`Experimental_Consistency.md`](Experimental_Consistency.md).
 
+### 4.1 Predictions from the alignment principle (§6)
+
+Three additional falsifiable predictions follow from reading the vacuum as the near-maxent alignment substrate articulated in §6:
+
+- **Structural ZPE tail.** The far-IR/THz peak of §2 should show **resonance structure**, not a perfectly scale-invariant `1/ω` tail. Specific spectral features should sit at frequencies tied to the bound-state depths `{R_e, R_μ, R_p, R_τ, …}` (§6.1) via `ω_X = E_Planck / R_X`. Existing CMB and THz-bath spectroscopy data should already constrain this if examined for non-thermal residuals. *Falsifier:* a perfectly featureless `1/ω` tail below 100 GHz down to instrumental sensitivity, with no resonance bumps coincident with mapped `R_X`.
+
+- **Mass-gap = vacuum-resonance mapping.** Within a single `J^P^C` sector, hadron masses should be expressible as **vacuum-resonance frequencies of a single coupling operator**. Concrete test: take `{R_X}` for one sector (e.g. the 0⁻⁺ pseudoscalar mesons used in [`Wigner_Dyson_QLF_Test.md`](Wigner_Dyson_QLF_Test.md) block C: π, K, η, η', η_c, D, D_s, B, B_s, B_c, η_b); fit a transfer-matrix model with the alignment principle, allowing one global coupling constant; check residual variance against PDG uncertainties. *Falsifier:* required residual incompatible with PDG errors at >3σ across the sector.
+
+- **Cross-frequency Lorentz boost as vacuum-mode-index shift.** [`Cross_Frequency_Lorentz.md`](Cross_Frequency_Lorentz.md) identifies the rapidity as `log(internal-frequency ratio)`. Under the alignment principle (§6.1 + §6.3), this becomes `log(vacuum-mode-index ratio)` — the boost generator coincides with the vacuum-coupling-shift generator. *Falsifier:* an independent derivation of the Lorentz boost group from QLF kinematics that contradicts the alignment-mode identification of the rapidity.
+
+These complement the falsifiers in `Experimental_Consistency.md` §10; the resonance-structure prediction is independent of any existing falsifier and should be a near-term target for THz-band ZPE searches.
+
 ---
 
 ## 5. Connection to the Completed Einstein Equations
@@ -106,11 +118,67 @@ This resolves the cosmological constant problem at its root: the vacuum is not i
 
 ---
 
-## 6. Philosophical Tie-in
+## 6. Vacuum-Alignment as TOE-Completing Layer
+
+The preceding sections describe **what** the vacuum is in QLF: a finite, dynamical, ZFA-event-driven substrate whose ZPE tail peaks below microwave and whose stress-energy sources the observed cosmological acceleration. They do not yet articulate **why** ZFA-balance is the selection rule for admissible histories, why the per-event `log 2` MRE quantum is the energetic unit, and why active inference is the dynamics. This section gathers those three foundational layers under a single principle: **vacuum-alignment**.
+
+The vacuum is a **near-maximum-entropy background with a structured tail**. Admissible signals (ZFA closures) are exactly those that **align** with this background — closures that saturate local information gain against the vacuum's global prior. ZFA-balance is the alignment condition; per-event `log 2` MRE saturation is the energetic content of alignment; active inference is the alignment dynamics. The next three subsections present this principle from three vantage points; §6.4 names the synthesis.
+
+### 6.1 Vacuum as resonant substrate
+
+The vacuum has a **structured frequency spectrum**, not pure thermal noise. The "quiet frequencies" of [`Crystal_QuantumOS.md`](Crystal_QuantumOS.md) §4 — transitions with narrow homogeneous linewidth isolated from bath coupling, exemplified by Eu:YSO's six-hour ground-state coherence — are not engineering accidents. They are **vacuum-resonance modes** that admit deep Markov-blanket formation, as worked out in [`Emergent_Markov_Blankets.md`](Emergent_Markov_Blankets.md) and [`Frequency_Synchronization.md`](Frequency_Synchronization.md) (which sets `Δt = R / f_vac` per local vacuum frequency).
+
+The observed bound-state mass spectrum is the **vacuum resonance spectrum projected onto admissible closures**. The Markov-blanket depths `{R_e, R_μ, R_p, R_τ, …}` from [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md) are not arbitrary — they are the depths at which the vacuum supports stable resonant coupling. Depths not supported by the vacuum's resonance structure are unobservable: no bound state forms there.
+
+This reframes the Wigner-Dyson result in [`Wigner_Dyson_QLF_Test.md`](Wigner_Dyson_QLF_Test.md). The PDG bound-state masses are the **vacuum-resonance projection** of the abstract `R̂` spectrum on `ℓ²(Σ_sa)` ([`ReverseMathematics.md`](ReverseMathematics.md) §4.9), not the full spectrum itself. The clustering observed in the data is the gauge-symmetry structure of the vacuum's supported modes — exactly the structure §6.4 makes visible. The full GUE-like statistics would live on the un-projected spectrum, accessible only when a depth functional is constructed against the vacuum coupling rather than read off observed masses.
+
+### 6.2 Vacuum as near-equilibrium thermodynamic substrate
+
+The vacuum sits at `S ≈ S_max` with a **small structural gradient** — close to the most-uniform state allowed by the discrete ZFA-event statistics of §2, but not exactly there. The gradient is what enables anything to happen: pure max-entropy would be locally featureless and admit no signal propagation.
+
+The event-synthesis tensor `T_μν^(synth)` from §1 / [`SpacetimeDynamics.lean`](lean/SpacetimeDynamics.lean) is therefore an **entropy-gradient stress tensor**. Gravity emerges as entropy-flow along the vacuum's gradient — the QLF substrate-level realisation of the Verlinde / Jacobson entropic-gravity programme. The geodesics of [`Gravity.md`](Gravity.md), the horizon thermodynamics of [`BLACK-HOLES.md`](BLACK-HOLES.md), and the cosmological history of [`AgeOfUniverse.md`](AgeOfUniverse.md) are all entropic-flow trajectories on the near-maxent substrate.
+
+The cosmological-constant problem closed in §5 is closed by the same gradient: the observed `Λ` is the **residual gradient curvature** of the near-maxent vacuum, not a fine-tuned bulk vacuum energy. There is no `Λ` to tune — there is only how-uniform the vacuum is.
+
+### 6.3 Vacuum as global Bayesian prior
+
+The vacuum is the **prior expectation state** of QLF's active-inference layer. The per-event `−log 2` free-energy decrement of [`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md) §3, Lean-anchored in [`lean/QLF_FreeEnergy.lean`](lean/QLF_FreeEnergy.lean), is the per-event projection of a **global Bayesian update against the vacuum's prior**.
+
+The "single rule" that `Active_Inference_Mathematics.md` §7 (Open work) flags as the missing unifying statement is now nameable:
+
+> *Admissible signals are those that maximise mutual information with the vacuum's prior subject to ZFA closure.*
+
+ZFA is the closure constraint. MRE saturation ([`MRE.md`](MRE.md)) is the maximisation condition, with the `log 2` per-event quantum its exact value. Active inference becomes a **global selection rule**, not just per-event mathematics: the vacuum is the prior, every closure is a posterior update, every history is a trajectory of posterior updates. The hierarchical-control structure of `Hierarchical_Control.md` (referenced from `Active_Inference_Mathematics.md`) is the recursive application of this update at successive Markov-blanket scales.
+
+### 6.4 The synthesis — three vantage points, one substrate
+
+The three readings above are not independent. Each picks out a different invariant of the same vacuum:
+
+| Reading | Invariant of the vacuum |
+|---|---|
+| §6.1 Resonance | which modes the vacuum supports (spectral structure) |
+| §6.2 Thermodynamics | how the vacuum exchanges entropy (gradient structure) |
+| §6.3 Bayesian prior | how the vacuum biases what is expected (informational structure) |
+
+The unification: **the vacuum's resonance spectrum IS its entropy-gradient structure IS its Bayesian prior.** Where the vacuum is locally near-flat in entropy it supports many modes (broad prior, many resonances). Where it has a gradient the supported modes thin out (sharper prior, narrower resonances). The supported modes ARE the high-likelihood states under the prior. Spectrum, gradient, and prior are three coordinates on one object.
+
+This is the **TOE-completing claim**: not "vacuum + signals + active inference" as three things, but **vacuum-alignment as the single principle from which closure admissibility (ZFA), energetic content (MRE / per-event `log 2`), and dynamical selection (active inference) jointly fall out**. The three foundational layers of QLF were already projections of this one principle; §6 names the principle.
+
+Compactly:
+
+- **ZFA is the alignment condition.** A history is admissible iff it aligns with the vacuum's supported modes — equivalently, iff its Pauli closure is consistent with the vacuum's spectral structure.
+- **MRE is the alignment quantum.** Each aligned event yields `log 2` nats of information gain against the vacuum's prior — the half-spin closure fixed point.
+- **Active inference is the alignment dynamics.** The free-energy gradient on every history is the entropy-gradient on the vacuum it traverses; minimising free energy is following entropy along the vacuum's structure.
+
+The Lean theorem this points at — `vacuum_alignment_selects_zfa`: ZFA-admissibility is the unique solution to local information-gain saturation against the near-maxent vacuum prior — is a future-work target, not asserted here. What §6 establishes is the **unifying claim** that names the missing TOE-completing layer; quantitative consequences (Standard-Model gauge groups, first-principles mass spectrum, sterile-sector predictions) remain open work the principle is meant to unblock.
+
+---
+
+## 7. Philosophical Tie-in
 
 From a **limited relative perspective** (that of any embedded observer), this low-frequency ZPE sea appears as an omnipresent “hum” of the vacuum. In absolute terms it is simply the continuous creation of new spacetime intervals by ZFA events — the same process that constructs all of reality.
 
-The vacuum is not empty. It is the living substrate of event synthesis.
+The vacuum is not empty. It is the living substrate of event synthesis — and, per §6, simultaneously the resonant background that admits which signals can exist, the entropic gradient that drives gravity and cosmology, and the Bayesian prior against which every closure is an alignment update. Signals are alignment trajectories on a single substrate read three ways.
 
 ---
 
@@ -121,6 +189,12 @@ The vacuum is not empty. It is the living substrate of event synthesis.
 - [`Philosophy.md`](Philosophy.md) — limited relative perspective and information ecology
 - [`Experimental_Consistency.md`](Experimental_Consistency.md) — detailed testability
 - [`UniversalRelativity.md`](UniversalRelativity.md) — extended general relativity
+- [`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md) — the per-event free-energy-decrement rule that §6.3 globalises as Bayesian update against the vacuum prior
+- [`MRE.md`](MRE.md) — the per-event `log 2` quantum that §6 reads as the alignment quantum
+- [`Crystal_QuantumOS.md`](Crystal_QuantumOS.md) — quiet frequencies as vacuum-resonance modes (§6.1); the Eu:YSO control plane sketch
+- [`Emergent_Markov_Blankets.md`](Emergent_Markov_Blankets.md), [`Hadrons_Markov_Blankets.md`](Hadrons_Markov_Blankets.md) — observed admissibility as vacuum-resonance projection
+- [`ReverseMathematics.md`](ReverseMathematics.md) §4.9 and [`Wigner_Dyson_QLF_Test.md`](Wigner_Dyson_QLF_Test.md) — what the alignment principle says about the PDG-mass spacing test; the observed spectrum is the vacuum-resonance projection of the abstract `R̂` spectrum on `ℓ²(Σ_sa)`
+- [`Cross_Frequency_Lorentz.md`](Cross_Frequency_Lorentz.md) — rapidity as `log(vacuum-mode-index ratio)` under §6.1 / §6.3
 
 
 **Run the simulation yourself:**
