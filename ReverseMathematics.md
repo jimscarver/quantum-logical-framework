@@ -210,9 +210,61 @@ The bridge's **proof-theoretic strength is unchanged**: still a WKL₀-level axi
 Two paths to a discharge worth flagging:
 
 - **Mellin-identity path** (already named in §4.6): construct an exact identity within WKL₀ + MRE saturation linking `M[Z_QLF](s)` to a tabulated Dirichlet series, with the energy-weighting now a physical interpretation of `s` rather than an abstract parameter.
-- **Berry-Keating-style spectral path**: the per-qubit reading suggests a natural Hamiltonian `H = ℏω = E_Planck / R̂` where `R̂` is the admissible-Markov-blanket-depth operator. If `R̂`'s spectrum has the symmetry that places its eigenvalues on `Re(s) = 1/2` under the Mellin map, this provides a QLF analog of the Berry-Keating `xp + 1/2` Hamiltonian. Connects to [`QLF_Spectral.lean`](lean/QLF_Spectral.lean) (Hermitian spectral projectors) and would be the Lean-theorem-grade resolution.
+- **Berry-Keating-style spectral path**: the per-qubit reading suggests a natural Hamiltonian `H = ℏω = E_Planck / R̂` where `R̂` is the admissible-Markov-blanket-depth operator. If `R̂`'s spectrum has the symmetry that places its eigenvalues on `Re(s) = 1/2` under the Mellin map, this provides a QLF analog of the Berry-Keating `xp + 1/2` Hamiltonian. Connects to [`QLF_Spectral.lean`](lean/QLF_Spectral.lean) (Hermitian spectral projectors) and would be the Lean-theorem-grade resolution. §4.9 below identifies the Hilbert space on which `R̂` is self-adjoint **by construction**.
 
 **An empirically testable prediction implied by the per-qubit reading**: if the QLF per-qubit accounting is correct, the discrete spectrum of admissible Markov-blanket depths `{R_e, R_μ, R_p, R_τ, …}` should exhibit Wigner-Dyson GUE spacing statistics in the large-depth limit — the same spectral signature §4.7 already identifies for the Montgomery-Odlyzko law. Confirmation would constitute independent evidence for the bridge parallel to the Mellin-image structural argument.
+
+### 4.9 Adjoint involution and the critical-line fixed locus
+
+§4.8 records three coincident interpretations of `Re(s) = 1/2`. The QLF adjoint operator on twist histories supplies a fourth — and, in the process, identifies the Hilbert space the Berry-Keating path needs.
+
+**The QLF adjoint.** On twist histories `H = s₁s₂…sₙ` over the 8-symbol alphabet, the **Hermitian adjoint** is
+
+$$H^\dagger \;=\; \overline{s_n}\,\overline{s_{n-1}}\,\cdots\,\overline{s_1}$$
+
+where the per-letter parity flip is `t ↦ t ⊕ 1` (pairing `^↔v, >↔<, /↔\, +↔-`). Concretely: reverse the sequence, then flip every twist to its conjugate. This is the operator-level adjoint — `(AB)† = B†A†` — and is implemented as `adjoint_history` in [`twist_core.py`](twist_core.py:238), `Twist.conj` in [`lean/QLF_TwistAlphabet.lean`](lean/QLF_TwistAlphabet.lean) (with history-level `adjoint` in [`lean/BraKetRhoQuCalc.lean`](lean/BraKetRhoQuCalc.lean)), and `Twist::conjugate` in the runtime kernel.
+
+The adjoint is involutive: `H†† = H`. Its defining identity, proved in [`Hermitian_Conjugacy_Proof.md`](Hermitian_Conjugacy_Proof.md), is
+
+$$E + E^\dagger \;\equiv\; \text{ZFA}.$$
+
+Appending a history's adjoint annihilates it — the discrete analog of `U U† = I`.
+
+**The fixed locus.** Define the **self-adjoint histories**
+
+$$\Sigma_{\text{sa}} \;=\; \{H : H = H^\dagger\}.$$
+
+`Σ_sa` is strictly smaller than the set of ZFA-admissible histories. The Hermitian pairs `^v, v^, ><, <>, /\, \/, +-, -+` are in `Σ_sa`; `^vv^` is ZFA-balanced but its adjoint is `v^^v`, so `^vv^ ∉ Σ_sa`. Self-adjointness is exactly the palindrome-under-flip condition `sᵢ = \overline{s_{n+1-i}}`, which is the operator-level reality / Hermitian condition.
+
+**Structural correspondence to Riemann ξ.** The completed zeta function ξ(s) satisfies the functional equation `ξ(s) = ξ(1−s)`. The critical line `Re(s) = 1/2` is the fixed locus of the involution `s ↔ 1−s`. The Hilbert-Pólya program seeks a self-adjoint operator H with real spectrum `{t_n}` such that `1/2 + i t_n` are the nontrivial ζ-zeros.
+
+| Riemann ξ side | QLF side |
+| --- | --- |
+| Functional-equation involution `s ↔ 1−s` | Adjoint involution `H ↔ H†` |
+| Critical line `Re(s) = 1/2` (fixed locus) | `Σ_sa` (fixed locus) |
+| Hilbert-Pólya self-adjoint operator on ζ-space | Depth operator `R̂` on `ℓ²(Σ_sa)` |
+| Real spectrum `{t_n}` of ζ-zero ordinates | Real spectrum `{R_e, R_μ, R_p, R_τ, …}` of admissible Markov-blanket depths |
+
+**Fourth coincident reading of "1/2"** (extending §4.8's three):
+
+1. Information-MRE binary partition (§4.2)
+2. Half-spin closure fixed point ([`HALF-SPIN-ZFA-EMBEDDING.md`](HALF-SPIN-ZFA-EMBEDDING.md) §3a)
+3. Information-energy joint saturation (§4.8, Wheeler-Fields)
+4. **Adjoint involution fixed locus** — direct structural counterpart of `s ↔ 1−s`. The "balance" that saturates information in (1) and energy in (3) is the *same* balance that makes a history equal to its own adjoint.
+
+**Concrete refinement of the Berry-Keating path.** §4.8 flagged `H = ℏω · R̂` as a Hilbert-Pólya candidate but did not say on what space `R̂` is self-adjoint. The adjoint involution supplies that space directly: define `R̂` on `ℓ²(Σ_sa)`, the Hilbert space spanned by self-adjoint QLF histories. Then
+
+$$\hat R = \hat R^\dagger \quad\text{by construction,}$$
+
+since the QLF adjoint preserves `Σ_sa` (by `H†† = H`) and the Markov-blanket depth is invariant under `H ↔ H†` (depth counts admissible nested closures, which the adjoint preserves). The spectrum is therefore real, discrete, and consists of admissible depths.
+
+Combined with §4.8's Wigner-Dyson empirical prediction on `{R_e, R_μ, R_p, R_τ, …}`, this is the missing structural piece of the Berry-Keating construction: a defined Hilbert space, a self-adjoint operator on it, and a candidate spectrum.
+
+**Status.** The bridge axiom `spectral_hilbert_polya` is still a WKL₀-level axiom; §4.9 does not discharge it. What §4.9 changes is the *target Lean theorem*: instead of an abstract "such a self-adjoint operator exists," the target becomes the concrete
+
+> `R̂_self_adjoint`: the Markov-blanket depth operator on `ℓ²(Σ_sa)` is self-adjoint.
+
+This is a future-work theorem with a defined Hilbert space and a defined operator. The runtime kernel also now exposes the adjoint as the `/conj <twists>` slash command in QuantumOS, allowing users to construct and probe `Σ_sa` directly.
 
 ---
 
