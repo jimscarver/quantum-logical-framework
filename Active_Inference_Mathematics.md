@@ -92,7 +92,7 @@ Honest derived / partial / open inventory, matching the standard in [Standard_Mo
 | **Cosmological matter dominance** | residual-clustering of LH/RH topology | ⚠ Qualitative ([CP-Violation-and-Chirality.md](CP-Violation-and-Chirality.md), [Annihilation.md §5](Annihilation.md)) |
 | **Cosmic expansion / age** | ZFA event rate as cosmic clock | ⚠ Order-of-magnitude ([AgeOfUniverse.md](AgeOfUniverse.md)) |
 | **Standard Model gauge groups (SU(3), SU(2), U(1))** | structural sketch; U(1) derived, others open | ⚠ Partial ([Standard_Model.md](Standard_Model.md)) |
-| **Quantitative mass spectrum** | reframed by `Bound_States_QLF.md`: free-lepton masses are not direct QLF observables; the right targets are atomic-system masses (positronium, muonium, hydrogen). Three demos correctly falsified "M(N) → free-lepton mass" formulas (`lepton_mass_demo.py`, `lepton_mass_prime_test.py`, `lepton_mass_irreducible_test.py` — see Standard_Model.md §6) but their target was wrong. | ✗ Open, reframed (free-lepton ratios not QLF observables; atomic-system masses are the right target) |
+| **Quantitative mass spectrum** | atomic-system masses (positronium, muonium, hydrogen) as the QLF observables per [`Bound_States_QLF.md`](Bound_States_QLF.md); free-lepton ratios are not direct QLF observables | ✗ Open |
 | **CKM / PMNS mixing angles** | chirality rotation between generations | ✗ Open |
 | **Lorentz covariance of EM at all scales** | τ_i = iσ_i algebra suggests path | ✗ Open |
 | **Gravitational waves, Mercury perihelion, full GR** | discrete-to-continuum bridge | ✗ Open |
