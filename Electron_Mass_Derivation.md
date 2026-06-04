@@ -123,14 +123,21 @@ The two ratios:
 
 $$\frac{m_e}{m_p} \;=\; \frac{R_e}{R_p} \;\stackrel{?}{=}\; \frac{(\text{electron half-loop multiplicity})}{(\text{three-quark closure multiplicity})}$$
 
-This is the **closest to tractable** of the three paths because:
-- The electron half-loop is a single half-spin atom with one gauge fold (per [`Electron.md`](Electron.md) §1).
-- The three-quark proton closure has a specific multi-loop structure (per [`HadronicDepth.md`](HadronicDepth.md)).
-- Both can be enumerated combinatorially up to a chosen length.
+**Status: tested and falsified in its simplest form.** [`electron_proton_ratio_test.py`](electron_proton_ratio_test.py) tests the simplest concrete reading: electron-like = closures with 1 gauge twist, proton-like = closures with 3 gauge twists, at each depth N ∈ {4, 6, 8}. Two empirical findings:
 
-The challenge: the combinatorial multiplicity ratio for the half-loop topologies may not directly give `1/1836`. As [`HadronicDepth.md`](HadronicDepth.md) notes, the ratio `m_p / m_e ≈ 1836` involves a non-trivial topological factor (the `(m_P / m_p)³` scaling argument). Path C would test whether this factor emerges from a clean closure-multiplicity argument at the specific electron and proton topologies.
+1. **Odd-gauge ZFA closures don't exist** at any tested depth — `M(N, 1) = M(N, 3) = 0` everywhere. The 8-twist count-balance condition forces gauge twists into parity-paired units; standalone "one-gauge-fold" ZFA closures are structurally impossible. Consequence: the naive Path C reading is vacuous.
+2. **Same-depth even-gauge ratios go the wrong direction.** Refined to compare `M(N, 2)` (positronium-class, two gauges = one electron + one positron) vs. `M(N, 6)` (proton-internal-class, six gauges = three quarks × two each), at N=8: `M(8, 2) = 24288`, `M(8, 6) = 96`, ratio 253. The positronium-class is *more* numerous than the proton-internal-class — but the proton is *heavier* than positronium. The same-depth gauge-class multiplicity does **not** scale like mass.
 
-**Tractability:** medium — testable in a single session with a careful enumeration script, but only if the right topology counts are identified.
+**Reasons the simple Path C reading fails (and what would be needed):**
+
+- The proton sits at a much deeper joint-closure structure than the electron-positron pair (per [`HadronicDepth.md`](HadronicDepth.md), `n_p ~ (m_P / m_p)³ ≈ 10⁵⁷` Planck events). Comparing `M(N, 2)` and `M(N, 6)` at the same small N is the wrong comparison.
+- The QLF mass formula `m = α R` uses depth `R`, not multiplicity `M`. Higher-multiplicity classes at the same depth are not heavier — they are just more combinatorially common.
+
+A successful Path C would need either (a) an argument that the depths `N_p` and `N_e` at which the relevant gauge classes "saturate" or "first dominate" scale as `R_p / R_e ≈ 1836`, or (b) a different gauge-class interpretation that maps multiplicity to mass scaling. Neither is delivered by the same-depth multiplicity count.
+
+**Useful negative result.** The script falsifies a specific simple reading of Path C and identifies the structural reasons. The right derivation must involve depth-as-mass scaling, not raw multiplicity at fixed depth — the `(m_P / m_X)³` HadronicDepth combinatorial argument at the joint-closure level, not the gauge-class count at one depth.
+
+**Tractability:** the *simple* form is no longer tractable (it's falsified). A more elaborate Path C combining depth-scaling with gauge-class structure would require a substantive new theoretical hypothesis.
 
 ---
 
