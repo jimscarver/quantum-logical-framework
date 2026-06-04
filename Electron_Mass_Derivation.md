@@ -103,7 +103,17 @@ Identify the specific QLF closure-multiplicity argument that yields `1/137`. Can
 
 Then the Bohr-formula chain gives `m_e` from QLF-derived `α` and measured `E_bind(H)`. This is the **partial first-principles** path — it still uses one measured input.
 
-**Tractability:** medium — likely solvable with a focused multi-session effort on the gauge-fold-path multiplicity at large depths.
+**Status: tested and falsified in its simplest form.** [`alpha_emergence_scan.py`](alpha_emergence_scan.py) tests `emerge_alpha()` at varying causal-horizon depths and six alternative weighting variants. Empirical findings:
+
+1. The existing `emerge_alpha()` returns essentially the same value (0.20 at causal_horizon ≥ 6; 0.33 at causal_horizon = 4). **Not depth-convergent toward 1/137.** It is depth-stable at the gauge-twist-fraction of the BFS ensemble.
+
+2. None of six alternative weighting variants (raw gauge/total; gauge-pairs/total; gauge/spatial; positronium-class fraction; inverse-class-size weighted; log-multiplicity weighted) approaches `α_FS ≈ 7.3 × 10⁻³` at any tested depth N ∈ {4, 6, 8}. Most stay in the 0.25–0.66 range; one variant (V5, inverse-class-size weighted) happens to cross through 1/137 between N=4 (0.0104) and N=6 (0.000833) but doesn't settle — it's a chance crossing, not convergence.
+
+3. **The fundamental structural issue**: `1/137` requires gauge twists to be **rare** (one gauge per ≈ 137 events), but the QLF BFS samples gauge twists at the same rate as spatial twists (≈ 2/8 = 1/4 raw). A genuine derivation of `1/137` would need either (a) a different generative model that intrinsically suppresses gauge twists, (b) an MRE-cost weighting where gauge folds cost ~`log 137 ≈ 4.9` nats more than spatial twists per event, or (c) a convergence at much deeper depth than N=8.
+
+**Path A in its simple form is falsified.** The `1/137` quantity does not emerge from any same-depth multiplicity-ratio variant tested. The fix would require a substantive new theoretical hypothesis about the relative MRE cost of gauge vs. spatial events — itself the open problem in disguise.
+
+**Tractability:** the simple form is no longer tractable. An MRE-cost-weighted derivation (path A.MRE) is conceptually clean but requires an independent derivation of the `4.9-nat gauge cost`, which the existing infrastructure does not provide.
 
 ### Path B — Derive `m_e` directly from electron half-loop multiplicity
 
