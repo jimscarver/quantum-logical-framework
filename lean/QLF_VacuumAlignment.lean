@@ -46,7 +46,7 @@
 --   • MRE.md §2.1                           — binary-partition KL ≤ log 2
 --   • Active_Inference_Mathematics.md §3/§7 — the global selection rule
 
-import QLF.QLF_FreeEnergy
+import QLF_FreeEnergy
 
 namespace QLF
 
