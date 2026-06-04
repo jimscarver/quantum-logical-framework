@@ -252,7 +252,8 @@ Under the vacuum-alignment reading: the vacuum's deepest stable resonance below 
 | Depth `R_X` for heavier nuclei via per-qubit Compton; `R ∝ 1/A` baseline | ✓ Derived (this doc §7) |
 | Magic numbers as vacuum-resonance peaks under §6.1 | ⚠ Reframed (this doc §7.2) |
 | Bohr binding 13.6 eV = (1/2) m_e α² from QLF closure-multiplicity | ⚠ Sketched ([`Hydrogen.md`](Hydrogen.md)) |
-| α R_e = m_e ≈ 0.511 MeV — α value from first principles | ✗ Open — equivalent under the per-qubit reading to deriving `R_e ≈ 2.4 × 10²²` from QLF closure-multiplicity; see [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md) §3.3 |
+| α numerically via the QLF Bohr inversion of the hydrogen spectrum: `α = sqrt(2 Ry / m_e c²)` = `sqrt(2 R_e / R_1)` | ✓ Numerical anchor at 10⁻¹⁰ vs CODATA ([`Hydrogen.md`](Hydrogen.md) §4.1, [`fine_structure_demo.py`](fine_structure_demo.py)) |
+| α from first principles (independent of measured Ry and m_e) | ✗ Open — equivalent under the per-qubit reading to deriving `R_e ≈ 2.4 × 10²²` from QLF closure-multiplicity; see [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md) §3.3 |
 | Specific 8-twist topology for the electron half-loop with gauge fold | ⚠ Sketched ([`Electron.md`](Electron.md) §1) |
 | Specific 8-twist topology for the proton three-quark closure | ⚠ Sketched ([`HadronicDepth.md`](HadronicDepth.md)) |
 | Specific 8-twist topology for the antimuon half-loop | ✗ Open |
@@ -264,7 +265,7 @@ Under the vacuum-alignment reading: the vacuum's deepest stable resonance below 
 
 ## §9 What this is NOT
 
-- **Not a derivation of `m_e` from first-principles QLF.** The mapping `α R_e = m_e` identifies `R_e` with the measured electron contribution to positronium; the value `0.511 MeV` is the input, not the prediction. A full first-principles QLF derivation of `α R_e` from closure-multiplicity counts is open work.
+- **Not a derivation of `m_e` from first-principles QLF.** The mapping `α R_e = m_e` identifies `R_e` with the measured electron contribution to positronium; the value `0.511 MeV` is the input, not the prediction. A full first-principles QLF derivation of `α R_e` from closure-multiplicity counts is open work. The numerical anchor `α = sqrt(2 R_e / R_1)` via the hydrogen Bohr spectrum ([`Hydrogen.md`](Hydrogen.md) §4.1, [`fine_structure_demo.py`](fine_structure_demo.py)) is consistent at 10⁻¹⁰ but uses measured Ry and m_e as input.
 - **Not a derivation of the Bohr `13.6 eV` binding scale from first principles.** Hydrogen.md sketches the Bohr derivation in QLF language; this doc uses it as a given and shows that the three-atomic-system *relative* binding structure follows from the reduced-mass scaling.
 - **Not a replacement for QED radiative corrections.** Positronium, muonium, and hydrogen all have known QED corrections (Lamb shift, hyperfine structure, etc.) at the ppm-MHz level. The mapping here is to leading-order Bohr structure; higher-order corrections are a separate programme.
 - **Not a complete particle-physics framework.** The three atomic systems are the simplest QLF bound-state observables. Larger atoms, mesons, baryons, and the full Standard Model spectrum are out of scope here.

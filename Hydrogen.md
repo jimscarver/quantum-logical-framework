@@ -203,7 +203,7 @@ The Bohr model itself has a known 0.05% error relative to the exact Schrödinger
 | Coulomb from gauge-twist exchange | `no_magnetic_monopoles`, Gauss duality | ∇·B=0 Lean-verified; ∇·E=ρ/ε₀ numerical |
 | Bohr quantization L = nħ | `find_stable_states_length_even` (C(2n,n)) | Machine-verified (combinatorial) |
 | Stability condition spectral_gap = 0 | `spectral_gap_zero_iff_symmetric` | Machine-verified |
-| α from ZFA | `constants_mapper.emerge_alpha()` | Numerical (0.022% error) |
+| α from Bohr inversion | `α = sqrt(2 Ry / m_e c²)` — see [`fine_structure_demo.py`](fine_structure_demo.py), §4.1 above | Numerical (10⁻¹⁰ rel. error vs CODATA); first-principles Ry / R_e remain open |
 | E_n = −½ α² m_e c² / n² | `hydrogen_qlf.py` Reports 1–5 | Numerical (0.053% error) |
 | Full Schrödinger derivation | — | Future (needs diff-eq infrastructure) |
 
