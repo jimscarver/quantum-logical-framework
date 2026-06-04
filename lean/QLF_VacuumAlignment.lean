@@ -185,7 +185,7 @@ theorem cumulative_kl_le_length_log_two
   induction qs with
   | nil => simp [cumulative_kl]
   | cons q rest ih =>
-    have hq_bnd : 0 ≤ q ∧ q ≤ 1 := hqs q (List.mem_cons_self q rest)
+    have hq_bnd : 0 ≤ q ∧ q ≤ 1 := hqs q (List.mem_cons_self)
     have hrest_bnd : ∀ q' ∈ rest, 0 ≤ q' ∧ q' ≤ 1 :=
       fun q' hq' => hqs q' (List.mem_cons_of_mem q hq')
     have hq_le : binary_kl q (1/2) ≤ Real.log 2 :=
@@ -233,10 +233,10 @@ theorem global_alignment_selects_zfa
   induction qs with
   | nil =>
     refine ⟨?_, ?_⟩
-    · intro _ q hq; exact absurd hq (List.not_mem_nil q)
+    · intro _ q hq; exact absurd hq (List.not_mem_nil)
     · intro _; simp [cumulative_kl]
   | cons q rest ih =>
-    have hq_bnd : 0 ≤ q ∧ q ≤ 1 := hqs q (List.mem_cons_self q rest)
+    have hq_bnd : 0 ≤ q ∧ q ≤ 1 := hqs q (List.mem_cons_self)
     have hrest_bnd : ∀ q' ∈ rest, 0 ≤ q' ∧ q' ≤ 1 :=
       fun q' hq' => hqs q' (List.mem_cons_of_mem q hq')
     have ihr := ih hrest_bnd
@@ -263,7 +263,7 @@ theorem global_alignment_selects_zfa
       · rw [hq_eq]; exact hq_zfa
       · exact hrest_zfa q' hq_in
     · intro hall
-      have hq_zfa : q = 0 ∨ q = 1 := hall q (List.mem_cons_self q rest)
+      have hq_zfa : q = 0 ∨ q = 1 := hall q (List.mem_cons_self)
       have hq_sat : binary_kl q (1/2) = Real.log 2 :=
         (vacuum_alignment_selects_zfa hq_bnd.1 hq_bnd.2).mpr hq_zfa
       have hrest_all : ∀ q' ∈ rest, q' = 0 ∨ q' = 1 :=
