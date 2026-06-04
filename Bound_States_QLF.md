@@ -94,10 +94,10 @@ The QLF reading: the τ-decay vertex is a four-body joint ZFA closure (one in, t
 
 ## §6 Open work
 
-- **Map each atomic system to a specific QLF closure structure.** Positronium ↔ minimal 2-qubit Hermitian-pair joint closure (per §3.1). Muonium ↔ asymmetric joint closure with different blanket depths on the electron and muon sides. Hydrogen ↔ lepton-baryon joint closure where the baryon side is a three-quark composite from [`HadronicDepth.md`](HadronicDepth.md).
-- **Compute the QLF mass for each mapped atomic system** from joint-closure depth and the per-event log-2 quantum from [`MRE.md`](MRE.md).
-- **Test the Bohr-formula reduced-mass structure** `E_bind ∝ μ` from QLF closure-multiplicity counts. The clean factor-of-2 between positronium and hydrogen bindings should fall out structurally.
-- **τ-decay-vertex closure**: identify the specific QLF topology for τ⁻ → ν_τ + W⁻ and verify that `m_τ` corresponds to the energetic threshold for this vertex closure.
+- **Map each atomic system to a specific QLF closure structure.** ✓ Done — [`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) writes out positronium (symmetric two-electron-half-loop joint closure), hydrogen (electron half-loop + proton internal closure), and muonium (asymmetric electron + antimuon half-loops). Total joint depth `R(bound) = R_A + R_B`; mass `m = α R(bound)`.
+- **Compute the QLF mass for each mapped atomic system** ✓ Done at the mapping level — `m(Ps) = 2 m_e`, `m(H) = m_e + m_p`, `m(Mu) = m_e + m_μ` follow directly from the joint-closure-depth decomposition. The deeper derivation (`α R_e = m_e` from first-principles QLF closure-multiplicity) is open work joining the Standard-Model mass-spectrum programme.
+- **Test the Bohr-formula reduced-mass structure** `E_bind ∝ μ` from QLF closure-multiplicity counts. ✓ Done — `Atomic_System_QLF_Closures.md` §5 reproduces `E(Mu)/E(Ps) ≈ 2`, `E(H)/E(Ps) ≈ 2`, `E(H)/E(Mu) ≈ 1` from the reduced-mass formula `μ = R_A R_B / (R_A + R_B)`. The full derivation of `13.6 eV = (1/2) m_e α²` from joint-closure multiplicity (rather than the Bohr-model assumption) is sketched in [`Hydrogen.md`](Hydrogen.md) and remains partial.
+- **τ-decay-vertex closure**: identify the specific QLF topology for τ⁻ → ν_τ + W⁻ and verify that `m_τ` corresponds to the energetic threshold for this vertex closure. ✗ Open ([`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) §6 names the question; the specific topology is not yet pinned).
 
 ---
 
