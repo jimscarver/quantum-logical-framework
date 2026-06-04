@@ -130,6 +130,8 @@ The vacuum has a **structured frequency spectrum**, not pure thermal noise. The 
 
 The observed bound-state mass spectrum is the **vacuum resonance spectrum projected onto admissible closures**. The Markov-blanket depths `{R_e, R_μ, R_p, R_τ, …}` from [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md) are not arbitrary — they are the depths at which the vacuum supports stable resonant coupling. Depths not supported by the vacuum's resonance structure are unobservable: no bound state forms there.
 
+The same principle gives a complete derivation of the **nuclear magic-number sequence** `2, 8, 20, 28, 50, 82, 126` in [`Magic_numbers.md`](Magic_numbers.md): the vacuum-as-intruder selects the `j = ℓ_max + 1/2` orbital at each frequency, with the ℓ = 3 threshold falling out algebraically from the 8-twist alphabet's 6+2 split (3 spatial dimensions + gauge fold). Companion script: [`magic_numbers_demo.py`](magic_numbers_demo.py).
+
 This reframes the Wigner-Dyson result in [`Wigner_Dyson_QLF_Test.md`](Wigner_Dyson_QLF_Test.md). The PDG bound-state masses are the **vacuum-resonance projection** of the abstract `R̂` spectrum on `ℓ²(Σ_sa)` ([`ReverseMathematics.md`](ReverseMathematics.md) §4.9), not the full spectrum itself. The clustering observed in the data is the gauge-symmetry structure of the vacuum's supported modes — exactly the structure §6.4 makes visible. The full GUE-like statistics would live on the un-projected spectrum, accessible only when a depth functional is constructed against the vacuum coupling rather than read off observed masses.
 
 ### 6.2 Vacuum as near-equilibrium thermodynamic substrate
@@ -212,6 +214,7 @@ The vacuum is not empty. It is the living substrate of event synthesis — and, 
 - [`Crystal_QuantumOS.md`](Crystal_QuantumOS.md) — quiet frequencies as vacuum-resonance modes (§6.1); the Eu:YSO control plane sketch
 - [`Emergent_Markov_Blankets.md`](Emergent_Markov_Blankets.md), [`Hadrons_Markov_Blankets.md`](Hadrons_Markov_Blankets.md) — observed admissibility as vacuum-resonance projection
 - [`ReverseMathematics.md`](ReverseMathematics.md) §4.9 and [`Wigner_Dyson_QLF_Test.md`](Wigner_Dyson_QLF_Test.md) — what the alignment principle says about the PDG-mass spacing test; the observed spectrum is the vacuum-resonance projection of the abstract `R̂` spectrum on `ℓ²(Σ_sa)`
+- [`Magic_numbers.md`](Magic_numbers.md) — the vacuum-as-intruder framing applied to the nuclear magic-number sequence; the ℓ = 3 threshold derived algebraically from the 8-twist alphabet's 6+2 split (the same 3 spatial dimensions referenced in §6.1)
 - [`Cross_Frequency_Lorentz.md`](Cross_Frequency_Lorentz.md) — rapidity as `log(vacuum-mode-index ratio)` under §6.1 / §6.3
 
 

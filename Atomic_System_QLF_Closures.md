@@ -223,7 +223,7 @@ The per-nucleon binding energy `BE/A` is the standard empirical signature of nuc
 
 Under the vacuum-alignment principle ([`VacuumEnergy.md`](VacuumEnergy.md) §6.1), these features are **vacuum-resonance peaks** — the depths at which the vacuum's spectral structure most strongly supports nuclear ZFA closure. The shell-model magic numbers are the indices of these resonance peaks.
 
-This is a **reframing**, not a quantitative derivation. The QLF principle places nuclear shell structure under the same vacuum-resonance umbrella as the leptonic / atomic / hadronic spectra, but the specific shell-closure numbers are still produced by the standard Mayer-Jensen spin-orbit shell model. A first-principles QLF derivation of the magic-number sequence from vacuum-coupling topology is open work (see §10).
+The first-principles QLF derivation of the magic-number sequence from vacuum-coupling topology is now articulated in [`Magic_numbers.md`](Magic_numbers.md): dimensional growth of half-spin closures gives 2, 8, 20; for ℓ_max ≥ 3 the **vacuum is the intruder**, selecting `j = ℓ_max + 1/2` at each frequency; the ℓ = 3 threshold is derived algebraically from the 8-twist alphabet's 6+2 split. See also [`magic_numbers_demo.py`](magic_numbers_demo.py) for the runnable derivation.
 
 ### 7.3 The ⁵⁶Fe peak and the cosmological arrow
 
@@ -234,8 +234,9 @@ Under the vacuum-alignment reading: the vacuum's deepest stable resonance below 
 ### 7.4 What this section does and does not derive
 
 - ✓ **Derived (this section)**: depth `R_X` for any atomic system from its measured mass; the `R ∝ 1/A` baseline scaling; the framing of magic numbers as vacuum-resonance peaks under §6.1.
-- ⚠ **Reframed but not derived**: the specific Mayer-Jensen shell-closure numbers; the precise per-nucleon binding-energy curve; the ⁵⁶Fe peak position.
-- ✗ **Open**: first-principles QLF prediction of magic numbers from vacuum-coupling topology; predicted binding-energy curve from vacuum-resonance enumeration; nuclear-matter equation of state from QLF substrate.
+- ✓ **Derived (via [`Magic_numbers.md`](Magic_numbers.md))**: the magic-number sequence `2, 8, 20, 28, 50, 82, 126` end-to-end, including the ℓ = 3 threshold from the 8-twist alphabet's 6+2 split. The vacuum-as-intruder framing supplies the spin-orbit-style j-shell selection without invoking nuclear LS coupling as separate physics.
+- ⚠ **Reframed but not derived**: the precise per-nucleon binding-energy curve; the ⁵⁶Fe peak position quantitatively.
+- ✗ **Open**: predicted binding-energy curve from vacuum-resonance enumeration; nuclear-matter equation of state from QLF substrate.
 
 ---
 
@@ -276,8 +277,8 @@ Under the vacuum-alignment reading: the vacuum's deepest stable resonance below 
 - **Bohr `13.6 eV` derivation in QLF language**: extend [`Hydrogen.md`](Hydrogen.md) and `constants_mapper.py` to derive `(1/2) m_e α² = 13.6 eV` from the joint-closure multiplicity structure of the two-body Coulomb bound state, not from the Bohr-model assumption.
 - **Quantitative `R_p` from three-quark structure**: extend [`HadronicDepth.md`](HadronicDepth.md) to derive `R_p ≈ 1836 R_e` from gauge-fold-depth combinatorics of the three-quark joint closure.
 - **τ-decay-vertex closure topology**: pin down the specific QLF topology for τ⁻ → ν_τ + W⁻ and verify that `m_τ` corresponds to the energetic threshold; see [`Bound_States_QLF.md`](Bound_States_QLF.md) §4.
-- **Heavier atomic systems extension to binding curves**: §7 extends the per-qubit depth mapping to ¹H through ²³⁸U; an open follow-up is to derive the *per-nucleon binding-energy curve* (BE/A vs A) from vacuum-resonance enumeration rather than fitting the Mayer-Jensen shell-model magic numbers post hoc.
-- **Magic-number sequence from vacuum-coupling topology**: derive `{2, 8, 20, 28, 50, 82, 126}` from the spectral structure of the vacuum-coupling operator rather than from the spin-orbit shell model.
+- **Heavier atomic systems extension to binding curves**: §7 extends the per-qubit depth mapping to ¹H through ²³⁸U; an open follow-up is to derive the *per-nucleon binding-energy curve* (BE/A vs A) from vacuum-resonance enumeration.
+- **Magic-number sequence**: ✓ now derived in [`Magic_numbers.md`](Magic_numbers.md) (dimensional growth + vacuum-as-intruder + ℓ = 3 threshold from the 8-twist alphabet's 6+2 split). The remaining residual axiom is *why* the vacuum specifically selects `j = ℓ_max + 1/2` (rather than `j = ℓ_max − 1/2`); see `Magic_numbers.md` §"Current Status".
 - **First-principles `m_e` derivation**: under the per-qubit reading ([`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md)) this becomes the derivation of `R_e ≈ 2.4 × 10²²` (electron Markov-blanket depth in Planck units) from QLF closure-multiplicity. Likely shape: a large-depth structural argument at the Planck-event-rate scale.
 
 ---
