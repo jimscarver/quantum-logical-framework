@@ -177,6 +177,7 @@ This is the same logical strength as the existing `spectral_hilbert_polya`. The 
 - **Structurally motivated.** The axiom now expresses a chain `(RCA₀ closed form) → (RCA₀ MRE saturation) → (WKL₀ Mellin compactness) → (WKL₀ critical-line condition)` instead of being a bare placeholder.
 - **Falsifiable.** A specific Mellin-image identity is now the bridge to verify. Future work can attempt to discharge the axiom by either (a) constructing the explicit Mellin identity within WKL₀ + MRE saturation, or (b) finding a counterexample where MRE saturation fails to force the critical-line condition. [`qlf_dirichlet_search.py`](qlf_dirichlet_search.py) Report 7 supplies the numerical demo.
 - **Connects two of QLF's deepest results.** [MRE.md](MRE.md) (Hermitian-pair max entropy) and [Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md) (RH reduction) become a single argument: the critical line is the locus of maximum information-gain ZFA pruning.
+- **Reinforced by the per-qubit ℏω reading** ([`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md), [`Information_Energy_Equivalence.md`](Information_Energy_Equivalence.md)): under the Wheeler-Fields `ℏω = 1 bit at frequency ω` equivalence, the Mellin variable `s` has a physical energy/frequency reading, and `Re(s) = 1/2` becomes the locus where information and energy saturate jointly (§4.8). Proof-theoretic strength unchanged; the bridge's content gains a third reinforcing layer.
 
 ### 4.6 What's still axiomatic
 
@@ -189,6 +190,29 @@ The Mellin-MRE-bridge step is still an axiom. The numerical evidence in [`qlf_di
 ### 4.7 Connection to Montgomery-Odlyzko / GUE spacing
 
 The GUE spacing of Riemann zeros (Montgomery 1973, Odlyzko 1987) is the deepest empirical signature of the analytic side. The QLF gap-zero density `C(2n, n) / 4^n ~ 1/√(πn)` produces matching $\sqrt{\pi n}$ spacing asymptotically ([SpectralGap.md §2](SpectralGap.md)) — but only asymptotically, not exactly. Under the MRE-bridge framing, this is exactly the expected behavior: the Mellin image of the QLF generating function carries the discrete GUE-like density across the bridge into the asymptotic spacing of the analytic zeros. The bridge axiom IS the statement that this asymptotic match is exact in the limit.
+
+### 4.8 Information-energy reading of the MRE bridge
+
+The per-event log 2 information quantum that motivates §4.2 has a dual: each ZFA closure event also carries an energy quantum `ℏω` (per [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md), with `ω = f_vac / R` set by the Markov-blanket depth). The two quanta are properties of the same per-event reality, related by the **Wheeler-Fields equivalence** [`Information_Energy_Equivalence.md`](Information_Energy_Equivalence.md) derived from QLF first principles:
+
+$$\hbar \omega \;\equiv\; \text{1 bit at frequency } \omega$$
+
+This reading deepens §4's bridge motivation by giving `Re(s) = 1/2` **three coincident interpretations** of the same structural object:
+
+1. **Information-MRE** (§4.2): the 50/50 binary partition saturates the `log 2` information-gain bound. The 1/2 is the most-balanced split of the possibility tree.
+2. **Half-spin closure** ([`HALF-SPIN-ZFA-EMBEDDING.md`](HALF-SPIN-ZFA-EMBEDDING.md) §3a): the 1/2-spin atom is the unique fixed point of set-theoretic minimality ∧ algebraic Pauli closure ∧ information-theoretic optimality.
+3. **Energy-Wheeler-Fields**: the per-event `ℏω` energy quantum and the per-event 1-bit information quantum saturate at the same locus. The Mellin variable `s` has a clean physical reading as an energy/frequency variable; the structural-singularity locus is the joint saturation point of information and energy.
+
+The bridge axiom's **content** is sharpened: not just "MRE saturation forces the critical line" but "the information-energy quantum jointly saturates on the critical line." The three readings are not independent claims; they all point at the same `1/2`, the unique fixed point of the half-spin ZFA closure.
+
+The bridge's **proof-theoretic strength is unchanged**: still a WKL₀-level axiom. The Mellin identity needed to discharge it remains an open analytic problem; no Lean theorem is added here.
+
+Two paths to a discharge worth flagging:
+
+- **Mellin-identity path** (already named in §4.6): construct an exact identity within WKL₀ + MRE saturation linking `M[Z_QLF](s)` to a tabulated Dirichlet series, with the energy-weighting now a physical interpretation of `s` rather than an abstract parameter.
+- **Berry-Keating-style spectral path**: the per-qubit reading suggests a natural Hamiltonian `H = ℏω = E_Planck / R̂` where `R̂` is the admissible-Markov-blanket-depth operator. If `R̂`'s spectrum has the symmetry that places its eigenvalues on `Re(s) = 1/2` under the Mellin map, this provides a QLF analog of the Berry-Keating `xp + 1/2` Hamiltonian. Connects to [`QLF_Spectral.lean`](lean/QLF_Spectral.lean) (Hermitian spectral projectors) and would be the Lean-theorem-grade resolution.
+
+**An empirically testable prediction implied by the per-qubit reading**: if the QLF per-qubit accounting is correct, the discrete spectrum of admissible Markov-blanket depths `{R_e, R_μ, R_p, R_τ, …}` should exhibit Wigner-Dyson GUE spacing statistics in the large-depth limit — the same spectral signature §4.7 already identifies for the Montgomery-Odlyzko law. Confirmation would constitute independent evidence for the bridge parallel to the Mellin-image structural argument.
 
 ---
 

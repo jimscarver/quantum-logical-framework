@@ -180,6 +180,7 @@ The information side is already Lean-anchored as `binary_kl_delta_uniform = Real
 - **Lean theorem `hbar_omega_per_bit`** as the corollary: information per event × energy per event / event-count.
 - **Quantitative connection to Bekenstein bound**: the maximum information storage in a region of size `R` with energy `E` is `S_max ≤ 2π R E / (ℏ c)` bits. QLF derivation from joint-closure topology is open.
 - **Connection to holographic principle**: every bit corresponds to a Planck area on the horizon (`Holographic.md`, `QLF_Holographic_Computational_Universe.md`). The ℏω-per-bit at the Planck frequency gives `E_Planck` per bit, matching the holographic accounting.
+- **Zeta-bridge reading**: the ℏω-per-bit equivalence deepens the MRE-bridge motivation of [`ReverseMathematics.md`](ReverseMathematics.md) §4. See §4.8 there — `Re(s) = 1/2` becomes the joint information-energy saturation locus, a third reinforcing reading on top of the MRE binary-partition argument and the half-spin closure fixed-point argument. The bridge axiom `spectral_hilbert_polya` remains a WKL₀ axiom; its content gains a physical interpretation of the Mellin variable `s` as an energy/frequency variable.
 
 ---
 
