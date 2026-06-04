@@ -85,7 +85,7 @@ Under `m = αR` with R interpreted as "total gauge-fold depth," the addition of 
 
 Each qubit's mass `m_{\text{qubit}} = ℏω_{\text{qubit}}` is the Compton relation `E = ℏω`. This is the standard quantum-mechanical mass-frequency identity, recovered here with the additional QLF interpretation: `ω` is the inverse of the qubit's Markov-blanket depth.
 
-The photon-side companion is in [`Photon_Energy_Bits.md`](Photon_Energy_Bits.md): a photon has `E = N_bits · ℏω` (bits of joint-closure information × per-bit energy), with `m_rel = E/c²` mass-equivalence but zero rest mass (no gauge fold → no constructing delay). Massive particles carry **gauge-folded qubits** with rest mass `ℏω` each; photons carry **gauge-free bits** with mass-equivalence `ℏω` each. Both follow the same accounting principle: energy = quanta count × per-quantum energy.
+The photon-side companion is in [`Photon_Energy_Bits.md`](Photon_Energy_Bits.md): a photon has `E = N_bits · ℏω` (bits of joint-closure information × per-bit energy), with `m_rel = E/c²` mass-equivalence but zero rest mass (no gauge fold → no constructing delay). Massive particles carry **gauge-folded qubits** with rest mass `ℏω` each; photons carry **gauge-free bits** with mass-equivalence `ℏω` each. Both follow the same accounting principle: energy = quanta count × per-quantum energy. The unifying `ℏω = 1 bit at frequency ω` principle is derived from QLF first principles in [`Information_Energy_Equivalence.md`](Information_Energy_Equivalence.md) (Wheeler-Fields equivalence).
 
 ### 3.3 The first-principles derivation question becomes sharper
 
@@ -98,7 +98,7 @@ This is a cleaner statement of the open problem than "derive `α R_e = m_e`" bec
 - `R_e` is a single integer-valued depth, not a depth-times-conversion product.
 - The target is a specific large number (`≈ 2.4 × 10²²`), constraining what kind of combinatorial argument could produce it.
 
-The empirical results of [`Electron_Mass_Derivation.md`](Electron_Mass_Derivation.md) §4 (Path A and Path C falsifications) constrain the search further: neither a same-depth weighted-multiplicity ratio nor a fixed-depth gauge-class ratio yields the right scaling. The right derivation must involve depth-as-mass scaling (depth `≈ 10²²` is far beyond any tractable BFS enumeration) plus a structural argument for why the electron's specific Markov-blanket sits at that depth.
+The required depth `R_e ≈ 2.4 × 10²²` is far beyond any tractable BFS enumeration. A first-principles derivation will involve depth-as-mass scaling at the Planck-event scale plus a structural argument for why the electron's specific Markov-blanket sits at that depth.
 
 ---
 
@@ -142,7 +142,7 @@ Each ZFA closure event reduces free energy by exactly `log 2` nats; each constit
 
 ## §7 Open work
 
-- **First-principles derivation of `R_e`** from QLF closure-multiplicity. The specific large number `R_e ≈ 2.389 × 10²²` is what the eventual derivation must produce. Combined with [`Electron_Mass_Derivation.md`](Electron_Mass_Derivation.md) §4 Path A and Path C falsifications, the search is now substantially constrained — no fixed-depth-multiplicity argument can produce a number this large; the right derivation must involve large-depth structural arguments or MRE-cost-weighted enumeration.
+- **First-principles derivation of `R_e`** from QLF closure-multiplicity. The specific large number `R_e ≈ 2.389 × 10²²` is what the eventual derivation must produce. Likely shape: a large-depth structural argument tied to the Planck-event-rate scaling and/or an MRE-cost-weighted enumeration that intrinsically suppresses gauge contributions relative to spatial ones.
 - **Lean theorem `qubit_mass_is_hbar_omega`.** Formalise the per-qubit mass quantum as a Lean theorem connecting half-spin ZFA atoms (in [`lean/QLF_Pauli.lean`](lean/QLF_Pauli.lean) and [`lean/QLF_TwistAlphabet.lean`](lean/QLF_TwistAlphabet.lean)) to a per-atom rest energy. The Compton-relation structure is well-known; the QLF Lean formalization would establish it as a consequence of `rho_process_always_zfa` and the per-event log-2 quantum.
 - **Quark-qubit decomposition of the proton.** The proton mass-energy decomposes as three quark qubits + gluonic-gauge-fold contributions. Pinning the exact decomposition (current quark masses vs. QCD binding) requires connecting QLF to the gauge-fold-depth content of QCD.
 - **τ-decay-vertex per-qubit accounting.** The τ has no stable atomic system; its mass-energy is the integrated `ℏω_τ` of the decay-vertex closure. A specific decay-channel topology that closes at `m_τ c² = ℏω_τ` is open work.
@@ -156,7 +156,6 @@ Each ZFA closure event reduces free energy by exactly `log 2` nats; each constit
 
 - [`Bound_States_QLF.md`](Bound_States_QLF.md) — free leptons are not QLF observables; atomic systems are.
 - [`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) — joint-closure topologies for positronium, muonium, hydrogen; mass-additivity now made explicit via the per-qubit principle.
-- [`Electron_Mass_Derivation.md`](Electron_Mass_Derivation.md) — scope and gaps for the first-principles derivation of `R_e`. Paths A and C falsified in their simple forms.
 - [`Frequency_Synchronization.md`](Frequency_Synchronization.md) — `Δt = R/f`; the per-qubit reading identifies `ω = 1/Δt` as the qubit's internal frequency.
 - [`Higgs.md`](Higgs.md) — `m = αR` framework; the per-qubit reading clarifies the implicit per-qubit structure.
 - [`MRE.md`](MRE.md) — per-event `log 2` quantum; dual to the per-qubit `ℏω` mass quantum.

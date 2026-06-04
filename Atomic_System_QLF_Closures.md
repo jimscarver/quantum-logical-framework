@@ -195,7 +195,7 @@ The "third-generation mass" question in QLF is therefore: **at what gauge-fold d
 | E(Mu)/E(Ps) ≈ 2 from reduced-mass structure | ✓ Derived |
 | E(H)/E(Mu) ≈ 1 from reduced-mass structure | ✓ Derived |
 | Bohr binding 13.6 eV = (1/2) m_e α² from QLF closure-multiplicity | ⚠ Sketched ([`Hydrogen.md`](Hydrogen.md)) |
-| α R_e = m_e ≈ 0.511 MeV — α value from first principles | ✗ Open — scope and gaps in [`Electron_Mass_Derivation.md`](Electron_Mass_Derivation.md); existing `constants_mapper.emerge_alpha()` returns 0.2, not the fine-structure 1/137 |
+| α R_e = m_e ≈ 0.511 MeV — α value from first principles | ✗ Open — equivalent under the per-qubit reading to deriving `R_e ≈ 2.4 × 10²²` from QLF closure-multiplicity; see [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md) §3.3 |
 | Specific 8-twist topology for the electron half-loop with gauge fold | ⚠ Sketched ([`Electron.md`](Electron.md) §1) |
 | Specific 8-twist topology for the proton three-quark closure | ⚠ Sketched ([`HadronicDepth.md`](HadronicDepth.md)) |
 | Specific 8-twist topology for the antimuon half-loop | ✗ Open |
@@ -220,7 +220,7 @@ The "third-generation mass" question in QLF is therefore: **at what gauge-fold d
 - **Quantitative `R_p` from three-quark structure**: extend [`HadronicDepth.md`](HadronicDepth.md) to derive `R_p ≈ 1836 R_e` from gauge-fold-depth combinatorics of the three-quark joint closure.
 - **τ-decay-vertex closure topology**: pin down the specific QLF topology for τ⁻ → ν_τ + W⁻ and verify that `m_τ` corresponds to the energetic threshold; see [`Bound_States_QLF.md`](Bound_States_QLF.md) §4.
 - **Heavier atomic systems**: extend the mapping to deuterium, helium, pionium, kaonium, etc. — each is a joint closure with its own constituent gauge-fold-depth structure.
-- **First-principles `m_e` derivation**: scope and gaps are in [`Electron_Mass_Derivation.md`](Electron_Mass_Derivation.md). The existing `constants_mapper.emerge_alpha()` returns 0.2 (gauge/spatial twist ratio of the small stable-history ensemble), not the fine-structure constant 1/137. Three candidate pathways forward (multiplicity-weighted gauge-fold-path counting; direct Planck-event-rate counting; `m_e/m_p` ratio from joint-closure topology) are identified there.
+- **First-principles `m_e` derivation**: under the per-qubit reading ([`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md)) this becomes the derivation of `R_e ≈ 2.4 × 10²²` (electron Markov-blanket depth in Planck units) from QLF closure-multiplicity. Likely shape: a large-depth structural argument at the Planck-event-rate scale.
 
 ---
 

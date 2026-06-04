@@ -143,6 +143,7 @@ So the per-event `log 2` quantum and the per-bit `ℏω` photon-energy quantum a
 ### Internal
 
 - [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md) — companion: each massive-particle qubit contributes `ℏω` of rest energy.
+- [`Information_Energy_Equivalence.md`](Information_Energy_Equivalence.md) — the unifying `ℏω = 1 bit at frequency ω` Wheeler-Fields principle derived from QLF first principles. Photon energy = (bit count) × (per-bit `ℏω`) is the gauge-free instance.
 - [`Delayed_Choice_Eraser.md`](Delayed_Choice_Eraser.md) — photons as joint emitter-absorber closures, not free projectiles.
 - [`Collective_Electrodynamics.md`](Collective_Electrodynamics.md) §2 — joint ZFA as transactional photon.
 - [`Electron.md`](Electron.md) v2.0 §2 — photon `^>` as a gauge-free half-loop.
