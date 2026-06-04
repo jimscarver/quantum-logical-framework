@@ -122,6 +122,20 @@ E_1 = −½ × (1/137.036)² × 511000 eV = −13.606 eV
 
 The **Rydberg energy** is Ry = ½ α² m_e c² = 13.606 eV.
 
+### §4.1 The Bohr spectrum as a vacuum-resonance shell structure
+
+Under the per-qubit reading ([Per_Qubit_Mass_Quantum.md](Per_Qubit_Mass_Quantum.md)), each bound-state energy `E_n` corresponds to a Markov-blanket depth `R_n = E_Planck / |E_n|`. The Bohr formula `E_n = −Ry/n²` therefore reads as a **discrete frequency spectrum of vacuum-resonance modes** at depths
+
+$$R_n \;=\; R_1 \cdot n^2, \qquad R_1 \;=\; E_{\text{Planck}} / \text{Ry} \;\approx\; 8.97 \times 10^{26}.$$
+
+The ionization energy from shell n is the shell's vacuum-resonance frequency: `|E_n| = E_Planck / R_n`. The Rydberg series is the QLF shell-frequency spectrum of the hydrogen joint-closure topology — structurally analogous to the nuclear-shell vacuum resonances articulated in [`Magic_numbers.md`](Magic_numbers.md).
+
+This reframes α as a **ratio of two QLF Markov-blanket depths** — the electron Compton depth and the hydrogen-ground-state binding depth:
+
+$$\alpha^2 \;=\; \frac{2\, R_e}{R_1}, \qquad \alpha \;=\; \sqrt{\frac{2\, R_e}{R_1}}.$$
+
+With the calibrated `R_e = E_Planck/m_e c² ≈ 2.389 × 10²²` and `R_1 ≈ 8.974 × 10²⁶`, the ratio `R_e/R_1 = α²/2 ≈ 2.66 × 10⁻⁵` reproduces α to CODATA precision. The runnable companion [`fine_structure_demo.py`](fine_structure_demo.py) prints all three equivalent forms (standard Bohr, QLF per-qubit, depth-ratio) and the per-shell depth table.
+
 ---
 
 ## §5 Comparison Table: E_n vs NIST
