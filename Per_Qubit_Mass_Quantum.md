@@ -85,6 +85,8 @@ Under `m = αR` with R interpreted as "total gauge-fold depth," the addition of 
 
 Each qubit's mass `m_{\text{qubit}} = ℏω_{\text{qubit}}` is the Compton relation `E = ℏω`. This is the standard quantum-mechanical mass-frequency identity, recovered here with the additional QLF interpretation: `ω` is the inverse of the qubit's Markov-blanket depth.
 
+The photon-side companion is in [`Photon_Energy_Bits.md`](Photon_Energy_Bits.md): a photon has `E = N_bits · ℏω` (bits of joint-closure information × per-bit energy), with `m_rel = E/c²` mass-equivalence but zero rest mass (no gauge fold → no constructing delay). Massive particles carry **gauge-folded qubits** with rest mass `ℏω` each; photons carry **gauge-free bits** with mass-equivalence `ℏω` each. Both follow the same accounting principle: energy = quanta count × per-quantum energy.
+
 ### 3.3 The first-principles derivation question becomes sharper
 
 The open question "derive `m_e` from QLF closure-multiplicity" is now:
