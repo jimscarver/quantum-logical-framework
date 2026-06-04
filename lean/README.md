@@ -1,7 +1,7 @@
 # Lean 4 Formalization — Quantum Logical Framework
 
 **Build:** `lake build` on Lean 4.30.0-rc2 + Mathlib  
-**Status:** CI passing, zero `sorry` blocks across all 16 active modules
+**Status:** CI passing, zero `sorry` blocks across all 20 active modules
 
 ## What This Formalization Proves
 
@@ -51,6 +51,8 @@ The entire combinatorial core operates strictly within **RCA₀** — the minimu
 | [ZFAEventDynamics.lean](ZFAEventDynamics.lean) | ZFA event dynamics; spacetime synthesis; acceleration | `spacetime_from_zfa_preserves_synthesis`, `zfa_dynamics_drive_acceleration` |
 | [PauliExclusion.lean](PauliExclusion.lean) | Bosonic vs. fermionic statistics via matrix commutator; Pauli exclusion as genuine constraint | `pauli_exclusion`, `fermi_nonzero_example`, `bosonic_double_occupancy`, `fermi_antisym_action_lift` |
 | [BraKetRhoQuCalc.lean](BraKetRhoQuCalc.lean) | Formal correspondence between Dirac bra-ket notation and RhoQuCalc operators in the density-matrix picture | `action_topo_is_ket`, `lift_topo_is_bra`, `action_lift_eval_eq`, `bra_ket_always_balanced`, `completeness_01`, `projector_idempotent_0`, `orthogonality_01`, `pauli_x_sq`, `pauli_y_sq`, `pauli_z_sq` |
+| [QLF_FreeEnergy.lean](QLF_FreeEnergy.lean) | Per-event free-energy decrement at a half-spin ZFA closure (`ΔF = −log 2` nats); MRE saturation bound | `binary_kl_delta_uniform`, `zfa_closure_minimizes_free_energy`, `binary_kl_uniform_lt_log_two` |
+| [QLF_VacuumAlignment.lean](QLF_VacuumAlignment.lean) | Per-event Lean anchor for the vacuum-alignment TOE-completing principle ([VacuumEnergy.md §6](../VacuumEnergy.md)): KL saturation against the vacuum's max-entropy prior is equivalent to ZFA-closure delta realisation | `binary_kl_delta_zero_uniform`, `vacuum_alignment_selects_zfa`, `misalignment_strictly_underperforms` |
 
 ### Physical Theories
 
