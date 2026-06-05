@@ -102,6 +102,38 @@ From a **limited relative perspective** (that of any embedded observer), the uni
 
 There was no “t = 0”. The cosmos has always been becoming — and continues to become — through the same logical process that creates the vacuum, particles, and spacetime itself.
 
+### 4.1 Cosmic time as the proper time of the cosmic-horizon Markov blanket
+
+Under the foundational identity articulated in [`Frequency_Synchronization.md`](Frequency_Synchronization.md) §1.1 — *Markov-blanket depth `R` is a local clock whose period in universal-substrate Planck-event ticks is exactly `R`* — and Hitoshi Kitada's local-time framework ([gr-qc/9612043](https://arxiv.org/abs/gr-qc/9612043)), the 13.8-Gyr cosmic age has a sharper structural reading.
+
+The cosmic horizon is itself a Markov blanket: it screens the observable universe (interior) from the unobservable beyond (exterior). Under Kitada's interior/exterior synchronization-rate integration, the cosmic blanket's proper time is
+
+$$
+\tau_{\text{cosmic}} \;=\; \int \frac{f_{\text{interior}}}{f_{\text{exterior}}} \, dt
+$$
+
+with `f_interior` the Planck-event rate (the substrate clock) and `f_exterior` the cosmic-horizon clock (the Hubble-scale frequency at which the boundary refreshes). Concretely:
+
+- **Interior rate**: `f_Planck = 1 / τ_Planck ≈ 1.85 × 10⁴³ Hz` — the universal-substrate clock.
+- **Exterior rate**: `f_Hubble ≈ H₀ ≈ 2.3 × 10⁻¹⁸ Hz` — the cosmic-horizon clock.
+- **Ratio**: `f_Planck / f_Hubble ≈ 8 × 10⁶⁰` — the cosmic-horizon Markov-blanket depth `R_cosmic`.
+
+Remarkably, the same number `n ≈ 6 × 10⁶⁰` is the Hadronic-Depth quantity of [`HadronicDepth.md`](HadronicDepth.md), where it is derived from the proton-mass anchor as `n ~ (m_Planck / m_p)³`. The two derivations agree to within order-of-magnitude precision and supply the same identification:
+
+$$
+\tau_{\text{cosmic}} \;=\; R_{\text{cosmic}} \cdot \tau_{\text{Planck}} \;=\; n \cdot \tau_{\text{Planck}} \;\approx\; 13.8 \text{ Gyr.}
+$$
+
+This is the **Mach-style relational derivation** of the cosmic age: the universe's "age" is the proper time of the cosmic-horizon Markov blanket, which equals one tick of that blanket's local clock, which equals `n` ticks of the universal-substrate clock, which converts to `13.8 Gyr` under standard unit conversion.
+
+Equivalent statements that fall out:
+
+- **No absolute `t = 0`** is a structural consequence: cosmic time is the proper time of an extant Markov blanket (the cosmic horizon), not a universal external coordinate. There is no "before" the blanket — only its own clock running.
+- **The §2 frequency-integrated derivation** of `τ_cosmic = ∫ n(ω) dω` is a corollary: the integral is the total tick count of the cosmic-horizon clock, which under the foundational identity equals the blanket's depth.
+- **The Hubble parameter `H₀`** is structurally identified as the cosmic-horizon clock rate `f_exterior`; its constancy at cosmic scales reflects the stability of the cosmic-horizon Markov blanket.
+
+This framing is the QLF realisation of the long-standing relational-cosmology programme (Mach, Barbour, Smolin); the foundational identity supplies the substrate-level mechanism. See [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §4 for the broader scoping, including connection to the open Einstein-equation-coefficient derivation in §5 of that doc.
+
 ---
 
 ## Further Reading in the Repository

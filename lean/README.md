@@ -1,7 +1,7 @@
 # Lean 4 Formalization — Quantum Logical Framework
 
 **Build:** `lake build` on Lean 4.30.0-rc2 + Mathlib  
-**Status:** CI passing, zero `sorry` blocks across all 21 active modules
+**Status:** CI passing, zero `sorry` blocks across all 22 active modules
 
 ## What This Formalization Proves
 
@@ -54,6 +54,7 @@ The entire combinatorial core operates strictly within **RCA₀** — the minimu
 | [QLF_FreeEnergy.lean](QLF_FreeEnergy.lean) | Per-event free-energy decrement at a half-spin ZFA closure (`ΔF = −log 2` nats); MRE saturation bound | `binary_kl_delta_uniform`, `zfa_closure_minimizes_free_energy`, `binary_kl_uniform_lt_log_two` |
 | [QLF_VacuumAlignment.lean](QLF_VacuumAlignment.lean) | Per-event AND trajectory-level Lean anchors for the vacuum-alignment TOE-completing principle ([VacuumEnergy.md §6](../VacuumEnergy.md)): KL saturation against the vacuum's max-entropy prior is equivalent to ZFA-closure delta realisation at every event in the trajectory | `binary_kl_delta_zero_uniform`, `vacuum_alignment_selects_zfa`, `misalignment_strictly_underperforms`, `binary_kl_uniform_le_log_two_endpoint`, `cumulative_kl_le_length_log_two`, `global_alignment_selects_zfa` |
 | [QLF_RhoProcessBridge.lean](QLF_RhoProcessBridge.lean) | Third layer of the vacuum-alignment selection rule: every constructible RhoProcess produces an events-trajectory that saturates the cumulative information bound against the vacuum prior, by structural recursion (`action → 1`, `lift → 0`, `parallel`/`sequence` concatenate) | `events`, `events_all_delta`, `events_bounded`, `rho_process_alignment_saturates` |
+| [QLF_LocalClock.lean](QLF_LocalClock.lean) | Markov-blanket-local-clock identity ([Kitada_Local_Time_GR.md §3 Gap 1](../Kitada_Local_Time_GR.md), [Frequency_Synchronization.md §1.1](../Frequency_Synchronization.md)): a QLF Markov blanket of depth `R` IS a local clock with period `R` substrate ticks, each contributing `log 2` nats. The QLF realisation of Kitada's local-time framework (gr-qc/9612043) | `local_clock_period`, `markov_blanket_local_clock`, `local_clock_tick_is_log_two` |
 
 ### Physical Theories
 

@@ -30,5 +30,6 @@ lean_lib QLF where
     `QLF_Pauli,
     `QLF_TwistAlphabet,
     `QLF_VacuumAlignment,
-    `QLF_RhoProcessBridge
+    `QLF_RhoProcessBridge,
+    `QLF_LocalClock
   ]

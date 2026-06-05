@@ -134,11 +134,11 @@ Same tone discipline as [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md): ar
 
 In rough order of effort and value:
 
-1. **Name the Gap-1 identity in `Frequency_Synchronization.md`** as a foundational statement. Small edit (one paragraph + cross-ref). This puts the structural commitment in the natural anchor doc and makes Gap 2 and Gap 3 derivations cleaner.
+1. ✓ **Done** — [`Frequency_Synchronization.md`](Frequency_Synchronization.md) §1.1 now names the foundational identity explicitly, with the table of QLF results that follow as corollaries.
 
-2. **Refine `AgeOfUniverse.md` §4** with the Kitada cosmic-clock framing: cosmic age as the proper time of the cosmic-horizon Markov blanket, with the substrate-clock-to-cosmic-clock ratio supplying the bridge to the Hadronic-Depth `n`. Medium edit.
+2. ✓ **Done** — [`AgeOfUniverse.md`](AgeOfUniverse.md) §4.1 reframes the 13.8-Gyr cosmic-age derivation as the proper time of the cosmic-horizon Markov blanket via the Kitada interior/exterior synchronization-rate integration. The cosmic-horizon depth `R_cosmic ≈ f_Planck / f_Hubble ≈ 8 × 10⁶⁰` matches the Hadronic-Depth `n ≈ 6 × 10⁶⁰` from [`HadronicDepth.md`](HadronicDepth.md) to within order-of-magnitude precision.
 
-3. **Lean theorem `markov_blanket_local_clock`** for Gap 1, packaging the per-event log 2 quantum as the local-clock advancement rate. Builds on existing `vacuum_alignment_selects_zfa` and `rho_process_alignment_saturates`. Tractable.
+3. ✓ **Done** — Lean theorem `markov_blanket_local_clock` lives in [`lean/QLF_LocalClock.lean`](lean/QLF_LocalClock.lean). For any constructible RhoProcess `p`, `cumulative_kl (events p) = (local_clock_period p) · log 2`, packaging `rho_process_alignment_saturates` under the local-clock-identity name. Companion `local_clock_tick_is_log_two` states each tick advances the cumulative information by exactly `log 2`.
 
 4. **Derive the `8π` geometric factor** as `4π × 2` (solid angle × Hermitian-pair) from rigorous Borromean-style closure-counting at the Markov-blanket boundary. Medium difficulty; concrete combinatorial work.
 
