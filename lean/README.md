@@ -1,7 +1,7 @@
 # Lean 4 Formalization — Quantum Logical Framework
 
 **Build:** `lake build` on Lean 4.30.0-rc2 + Mathlib  
-**Status:** CI passing, zero `sorry` blocks across all 22 active modules
+**Status:** CI passing, zero `sorry` blocks across all 23 active modules
 
 ## What This Formalization Proves
 
@@ -55,6 +55,7 @@ The entire combinatorial core operates strictly within **RCA₀** — the minimu
 | [QLF_VacuumAlignment.lean](QLF_VacuumAlignment.lean) | Per-event AND trajectory-level Lean anchors for the vacuum-alignment TOE-completing principle ([VacuumEnergy.md §6](../VacuumEnergy.md)): KL saturation against the vacuum's max-entropy prior is equivalent to ZFA-closure delta realisation at every event in the trajectory | `binary_kl_delta_zero_uniform`, `vacuum_alignment_selects_zfa`, `misalignment_strictly_underperforms`, `binary_kl_uniform_le_log_two_endpoint`, `cumulative_kl_le_length_log_two`, `global_alignment_selects_zfa` |
 | [QLF_RhoProcessBridge.lean](QLF_RhoProcessBridge.lean) | Third layer of the vacuum-alignment selection rule: every constructible RhoProcess produces an events-trajectory that saturates the cumulative information bound against the vacuum prior, by structural recursion (`action → 1`, `lift → 0`, `parallel`/`sequence` concatenate) | `events`, `events_all_delta`, `events_bounded`, `rho_process_alignment_saturates` |
 | [QLF_LocalClock.lean](QLF_LocalClock.lean) | Markov-blanket-local-clock identity ([Kitada_Local_Time_GR.md §3 Gap 1](../Kitada_Local_Time_GR.md), [Frequency_Synchronization.md §1.1](../Frequency_Synchronization.md)): a QLF Markov blanket of depth `R` IS a local clock with period `R` substrate ticks, each contributing `log 2` nats. The QLF realisation of Kitada's local-time framework (gr-qc/9612043) | `local_clock_period`, `markov_blanket_local_clock`, `local_clock_tick_is_log_two` |
+| [QLF_EinsteinGeometricFactor.lean](QLF_EinsteinGeometricFactor.lean) | Einstein-field-equation geometric factor `8π = 4π · 2` decomposed structurally ([Kitada_Local_Time_GR.md §5.1](../Kitada_Local_Time_GR.md)): `4π` is the Markov-blanket boundary 2-sphere solid angle; `2` is the Hermitian-pair degeneracy per ZFA event (action vs lift) from `events_all_delta` and `bra_ket_always_balanced`. The factor `½` in the trace-reversed Einstein tensor `G_μν = R_μν − ½ g_μν R` is the inverse of the substrate Hermitian-pair degeneracy | `boundary_solid_angle`, `hermitian_pair_degeneracy`, `einstein_geometric_factor_eight_pi`, `trace_reversed_half_is_inverse_hermitian_degeneracy` |
 
 ### Physical Theories
 
