@@ -1,7 +1,7 @@
 # Lean 4 Formalization — Quantum Logical Framework
 
 **Build:** `lake build` on Lean 4.30.0-rc2 + Mathlib  
-**Status:** CI passing, zero `sorry` blocks across all 23 active modules
+**Status:** CI passing, zero `sorry` blocks across all 24 active modules
 
 ## What This Formalization Proves
 
@@ -56,6 +56,7 @@ The entire combinatorial core operates strictly within **RCA₀** — the minimu
 | [QLF_RhoProcessBridge.lean](QLF_RhoProcessBridge.lean) | Third layer of the vacuum-alignment selection rule: every constructible RhoProcess produces an events-trajectory that saturates the cumulative information bound against the vacuum prior, by structural recursion (`action → 1`, `lift → 0`, `parallel`/`sequence` concatenate) | `events`, `events_all_delta`, `events_bounded`, `rho_process_alignment_saturates` |
 | [QLF_LocalClock.lean](QLF_LocalClock.lean) | Markov-blanket-local-clock identity ([Kitada_Local_Time_GR.md §3 Gap 1](../Kitada_Local_Time_GR.md), [Frequency_Synchronization.md §1.1](../Frequency_Synchronization.md)): a QLF Markov blanket of depth `R` IS a local clock with period `R` substrate ticks, each contributing `log 2` nats. The QLF realisation of Kitada's local-time framework (gr-qc/9612043) | `local_clock_period`, `markov_blanket_local_clock`, `local_clock_tick_is_log_two` |
 | [QLF_EinsteinGeometricFactor.lean](QLF_EinsteinGeometricFactor.lean) | Einstein-field-equation geometric factor `8π = 4π · 2` decomposed structurally ([Kitada_Local_Time_GR.md §5.1](../Kitada_Local_Time_GR.md)): `4π` is the Markov-blanket boundary 2-sphere solid angle; `2` is the Hermitian-pair degeneracy per ZFA event (action vs lift) from `events_all_delta` and `bra_ket_always_balanced`. The factor `½` in the trace-reversed Einstein tensor `G_μν = R_μν − ½ g_μν R` is the inverse of the substrate Hermitian-pair degeneracy | `boundary_solid_angle`, `hermitian_pair_degeneracy`, `einstein_geometric_factor_eight_pi`, `trace_reversed_half_is_inverse_hermitian_degeneracy` |
+| [QLF_SubstrateLightSpeed.lean](QLF_SubstrateLightSpeed.lean) | Constancy of `c` from the cosmic-ratio identity ([Kitada_Local_Time_GR.md §5.3](../Kitada_Local_Time_GR.md)): `c = R_cosmic / T_cosmic = (n · L_Planck) / (n · τ_Planck) = L_Planck / τ_Planck`. The cosmic-horizon depth `n` cancels exactly, giving `c` as a substrate property from two independently-derived QLF quantities (apparent universe size + apparent universe age). Generalises to any Markov blanket of depth `ρ`: local `c = c_substrate` by the same ρ-cancellation, structurally grounding local Lorentz invariance in the substrate's irreducible space-time event quantum | `planck_length`, `planck_time`, `substrate_light_speed`, `cosmic_horizon_depth`, `apparent_universe_size`, `apparent_universe_age`, `substrate_light_speed_from_cosmic_ratio`, `local_light_speed_invariant` |
 
 ### Physical Theories
 

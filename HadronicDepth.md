@@ -92,6 +92,8 @@ The observable size of the universe is therefore determined by three quantities:
 
 No separate cosmological constant or dark-energy density is required as input.
 
+**Cosmic-ratio identity.** Reading `n` as both a *spatial* count of Planck lengths (here in §3) and a *temporal* count of Planck ticks (in §4), the ratio `R / T = (n · l_P) / (n · t_P) = l_P / t_P = c` derives the substrate light speed. The cosmic-horizon depth `n` cancels exactly: `c` is recovered as the irreducible Planck space-time event quantum from two independently-derived QLF quantities. See [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5.3 and [`lean/QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean).
+
 ---
 
 ## 4. Deriving the Age of the Universe

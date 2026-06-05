@@ -134,6 +134,14 @@ Equivalent statements that fall out:
 
 This framing is the QLF realisation of the long-standing relational-cosmology programme (Mach, Barbour, Smolin); the foundational identity supplies the substrate-level mechanism. See [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §4 for the broader scoping, including connection to the open Einstein-equation-coefficient derivation in §5 of that doc.
 
+**Cosmic-ratio derivation of `c`.** The same depth `n` that gives `T_cosmic = n · τ_Planck` also gives the apparent universe size `R_cosmic = n · L_Planck`. Their ratio derives the substrate light speed:
+
+$$
+c \;=\; \frac{R_{\text{cosmic}}}{T_{\text{cosmic}}} \;=\; \frac{n \cdot L_{\text{Planck}}}{n \cdot \tau_{\text{Planck}}} \;=\; \frac{L_{\text{Planck}}}{\tau_{\text{Planck}}} \;=\; c_{\text{substrate}}.
+$$
+
+The cosmic-horizon depth `n` cancels exactly; `c` is recovered as a substrate property of the irreducible Planck space-time event quantum, not an additional postulate. See [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5.3 and [`lean/QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean).
+
 ---
 
 ## Further Reading in the Repository

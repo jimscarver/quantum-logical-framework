@@ -32,5 +32,6 @@ lean_lib QLF where
     `QLF_VacuumAlignment,
     `QLF_RhoProcessBridge,
     `QLF_LocalClock,
-    `QLF_EinsteinGeometricFactor
+    `QLF_EinsteinGeometricFactor,
+    `QLF_SubstrateLightSpeed
   ]
