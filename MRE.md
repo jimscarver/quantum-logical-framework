@@ -50,7 +50,7 @@ The minimal Hermitian pair in the 8-twist alphabet is any of the four base loops
 | `/\` | $\sigma_z \cdot (-\sigma_z) = -I$ |
 | `+-` | $I \cdot (-I) = -I$ |
 
-Each is a 2-twist (i.e., length-2) ZFA-closed admissible sequence. Each folds to $-I$ in the Pauli group, witnessing the v0.17 enforcement that **achieves_ZFA = count-balance ∧ Pauli closure** (see [Experimental_Consistency.md §2.1](./Experimental_Consistency.md)). The longer 4-twist orthogonal loops `^<v>`, `<^>v`, `^/v\`, etc. — also Pauli-closed, also count-balanced — are *composite* 1/2-spin atoms (two binary closures composed in parallel).
+Each is a 2-twist length-2 ZFA-closed admissible sequence. Each is structurally a bra-ket pair (count-balanced, the abelian face of half-spin closure) AND folds to $-I$ in the Pauli scalar group (the non-abelian SU(2)-scalar-return face). It folds to $-I$ *because* it is a half-spin closure — the count-balance and Pauli-closure readings are not independent witnesses, they are two algebraic faces of the same structure (see [Experimental_Consistency.md §2.1](./Experimental_Consistency.md) and [HALF-SPIN-ZFA-EMBEDDING.md §3a](./HALF-SPIN-ZFA-EMBEDDING.md)). The longer 4-twist orthogonal loops `^<v>`, `<^>v`, `^/v\`, etc. — also half-spin-closed in both faces — are *composite* 1/2-spin atoms (two binary closures composed in parallel).
 
 In QuCalc notation (see [QuCalc.md](./QuCalc.md) and [BraKetRhoQuCalc.md](./BraKetRhoQuCalc.md)):
 

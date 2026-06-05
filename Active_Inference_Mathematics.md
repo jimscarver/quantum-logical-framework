@@ -52,7 +52,7 @@ The closure event carries information `D_KL(q ‖ p) ≤ log 2`, saturated only 
 
 **Numerical anchor:** the `−log 2` per-closure decrement is verified numerically in `active_inference_vfe_demo.py`: all 4 Hermitian-conjugate pair types produce ZFA closure in both orderings (all 8 sequences fold to `−I` in the Pauli group), the binary partition saturates `D_KL(q ‖ p) = log 2 ≈ 0.6931` nats per closure event, and the brute-force enumeration of all 4-twist sequences shows 384 of 4096 candidates achieve ZFA closure with cumulative `ΔF = −2 log 2` per atom.
 
-This is the math's selection principle. A trajectory is admissible iff every step is a half-spin ZFA closure. The 1/2-spin atom is the unique fixed point of three independent constraints — set-theoretic minimality, algebraic Pauli closure, information-theoretic optimality — that all coincide on the same object ([HALF-SPIN-ZFA-EMBEDDING.md §3a](HALF-SPIN-ZFA-EMBEDDING.md)).
+This is the math's selection principle. A trajectory is admissible iff every step is a half-spin ZFA closure. The 1/2-spin atom is one principle (half-spin Hermitian closure) decomposed into three algebraic faces — set-theoretic minimality, algebraic Pauli closure, information-theoretic MRE saturation — all three are projections of the same bra-ket-of-a-spin-1/2-spinor structure, not independent constraints that happen to coincide ([HALF-SPIN-ZFA-EMBEDDING.md §3a](HALF-SPIN-ZFA-EMBEDDING.md)).
 
 ## 4. Mathematical objects as admissible trajectories
 

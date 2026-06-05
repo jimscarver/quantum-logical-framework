@@ -45,9 +45,14 @@ The gap vanishes exactly when the string is ZFA-symmetric. Three further machine
 
 Together: the gap-zero subspace is algebraically closed and contains every physically constructible object. Everything that follows is a corollary or a numerical consequence of these facts.
 
-### §2.1 ZFA has two conditions: count balance AND Pauli closure
+### §2.1 ZFA = half-spin closure, with two algebraic faces
 
-The count-balance check (signed action vector vanishes) is the **bosonic** half of the ZFA condition — it treats the 8-twist alphabet as commutative. The 8 twists are also generators of a Pauli-like non-commutative algebra (the Σ₈ algebra of [Lagrangian_Formulation.md](Lagrangian_Formulation.md), with τᵢ = iσᵢ). The order-sensitive **fermionic** half — Pauli closure — requires that the matrix product of twists folds to a scalar multiple of identity (a member of `{+I, −I, +iI, −iI}`).
+ZFA names a single structural principle — *the bra-ket of a half-spin spinor returns a scalar* — decomposed into two algebraic faces:
+
+- **Pauli closure** (non-abelian / order-sensitive face): the ordered SU(2) product of twist Paulis lands in the scalar group `{+I, −I, +iI, −iI}`. This is the **SU(2)-scalar-return** reading of half-spin closure — the spinor returns to itself up to a global phase. The 8 twists are generators of the SU(2) algebra (the Σ₈ algebra of [Lagrangian_Formulation.md](Lagrangian_Formulation.md), with τᵢ = iσᵢ); SU(2) ≅ unit quaternions, and Hurwitz's theorem singles out H as the unique non-commutative associative composition real algebra (see [HALF-SPIN-ZFA-EMBEDDING.md §6](HALF-SPIN-ZFA-EMBEDDING.md)).
+- **Count balance** (abelian / multiset face): `count_pos == count_neg`. The Hermitian-pair multiset count: each twist is paired with its Hermitian conjugate (bra-ket structure). Historically called the "bosonic" reading because it ignores order.
+
+Pauli closure is not a "second condition" layered on top of count balance — it IS the SU(2)-scalar-return of the same half-spin closure that count balance reads as a Hermitian-pair multiset. Neither face implies the other in isolation: `σ_x σ_y σ_z = iI` is Pauli-closed but length-3, count-imbalanced; `^ < v -` is count-balanced but folds to σ_x. Both together are the unique characterisation of a closed half-spin process.
 
 Twist → Pauli matrix mapping per the [Maxwell.md](Maxwell.md) axis assignments:
 

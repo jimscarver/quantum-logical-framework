@@ -78,22 +78,25 @@ Because the embedding is **minimal** (only atoms + directional pairs), it simult
 - Enforces **strict irreducibility** for large systems
 - Preserves **relational structure** (no God’s-eye view)
 
-## 3a. Information-Theoretic Complement (Maximal Relative Entropy)
+## 3a. Half-spin closure: one principle, three faces
 
-The §3 table gives the **set-theoretic** reason half-spin is foundational: atoms + directional pairs are the minimal ZFA realization of the spin-1/2 representation. [MRE.md](MRE.md) gives the **information-theoretic** reason, and the two together exhaust the foundational status of 1/2-spin in QLF.
+The §3 table gives the **set-theoretic** face of half-spin closure: atoms + directional pairs are the minimal ZFA realization of the spin-1/2 representation. [MRE.md](MRE.md) gives the **information-theoretic** face. The **algebraic** face is Pauli closure ([Experimental_Consistency.md §2.1](Experimental_Consistency.md)). All three are *projections* of the same bra-ket-of-a-half-spin-spinor structure, not three independent constraints that happen to coincide.
 
 Concretely:
 
-- ZFA forces each event to be a **Hermitian-conjugate pair** (`bra_ket_always_balanced` in `lean/BraKetRhoQuCalc.lean`). The minimal such closure is binary — one twist plus its conjugate.
-- A binary partition has at most $\log 2$ nats of information gain, and saturates the bound only when the two pieces are equal in size.
-- Therefore the 1/2-spin closure is the **unique** event-shape that simultaneously satisfies ZFA (Hermitian pair) AND saturates per-event information gain. Anything coarser is a composite of 1/2-spin atoms; anything finer is forbidden by the Hermitian-pair structure.
+- ZFA = **half-spin closure** = the bra-ket of a spin-1/2 spinor returns a scalar.
+- The bra-ket structure is intrinsically a **Hermitian-conjugate pair** (`bra_ket_always_balanced` in `lean/BraKetRhoQuCalc.lean`); the minimal such closure is binary — one twist plus its conjugate. This is the abelian / multiset face: **count balance**.
+- The same bra-ket structure, read non-abelianly as an ordered SU(2) product, lands in the Pauli scalar group $\{+I, -I, +iI, -iI\}$. This is the algebraic / order-sensitive face: **Pauli closure**.
+- A binary partition has at most $\log 2$ nats of information gain, and saturates the bound only when the two pieces are equal in size. This is the information-theoretic face: **MRE saturation**.
 
-The four base 1/2-spin atoms — `^v`, `<>`, `/\`, `+-` — each fold to $-I$ in the Pauli group, witnessing both:
-- Topological closure (the set-theoretic claim of this document)
-- Pauli closure (the algebraic claim of [Experimental_Consistency.md §2.1](Experimental_Consistency.md))
-- Maximum information gain (the information-theoretic claim of [MRE.md](MRE.md))
+Therefore the 1/2-spin closure is the **unique** event-shape that simultaneously realises all three readings — because all three are the same closure read differently. Anything coarser is a composite of 1/2-spin atoms; anything finer is forbidden by the Hermitian-pair structure.
 
-The 720° spinor statistics of fermions are the macroscopic signature of this $-I$ fold: a single 1/2-spin atom contributes the $-1$ phase a fermion picks up under 360° rotation; two atoms in parallel restore $+I$ at 720°. **Half-spin is foundational not as a choice but as the unique fixed point of three independent constraints — set-theoretic minimality, algebraic closure, and information-theoretic optimality — that all coincide on the same object.**
+The four base 1/2-spin atoms — `^v`, `<>`, `/\`, `+-` — each fold to $-I$ in the Pauli group, exhibiting the three faces simultaneously *because they are one closure*:
+- **Topological closure** (the set-theoretic projection — this document's §3)
+- **Pauli closure** (the algebraic / non-abelian projection — [Experimental_Consistency.md §2.1](Experimental_Consistency.md))
+- **Maximum information gain** (the information-theoretic projection — [MRE.md](MRE.md))
+
+The 720° spinor statistics of fermions are the macroscopic signature of this $-I$ fold: a single 1/2-spin atom contributes the $-1$ phase a fermion picks up under 360° rotation; two atoms in parallel restore $+I$ at 720°. **Half-spin is foundational not as the lucky intersection of independent constraints, but as a single principle (half-spin Hermitian closure) decomposed into its set-theoretic, algebraic, and information-theoretic faces.** See §6 below for *why* the algebra carrying this closure is forced to be H ≅ SU(2) (Hurwitz + half-spin uniqueness).
 
 See [MRE.md](MRE.md) for the per-event $\log 2$ derivation and [Hierarchical_Control.md](Hierarchical_Control.md) for the consequences in the bottom-up/top-down architecture (each 1/2-spin atom is one quantum of free-energy minimization).
 
@@ -124,6 +127,24 @@ The half-spin ZFA embedding is the **minimal faithful realization** of quantum l
 - Proves its own irreducibility
 - Naturally encodes observer relativity
 
+## 6. Why complex / quaternions — the carrying algebra is forced
+
+§3a frames Pauli closure as the SU(2)-scalar-return face of half-spin closure, not as an ad-hoc extra condition. A sharper companion question is: *why does the carrying algebra have to be SU(2) ≅ H (the unit quaternions) in the first place?* The 8-twist alphabet just **is** the Hermitian-Pauli basis of $M_2(\mathbb{C})$; that choice is currently asserted, not derived. Here is the structural argument, drawing on Hurwitz's theorem.
+
+1. **Hermitian-pair closure demands an involution.** A "twist with its conjugate partner" requires the carrying algebra to admit a conjugation `*` such that $a a^* = \|a\|^2 \in \mathbb{R}_{\geq 0}$. This restricts the candidate to a *composition algebra* over $\mathbb{R}$ — one whose norm is multiplicative under composition of events.
+
+2. **Half-spin closure requires non-commutativity.** A non-trivial spinor rotation is non-abelian — $\sigma_x \sigma_y \neq \sigma_y \sigma_x$. A commutative algebra ($\mathbb{R}$ or $\mathbb{C}$ alone) cannot host genuine half-spin closure, because distinct-axis anti-commutation is what makes the closure non-trivial. The anti-commutator itself lives in the imaginary part of the complex product: $\sigma_x \sigma_y = i \sigma_z$. **$\mathbb{C}$ appears here as the algebraic carrier of the anti-commutation, not as a separate postulate**.
+
+3. **Process semantics requires associativity.** Sequential composition $t_1 t_2 t_3$ must be unambiguous. Non-associative algebras (the octonions $\mathbb{O}$, the only non-associative composition algebra) break this — different bracketings $(t_1 t_2) t_3$ vs $t_1 (t_2 t_3)$ would give different folds, destroying the process-calculus reading.
+
+4. **Hurwitz's theorem** (1898): the only finite-dimensional associative composition real algebras are $\mathbb{R}$ (dim 1), $\mathbb{C}$ (dim 2), and $\mathbb{H}$ (dim 4, the quaternions). $\mathbb{R}$ and $\mathbb{C}$ are commutative — both ruled out by step 2. **$\mathbb{H}$ is the unique non-commutative associative composition real algebra.**
+
+5. **SU(2) ≅ unit quaternions.** The Pauli algebra over $\mathbb{C}$ is the standard matrix representation of $\mathbb{H}$ acting on $\mathbb{C}^2$: "working over complex Pauli matrices" and "working over quaternions" are two names for the same algebra. The 8-twist alphabet is the SU(2) generator basis up to sign (3 Pauli axes × 2 signs + 2 scalar gauge $\pm I$); equivalently, the unit-quaternion basis up to phase.
+
+**Therefore the choice of carrying algebra is forced**: QLF runs on $\mathbb{H} \cong \mathrm{SU}(2)$ because that is the unique minimal non-commutative associative composition real algebra, and half-spin Hermitian-pair closure demands exactly that combination of properties. $\mathbb{C}$ appears in the Pauli matrix representation as the carrier of distinct-axis anti-commutation. The 8-twist alphabet is therefore not a choice but the **minimal admissible generator set** of $\mathbb{H} \cong \mathrm{SU}(2)$.
+
+This parallels the §3a claim: just as Pauli closure is not arbitrary (it IS half-spin closure read non-abelianly), the carrying algebra is not arbitrary (it IS forced by the four-fold constraint *Hermitian-pair · non-commutative · associative · composition*). Lean anchors for the resulting Pauli-scalar group and the twist→σ-matrix mapping live in [`lean/QLF_Pauli.lean`](lean/QLF_Pauli.lean) and [`lean/QLF_TwistAlphabet.lean`](lean/QLF_TwistAlphabet.lean) respectively; both stand under the reframed reading without renaming.
+
 ## Conclusion
 
 The half-spin ZFA embedding **is** the heart of QLF/QuCalc. It is the reason the framework can claim both:
@@ -145,7 +166,7 @@ All further development of QuCalc — whether new rewrite rules, extensions to h
 - [Measurement_Problem.md](Measurement_Problem.md) — the half-spin ZFA embedding IS the foundational resolution: ZFA closure at causal intersection dissolves collapse without extra postulates
 - [Spin_Statistics.md](Spin_Statistics.md) — the spin-statistics theorem derived from the per-atom -I Pauli fold: odd atom count = anticommute (fermion), even atom count = commute (boson)
 - [Langlands.md](Langlands.md) — half-spin closures as the bottom-up scaffolding of Langlands; QLF generates any geometry from these atoms, providing a constructive path to RH, functoriality, modularity, geometric Langlands, and Kapustin-Witten quantum Langlands
-- [Active_Inference_Mathematics.md](Active_Inference_Mathematics.md) — the meta-doc reads §3a here as the unique-fixed-point reason the half-spin atom is the single rule of the math: set-theoretic minimality ∧ algebraic Pauli closure ∧ information-theoretic optimality, all coinciding on the same object
+- [Active_Inference_Mathematics.md](Active_Inference_Mathematics.md) — the meta-doc reads §3a here as the structural reason the half-spin atom is the single rule of the math: set-theoretic minimality, algebraic Pauli closure, and information-theoretic MRE saturation are three algebraic faces of one principle (half-spin Hermitian closure), not three independent constraints that happen to coincide
 - [Emergent_Markov_Blankets.md](Emergent_Markov_Blankets.md) — the half-spin ZFA atom is the indivisible building block of the qubit-register-scale Markov blankets formed by resonating atom groups in a crystal-QPU substrate
 
 *This document is part of the official QLF/QuCalc documentation suite. Updated 21 April 2026 to incorporate gauge-fold primordial black-hole rule.*
