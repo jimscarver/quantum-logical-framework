@@ -57,7 +57,6 @@ class ConstantsMapper:
         "e": 2.718281828459045,
         "gamma": 0.5772156649015329,
         "feigenbaum_delta": 4.669201609102990,
-        "alpha": 0.0072973525643,
         "G": 6.67430e-11,
     }
 
@@ -544,8 +543,11 @@ class ConstantsMapper:
             ),
             "-" * 80,
             "Interpretation:",
-            "  - pi, e, gamma, alpha, and delta are derived from canonical",
-            "    stable QuCalc histories and current native bridge machinery.",
+            "  - pi, e, gamma, and delta are derived from canonical stable",
+            "    QuCalc histories and current native bridge machinery.",
+            "  - gauge_spatial_count_ratio is a structural ensemble observable",
+            "    (NOT α); for α see fine_structure_demo.py (α derived from the",
+            "    hydrogen ionization energy to 10⁻¹⁰ via Hydrogen.md §4).",
             "  - G_Q is the native QLF entropy-based gravitational coupling.",
             "  - G_prediction_SI appears only when mass_unit_kg is supplied.",
             "  - That SI bridge is:",

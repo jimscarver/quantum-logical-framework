@@ -40,7 +40,7 @@ import matplotlib.pyplot as plt
 
 from twist_core import (
     calculate_action,
-    conjugate_history,
+    adjoint_history,
     generate_histories,
     is_admissible_history,
     validate_history,
@@ -230,7 +230,7 @@ def print_projection_report(history: str) -> None:
     """Print a compact textual report."""
     print("\n=== QLF LOGICAL PROJECTION REPORT ===")
     print(f"History: {history}")
-    print(f"Adjoint: {conjugate_history(history)}")
+    print(f"Adjoint: {adjoint_history(history)}")
     print(f"Admissible: {is_admissible_history(history)}")
 
     identity = verify_projection_identity(history)

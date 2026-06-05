@@ -9,14 +9,14 @@ from typing import Dict
 from twist_core import (
     calculate_action,
     closure_with_adjoint,
-    conjugate_history,
+    adjoint_history,
     is_admissible_history,
     is_zfa,
 )
 
 
 def get_hermitian_conjugate(history_string: str) -> str:
-    return conjugate_history(history_string)
+    return adjoint_history(history_string)
 
 
 def is_zero_free_action(history_string: str) -> bool:
