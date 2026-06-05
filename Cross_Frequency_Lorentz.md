@@ -2,7 +2,7 @@
 
 The Lorentz boost between two Markov-blanket frames is a **change of basis on their internal ZFA event rates**. This document writes out that derivation explicitly, closing the open-work item [`Hierarchical_Control.md` §6](Hierarchical_Control.md) ("Cross-frequency Lorentz derivation: write out the Lorentz boost between two Markov-blanket frames as a change of basis on their internal ZFA event rates, complementing [`UniversalRelativity.md`](UniversalRelativity.md)'s spacetime-emergence argument").
 
-The argument is structural — the Lorentz factor $\gamma$ is identified as a ratio of internal Markov-blanket frequencies, time dilation and length contraction fall out as direct consequences, and the spacetime interval is the QLF analog of the invariant ZFA event count. What this **does not** do is derive the constancy of $c$ from first principles (that argument lives in [`UniversalRelativity.md`](UniversalRelativity.md) and turns on ZFA's role as a maximum information-transfer rate); we take $c$ as given here.
+The argument is structural — the Lorentz factor $\gamma$ is identified as a ratio of internal Markov-blanket frequencies, time dilation and length contraction fall out as direct consequences, and the spacetime interval is the QLF analog of the invariant ZFA event count. The constancy of $c$ is derived separately from the cosmic-ratio identity $c = R_{\text{cosmic}} / T_{\text{cosmic}} = L_{\text{Planck}} / \tau_{\text{Planck}}$ ([`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5.3, [`lean/QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean)); the boost derivation here takes that substrate $c$ as input.
 
 ---
 
@@ -128,7 +128,6 @@ In high-density regions (e.g. near a black-hole horizon, or for fast-moving fram
 
 ### Does NOT
 
-- **Derive the constancy of $c$ from first principles.** That argument turns on ZFA's role as a maximum information-transfer rate; see [`UniversalRelativity.md`](UniversalRelativity.md) for the spacetime-emergence story that establishes $c$ as an invariant. This doc takes $c$ as given.
 - **Provide a Lean theorem `lorentz_boost_from_zfa_frequencies`.** That would require formalising the Markov-blanket frequency structure inside the Lean kernel; it is open work and a natural successor.
 - **Address non-boost frame transformations** (rotations, accelerations, the full Lorentz group). The boost is the simplest case; rotations are blanket-internal symmetries that preserve $f$; accelerations require a frequency-derivative term and are out of scope here.
 - **Provide quantitative empirical predictions distinguishable from standard SR.** The QLF reading is empirically equivalent to standard SR by construction — the value comes from the constructive substrate, not from new measurable effects.
@@ -169,4 +168,4 @@ In high-density regions (e.g. near a black-hole horizon, or for fast-moving fram
 
 - [`Hierarchical_Control.md`](Hierarchical_Control.md) §6 — this doc closes the "Cross-frequency Lorentz derivation" open item listed there.
 - [`UniversalRelativity.md`](UniversalRelativity.md) — the spacetime-emergence companion; together they constitute QLF's full relativistic framing.
-- [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) — scoping doc reading rapidity = log(internal-frequency ratio) under Kitada's local-time framework. §5.3 derives the **constancy of `c`** from the cosmic-ratio identity `c = R_cosmic / T_cosmic = L_Planck / τ_Planck` — the cosmic-horizon depth `n` cancels exactly. The "does NOT derive constancy of c from first principles" caveat in §6 of this doc is now closed; the derivation is structural via the substrate's irreducible space-time event quantum. Lean anchor: [`lean/QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean).
+- [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) — scoping doc reading rapidity = log(internal-frequency ratio) under Kitada's local-time framework. §5.3 derives the **constancy of `c`** from the cosmic-ratio identity `c = R_cosmic / T_cosmic = L_Planck / τ_Planck` — the cosmic-horizon depth `n` cancels exactly, with the derivation structural via the substrate's irreducible space-time event quantum. Lean anchor: [`lean/QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean).

@@ -89,14 +89,14 @@ The remaining open piece is cross-axis interleaving of partial pairs (e.g., `^<v
 |---|---|---|---|
 | Spatial basis | 6 of 8 twists generate 3D space (`^v<>/\`) | 3D space | By construction |
 | Time | Constructed from the gauge pair `+`/`−` and directions beyond the local 3D perspective | 1D time | By construction |
-| Speed of light c | Ratio of spatial free action / gauge-fold rate (definitional in `path_integral.py`) | 299 792 458 m/s | Definitional in current implementation; not yet a separate prediction |
+| Speed of light c | Cosmic-ratio identity `c = R_cosmic / T_cosmic = L_Planck / τ_Planck`; the cosmic-horizon depth `n` cancels exactly, and the same ρ-cancellation gives `c_local = c_substrate` at any Markov-blanket depth | 299 792 458 m/s | Derived ([Kitada_Local_Time_GR.md](Kitada_Local_Time_GR.md) §5.3, [lean/QLF_SubstrateLightSpeed.lean](lean/QLF_SubstrateLightSpeed.lean)) |
 | Planck length l_P | ~1 spatial free action unit (in Planck units) | 1.616 × 10⁻³⁵ m | Order-of-magnitude identification |
 | Planck time t_P | ~1 contribution from non-local directions (in Planck units) | 5.39 × 10⁻⁴⁴ s | Order-of-magnitude identification |
 | Photon | Pure spatial free action (zero gauge folds) → null interval, proper time τ = 0 | Null geodesic, τ = 0 | Matches: a process with zero gauge folds synthesizes zero ticks of local time |
 | Massive particle | Finite gauge-fold rate → finite proper time | Timelike worldline, τ > 0 | Matches structurally |
 | Lorentz boost | Change of basis on internal ZFA event rates of two Markov-blanket frames; γ = cosh(rapidity) with rapidity = log(internal-frequency ratio) | γ = 1/√(1−β²); time dilation; length contraction | Derived ([Cross_Frequency_Lorentz.md](Cross_Frequency_Lorentz.md)); recovers all three standard SR consequences from the per-blanket internal-clock structure |
 
-Implementation: [SpaceTime.md](SpaceTime.md), `path_integral.py`. The c-from-construction line is currently a definition rather than a prediction; turning it into a prediction is open work.
+Implementation: [SpaceTime.md](SpaceTime.md), `path_integral.py`. The substrate `c = L_Planck / τ_Planck` is derived from the cosmic-ratio identity (`R_cosmic = n · L_Planck`, `T_cosmic = n · τ_Planck`, ratio independent of `n`); Lean anchor in [`lean/QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean).
 
 ---
 
@@ -152,13 +152,13 @@ reproduced to machine precision in `magnetism.py`. Energy accumulates as `E = h 
 
 ### §4.5 Lorentz covariance — partially closed
 
-The static-field decomposition above is established, and the **Lorentz boost between Markov-blanket frames** is now derived in [Cross_Frequency_Lorentz.md](Cross_Frequency_Lorentz.md): γ = cosh(rapidity), with rapidity identified as the logarithm of the ratio of two frames' internal ZFA event rates. Recovers time dilation, length contraction, and interval invariance.
+The static-field decomposition above is established, and the **Lorentz boost between Markov-blanket frames** is now derived in [Cross_Frequency_Lorentz.md](Cross_Frequency_Lorentz.md): γ = cosh(rapidity), with rapidity identified as the logarithm of the ratio of two frames' internal ZFA event rates. Recovers time dilation, length contraction, and interval invariance. The constancy of `c` is derived from the cosmic-ratio identity `c = R_cosmic / T_cosmic = L_Planck / τ_Planck` ([Kitada_Local_Time_GR.md](Kitada_Local_Time_GR.md) §5.3, [lean/QLF_SubstrateLightSpeed.lean](lean/QLF_SubstrateLightSpeed.lean)); the same ρ-cancellation gives `c_local = c_substrate` at any Markov-blanket depth.
 
 The {E, B} mixing under boosts uses the Σ₈ generator algebra of [Lagrangian_Formulation.md](Lagrangian_Formulation.md):
 
 $$\tau_i \tau_j = -\delta_{ij} I - \varepsilon_{ijk} \tau_k, \qquad \tau_i = i\sigma_i$$
 
-(machine-verified `tau_xy_product`, `tau_yz_product`, `tau_zx_product` in [BraKetRhoQuCalc.lean](lean/BraKetRhoQuCalc.lean)). The τᵢ are the Pauli matrices times i; boosts act on them by the standard Lorentz-Pauli representation. Extending the discrete Maxwell formulas of §4.1–4.2 to time-indexed event sequences and showing the boost-mixing explicitly on EM fields (rather than on the kinematic boost itself) is the **remaining open piece**. The constancy of c likewise remains a definition rather than a separate prediction (§3, [UniversalRelativity.md](UniversalRelativity.md)).
+(machine-verified `tau_xy_product`, `tau_yz_product`, `tau_zx_product` in [BraKetRhoQuCalc.lean](lean/BraKetRhoQuCalc.lean)). The τᵢ are the Pauli matrices times i; boosts act on them by the standard Lorentz-Pauli representation. Extending the discrete Maxwell formulas of §4.1–4.2 to time-indexed event sequences and showing the boost-mixing explicitly on EM fields (rather than on the kinematic boost itself) is the **remaining open piece**.
 
 ---
 

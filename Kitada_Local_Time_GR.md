@@ -233,7 +233,7 @@ In rough order of effort and value:
 
 6. **Lean theorem `einstein_equations_from_local_clock_failure`** for Gap 3, once items 4 and 5 are in place.
 
-7. ✓ **Done** — §5.3 above derives the constancy of `c` from the cosmic-ratio identity `c = R_cosmic / T_cosmic = (n · L_Planck) / (n · τ_Planck) = L_Planck / τ_Planck`. The cosmic-horizon depth `n` cancels exactly, giving `c` as a substrate property from independently-derived `R_cosmic` and `T_cosmic`. Generalises to any Markov-blanket depth `ρ` by the same ρ-cancellation, structurally grounding local Lorentz invariance in the substrate's irreducible space-time event quantum (each Planck event creates one Planck length × one Planck tick *together*). Lean anchor in [`lean/QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean) with theorems `substrate_light_speed_from_cosmic_ratio` and `local_light_speed_invariant`. Closes the [`Experimental_Consistency.md`](Experimental_Consistency.md) §3 line 92 "definitional" gap.
+7. ✓ **Done** — §5.3 above derives the constancy of `c` from the cosmic-ratio identity `c = R_cosmic / T_cosmic = (n · L_Planck) / (n · τ_Planck) = L_Planck / τ_Planck`. The cosmic-horizon depth `n` cancels exactly, giving `c` as a substrate property from independently-derived `R_cosmic` and `T_cosmic`. Generalises to any Markov-blanket depth `ρ` by the same ρ-cancellation, structurally grounding local Lorentz invariance in the substrate's irreducible space-time event quantum (each Planck event creates one Planck length × one Planck tick *together*). Lean anchor in [`lean/QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean) with theorems `substrate_light_speed_from_cosmic_ratio` and `local_light_speed_invariant`.
 
 ---
 

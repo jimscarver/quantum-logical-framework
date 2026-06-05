@@ -152,7 +152,7 @@ So the per-event `log 2` quantum and the per-bit `ℏω` photon-energy quantum a
 - [`Hydrogen.md`](Hydrogen.md) — specific emission line frequencies from atomic-system Bohr derivation.
 - [`Gravity.md`](Gravity.md) — gravitational lensing of photon mass-equivalence.
 - [`Annihilation.md`](Annihilation.md) — electron–positron annihilation as the reverse process: qubits to bits.
-- [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5.3 — gauge-free signals (photons, with `R_photon = 0`) propagate at `c_substrate = R_cosmic / T_cosmic = L_Planck / τ_Planck`. The "no local clock" feature of photons makes them substrate-rate signals; their frequency-independence of `c` is automatic. Closes the constancy-of-`c` open item.
+- [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5.3 — gauge-free signals (photons, with `R_photon = 0`) propagate at `c_substrate = R_cosmic / T_cosmic = L_Planck / τ_Planck`. The "no local clock" feature of photons makes them substrate-rate signals; their frequency-independence of `c` is automatic.
 - [`lean/QLF_FreeEnergy.lean`](lean/QLF_FreeEnergy.lean) — per-event log 2 Lean theorem.
 - [`lean/QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean) — Lean anchor for substrate `c` from cosmic-ratio identity.
 
