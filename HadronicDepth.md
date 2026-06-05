@@ -204,6 +204,7 @@ Its value is that it removes the need to treat the cosmic depth `n` as an unexpl
 - [`Gravity.md`](Gravity.md) — emergent G from ZFA event-synthesis
 - [`Electron.md`](Electron.md) — mass as constructing delay; topological depth and m = αR
 - [`Hadrons_Markov_Blankets.md`](Hadrons_Markov_Blankets.md) — proton as a ZFA-stable Markov blanket
+- [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md) — chirality-hiding-resonance scoping; decomposes the open `R_e` derivation as `R_e = R_p · 6π⁵` (Lenz factor from `|S_3|` quark permutation × 5-angle integration). Identifies the Borromean closure depth `R_p` here as one of two factors; the other is the chirality-screening configuration count
 - [`Higgs.md`](Higgs.md) — W/Z masses from gauge-fold depth; the mass generation framework
 - [`Experimental_Consistency.md`](Experimental_Consistency.md) — numerical checks against known physics
 - [`Philosophy.md`](Philosophy.md) — the finite-depth possibilist ontology

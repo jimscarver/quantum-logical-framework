@@ -108,7 +108,7 @@ The required depth `R_e ≈ 2.4 × 10²²` is far beyond any tractable BFS enume
 
 where `R_1 = E_Planck / Ry ≈ 8.97 × 10²⁶` is the hydrogen ground-state binding depth. Given any **two** of {α, Ry, m_e}, the third is **derived** to CODATA precision (10⁻¹⁰ relative error) via the QLF Bohr relation — see [`fine_structure_demo.py`](fine_structure_demo.py). The Rydberg formula itself is not an empirical input; it falls out of the QLF closure structure.
 
-What remains open is to derive **at least one** of {α, Ry, m_e, R_e, R_1} from QLF closure-multiplicity at the Planck-event scale, independently of observation — for example, the structural argument for why `R_e ≈ 2.4 × 10²²` sits at exactly that depth.
+What remains open is to derive **at least one** of {α, Ry, m_e, R_e, R_1} from QLF closure-multiplicity at the Planck-event scale, independently of observation — for example, the structural argument for why `R_e ≈ 2.4 × 10²²` sits at exactly that depth. See [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md) for the chirality-hiding-resonance scoping that decomposes this as `R_e = R_p · 6π⁵`, with the `6π⁵` Lenz factor coming from `|S_3|` quark permutation symmetry × 5-angle integration over the proton's hidden-chirality configuration space — both pieces still open in full quantitative form, but each a sharper sub-problem than direct R_e enumeration.
 
 ---
 
