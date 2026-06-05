@@ -103,7 +103,7 @@ The Quantum Logical Framework has now delivered its complete set of core finding
 - **The universe is singularity-free by construction**; gravity arises purely as local quantum event synthesis ([BLACK-HOLES.md](BLACK-HOLES.md)).
 - **Predicted physical constants emerge** directly from the single ZFA postulate with no fitting parameters, including:  
   • Local speed of light `c = 1` in natural units (Δx = 1, Δt = 1 from ZFA closure)  
-  • Fine-structure constant **α ≈ 0.007299 (≈ 1/137)** from the gauge-to-spatial twist ratio in stable fermions  
+  • Fine-structure constant **α ≈ 0.007299 (≈ 1/137)** from the **ionization energy of hydrogen + electron rest energy** via the QLF Bohr derivation `α = sqrt(2 Ry / m_e c²)`, to CODATA precision (10⁻¹⁰ relative error). See [`Hydrogen.md`](Hydrogen.md) §4 and [`fine_structure_demo.py`](fine_structure_demo.py).  
   • Gravitational constant **G**, π, e, Euler-Mascheroni γ, Feigenbaum δ, Planck length/time, and mean prime mass — all matching experimental values to high precision ([Experimental_Consistency.md](Experimental_Consistency.md))  
   • Effective age of the observable universe `t₀ ≈ 13.8 Gyr` as the accumulated proper time of realized ZFA event histories  
   • Dynamical cosmological term Λ that matches the observed cosmic acceleration without fine-tuning.

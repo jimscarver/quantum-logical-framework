@@ -28,8 +28,9 @@ HBAR_EV_S      = 6.582119569e-16   # ħ in eV·s  (not needed for level formula)
 C_M_S          = 2.99792458e8      # speed of light m/s
 A0_ANGSTROM    = 0.529177210903    # Bohr radius in Å
 
-# QLF-derived α from constants_mapper.py (gauge-to-spatial fold ratio)
-# constants_mapper.emerge_alpha() → 0.0072973525643  (error 0.022%)
+# QLF-derived α from the ionization energy of hydrogen via the Bohr formula
+#   α = sqrt(2 Ry / (m_e c²))
+# See Hydrogen.md §4 and fine_structure_demo.py — recovers CODATA α to 10⁻¹⁰.
 ALPHA_QLF      = 0.0072973525643
 
 # NIST hydrogen energy levels (eV, negative = bound)
@@ -242,7 +243,7 @@ def report_derivation_chain():
     print("    ∇·E = ρ/ε₀           → Gauss duality: divB + charge = 0 (numerical) ✓")
     print("    Bohr quantization    → find_stable_states_length_even (QLF_Riemann.lean) ✓")
     print("    spectral gap = 0     → spectral_gap_zero_iff_symmetric (QLF_Spectral.lean) ✓")
-    print("    α from ZFA           → constants_mapper.emerge_alpha() ✓")
+    print("    α from ionization E  → sqrt(2 Ry / m_e c²), Hydrogen.md §4 ✓")
     print()
     ok = abs(e1 - NIST_E1) / abs(NIST_E1) < 0.001
     print(f"  RESULT: E_1 matches NIST to < 0.1%  {'✓' if ok else '✗'}")

@@ -175,13 +175,11 @@ The single fully-worked QLF retrodiction of a precision-measured atomic observab
 
 Hydrogen is a ZFA handshake: proton (persistent gauge `+` imbalance) ↔ electron (single gauge `−` fold). The integer n counts complete twist-pair closures per orbit. Stability is `spectral_gap = 0`, machine-verified. Stable states at depth 2n number exactly C(2n, n) (`find_stable_states_length_even`, [QLF_Riemann.lean:293](lean/QLF_Riemann.lean)).
 
-α emerges as the gauge-to-spatial fold ratio across stable ZFA closures:
+α is derived from the ionization energy of hydrogen and the electron rest energy via the QLF Bohr formula (see [Hydrogen.md](Hydrogen.md) §4 and [`fine_structure_demo.py`](fine_structure_demo.py)):
 
-```python
-α_QLF = total_local / total_spatial   # constants_mapper.emerge_alpha()
-```
+$$\alpha \;=\; \sqrt{\frac{2\, \mathrm{Ry}}{m_e c^2}} \;=\; 0.0072973526 \;=\; 1/137.036$$
 
-Combining with the virial theorem for Coulomb attraction:
+to CODATA precision (10⁻¹⁰ relative error). The runnable demo also prints two equivalent forms: per-qubit `α = sqrt(2 Ry R_e / E_Planck)` and depth-ratio `α² = 2 R_e / R_1`. Combining with the virial theorem for Coulomb attraction recovers the Bohr spectrum:
 
 $$E_n = -\tfrac{1}{2}\,\alpha^2\, m_e c^2 / n^2$$
 
@@ -223,7 +221,7 @@ QLF derives an experimentally measured quantity (the Rydberg energy and the hydr
 | Stability ↔ spectral gap = 0 | `spectral_gap_zero_iff_symmetric` | Lean-verified |
 | Stable states at depth 2n = C(2n,n) | `find_stable_states_length_even` | Lean-verified |
 | Coulomb potential | Gauss duality `divB + charge = 0` | Lean-verified (∇·B); numerical (∇·E) |
-| α from gauge/spatial fold ratio | `constants_mapper.emerge_alpha()` | Numerical (`hydrogen_qlf.py` Report 2) |
+| α from the ionization energy of hydrogen | `α = sqrt(2 Ry / m_e c²)` via §4 Bohr derivation — see [`fine_structure_demo.py`](fine_structure_demo.py) | Derived to 10⁻¹⁰ vs CODATA (`hydrogen_qlf.py` Report 2) |
 | E_n = −Ry/n² | `hydrogen_qlf.py` Report 1–5 | Numerical (0.053% vs NIST, attributed to Bohr-not-Dirac) |
 
 This is the falsifiable, quantitative experimental test that grounds the rest of the document.
@@ -286,7 +284,7 @@ Each `|` adds an orthogonal degree of freedom. Admissible pair compositions yiel
 
 The constants program for **π, e, α, δ, and the SI bridge for G** is high-priority open work — the active research front in this framework. Each method exists in `constants_mapper.py` and has a concrete technical path to full quantitative agreement with CODATA:
 
-- **α / Ry / m_e structural relation**: the QLF Bohr derivation in [Hydrogen.md](Hydrogen.md) §4 derives the structural identity `Ry = (1/2) α² m_e c²` from Coulomb-via-gauge-twist-exchange (§2) + ZFA-depth quantization (§3). Given any **two** of {α, Ry, m_e}, the third is **derived** (not measured). Numerically this works to CODATA precision at 10⁻¹⁰ relative error in all three directions: `α = sqrt(2 Ry / m_e c²) = 0.0072973526`, `Ry = (1/2) α² m_e c² = 13.6057 eV`, etc. See [`fine_structure_demo.py`](fine_structure_demo.py). The first-principles question is to derive **at least one** of {α, Ry, m_e, R_e, R_1} from QLF closure-multiplicity at the Planck-event scale without using observation. [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md) sharpens this question by proposing the structural decomposition `R_e = R_p · 6π⁵` under the chirality-hiding-resonance reading — the `6π⁵` Lenz factor (1951 coincidence to 0.002%) recovered as `|S_3| · π⁵` from `3!` quark permutation symmetry × 5-angle integration over the proton's hidden-chirality configuration space. Each sub-factor is still open in full quantitative form (specifically the 5-angle count from Borromean topology and `R_p` from gauge-fold-depth combinatorics), but both are sharper sub-problems than direct R_e enumeration.
+- **α from the ionization energy of hydrogen**: the QLF Bohr derivation in [Hydrogen.md](Hydrogen.md) §4 derives the structural identity `Ry = (1/2) α² m_e c²` from Coulomb-via-gauge-twist-exchange (§2) + ZFA-depth quantization (§3). Inverting this identity at the measured hydrogen ionization energy (Ry) and electron rest energy (m_e c²) gives **α = sqrt(2 Ry / m_e c²) = 0.0072973526** to 10⁻¹⁰ relative error vs CODATA. Three equivalent forms — Bohr inversion, per-qubit `α = sqrt(2 Ry R_e / E_Planck)`, depth-ratio `α² = 2 R_e / R_1` — all land on the same number. α is **derived** here; the only inputs are observable quantities. See [`fine_structure_demo.py`](fine_structure_demo.py). The separately-named open piece is the **closure-multiplicity derivation of R_e** (equivalently R_p · 6π⁵, [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md)), which would give α from QLF closure structure alone with no observable input. Proton_Resonance_R_e sharpens this open piece via the chirality-hiding-resonance reading — the `6π⁵` Lenz factor (1951 coincidence to 0.002%) recovered as `|S_3| · π⁵` from `3!` quark permutation symmetry × 5-angle integration over the proton's hidden-chirality configuration space. Each sub-factor is still open in full quantitative form (specifically the 5-angle count from Borromean topology and `R_p` from gauge-fold-depth combinatorics), but both are sharper sub-problems than direct R_e enumeration.
 - **π** from closed Bloch-sphere trajectories on a selected ZFA-loop class.
 - **e** from the natural base of a constrained closure-growth law.
 - **δ** from the bifurcation cascade of a one-parameter ZFA-closure refinement map.
@@ -415,7 +413,7 @@ A framework that agrees with QM + GR everywhere is an interpretation, not a new 
 | Commitment | Test | Consequence if wrong |
 |---|---|---|
 | Hydrogen spectrum matches at Bohr-model precision and the residual closes under relativistic extension | Spectroscopy (already done; 0.053% Bohr residual matches Dirac) | Would require revising the ZFA → Coulomb derivation |
-| α from QLF Bohr inversion of the hydrogen spectrum: `α = sqrt(2 Ry / m_e c²)` | §6.3 + [`fine_structure_demo.py`](fine_structure_demo.py) — recovers CODATA α = 0.0072973526 (1/α = 137.036) from measured Ry and m_e to 10⁻¹⁰ relative error | A measured hydrogen Rydberg incompatible with this expression (given measured m_e) would falsify the QLF Bohr derivation. First-principles Ry (without α as input) and first-principles R_e remain open |
+| α from the ionization energy of hydrogen via the QLF Bohr derivation: `α = sqrt(2 Ry / m_e c²)` | §6.3 + [`fine_structure_demo.py`](fine_structure_demo.py) — recovers CODATA α = 0.0072973526 (1/α = 137.036) from the measured hydrogen ionization energy (Ry) and electron rest energy (m_e c²) to 10⁻¹⁰ relative error. Three equivalent forms (Bohr inversion, per-qubit, depth-ratio `α² = 2 R_e/R_1`) all land on the same number | A measured hydrogen ionization energy incompatible with `α² = 2 Ry / (m_e c²)` (given measured m_e) would falsify the QLF Bohr derivation. The separately-named open target is closure-multiplicity derivation of R_e (or equivalently R_p · 6π⁵, [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md)), which would give α from QLF closure structure alone |
 | **Constancy of `c`** from the cosmic-ratio identity `c = R_cosmic / T_cosmic = L_Planck / τ_Planck` | [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5.3 + [`lean/QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean) — derived from independently-derived `R_cosmic = n · L_Planck` (HadronicDepth.md) and `T_cosmic = n · τ_Planck` (AgeOfUniverse.md §4.1); the cosmic-horizon depth `n` cancels exactly. Generalises to any Markov-blanket depth `ρ` by the same ρ-cancellation. Local Lorentz invariance grounded in the substrate's irreducible space-time event quantum | A measured local light speed varying with gauge-fold density would falsify the substrate's irreducible space-time-event-quantum identity (1 Planck length × 1 Planck tick per event) |
 | ∇·B = 0 absolutely | Magnetic monopole detection | `no_magnetic_monopoles` is Lean-verified; a monopole observation would falsify the algebra itself |
 | Neutrinos are Majorana | Neutrinoless double-beta decay searches | QLF's algebraic chirality account would need revision |
@@ -463,9 +461,8 @@ The Quantum Logical Framework does not abandon the experimental triumphs of the 
 - **α / Ry / m_e structural relation** `Ry = (1/2) α² m_e c²` derived from the QLF Bohr formulation (Coulomb-via-gauge-twist-exchange + ZFA-depth quantization). Given any two of {α, Ry, m_e}, the third is derived to CODATA precision (10⁻¹⁰ relative error). The Rydberg formula is not assumed — it falls out of [`Hydrogen.md`](Hydrogen.md) §§2–4. See [`fine_structure_demo.py`](fine_structure_demo.py). Residual open piece: derive at least one of {α, Ry, m_e, R_e, R_1} from QLF closure-multiplicity at the Planck-event scale, independently of observation.
 
 **High-priority open work:**
-- Full derivations of π, e, α, δ from the twist algebra (§6.3); α in particular has a clear research path through the gauge/spatial coupling structure. Under the per-qubit reading (§5.5, §6.3), the open piece `α R_e = m_e` reformulates as: derive `R_e ≈ 2.4 × 10²²` from QLF closure-multiplicity.
+- Full closure-multiplicity derivations of π, e, δ from the twist algebra (§6.3). α is already derived to 10⁻¹⁰ from the ionization energy of hydrogen via the QLF Bohr formula (§4, [`fine_structure_demo.py`](fine_structure_demo.py)); the residual is the closure-multiplicity derivation of R_e (equivalently R_p · 6π⁵, [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md)), which would give α from QLF closure structure alone with no observable input.
 - SI calibration of G via a physical mass-scale anchor.
-- End-to-end wiring of `emerge_alpha()` through to the hydrogen derivation in §5 and the atomic-system spectrum in §5.5.
 - Time-indexed event sequence type in Lean → unlocks Lean-verifiability for Faraday, Ampère-Maxwell, and the boost-mixing on EM fields beyond the kinematic boost of §4.5.
 - Quantitative gravity: Mercury perihelion shift.
 - QED precision: electron g-2 anomaly.

@@ -12,7 +12,10 @@ Supported native / bridge quantities:
 - pi              : projected spherical arc / diameter ratio from QuCalc closures
 - e               : characteristic closure-growth base of the stable-history ensemble
 - gamma           : harmonic excess of the ordered stable-closure ensemble
-- alpha           : local/spatial fold ratio across stable QuCalc closures
+- gauge_spatial_count_ratio : gauge/spatial twist count ratio across stable
+                              QuCalc closures (a structural observable about
+                              the ensemble — NOT the fine-structure constant α;
+                              for α see fine_structure_demo.py and Hydrogen.md §4)
 - delta           : native period-doubling estimate from reduced primitive periods
 - G_Q             : native closure-network gravitational coupling
 - G_prediction_SI : SI bridge prediction for G from G_Q plus one explicit mass bridge
@@ -302,9 +305,15 @@ class ConstantsMapper:
         harmonic = sum(1.0 / k for k in range(1, N + 1))
         return harmonic - math.log(N)
 
-    def emerge_alpha(self) -> Optional[float]:
+    def gauge_spatial_count_ratio(self) -> Optional[float]:
         """
-        QLF local/spatial ratio over stable closures.
+        Count ratio of gauge twists (+/-) to spatial twists (^v<>/\) in the
+        stable-history ensemble. This is NOT the fine-structure constant α;
+        it is a structural observable about the ensemble's twist composition.
+
+        For the QLF α derivation see fine_structure_demo.py and Hydrogen.md §4:
+        α = sqrt(2 Ry / (m_e c²)) — derived from the ionization energy of
+        hydrogen and the electron rest energy to 10⁻¹⁰ relative error vs CODATA.
         """
         total_local = 0
         total_spatial = 0
@@ -468,7 +477,7 @@ class ConstantsMapper:
         pi_val = self.emerge_pi()
         e_val = self.emerge_e()
         gamma_val = self.emerge_gamma()
-        alpha_val = self.emerge_alpha()
+        gauge_spatial_val = self.gauge_spatial_count_ratio()
         delta_val = self.emerge_feigenbaum()
         G_Q = self.emerge_G_Q()
         G_pred = self.emerge_G_prediction()
@@ -503,10 +512,11 @@ class ConstantsMapper:
                 "harmonic excess of ordered stable-closure ensemble",
             ),
             self._format_dimensionless_line(
-                "alpha",
-                alpha_val,
-                self.CODATA["alpha"],
-                "local/spatial fold ratio across stable QuCalc histories",
+                "gauge_spatial_count_ratio",
+                gauge_spatial_val,
+                None,
+                "gauge/spatial twist count ratio over stable QuCalc histories "
+                "(structural observable; NOT α — for α see fine_structure_demo.py)",
             ),
             self._format_dimensionless_line(
                 "delta",

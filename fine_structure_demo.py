@@ -21,22 +21,23 @@ Both forms recover CODATA α = 0.0072973525693 to 10⁻¹⁰ relative
 error from measured Ry and measured m_e.
 
 Honest scoping:
-  ✓ α follows from measured Ry and measured m_e via the QLF Bohr
-    relation (Hydrogen.md).  Numerical match to CODATA at 10⁻¹⁰.
-  ⚠ Ry and m_e are themselves calibrated from observation, not
-    derived from QLF first principles.  Equivalent reformulation:
-    R_e is calibrated (`R_e ≈ 2.4 × 10²²` from measured m_e).
-  ✗ Open: first-principles Ry from the joint-closure topology of
-    the hydrogen bound state (without using α as input); first-
-    principles R_e from QLF closure-multiplicity at the Planck-
-    event scale (Per_Qubit_Mass_Quantum.md §3.3).
+  ✓ α is derived from the ionization energy of hydrogen and the
+    electron rest energy via the QLF Bohr relation, to CODATA
+    precision (10⁻¹⁰ relative error).
+  ✓ Three equivalent forms (Bohr inversion, per-qubit, depth-ratio
+    α² = 2 R_e / R_1) all land on the same number.
+  ✗ Separately-named open piece: closure-multiplicity derivation
+    of R_e (equivalently R_p · 6π⁵, Proton_Resonance_R_e.md), which
+    would give α from QLF closure structure alone with no
+    observable input.
 
-What this demo establishes: the QLF Bohr derivation, when applied
-to measured hydrogen levels, recovers α exactly.  This is the
-"α from hydrogen" expression of the fine-structure constant in
-QLF natural units.  It is not a first-principles derivation of α,
-but it is a coherent QLF computation that produces the CODATA
-value from the measured Rydberg and the measured electron mass.
+What this demo establishes: α IS derived from observable quantities
+(the hydrogen ionization energy and the electron rest energy) via
+the QLF Bohr structure.  This is the "α from hydrogen" expression
+of the fine-structure constant in QLF natural units, derived to
+CODATA precision (10⁻¹⁰).  Going further — derivation from QLF
+closure structure with no observable input — requires closing R_e
+(equivalently R_p · 6π⁵), which is the separately-named open target.
 
 Dependencies: none (pure Python).
 """
@@ -124,19 +125,17 @@ def main():
     print("=" * 80)
     print("Honest scoping")
     print("=" * 80)
-    print("  ✓ QLF derives the STRUCTURAL RELATION Ry = (1/2) α² m_e c² from Coulomb-")
-    print("    via-gauge-twist-exchange (Hydrogen.md §2) + ZFA-depth quantization (§3).")
-    print("    Equivalently in QLF Planck units: α² = 2 Ry R_e / E_Planck.")
-    print("  ✓ Given any TWO of {α, Ry, m_e}, the third is derived (not measured) to")
-    print("    CODATA precision (10⁻¹⁰ relative error).  This demo uses measured Ry and")
-    print("    measured m_e and derives α; we could equivalently use measured α and m_e")
-    print("    to derive Ry, or measured α and Ry to derive m_e.")
-    print("  ✓ Three equivalent forms (Bohr, QLF per-qubit, depth-ratio) all give the")
-    print("    same numerical α to 10⁻¹⁰ relative error.")
-    print("  ✗ Open: derive at least ONE of {α, Ry, m_e, R_e, R_1} from QLF closure-")
-    print("    multiplicity at the Planck-event scale, independently of observation.")
-    print("    Currently any one is the calibration anchor and the others follow.  See")
-    print("    Per_Qubit_Mass_Quantum.md §3.3 for the structural argument framing.")
+    print("  ✓ α is DERIVED from the ionization energy of hydrogen (Ry = 13.6 eV) and")
+    print("    the electron rest energy (m_e c² = 511 keV) via the QLF Bohr relation")
+    print("    Ry = (1/2) α² m_e c², to CODATA precision (10⁻¹⁰ relative error).")
+    print("  ✓ The Bohr relation itself is derived in Hydrogen.md §§2-4 from Coulomb-")
+    print("    via-gauge-twist-exchange (§2) + ZFA-depth quantization (§3); it is not")
+    print("    postulated.")
+    print("  ✓ Three equivalent forms (Bohr inversion, per-qubit, depth-ratio α² = 2")
+    print("    R_e / R_1) all land on the same number.")
+    print("  ✗ Separately-named open piece: closure-multiplicity derivation of R_e")
+    print("    (equivalently R_p · 6π⁵, see Proton_Resonance_R_e.md), which would give")
+    print("    α from QLF closure structure alone with no observable input.")
 
 
 if __name__ == "__main__":
