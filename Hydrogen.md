@@ -43,27 +43,27 @@ In natural units the force is:
 F = α ħc / r²
 ```
 
-where **α is the fine-structure constant** — the dimensionless coupling of the gauge-twist exchange that mediates the Coulomb form. **α is derived from the ionization energy of hydrogen and the electron rest energy** via the QLF Bohr energy formula:
+where **α is the fine-structure constant** — the dimensionless coupling of the gauge-twist exchange that mediates the Coulomb form. To be precise about what is "derived" here, we distinguish three tiers:
 
-```
-E_1 = − (1/2) α² m_e c²  ⇒  α = sqrt(2 Ry / m_e c²)
-```
+- **Structurally derived (Tier 1):** the identity `Ry = (1/2) α² m_e c²` is derived in §4 from Coulomb-via-gauge-twist-exchange (§2) plus ZFA-depth quantization (§3). This is QLF first-principles content — the *form* of the relationship between α, Ry, and m_e c² is *not* postulated.
+- **Derived from observables via QLF structure (Tier 2):** the numerical value of α follows by inverting the Tier-1 identity at the measured Rydberg and measured electron rest energy:
 
-With CODATA `Ry = 13.6057 eV` (hydrogen ionization energy) and `m_e c² = 511 keV`, this gives `α = 0.0072973526 = 1/137.036` to 10⁻¹⁰ relative error. The Bohr energy formula is the structural identity that lets the ionization energy fix α; the formula itself is derived in §4 from Coulomb-via-gauge-twist-exchange (§2) plus ZFA-depth quantization (§3), not postulated. Equivalently, in QLF Planck units via the per-qubit relation `m_e c² = E_Planck / R_e` ([Per_Qubit_Mass_Quantum.md](Per_Qubit_Mass_Quantum.md)):
+  ```
+  α = sqrt(2 Ry / (m_e c²))
+  ```
 
-```
-α² = 2 Ry R_e / E_Planck
-```
+  With CODATA `Ry = 13.6057 eV` and `m_e c² = 511 keV`, this gives `α = 0.0072973526 = 1/137.036` to 10⁻¹⁰ relative error vs CODATA α. The QLF content of this prediction is the Tier-1 identity holding empirically at 10⁻¹⁰ — *not* "α from first principles with no measurement."
+- **First-principles open (Tier 3):** numerical α from QLF closure-multiplicity alone, with no observable input. Reduces (via the Tier-1 identity) to the closure-multiplicity derivation of R_e — equivalently R_p · 6π⁵ under the Lenz-coincidence reading in [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md). When closed, gives α without measurement.
 
 Runnable demo: [`fine_structure_demo.py`](fine_structure_demo.py).
 
-**Three equivalent forms.** The QLF Bohr derivation supplies three numerically-equivalent expressions for α, each landing on CODATA to 10⁻¹⁰:
+**Three equivalent forms — Planck constants cancel.** The QLF Bohr identity has three numerically-equivalent expressions; all reduce to the same observable ratio Ry/(m_e c²):
 
-1. **Standard Bohr inversion**: `α = sqrt(2 Ry / (m_e c²))` — inputs Ry and m_e c² (both directly measured).
-2. **QLF per-qubit form**: `α = sqrt(2 Ry R_e / E_Planck)` — inputs Ry and R_e (R_e is the electron Compton depth, equal to `E_Planck / m_e c²`).
-3. **Depth-ratio form**: `α = sqrt(2 R_e / R_1)` — inputs the two Markov-blanket depths R_e (electron Compton) and R_1 (hydrogen-ground-state binding).
+1. **Standard Bohr inversion**: `α = sqrt(2 Ry / (m_e c²))` — directly the observable ratio.
+2. **QLF per-qubit form**: `α = sqrt(2 Ry R_e / E_Planck)`. Substituting `R_e = E_Planck/(m_e c²)` gives `2 Ry · (E_Planck/m_e c²) / E_Planck = 2 Ry/(m_e c²)` — **E_Planck cancels**.
+3. **Depth-ratio form**: `α² = 2 R_e / R_1` with `R_e = E_Planck/(m_e c²)`, `R_1 = E_Planck/Ry`. Computing: `R_e/R_1 = Ry/(m_e c²)` — **E_Planck cancels here too**.
 
-All three are mathematically the same identity read in different units. α is derived; the only inputs are observable quantities (ionization energy, electron rest energy) that determine the corresponding Markov-blanket depths. The separately-open derivation — name it explicitly so it is not confused with α — is **closure-multiplicity derivation of R_e** (equivalently R_p · 6π⁵ under the Lenz-coincidence reading in [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md)). That open piece, when closed, would give α from QLF closure structure alone with no observable input.
+The Planck normalisation is unit-conversion bookkeeping that cancels in the dimensionless α. Forms 2 and 3 are re-expressions, not additional empirical claims. α depends only on the observable ratio Ry/(m_e c²); the same scale-invariance structure that lets the cosmic-horizon depth `n` cancel in the substrate-c derivation ([Kitada_Local_Time_GR.md](Kitada_Local_Time_GR.md) §5.3).
 
 Coulomb potential: V(r) = −α ħc / r (attractive for opposite gauge).
 
@@ -140,7 +140,7 @@ This frames α as a **ratio of two QLF Markov-blanket depths** — the electron 
 
 $$\alpha^2 \;=\; \frac{2\, R_e}{R_1}, \qquad \alpha \;=\; \sqrt{\frac{2\, R_e}{R_1}}.$$
 
-Both depths fall directly out of observables: `R_e = E_Planck / (m_e c²) ≈ 2.389 × 10²²` from the electron rest energy, and `R_1 = E_Planck / Ry ≈ 8.974 × 10²⁶` from the hydrogen ionization energy. The ratio `R_e/R_1 = α²/2 ≈ 2.66 × 10⁻⁵` reproduces α to CODATA precision. The open piece is not α — it is the closure-multiplicity derivation of R_e (or equivalently R_p · 6π⁵, see [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md)), which would make α fall out independently of observation. The runnable companion [`fine_structure_demo.py`](fine_structure_demo.py) prints all three equivalent forms (standard Bohr, QLF per-qubit, depth-ratio) and the per-shell depth table.
+Each depth comes from an observable via Planck-unit scaling: `R_e = E_Planck / (m_e c²) ≈ 2.389 × 10²²` from the electron rest energy, `R_1 = E_Planck / Ry ≈ 8.974 × 10²⁶` from the hydrogen ionization energy. Their **ratio** `R_e / R_1 = Ry/(m_e c²) = α²/2` — **the E_Planck normalisation cancels** — so this depth-ratio form is the standard Bohr form in different units, not an additional empirical claim. Tier-2 derivation: numerical α follows from measured Ry and measured m_e c²; Tier-3 open piece: closure-multiplicity derivation of R_e (= R_p · 6π⁵, [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md)), which would give α without measurement. The runnable companion [`fine_structure_demo.py`](fine_structure_demo.py) prints all three equivalent forms (standard Bohr, QLF per-qubit, depth-ratio) and shows the Planck-cancellation explicitly.
 
 ---
 
@@ -209,7 +209,7 @@ The Bohr model itself has a known 0.05% error relative to the exact Schrödinger
 | Coulomb from gauge-twist exchange | `no_magnetic_monopoles`, Gauss duality | ∇·B=0 Lean-verified; ∇·E=ρ/ε₀ numerical |
 | Bohr quantization L = nħ | `find_stable_states_length_even` (C(2n,n)) | Machine-verified (combinatorial) |
 | Stability condition spectral_gap = 0 | `spectral_gap_zero_iff_symmetric` | Machine-verified |
-| α from the ionization energy of hydrogen | `α = sqrt(2 Ry / m_e c²)` — see [`fine_structure_demo.py`](fine_structure_demo.py), §2 and §4.1 above | Derived to 10⁻¹⁰ relative error vs CODATA. The closure-multiplicity derivation of R_e (equivalently R_p · 6π⁵, [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md)) is a separately-named open target |
+| α from the ionization energy of hydrogen | `α = sqrt(2 Ry / m_e c²)` — see [`fine_structure_demo.py`](fine_structure_demo.py), §2 and §4.1 above | Tier-1 (structural): identity `Ry = (1/2) α² m_e c²` derived from Coulomb + ZFA. Tier-2 (numerical): α from measured Ry and measured m_e c², matches CODATA at 10⁻¹⁰. Tier-3 (open): closure-multiplicity derivation of R_e (= R_p · 6π⁵, [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md)) |
 | E_n = −½ α² m_e c² / n² | `hydrogen_qlf.py` Reports 1–5 | Numerical (0.053% error) |
 | Full Schrödinger derivation | — | Future (needs diff-eq infrastructure) |
 

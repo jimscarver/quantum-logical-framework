@@ -188,11 +188,15 @@ This is the QLF reading of local Lorentz invariance, structurally grounded in th
 
 - **Obstacle 4 (Lean formalisation)** — closed by the cosmic-ratio identity. The Lean module [`lean/QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean) defines `planck_length`, `planck_time`, `cosmic_horizon_depth`, `apparent_universe_size`, `apparent_universe_age`, and `substrate_light_speed`, with theorems `substrate_light_speed_from_cosmic_ratio` (the `n` cancels by algebra) and `local_light_speed_invariant` (the `ρ` cancels for any Markov-blanket depth). The arithmetic is trivial; the structural content lives in the named-quantity decomposition and the theorem statements.
 
-#### What this closes
+#### What this closes — and what it doesn't
 
-This sub-section closes step 7 of §7 below: the constancy of `c` is now structurally derived from QLF substrate properties (specifically, the irreducible space-time event quantum that makes gauge-folding scale length and time by the same factor). The SI values of `L_Planck` and `τ_Planck` remain substrate calibration anchors, but the constancy of their ratio across all Markov-blanket scales is structurally derived and Lean-anchored.
+Three tiers, to avoid overclaim:
 
-The cleanest framing: **`c` is the cosmic blanket's `R/T` ratio**. It is constant across all local Markov blankets because the same `R/T` ratio holds at every depth, with the depth cancelling structurally.
+- **Tier 1 (structurally derived):** the ρ-cancellation `(ρ · L_Planck)/(ρ · τ_Planck) = L_Planck/τ_Planck` holds at every Markov-blanket depth, grounded in the substrate's irreducible space-time event quantum. This is QLF first-principles content — local Lorentz invariance falls out of the per-event identity (one Planck length × one Planck tick, *together*), not from a metric postulate.
+- **Tier 2 (numerical from observables):** numerical `c ≈ 2.998 × 10⁸ m/s` is *measured*, not predicted. The cosmic-ratio identity `c = L_Planck/τ_Planck` is tautological at the numerical level because L_Planck and τ_Planck are defined as `sqrt(ℏG/c³)` and `sqrt(ℏG/c⁵)`. What is QLF-derived is the *constancy* — that the same numerical value holds in every Markov-blanket frame — not the number itself.
+- **Tier 3 (first-principles open):** deriving L_Planck or τ_Planck (or equivalently {ℏ, G, c}) from QLF closure structure alone, rather than treating them as observable substrate calibration anchors. This would give numerical c without measurement; remains open research.
+
+The cleanest framing: **`c` is the cosmic blanket's `R/T` ratio**. What QLF derives is its frame-invariance across all local Markov-blanket scales (the same ratio at every depth, with ρ cancelling structurally). What it does *not* derive is the numerical value of `c`.
 
 ---
 

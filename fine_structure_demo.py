@@ -20,24 +20,23 @@ relation `m_e c² = E_Planck / R_e`:
 Both forms recover CODATA α = 0.0072973525693 to 10⁻¹⁰ relative
 error from measured Ry and measured m_e.
 
-Honest scoping:
-  ✓ α is derived from the ionization energy of hydrogen and the
-    electron rest energy via the QLF Bohr relation, to CODATA
-    precision (10⁻¹⁰ relative error).
-  ✓ Three equivalent forms (Bohr inversion, per-qubit, depth-ratio
-    α² = 2 R_e / R_1) all land on the same number.
-  ✗ Separately-named open piece: closure-multiplicity derivation
-    of R_e (equivalently R_p · 6π⁵, Proton_Resonance_R_e.md), which
-    would give α from QLF closure structure alone with no
-    observable input.
+Three tiers:
+  Tier 1 (structural): identity Ry = (1/2) α² m_e c² derived from
+    Coulomb-via-gauge-twist-exchange + ZFA-depth quantization
+    (Hydrogen.md §§2-4) — the *form* is first-principles QLF.
+  Tier 2 (numerical from observables): α from measured Ry and
+    measured m_e c² via the Tier-1 identity, matches CODATA at
+    10⁻¹⁰.  Per-qubit and depth-ratio forms involve E_Planck only
+    as bookkeeping; it cancels algebraically, leaving the same
+    observable ratio 2 Ry/(m_e c²).
+  Tier 3 (first-principles open): numerical α from QLF closure-
+    multiplicity alone — reduces to deriving R_e (= R_p · 6π⁵,
+    Proton_Resonance_R_e.md).
 
-What this demo establishes: α IS derived from observable quantities
-(the hydrogen ionization energy and the electron rest energy) via
-the QLF Bohr structure.  This is the "α from hydrogen" expression
-of the fine-structure constant in QLF natural units, derived to
-CODATA precision (10⁻¹⁰).  Going further — derivation from QLF
-closure structure with no observable input — requires closing R_e
-(equivalently R_p · 6π⁵), which is the separately-named open target.
+What this demo establishes: the QLF Bohr identity is empirically
+correct at 10⁻¹⁰.  Numerical α is computed from two measured
+observables (Ry and m_e c²).  Calling it "α from hydrogen" is
+accurate; calling it "α from first principles" requires Tier 3.
 
 Dependencies: none (pure Python).
 """
@@ -106,6 +105,20 @@ def main():
     print(f"  relative error (QLF per-qubit):   {abs(a_qlf - alpha_CODATA) / alpha_CODATA:.2e}")
     print(f"  relative error (depth-ratio):     {abs(a_depth - alpha_CODATA) / alpha_CODATA:.2e}")
     print()
+    print("=" * 80)
+    print("Planck-constant cancellation in forms 2 and 3")
+    print("=" * 80)
+    print(f"  Form 2 substitutes R_e = E_Planck/(m_e c²) into α² = 2 Ry R_e / E_Planck:")
+    print(f"    2 Ry · (E_Planck / m_e c²) / E_Planck = 2 Ry / (m_e c²)")
+    print(f"  → E_Planck cancels algebraically.")
+    print()
+    print(f"  Form 3 substitutes R_e = E_Planck/(m_e c²), R_1 = E_Planck/Ry into 2 R_e / R_1:")
+    print(f"    2 · (E_Planck / m_e c²) / (E_Planck / Ry) = 2 Ry / (m_e c²)")
+    print(f"  → E_Planck cancels algebraically.")
+    print()
+    print(f"  All three forms = the same observable ratio 2 Ry/(m_e c²) = {2*Ry_eV/m_e_c2_eV:.10e}")
+    print(f"  α depends only on Ry/(m_e c²); the Planck normalisation is bookkeeping.")
+    print()
     print("Bohr shell spectrum — each shell n is a vacuum-resonance mode at depth R_n:")
     print()
     print(f"  {'n':>2}  {'binding (eV)':>14}  {'shell frequency':>18}  {'R_n / R_1':>10}  {'R_n':>12}")
@@ -125,17 +138,23 @@ def main():
     print("=" * 80)
     print("Honest scoping")
     print("=" * 80)
-    print("  ✓ α is DERIVED from the ionization energy of hydrogen (Ry = 13.6 eV) and")
-    print("    the electron rest energy (m_e c² = 511 keV) via the QLF Bohr relation")
-    print("    Ry = (1/2) α² m_e c², to CODATA precision (10⁻¹⁰ relative error).")
-    print("  ✓ The Bohr relation itself is derived in Hydrogen.md §§2-4 from Coulomb-")
-    print("    via-gauge-twist-exchange (§2) + ZFA-depth quantization (§3); it is not")
-    print("    postulated.")
-    print("  ✓ Three equivalent forms (Bohr inversion, per-qubit, depth-ratio α² = 2")
-    print("    R_e / R_1) all land on the same number.")
-    print("  ✗ Separately-named open piece: closure-multiplicity derivation of R_e")
-    print("    (equivalently R_p · 6π⁵, see Proton_Resonance_R_e.md), which would give")
-    print("    α from QLF closure structure alone with no observable input.")
+    print("  Tier 1 (structurally derived from QLF):")
+    print("    The identity Ry = (1/2) α² m_e c² is derived in Hydrogen.md §§2-4")
+    print("    from Coulomb-via-gauge-twist-exchange (§2) + ZFA-depth quantization")
+    print("    (§3).  The *form* of the α/Ry/m_e relationship is first-principles")
+    print("    content; it is not postulated.")
+    print()
+    print("  Tier 2 (numerical α from observables via QLF structure):")
+    print("    Inverting the Tier-1 identity at the measured Ry (= ionization energy")
+    print("    of hydrogen) and measured m_e c² gives α = 0.0072973526 to 10⁻¹⁰ vs")
+    print("    CODATA.  The QLF content of this prediction is the Tier-1 identity")
+    print("    holding empirically at 10⁻¹⁰.  Per-qubit and depth-ratio re-expressions")
+    print("    involve E_Planck only as unit-conversion bookkeeping — it cancels.")
+    print()
+    print("  Tier 3 (first-principles open):")
+    print("    Numerical α from QLF closure-multiplicity alone, with no observable")
+    print("    input.  Reduces to deriving R_e (equivalently R_p · 6π⁵, see")
+    print("    Proton_Resonance_R_e.md) from closure-multiplicity.")
 
 
 if __name__ == "__main__":
