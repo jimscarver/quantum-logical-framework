@@ -54,6 +54,8 @@ Mapping onto QLF:
 
 Under this lens, **`R_e` is the electron's local-clock period in universal-substrate Planck ticks**. Each tick resolves one bit of the electron's Markov-blanket state. The structural question is: **why is the electron's local clock the specific period that it is?**
 
+The same Kitada-framework lens is applied more broadly to QLF's general-relativistic and cosmological commitments in [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md). That doc identifies three additional gaps (foundational local-time identity; cosmic-time as proper time of the cosmic-horizon Markov blanket; quantitative Einstein-equation coefficients) where Kitada's framework supplies the structural lens. The R_e derivation here and the GR scoping there share the same Markov-blanket-depth-as-local-clock reading.
+
 ---
 
 ## §3 Chirality hiding as evolutionary stability

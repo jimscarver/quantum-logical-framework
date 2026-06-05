@@ -169,3 +169,4 @@ In high-density regions (e.g. near a black-hole horizon, or for fast-moving fram
 
 - [`Hierarchical_Control.md`](Hierarchical_Control.md) §6 — this doc closes the "Cross-frequency Lorentz derivation" open item listed there.
 - [`UniversalRelativity.md`](UniversalRelativity.md) — the spacetime-emergence companion; together they constitute QLF's full relativistic framing.
+- [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) — scoping doc reading rapidity = log(internal-frequency ratio) under Kitada's local-time framework. §7 step 7 identifies the path to deriving the constancy of `c` from the Gap-1 identity (Planck-event substrate clock uniformity).

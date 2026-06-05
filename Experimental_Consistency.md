@@ -389,7 +389,7 @@ Gravity in QLF is not a separate force. It is the **macroscopic residual of micr
 
 This is coherent with active research lines (Verlinde's entropic gravity, holographic-screen approaches) but is **qualitative**, not yet quantitative. The 37% G_prediction_SI residual in §6.3 reflects a calibration gap, not a derivation; a quantitative gravity prediction (Mercury perihelion shift at 43"/century would be the canonical test) is open work.
 
-See [Gravity.md](Gravity.md) and `gravitational_tensor.py` for the current state.
+See [Gravity.md](Gravity.md) and `gravitational_tensor.py` for the current state. [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5 identifies the concrete path from the QLF substrate to the standard Einstein-equation coefficients `8π` and `G`: each Markov blanket carries its own local clock (Kitada's framework, gr-qc/9612043) and the standard Einstein equations emerge as the coarse-grained limit of local-clock synchronization failure across a Markov-blanket boundary. The `8π` factor is identified as `4π · 2` (solid angle × Hermitian pair); `G` is the vacuum's per-event entropy-gradient strength under the [`VacuumEnergy.md`](VacuumEnergy.md) §6.2 reading. Both calculations are research-grade open targets, but the path is now structurally articulated.
 
 ---
 

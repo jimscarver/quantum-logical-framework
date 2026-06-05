@@ -215,6 +215,7 @@ The vacuum is not empty. It is the living substrate of event synthesis — and, 
 - [`Emergent_Markov_Blankets.md`](Emergent_Markov_Blankets.md), [`Hadrons_Markov_Blankets.md`](Hadrons_Markov_Blankets.md) — observed admissibility as vacuum-resonance projection
 - [`ReverseMathematics.md`](ReverseMathematics.md) §4.9 and [`Wigner_Dyson_QLF_Test.md`](Wigner_Dyson_QLF_Test.md) — what the alignment principle says about the PDG-mass spacing test; the observed spectrum is the vacuum-resonance projection of the abstract `R̂` spectrum on `ℓ²(Σ_sa)`
 - [`Magic_numbers.md`](Magic_numbers.md) — the vacuum-as-intruder framing applied to the nuclear magic-number sequence; the ℓ = 3 threshold derived algebraically from the 8-twist alphabet's 6+2 split (the same 3 spatial dimensions referenced in §6.1)
+- [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5 — the near-equilibrium thermodynamic-substrate reading in §6.2 here is refined under Kitada's local-time framework: Einstein equations as the coarse-grained limit of local-clock synchronization failure across a Markov blanket. Identifies the concrete path to deriving the `8π` and `G` coefficients of the Verlinde / Jacobson programme from QLF substrate properties.
 - [`Cross_Frequency_Lorentz.md`](Cross_Frequency_Lorentz.md) — rapidity as `log(vacuum-mode-index ratio)` under §6.1 / §6.3
 
 

@@ -72,6 +72,6 @@ This bias is passed directly to the spin-network geometry in the QuCalc engine, 
 
 Gravity in QLF is the inevitable geometric consequence of entropy deconstruction inside a ZFA-complete logical web. The gauge-folding rule makes this fully computable at the particle scale: only primordial black holes (`+`–`−` folds) curve space locally, while the same mechanism produces cosmic acceleration globally. General relativity emerges as the effective description of QuCalc folds after coarse-graining — no additional postulates required.
 
-See also: [Quantum_Gravity.md](Quantum_Gravity.md) — master synthesis tying gravity (this doc), holography, cosmic expansion, and ER=EPR as four faces of the same algebraic event.
+See also: [Quantum_Gravity.md](Quantum_Gravity.md) — master synthesis tying gravity (this doc), holography, cosmic expansion, and ER=EPR as four faces of the same algebraic event; [Kitada_Local_Time_GR.md](Kitada_Local_Time_GR.md) §5 — scoping doc identifying the path to quantitative Einstein-equation coefficients (8π, G) via local-clock synchronization failure across a Markov blanket, building on Kitada's local-time framework (gr-qc/9612043) + the QLF substrate's near-equilibrium thermodynamic reading (VacuumEnergy.md §6.2).
 
 *Last aligned with repo state 21 April 2026. This version fully incorporates the gauge-folding rule and `particles.py` v2.2 classification.*
