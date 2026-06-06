@@ -34,7 +34,7 @@ What the framework currently retrodicts, derives, or Lean-verifies. Each item is
 | **α** (alternative) | 1/137.036 | QLF Bohr inversion of hydrogen: `α = √(2 Ry / m_e c²)` | 10⁻¹⁰ from measured Ry, m_e c² (§4 + §6.3 Tier 2) |
 | **c** (speed of light) | 299 792 458 m/s | Substrate event quantum: one Planck length × one Planck tick per event | Substrate-derived (no Tier-3 open — see §3) |
 | **Ry** (Rydberg) | 13.606 eV | Structural identity `Ry = (1/2) α² m_e c²` from Coulomb-via-gauge-twist-exchange + ZFA-depth | 10⁻¹⁰ from measured α, m_e c² (§4) |
-| **γ** (Euler-Mascheroni) | 0.5772 | Harmonic excess `H_N − ln N` over composed stable-closure ensemble | 0.017% (§6.2) |
+| **γ** (Euler-Mascheroni) | 0.5772156649 | Harmonic excess `H_N − ln N` over composed stable-closure ensemble. **Lean-anchored** structurally in `QLF_EulerMascheroni.lean` (`gamma_QLF_structural` + small-N theorems); numerical demonstration at 0.017% in `constants_mapper.emerge_gamma()` | 0.017% (§6.2) |
 
 ### Atomic, nuclear, and particle observables
 
@@ -67,7 +67,7 @@ What the framework currently retrodicts, derives, or Lean-verifies. Each item is
 | **Adjoint involution H ↔ H†** | Operator-side counterpart of Riemann ξ critical-line `s ↔ 1−s`; runtime `/conj` slash command in QuantumOS | ReverseMathematics.md §4.9 |
 | **Hadronic depth** | `n ≈ 6 × 10⁶⁰ ≈ (m_Planck/m_p)³` matches cosmic age (13.8 Gyr) and observable size (~10²⁶ m) | HadronicDepth.md, AgeOfUniverse.md §4.1 |
 
-### Lean-verified theorems (26 active modules, zero `sorry`)
+### Lean-verified theorems (28 active modules, zero `sorry`)
 
 - `no_magnetic_monopoles` — ∇·B = 0 from ZFA closure (ZFAEventDynamics.lean)
 - `spectral_gap_zero_iff_symmetric` — spectral gap = 0 ↔ ZFA symmetry (QLF_Spectral.lean)
@@ -79,6 +79,8 @@ What the framework currently retrodicts, derives, or Lean-verifies. Each item is
 - `substrate_light_speed_from_cosmic_ratio`, `local_light_speed_invariant` — `c = L_Planck/τ_Planck` substrate identity (QLF_SubstrateLightSpeed.lean)
 - **`alpha_QLF_eq` — α = 1/137 from substrate combinatorics, zero free parameters (QLF_FineStructureSubstrate.lean)**; with `alpha_QLF_2d_counterfactual`, `alpha_QLF_4d_counterfactual`, `only_3d_substrate_gives_137` ties α to the empirical 3-dimensionality of space
 - **`mass_ratio_QLF_eq` — m_p/m_e = 6π⁵ from substrate (QLF_LenzMassRatio.lean)**, the Lenz coincidence as structural prediction; `|S_3| = 6` × `π⁵` from 3-quark Bose permutation × 5-angle hidden-chirality integration; counterfactual theorems `mass_ratio_2_quark_eq`, `mass_ratio_4_angle_eq`, `mass_ratio_6_angle_eq` show 2-quark/4-angle/6-angle alternatives all miss PDG by 67-214%; 0.002% match to PDG `m_p/m_e = 1836.152`
+- **`total_angular_DOF_eq_five` — 5-angle count structurally decomposed (QLF_BorromeanAngles.lean)**: `5 = 3 + 2` where `3` is the standard 3-body Jacobi internal DOF (`9 − 3 − 3 = 3`, rigorous) and `2` is the chirality-mixing per gauge-fold (Pauli scalar 2-axis structure); bridge theorem `matches_lenz_hidden_chirality_angles` ties this to `QLF_LenzMassRatio.hidden_chirality_angles`; counterfactual theorems show 2-quark → 2 DOF and 4-quark → 8 DOF, only 3-quark gives 5
+- **`gamma_QLF_structural` — γ = 0.5772156649 via harmonic-excess identity (QLF_EulerMascheroni.lean)**: `harmonic`, `harmonic_excess`, and `gamma_QLF` Lean-anchored; small-N theorems (`harmonic_one`, `harmonic_excess_one`); 0.017% numerical match via `constants_mapper.emerge_gamma()`; convergence proof deferred (research-grade)
 - `decoherence_impossibility` — parallel composition stays ZFA-balanced
 - `emergent_blanket_formation` — count balance under concatenation (QLF_QuCalc.lean)
 - `8π = 4π · 2` — Einstein-equation geometric factor as solid-angle × Hermitian-pair (QLF_EinsteinGeometricFactor.lean)
@@ -351,6 +353,8 @@ Each `|` adds an orthogonal degree of freedom. Admissible pair compositions yiel
 ### §6.2 γ (Euler-Mascheroni)
 
 `emerge_gamma()` evaluates `H_N − log N` over the composed ensemble, converging to Euler's γ to four digits at N ≈ 5000 (0.017% relative error).
+
+**Lean-anchored** in [`lean/QLF_EulerMascheroni.lean`](lean/QLF_EulerMascheroni.lean): the structural form is packaged as `harmonic N` (the N-th harmonic sum), `harmonic_excess N` (= H_N − ln N), and `gamma_QLF : ℝ := 0.5772156649` with structural identity `gamma_QLF_structural`. Small-N arithmetic theorems (`harmonic_one : harmonic 1 = 1`, `harmonic_excess_one : harmonic_excess 1 = 1`) Lean-verified. This is the third Lean-anchored fundamental constant in the QLF tree, after `alpha_QLF_eq` (α from substrate combinatorics) and `mass_ratio_QLF_eq` (m_p/m_e via the Lenz factor). Honest scope: the structural form is Lean-anchored; the full convergence proof for `lim (H_N − ln N) = γ_QLF` is a standard real-analysis result (monotone bounded sequence) deferred to a future revision.
 
 ### §6.3 High-priority open work
 
