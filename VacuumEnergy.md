@@ -190,7 +190,7 @@ All three formalisation layers of the global selection rule are now Lean-anchore
 2. **N-event** — `global_alignment_selects_zfa` (trajectory of densities: cumulative saturation ⇔ every event is a delta)
 3. **RhoProcess** — `rho_process_alignment_saturates` (every constructible process: events-trajectory saturates the bound by structural recursion)
 
-Quantitative consequences (Standard-Model gauge groups, first-principles mass spectrum, sterile-sector predictions) remain open work the principle is meant to unblock.
+Quantitative consequences (Standard-Model gauge groups, first-principles mass spectrum, sterile-sector predictions) remain open work the principle is meant to unblock. A concrete realisation on the spin-orientation axis — the vacuum's spin-orientation distribution as the substrate of magnetic phenomena, with spatial expansion from like-spin Pauli exclusion and contraction from opposite-spin singlet annihilation — is articulated in [`Magnetism_Spatial_Dynamics.md`](Magnetism_Spatial_Dynamics.md).
 
 ---
 

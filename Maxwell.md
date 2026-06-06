@@ -29,6 +29,8 @@ charge(h) = count(+) − count(−) [gauge imbalance = net charge]
 
 The E-field is the transverse momentum exchange rate — defined via the time-sequence of ZFA events rather than a single event. In the continuum limit, E and B satisfy the wave equation with propagation speed c by construction (see [Experimental_Consistency.md §Wave Equation](Experimental_Consistency.md)).
 
+The single-history `B(h)` definitions above are the *closure-level* projection of a broader structural reading: macroscopically, `B` is the spatial-gradient signature of the local vacuum's spin-orientation distribution. The spatial-dynamics reframe — like-spin pairs expanding space via Pauli exclusion, opposite-spin pairs contracting it via singlet annihilation, B-field as the directional gradient — is in [`Magnetism_Spatial_Dynamics.md`](Magnetism_Spatial_Dynamics.md).
+
 ---
 
 ## Equation 1: ∇·B = 0 (No Magnetic Monopoles)

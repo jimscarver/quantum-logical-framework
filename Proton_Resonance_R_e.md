@@ -173,6 +173,8 @@ The R_e derivation question is now sharper:
 
 **What it adds**: under the chirality-hiding-resonance reading, the mass-ratio `m_p / m_e = 6π⁵` becomes a structural prediction of the framework rather than an unexplained empirical coincidence. The 70-year Lenz coincidence has a candidate structural explanation.
 
+**Parallel Tier-3 candidate.** A second sub-targeting of the same α-from-closure-multiplicity question, via the spin-spin spatial-dynamics balance of like-spin exclusion vs opposite-spin singlet pairing, is articulated in [`Magnetism_Spatial_Dynamics.md`](Magnetism_Spatial_Dynamics.md) §6. The two pathways converge on numerical α via different sub-targets; agreement at the substrate level would be a non-trivial QLF consistency check.
+
 ---
 
 ## §9 Next concrete steps
