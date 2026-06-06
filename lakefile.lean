@@ -34,5 +34,6 @@ lean_lib QLF where
     `QLF_LocalClock,
     `QLF_EinsteinGeometricFactor,
     `QLF_SubstrateLightSpeed,
-    `QLF_FineStructureSubstrate
+    `QLF_FineStructureSubstrate,
+    `QLF_LenzMassRatio
   ]
