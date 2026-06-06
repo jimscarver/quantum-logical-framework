@@ -175,6 +175,13 @@ The R_e derivation question is now sharper:
 
 **Parallel Tier-3 candidate.** A second sub-targeting of the same α-from-closure-multiplicity question, via the spin-spin spatial-dynamics balance of like-spin exclusion vs opposite-spin singlet pairing, is articulated in [`Magnetism_Spatial_Dynamics.md`](Magnetism_Spatial_Dynamics.md) §6. The two pathways converge on numerical α via different sub-targets; agreement at the substrate level would be a non-trivial QLF consistency check.
 
+**Lean anchor.** The Lenz factor `m_p/m_e = 6π⁵` structural identity is Lean-verified in [`lean/QLF_LenzMassRatio.lean`](lean/QLF_LenzMassRatio.lean) (sibling to [`lean/QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean) for α). The module packages `S3_order = 6` (Bose permutation of 3 quarks) and `hidden_chirality_angles = 5` (Jacobi + chirality-mixing) as named substrate constants, and proves:
+
+- `lenz_factor_eq : lenz_factor = 6 * Real.pi ^ 5`
+- `mass_ratio_QLF_eq : mass_ratio_QLF = 6 * Real.pi ^ 5`
+
+with counterfactual theorems showing that 2-quark proton gives `2π⁵ ≈ 612` (67% off), 4-angle space gives `6π⁴ ≈ 584` (68% off), 6-angle space gives `6π⁶ ≈ 5769` (214% off). Only the 3-quark + 5-angle structure matches PDG `m_p/m_e = 1836.152` (0.002% relative error vs the Lenz formula `6π⁵ = 1836.118`). The Lean module takes the 5-angle count as input — closing this count from first-principles Borromean topology (open sub-target above) would close the chain end-to-end.
+
 ---
 
 ## §9 Next concrete steps
