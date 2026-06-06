@@ -297,7 +297,7 @@ This makes the process language important: it lets QuCalc describe systems of in
 
 ### QuCalc
 
-> QuCalc is the 8-twist relational calculus of context-relative history strings whose persistent structures arise only through Zero Free Action and Hermitian closure.
+> QuCalc is the 8-twist relational calculus of context-relative history strings whose persistent structures arise from a single closure principle — Zero Free Action — whose two algebraic faces (Pauli closure on the non-abelian side, count balance / Hermitian-pair multiset on the abelian side) jointly define admissibility.
 
 ### RhoQuCalc
 

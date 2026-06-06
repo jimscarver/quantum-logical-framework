@@ -23,7 +23,7 @@ Explicit derivation of the gravitational coupling:
 Demonstrates 100 %, 75 %, and 50 % constructive vs destructive radial bias events for a 1-meter wave travelling exactly 100 meters (100 full cycles).
 Energy remains E = h × total QuCalc logical bits (SI units).
 
-All results emerge purely from Zero Free Action (ZFA), Hermitian closure, and the 8-fold topological logic — exactly as in magnetism.py.
+All results emerge from the single closure principle Zero Free Action (ZFA) on the 8-twist alphabet. ZFA has two algebraic faces (Pauli closure on the non-abelian side, count balance / Hermitian-pair multiset on the abelian side); these are not independent assumptions, they are the two faces of one principle. Same foundation as magnetism.py.
 """
 
 from dataclasses import dataclass
