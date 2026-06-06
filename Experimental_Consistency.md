@@ -67,7 +67,7 @@ What the framework currently retrodicts, derives, or Lean-verifies. Each item is
 | **Adjoint involution H ↔ H†** | Operator-side counterpart of Riemann ξ critical-line `s ↔ 1−s`; runtime `/conj` slash command in QuantumOS | ReverseMathematics.md §4.9 |
 | **Hadronic depth** | `n ≈ 6 × 10⁶⁰ ≈ (m_Planck/m_p)³` matches cosmic age (13.8 Gyr) and observable size (~10²⁶ m) | HadronicDepth.md, AgeOfUniverse.md §4.1 |
 
-### Lean-verified theorems (28 active modules, zero `sorry`)
+### Lean-verified theorems (29 active modules, zero `sorry`)
 
 - `no_magnetic_monopoles` — ∇·B = 0 from ZFA closure (ZFAEventDynamics.lean)
 - `spectral_gap_zero_iff_symmetric` — spectral gap = 0 ↔ ZFA symmetry (QLF_Spectral.lean)
@@ -81,6 +81,7 @@ What the framework currently retrodicts, derives, or Lean-verifies. Each item is
 - **`mass_ratio_QLF_eq` — m_p/m_e = 6π⁵ from substrate (QLF_LenzMassRatio.lean)**, the Lenz coincidence as structural prediction; `|S_3| = 6` × `π⁵` from 3-quark Bose permutation × 5-angle hidden-chirality integration; counterfactual theorems `mass_ratio_2_quark_eq`, `mass_ratio_4_angle_eq`, `mass_ratio_6_angle_eq` show 2-quark/4-angle/6-angle alternatives all miss PDG by 67-214%; 0.002% match to PDG `m_p/m_e = 1836.152`
 - **`total_angular_DOF_eq_five` — 5-angle count structurally decomposed (QLF_BorromeanAngles.lean)**: `5 = 3 + 2` where `3` is the standard 3-body Jacobi internal DOF (`9 − 3 − 3 = 3`, rigorous) and `2` is the chirality-mixing per gauge-fold (Pauli scalar 2-axis structure); bridge theorem `matches_lenz_hidden_chirality_angles` ties this to `QLF_LenzMassRatio.hidden_chirality_angles`; counterfactual theorems show 2-quark → 2 DOF and 4-quark → 8 DOF, only 3-quark gives 5
 - **`gamma_QLF_structural` — γ = 0.5772156649 via harmonic-excess identity (QLF_EulerMascheroni.lean)**: `harmonic`, `harmonic_excess`, and `gamma_QLF` Lean-anchored; small-N theorems (`harmonic_one`, `harmonic_excess_one`); 0.017% numerical match via `constants_mapper.emerge_gamma()`; convergence proof deferred (research-grade)
+- **`qlf_zeta_substrate_bridge` — γ_QLF IS ζ's Laurent constant at s = 1 (QLF_RiemannZeta.lean)**: bridges QLF's substrate-derived γ to the global Riemann zeta function via the Laurent expansion `ζ(s) = 1/(s−1) + γ + O(s−1)`; `critical_line_real_part = 1/2` Lean-anchored as the balance ratio matched to the functional-equation fixed locus. Does NOT prove RH (`rh_not_proved_here : True` as explicit honest scoping); consolidates substrate γ work with the existing QLF Riemann program
 - `decoherence_impossibility` — parallel composition stays ZFA-balanced
 - `emergent_blanket_formation` — count balance under concatenation (QLF_QuCalc.lean)
 - `8π = 4π · 2` — Einstein-equation geometric factor as solid-angle × Hermitian-pair (QLF_EinsteinGeometricFactor.lean)
