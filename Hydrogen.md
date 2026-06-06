@@ -209,7 +209,7 @@ The Bohr model itself has a known 0.05% error relative to the exact Schrödinger
 | Coulomb from gauge-twist exchange | `no_magnetic_monopoles`, Gauss duality | ∇·B=0 Lean-verified; ∇·E=ρ/ε₀ numerical |
 | Bohr quantization L = nħ | `find_stable_states_length_even` (C(2n,n)) | Machine-verified (combinatorial) |
 | Stability condition spectral_gap = 0 | `spectral_gap_zero_iff_symmetric` | Machine-verified |
-| α from the ionization energy of hydrogen | `α = sqrt(2 Ry / m_e c²)` — see [`fine_structure_demo.py`](fine_structure_demo.py), §2 and §4.1 above | Tier-1 (structural): identity `Ry = (1/2) α² m_e c²` derived from Coulomb + ZFA. Tier-2 (numerical): α from measured Ry and measured m_e c², matches CODATA at 10⁻¹⁰. Tier-3 (open): closure-multiplicity derivation of R_e (= R_p · 6π⁵, [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md)) |
+| α from the ionization energy of hydrogen | `α = sqrt(2 Ry / m_e c²)` — see [`fine_structure_demo.py`](fine_structure_demo.py), §2 and §4.1 above | Tier-1 (structural): identity `Ry = (1/2) α² m_e c²` derived from Coulomb + ZFA. Tier-2 (numerical): α from measured Ry and measured m_e c², matches CODATA at 10⁻¹⁰. Tier-3 (candidate close, substrate-only): direct combinatorial route `α_QLF = 1/128 × (1 + 9α)⁻¹ = 1/137.000`, matches CODATA at 0.026% with no observable input — see [`Magnetism_Spatial_Dynamics.md`](Magnetism_Spatial_Dynamics.md) §6.1; parallel chirality-hiding route via R_e = R_p · 6π⁵ in [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md) |
 | E_n = −½ α² m_e c² / n² | `hydrogen_qlf.py` Reports 1–5 | Numerical (0.053% error) |
 | Full Schrödinger derivation | — | Future (needs diff-eq infrastructure) |
 
