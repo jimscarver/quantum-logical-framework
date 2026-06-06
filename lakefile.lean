@@ -35,5 +35,6 @@ lean_lib QLF where
     `QLF_EinsteinGeometricFactor,
     `QLF_SubstrateLightSpeed,
     `QLF_FineStructureSubstrate,
-    `QLF_LenzMassRatio
+    `QLF_LenzMassRatio,
+    `QLF_BorromeanAngles
   ]
