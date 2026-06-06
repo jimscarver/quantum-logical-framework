@@ -131,6 +131,24 @@ should give `r_exp/r_con` as a closure-multiplicity ratio. Combined with the sub
 
 The natural Lean module for this work would package the substrate combinatorial counting and the balance equation; that's a future research step.
 
+### §6.1 The substrate-counting gap, quantified
+
+To make the open piece concrete: naive substrate counting gives a closure-rate-per-substrate-event of `1/16`, while the rate required for the hydrogen bound state is `1/R_1 ≈ 1.11 × 10⁻²⁷`. The gap is **R_1 / 16 ≈ 5.6 × 10²⁵** — twenty-five orders of magnitude.
+
+The naive count derives as follows. Per pair of substrate events, the probability of forming any of the four base half-spin closures `{^v, <>, /\, +-}` is `1/8` (the second twist must partner the first; 1 out of 8 choices). Per individual substrate event, this gives a closure contribution of `1/16`. This is the unconstrained substrate combinatorial baseline — what would happen if every closure-event in the universe coupled to this bound electron.
+
+The actual rate `1/R_1` is 25+ orders of magnitude smaller because the substrate selectively couples only those closure-events that are:
+
+- **Spatially co-located** with the bound state (the atom occupies a tiny fraction of total Planck-event volume)
+- **Phase-matched** with the orbital evolution (most random phase relationships don't bind)
+- **Energy-conserving** at the binding energy (most closures are off-resonant)
+
+The product of these three selectivity factors must equal `R_1 / 16 ≈ 5.6 × 10²⁵`. Computing each factor from substrate principles — *spatial localization × phase coherence × energy conservation* — is the precise Tier-3 sub-target.
+
+A naive volume ratio (cosmic-horizon volume over Bohr-atom volume) gives `~10¹⁰⁸`, which overshoots the required `~10²⁶` by 80+ orders of magnitude. So the spatial selectivity is *not* a simple volume ratio; it must incorporate the orbital-phase and energy-conservation constraints that drastically reduce the effective volume of coupling sites. This is the open structural problem.
+
+The companion demo `magnetism_spatial_dynamics_demo.py` prints the naive count, the actual rate, and the gap explicitly — providing a quantitative target for any future Tier-3 attempt rather than a vague "open piece".
+
 ---
 
 ## §7 Comparison with parallel Tier-3 pathways

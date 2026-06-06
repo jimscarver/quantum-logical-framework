@@ -210,16 +210,35 @@ def main():
     print("    Same math as standard QED hyperfine analysis; QLF content is")
     print("    the structural interpretation (Tier 1).")
     print()
-    print("  Tier 3 (first-principles open):")
-    print("    Substrate-derive r_exp (like-spin exclusion expansion rate per")
-    print("    substrate event) and r_con (opposite-spin singlet contraction")
-    print("    rate) from closure-multiplicity alone.  Balance equation:")
-    print("        r_exp(N_like_bound) = r_con(N_opp_bound)")
-    print("    at the bound-state scale gives α with no observable input.")
-    print("    Combinatorial starting point: 8-twist alphabet → 4 same-spin")
-    print("    options + 4 opposite-spin options per substrate event.  The")
-    print("    ratio of like/opposite combinatorics × substrate-clock rate")
-    print("    should give α.  See Magnetism_Spatial_Dynamics.md §6.")
+    print("  Tier 3 (first-principles open) — the substrate-counting gap, quantified:")
+    print()
+    # Per pair of substrate events: prob of forming any of 4 base closures
+    #   {^v, <>, /\, +-} is 1/8 (second twist must partner the first).
+    # Per individual event: 1/16.
+    naive_rate = 1.0 / 16.0
+    # Actual rate per substrate event (from Bohr): 1/R_1
+    R_1 = E_Planck_eV_hf = 1.22091e28 / Ry_eV
+    actual_rate = 1.0 / R_1
+    gap = naive_rate / actual_rate
+    print(f"    Naive substrate count   = 1/16 = {naive_rate:.5f} closures per substrate event")
+    print(f"                              (any of 4 base atoms {{^v, <>, /\\, +-}}, prob 1/8 per pair)")
+    print(f"    Actual bound-state rate = 1/R_1 = {actual_rate:.3e} per substrate event")
+    print(f"                              (R_1 = E_Planck/Ry = {R_1:.3e})")
+    print(f"    Substrate selectivity   = {gap:.3e}  ≈ R_1/16")
+    print()
+    print("    The 25+ orders of magnitude gap is the substrate's selectivity:")
+    print("    only this fraction of closure-events couple to this bound electron.")
+    print("    The gap MUST come from product of three constraints:")
+    print("      • spatial co-location with the atomic orbital volume")
+    print("      • orbital-phase coherence")
+    print("      • energy conservation at the binding energy")
+    print()
+    print("    Tier-3 close = derive this selectivity from substrate principles.")
+    print("    Naive volume ratio (cosmic V / Bohr V) ≈ 10¹⁰⁸ overshoots the")
+    print("    required ≈ 10²⁶ by 80 orders.  So spatial selectivity is NOT")
+    print("    just volume — phase and energy constraints reduce coupling sites")
+    print("    drastically.  Computing each constraint from substrate principles")
+    print("    is the open structural problem.  See Magnetism_Spatial_Dynamics.md §6.1.")
     print()
     print("    Third candidate Tier-3 pathway alongside Proton_Resonance_R_e.md")
     print("    (chirality-hiding-resonance R_e = R_p · 6π⁵) and the vacuum-")
