@@ -46,7 +46,7 @@ open Finset
     counts the cumulative weighting of ZFA-stable closures of the
     ordered ensemble at depth N. -/
 noncomputable def harmonic (N : ℕ) : ℝ :=
-  ∑ k in range N, 1 / ((k : ℝ) + 1)
+  ∑ k ∈ range N, 1 / ((k : ℝ) + 1)
 
 /-- **Harmonic excess at N**: `H_N − ln N`.
 
