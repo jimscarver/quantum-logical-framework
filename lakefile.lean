@@ -37,5 +37,6 @@ lean_lib QLF where
     `QLF_FineStructureSubstrate,
     `QLF_LenzMassRatio,
     `QLF_BorromeanAngles,
-    `QLF_EulerMascheroni
+    `QLF_EulerMascheroni,
+    `QLF_RiemannZeta
   ]
