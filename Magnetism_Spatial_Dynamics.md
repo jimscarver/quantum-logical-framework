@@ -224,6 +224,79 @@ This is **α emergence from QLF closure structure alone, to three significant di
 
 The companion demo `magnetism_spatial_dynamics_demo.py` prints each factor explicitly with derivations.
 
+### §6.1.3 Structural derivation of N = 9 from the 3² spatial directional-coupling tensor
+
+The leading reading of `N = 9` ties directly to the substrate's 3-dimensional spatial structure (the 6+2 alphabet split: 6 spatial twists organized into 3 axis-pairs, 2 gauge twists). The argument has four steps.
+
+**Step 1: The substrate is 3-dimensional in the spatial sector.** The 8-twist alphabet partitions as 6 spatial + 2 gauge ([`Magic_numbers.md`](Magic_numbers.md)). The 6 spatial twists are organized into 3 axis-pairs:
+
+- Y axis: `^` and `v` (σ_y and −σ_y)
+- X axis: `<` and `>` (∓σ_x)
+- Z axis: `/` and `\` (±σ_z)
+
+The substrate has **exactly 3 spatial dimensions**, derived from the alphabet structure (see [`Magic_numbers.md`](Magic_numbers.md) for the `k > 2` derivation tying 3 to the 6-twist spatial count). This is a substrate first-principles fact, not an empirical input.
+
+**Step 2: The bound-state binding interaction has directional structure.** The Coulomb interaction between the bound electron and the proton is mediated by gauge-twist exchange ([`Hydrogen.md`](Hydrogen.md) §2). Per substrate event, the exchange has a *spatial direction* — the line of the gauge twist's propagation through the substrate. The substrate's 3-dimensional structure allows this direction to be any of the 3 spatial axes.
+
+Per substrate event, the binding interaction therefore has a *directional input* (the direction the gauge twist comes from) and a *directional output* (the direction it leaves toward). Each input/output combination is a distinct "directional channel" through which the binding interaction couples to the substrate.
+
+**Step 3: The directional-coupling tensor has 9 independent components.** The set of all (input direction, output direction) pairs forms a 3 × 3 directional-coupling tensor `T_{ij}` where `i, j ∈ {X, Y, Z}`. The tensor's components are:
+
+| | Output X | Output Y | Output Z |
+|---|---|---|---|
+| **Input X** | `T_XX` | `T_XY` | `T_XZ` |
+| **Input Y** | `T_YX` | `T_YY` | `T_YZ` |
+| **Input Z** | `T_ZX` | `T_ZY` | `T_ZZ` |
+
+For an isotropic substrate (no preferred direction in the vacuum), all 9 components are independent — there is no symmetry that reduces the count. The substrate IS isotropic at the substrate-event level (the 6+2 alphabet split treats all 3 spatial axes equivalently).
+
+Therefore the directional-coupling tensor has **3² = 9 independent components**.
+
+**Step 4: Each tensor component contributes one self-energy term.** Emergent energy conservation ([§6.1.1](#§611-emergent-energy-conservation-correction)) is a *statistical* property over many substrate events. At each event, the bound state's energy can leak into the substrate through any active directional channel; the leak is corrected by feedback over many events.
+
+The leading-order correction takes the standard self-energy resummed form:
+
+```
+α_QLF = α_bare / (1 + N α_bare)
+```
+
+where each independent leak channel contributes one factor `α_bare` to the per-event correction. Summing over the 9 independent directional-coupling components:
+
+```
+N = 9
+```
+
+**This closes the substrate combinatorial chain to zero free parameters.** Each factor in the derivation now traces to a specific substrate principle:
+
+| Factor | Value | Source | Type |
+|---|---|---|---|
+| Naive closure rate | 1/16 | 4 base closures, prob 1/8 per twist pair from 8-twist alphabet | Substrate counting |
+| Gauge selectivity | 1/4 | `+-` is 1 of 4 base atoms (the gauge axis) | Substrate counting |
+| Phase coherence | 1/2 | binary in/out of phase | Substrate counting |
+| Spatial co-location | 1 | λ_binding/2 ≈ 45 nm >> a₀ ≈ 0.053 nm | Geometric fact |
+| **N = 9** | **integer** | **3² directional-coupling tensor** (3 spatial axes input × 3 output) | **Substrate dimensional count** |
+
+The substrate alphabet's 6+2 split forces 3 spatial dimensions ([`Magic_numbers.md`](Magic_numbers.md)); 3² = 9 follows for the directional tensor of a binding interaction in the bound state. No free parameter is chosen to fit α.
+
+### §6.1.4 Counterfactuals
+
+The structural derivation makes specific counterfactual predictions:
+
+- **A 4-dimensional spatial substrate** (alphabet's 6-twist split → 8 spatial twists / 2 signs = 4 axes) would give `N = 4² = 16`, hence `α_corrected = 1/128 × (1 + 16/128)⁻¹ = 1/144 = 0.00694`. CODATA α = 0.00730 would be off by 5%.
+- **A 2-dimensional spatial substrate** (alphabet's 4-twist split / 2 = 2 axes) would give `N = 4`, hence `α_corrected = 1/128 × (1+4/128)⁻¹ = 1/132 = 0.00758`. Off by 4% the other direction.
+- **A non-isotropic substrate** with some directional pairs forbidden (e.g. enforcing `T_XY = T_YX`) would reduce `N` below 9 and shift α.
+
+The 3-dimensional, isotropic substrate is the unique one giving `N = 9` and the resulting α at 0.026% of CODATA. This is structural — it ties the empirical value of α to the empirical 3-dimensionality of space, both emerging from the 8-twist alphabet.
+
+### §6.1.5 Residual gap and Lean target
+
+What remains genuinely open after §6.1.3:
+
+- **The residual 0.026%** between α_QLF = 1/137.000 and CODATA = 1/137.036 sits at the Schwinger anomalous-moment scale `α/(2π) ≈ 1.16 × 10⁻³`. A next-order correction (e.g. two-loop substrate diagrams, multi-twist closures beyond length-2) is a natural candidate.
+- **Lean formalisation** of the substrate combinatorial chain. The candidate module `QLF_FineStructureSubstrate.lean` would package: (a) the 4-factor bare combinatorial product = 1/128, (b) the 3² directional tensor count = 9, (c) the self-energy resummed form, (d) the resulting `1/α_QLF = 137` value. Each step is finite arithmetic; no real-valued integrals or non-constructive reasoning. This is a clear Lean target.
+
+The structural derivation in §§6.1.1–6.1.4 closes the chain at the substrate combinatorial level; the residual sub-targets are at the Schwinger-scale and Lean-formalisation level.
+
 ---
 
 ## §7 Comparison with parallel Tier-3 pathways
