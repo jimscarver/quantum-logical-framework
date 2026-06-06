@@ -288,14 +288,26 @@ The structural derivation makes specific counterfactual predictions:
 
 The 3-dimensional, isotropic substrate is the unique one giving `N = 9` and the resulting α at 0.026% of CODATA. This is structural — it ties the empirical value of α to the empirical 3-dimensionality of space, both emerging from the 8-twist alphabet.
 
-### §6.1.5 Residual gap and Lean target
+### §6.1.5 Lean-anchored and residual gap
 
-What remains genuinely open after §6.1.3:
+The substrate combinatorial chain is **Lean-anchored** in [`lean/QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean). The module packages each factor as a named definition (`naive_closure_rate`, `gauge_selectivity`, `phase_coherence`, `spatial_colocation`, `alpha_bare`, `substrate_spatial_dimension`, `N_directional_modes`, `alpha_QLF`) and proves:
 
-- **The residual 0.026%** between α_QLF = 1/137.000 and CODATA = 1/137.036 sits at the Schwinger anomalous-moment scale `α/(2π) ≈ 1.16 × 10⁻³`. A next-order correction (e.g. two-loop substrate diagrams, multi-twist closures beyond length-2) is a natural candidate.
-- **Lean formalisation** of the substrate combinatorial chain. The candidate module `QLF_FineStructureSubstrate.lean` would package: (a) the 4-factor bare combinatorial product = 1/128, (b) the 3² directional tensor count = 9, (c) the self-energy resummed form, (d) the resulting `1/α_QLF = 137` value. Each step is finite arithmetic; no real-valued integrals or non-constructive reasoning. This is a clear Lean target.
+- `alpha_bare_eq : alpha_bare = 1/128`
+- `N_directional_modes_eq_nine : N_directional_modes = 9` (from `substrate_spatial_dimension = 3` and the `3² = 9` count)
+- **`alpha_QLF_eq : alpha_QLF = 1/137`** — the main theorem, exact rational equality
+- `alpha_QLF_2d_counterfactual : alpha_bare / (1 + 4 × alpha_bare) = 1/132`
+- `alpha_QLF_4d_counterfactual : alpha_bare / (1 + 16 × alpha_bare) = 1/144`
+- `only_3d_substrate_gives_137` (conjunction theorem)
 
-The structural derivation in §§6.1.1–6.1.4 closes the chain at the substrate combinatorial level; the residual sub-targets are at the Schwinger-scale and Lean-formalisation level.
+All proofs are finite rational arithmetic discharged by `norm_num`. No real-valued integrals, no non-constructive reasoning, no axioms beyond standard Lean/Mathlib. This is the **first Lean-verified theorem for a fundamental constant** in the QLF tree.
+
+What remains genuinely open:
+
+- **The residual 0.026%** between α_QLF = 1/137 and CODATA = 1/137.036 sits at the Schwinger anomalous-moment scale `α/(2π) ≈ 1.16 × 10⁻³`. A next-order correction (e.g. two-loop substrate diagrams, multi-twist closures beyond length-2) is a natural candidate; no Lean target yet.
+- **Cross-pathway consistency check**: do the substrate combinatorial route (this doc) and the chirality-hiding route ([`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md)) agree when both close their respective sub-targets? Open research.
+- **Independent verification of the 3D-substrate counterfactual** — whether any future high-energy probe shows extra dimensions, which would refute the `N = 3²` derivation.
+
+The structural derivation in §§6.1.1–6.1.4 closes the chain at the substrate combinatorial level; §6.1.5 closes the Lean target; the residual sub-targets are at the Schwinger-scale and the cross-pathway / counterfactual-test levels.
 
 ---
 
