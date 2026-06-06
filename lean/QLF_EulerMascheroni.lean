@@ -35,7 +35,7 @@
 --   • lean/QLF_LenzMassRatio.lean                         — m_p/m_e sibling
 
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
-import Mathlib.Algebra.BigOperators.Basic
+import Mathlib.Algebra.BigOperators.Group.Finset
 
 namespace QLF
 
