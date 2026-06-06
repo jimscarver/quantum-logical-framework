@@ -103,7 +103,7 @@ def internal_jacobi_DOF : ℕ :=
 
 /-- **Chirality-mixing angles per gauge-fold Hermitian-conjugate pair**: 2.
 
-    The QLF gauge-fold (`+/-` axis) has the Pauli scalar group
+    The QLF gauge-fold (`+`/`-` axis) has the Pauli scalar group
     `{+I, -I, +iI, -iI}` (Lean-verified in QLF_Pauli.lean) as its
     structural symmetry.  This group decomposes as a 2-axis structure:
 
@@ -124,7 +124,7 @@ def chirality_mixing_per_gauge_fold : ℕ := 2
 /-- **Number of gauge-fold Hermitian-conjugate pairs in the proton**: 1.
 
     The proton's 3-quark Borromean closure is bound by a single
-    unifying gauge-fold (the overall `+/-` closure that makes the
+    unifying gauge-fold (the overall `+`/`-` closure that makes the
     composite state Pauli-closed).  Individual quarks have their own
     sub-folds, but the chirality-hiding integration is over the
     OUTER gauge-fold's chirality-mixing freedoms, of which there is
