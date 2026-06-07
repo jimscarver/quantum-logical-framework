@@ -40,5 +40,6 @@ lean_lib QLF where
     `QLF_EulerMascheroni,
     `QLF_RiemannZeta,
     `QLF_DiracCorrection,
-    `QLF_LambShift
+    `QLF_LambShift,
+    `QLF_GMinusTwo
   ]
