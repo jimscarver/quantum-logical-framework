@@ -42,5 +42,6 @@ lean_lib QLF where
     `QLF_DiracCorrection,
     `QLF_LambShift,
     `QLF_GMinusTwo,
-    `QLF_GravityFromDelay
+    `QLF_GravityFromDelay,
+    `QLF_MercuryPerihelion
   ]
