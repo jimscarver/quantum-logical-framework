@@ -38,6 +38,8 @@ The accumulated information *on the holographic boundary* (not in the bulk) gene
 
 ## §3 Holographic surface event count: 4π R²
 
+(See [`Primordial_Markov_Blankets.md`](Primordial_Markov_Blankets.md) for the discrete-geometric reading: this `4π R²` event count IS the face count `F_v = 20 v²` of a Fuller frequency-`v(R) = √(π/5)·R/L_Planck` primordial geodesic-sphere Markov blanket with icosahedral symmetry. The substrate's holographic boundary is a discrete geodesic sphere, not a continuous 2-manifold.)
+
 A 2-sphere of physical radius `r` has area `A = 4π r²`. In substrate units, the boundary holds
 
 $$N \;=\; \frac{A}{L_{\text{Planck}}^2} \;=\; 4 \pi \, R^2$$

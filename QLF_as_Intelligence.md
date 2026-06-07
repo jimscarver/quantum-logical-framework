@@ -76,7 +76,7 @@ Higher dimensions, particles, fields are not added — they are *constructed* by
 
 ### Active inference (Friston)
 
-Every ZFA closure is a Markov-blanket agent synthesising a prediction by minimising per-event free energy. The substrate's selection rule IS the free-energy-minimisation operation.
+Every ZFA closure is a Markov-blanket agent synthesising a prediction by minimising per-event free energy. The substrate's selection rule IS the free-energy-minimisation operation. The Markov blanket is *concrete*, not metaphorical — see [`Primordial_Markov_Blankets.md`](Primordial_Markov_Blankets.md): every Markov blanket in QLF is a Fuller frequency-`v` discrete geodesic sphere of ZFA-balanced 1/2-spin closures with icosahedral symmetry, exactly 12 pentamons, and McKay-dual E₈ structure. The substrate's active-inference agents are discrete geodesic spheres at every scale.
 
 Lean-anchored: `zfa_closure_minimizes_free_energy` in [`lean/QLF_FreeEnergy.lean`](lean/QLF_FreeEnergy.lean) — per-event ΔF = −log 2 saturation. The three-layer extension (per-event, N-event trajectory, RhoProcess) is Lean-anchored in `vacuum_alignment_selects_zfa`, `global_alignment_selects_zfa`, `rho_process_alignment_saturates` ([`QLF_VacuumAlignment.lean`](lean/QLF_VacuumAlignment.lean), [`QLF_RhoProcessBridge.lean`](lean/QLF_RhoProcessBridge.lean)).
 

@@ -51,7 +51,7 @@ Standard responses (anthropic / multiverse / dynamical mechanisms) leave the str
 
 The QFT calculation counts vacuum modes in the 3D bulk volume of the universe: `N_QFT ~ (R_H/L_Planck)³`. Each mode contributes Planck-scale energy at the natural UV cutoff: `E_per_mode ~ E_Planck`.
 
-QLF substrate counts vacuum-aligned closures on the 2D cosmic horizon surface, per [`Gravity_From_Delay.md`](Gravity_From_Delay.md) and [`VacuumEnergy.md`](VacuumEnergy.md) §6:
+QLF substrate counts vacuum-aligned closures on the 2D cosmic horizon surface, per [`Gravity_From_Delay.md`](Gravity_From_Delay.md) and [`VacuumEnergy.md`](VacuumEnergy.md) §6. (The cosmic horizon IS the maximal-frequency primordial Markov blanket, at Fuller frequency `v_cosmic ≈ 6.7 × 10⁶⁰`; see [`Primordial_Markov_Blankets.md`](Primordial_Markov_Blankets.md) §8.)
 
 $$N_{\text{horizon}} \;=\; \frac{4 \pi R_H^2}{L_{\text{Planck}}^2}.$$
 
