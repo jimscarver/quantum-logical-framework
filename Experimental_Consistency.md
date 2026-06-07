@@ -67,7 +67,7 @@ What the framework currently retrodicts, derives, or Lean-verifies. Each item is
 | **Adjoint involution H ↔ H†** | Operator-side counterpart of Riemann ξ critical-line `s ↔ 1−s`; runtime `/conj` slash command in QuantumOS | ReverseMathematics.md §4.9 |
 | **Hadronic depth** | `n ≈ 6 × 10⁶⁰ ≈ (m_Planck/m_p)³` matches cosmic age (13.8 Gyr) and observable size (~10²⁶ m) | HadronicDepth.md, AgeOfUniverse.md §4.1 |
 
-### Lean-verified theorems (30 active modules, zero `sorry`)
+### Lean-verified theorems (31 active modules, zero `sorry`)
 
 - `no_magnetic_monopoles` — ∇·B = 0 from ZFA closure (ZFAEventDynamics.lean)
 - `spectral_gap_zero_iff_symmetric` — spectral gap = 0 ↔ ZFA symmetry (QLF_Spectral.lean)
@@ -83,6 +83,7 @@ What the framework currently retrodicts, derives, or Lean-verifies. Each item is
 - **`gamma_QLF_structural` — γ = 0.5772156649 via harmonic-excess identity (QLF_EulerMascheroni.lean)**: `harmonic`, `harmonic_excess`, and `gamma_QLF` Lean-anchored; small-N theorems (`harmonic_one`, `harmonic_excess_one`); 0.017% numerical match via `constants_mapper.emerge_gamma()`; convergence proof deferred (research-grade)
 - **`qlf_zeta_substrate_bridge` — γ_QLF IS ζ's Laurent constant at s = 1 (QLF_RiemannZeta.lean)**: bridges QLF's substrate-derived γ to the global Riemann zeta function via the Laurent expansion `ζ(s) = 1/(s−1) + γ + O(s−1)`; `critical_line_real_part = 1/2` Lean-anchored as the balance ratio matched to the functional-equation fixed locus. Does NOT prove RH (`rh_not_proved_here : True` as explicit honest scoping); consolidates substrate γ work with the existing QLF Riemann program
 - **`hydrogen_spectrum_from_h_and_m_e` — Dirac correction Lean-anchored (QLF_DiracCorrection.lean)**: three mechanism factors (kinematic α²/2, spin-orbit α², Darwin α²) packaged with the Sommerfeld combined formula `dirac_correction_over_Ry`; ground-state special case `dirac_ground_state : ΔE/Ry = −α²/4`, substrate-α evaluation `dirac_ground_state_substrate : ΔE/Ry = −1/75076`, fine-structure splitting `fine_structure_n2_splitting`, reduced-mass factor `reduced_mass_factor_QLF = 6π⁵/(1+6π⁵)` from `QLF_LenzMassRatio`. Headline conjunction: α + m_p/m_e + reduced-mass all substrate-derived; only m_e enters as empirical input
+- **`lamb_shift_substrate_summary` — Lamb shift Lean-anchored (QLF_LambShift.lean)**: substrate Bethe-log range `substrate_bethe_log_range n = log(2 n² / α²)` between electron Compton depth and bound-shell binding depth; α⁵ scaling `lamb_alpha_scaling_eq` from four-factor decomposition (Bohr α², emit vertex α, reabsorb vertex α, |ψ(0)|² density α); combined formula `lamb_shift_over_m_e_c2 n k_n_0 = (4/(3π n³)) × α⁵ × (2 log(1/α) − k(n,0))`. Demo: 2S₁/₂ Lamb shift matches NIST to 2.5% from h + m_e + standard QED Bethe constant; substrate derivation of k(n,0) Tier-3 open
 - `decoherence_impossibility` — parallel composition stays ZFA-balanced
 - `emergent_blanket_formation` — count balance under concatenation (QLF_QuCalc.lean)
 - `8π = 4π · 2` — Einstein-equation geometric factor as solid-angle × Hermitian-pair (QLF_EinsteinGeometricFactor.lean)
