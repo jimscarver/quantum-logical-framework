@@ -61,7 +61,7 @@ In traditional concurrency models, communication channels are flat primitives. T
 
 $$\text{Process} \xrightarrow{\text{Quote } \langle P \rangle} \text{Name} \xrightarrow{\text{Eval } !x} \text{Process}$$
 
-In `rhoqcalc`, these names are not arbitrary strings — they are serialized topologies constructed from the 8-axis twist alphabet. Possession of a name *is* the absolute capability to interact with that subspace. By the Curry-Howard correspondence, a capability name is simultaneously a process, a topological structure, and a **proof of authorization** — forging one requires constructing the proof from scratch, which is computationally equivalent to solving the full topological matching problem. See [`Event_Naming.md`](Event_Naming.md).
+In `rhoqcalc`, these names are not arbitrary strings — they are serialized topologies constructed from the 8-axis twist alphabet. Possession of a name *is* the absolute capability to interact with that subspace. By the Curry-Howard correspondence, a capability name is simultaneously a process, a topological structure, and a **proof of authorization** — forging one requires constructing the proof from scratch, which is computationally equivalent to solving the full topological matching problem. See [`Event_Naming.md`](Event_Naming.md). The full development of *tokens are theorems that persist* — the persistence of Curry-Howard proof objects as bearer artifacts QuantumOS exploits structurally — is in [`QLF_as_Intelligence.md`](QLF_as_Intelligence.md) §5.
 
 ### The Linear-Logic Enforcement of No-Cloning
 

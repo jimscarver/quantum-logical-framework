@@ -80,7 +80,7 @@ $$
 
 (exact balance of `^ v < > / \ + -`)
 
-Only ZFA-closed histories become events. All other histories remain pure possibility. This is the precise mathematical realization of possibilism: the set of all logically admissible systems exists *a priori*; physics is simply the subset that satisfies ZFA. The RhoQuCalc formalization of this ontology is in [possibilist-ontology.md](possibilist-ontology.md).
+Only ZFA-closed histories become events. All other histories remain pure possibility. This is the precise mathematical realization of possibilism: the set of all logically admissible systems exists *a priori*; physics is simply the subset that satisfies ZFA. The RhoQuCalc formalization of this ontology is in [possibilist-ontology.md](possibilist-ontology.md). The intelligence implication — that possibilism + ZFA selection + token-persistence makes QLF structurally 4-of-4 on the intelligence axes where LLMs are 1-of-4 — is developed in [`QLF_as_Intelligence.md`](QLF_as_Intelligence.md).
 
 ## 4. Zero Free Action as the Sole Fundamental Axiom
 
