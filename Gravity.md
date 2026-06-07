@@ -2,8 +2,31 @@
 
 **Repository:** [`quantum-logical-framework`](https://github.com/jimscarver/quantum-logical-framework)  
 **Document:** `Gravity.md`  
-**Document version:** 1.3 (updated 21 April 2026)  
-**Author:** Grok/Jim (synthesized from QLF core axioms, QuCalc engine, `particles.py` v2.2, and gauge-folding rule)
+**Document version:** 1.4 (updated 7 June 2026 — quantitative substrate program now Lean-anchored)
+
+## 🚀 Quantitative substrate program (June 2026)
+
+The qualitative gravity-from-screening picture below is now backed by a **quantitative Lean-anchored substrate program** that derives Newton's law, Schwarzschild metric, and Mercury's 43"/century perihelion shift from QLF substrate primitives:
+
+| Result | Doc | Lean module | Match to observation |
+|---|---|---|---|
+| **Newton's law `F = GMm/r²`** | [Gravity_From_Delay.md](Gravity_From_Delay.md) | [`QLF_GravityFromDelay.lean`](lean/QLF_GravityFromDelay.lean) | structural (1/r² from 3D substrate = same 3D that gives α via N=9=3²) |
+| **G's structural form `L_Planck² c³/ℏ`** | Gravity_From_Delay §8 | `GravitationalConstant.G_value_eq` | unit-conversion bookkeeping |
+| **Schwarzschild weak-field metric** | [GR_Schwarzschild.md](GR_Schwarzschild.md) | (composed in Mercury module) | `g_tt` from Cross-Frequency Lorentz, `g_rr` from substrate event quantum |
+| **Mercury perihelion 42.99"/century** | [Mercury_Perihelion.md](Mercury_Perihelion.md) | [`QLF_MercuryPerihelion.lean`](lean/QLF_MercuryPerihelion.lean) | **0.03% vs Park et al. 2017** (42.98 ± 0.04") |
+
+This is the **first quantitative QLF substrate prediction of a GR observable** — matching Einstein's 1915 calculation and the first observational success of GR.
+
+Structural ingredients used (all already Lean-anchored):
+- Holographic surface event count `4π R²` (3D substrate)
+- Per-event log 2 entropy (`zfa_closure_minimizes_free_energy`)
+- `c = L_Planck/τ_Planck` substrate event quantum
+- Cross-Frequency Lorentz boost (gravitational redshift)
+- Per-qubit mass-energy `m c² = E_Planck/R`
+
+The qualitative material below remains valid as the conceptual foundation; the quantitative program above is the executable extension built on the substrate primitives recorded there.
+
+---
 
 ## Abstract
 
@@ -60,6 +83,12 @@ This bias is passed directly to the spin-network geometry in the QuCalc engine, 
 
 ## 5. Ties to Other Documents
 
+**Quantitative substrate program (June 2026, Lean-anchored):**
+- [`Gravity_From_Delay.md`](Gravity_From_Delay.md): Newton's law `F = GMm/r²` from holographic event count + per-event log 2 + 3D substrate. `G = L_Planck² c³/ℏ` as unit-conversion bookkeeping; 1/r² as structural 3D signature.
+- [`GR_Schwarzschild.md`](GR_Schwarzschild.md): Schwarzschild weak-field metric from Cross-Frequency Lorentz gravitational redshift + substrate radial event scaling. `g_tt = -(1 - R_s/r)`, `g_rr = (1 - R_s/r)⁻¹`.
+- [`Mercury_Perihelion.md`](Mercury_Perihelion.md): Mercury's anomalous 43"/century perihelion advance from composed Newton + Schwarzschild; 0.03% match to Park et al. 2017.
+
+**Qualitative foundations:**
 - `Entropy.md`: Gravity screens unresolved distinctions (area law \(S = A/4\ell_P^2\)).
 - `Frequency_Synchronization.md`: Constructing delay \(R/f\) as the source of local time.
 - `SpaceTime.md`: Density-dependent role swap as origin of relativistic frames.

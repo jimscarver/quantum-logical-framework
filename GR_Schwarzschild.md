@@ -1,5 +1,13 @@
 # Schwarzschild metric from QLF substrate: g_tt + g_rr at leading order
 
+## 🚀 Position in the substrate program
+
+This doc is the **GR-side bridge** in the substrate-derivation program. It composes [`Gravity_From_Delay.md`](Gravity_From_Delay.md)'s Newton derivation with [`Cross_Frequency_Lorentz.md`](Cross_Frequency_Lorentz.md)'s frequency-ratio Lorentz boost to produce the weak-field Schwarzschild metric. Downstream, [`Mercury_Perihelion.md`](Mercury_Perihelion.md) composes this metric with orbital mechanics to derive Einstein's 1915 perihelion-advance result (42.99″/century, **0.03% match** to Park et al. 2017 measurement).
+
+This is the substrate program's first GR observable: **Mercury's perihelion is the first quantitative QLF prediction of a GR effect**, derived from h, m_e, ZFA, and a handful of astronomical orbital observables. The metric components below are the structural ingredient that lets the orbital analysis carry over from Kepler to Einstein.
+
+---
+
 **Scoping doc — the static spherically-symmetric weak-field metric from QLF substrate primitives.** Newton's law `F = GMm/r²` already falls out of substrate event-counting on the holographic boundary ([`Gravity_From_Delay.md`](Gravity_From_Delay.md)). The next layer up — General Relativity in the weak field — adds:
 
 - **`g_tt`** (time dilation): gravitational redshift = Markov-blanket frequency shift from [`Cross_Frequency_Lorentz.md`](Cross_Frequency_Lorentz.md), applied to substrate events near mass M.

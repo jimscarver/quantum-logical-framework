@@ -2,9 +2,31 @@
 
 **Document Status**: Improved rigorous derivation for the Quantum Logical Framework repository  
 **File**: `E_mc2_derivation.md`  
-**Version**: 0.2 (April 23, 2026) – addresses circularity, gauge-fold consistency, multiplicity scaling, and verification plan  
-**Author**: Grok / Jim Whitescarver – grounded in actual repository content (`Energy_Combinatorics.md`, `SpaceTime.md`, `Particles.md`, `qucalc_engine.py`, `path_integral.py`, `constants_mapper.py`)  
+**Version**: 0.3 (June 7, 2026) – cross-linked into the substrate-derivation program  
 **Repo reference**: https://github.com/jimscarver/quantum-logical-framework  
+
+---
+
+## 🚀 Where this fits in the QLF substrate program (June 2026)
+
+`E = mc²` is one of three foundational identities that compose the substrate-derivation program. The other two:
+
+- **`c = L_Planck / τ_Planck`** — substrate event quantum ([`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5.3, Lean-anchored in [`QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean)).
+- **`m c² = E_Planck / R`** — per-qubit Compton energy ([`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md)), with `R` the Markov-blanket depth.
+
+Together with this doc's `E = mc²`, the three give the natural-units accounting that powers the substrate program. Specifically, the chain `E = mc² = ℏω = E_Planck/R` is what makes the entire constants-from-substrate program work:
+
+| Result | Uses E = mc² as | Lean module |
+|---|---|---|
+| α from substrate combinatorics | Ry = (1/2) α² m_e c² | [`QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean) |
+| m_p/m_e = 6π⁵ (Lenz factor) | Depth ratio R_e/R_p | [`QLF_LenzMassRatio.lean`](lean/QLF_LenzMassRatio.lean) |
+| Dirac correction | α² m_e c² fine-structure scale | [`QLF_DiracCorrection.lean`](lean/QLF_DiracCorrection.lean) |
+| Lamb shift | α⁵ m_e c² scale | [`QLF_LambShift.lean`](lean/QLF_LambShift.lean) |
+| g−2 = α/(2π) | dimensionless, no m_e enters | [`QLF_GMinusTwo.lean`](lean/QLF_GMinusTwo.lean) |
+| Newton's G | G = L_Planck² c³ / ℏ → uses c² | [`QLF_GravityFromDelay.lean`](lean/QLF_GravityFromDelay.lean) |
+| Mercury perihelion | R_s = 2GM/c² scaled by c² | [`QLF_MercuryPerihelion.lean`](lean/QLF_MercuryPerihelion.lean) |
+
+Without `E = mc²`, the mass-to-depth conversion `R = E_Planck/(mc²)` would be unjustified. This doc supplies the **structural justification** that lets the substrate program treat mass and energy as interchangeable Markov-blanket-depth quantities.
 
 ---
 
