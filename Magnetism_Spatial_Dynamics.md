@@ -91,6 +91,8 @@ $$\Delta E_{\text{HFS}} = \frac{4}{3}\, \alpha^4 \, g_p \, \frac{m_e}{m_p} \, m_
 
 corresponding to the 21cm line (`f = 1420.4 MHz`) measured in radio astronomy. The α⁴ appearance is structural — α appears squared (once for proton-spin coupling to the gauge field, once for electron-spin coupling), then squared again because the spin-spin coupling is a second-order effect in α. Combined with the `m_e/m_p` reduced-mass factor (∝ proton g-factor times nuclear magneton), the formula is reproduced exactly by the QLF spatial-dynamics reading once Tier-2 inputs (CODATA α, m_e c², m_p c², g_p) are supplied.
 
+**Single-electron spin-orbit α² as the one-pair restriction.** The single-electron spin-orbit coupling — the `α²/r³ × L·S` piece of the Dirac fine-structure correction — is the **one-pair restriction** of this same derivation chain: one spin (the electron's) couples to one orbital-induced gauge field (with orbital angular momentum `L` replacing the proton spin `I`), yielding **one** factor of α² rather than the two-pair α⁴. The same `N = 9` directional-coupling tensor (§6.1.3) supplies the geometric factor. See [`Dirac_Correction.md`](Dirac_Correction.md) §3 for the bound-state composition with the kinematic and Darwin pieces.
+
 **Bound-state balance.** The orbital structure of hydrogen is determined by the equilibrium between:
 
 - **Coulomb attraction** ≈ gauge-twist exchange amplitude per substrate event ([`Hydrogen.md`](Hydrogen.md) §2)

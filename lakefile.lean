@@ -38,5 +38,6 @@ lean_lib QLF where
     `QLF_LenzMassRatio,
     `QLF_BorromeanAngles,
     `QLF_EulerMascheroni,
-    `QLF_RiemannZeta
+    `QLF_RiemannZeta,
+    `QLF_DiracCorrection
   ]
