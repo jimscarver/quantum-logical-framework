@@ -111,14 +111,18 @@ noncomputable def perihelion_advance_from_GMc
     (G M c a e : ℝ) : ℝ :=
   6 * Real.pi * G * M / (c^2 * a * (1 - e^2))
 
-/-- **The two perihelion formulas agree** when R_s = 2GM/c². -/
+/-- **The two perihelion formulas agree** when R_s = 2GM/c² (assuming
+    c, a, (1 - e²) ≠ 0; physically Newton perihelion is only defined
+    for bound non-degenerate orbits). -/
 theorem perihelion_advance_form_equivalence
-    (G M c a e : ℝ) :
+    (G M c a e : ℝ) (hc : c ≠ 0) (ha : a ≠ 0) (he : 1 - e^2 ≠ 0) :
     perihelion_advance_per_orbit (schwarzschild_radius G M c) a e
       = perihelion_advance_from_GMc G M c a e := by
   unfold perihelion_advance_per_orbit
          perihelion_advance_from_GMc
          schwarzschild_radius
+  have hc2 : c^2 ≠ 0 := pow_ne_zero _ hc
+  field_simp
   ring
 
 /-- **Dimensionless ratio identity**: the perihelion advance per orbit
@@ -133,12 +137,8 @@ theorem perihelion_advance_extracts_R_s
     perihelion_advance_per_orbit R_s a e * a * (1 - e^2) / (3 * Real.pi)
       = R_s := by
   unfold perihelion_advance_per_orbit
-  have hpi : (3 : ℝ) * Real.pi ≠ 0 := by
-    apply mul_ne_zero
-    · norm_num
-    · exact Real.pi_ne_zero
+  have hpi : Real.pi ≠ 0 := Real.pi_ne_zero
   field_simp
-  ring
 
 /-- **Per-century precession**: Δφ_century = N_orbits × Δφ_orbit
     where `N_orbits = T_century / T_orbit`.
@@ -168,14 +168,14 @@ theorem perihelion_advance_per_century_eq
     - Equivalent form `Δφ = 6πGM/(c²a(1-e²))` substitutes R_s.
     - Per-century advance scales by N orbits per century. -/
 theorem mercury_perihelion_substrate_summary
-    (G M c a e T_century T_orbit : ℝ) :
+    (G M c a e : ℝ) (hc : c ≠ 0) (ha : a ≠ 0) (he : 1 - e^2 ≠ 0) :
     schwarzschild_radius G M c = 2 * G * M / c^2 ∧
     perihelion_advance_per_orbit (schwarzschild_radius G M c) a e
       = perihelion_advance_from_GMc G M c a e ∧
     (∀ R_s, perihelion_advance_per_orbit R_s a e
           = 3 * Real.pi * R_s / (a * (1 - e^2))) := by
   refine ⟨rfl, ?_, ?_⟩
-  · exact perihelion_advance_form_equivalence G M c a e
+  · exact perihelion_advance_form_equivalence G M c a e hc ha he
   · intro R_s
     rfl
 
