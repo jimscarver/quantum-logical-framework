@@ -41,5 +41,6 @@ lean_lib QLF where
     `QLF_RiemannZeta,
     `QLF_DiracCorrection,
     `QLF_LambShift,
-    `QLF_GMinusTwo
+    `QLF_GMinusTwo,
+    `QLF_GravityFromDelay
   ]
