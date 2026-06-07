@@ -91,9 +91,10 @@ theorem base_icosahedron :
     primordial_blanket_vertex_count 1 = 12 ∧
     primordial_blanket_edge_count 1 = 30 ∧
     primordial_blanket_face_count 1 = 20 := by
-  refine ⟨?_, ?_, ?_⟩ <;>
-    (unfold primordial_blanket_vertex_count primordial_blanket_edge_count
-            primordial_blanket_face_count; norm_num)
+  refine ⟨?_, ?_, ?_⟩
+  · unfold primordial_blanket_vertex_count; norm_num
+  · unfold primordial_blanket_edge_count; norm_num
+  · unfold primordial_blanket_face_count; norm_num
 
 /-- **Euler characteristic invariant**: `V - E + F = 2` at every frequency.
 
