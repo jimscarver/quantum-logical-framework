@@ -98,7 +98,7 @@ def total_alphabet_axes : ℕ := 8
 /-- **Gauge-axis fraction**: `f_gauge = gauge_axes / total = 2/8 = 1/4`.
 
     The fraction of substrate-alphabet axes that carry temporal binding.
-    Of the 8 twists, only the 2 gauge twists (`+/-`) contribute to
+    Of the 8 twists, only the 2 gauge twists (`+` and `-`) contribute to
     dark-energy temporal evolution; the 6 spatial twists carry spatial
     extension only.
 
