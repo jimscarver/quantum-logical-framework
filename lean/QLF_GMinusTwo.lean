@@ -110,6 +110,7 @@ theorem a_e_QLF_eq_schwinger : a_e_QLF = alpha_QLF / (2 * Real.pi) := by
 theorem a_e_QLF_substrate : a_e_QLF = 1 / (274 * Real.pi) := by
   rw [a_e_QLF_eq_schwinger, alpha_QLF_eq]
   field_simp
+  norm_num
 
 /-- **g-factor with anomaly**: `g = 2 + 2 a_e = 2(1 + α/(2π))`. -/
 noncomputable def g_factor_QLF : ℝ :=
@@ -121,7 +122,6 @@ theorem g_factor_QLF_eq : g_factor_QLF = 2 + alpha_QLF / Real.pi := by
   rw [a_e_QLF_eq_schwinger]
   push_cast
   field_simp
-  ring
 
 /-- **Two-factor decomposition**: `a_e` factors as exactly the dressed-
     vertex α and the loop-phase `1/(2π)`.
