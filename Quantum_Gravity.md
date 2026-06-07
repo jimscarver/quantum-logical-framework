@@ -92,8 +92,8 @@ These are the algebraic foundation. The four faces of §1–§6 follow as physic
 - **Lean theorem**: `einstein_equations_emerge_from_zfa_continuum_limit` — formalize the discrete-to-continuum bridge.
 - **Numerical demo**: simulate cosmic expansion at small scale using `path_integral.py` event rates; verify the expansion rate matches the cosmic-horizon growth rate.
 - **Black-hole entropy precise factor**: derive the $1/4$ in $S = A/(4\ell_P^2)$ from the per-atom $\log 2$ and per-Planck-area atom-count with the correct combinatorial weighting.
-- **Quantitative $\Lambda$**: extract the cosmological constant magnitude from the top-down/bottom-up residual at the cosmic horizon.
-- **Mercury perihelion shift**: open from [Experimental_Consistency.md §10](Experimental_Consistency.md); a concrete numerical retrodiction.
+- **Quantitative $\Lambda$ — closed (June 2026)**: substrate derivation in [`Cosmological_Constant.md`](Cosmological_Constant.md) closes the 10¹²² vacuum catastrophe structurally via `(R_H/L_Planck)²` (surface-vs-volume × T_dS-vs-T_Planck) and predicts `Ω_Λ = log 2 ≈ 0.6931` matching observed 0.685 to **1.2%**. Lean-anchored in [`lean/QLF_CosmologicalConstant.lean`](lean/QLF_CosmologicalConstant.lean).
+- **Mercury perihelion shift — closed (June 2026)**: substrate derivation in [`Mercury_Perihelion.md`](Mercury_Perihelion.md) gives 42.99″/century vs Park et al. 2017 measured 42.98″/century — **0.03% match**. Lean-anchored in [`lean/QLF_MercuryPerihelion.lean`](lean/QLF_MercuryPerihelion.lean).
 
 ## References
 

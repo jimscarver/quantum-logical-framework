@@ -43,5 +43,6 @@ lean_lib QLF where
     `QLF_LambShift,
     `QLF_GMinusTwo,
     `QLF_GravityFromDelay,
-    `QLF_MercuryPerihelion
+    `QLF_MercuryPerihelion,
+    `QLF_CosmologicalConstant
   ]

@@ -140,7 +140,7 @@ The vacuum sits at `S ≈ S_max` with a **small structural gradient** — close 
 
 The event-synthesis tensor `T_μν^(synth)` from §1 / [`SpacetimeDynamics.lean`](lean/SpacetimeDynamics.lean) is therefore an **entropy-gradient stress tensor**. Gravity emerges as entropy-flow along the vacuum's gradient — the QLF substrate-level realisation of the Verlinde / Jacobson entropic-gravity programme. The geodesics of [`Gravity.md`](Gravity.md), the horizon thermodynamics of [`BLACK-HOLES.md`](BLACK-HOLES.md), and the cosmological history of [`AgeOfUniverse.md`](AgeOfUniverse.md) are all entropic-flow trajectories on the near-maxent substrate.
 
-The cosmological-constant problem closed in §5 is closed by the same gradient: the observed `Λ` is the **residual gradient curvature** of the near-maxent vacuum, not a fine-tuned bulk vacuum energy. There is no `Λ` to tune — there is only how-uniform the vacuum is.
+The cosmological-constant problem closed in §5 is closed by the same gradient: the observed `Λ` is the **residual gradient curvature** of the near-maxent vacuum, not a fine-tuned bulk vacuum energy. There is no `Λ` to tune — there is only how-uniform the vacuum is. **Quantitative derivation now in [`Cosmological_Constant.md`](Cosmological_Constant.md): closes the 10¹²² vacuum catastrophe structurally via (R_H/L_Planck)² and predicts the dark-energy fraction Ω_Λ = log 2 ≈ 0.6931 vs Planck-2018 observed 0.685 to 1.2%.** Lean-anchored in [`lean/QLF_CosmologicalConstant.lean`](lean/QLF_CosmologicalConstant.lean).
 
 ### 6.3 Vacuum as global Bayesian prior
 
