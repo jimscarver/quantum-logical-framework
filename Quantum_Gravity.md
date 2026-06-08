@@ -132,3 +132,4 @@ These are the algebraic foundation. The four faces of §1–§6 follow as physic
 ### See also
 
 - [Langlands.md](Langlands.md) — the boundary↔bulk holography of §4 IS the geometric-Langlands categorical equivalence at the QLF substrate (D-modules on Bun_G(X) ↔ coherent sheaves on local systems); the gauge-fold ↔ spatial-fold duality is the discrete analog of Kapustin-Witten S-duality.
+- [Curvature.md](Curvature.md) — gravity, magnetism, and de Sitter cosmology as signed expand/contract deformations of the primordial Markov blanket; curvature as 12-pentamon topological deficit, metric as the continuum limit.

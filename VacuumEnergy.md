@@ -210,6 +210,7 @@ The vacuum is not empty. It is the living substrate of event synthesis — and, 
 - [`SpacetimeDynamics.lean`](lean/SpacetimeDynamics.lean) — formal derivation of `T_μν^(synth)`
 - [`Philosophy.md`](Philosophy.md) — limited relative perspective and information ecology
 - [`Experimental_Consistency.md`](Experimental_Consistency.md) — detailed testability
+- [`Curvature.md`](Curvature.md) — the near-maxent vacuum's residual curvature as global de Sitter; magnetism (§6.4) and cosmology as the local/global signed deformations of the Markov blanket
 - [`UniversalRelativity.md`](UniversalRelativity.md) — extended general relativity
 - [`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md) — the per-event free-energy-decrement rule that §6.3 globalises as Bayesian update against the vacuum prior
 - [`MRE.md`](MRE.md) — the per-event `log 2` quantum that §6 reads as the alignment quantum

@@ -130,6 +130,7 @@ The composition delivers Schwarzschild at leading order with **`R_s = 2GM/c²`**
 
 ### Internal
 
+- [`Curvature.md`](Curvature.md) — this Schwarzschild metric as the continuum limit of the primordial blanket's isotropic inward contraction; includes the Moon-orbit inflow worked example.
 - [`Gravity_From_Delay.md`](Gravity_From_Delay.md) — Newton's law from substrate, source of the φ = -GM/r input.
 - [`Cross_Frequency_Lorentz.md`](Cross_Frequency_Lorentz.md) — frequency-ratio Lorentz boost, applied here to gravitational redshift.
 - [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5.3 — substrate event quantum (one Planck length × one Planck tick *together*).

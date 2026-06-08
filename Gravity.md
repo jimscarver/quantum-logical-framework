@@ -96,6 +96,7 @@ This bias is passed directly to the spin-network geometry in the QuCalc engine, 
 - `Hadrons_Markov_Blankets.md`: Markov blanket = horizon for gauge-folded radiation.
 - `BLACK-HOLES.md` (to be rewritten): Full particle ↔ black-hole equivalence proven here.
 - [`Hierarchical_Control.md`](Hierarchical_Control.md): Gravity is the macroscopic top-down constraint in the bottom-up/top-down architecture; cosmic-horizon entropy is the highest-level prior.
+- [`Curvature.md`](Curvature.md): gravity as the **isotropic, single-sign** deformation of the primordial Markov blanket — the limit of the signed expand/contract curvature whose differential forms are magnetism (spin up/down) and de Sitter/AdS cosmology; includes the Moon-orbit inflow worked example.
 
 ## Conclusion
 

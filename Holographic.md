@@ -427,5 +427,5 @@ Thus, the geometry of the universe in QLF is not imposed from outside; it is the
 
 This is Neo-Platonist universality in physical form: the One (the uniform QuCalc algebra) generates the Many (all possible geometries) without ever losing coherence.
 
-See also: [Entropy.md](Entropy.md) — information cost of observer slices and the gauge-fold area law; [ER_EPR_QLF.md](ER_EPR_QLF.md) — wormhole-entanglement duality as direct consequence of ZFA closure; [Quantum_Gravity.md](Quantum_Gravity.md) — master synthesis treating holography as one face of a unified algebraic event (gravity, holography, expansion, ER=EPR).
+See also: [Entropy.md](Entropy.md) — information cost of observer slices and the gauge-fold area law; [ER_EPR_QLF.md](ER_EPR_QLF.md) — wormhole-entanglement duality as direct consequence of ZFA closure; [Quantum_Gravity.md](Quantum_Gravity.md) — master synthesis treating holography as one face of a unified algebraic event (gravity, holography, expansion, ER=EPR); [Curvature.md](Curvature.md) — de Sitter (replication/expansion) and AdS (entanglement/contraction) as the two signed deformations of the cosmic Markov blanket, with magnetism's spin up/down as the local analog.
 

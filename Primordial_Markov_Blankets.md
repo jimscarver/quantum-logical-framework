@@ -248,6 +248,7 @@ The headline: **E₈ is not an arbitrary mathematical choice — it falls out of
 
 ### Internal
 
+- [`Curvature.md`](Curvature.md) — curvature as deformation of this geodesic-sphere blanket; the 12-pentamon deficit as irreducible curvature, with gravity/magnetism/de Sitter as signed expand-contract forms.
 - [`HALF-SPIN-ZFA-EMBEDDING.md`](HALF-SPIN-ZFA-EMBEDDING.md) — substrate 1/2-spin atoms.
 - [`eight-twists-sufficiency.md`](eight-twists-sufficiency.md) — 8-twist alphabet sufficiency.
 - [`MRE.md`](MRE.md) — per-event log 2 quantum.
