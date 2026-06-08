@@ -4,7 +4,7 @@
 
 At the foundation of mathematics lie the integers — discrete, indivisible units. The quantum logical framework proposes that reality itself is built upon discrete logical units, not continuous fields or random probabilities. Standing on the shoulders of giants from Einstein to Hawking, this piece shows how the greatest minds sought a deterministic universe, and how the quantum logical framework fulfills their vision. (TheBigProblems.md)
 
-**Einstein**: Albert Einstein famously rejected the idea that "God plays dice with the universe." He believed any complete theory of reality must be fully deterministic and free of singularities. The quantum logical framework realizes this vision by providing a completely deterministic logical foundation with no singularities.
+**Einstein**: Albert Einstein famously rejected the idea that "God plays dice with the universe." He believed any complete theory of reality must be fully deterministic and free of singularities. The quantum logical framework realizes this vision by providing a completely deterministic logical foundation with no singularities. It also fulfills his 1920 Leiden picture of a *relativistic ether* — a spacetime with real metric structure but no preferred frame: in QLF that ether is the statistically uniform, stateless ZFA vacuum, and from its uniformity Lorentz invariance and the constancy of the speed of light emerge rather than being postulated (Time.md §4, SpaceTime.md §4).
 
 **Wheeler**: John Archibald Wheeler proposed that physical reality emerges from information, famously asking "It from bit?" The quantum logical framework answers this by showing how all physical phenomena arise from an underlying logical structure.
 
