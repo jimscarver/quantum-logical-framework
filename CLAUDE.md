@@ -258,15 +258,16 @@ QLF is not only a theoretical framework — it is an executable architecture for
 
 Security grounds in five converging foundations: Girard's linear logic (1987), Miller's object capability model (2006), Meredith & Radestock's ρ-calculus (2005), Honda's session types (1993), Wootters & Zurek no-cloning (1982). Capability names are topological structures; possessing a name IS a proof of authorization (Curry-Howard).
 
-### Convergence: 14 independent programs
+### Convergence: 15 independent programs
 
-The most striking feature of QLF is that 14 independent research programs — with no coordination — have each arrived at the same picture: **reality is informational, computable, and bounded by a logical closure condition**.
+The most striking feature of QLF is that 15 independent research programs — with no coordination — have each arrived at the same picture: **reality is informational, computable, and bounded by a logical closure condition**.
 
 | Program | Key figure(s) | Convergent claim |
 |---|---|---|
 | Digital physics | Konrad Zuse (1969) | The universe is a computation |
 | It from bit | John Wheeler (1990) | Every physical quantity derives from binary yes/no questions |
 | Holographic principle | Bekenstein, Hawking, 't Hooft, Susskind (1972–1995) | Bulk physics bounded by boundary information |
+| Relativistic ether | Albert Einstein (1920, Leiden) | Spacetime is a medium with real metric properties but no preferred frame or state of motion |
 | Causal Set Theory | Bombelli, Sorkin, Henson (1987–present) | Spacetime is a discrete partial order of causal events |
 | Girard linear logic | Jean-Yves Girard (1987) | Resource-sensitive reasoning; proof = process; use-once tokens |
 | Reverse Mathematics | Harvey Friedman (1975–present) | Physical laws stratified by minimum logical strength; RCA₀ is the computable floor |
