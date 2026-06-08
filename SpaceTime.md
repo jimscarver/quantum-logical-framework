@@ -35,6 +35,8 @@ $$\Delta t \propto \frac{1}{W_{ZFA}}$$
 
 In highly constrained environments (like near massive objects), the Markov blankets limit the number of possible ways to achieve ZFA. As $W_{ZFA}$ decreases, the latency per logical step increases. This is the physical mechanism behind **Time Dilation**.
 
+There is no universal clock: **each mass runs its own independent time thread**, and this latency is the tick rate of that one thread. Dilation is therefore never absolute — it is the *ratio* of one thread's synthesis rate to another's, a point made precise in §4.
+
 * **Formal Proof:** See [`SpacetimeDynamics.lean`](SpacetimeDynamics.lean). This file formally proves `time_dilation_in_constrained_space`, mathematically guaranteeing that logic nodes with lower $W_{ZFA}$ have strictly greater logical latency.
 * **Empirical Demo:** Run [`muon_lifetime_demo.py`](muon_lifetime_demo.py). This script demonstrates how particle lifetime depends on the internal logical bit synthesis rate. As velocity shifts the reference frame, the internal synthesis rate drops, matching empirical observations of high-velocity muons living longer in the lab frame.
 
@@ -46,7 +48,24 @@ Physical distance is a macro-scale illusion masking **logical distance**.  Two n
 
 Constant velocity is simply a continuous shift in logical perspective relative to the ZFA network. Approaching the speed of light ($c$) exhausts the available degrees of freedom for internal ZFA cycles. With no internal cycles, the event rate drops to zero, halting the local experience of time. Faster-than-light travel is strictly forbidden because the engine cannot compute "negative events."
 
-## 4. Gravity as a Possibilist Gradient
+This ZFA network is not a passive backdrop — it is the *uniform ether* against which every thread's motion is measured, and §4 shows why its uniformity is what makes $c$ the same for all observers.
+
+## 4. The Uniform Ether and Lorentz Invariance
+
+The ZFA network of §3 is more than a relational graph — it is **Einstein's stateless ether**. In his 1920 Leiden address Einstein rehabilitated the ether as something with real physical and metric properties but **no state of motion**: a medium you cannot ride, with no preferred rest frame. The QuCalc substrate is exactly this. It is structured — it supplies the degeneracy $W_{ZFA}$ that sets each thread's tick rate — yet statistically **homogeneous**: away from mass clusters, every node of the network offers the same $W_{ZFA}$. Because the ether has no mechanical state, no thread can measure absolute motion through it.
+
+This homogeneity is what ties the two dilations of §2–3 into one mechanism. Both are the *same* effect — fewer ZFA closures synthesized per unit of some *other* thread's clock:
+
+* **Gravitational dilation** (§2, §5): a mass cluster lowers the *local availability* of closures, raising latency $1/W_{ZFA}$ and slowing the thread.
+* **Kinematic dilation** (§3): motion spends degrees of freedom on translation, leaving fewer DOF for internal ZFA cycles, so the thread completes fewer closures.
+
+Because the ether is uniform, **no thread is privileged**. Two threads in relative motion each measure the *other* as slow, reciprocally and symmetrically — there is no fact of the matter as to which "really" runs slow, because there is no preferred frame to anchor the claim. That reciprocal symmetry **is** the content of Lorentz invariance. The frame-independence of $c$ then follows: $c$ is the ceiling on local event-synthesis rate (§3), and a *uniform* substrate imposes the *same* ceiling on every thread. Einstein assumed the constancy of $c$; QLF derives it from the homogeneity of the ZFA ether.
+
+> Independent time threads (no shared clock) + a stateless uniform ether (no preferred frame) ⟹ time dilation is reciprocal ⟹ Lorentz invariance is emergent, not postulated.
+
+* **Further Reading:** This is the spatial-network view of the argument developed thread-first in the [`Time.md`](Time.md) section *Time Dilation as Thread Desynchronization* (§4). The two sections are the same claim seen from the time side and the space side.
+
+## 5. Gravity as a Possibilist Gradient
 
 QLF derives gravity strictly from computational probability, avoiding the need for curved spacetime geometry. 
 
@@ -58,7 +77,7 @@ Gravity is simply the statistical gradient of ZFA resolution latency.
 * **Empirical Demo:** Run [`SpaceTime.py`](SpaceTime.py). 
   * *Tutorial Step:* When you execute this file, a simulated QuCalc grid is generated with a "massive" ZFA cluster at the center. Watch as the test particle's random walk is statistically biased toward the mass, moving from regions of high $W_{ZFA}$ (empty space) into the high-latency gravity well, perfectly modeling the possibilist gradient descent.
 
-## 5. Universal Expansion (The Cosmological Computation)
+## 6. Universal Expansion (The Cosmological Computation)
 
 The universe is not expanding into an empty void; the QuCalc engine is simply synthesizing more bits.
 
