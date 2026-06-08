@@ -103,7 +103,7 @@ QLF is the mathematics that has **active inference built into its foundation**. 
 - [**Philosophy.md**](Philosophy.md) — the possibilist foundation of QLF, Zero Free Action, local time synthesis, active inference, holography, and the critique of ZFC-style infinity
 - [**TheBigProblem.md**](TheBigProblem.md) — how QLF addresses the measurement problem, entanglement, spacetime, time, and consciousness
 - [**TheQuantumBrain.md**](TheQuantumBrain.md) — the quantum brain in QLF: frequency-isolated, error-corrected, active-inference coherence as the mechanism of savant cognition; numbers/primes/pitch/calendar as resonant access to the pre-existing logical landscape, not computation
-- [**GodCreatedTheIntegers.md**](GodCreatedTheIntegers.md) — a broad framing of QLF in relation to Kronecker, Leibniz, Einstein, Mach, Noether, Wheeler, Shannon, Feynman, Bohm, Schrödinger, Bell, Planck, Gödel, Turing, Penrose, Mead, Cramer, Zuse, Wolfram, ’t Hooft, Hofstadter, Hawking, and Susskind
+- [**GodCreatedTheIntegers.md**](GodCreatedTheIntegers.md) — a broad framing of QLF in relation to Kronecker, Leibniz, Einstein, Mach, Noether, Wheeler, Shannon, Feynman, Bohm, Schrödinger, Bell, Planck, Gödel, Turing, Penrose, Mead, Cramer, Everett, Zuse, Wolfram, ’t Hooft, Hofstadter, Hawking, and Susskind
 
 ### 2. Core theoretical claims
 - [**BraKetRhoQuCalc.md**](BraKetRhoQuCalc.md) — how bra-ket notation maps onto RhoQuCalc: action=ket, lift=bra, parallel=superposition, sequence=composition, ZFA=bra-ket balance (numerical demos in `braket_rho.py`; live evaluation via `/braket` in [quantum-os](https://github.com/jimscarver/quantum-os))
