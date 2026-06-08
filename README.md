@@ -253,15 +253,16 @@ QLF is not only a theoretical framework — it is an executable architecture for
 - **Hardware-native AI with absolute interpretability**: `Form.toMatrix` maps cognitive constructs to Clifford algebra elements — the correct geometric inductive bias for physical AI (Bronstein et al. 2021, Geometric Deep Learning). Every AI program running on QLF hardware runs in machine-verified ZFA-correct code; the output is a geometric proof of Zero Free Action, not a probabilistic best-guess.
 - **Ruliad/RCA₀**: `expand_generation` explores the full ruliadic multiway space (Wheeler, Zuse, Lloyd, Wolfram); `full_zeno_prune` filters it to physical reality. The engine operates strictly within RCA₀ (Harvey Friedman's Reverse Mathematics) — the minimum constructive logical subsystem consistent with physics. Convergent with Causal Set Theory, Causal Dynamical Triangulations, and Loop Quantum Gravity.
 
-### Convergence: twelve independent programs arriving at the same place
+### Convergence: fifteen independent programs arriving at the same place
 
-The most striking feature of QLF is not any single proof — it is that twelve or more independent research programs, with no coordination, have each arrived at the same core picture: **reality is informational, computable, and bounded by a logical closure condition**. QLF is the intersection point.
+The most striking feature of QLF is not any single proof — it is that fifteen or more independent research programs, with no coordination, have each arrived at the same core picture: **reality is informational, computable, and bounded by a logical closure condition**. QLF is the intersection point.
 
 | Program | Key figure(s) | Convergent claim |
 |---|---|---|
 | Digital physics | Konrad Zuse (1969) | The universe is a computation |
 | It from bit | John Wheeler (1990) | Every physical quantity derives from binary yes/no questions |
 | Holographic principle | Bekenstein, Hawking, 't Hooft, Susskind (1972–1995) | Bulk physics is bounded by boundary information |
+| Relativistic ether | Albert Einstein (1920, Leiden) | Spacetime is a medium with real metric properties but no preferred frame or state of motion |
 | Causal Set Theory | Bombelli, Sorkin, Henson (1987–present) | Spacetime is a discrete partial order of causal events |
 | Girard linear logic | Jean-Yves Girard (1987) | Resource-sensitive reasoning; proof = process; use-once tokens |
 | Reverse Mathematics | Harvey Friedman (1975–present) | Physical laws can be stratified by minimum logical strength; RCA₀ is the computable floor |
@@ -275,6 +276,8 @@ The most striking feature of QLF is not any single proof — it is that twelve o
 | No-cloning theorem | Wootters & Zurek (1982) | Quantum information cannot be copied — the physical foundation of capability security |
 
 Each row independently supports a central QLF claim. None of these programs cites any of the others as its primary foundation. Their simultaneous convergence on the same logical structure is the main evidence that QLF is pointing at something real.
+
+The Einstein-ether row is the most load-bearing for QLF's relativity. Einstein's 1920 relativistic ether — real metric structure, but no preferred frame and no state of motion — is realized in QLF as the **statistically uniform, stateless ZFA vacuum**. Each mass runs its own independent time thread (no shared clock); because the vacuum is uniform, no thread is privileged, so time dilation is reciprocal and the speed of light is frame-independent. **Lorentz invariance is therefore emergent, not postulated** — Einstein assumed constant `c`; QLF derives it from vacuum uniformity. The same statistical-not-exact uniformity is one fact with three faces: reciprocal time dilation, energy as the lone *statistically*-conserved Noether current, and the near-maxent vacuum's structured ZPE tail. This framing threads through nine documents: [`Time.md`](Time.md) §4 and [`SpaceTime.md`](SpaceTime.md) §4 (the canonical thread-first and space-first derivations), [`Conservation.md`](Conservation.md) §1a, [`Philosophy.md`](Philosophy.md), [`VacuumEnergy.md`](VacuumEnergy.md) §6.2, [`Cross_Frequency_Lorentz.md`](Cross_Frequency_Lorentz.md), [`UniversalRelativity.md`](UniversalRelativity.md) §3, [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5.3, and [`Gravity.md`](Gravity.md) §5.
 
 ---
 
