@@ -24,6 +24,20 @@ The conservation law is not a separate axiom; it is a **direct consequence** of 
 
 **One caveat, developed in §2a.** This exactness holds for the *balance-based* currents — charge, momentum, unitarity/probability, the information ledger — which are **signed counts** protected directly by the machine-verified ZFA-balance theorems. **Energy is the exception.** It is the only quantity in the table above defined as a *multiplicity* (number of histories) rather than a signed count, so the balance theorems do not pin it. Energy conservation is therefore **emergent and only statistically exact** — recovered in the continuum / bound-state limit, not guaranteed at the level of an individual substrate closure. This is the canonical QLF reading, and it is the reading on which the framework's most accurate quantitative prediction (the fine-structure constant) depends; see §2a.
 
+## 1a. The uniform ether is the symmetry substrate
+
+Noether's theorem is only as good as the symmetry it is handed. In QLF that symmetry has a name and a physical seat: it is the **homogeneity of the ZFA vacuum** — the *stateless uniform ether* derived in [`Time.md`](Time.md) §4 (*Time Dilation as Thread Desynchronization*) and [`SpaceTime.md`](SpaceTime.md) §4 (*The Uniform Ether and Lorentz Invariance*). Following Einstein's 1920 Leiden address, that vacuum has real metric structure but **no preferred frame**: every node of the substrate offers statistically the same closure degeneracy $W_{ZFA}$.
+
+That single uniformity is the common root of three results usually stated separately:
+
+- **Spatial homogeneity → momentum** (§3). No point of the ether is privileged, so a cyclic shift of an axis-orbit history is a symmetry; its Noether current is the net spatial-axis count.
+- **Time homogeneity → energy** (§2). The rewrite rules are the same at every tick, so absolute time has no handle on a history's multiplicity.
+- **No preferred frame → Lorentz invariance.** The same statelessness that makes the two clauses above hold is what makes time dilation reciprocal and $c$ frame-independent (Time.md §4). Wigner's classification of particles by the inhomogeneous Lorentz group (1939, cited below) is the standard-physics image of this: energy, momentum, and spin are the labels of exactly this spacetime symmetry.
+
+**Why this sharpens §2a rather than competing with it.** §2a explains energy's lone-emergent status *structurally* — energy is a multiplicity, not a signed count. The ether picture supplies the matching *physical* reason: the symmetry energy rides on, time-translation homogeneity, is only **statistical**. The ether is *statistically* uniform, not exactly uniform at every event. The signed-count currents (charge, the information ledger) are pinned by exact per-event ZFA balance and need no smoothness assumption — so they are exact regardless. Energy alone inherits its conservation from the ether's homogeneity, and a merely statistical homogeneity can only deliver a merely statistical conservation. **A statistically uniform ether and a statistically conserved energy are the same fact viewed from two sides.**
+
+> Where the vacuum's uniformity is realized by exact per-event balance, the conservation law is exact. Where it rests on the ether's *statistical* smoothness — energy — the law is emergent. Lorentz invariance and energy conservation share one root: vacuum uniformity.
+
 ## 2. Energy
 
 From [Energy_Combinatorics.md](Energy_Combinatorics.md): the energy of a QLF system is the **multiplicity** of valid histories at a given length — the number of topological permutations achieving the same ZFA closure. From [E_mc2_derivation.md](E_mc2_derivation.md): mass is the constructing-delay contribution of gauge folds, and $E = mc^2$ recovers the energy in those gauge folds.
@@ -122,6 +136,8 @@ These are the standard-model gauge-group identifications. The QLF claim is that 
 - [Entropy.md](Entropy.md) — information conservation across Hawking radiation
 - [Born_Rule.md](Born_Rule.md) — probability conservation as Hermitian-symmetry consequence
 - [Frequency_Synchronization.md](Frequency_Synchronization.md) — time-translation symmetry at the algebra level
+- [Time.md](Time.md) — time threads, the stateless uniform ether, Lorentz invariance from vacuum uniformity (§4)
+- [SpaceTime.md](SpaceTime.md) — the ZFA network as Einstein's uniform ether; space-side view of Lorentz invariance (§4)
 
 ### External
 
