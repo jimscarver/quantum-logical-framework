@@ -16,6 +16,8 @@ where $f$ is the local ZFA event rate. Frequency $f$ is *not* an external parame
 
 In what follows "frame" always means "Markov-blanket frame," and "internal frequency" always means the ZFA event rate at which that blanket synchronises its interior. The argument is observer-relative throughout: there is no privileged global $f$.
 
+This absence of a privileged global $f$ is grounded physically in the **statistically uniform, stateless vacuum** (Einstein's 1920 ether) of [`Time.md`](Time.md) §4 / [`SpaceTime.md`](SpaceTime.md) §4: because every substrate node offers the same closure degeneracy, no Markov-blanket frame can detect absolute motion. The cross-frequency boost below is the change-of-basis *between* such equal-footing frames; vacuum uniformity is why they are on equal footing. (Frame-*independence* of $c$ comes from this uniformity; its *value* comes from the cosmic-ratio identity above — the two are complementary.)
+
 ---
 
 ## §2 The Markov-blanket boundary as the rapidity basis
@@ -169,4 +171,5 @@ In high-density regions (e.g. near a black-hole horizon, or for fast-moving fram
 
 - [`Hierarchical_Control.md`](Hierarchical_Control.md) §6 — this doc closes the "Cross-frequency Lorentz derivation" open item listed there.
 - [`UniversalRelativity.md`](UniversalRelativity.md) — the spacetime-emergence companion; together they constitute QLF's full relativistic framing.
+- [`Time.md`](Time.md) §4, [`SpaceTime.md`](SpaceTime.md) §4 — the statistically uniform stateless ether that grounds the "no privileged global $f$" premise of §1; frame-independence of $c$ from vacuum uniformity (complementary to the cosmic-ratio derivation of $c$'s value).
 - [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) — scoping doc reading rapidity = log(internal-frequency ratio) under Kitada's local-time framework. §5.3 derives the **constancy of `c`** from the cosmic-ratio identity `c = R_cosmic / T_cosmic = L_Planck / τ_Planck` — the cosmic-horizon depth `n` cancels exactly, with the derivation structural via the substrate's irreducible space-time event quantum. Lean anchor: [`lean/QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean).
