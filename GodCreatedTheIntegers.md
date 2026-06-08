@@ -4,9 +4,17 @@
 
 At the foundation of mathematics lie the integers — discrete, indivisible units. The quantum logical framework proposes that reality itself is built upon discrete logical units, not continuous fields or random probabilities. Standing on the shoulders of giants from Einstein to Hawking, this piece shows how the greatest minds sought a deterministic universe, and how the quantum logical framework fulfills their vision. (TheBigProblems.md)
 
+**Leibniz**: Gottfried Leibniz invented binary arithmetic and held that the actual world is the one selected, by sufficient reason, from all logically possible worlds. The quantum logical framework makes both ideas literal: reality is built from binary distinctions (the 8-twist alphabet), and physical events are the possibilist subset of all admissible histories selected by Zero Free Action.
+
 **Einstein**: Albert Einstein famously rejected the idea that "God plays dice with the universe." He believed any complete theory of reality must be fully deterministic and free of singularities. The quantum logical framework realizes this vision by providing a completely deterministic logical foundation with no singularities. It also fulfills his 1920 Leiden picture of a *relativistic ether* — a spacetime with real metric structure but no preferred frame: in QLF that ether is the statistically uniform, stateless ZFA vacuum, and from its uniformity Lorentz invariance and the constancy of the speed of light emerge rather than being postulated (Time.md §4, SpaceTime.md §4).
 
+**Mach**: Ernst Mach rejected absolute space and time, insisting that all motion and duration are relational. The quantum logical framework is Machian by construction — there is no universal clock; each mass runs its own local time thread, and time dilation is only ever the ratio between threads measured against the uniform vacuum.
+
+**Noether**: Emmy Noether proved that every continuous symmetry of the action yields a conserved quantity. The quantum logical framework makes the correspondence discrete and constructive — each symmetry of the 8-twist algebra is a conservation law holding at every ZFA closure (charge, momentum, unitarity, information), with energy emerging as the lone statistically-conserved current.
+
 **Wheeler**: John Archibald Wheeler proposed that physical reality emerges from information, famously asking "It from bit?" The quantum logical framework answers this by showing how all physical phenomena arise from an underlying logical structure.
+
+**Shannon**: Claude Shannon showed that information is physical and that entropy measures unresolved uncertainty. The quantum logical framework makes this exact: every event is a resolution of logical imbalance under Zero Free Action, and Shannon entropy is precisely that imbalance driven to zero.
 
 **Feynman**: Richard Feynman developed the path integral formulation, where particles take every possible path. The quantum logical framework transforms this from a mathematical trick into an actual deterministic physical process.
 
@@ -16,13 +24,19 @@ At the foundation of mathematics lie the integers — discrete, indivisible unit
 
 **Bell**: John Bell proved that any deterministic hidden variable theory must be non-local. The quantum logical framework demonstrates how this non-locality naturally emerges from the underlying logical structure.
 
+**Planck**: Max Planck resolved the ultraviolet catastrophe of classical physics by quantizing energy. The quantum logical framework resolves the *mathematical* ultraviolet catastrophe — the runaway infinities of ZFC and the Busy Beaver function — by quantizing logic itself into discrete ZFA closures, so unbounded recursion can never physically arise.
+
 Gödel: Kurt Gödel’s incompleteness theorems revealed fundamental limits in formal mathematical systems — what might be called the "ultraviolet catastrophe" of mathematics. Just as Planck’s quantum resolved the ultraviolet catastrophe in physics, the quantum logical framework offers a resolution to Gödel’s challenge by establishing a new logical foundation that transcends the limitations of classical formal systems while maintaining full determinism.
+
+**Turing**: Alan Turing formalized computation and exposed its limits — the halting problem and undecidability. The quantum logical framework turns these limits into physics: non-terminating, Turing-undecidable computations simply fail to achieve ZFA closure and are pruned before they become events, placing physical reality strictly below the Busy Beaver horizon.
 
 **Penrose**: Roger Penrose argued that consciousness is non-computable within classical physics. The quantum logical framework provides a non-classical logical foundation capable of supporting such non-computable processes.
 
 **Carver Mead**: Carver Mead developed a deterministic view of quantum action. The quantum logical framework completes his work by providing the corresponding logical reaction.
 
 **Cramer**: John Cramer’s transactional interpretation involves advanced and retarded waves. The quantum logical framework makes these transactional waves physically real within a deterministic logical structure.
+
+**Zuse**: Konrad Zuse proposed that the universe is a deterministic computation — his "Rechnender Raum" (calculating space). The quantum logical framework realizes this as a concrete logical engine: every history is a finite computation, and spacetime is synthesized as its output.
 
 **Wolfram**: Stephen Wolfram proposed that the universe can be described as a cellular automaton. The quantum logical framework provides the deterministic logical foundation for this vision.
 
