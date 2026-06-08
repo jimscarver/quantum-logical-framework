@@ -2,7 +2,7 @@
 
 "God created the integers, all else is the work of man." — Leopold Kronecker
 
-At the foundation of mathematics lie the integers — discrete, indivisible units. The quantum logical framework proposes that reality itself is built upon discrete logical units, not continuous fields or random probabilities. Standing on the shoulders of giants from Einstein to Hawking, this piece shows how the greatest minds sought a deterministic universe, and how the quantum logical framework fulfills their vision. (TheBigProblems.md)
+At the foundation of mathematics lie the integers — discrete, indivisible units. The quantum logical framework proposes that reality itself is built upon discrete logical units, not continuous fields or random probabilities. Standing on the shoulders of giants from Einstein to Hawking, this piece shows how the greatest minds sought a deterministic universe, and how the quantum logical framework fulfills their vision. (TheBigProblem.md)
 
 **Leibniz**: Gottfried Leibniz invented binary arithmetic and held that the actual world is the one selected, by sufficient reason, from all logically possible worlds. The quantum logical framework makes both ideas literal: reality is built from binary distinctions (the 8-twist alphabet), and physical events are the possibilist subset of all admissible histories selected by Zero Free Action.
 
@@ -26,7 +26,7 @@ At the foundation of mathematics lie the integers — discrete, indivisible unit
 
 **Planck**: Max Planck resolved the ultraviolet catastrophe of classical physics by quantizing energy. The quantum logical framework resolves the *mathematical* ultraviolet catastrophe — the runaway infinities of ZFC and the Busy Beaver function — by quantizing logic itself into discrete ZFA closures, so unbounded recursion can never physically arise.
 
-Gödel: Kurt Gödel’s incompleteness theorems revealed fundamental limits in formal mathematical systems — what might be called the "ultraviolet catastrophe" of mathematics. Just as Planck’s quantum resolved the ultraviolet catastrophe in physics, the quantum logical framework offers a resolution to Gödel’s challenge by establishing a new logical foundation that transcends the limitations of classical formal systems while maintaining full determinism.
+**Gödel**: Kurt Gödel’s incompleteness theorems revealed fundamental limits in formal mathematical systems — what might be called the "ultraviolet catastrophe" of mathematics. Just as Planck’s quantum resolved the ultraviolet catastrophe in physics, the quantum logical framework offers a resolution to Gödel’s challenge by establishing a new logical foundation that transcends the limitations of classical formal systems while maintaining full determinism.
 
 **Turing**: Alan Turing formalized computation and exposed its limits — the halting problem and undecidability. The quantum logical framework turns these limits into physics: non-terminating, Turing-undecidable computations simply fail to achieve ZFA closure and are pruned before they become events, placing physical reality strictly below the Busy Beaver horizon.
 
