@@ -58,6 +58,15 @@ Two features distinguish gravity from everything else:
 
 And because the deficit is carried by a *finite* count of pentamons on a discrete surface, **curvature is bounded by event density**: no point of infinite curvature can form. Singularities are not in the space of admissible blankets ([`Quantum_Gravity.md`](Quantum_Gravity.md), [`UniversalRelativity.md`](UniversalRelativity.md) §4). Gravity is the isotropic, single-sign **limit** of the signed deformation — the case where only contraction, and only the radial direction, is in play.
 
+### 3.1 Worked example — the Moon's orbit as inward inflow
+
+A mass "eats" space at a rate equal to its gravitational acceleration. Earth's surface rate is `g⊕ = 9.80665 m/s² = 32.174 ft/s²`; the Moon's is `g☾ = 1.62 m/s² = 5.32 ft/s²` — Earth's is `9.80665 / 1.62 = 6.05×` the Moon's, the familiar "one-sixth" Moon gravity. But these are *surface* rates. What holds the Moon in orbit is the inflow each body produces **at their separation** `d = 384,400 km = 3.844×10⁸ m`, and the inflow falls off as the inverse square of distance — the blanket's fixed deficit spread over its `4πr²` area (§1). The exact inflow at distance `d` is `GM/d²` (equivalently the surface rate times `(R/d)²`):
+
+- Earth: `GM⊕/d² = 3.986004×10¹⁴ / (3.844×10⁸)² = 2.6976×10⁻³ m/s² = 8.8503×10⁻³ ft/s²`
+- Moon: `GM☾/d² = 4.9028×10¹² / (3.844×10⁸)² = 3.3180×10⁻⁵ m/s² = 1.0886×10⁻⁴ ft/s²`
+
+Their **sum, `2.7307×10⁻³ m/s² = 8.9592×10⁻³ ft/s²`, is the relative orbital acceleration** `G(M⊕+M☾)/d²` that keeps the Earth–Moon pair circling their barycentre. The observed value from the 27.32166-day sidereal month, `ω²d` with `ω = 2π/T = 2.6617×10⁻⁶ rad/s`, is `2.7233×10⁻³ m/s² = 8.9349×10⁻³ ft/s²` — agreeing to 0.27% (the residual is mean-vs-osculating distance and eccentricity). Both bodies' "eating" *does* add to the orbit, but it is the inverse-square-projected inflows at the orbital radius that add, not the raw surface rates 32.174 and 5.32. Earth's inflow dominates — this is exactly Newton's 1665 Moon test, `g⊕ / (d/R⊕)² = 9.80665 / 60.34² = 2.6936×10⁻³ m/s²` for the lunar distance of 60.34 Earth radii — and the Moon's inflow contributes the final `3.3180×10⁻⁵ / 2.7307×10⁻³ = 1.22%`. This is the Newtonian content the blanket's `1/r²` deficit-dilution reproduces in the continuum limit.
+
 ## 4. Magnetism — differential, two-signed curvature
 
 Magnetism is what happens when the two deformations of §2 are split *by spin orientation along an axis* ([`Magnetism_Spatial_Dynamics.md`](Magnetism_Spatial_Dynamics.md) §1–§4). Where the vacuum carries a net spin-orientation bias along ẑ:
