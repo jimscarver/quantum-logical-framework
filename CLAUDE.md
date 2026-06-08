@@ -268,19 +268,19 @@ The most striking feature of QLF is that 17 independent research programs — wi
 | Computability | Alan Turing (1936) | Computation has formal limits; non-terminating and undecidable problems lie beyond the computable |
 | It from bit | John Wheeler (1990) | Every physical quantity derives from binary yes/no questions |
 | Information theory | Claude Shannon (1948) | Information is physical; entropy measures unresolved uncertainty |
-| Holographic principle | Bekenstein, Hawking, 't Hooft, Susskind (1972–1995) | Bulk physics bounded by boundary information |
+| Holographic principle | Bekenstein, Hawking, 't Hooft, Susskind (1972–1995) | Bulk physics is bounded by boundary information |
 | Relativistic ether | Albert Einstein (1920, Leiden) | Spacetime is a medium with real metric properties but no preferred frame or state of motion |
 | Causal Set Theory | Bombelli, Sorkin, Henson (1987–present) | Spacetime is a discrete partial order of causal events |
 | Girard linear logic | Jean-Yves Girard (1987) | Resource-sensitive reasoning; proof = process; use-once tokens |
-| Reverse Mathematics | Harvey Friedman (1975–present) | Physical laws stratified by minimum logical strength; RCA₀ is the computable floor |
+| Reverse Mathematics | Harvey Friedman (1975–present) | Physical laws can be stratified by minimum logical strength; RCA₀ is the computable floor |
 | Session types | Kohei Honda (1993) | Communication protocols have types; safety = type-checking |
 | Holographic QEC | Almheiri, Dong, Harlow; HaPPY code (2015) | Spacetime bulk = quantum error-correcting code on boundary |
 | Object capability model | Mark Miller (2006) | Security from first principles: unforgeable names = capability tokens |
 | ρ-calculus | Meredith & Radestock (2005) | Programs as processes; names as reflective proof terms |
-| Free Energy Principle | Karl Friston (2010) | All adaptive systems minimize variational free energy |
-| Geometric Deep Learning | Bronstein et al. (2021) | Correct geometric inductive bias for physical AI = Clifford algebra elements |
-| Ruliad | Stephen Wolfram (2020) | Entangled limit of all possible computations; physical reality = observer slice |
-| No-cloning theorem | Wootters & Zurek (1982) | Quantum information cannot be copied — physical foundation of capability security |
+| Free Energy Principle | Karl Friston (2010) | All adaptive systems minimize variational free energy — perception = inference |
+| Geometric Deep Learning | Bronstein, Bruna, LeCun, Szlam, Vandergheynst (2021) | Correct geometric inductive bias for physical AI = Clifford algebra elements |
+| Ruliad | Stephen Wolfram (2020) | The entangled limit of all possible computations; physical reality = observer slice |
+| No-cloning theorem | Wootters & Zurek (1982) | Quantum information cannot be copied — the physical foundation of capability security |
 
 ### What NOT to say
 
