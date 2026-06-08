@@ -30,7 +30,7 @@ Gödel: Kurt Gödel’s incompleteness theorems revealed fundamental limits in f
 
 **Turing**: Alan Turing formalized computation and exposed its limits — the halting problem and undecidability. The quantum logical framework turns these limits into physics: non-terminating, Turing-undecidable computations simply fail to achieve ZFA closure and are pruned before they become events, placing physical reality strictly below the Busy Beaver horizon.
 
-**Penrose**: Roger Penrose argued that consciousness is non-computable within classical physics. The quantum logical framework provides a non-classical logical foundation capable of supporting such non-computable processes.
+**Penrose**: Roger Penrose argued that consciousness is non-computable within classical physics. The quantum logical framework provides a non-classical logical foundation capable of supporting such non-computable processes. His **objective reduction** — quantum superposition self-collapsing objectively, without an observer, at a gravitational threshold — is realized directly as **ZFA closure**: a superposition resolves when a history achieves Zero Free Action, an observer-independent event requiring no separate collapse postulate. Because gravity is itself emergent from the ZFA event rate, the gravitational character of Penrose's threshold is recovered rather than assumed. ZFA closure *is* the objective reduction (Philosophy.md; TheQuantumBrain.md §2).
 
 **Carver Mead**: Carver Mead developed a deterministic view of quantum action. The quantum logical framework completes his work by providing the corresponding logical reaction.
 
