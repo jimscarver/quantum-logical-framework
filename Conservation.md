@@ -22,13 +22,35 @@ In QLF, the 8-twist algebra has a finite set of **discrete symmetries**, each of
 
 The conservation law is not a separate axiom; it is a **direct consequence** of the symmetry holding at every ZFA closure. Because every constructible RhoProcess is ZFA (`rho_process_always_zfa`, [RhoQuCalc.lean:382](lean/RhoQuCalc.lean)), every constructible process preserves all of these quantities by construction. They cannot be violated because there is no admissible history in which they are.
 
+**One caveat, developed in §2a.** This exactness holds for the *balance-based* currents — charge, momentum, unitarity/probability, the information ledger — which are **signed counts** protected directly by the machine-verified ZFA-balance theorems. **Energy is the exception.** It is the only quantity in the table above defined as a *multiplicity* (number of histories) rather than a signed count, so the balance theorems do not pin it. Energy conservation is therefore **emergent and only statistically exact** — recovered in the continuum / bound-state limit, not guaranteed at the level of an individual substrate closure. This is the canonical QLF reading, and it is the reading on which the framework's most accurate quantitative prediction (the fine-structure constant) depends; see §2a.
+
 ## 2. Energy
 
 From [Energy_Combinatorics.md](Energy_Combinatorics.md): the energy of a QLF system is the **multiplicity** of valid histories at a given length — the number of topological permutations achieving the same ZFA closure. From [E_mc2_derivation.md](E_mc2_derivation.md): mass is the constructing-delay contribution of gauge folds, and $E = mc^2$ recovers the energy in those gauge folds.
 
-The **conservation** follows from the time-translation symmetry of the QuCalc engine: the rewrite rules are time-homogeneous (the same rule applies at every clock tick of [Frequency_Synchronization.md](Frequency_Synchronization.md)). A history $h_1$ at time $t_1$ has the same admissible-extension multiplicity as the same history $h_1$ at time $t_2$; therefore the energy $E(h_1)$ does not depend on absolute time. Across any ZFA-closed process, energy in must equal energy out.
+The **conservation** follows from the time-translation symmetry of the QuCalc engine: the rewrite rules are time-homogeneous (the same rule applies at every clock tick of [Frequency_Synchronization.md](Frequency_Synchronization.md)). A history $h_1$ at time $t_1$ has the same admissible-extension multiplicity as the same history $h_1$ at time $t_2$; therefore the energy $E(h_1)$ does not depend on absolute time. Across any ZFA-closed process, energy in equals energy out **in the statistical / continuum limit** — see §2a for why this is an ensemble statement about expected multiplicity, not a guarantee at the level of an individual substrate closure.
 
 Per-event bookkeeping ([Annihilation.md §3](Annihilation.md), [MRE.md §2.1](MRE.md)): each 1/2-spin atom carries $\log 2$ nats of information; energy is $E = h \cdot \text{bits} = h \nu$ when bits flow at frequency $\nu$. **Energy conservation = information bookkeeping conservation = ZFA constraint preservation.**
+
+### 2a. Exact vs. emergent: why energy is the lone approximate current
+
+Two readings of "energy conservation" circulate in the QLF corpus, and they are **not** the same claim. This section fixes which is canonical and why.
+
+- **Exact-by-construction (the balance currents).** Charge, momentum, unitarity/probability, and the information ledger are *signed counts* — differences of twist counts (e.g. $\text{charge} = \text{count}(+) - \text{count}(-)$). ZFA closure constrains those differences exactly, and `rho_process_always_zfa` / `bra_ket_always_balanced` make it impossible to construct a history that violates them. For these currents, the §1 "cannot be violated" language is literal.
+
+- **Emergent-by-averaging (energy).** [`QLF_FineStructureSubstrate.lean:177`](lean/QLF_FineStructureSubstrate.lean) states the canonical position directly: "Energy conservation is not a QLF axiom — it is emergent from substrate dynamics. At the substrate event level, individual closures **need not conserve energy**; statistical averaging over many events produces effective conservation at the bound-state scale."
+
+**The canonical QLF position for energy is the second one.** Where the two framings conflict, the emergent/statistical reading governs; the strict "energy in must equal energy out at every closure" phrasing is an overstatement of the ensemble result.
+
+**Why energy and not the others.** Energy is the *unique* entry in the §1 table defined as a **multiplicity** — the number of distinct histories achieving a given ZFA closure ([Energy_Combinatorics.md](Energy_Combinatorics.md)) — rather than as a signed count. A signed count is conserved because ZFA balance is a constraint *on that difference*; a multiplicity is not a difference of counts and inherits no such protection. The machine-verified balance theorems therefore pin charge, momentum, and the information ledger exactly, while leaving the energy multiplicity free to fluctuate at the single-event scale. That structural asymmetry — count vs. multiplicity — is the whole reason energy is the one current that only emerges statistically.
+
+**Worked example — the fine-structure leak.** The α = 1/137 derivation makes substrate-level energy non-conservation *quantitative*. The combinatorial bare value is $\alpha_{\text{bare}} = 1/128$; the observed value comes from the emergent-conservation correction
+
+$$\alpha_{\text{QLF}} = \frac{\alpha_{\text{bare}}}{1 + N\,\alpha_{\text{bare}}}, \qquad N = 9,$$
+
+machine-verified as exactly $1/137$ in [`QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean) (`alpha_QLF_eq`). The factor $(1 + N\alpha_{\text{bare}})^{-1}$ is a self-energy-style resummation over the $N = 9$ substrate channels through which a bound state's energy *leaks* into the vacuum. **If energy were exactly conserved at every closure there would be no leak channels, no correction factor, and α would stick at the bare $1/128$.** The measured $1/137$ is precisely the resummed measure of how much energy conservation fails per substrate event. Substrate-level non-conservation is thus not a defect of the framework — it is the source of its most accurate prediction (0.026% from CODATA).
+
+**Consequence for the §2 Noether statement.** The time-translation argument in §2 establishes that energy is *time-homogeneous in expectation*: the admissible-extension multiplicity of a history is independent of absolute time. That delivers conservation of the **ensemble-averaged** energy — the continuum / bound-state limit — not a per-closure guarantee. Read every "energy in = energy out" in this document in that averaged sense. Exact, per-event conservation is the special property of the *balance* currents, which energy alone among the §1 entries does not share.
 
 ## 3. Momentum and angular momentum
 
@@ -79,7 +101,7 @@ These are the standard-model gauge-group identifications. The QLF claim is that 
 
 ## 9. Open work
 
-- **Lean theorem**: `noether_zfa_symmetry_yields_conservation` formalizing the §1 statement.
+- **Lean theorem**: `noether_zfa_symmetry_yields_conservation` formalizing the §1 statement. Per §2a this is tractable **only for the balance (signed-count) currents** — charge, momentum, the information ledger — which the existing ZFA-balance theorems already half-prove (`emergent_blanket_formation` is additivity of the conserved count under composition). A Lean statement for **energy** is *not* expected, since energy is a multiplicity and conserved only in the statistical limit; the honest target there is a numerical/statistical demonstration, not a per-closure theorem.
 - **Numerical demo**: extend `path_integral.py` to log conserved quantities (energy, momentum, charge, information) along ZFA-closure trajectories and verify constancy.
 - **Standard-model identifications**: complete the gauge-group derivations listed in §8.
 - **Discrete Noether vs continuous Noether**: formalize the bridge between QLF's discrete symmetries and standard Lie-group continuous symmetries in the continuum limit.
