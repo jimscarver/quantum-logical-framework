@@ -45,7 +45,7 @@ A blanket changes shape by gaining or losing substrate events on its surface. Th
 - **Expansion** — *more* events inserted between closures. Two like-oriented half-spin closures cannot occupy the same closure state (Pauli exclusion); the substrate separates them, **inserting Planck events** and stretching the local surface. Replication (`*P`) is the same move globally: each new distinction adds events outward.
 - **Contraction** — *fewer* events; surface released. Two opposite-oriented closures pair into a singlet whose joint Pauli product `(−I)(−I) = +I` is closed; the events that hosted them are **released back to the vacuum**, drawing the surface in. Entanglement (`P | Q`) is the same move globally: interlocking closures share blankets and contract.
 
-Expansion adds curvature deficit's negative-pressure counterpart; contraction adds its positive-pressure counterpart. Which dominates, and along which axis, is the entire content of the three sections that follow.
+Expansion is the outward, negative-pressure deformation; contraction the inward, positive-pressure one. Which dominates, and along which axis, is the entire content of the three sections that follow.
 
 ## 3. Gravity — isotropic, single-sign curvature
 
