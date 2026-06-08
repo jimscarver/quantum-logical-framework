@@ -131,6 +131,7 @@ QLF is the mathematics that has **active inference built into its foundation**. 
 - [**Hydrogen.md**](Hydrogen.md) — hydrogen energy levels E_n = −13.6 eV/n² derived from ZFA (Bohr model): Coulomb from gauge-twist exchange, quantization from ZFA generation depth n; numerically verified to 0.05% in `hydrogen_qlf.py`. §4.1 reads the Rydberg series as a discrete vacuum-resonance shell spectrum at Markov-blanket depths R_n = R_1 · n², and recovers α to 10⁻¹⁰ via the Bohr-inversion form `α = sqrt(2 Ry / m_e c²)` = `sqrt(2 R_e / R_1)` ([`fine_structure_demo.py`](fine_structure_demo.py))
 - [**SpaceTime.md**](SpaceTime.md) — event-synthesized space and time
 - [**Gravity.md**](Gravity.md) — emergent gravity in the QLF picture
+- [**Curvature.md**](Curvature.md) — gravity (isotropic), magnetism (differential up/down), and de Sitter cosmology as signed expand/contract deformations of the primordial Markov-blanket geodesic sphere; curvature as 12-pentamon topological deficit, metric as continuum limit
 - [**ER_EPR_QLF.md**](ER_EPR_QLF.md) — entanglement, geometry, and logical structure
 - [**Higgs.md**](Higgs.md) — QLF mass generation via gauge-fold depth; constructive alternative to the Higgs mechanism
 - [**HadronicDepth.md**](HadronicDepth.md) — Hadronic Depth Hypothesis: n ~ (m_P/m_p)³ fixes cosmic size, age, and G from the proton mass
@@ -399,6 +400,10 @@ lake build
 ### If you care most about physics
 
 [TheBigProblem.md](TheBigProblem.md) → [Measurement_Problem.md](Measurement_Problem.md) → [SpaceTime.md](SpaceTime.md) → [Gravity.md](Gravity.md) → [Lagrangian_Formulation.md](Lagrangian_Formulation.md)
+
+### If you care most about curvature and geometry
+
+[Primordial_Markov_Blankets.md](Primordial_Markov_Blankets.md) → [Gravity.md](Gravity.md) → [Magnetism_Spatial_Dynamics.md](Magnetism_Spatial_Dynamics.md) → [Cosmological_Constant.md](Cosmological_Constant.md) → [Curvature.md](Curvature.md)
 
 ### If you care most about the variational / Lagrangian formulation
 
