@@ -36,7 +36,7 @@ In this framework the universe is **possibilist**: all admissible logical histor
 ^ v < > / \ + -
 ```
 
-Einstein assumed a constant local speed of light and the equivalence principle. Universal Relativity seeks to derive local `c`, Lorentz invariance, and gravitational equivalence from ZFA closure. The resulting program is intended to be covariant, computable, and singularity-free.
+Einstein assumed a constant local speed of light and the equivalence principle. Universal Relativity **derives** local `c` and Lorentz invariance from ZFA closure — the uniform-ether mechanism of [`Time.md`](Time.md) §4 / [`SpaceTime.md`](SpaceTime.md) §4 (see §3) — and grounds the equivalence principle in the same dilation mechanism. The program is computable and singularity-free by construction.
 
 The recent `AgeOfUniverse.md` update extends this idea to cosmology. The observed cosmic age of approximately **13.8 billion years** is interpreted not as the age of possibility itself, nor as proof of an absolute beginning, but as the effective proper time accumulated along the realized ZFA event history of our observable universe.
 
@@ -70,7 +70,7 @@ Universal Relativity replaces multiple physical assumptions with one quantum-log
 
 > **Every realized history must close with Zero Free Action.**
 
-From this rule the framework seeks to account for:
+From this single rule the framework accounts for:
 
 - spacetime interval synthesis;
 - constant local light speed;
