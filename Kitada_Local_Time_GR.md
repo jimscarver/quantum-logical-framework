@@ -180,6 +180,8 @@ $$
 
 This is the QLF reading of local Lorentz invariance, structurally grounded in the substrate's irreducible space-time event quantum.
 
+This substrate derivation is the rigorous counterpart of the conceptual **uniform-ether** account in [`Time.md`](Time.md) §4 / [`SpaceTime.md`](SpaceTime.md) §4: there, frame-independence of `c` follows from the vacuum being a statistically uniform, stateless ether (no preferred frame); here it follows from the per-event 1:1 length-to-tick identity (the ρ-cancellation). The two are complementary — obstacle 1 above ("substrate uniformity vs local variation") is exactly the ether's *statistical* uniformity, and the ρ-cancellation is *why* local clock-rate variation does not break the shared `c`.
+
 #### Resolution of obstacles 2, 3, 4
 
 - **Obstacle 2 (circular dependence)** — closed. `R_cosmic = n · L_Planck` is derived from `HadronicDepth.md`'s n; `T_cosmic = n · τ_Planck` from the Kitada cosmic-blanket framing in §4 above. Neither uses `c`. Their ratio gives `c` as an *output*, not an input. The synchronization-failure formula `Δt_sync ~ (R/f)/c` becomes a downstream consequence used in Gap-3 Einstein-equation derivations, not the upstream definition.
@@ -257,6 +259,7 @@ In rough order of effort and value:
 - [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md) §2.2 — the existing Kitada citation in QLF; this doc extends the framework to GR.
 - [`Frequency_Synchronization.md`](Frequency_Synchronization.md) — `Δt = R/f` ; primary anchor for Gap 1.
 - [`Cross_Frequency_Lorentz.md`](Cross_Frequency_Lorentz.md) — rapidity = log(frequency ratio); Lorentz boost under Kitada lens.
+- [`Time.md`](Time.md) §4, [`SpaceTime.md`](SpaceTime.md) §4 — the conceptual uniform-ether account of local Lorentz invariance; complementary to the substrate ρ-cancellation derivation in §5.3.
 - [`Gravity.md`](Gravity.md) — gauge-folding + entropy screening; primary anchor for Gap 3.
 - [`AgeOfUniverse.md`](AgeOfUniverse.md) — cosmic-age derivation; primary anchor for Gap 2.
 - [`HadronicDepth.md`](HadronicDepth.md) — `n ~ (m_P/m_p)³`; supplies the cosmic-horizon depth for Gap 2.

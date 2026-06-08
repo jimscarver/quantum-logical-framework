@@ -91,7 +91,7 @@ This bias is passed directly to the spin-network geometry in the QuCalc engine, 
 **Qualitative foundations:**
 - `Entropy.md`: Gravity screens unresolved distinctions (area law \(S = A/4\ell_P^2\)).
 - `Frequency_Synchronization.md`: Constructing delay \(R/f\) as the source of local time.
-- `SpaceTime.md`: Density-dependent role swap as origin of relativistic frames.
+- `SpaceTime.md` & `Time.md`: Density-dependent role swap as origin of relativistic frames; §4 of each unifies gravitational and kinematic time dilation as one mechanism — gravity is the **local departure from the statistically uniform stateless ether** (a mass cluster lowers local \(W_{ZFA}\)), the same uniformity from which Lorentz invariance emerges.
 - `Particles.md` & `HALF-SPIN-ZFA-EMBEDDING.md`: Explicit particle classification.
 - `Hadrons_Markov_Blankets.md`: Markov blanket = horizon for gauge-folded radiation.
 - `BLACK-HOLES.md` (to be rewritten): Full particle ↔ black-hole equivalence proven here.
