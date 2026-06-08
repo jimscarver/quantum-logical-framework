@@ -14,7 +14,7 @@ Everything in the universe has a frequency. In this framework, **there exists an
 * **The Clock Cycle:** The frequency of a system is determined by the number of bits resolved per unit of **Planck action energy ($h$)**.
 * **Latency ($1/W_{ZFA}$):** The time delay between events is the inverse of the number of possible ZFA paths ($W_{ZFA}$).
 * In high-density environments (gravity/clusters), the search for a unique, valid ZFA closure takes more "logical steps."
-* This increases the **latency of resolution**, which we perceive as **Time Dilation**.
+* This increases the **latency of resolution**, which we perceive as **Time Dilation** (mechanism in §4).
 
 
 
@@ -24,7 +24,32 @@ In RhoQuCalc, time is synthesized using **gauge folds** (+ and –). These folds
 
 Each logical bit represents one binary step in this fractional construction. Because each step introduces a discrete delay, RhoQuCalc functions as a **Universal NAND-Delay Computer**. Time is literally the "clock cycle" of the universal logical engine.
 
-## 4. The Cosmological Clock: Macro-Micro Bridge
+## 4. Time Dilation as Thread Desynchronization
+
+There is no universal clock. **Each mass runs its own independent time thread**, synthesizing local time by ZFA closure at its own frequency (§2–3). What we call "time dilation" is never an absolute quantity — it is only ever the **ratio** of one thread's synthesis rate to another's.
+
+### Einstein's stateless ether is the uniform ZFA vacuum
+
+In his 1920 Leiden address, Einstein rehabilitated the ether: spacetime has real physical and metric properties, but **no state of motion** — no rest frame you can ride. The QLF vacuum is exactly this ether. It is structured (it sets the frequency reference and supplies the density $W_{ZFA}$ of available closure paths) yet statistically **homogeneous**: every point of the substrate offers the same $W_{ZFA}$. Because the ether has no mechanical state, no thread can measure absolute motion through it.
+
+### One mechanism, two dilations
+
+The two familiar dilations are the *same* effect — fewer ZFA closures synthesized per unit of the *other* thread's clock:
+
+* **Gravitational dilation** lowers the *local availability* of closure paths. In a dense environment the search for a unique valid ZFA closure takes more logical steps, raising latency $1/W_{ZFA}$ and slowing the thread.
+* **Kinematic dilation** spends degrees of freedom on translation. Motion stretches the twist history, leaving fewer DOF for internal ZFA cycles, so the thread completes fewer closures.
+
+Different causes — local path scarcity vs. consumed DOF — but one observable: the thread falls behind its neighbor.
+
+### Lorentz invariance falls out of uniformity
+
+Because the ether is uniform, **no thread is privileged**. Two threads in relative motion each measure the *other* as slow, reciprocally and symmetrically — there is no fact of the matter as to which "really" runs slow, because there is no preferred frame to anchor the claim. This reciprocal symmetry **is** the content of Lorentz invariance.
+
+The frame-independence of $c$ is therefore not a postulate but a consequence: $c$ is the ceiling on local event-synthesis rate (§7), and a *uniform* vacuum imposes the *same* ceiling on every thread. Einstein assumed the constancy of $c$; QLF derives it from the homogeneity of the ZFA ether.
+
+> Independent time threads (no shared clock) + a stateless uniform ether (no preferred frame) ⟹ time dilation is reciprocal ⟹ Lorentz invariance is emergent, not postulated.
+
+## 5. The Cosmological Clock: Macro-Micro Bridge
 
 The **Cosmological Horizon** is the ultimate **Markov Blanket** of the observable universe. It is provably related to the period of a single Planck action.
 
@@ -36,7 +61,7 @@ $$\frac{R_H}{l_P} = \frac{T_U}{\Delta t_P}$$
 
 * **The Implication:** Expansion is the process of new logical bits achieving ZFA-stability. As the QuCalc engine synthesizes more events, the accumulated period grows, pushing the Cosmological Horizon outward.
 
-## 5. ZFA and Determinism
+## 6. ZFA and Determinism
 
 Every logical bit resolution must satisfy **ZFA = 0**.
 
@@ -45,7 +70,7 @@ Every logical bit resolution must satisfy **ZFA = 0**.
 
 A history only persists if its net free action closes to zero. This makes all persistent events **deterministically closed**, even if the path to finding that closure is a search through possibilities.
 
-## 6. Relativity and the "Zero Event" Limit
+## 7. Relativity and the "Zero Event" Limit
 
 ### Constant Motion
 
@@ -53,7 +78,7 @@ If you are in motion, you are shifting your reference frame, which increases "lo
 
 ### The Speed of Light ($c$)
 
-As velocity approaches $c$, the twist history becomes "stretched," leaving fewer degrees of freedom for internal ZFA cycles.
+As velocity approaches $c$, the twist history becomes "stretched," leaving fewer degrees of freedom for internal ZFA cycles. This is the kinematic dilation of §4, and its frame-independence follows from vacuum uniformity there.
 
 * At $c$, the internal event rate approaches **zero**.
 * Faster-than-light travel is logically impossible because it would require "negative events" or "negative synthesis," which the QuCalc engine cannot process.
@@ -62,7 +87,7 @@ As velocity approaches $c$, the twist history becomes "stretched," leaving fewer
 
 The traveling twin synthesizes fewer total logical events than the Earth twin. Because their frequency of interaction with the vacuum decreases during acceleration, they literally "process" less of the universe, resulting in a younger biological age upon return.
 
-## 7. Experimental Agreement
+## 8. Experimental Agreement
 
 * **Muon Lifetime**: High-velocity muons live longer because their internal logical clocks synthesize bits at a slower rate relative to the lab frame.
 * *Verification:* `muon_lifetime_demo.py`
@@ -73,7 +98,7 @@ The traveling twin synthesizes fewer total logical events than the Earth twin. B
 
 
 
-## 8. Repository Verification
+## 9. Repository Verification
 
 * [`SpaceTime.py`](https://www.google.com/search?q=./SpaceTime.py) — Shows local time emerging from frequency-based bit resolution.
 * [`muon_lifetime_demo.py`](https://www.google.com/search?q=./muon_lifetime_demo.py) — Simulates particle lifetime based on logical bit synthesis rates.
