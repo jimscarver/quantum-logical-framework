@@ -45,11 +45,30 @@ Different causes — local path scarcity vs. consumed DOF — but one observable
 
 Because the ether is uniform, **no thread is privileged**. Two threads in relative motion each measure the *other* as slow, reciprocally and symmetrically — there is no fact of the matter as to which "really" runs slow, because there is no preferred frame to anchor the claim. This reciprocal symmetry **is** the content of Lorentz invariance.
 
-The frame-independence of $c$ is therefore not a postulate but a consequence: $c$ is the ceiling on local event-synthesis rate (§7), and a *uniform* vacuum imposes the *same* ceiling on every thread. Einstein assumed the constancy of $c$; QLF derives it from the homogeneity of the ZFA ether.
+The frame-independence of $c$ is therefore not a postulate but a consequence: $c$ is the ceiling on local event-synthesis rate (§5), and a *uniform* vacuum imposes the *same* ceiling on every thread. Einstein assumed the constancy of $c$; QLF derives it from the homogeneity of the ZFA ether.
 
 > Independent time threads (no shared clock) + a stateless uniform ether (no preferred frame) ⟹ time dilation is reciprocal ⟹ Lorentz invariance is emergent, not postulated.
 
-## 5. The Cosmological Clock: Macro-Micro Bridge
+## 5. Relativity in Practice: Motion, Light-Speed, and the Twins
+
+This section works out the consequences of the §4 mechanism. The dilation is already explained there; here we read off what it means for moving frames, the light-speed limit, and the twins.
+
+### Constant Motion
+
+If you are in motion, you are shifting your reference frame, which increases "logical distance." Changing your perspective increases the time required to resolve bits in one direction while decreasing it in the other relative to an observer.
+
+### The Speed of Light ($c$)
+
+The light-speed limit is the kinematic dilation of §4 carried to its extreme: as velocity approaches $c$, the twist history is stretched until almost no degrees of freedom remain for internal ZFA cycles.
+
+* At $c$, the internal event rate approaches **zero**.
+* Faster-than-light travel is logically impossible because it would require "negative events" or "negative synthesis," which the QuCalc engine cannot process.
+
+### The Twin Paradox
+
+The traveling twin synthesizes fewer total logical events than the Earth twin. Because their frequency of interaction with the vacuum decreases during acceleration, they literally "process" less of the universe, resulting in a younger biological age upon return.
+
+## 6. The Cosmological Clock: Macro-Micro Bridge
 
 The **Cosmological Horizon** is the ultimate **Markov Blanket** of the observable universe. It is provably related to the period of a single Planck action.
 
@@ -61,7 +80,7 @@ $$\frac{R_H}{l_P} = \frac{T_U}{\Delta t_P}$$
 
 * **The Implication:** Expansion is the process of new logical bits achieving ZFA-stability. As the QuCalc engine synthesizes more events, the accumulated period grows, pushing the Cosmological Horizon outward.
 
-## 6. ZFA and Determinism
+## 7. ZFA and Determinism
 
 Every logical bit resolution must satisfy **ZFA = 0**.
 
@@ -70,37 +89,20 @@ Every logical bit resolution must satisfy **ZFA = 0**.
 
 A history only persists if its net free action closes to zero. This makes all persistent events **deterministically closed**, even if the path to finding that closure is a search through possibilities.
 
-## 7. Relativity and the "Zero Event" Limit
-
-### Constant Motion
-
-If you are in motion, you are shifting your reference frame, which increases "logical distance." Changing your perspective increases the time required to resolve bits in one direction while decreasing it in the other relative to an observer.
-
-### The Speed of Light ($c$)
-
-As velocity approaches $c$, the twist history becomes "stretched," leaving fewer degrees of freedom for internal ZFA cycles. This is the kinematic dilation of §4, and its frame-independence follows from vacuum uniformity there.
-
-* At $c$, the internal event rate approaches **zero**.
-* Faster-than-light travel is logically impossible because it would require "negative events" or "negative synthesis," which the QuCalc engine cannot process.
-
-### The Twin Paradox
-
-The traveling twin synthesizes fewer total logical events than the Earth twin. Because their frequency of interaction with the vacuum decreases during acceleration, they literally "process" less of the universe, resulting in a younger biological age upon return.
-
 ## 8. Experimental Agreement
 
 * **Muon Lifetime**: High-velocity muons live longer because their internal logical clocks synthesize bits at a slower rate relative to the lab frame.
-* *Verification:* `muon_lifetime_demo.py`
+* *Verification:* [`muon_lifetime_demo.py`](./muon_lifetime_demo.py)
 
 
 * **GPS Satellites**: Atomic clocks on satellites run faster due to weaker gravitational potential (less logical latency).
-* *Verification:* `SpaceTime.md`
+* *Verification:* [`SpaceTime.md`](./SpaceTime.md)
 
 
 
 ## 9. Repository Verification
 
-* [`SpaceTime.py`](https://www.google.com/search?q=./SpaceTime.py) — Shows local time emerging from frequency-based bit resolution.
-* [`muon_lifetime_demo.py`](https://www.google.com/search?q=./muon_lifetime_demo.py) — Simulates particle lifetime based on logical bit synthesis rates.
-* [`twist_core.py`](https://www.google.com/search?q=./twist_core.py) — The core engine executing ZFA closures.
-* [`QLF_Universality.lean`](https://www.google.com/search?q=./lean/QLF_Universality.lean) — Formal proof that any finite logical system collapses to the ZFA vacuum.
+* [`SpaceTime.py`](./SpaceTime.py) — Shows local time emerging from frequency-based bit resolution.
+* [`muon_lifetime_demo.py`](./muon_lifetime_demo.py) — Simulates particle lifetime based on logical bit synthesis rates.
+* [`twist_core.py`](./twist_core.py) — The core engine executing ZFA closures.
+* [`QLF_Universality.lean`](./lean/QLF_Universality.lean) — Formal proof that every terminating computation IS a ZFA string (Church-Turing completeness of the ZFA filter).
