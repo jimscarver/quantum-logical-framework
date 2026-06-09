@@ -106,7 +106,7 @@ The observable size of the universe is therefore determined by three quantities:
 - gravity `G`,
 - and the stable proton mass `m_p`.
 
-No separate cosmological constant or dark-energy density is required as input.
+No separate cosmological constant or dark-energy density is required as input. (This `R` is the Weinberg estimate `ℏ²/(G m_p³) ≈ 3.6×10²² m` — about 3,700× below the observed horizon `~1.4×10²⁶ m`; the relation fixes the *scale* to within a few orders of magnitude, not the precise size. See §2.1, §4, and the geometric depth `v(R_H) ≈ 6.7×10⁶⁰` for the firm value.)
 
 **Cosmic-ratio identity.** Reading `n` as both a *spatial* count of Planck lengths (here in §3) and a *temporal* count of Planck ticks (in §4), the ratio `R / T = (n · l_P) / (n · t_P) = l_P / t_P = c` derives the substrate light speed. The cosmic-horizon depth `n` cancels exactly: `c` is recovered as the irreducible Planck space-time event quantum from two independently-derived QLF quantities. See [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5.3 and [`lean/QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean).
 
@@ -162,7 +162,9 @@ In QLF, the gravitational scale can be read three equivalent ways:
 2. from the proton mass and cosmic age,
 3. from the proton mass and the global generation depth.
 
-This connects to the emergent gravity picture in [`Gravity.md`](Gravity.md): `G` is not a fundamental coupling but a derived quantity set by the logical depth of the cosmic generation tree.
+This connects to the emergent gravity picture in [`Gravity.md`](Gravity.md): `G` is read as a quantity set by the logical depth of the cosmic generation tree rather than a free fundamental coupling.
+
+**Honest scope (§2.1).** This `G` relation is order-of-magnitude only — it inherits the cube's ~3,700× slop — and it is partly circular: `n ~ (m_P/m_p)³` is itself defined through `m_P = √(ℏc/G)`, so `G` appears on both sides. It does **not** predict `G`'s numerical SI value; per [`Gravity_From_Delay.md`](Gravity_From_Delay.md) §8, that value is the calibration of the substrate event quantum (`G = L_P²c³/ℏ`, `L_P` a primitive), not a derivation. What this section shows is the *structural* statement — that `G`, `R`, `T`, and `n` are one finite-depth structure seen four ways — not a from-first-principles value of `G`.
 
 ---
 
