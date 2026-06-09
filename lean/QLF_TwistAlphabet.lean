@@ -445,19 +445,9 @@ theorem axisMatrix_mul (W W' : Axis) :
     axisMatrix W * axisMatrix W'
       = pauliScalarToMatrix (cocycle W W') * axisMatrix (axisMul W W') := by
   cases W <;> cases W' <;>
-    simp only [axisMatrix, cocycle, axisMul, psm_one_mul, psm_negOne_mul,
-      psm_i_mul, psm_negI_mul, one_mul, mul_one] <;>
-    first
-      | rfl
-      | rw [sigma_x_sq]
-      | rw [sigma_y_sq]
-      | rw [sigma_z_sq]
-      | rw [sigma_xy]
-      | rw [sigma_yx]
-      | rw [sigma_yz]
-      | rw [sigma_zy]
-      | rw [sigma_zx]
-      | rw [sigma_xz]
+    simp only [axisMatrix, cocycle, axisMul, pauliScalarToMatrix,
+      sigma_x_sq, sigma_y_sq, sigma_z_sq, sigma_xy, sigma_yx, sigma_yz,
+      sigma_zy, sigma_zx, sigma_xz, smul_mul_assoc, neg_mul, one_mul, mul_one]
 
 /-- A normal form: a Pauli scalar phase together with an axis. -/
 abbrev NF := PauliScalar × Axis
