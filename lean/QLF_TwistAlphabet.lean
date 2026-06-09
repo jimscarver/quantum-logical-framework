@@ -245,4 +245,123 @@ theorem concat_pairs_is_pauli_scalar (ts : List Twist) :
   · exact ⟨PauliScalar.one, by rw [concat_pairs_even ts h]; rfl⟩
   · exact ⟨PauliScalar.negOne, by rw [concat_pairs_odd ts h]; rfl⟩
 
+-- ==========================================
+-- Cross-axis σ-product identities: σ_i σ_j = ± i σ_k   (i ≠ j)
+-- ==========================================
+--
+-- The 3 squares (σ_i² = I) are above. These are the 6 MIXED products —
+-- the algebra the pair-by-pair `concat_pairs_*` theorems explicitly do
+-- NOT use, and exactly what cross-axis interleaving (e.g. `^<v>`) needs.
+-- Each lands in the `phase • axis-matrix` form `(±i) • σ_k` — the image
+-- of a Pauli scalar phase times an axis matrix — which is the data the
+-- general normal form will track. Same entrywise `Complex.ext`/`ring`
+-- pattern as `sigma_y_sq`.
+
+theorem sigma_xy : σx * σy = Complex.I • σz := by
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+    simp only [σx, σy, σz, Matrix.mul_apply, Fin.sum_univ_two, Matrix.smul_apply,
+      Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
+      Matrix.head_fin_const, smul_eq_mul] <;>
+    apply Complex.ext <;>
+    simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+          Complex.neg_re, Complex.neg_im, Complex.I_re, Complex.I_im,
+          Complex.ofReal_re, Complex.ofReal_im] <;>
+    ring
+
+theorem sigma_yx : σy * σx = -(Complex.I • σz) := by
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+    simp only [σx, σy, σz, Matrix.mul_apply, Fin.sum_univ_two, Matrix.smul_apply,
+      Matrix.neg_apply, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
+      Matrix.head_fin_const, smul_eq_mul] <;>
+    apply Complex.ext <;>
+    simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+          Complex.neg_re, Complex.neg_im, Complex.I_re, Complex.I_im,
+          Complex.ofReal_re, Complex.ofReal_im] <;>
+    ring
+
+theorem sigma_yz : σy * σz = Complex.I • σx := by
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+    simp only [σx, σy, σz, Matrix.mul_apply, Fin.sum_univ_two, Matrix.smul_apply,
+      Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
+      Matrix.head_fin_const, smul_eq_mul] <;>
+    apply Complex.ext <;>
+    simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+          Complex.neg_re, Complex.neg_im, Complex.I_re, Complex.I_im,
+          Complex.ofReal_re, Complex.ofReal_im] <;>
+    ring
+
+theorem sigma_zy : σz * σy = -(Complex.I • σx) := by
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+    simp only [σx, σy, σz, Matrix.mul_apply, Fin.sum_univ_two, Matrix.smul_apply,
+      Matrix.neg_apply, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
+      Matrix.head_fin_const, smul_eq_mul] <;>
+    apply Complex.ext <;>
+    simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+          Complex.neg_re, Complex.neg_im, Complex.I_re, Complex.I_im,
+          Complex.ofReal_re, Complex.ofReal_im] <;>
+    ring
+
+theorem sigma_zx : σz * σx = Complex.I • σy := by
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+    simp only [σx, σy, σz, Matrix.mul_apply, Fin.sum_univ_two, Matrix.smul_apply,
+      Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
+      Matrix.head_fin_const, smul_eq_mul] <;>
+    apply Complex.ext <;>
+    simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+          Complex.neg_re, Complex.neg_im, Complex.I_re, Complex.I_im,
+          Complex.ofReal_re, Complex.ofReal_im] <;>
+    ring
+
+theorem sigma_xz : σx * σz = -(Complex.I • σy) := by
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+    simp only [σx, σy, σz, Matrix.mul_apply, Fin.sum_univ_two, Matrix.smul_apply,
+      Matrix.neg_apply, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
+      Matrix.head_fin_const, smul_eq_mul] <;>
+    apply Complex.ext <;>
+    simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+          Complex.neg_re, Complex.neg_im, Complex.I_re, Complex.I_im,
+          Complex.ofReal_re, Complex.ofReal_im] <;>
+    ring
+
+-- ==========================================
+-- Interleaved cross-axis closure (first N=2 case beyond concatenated pairs)
+-- ==========================================
+
+/-- Plain ordered matrix fold of a twist history: each twist via
+    `Twist.toMatrix`, multiplied left-to-right (initialised at `I`).
+    Unlike `concatPairsMatrixFold`, this takes a raw history, not a list
+    of pair-leaders — so it sees cross-axis interleaving. -/
+noncomputable def twistMatrixFold (ts : List Twist) : M :=
+  ts.foldr (fun t acc => t.toMatrix * acc) 1
+
+/-- **Interleaved cross-axis closure (N=2)** — the history `^<v>`
+    (σ_y · −σ_x · −σ_y · σ_x) is count-balanced (`#^=#v`, `#<=#>`) but is
+    NOT a concatenation of adjacent Hermitian pairs, so it is exactly the
+    case `concat_pairs_is_pauli_scalar` flags as out of scope. It still
+    folds to `-I` — the first cross-axis interleaving brought under proof,
+    toward the general `count_balanced ⟹ Pauli scalar` theorem. Direct
+    entrywise computation (the cross-axis algebra is `σ_yσ_x = -iσ_z` etc.,
+    proved above). -/
+theorem interleaved_xlvr_folds_to_negI :
+    twistMatrixFold [Twist.up, Twist.left, Twist.down, Twist.right]
+      = pauliScalarToMatrix PauliScalar.negOne := by
+  simp only [twistMatrixFold, List.foldr_cons, List.foldr_nil, Matrix.mul_one]
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+    simp only [Twist.toMatrix, pauliScalarToMatrix, σx, σy, σz,
+      Matrix.mul_apply, Fin.sum_univ_two, Matrix.neg_apply, Matrix.one_apply,
+      Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
+      Matrix.head_fin_const] <;>
+    apply Complex.ext <;>
+    simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+          Complex.neg_re, Complex.neg_im, Complex.I_re, Complex.I_im,
+          Complex.ofReal_re, Complex.ofReal_im] <;>
+    ring
+
 end QLF
