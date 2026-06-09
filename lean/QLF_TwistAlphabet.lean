@@ -508,4 +508,49 @@ theorem psm_comm (p : PauliScalar) (A : M) :
     A * pauliScalarToMatrix p = pauliScalarToMatrix p * A := by
   simp only [pauliScalarToMatrix_eq, mul_smul_comm, smul_mul_assoc, mul_one, one_mul]
 
+-- ==========================================
+-- Fold decomposition: every history = phase • axisMatrix(axisProd)  — Milestone 2 step 3
+-- ==========================================
+
+/-- Product of two scaled matrices: scalars and matrices factor cleanly
+    (the matrices over ℂ form a ℂ-algebra). -/
+theorem smul_mul_smul' (c d : ℂ) (X Y : M) : (c • X) * (d • Y) = (c * d) • (X * Y) := by
+  rw [smul_mul_assoc, mul_smul_comm, smul_smul]
+
+/-- A twist's matrix in `phase • axis` form (the `evalNF` recast via `coePS`). -/
+theorem twist_toMatrix_smul (t : Twist) :
+    t.toMatrix = coePS (twistNF t).1 • axisMatrix (twistNF t).2 := by
+  simp only [twist_toMatrix_eq_evalNF, evalNF, pauliScalarToMatrix_eq, smul_mul_assoc, one_mul]
+
+/-- `axisMatrix_mul` recast in `phase • axis` form. -/
+theorem axisMatrix_mul_smul (W W' : Axis) :
+    axisMatrix W * axisMatrix W' = coePS (cocycle W W') • axisMatrix (axisMul W W') := by
+  rw [axisMatrix_mul]
+  simp only [pauliScalarToMatrix_eq, smul_mul_assoc, one_mul]
+
+/-- The axis product of a history: the Klein-group fold of each twist's axis. -/
+def axisProd (ts : List Twist) : Axis :=
+  ts.foldr (fun t acc => axisMul (twistNF t).2 acc) Axis.I
+
+/-- **Normal-form decomposition** — every twist history's ordered matrix fold
+    is a Pauli scalar phase times the axis matrix of its `axisProd`. Holds for
+    ALL histories; count balance (next) forces the axis to `I`, leaving a pure
+    scalar. The inductive step pushes the new twist's phase past the
+    accumulated scalar (`psm_comm`/`smul`) and combines axes via
+    `axisMatrix_mul`. -/
+theorem nf_decomp (ts : List Twist) :
+    ∃ p : PauliScalar, twistMatrixFold ts = coePS p • axisMatrix (axisProd ts) := by
+  induction ts with
+  | nil =>
+    refine ⟨PauliScalar.one, ?_⟩
+    simp [twistMatrixFold, axisProd, axisMatrix, coePS, one_smul]
+  | cons t rest ih =>
+    obtain ⟨p, hp⟩ := ih
+    refine ⟨(twistNF t).1 * p * cocycle (twistNF t).2 (axisProd rest), ?_⟩
+    show t.toMatrix * twistMatrixFold rest
+        = coePS ((twistNF t).1 * p * cocycle (twistNF t).2 (axisProd rest))
+          • axisMatrix (axisMul (twistNF t).2 (axisProd rest))
+    rw [hp, twist_toMatrix_smul, smul_mul_smul', axisMatrix_mul_smul, smul_smul,
+        ← coePS_mul, ← coePS_mul]
+
 end QLF
