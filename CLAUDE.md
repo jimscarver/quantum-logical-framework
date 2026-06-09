@@ -38,7 +38,7 @@ In `lean/`, registered in `lakefile.lean` roots array:
 | `BraKetRhoQuCalc` | Bra-ket ↔ RhoQuCalc correspondence; `bra_ket_always_balanced` |
 | `QLF_FreeEnergy` | Per-event ΔF = -log 2 at half-spin ZFA closure; `zfa_closure_minimizes_free_energy` |
 | `QLF_Pauli` | 4-element Pauli scalar group {±I, ±iI}; group closure + `pauli_closed_of_admissible_zfa` |
-| `QLF_TwistAlphabet` | 8-twist alphabet with σ-matrix mapping; `hermitian_pair_is_pauli_scalar` (every Hermitian pair folds to -I); `concat_pairs_is_pauli_scalar` (N-pair concatenations land in {+I, -I}) |
+| `QLF_TwistAlphabet` | 8-twist alphabet with σ-matrix mapping; `hermitian_pair_is_pauli_scalar` (every Hermitian pair folds to -I); `concat_pairs_is_pauli_scalar` (N-pair concatenations land in {+I, -I}); **`count_balanced_pauli_closed`** (count balance ⟹ Pauli closure for ALL histories — general, via `nf_decomp` + `(ZMod 2)²` axis-parity bridge; the keystone) |
 
 ---
 
@@ -91,7 +91,7 @@ ZFA balance IS bra-ket well-typedness: `action f` gives topo `[pos,neg]`, `lift 
 - `achieves_ZFA s ↔ full_zeno_prune s = []`
 - `is_gauge : TopoElement → Bool` returns `true` for ALL elements
 
-**Runtime layer (Python/Rust/TS) requires more than count balance.** Since `twist_core.py` 8f02271 (and the matching quantum-os v0.17), `is_zfa` returns `is_count_balanced(h) ∧ is_pauli_closed(h)`. Pauli closure is the order-sensitive constraint that the matrix product of twists folds to a scalar multiple of the identity (`{±I, ±iI}`), computed by `pauli_fold` from `twist_core.py`'s twist→matrix mapping. Empirically, every admissible (no immediate Hermitian reversal) count-balanced BFS-generated history is automatically Pauli-closed at every length tested — so the tighter runtime check is non-breaking for the stable-history ensemble. Promoting Pauli closure to a Lean theorem (e.g. `pauli_closed_of_admissible_zfa`) is open work; see [Experimental_Consistency.md §2.1](Experimental_Consistency.md).
+**Runtime layer (Python/Rust/TS) requires more than count balance.** Since `twist_core.py` 8f02271 (and the matching quantum-os v0.17), `is_zfa` returns `is_count_balanced(h) ∧ is_pauli_closed(h)`. Pauli closure is the order-sensitive constraint that the matrix product of twists folds to a scalar multiple of the identity (`{±I, ±iI}`), computed by `pauli_fold` from `twist_core.py`'s twist→matrix mapping. Pauli closure is now a Lean theorem in full generality: **`count_balanced_pauli_closed`** (QLF_TwistAlphabet.lean) proves every count-balanced twist history (`#^=#v ∧ #<=#> ∧ #/=#\ ∧ #+=#−`) folds to a Pauli scalar `{±I, ±iI}` — for *all* histories, including cross-axis interleavings (`^<v>`-style), not just concatenations of adjacent Hermitian pairs. So **count balance alone implies Pauli closure**, and the runtime `is_count_balanced ∧ is_pauli_closed` check is Lean-anchored end-to-end (the second conjunct is entailed by the first). The proof goes via `nf_decomp` (every fold = `phase • axisMatrix(axisProd)`, using the 16-case `axisMatrix_mul` built from the 9 σ-product identities) and the `(ZMod 2)²` axis-parity bridge `axisProd_eq_I_of_countBalanced`. Empirically reconfirmed beforehand: 0 counterexamples across all 5,296 count-balanced histories of length ≤ 6. See [Experimental_Consistency.md §2.1](Experimental_Consistency.md).
 
 ### Σ₈ vs Pauli algebra (important for new modules)
 
