@@ -602,7 +602,7 @@ theorem map_axisVec_sum (ts : List Twist) :
     cases t <;>
       refine ⟨?_, ?_⟩ <;>
       simp [twistNF, axisToVec, List.count_cons, Prod.fst_add, Prod.snd_add,
-            Nat.cast_add, Nat.cast_one] <;>
+            Nat.cast_add, Nat.cast_one, beq_iff_eq] <;>
       ring
 
 /-- **Count balance** on a twist history: each Hermitian-conjugate pair occurs
