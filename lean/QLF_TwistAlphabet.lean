@@ -491,8 +491,11 @@ theorem pauliScalarToMatrix_eq (p : PauliScalar) :
 
 /-- `coePS` is multiplicative (the ℤ/4 phase group → ℂ). -/
 theorem coePS_mul (p q : PauliScalar) : coePS (p * q) = coePS p * coePS q := by
+  -- `*` is `PauliScalar.mul` by the instance; `change` exposes it (defeq) so
+  -- `simp [PauliScalar.mul]` can iota-reduce the match on constructor args.
+  change coePS (PauliScalar.mul p q) = coePS p * coePS q
   cases p <;> cases q <;>
-    simp [coePS, Complex.I_mul_I, mul_neg, neg_mul, neg_neg, mul_one, one_mul]
+    simp [coePS, PauliScalar.mul, Complex.I_mul_I, mul_neg, neg_mul, neg_neg, mul_one, one_mul]
 
 /-- `pauliScalarToMatrix` is multiplicative: the four scalar matrices form a
     group under matrix multiplication, isomorphic to the `PauliScalar` ℤ/4. -/
