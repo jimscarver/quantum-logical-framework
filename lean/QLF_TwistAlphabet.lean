@@ -364,4 +364,123 @@ theorem interleaved_xlvr_folds_to_negI :
           Complex.ofReal_re, Complex.ofReal_im] <;>
     ring
 
+-- ==========================================
+-- Normal form: phase (PauliScalar) × axis (Klein four-group)  — Milestone 2
+-- ==========================================
+--
+-- Every ordered fold of twist matrices equals `phase • axis-matrix`, with
+-- `phase ∈ {±1, ±i}` and `axis ∈ {I, X, Y, Z}`. The phase absorbs the
+-- ±i bookkeeping; the axis lives in the Klein four-group. This is the
+-- general structure behind both the pair-by-pair and interleaved closures.
+-- Step 1 (this section): the algebra — multiplying two normal forms, and
+-- realising each twist as a normal form.
+
+/-- `pauliScalarToMatrix p` left-multiplication, unfolded per scalar — the
+    bridge from the abstract phase to a concrete `•`-scaling on matrices. -/
+theorem psm_one_mul (A : M) : pauliScalarToMatrix PauliScalar.one * A = A := by
+  show (1 : M) * A = A
+  rw [one_mul]
+
+theorem psm_negOne_mul (A : M) : pauliScalarToMatrix PauliScalar.negOne * A = -A := by
+  show (-1 : M) * A = -A
+  rw [neg_one_mul]
+
+theorem psm_i_mul (A : M) : pauliScalarToMatrix PauliScalar.i * A = Complex.I • A := by
+  show (Complex.I • (1 : M)) * A = Complex.I • A
+  rw [smul_mul_assoc, one_mul]
+
+theorem psm_negI_mul (A : M) : pauliScalarToMatrix PauliScalar.negI * A = -(Complex.I • A) := by
+  show (-(Complex.I • (1 : M))) * A = -(Complex.I • A)
+  rw [neg_mul, smul_mul_assoc, one_mul]
+
+/-- The four Pauli axes. Their matrices generate the Pauli group; modulo
+    phase they form the Klein four-group. -/
+inductive Axis where
+  | I | X | Y | Z
+deriving DecidableEq, Repr
+
+/-- Axis → its 2×2 matrix. -/
+noncomputable def axisMatrix : Axis → M
+  | Axis.I => 1
+  | Axis.X => σx
+  | Axis.Y => σy
+  | Axis.Z => σz
+
+/-- Klein four-group law on axes: `I` identity, every element self-inverse,
+    `X·Y = Z`, `Y·Z = X`, `Z·X = Y` (and symmetric). -/
+def axisMul : Axis → Axis → Axis
+  | Axis.I, a       => a
+  | a,       Axis.I => a
+  | Axis.X, Axis.X  => Axis.I
+  | Axis.Y, Axis.Y  => Axis.I
+  | Axis.Z, Axis.Z  => Axis.I
+  | Axis.X, Axis.Y  => Axis.Z
+  | Axis.Y, Axis.X  => Axis.Z
+  | Axis.Y, Axis.Z  => Axis.X
+  | Axis.Z, Axis.Y  => Axis.X
+  | Axis.Z, Axis.X  => Axis.Y
+  | Axis.X, Axis.Z  => Axis.Y
+
+/-- Phase cocycle for axis multiplication: the `±i` (or `±1`) factor by
+    which `axisMatrix W * axisMatrix W'` differs from `axisMatrix (W·W')`.
+    Reads off the σ-product identities (`σ_xσ_y = +iσ_z`, `σ_yσ_x = −iσ_z`, …). -/
+def cocycle : Axis → Axis → PauliScalar
+  | Axis.I, _       => PauliScalar.one
+  | _,       Axis.I => PauliScalar.one
+  | Axis.X, Axis.X  => PauliScalar.one
+  | Axis.Y, Axis.Y  => PauliScalar.one
+  | Axis.Z, Axis.Z  => PauliScalar.one
+  | Axis.X, Axis.Y  => PauliScalar.i
+  | Axis.Y, Axis.X  => PauliScalar.negI
+  | Axis.Y, Axis.Z  => PauliScalar.i
+  | Axis.Z, Axis.Y  => PauliScalar.negI
+  | Axis.Z, Axis.X  => PauliScalar.i
+  | Axis.X, Axis.Z  => PauliScalar.negI
+
+/-- **Axis multiplication with cocycle phase** — the matrix product of two
+    axis matrices is the cocycle phase times the Klein-product axis matrix.
+    The 16 cases reduce to the 9 σ-product identities plus the identity
+    rows. This is the algebraic crux of the normal form. -/
+theorem axisMatrix_mul (W W' : Axis) :
+    axisMatrix W * axisMatrix W'
+      = pauliScalarToMatrix (cocycle W W') * axisMatrix (axisMul W W') := by
+  cases W <;> cases W' <;>
+    simp only [axisMatrix, cocycle, axisMul, psm_one_mul, psm_negOne_mul,
+      psm_i_mul, psm_negI_mul, one_mul, mul_one] <;>
+    first
+      | rfl
+      | rw [sigma_x_sq]
+      | rw [sigma_y_sq]
+      | rw [sigma_z_sq]
+      | rw [sigma_xy]
+      | rw [sigma_yx]
+      | rw [sigma_yz]
+      | rw [sigma_zy]
+      | rw [sigma_zx]
+      | rw [sigma_xz]
+
+/-- A normal form: a Pauli scalar phase together with an axis. -/
+abbrev NF := PauliScalar × Axis
+
+/-- Realise a normal form as a matrix: phase times axis matrix. -/
+noncomputable def evalNF (s : NF) : M := pauliScalarToMatrix s.1 * axisMatrix s.2
+
+/-- Each twist IS a normal form: a sign phase (`one`/`negOne`) and an axis.
+    `^v ↔ Y`, `<> ↔ X`, `/\ ↔ Z`, `+- ↔ I`; the leading sign matches
+    `Twist.toMatrix`. -/
+def twistNF : Twist → NF
+  | Twist.up        => (PauliScalar.one,    Axis.Y)
+  | Twist.down      => (PauliScalar.negOne, Axis.Y)
+  | Twist.left      => (PauliScalar.negOne, Axis.X)
+  | Twist.right     => (PauliScalar.one,    Axis.X)
+  | Twist.slash     => (PauliScalar.one,    Axis.Z)
+  | Twist.backslash => (PauliScalar.negOne, Axis.Z)
+  | Twist.plus      => (PauliScalar.one,    Axis.I)
+  | Twist.minus     => (PauliScalar.negOne, Axis.I)
+
+/-- Each twist's matrix is the realisation of its normal form. -/
+theorem twist_toMatrix_eq_evalNF (t : Twist) : t.toMatrix = evalNF (twistNF t) := by
+  cases t <;>
+    simp only [Twist.toMatrix, twistNF, evalNF, axisMatrix, psm_one_mul, psm_negOne_mul]
+
 end QLF
