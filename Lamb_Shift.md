@@ -22,7 +22,7 @@ $$\mathcal{L}(n) \;\approx\; 2 \log\!\frac{1}{\alpha} \;-\; k(n, 0) \;+\; \text{
 
 with `k(n, 0)` the *Bethe constant* (`k(1, 0) ≈ 2.984`, `k(2, 0) ≈ 2.812`) capturing the oscillator-strength-weighted correction to the naive substrate depth-ratio log `2 log(1/α) ≈ 9.84`.
 
-The framework of [§§2–4 below] decomposes this into three substrate origins; [§§5–6] flag the prefactor and Bethe-constant pieces still open.
+The framework of [§§2–4 below] decomposes this into three substrate origins; §5 flags the prefactor pieces still partial, and §6 (with §6.1) reclassifies the Bethe constant `k(n, 0)` as a continuum-sector boundary input rather than an open gap.
 
 ---
 
@@ -99,9 +99,17 @@ $$k(n, 0) \;=\; \frac{1}{2\, \mathrm{Ry}} \sum_{m \neq n} |\langle \psi_n | \mat
 
 In QLF substrate terms: this becomes a sum over **closure-overlap-weighted depth-ratio logs**. The closure overlap `⟨ψ_n | p | ψ_m⟩` is the substrate counterpart of an oscillator strength — it measures how well two shell topologies couple via a momentum operator (i.e., a closure-rate matrix element).
 
-**Tier-3 open.** Substrate-derivation of `k(n, 0)` from QLF shell-closure overlap counts is an open piece. The structural form `log(geometric-mean transition-energy / Ry)` is right; the numerical evaluation requires the closure-overlap matrix elements, which need the radial structure of shell topologies (above the RCA₀ floor — see [`ReverseMathematics.md`](ReverseMathematics.md)).
+### §6.1 `k(n, 0)` is continuum-dominated — a principled boundary, not a closeable gap
 
-For numerical work in [`lamb_shift_demo.py`](lamb_shift_demo.py), `k(n, 0)` enters as a Tier-2 input from standard QED.
+Closer analysis (reproducible in [`bethe_log_demo.py`](bethe_log_demo.py)) shows `k(n, 0)` is not the kind of Tier-3 target that more substrate-combinatoric work will close. Write the Bethe logarithm as a **mean excitation energy**, `k(n, 0) = log(I_n / Ry)`. Then `k(1, 0) = 2.984` means `I_1S = e^{2.984}·Ry ≈ 19.77 Ry ≈ 269 eV`.
+
+But **every bound transition** `1s → np` has excitation energy `ΔE = 1 − 1/n² < 1 Ry` — the discrete spectrum tops out at the ionization threshold (`1 Ry`). A geometric-mean excitation energy of `19.77 Ry` is therefore **impossible to obtain from bound shells**; it is set almost entirely by the **high-energy continuum** (virtual photoelectron states at tens of Ry). The demo makes this quantitative: with exact closed-form oscillator strengths, the bound shells (`Σf_bound = 0.565`) contribute a small *negative* `(ΔE²f)`-weighted mean log (`≈ −0.21`); the continuum (`Σf_cont = 0.435`) flips the sign and supplies the entire `+2.984`.
+
+The two distinct "mean excitation energies" expose the weighting: the plain-`f`-weighted stopping-power value is `I₀ ≈ 1.1 Ry` (~15 eV), while the Lamb-shift `ΔE²f`-weighting gives `I ≈ 19.77 Ry` — the high-energy emphasis that makes the continuum dominate.
+
+**Classification.** The substrate fixes everything structural — the `α⁵` scaling, the `log(α⁻²)` Bethe-log *range*, the `[R_e, R_n]` cutoffs, and most of the `4/(3π n³)` prefactor. What remains, `k(n, 0)`, is a **continuum-sector** quantity: it depends on the free-electron virtual states, which lie *above* the RCA₀ bound-shell-closure combinatoric floor that the QLF substrate census (`C(2n,n)` topology counts) operates in. So `k(n, 0)` is best treated as a **principled logical boundary** — analogous to the `spectral_hilbert_polya` axiom — with the structural form derived and the continuum-weighted number inherited as a boundary input, rather than as a gap to be closed by more clever bound-state counting. (A tempting `I_1S ≈ 2π² Ry` coincidence matches `k(1, 0)` to 0.15% but fails for `k(2, 0)`, confirming there is no `n`-independent closed form; we do not claim one.)
+
+For numerical work in [`lamb_shift_demo.py`](lamb_shift_demo.py), `k(n, 0)` enters as a boundary input from standard QED; [`bethe_log_demo.py`](bethe_log_demo.py) demonstrates the continuum-dominance that justifies that status.
 
 ---
 
@@ -141,9 +149,9 @@ Verification in [`lamb_shift_demo.py`](lamb_shift_demo.py).
 - AMM correction `+68 MHz` and vacuum-polarization `−27 MHz` for the 2S₁/₂ splitting — standard QED, used as numerical inputs.
 - Total 2S₁/₂ Lamb shift prediction matches NIST 1057.85 MHz to ~0.7% with substrate α.
 
-**Tier 3 (open).**
+**Tier 3 (open) / boundary.**
 
-- Substrate derivation of `k(n, 0)` from closure-overlap-weighted depth-ratio sums (§6). The structural form is identified; the numerical evaluation requires shell-topology radial structure.
+- `k(n, 0)` — **reclassified (§6.1) from "open" to a principled boundary.** It is continuum-dominated: the mean excitation energy `I_1S ≈ 19.77 Ry` is set by free-electron virtual states (tens of Ry), while all bound transitions sit below `1 Ry` and contribute a small *negative* amount. The continuum sector is above the RCA₀ bound-shell-closure floor, so `k(n, 0)` is inherited as a boundary input (like `spectral_hilbert_polya`), not closed by more substrate counting. Demonstrated in [`bethe_log_demo.py`](bethe_log_demo.py).
 - Two `1/π` phase factors in the prefactor (§5) — finish the substrate phase-coherence accounting.
 - Substrate derivation of the AMM `+68 MHz` contribution — that's the `g − 2` Schwinger term `α/(2π)` applied to the bound-state magnetic moment, separate Tier-3 target.
 - Substrate derivation of the vacuum-polarization `−27 MHz` contribution — Uehling potential from virtual e⁺e⁻ pair-production at the proton, ties to [`Photon_Energy_Bits.md`](Photon_Energy_Bits.md) pair-production accounting.
@@ -154,7 +162,7 @@ Verification in [`lamb_shift_demo.py`](lamb_shift_demo.py).
 ## §9 What this is NOT
 
 - **Not a new physics claim.** The Lamb shift formula has been textbook QED since Bethe (1947); the numerical match to NIST is the published QED precision. The QLF contribution is the structural decomposition into substrate origins.
-- **Not a full Lean-anchored derivation.** [`lean/QLF_LambShift.lean`](lean/QLF_LambShift.lean) Lean-anchors the substrate Bethe-log range and the α⁵-scaling claim; substrate derivation of `k(n, 0)` is still open.
+- **Not a full Lean-anchored derivation.** [`lean/QLF_LambShift.lean`](lean/QLF_LambShift.lean) Lean-anchors the substrate Bethe-log range and the α⁵-scaling claim; `k(n, 0)` is a continuum-sector boundary input (§6.1), structurally framed but not combinatorially derived.
 - **Not a derivation of higher-order QED.** The two-loop `α⁶` correction, the Wichmann-Kroll vacuum polarization, and similar refinements are next-next-layer beyond what is composed here.
 
 ---

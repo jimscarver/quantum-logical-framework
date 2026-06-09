@@ -110,8 +110,11 @@ noncomputable def twice_log_inv_alpha : ℝ := 2 * Real.log (1 / alpha_QLF)
     `L_eff(2) ≈ 9.84 - 2.81 ≈ 7.03` (Bethe's published value 7.6859
     includes higher-order corrections beyond the leading subtraction).
 
-    This module takes `k_n_0` as a parameter; substrate derivation of
-    `k(n,0)` from shell-closure overlap weighted sums is Tier-3 open. -/
+    This module takes `k_n_0` as a parameter. `k(n,0)` is a continuum-sector
+    boundary input (not a closeable Tier-3 gap): it is the continuum-dominated
+    mean excitation energy `log(I_n/Ry)` with `I_1S ≈ 19.77 Ry`, set by
+    free-electron virtual states above the RCA₀ bound-shell-closure floor.
+    See `Lamb_Shift.md` §6.1 and `bethe_log_demo.py`. -/
 noncomputable def L_eff (n : ℕ) (k_n_0 : ℝ) : ℝ :=
   twice_log_inv_alpha - k_n_0
 
