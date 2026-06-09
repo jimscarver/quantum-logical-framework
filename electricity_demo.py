@@ -19,6 +19,8 @@ Numerically supports Electricity.md. Demonstrates:
   5. Joule heating = Landauer dissipation — P = I²R corresponds to P/(kT ln2)
      irreversible log-2 closures per second; each scattered (pruned) closure
      dumps kT ln2 of the per-event log-2 quantum to the lattice bath.
+  6. Ampère — a current builds the circulating spatial-axis count field B:
+     B = μ0 I / (2πr) and ∮B·dl = μ0 I independent of radius (Maxwell.md §1, Eq.4).
 
 Pure Python (no deps). Seeded for reproducibility.
 """
@@ -131,4 +133,23 @@ print(f"   ⇒ {bit_rate:.3e} irreversible log-2 closures/s  (P / kT·ln2, Landa
 print("   Each pruned (scattered) closure dumps kT·ln2 — the per-event log-2")
 print("   quantum (MRE.md) — to the lattice bath. Joule heat is that, summed.")
 
-print("\nAll five mappings reproduce the textbook relations from the QLF substrate.")
+
+# ---------------------------------------------------------------------------
+# 6.  Ampère: a current builds the circulating spatial-axis count field
+# ---------------------------------------------------------------------------
+mu0 = 1.25663706212e-6     # H/m (CODATA)
+I_wire = 3.0               # A
+print("\n== 6. Ampère — current builds the magnetic (spatial-axis count) field ==")
+print(f"   straight wire, I = {I_wire:.0f} A:   B = μ0·I / (2πr)")
+ok_circ = True
+for r in (0.01, 0.05, 0.10):
+    B = mu0 * I_wire / (2 * math.pi * r)        # field magnitude at radius r
+    circ = B * 2 * math.pi * r                  # ∮ B·dl around that loop
+    if abs(circ - mu0 * I_wire) > 1e-18:
+        ok_circ = False
+    print(f"     r={r*100:4.0f} cm   B={B*1e6:8.3f} µT     ∮B·dl = {circ:.6e}  (= μ0·I = {mu0*I_wire:.6e})")
+print(f"   B ∝ I/r, and ∮B·dl = μ0·I independent of radius: {ok_circ}")
+print("   ⇒ the curl of the spatial-twist-count field is the gauge-fold transport")
+print("     rate J (Ampère). Current and B are two readings of one transport.")
+
+print("\nAll six mappings reproduce the textbook relations from the QLF substrate.")

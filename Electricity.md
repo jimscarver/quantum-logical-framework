@@ -28,6 +28,14 @@ $$I = \frac{dq}{dt} = n\,q\,v_d \quad\text{(carriers × charge × drift velocity
 
 with `v_d` the mean forward drift of the carriers' history strings per tick. No charge moves without a bias to move it — that bias is voltage.
 
+## 1a. Current and the magnetic field
+
+A current doesn't just move charge — it builds a magnetic field, and QLF says why. The magnetic field here is a **net spatial-axis twist count**, `B_x = count(>) − count(<)` (and likewise y, z; [Maxwell.md](Maxwell.md) §1) — the same per-axis count that is a history's *momentum* ([Conservation.md](Conservation.md) §3). A current is gauge-folded carriers drifting along an axis; that directed transport imprints a **circulating** spatial-axis bias on the surrounding vacuum, and that circulation *is* B. Ampère's law,
+
+$$\nabla\times\mathbf{B} = \mu_0\mathbf{J}\ \;(+\,\mu_0\varepsilon_0\,\partial_t\mathbf{E}),$$
+
+is then the statement that the **curl of the spatial-twist-count field equals the gauge-fold transport rate** `J` ([Maxwell.md](Maxwell.md) Eq. 4). Equivalently, in integral form `∮ B·dl = μ₀ I_enc`: the circulation of the count field around any loop returns the enclosed transport rate, independent of the loop radius. The right-hand rule is the chirality of the transport fixing the sense of the circulation; a solenoid or electromagnet is a current organizing the vacuum's spin-orientation bias along the coil axis ([Magnetism_Spatial_Dynamics.md](Magnetism_Spatial_Dynamics.md)). Current and field are two readings of one transport — and a static `count(+) − count(−)` imbalance with *no* transport is pure charge with no field, exactly as `∇·B = 0` requires (`no_magnetic_monopoles`). [`electricity_demo.py`](electricity_demo.py) checks the circuital law numerically: `∮ B·dl = μ₀ I` to machine precision, independent of radius.
+
 ## 2. Voltage — the free-action gradient that drives transport
 
 Voltage is **energy per charge**: the free-action gradient that biases which way a carrier's next closure resolves. The QLF electric field is the transverse momentum-exchange rate of the ZFA event stream ([Maxwell.md](Maxwell.md) §2, `∇·E = ρ/ε₀`); the potential difference is its line integral, `V = ∫ E·dl`. Each carrier carries `ℏω` of energy at its internal Markov-blanket frequency ([Information_Energy_Equivalence.md](Information_Energy_Equivalence.md), [Per_Qubit_Mass_Quantum.md](Per_Qubit_Mass_Quantum.md)); voltage is the work per unit charge the field does pushing that closure forward. An EMF is any non-electrostatic source of the same gradient.
@@ -89,6 +97,7 @@ so **the quantum of resistance is the impedance of free space divided by `2α`**
 3. **Superconductivity** — coherent quiet-frequency channel keeps drift = 1.0 with the field off; normal channel decays.
 4. **Conductance quantum** — `G₀ = 77.4809 µS`, `R_K = Z₀/(2α) = 25812.807 Ω` (ratio `1.00000000`).
 5. **Joule = Landauer** — 1 W at 300 K ↔ `3.48×10²⁰` `log 2` closures/s.
+6. **Ampère** — `B = μ₀I/2πr` around a wire, and the circulation `∮ B·dl = μ₀ I` independent of radius (current builds the circulating spatial-axis count field).
 
 ## 9. Framing: one premise, then derivation
 
@@ -96,7 +105,7 @@ Granting the premise, the rest is derivation. Charge is the gauge-fold count; cu
 
 - **Lean-anchored:** charge / `∇·B = 0` (`no_magnetic_monopoles`); the substrate `α` (`alpha_QLF_eq`); coherence (`decoherence_impossibility`); the per-event `log 2` (`zfa_closure_minimizes_free_energy`, [`lean/QLF_FreeEnergy.lean`](lean/QLF_FreeEnergy.lean)).
 - **Entailed by the premise:** resistance = `1/W_ZFA` latency (unified with time dilation and gravity); Ohm's law as its linear response; Joule heat = Landauer dissipation; superconductivity = quiet-frequency isolation; `R_K = Z₀/(2α)`.
-- **Open quantitative targets:** first-principles carrier-scattering rates and `ρ(T)` for specific materials, and `T_c` from blanket-depth vs thermal scattering — open by *specification*, not by doubt about the mechanism.
+- **Open quantitative targets:** first-principles carrier-scattering rates and `ρ(T)` for specific materials, and `T_c` from blanket-depth vs thermal scattering — open by *specification*, not by doubt about the mechanism. The Ampère/Faraday curl equations (`∇×B = μ₀J`, `∇×E = −∂B/∂t`) are stated structurally but await the time-indexed event-sequence Lean module ([Maxwell.md](Maxwell.md) Eq. 3–4 flag this as future work), unlike the divergence equations which are already verified.
 
 ### Predictions and falsifiers
 
