@@ -118,6 +118,7 @@ QLF is the mathematics that has **active inference built into its foundation**. 
 
 ### 3. Physics and experiments
 - [**Experimental_Consistency.md**](Experimental_Consistency.md) — numerical and conceptual links between QLF and known physics
+- [**Open_Problems.md**](Open_Problems.md) — gap registry: what is closed, what is a principled boundary, and what is genuinely open, with a pointer to each item's owning doc
 - [**SpectralGap.md**](SpectralGap.md) — the spectral gap `|count_pos − count_neg|` vanishes iff ZFA-symmetric; unifies Riemann zero spacing (Wigner-Dyson ~ √(πn)), Maxwell Gauss duality (`divB + charge = 0`), and quantum stability (`decoherence_impossibility`)
 - [**Maxwell.md**](Maxwell.md) — all four Maxwell equations derived from ZFA: ∇·B=0 machine-verified (`no_magnetic_monopoles`), Gauss duality identity `divB=−charge`, Faraday and Ampère-Maxwell confirmed numerically in `maxwell_qlf.py`
 - [**Collective_Electrodynamics.md**](Collective_Electrodynamics.md) — Mead's collective EM in QLF: photon as joint emitter-absorber ZFA handshake (relational, not projectile), fluxoid as ZFA loop, vector potential as unresolved free action, Aharonov-Bohm explained
