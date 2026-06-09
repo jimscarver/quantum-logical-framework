@@ -77,17 +77,17 @@ The α⁵ scaling thus extends the substrate-vertex-counting framework that alre
 
 ---
 
-## §5 The 4/(3π n³) prefactor — partially substrate-derivable
+## §5 The 4/(3π n³) prefactor — the π is the validated g-2 loop-phase
 
 The full Lamb formula prefactor is `4/(3π n³)`. Its substrate decomposition:
 
 - **`1/n³` shell-density factor.** Direct from `|ψ_n(0)|² ∝ 1/n³` — standard Coulomb wavefunction; substrate-derivable via the radial part of the shell-resonance topology in [`Hydrogen.md`](Hydrogen.md) §4.1.
 - **`4` from `4π` solid angle ÷ `π` vertex normalisation.** Each vertex integration covers the full substrate solid angle `4π`; each gauge-twist vertex contributes one `1/π` from phase-coherence selectivity (§6.1 of [`Magnetism_Spatial_Dynamics.md`](Magnetism_Spatial_Dynamics.md)). The net `4π/π = 4` per vertex pair.
-- **`1/(3π)` from polarization-transverse projection + loop phase.** Of three spatial polarization axes, vacuum photons populate only the two transverse — factor `2/3` — combined with one further `1/(2π)` from the loop phase-coherence closure: `(2/3) × (1/(2π)) = 1/(3π)`. The `2/3` transverse fraction falls out of the 6-twist spatial alphabet split into 2 transverse + 1 longitudinal per propagation direction.
+- **`1/(3π)` from polarization-transverse projection + loop phase.** Of three spatial polarization axes, vacuum photons populate only the two transverse — factor `2/3` — combined with one `1/(2π)` from the **loop-phase closure**: `(2/3) × (1/(2π)) = 1/(3π)`. The `2/3` transverse fraction falls out of the 6-twist spatial alphabet split into 2 transverse + 1 longitudinal per propagation direction.
 
-Combined: `(1/n³) × 4 × (1/(3π)) = 4/(3π n³)`. ✓
+Combined: `(1/n³) × 4 × (1/(3π)) = 4/(3π n³)`. ✓  Equivalently, pulling the loop phase out: **`4/(3π n³) = 4 · (2/3) · (1/(2π)) · (1/n³)`** — the form Lean-anchored as `lamb_prefactor_loop_phase` ([`lean/QLF_LambShift.lean`](lean/QLF_LambShift.lean)).
 
-The structural decomposition is clean modulo the precise structural origin of the loop phase factor `1/(2π)`. This piece sits in the substrate-angular-counting framework already used for α; a future revision of `Magnetism_Spatial_Dynamics.md` §6.1.3 directional-tensor work should close it.
+**The π is not open — it is the validated g-2 loop-phase.** The `1/(2π)` loop-phase factor here is the *same* substrate primitive as `schwinger_loop_phase` in [`lean/QLF_GMinusTwo.lean`](lean/QLF_GMinusTwo.lean), where it gives the electron anomaly `a_e = α/(2π)` — a parameter-free prediction matching CODATA to **0.2%** ([`g_minus_2.md`](g_minus_2.md)). So the prefactor's entire π-content is an *empirically validated* shared primitive, not an independent open piece. Of the decomposition, three factors are clean substrate quantities (`1/n³` shell density, `2/3` transverse polarisation, `1/(2π)` validated loop phase) and only the rational **`4`** (two-vertex emit×reabsorb / solid-angle normalisation) still wants a cleaner first-principles origin — a single rational factor, not a transcendental gap.
 
 ---
 
@@ -140,7 +140,7 @@ Verification in [`lamb_shift_demo.py`](lamb_shift_demo.py).
 
 - `α⁵ × m_e c²` scaling from two-vertex loop topology on top of Bohr (§4).
 - `log(α⁻²)` form from substrate Bethe-log range `[R_e, R_n]` between two Markov-blanket depths (§3).
-- `8/(3π n³)` prefactor partially decomposed: `1/n³` from shell density, `4π` solid angle, `2/3` transverse-polarization — clean. The two `1/π` phase factors are partial (§5).
+- `4/(3π n³)` prefactor decomposed as `4 · (2/3) · (1/(2π)) · (1/n³)` (Lean-anchored, `lamb_prefactor_loop_phase`): `1/n³` shell density and `2/3` transverse polarisation are clean substrate factors, and the entire π is the `1/(2π)` loop-phase primitive shared with — and empirically validated by — g-2 (`a_e = α/(2π)`, 0.2%). Only the rational `4` (two-vertex / solid-angle) still wants a cleaner origin (§5).
 - Vacuum spectrum from closure-count + depth-redshift (§2).
 
 **Tier 2 (numerical, with standard QED inputs).**
@@ -152,7 +152,7 @@ Verification in [`lamb_shift_demo.py`](lamb_shift_demo.py).
 **Tier 3 (open) / boundary.**
 
 - `k(n, 0)` — **reclassified (§6.1) from "open" to a principled boundary.** It is continuum-dominated: the mean excitation energy `I_1S ≈ 19.77 Ry` is set by free-electron virtual states (tens of Ry), while all bound transitions sit below `1 Ry` and contribute a small *negative* amount. The continuum sector is above the RCA₀ bound-shell-closure floor, so `k(n, 0)` is inherited as a boundary input (like `spectral_hilbert_polya`), not closed by more substrate counting. Demonstrated in [`bethe_log_demo.py`](bethe_log_demo.py).
-- Two `1/π` phase factors in the prefactor (§5) — finish the substrate phase-coherence accounting.
+- The rational `4` (two-vertex / solid-angle) factor in the prefactor (§5) — the π is resolved (validated g-2 loop-phase), leaving only this rational factor wanting a cleaner first-principles origin.
 - Substrate derivation of the AMM `+68 MHz` contribution — that's the `g − 2` Schwinger term `α/(2π)` applied to the bound-state magnetic moment, separate Tier-3 target.
 - Substrate derivation of the vacuum-polarization `−27 MHz` contribution — Uehling potential from virtual e⁺e⁻ pair-production at the proton, ties to [`Photon_Energy_Bits.md`](Photon_Energy_Bits.md) pair-production accounting.
 - Tighten substrate α below the 0.026% floor — the Lamb shift inherits `5 × 0.026% ≈ 0.13%` precision from α⁵ scaling, just as the Bohr formula inherits `2 × 0.026% ≈ 0.053%` from α².

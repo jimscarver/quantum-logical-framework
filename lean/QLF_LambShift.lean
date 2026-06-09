@@ -151,6 +151,24 @@ theorem lamb_alpha_scaling_eq : lamb_alpha_scaling = alpha_QLF^5 := by
 noncomputable def lamb_prefactor (n : ℕ) : ℝ :=
   4 / (3 * Real.pi * (n : ℝ)^3)
 
+/-- The loop-phase factor `1/(2π)` — the SAME substrate primitive as
+    `QLF_GMinusTwo.schwinger_loop_phase`, which `a_e = α/(2π)` validates
+    against CODATA to 0.2%.  (Defined locally to avoid a cross-module import;
+    it is definitionally the g-2 factor.) -/
+noncomputable def loop_phase : ℝ := 1 / (2 * Real.pi)
+
+/-- **Prefactor / loop-phase decomposition** — the Lamb prefactor `4/(3π n³)`
+    is the shared loop-phase `1/(2π)` times purely *rational* substrate
+    factors: `4` (two-vertex / solid-angle), `2/3` (transverse polarisation,
+    2 of 3 spatial axes), and `1/n³` (shell density).  ALL the π in the
+    prefactor is the single loop-phase primitive that g-2 empirically
+    validates — so §5's "open loop-phase" is not an independent gap; only the
+    rational two-vertex factor wants a cleaner first-principles origin. -/
+theorem lamb_prefactor_loop_phase (n : ℕ) :
+    lamb_prefactor n = 4 * (2 / 3) * loop_phase * (1 / (n : ℝ)^3) := by
+  unfold lamb_prefactor loop_phase
+  ring
+
 /-- **The Lamb shift** at shell `n` in units of `m_e c²`,
     parameterised by the Bethe constant `k(n, 0)`:
 

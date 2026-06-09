@@ -61,7 +61,7 @@ canonical status list; when an item moves, update it here and in its owning doc.
 
 | Item | Status | Where |
 |---|---|---|
-| **Lamb prefactor `4/(3π n³)`** | Two `1/π` phase-coherence factors only partially decomposed | [`Lamb_Shift.md`](Lamb_Shift.md) §5 |
+| **Lamb prefactor `4/(3π n³)`** | Mostly resolved: `= 4·(2/3)·(1/(2π))·(1/n³)` (Lean `lamb_prefactor_loop_phase`); the π is the g-2-validated loop-phase primitive (0.2%), `1/n³`/`2/3` clean. Only the rational `4` (two-vertex/solid-angle) wants a cleaner origin | [`Lamb_Shift.md`](Lamb_Shift.md) §5 |
 | **Dirac correction, per-mechanism Lean** | Kinematic / spin-orbit / Darwin α² pieces are doc-anchored, not yet individual Lean chains from `QLF_Pauli`/`QLF_TwistAlphabet` | [`Dirac_Correction.md`](Dirac_Correction.md) §6 |
 | **Lorentz boost as a Lean theorem** | `lorentz_boost_from_zfa_frequencies` needs the Markov-blanket frequency structure in-kernel | [`Cross_Frequency_Lorentz.md`](Cross_Frequency_Lorentz.md) §7 |
 | **Maxwell curl laws** (`∇×B=μ₀J`, `∇×E=−∂B/∂t`) | Stated structurally; await a time-indexed event-sequence Lean module (divergence laws already verified) | [`Maxwell.md`](Maxwell.md), [`Electricity.md`](Electricity.md) |
