@@ -138,6 +138,16 @@ The CODATA value `G = 6.67430 × 10⁻¹¹ m³ kg⁻¹ s⁻²` is the SI calibra
 
 **Substrate Tier 1 (structural):** the *form* of Newton's law `F ∝ M m / r²` and the dimensional structure of G fall out from §§3–7. **Tier 2 (numerical):** G in SI = bookkeeping. **Tier 3 (open):** if one wants to *predict* the SI value of G from substrate alone, one would need to derive L_Planck (or M_Planck) in terms of standard observable inputs — the same Planck-scale question that asks "why is the proton 10¹⁹ Planck masses smaller than the Planck mass?" That is the hierarchy problem, scoped in [`HadronicDepth.md`](HadronicDepth.md).
 
+### §8.1 The hierarchy is the blanket-depth (frequency) distribution
+
+That Tier-3 question — why is the proton `~10¹⁹` Planck masses light, equivalently why is `G` so weak — is, in QLF, the **depth/frequency distribution itself**. A particle's mass is its Markov-blanket depth, `R = m_Planck/m = E_Planck/(mc²) = 1/ω` ([`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md)): heavy = shallow (high frequency), light = deep (low frequency). The Planck-to-proton hierarchy is then a ratio of blanket depths, and gravity's weakness falls out exactly:
+
+$$\frac{F_\text{grav}}{F_\text{EM}}\bigg|_{pp} \;=\; \frac{G\,m_p^2}{e^2/4\pi\varepsilon_0} \;=\; \frac{1}{\alpha}\left(\frac{m_p}{m_\text{Planck}}\right)^2 \;=\; \frac{1}{\alpha\,R_p^{\,2}} \;\approx\; 8.1\times10^{-37}.$$
+
+[`gravity_emergence_demo.py`](gravity_emergence_demo.py) confirms this to a ratio of `1.000000` against the direct value (textbook `~8×10⁻³⁷`). **Gravity is weak precisely because the proton sits ~10¹⁹ Planck-depths down** — the gravitational hierarchy *is* the proton's blanket depth squared, and the only constant in it is `α`, which QLF derives from the substrate (`alpha_QLF_eq`, 0.026%; [`Magnetism_Spatial_Dynamics.md`](Magnetism_Spatial_Dynamics.md) §6.1).
+
+**This recasts the hierarchy; it does not close it — and the Planck scale says why.** `L_Planck`, `τ_Planck`, and hence `M_Planck` are substrate **primitives** (the irreducible event quantum: one Planck length × one Planck tick per event, §8), *not* derived from anything below. There is no independent QLF derivation of the Planck length or energy — their SI values are calibration, and the cosmic-ratio (`c = R_cosmic/T_cosmic`) and Hadronic Depth (`n` anchored at `m_p`) results lean on observable anchors rather than fixing the Planck scale from first principles. So the residual is sharp and singular: **fixing `R_p` — why the proton sits at that depth — is the whole hierarchy problem**, and it is the same missing input that would turn `G`'s SI value from calibration into a prediction. The frequency distribution collapses the hierarchy from two numbers (`G` and `m_p`) to one (`R_p`); that one is still an input, not yet a derivation.
+
 ---
 
 ## §9 Honest scoping (three-tier)
