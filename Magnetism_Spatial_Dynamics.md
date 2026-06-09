@@ -362,3 +362,4 @@ Following the discipline established in [`Experimental_Consistency.md`](Experime
 - `magnetism_spatial_dynamics_demo.py` — runnable companion demonstrating Tier-2 numerics
 - [`Experimental_Consistency.md`](Experimental_Consistency.md) §6.3 — three-tier discipline applied to α derivation status
 - [`Curvature.md`](Curvature.md) — magnetism as the **differential, two-signed** curvature of the Markov blanket (spin-up expands, spin-down contracts); the local spin-axis analog of cosmological de Sitter/AdS expansion-contraction
+- [`Electricity.md`](Electricity.md) §1a — current as the source of the B-field (Ampère `∮B·dl = μ₀I`); the moving-charge counterpart of the static spin-spin picture developed here

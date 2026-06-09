@@ -68,13 +68,13 @@ with `f_interior` the Planck-event rate (substrate clock) and `f_exterior` the c
 
 - **Interior rate**: `f_Planck = 1 / τ_Planck ≈ 1.85 × 10⁴³ Hz` (Planck-event substrate).
 - **Exterior rate**: `f_Hubble ≈ H₀ ≈ 2.3 × 10⁻¹⁸ Hz`.
-- **Ratio**: `f_Planck / f_Hubble ≈ 8 × 10⁶⁰` — exactly the dimensionless `n` of [`HadronicDepth.md`](HadronicDepth.md), which is also `n ≈ (m_Planck / m_p)³ ≈ 6 × 10⁶⁰`.
+- **Ratio**: `f_Planck / f_Hubble ≈ 8 × 10⁶⁰` — the dimensionless geometric depth `n` of [`HadronicDepth.md`](HadronicDepth.md) (the primordial-blanket count `v(R_H) ≈ 6.7 × 10⁶⁰`, §2.1). The proton cube `(m_Planck / m_p)³ ≈ 2.2 × 10⁵⁷` reproduces this only to ~3–4 orders — a large-number coincidence, not an exact match.
 
 The cosmic age in Planck units is then `n` ticks of the substrate clock, equivalently `1` tick of the cosmic-horizon clock, which converts to `13.8 Gyr` under the standard time-unit conversion. This is the **relational derivation** of 13.8 Gyr: cosmic time is the cosmic-horizon clock's proper time, which is one tick of its own local clock, which equals `n` ticks of the substrate clock, which equals `13.8 Gyr` by unit conversion.
 
 The structural payoff:
 
-- The cosmic-age derivation in [`AgeOfUniverse.md`](AgeOfUniverse.md) becomes a consequence of (a) the Gap-1 identity and (b) the cosmic-horizon Markov blanket having depth `R_cosmic = n ≈ 6 × 10⁶⁰`.
+- The cosmic-age derivation in [`AgeOfUniverse.md`](AgeOfUniverse.md) becomes a consequence of (a) the Gap-1 identity and (b) the cosmic-horizon Markov blanket having depth `R_cosmic = n ≈ 6.7 × 10⁶⁰` (geometric).
 - The [`HadronicDepth.md`](HadronicDepth.md) Hadronic Depth Hypothesis (`n ~ (m_P/m_p)³`) becomes a structural prediction about the cosmic clock's relation to the proton clock — both are Markov blankets with specific depths in a Kitada-style hierarchy.
 - The "no absolute t = 0" follows: cosmic time is the proper time of an extant Markov blanket, not a universal external coordinate.
 
@@ -142,7 +142,7 @@ The **cosmic-ratio derivation** closes all four cleanly. It uses only quantities
 
 #### The derivation
 
-From [`HadronicDepth.md`](HadronicDepth.md): the cosmic-horizon Markov-blanket depth is `n ≈ 6 × 10⁶⁰`, anchored at the proton mass via `n ~ (m_Planck / m_p)³`.
+From [`HadronicDepth.md`](HadronicDepth.md): the cosmic-horizon Markov-blanket depth is `n ≈ 6.7 × 10⁶⁰` — the geometric primordial-blanket count `v(R_H)` (§2.1). The proton-mass cube `n ~ (m_Planck / m_p)³ ≈ 2.2 × 10⁵⁷` reproduces it only order-of-3-magnitudes (a large-number coincidence), so the figure used below is the geometric one.
 
 From [`AgeOfUniverse.md`](AgeOfUniverse.md) §4.1: the cosmic age is `T_cosmic = n · τ_Planck` — the proper time of the cosmic-horizon Markov blanket.
 
@@ -158,7 +158,7 @@ $$
 
 Numerical check:
 
-- `n ≈ 6 × 10⁶⁰` (from `HadronicDepth.md`)
+- `n ≈ 6.7 × 10⁶⁰` (geometric primordial-blanket depth, from `HadronicDepth.md`; `n` cancels in `c = R/T`)
 - `L_Planck ≈ 1.616 × 10⁻³⁵ m`
 - `τ_Planck ≈ 5.39 × 10⁻⁴⁴ s`
 - `L_Planck / τ_Planck = 2.998 × 10⁸ m/s = c_CODATA` ✓
@@ -195,7 +195,7 @@ This substrate derivation is the rigorous counterpart of the conceptual **unifor
 Three tiers, to avoid overclaim:
 
 - **Tier 1 (structurally derived):** the ρ-cancellation `(ρ · L_Planck)/(ρ · τ_Planck) = L_Planck/τ_Planck` holds at every Markov-blanket depth, grounded in the substrate's irreducible space-time event quantum. Local Lorentz invariance falls out of the per-event identity (one Planck length × one Planck tick, *together*), not from a metric postulate.
-- **Tier 2 (numerical from substrate primitives):** under QLF's substrate-first ontology, L_Planck and τ_Planck are substrate primitives (the spatial and temporal extents of one Planck event), *not* defined via `{ℏ, G, c}`. The substrate event identity gives `c = L_Planck / τ_Planck` — *one Planck length per Planck tick*, dimensionless `1` in Planck units. The cosmic-scale confirmation is independent: §4.1 derives `T_cosmic = n · τ_Planck ≈ 13.8 Gyr` from Hadronic Depth (`n ≈ 6 × 10⁶⁰` from `m_p`), §5.3 above derives `R_cosmic = n · L_Planck ≈ 8.8 × 10²⁶ m`, and the ratio `R_cosmic / T_cosmic = c` matches the measured value of the speed of light. Both `R_cosmic` and `T_cosmic` agree with cosmological observations independently. The SI numerical `c ≈ 2.998 × 10⁸ m/s` reflects substrate-primitive-to-SI calibration (what "1 meter" and "1 second" are in human-chosen units), not an empirical input for `c` itself.
+- **Tier 2 (numerical from substrate primitives):** under QLF's substrate-first ontology, L_Planck and τ_Planck are substrate primitives (the spatial and temporal extents of one Planck event), *not* defined via `{ℏ, G, c}`. The substrate event identity gives `c = L_Planck / τ_Planck` — *one Planck length per Planck tick*, dimensionless `1` in Planck units. The cosmic-scale confirmation is independent: §4.1 derives `T_cosmic = n · τ_Planck ≈ 13.8 Gyr` from Hadronic Depth (`n ≈ 6.7 × 10⁶⁰`, the geometric primordial-blanket depth; the `m_p` cube reproduces it only order-of-magnitude — §2.1), §5.3 above derives `R_cosmic = n · L_Planck ≈ 8.8 × 10²⁶ m`, and the ratio `R_cosmic / T_cosmic = c` (note `n` cancels in this ratio, so `c` is independent of `n`'s exact value) matches the measured value of the speed of light. Both `R_cosmic` and `T_cosmic` agree with cosmological observations independently. The SI numerical `c ≈ 2.998 × 10⁸ m/s` reflects substrate-primitive-to-SI calibration (what "1 meter" and "1 second" are in human-chosen units), not an empirical input for `c` itself.
 
 **No Tier-3 open piece for `c`.** The substrate event quantum is QLF's foundational postulate; once accepted, `c` is fully derived. This is **asymmetric with α**: numerical α at Tier 2 still requires two measured observables (Ry and m_e c²), and α has a genuine Tier-3 open (R_e from closure-multiplicity). For c there is no such open — the substrate event identity *is* the first-principles content.
 
@@ -230,7 +230,7 @@ In rough order of effort and value:
 
 1. ✓ **Done** — [`Frequency_Synchronization.md`](Frequency_Synchronization.md) §1.1 now names the foundational identity explicitly, with the table of QLF results that follow as corollaries.
 
-2. ✓ **Done** — [`AgeOfUniverse.md`](AgeOfUniverse.md) §4.1 reframes the 13.8-Gyr cosmic-age derivation as the proper time of the cosmic-horizon Markov blanket via the Kitada interior/exterior synchronization-rate integration. The cosmic-horizon depth `R_cosmic ≈ f_Planck / f_Hubble ≈ 8 × 10⁶⁰` matches the Hadronic-Depth `n ≈ 6 × 10⁶⁰` from [`HadronicDepth.md`](HadronicDepth.md) to within order-of-magnitude precision.
+2. ✓ **Done** — [`AgeOfUniverse.md`](AgeOfUniverse.md) §4.1 reframes the 13.8-Gyr cosmic-age derivation as the proper time of the cosmic-horizon Markov blanket via the Kitada interior/exterior synchronization-rate integration. The cosmic-horizon depth `R_cosmic ≈ f_Planck / f_Hubble ≈ 8 × 10⁶⁰` equals the geometric primordial-blanket depth `v(R_H) ≈ 6.7 × 10⁶⁰` of [`HadronicDepth.md`](HadronicDepth.md) §2.1; the proton-mass cube `(m_P/m_p)³ ≈ 2.2 × 10⁵⁷` matches it only to ~3–4 orders.
 
 3. ✓ **Done** — Lean theorem `markov_blanket_local_clock` lives in [`lean/QLF_LocalClock.lean`](lean/QLF_LocalClock.lean). For any constructible RhoProcess `p`, `cumulative_kl (events p) = (local_clock_period p) · log 2`, packaging `rho_process_alignment_saturates` under the local-clock-identity name. Companion `local_clock_tick_is_log_two` states each tick advances the cumulative information by exactly `log 2`.
 

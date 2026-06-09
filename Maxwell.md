@@ -108,4 +108,4 @@ See [Lagrangian_Formulation.md](Lagrangian_Formulation.md) for the variational f
 
 See [Conservation.md](Conservation.md) for charge conservation as the gauge-swap (+ ↔ −) symmetry of the 8-twist algebra — Noether's theorem applied to the discrete QLF case.
 
-See also: [Collective_Electrodynamics.md](Collective_Electrodynamics.md) — the photon as a joint emitter-absorber ZFA handshake (transactional, relational, not a projectile); [Delayed_Choice_Eraser.md](Delayed_Choice_Eraser.md) — applies the joint-ZFA reading to the canonical retrocausality-puzzle experiment and dissolves it.
+See also: [Collective_Electrodynamics.md](Collective_Electrodynamics.md) — the photon as a joint emitter-absorber ZFA handshake (transactional, relational, not a projectile); [Delayed_Choice_Eraser.md](Delayed_Choice_Eraser.md) — applies the joint-ZFA reading to the canonical retrocausality-puzzle experiment and dissolves it; [Electricity.md](Electricity.md) — Ohm's law, resistance as ZFA closure latency, current↔B via Ampère, and `R_K = Z₀/2α`, with the curl law `∇×E = −∂B/∂t` realized on the substrate twist field.

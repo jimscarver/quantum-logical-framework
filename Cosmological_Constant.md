@@ -200,7 +200,7 @@ Only the substrate with 2 gauge axes (the empirical 6+2 split that gives α and 
 
 ## §7 What this is NOT
 
-- **Not a derivation of `H_0` from substrate alone.** The Hubble constant enters as one observable; we use it to compute R_H. Substrate derivation of H_0 from cosmic-horizon depth `n ≈ 6 × 10⁶⁰` is partially in [`HadronicDepth.md`](HadronicDepth.md), open in full quantitative form.
+- **Not a derivation of `H_0` from substrate alone.** The Hubble constant enters as one observable; we use it to compute R_H. Substrate derivation of H_0 from cosmic-horizon depth `n ≈ 6.7 × 10⁶⁰` (geometric primordial-blanket depth) is partially in [`HadronicDepth.md`](HadronicDepth.md), open in full quantitative form.
 - **Not a derivation of `Ω_Λ` from substrate.** The dark-energy *fraction* (Ω_Λ ≈ 0.685) is empirical; QLF predicts the *form* of Λ but not the matter-vs-dark-energy partition.
 - **Not strong-field GR (cosmology).** The substrate derivation assumes a weak-field horizon-thermodynamics reading; full coupling to Friedmann-Lemaître-Robertson-Walker is Tier-3 open.
 - **Not a new physics claim**. The cosmological-constant-as-horizon-density-with-log-2 reading sits in the entropic-gravity / holographic-vacuum tradition (Verlinde 2011, Padmanabhan 2010, Banks 1999). QLF's contribution is the **substrate-primitive composition** showing the result falls out structurally from already-Lean-anchored ingredients.
@@ -228,7 +228,7 @@ Only the substrate with 2 gauge axes (the empirical 6+2 split that gives α and 
 - [`Gravity_From_Delay.md`](Gravity_From_Delay.md) — holographic event count + substrate G + Verlinde gravity.
 - [`Quantum_Gravity.md`](Quantum_Gravity.md) §8–9 — open Λ magnitude (now closed by this doc).
 - [`Holographic.md`](Holographic.md) §5 — de Sitter / dark-energy framing.
-- [`HadronicDepth.md`](HadronicDepth.md) — cosmic-horizon depth `n ≈ 6 × 10⁶⁰`.
+- [`HadronicDepth.md`](HadronicDepth.md) — cosmic-horizon depth `n ≈ 6.7 × 10⁶⁰` (geometric primordial-blanket depth).
 - [`AgeOfUniverse.md`](AgeOfUniverse.md) — `T_universe = n × τ_Planck`.
 - [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) — substrate event quantum.
 - [`Magic_numbers.md`](Magic_numbers.md) — 3-dimensionality of substrate from 8-twist 6+2 split.

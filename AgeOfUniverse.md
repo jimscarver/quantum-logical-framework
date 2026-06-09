@@ -118,7 +118,7 @@ with `f_interior` the Planck-event rate (the substrate clock) and `f_exterior` t
 - **Exterior rate**: `f_Hubble ≈ H₀ ≈ 2.3 × 10⁻¹⁸ Hz` — the cosmic-horizon clock.
 - **Ratio**: `f_Planck / f_Hubble ≈ 8 × 10⁶⁰` — the cosmic-horizon Markov-blanket depth `R_cosmic`.
 
-Remarkably, the same number `n ≈ 6 × 10⁶⁰` is the Hadronic-Depth quantity of [`HadronicDepth.md`](HadronicDepth.md), where it is derived from the proton-mass anchor as `n ~ (m_Planck / m_p)³`. The two derivations agree to within order-of-magnitude precision and supply the same identification:
+Remarkably, the same number `n ≈ 6.7 × 10⁶⁰` is the geometric cosmic-blanket depth of [`HadronicDepth.md`](HadronicDepth.md) §2.1 (the primordial-blanket count `v(R_H) ≈ R_H/l_P`). Its proton-mass cube `n ~ (m_Planck / m_p)³ ≈ 2.2 × 10⁵⁷` reproduces this only to ~3–4 orders — a large-number coincidence, not a precise match. Both routes nonetheless supply the same identification:
 
 $$
 \tau_{\text{cosmic}} \;=\; R_{\text{cosmic}} \cdot \tau_{\text{Planck}} \;=\; n \cdot \tau_{\text{Planck}} \;\approx\; 13.8 \text{ Gyr.}
@@ -160,4 +160,4 @@ The cosmic-horizon depth `n` cancels exactly; `c` is recovered as a substrate pr
 **✅ Ready to push**  
 This file is self-contained, uses only GitHub-compatible Markdown, links to the Lean proof, and directly addresses your requirement: the age is derived **purely from the observed frequency distribution** (no tuning to Hubble constant or dark-energy density).
 
-See also: [Quantum_Gravity.md](Quantum_Gravity.md) — master synthesis tying cosmic expansion (this doc) to gravity, holography, and ER=EPR as four faces of the same algebraic event; [Kitada_Local_Time_GR.md](Kitada_Local_Time_GR.md) §4 — scoping doc reframing the 13.8 Gyr derivation here as the **proper time of the cosmic-horizon Markov blanket** under Kitada's local-time framework (gr-qc/9612043). Under that lens, cosmic age = `n × τ_Planck` with `n ≈ 6 × 10⁶⁰` the cosmic-horizon depth from [`HadronicDepth.md`](HadronicDepth.md), connecting cosmological time to the substrate-clock-to-cosmic-clock ratio in a Mach-relational way.
+See also: [Quantum_Gravity.md](Quantum_Gravity.md) — master synthesis tying cosmic expansion (this doc) to gravity, holography, and ER=EPR as four faces of the same algebraic event; [Kitada_Local_Time_GR.md](Kitada_Local_Time_GR.md) §4 — scoping doc reframing the 13.8 Gyr derivation here as the **proper time of the cosmic-horizon Markov blanket** under Kitada's local-time framework (gr-qc/9612043). Under that lens, cosmic age = `n × τ_Planck` with `n ≈ 6.7 × 10⁶⁰` the geometric cosmic-horizon depth from [`HadronicDepth.md`](HadronicDepth.md), connecting cosmological time to the substrate-clock-to-cosmic-clock ratio in a Mach-relational way.
