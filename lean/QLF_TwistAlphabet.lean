@@ -473,4 +473,36 @@ theorem twist_toMatrix_eq_evalNF (t : Twist) : t.toMatrix = evalNF (twistNF t) :
   cases t <;>
     simp only [Twist.toMatrix, twistNF, evalNF, axisMatrix, psm_one_mul, psm_negOne_mul]
 
+-- ==========================================
+-- Scalar-phase homomorphism & commutation  — Milestone 2 step 2
+-- ==========================================
+
+/-- Pauli scalar phase as a complex number (`i^k`). -/
+def coePS : PauliScalar → ℂ
+  | PauliScalar.one    => 1
+  | PauliScalar.i      => Complex.I
+  | PauliScalar.negOne => -1
+  | PauliScalar.negI   => -Complex.I
+
+/-- The matrix of a phase is that complex scalar times the identity. -/
+theorem pauliScalarToMatrix_eq (p : PauliScalar) :
+    pauliScalarToMatrix p = coePS p • (1 : M) := by
+  cases p <;> simp [pauliScalarToMatrix, coePS, neg_smul, one_smul]
+
+/-- `coePS` is multiplicative (the ℤ/4 phase group → ℂ). -/
+theorem coePS_mul (p q : PauliScalar) : coePS (p * q) = coePS p * coePS q := by
+  cases p <;> cases q <;>
+    simp [coePS, Complex.I_mul_I, mul_neg, neg_mul, neg_neg, mul_one, one_mul]
+
+/-- `pauliScalarToMatrix` is multiplicative: the four scalar matrices form a
+    group under matrix multiplication, isomorphic to the `PauliScalar` ℤ/4. -/
+theorem pauliScalarToMatrix_mul (p q : PauliScalar) :
+    pauliScalarToMatrix p * pauliScalarToMatrix q = pauliScalarToMatrix (p * q) := by
+  simp only [pauliScalarToMatrix_eq, smul_mul_assoc, one_mul, smul_smul, coePS_mul]
+
+/-- A Pauli scalar matrix commutes with every 2×2 matrix (it is `c • I`). -/
+theorem psm_comm (p : PauliScalar) (A : M) :
+    A * pauliScalarToMatrix p = pauliScalarToMatrix p * A := by
+  simp only [pauliScalarToMatrix_eq, mul_smul_comm, smul_mul_assoc, mul_one, one_mul]
+
 end QLF
