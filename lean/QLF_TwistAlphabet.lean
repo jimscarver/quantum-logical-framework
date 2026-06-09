@@ -586,4 +586,57 @@ theorem axisToVec_axisProd (ts : List Twist) :
     have e : axisProd (t :: rest) = axisMul (twistNF t).2 (axisProd rest) := rfl
     rw [e, axisToVec_mul, ih, List.map_cons, List.sum_cons]
 
+/-- The summed axis vector of a history, in terms of per-twist counts: the X
+    component counts `< > / \`, the Y component counts `^ v / \` (since `/ \`
+    carry the Z axis = X+Y). -/
+theorem map_axisVec_sum (ts : List Twist) :
+    (ts.map (fun t => axisToVec (twistNF t).2)).sum
+      = ( (ts.count Twist.left : ZMod 2) + ts.count Twist.right
+            + ts.count Twist.slash + ts.count Twist.backslash,
+          (ts.count Twist.up : ZMod 2) + ts.count Twist.down
+            + ts.count Twist.slash + ts.count Twist.backslash ) := by
+  induction ts with
+  | nil => simp
+  | cons t rest ih =>
+    rw [List.map_cons, List.sum_cons, ih]
+    cases t <;>
+      simp [twistNF, axisToVec, List.count_cons, Nat.cast_add, Nat.cast_one,
+            Prod.ext_iff, add_comm, add_left_comm, add_assoc]
+
+/-- **Count balance** on a twist history: each Hermitian-conjugate pair occurs
+    equally often — the discrete signed action vector vanishes (matches the
+    runtime `calculate_action = 0` in `twist_core.py`). -/
+def countBalanced (ts : List Twist) : Prop :=
+  ts.count Twist.up = ts.count Twist.down ∧
+  ts.count Twist.left = ts.count Twist.right ∧
+  ts.count Twist.slash = ts.count Twist.backslash ∧
+  ts.count Twist.plus = ts.count Twist.minus
+
+/-- **Count balance forces the trivial axis.** Each axis occurs an even number
+    of times (`#^=#v` ⇒ `σ_y` appears `2·#^` times, etc.), so the `(ZMod 2)²`
+    axis-vector sum is zero, hence `axisProd = I`. -/
+theorem axisProd_eq_I_of_countBalanced {ts : List Twist} (h : countBalanced ts) :
+    axisProd ts = Axis.I := by
+  apply axisToVec_eq_zero
+  rw [axisToVec_axisProd, map_axisVec_sum]
+  obtain ⟨hUD, hLR, hSB, _⟩ := h
+  have key : ∀ a b c d : ZMod 2, a = b → c = d → a + b + c + d = 0 := by decide
+  rw [Prod.ext_iff]
+  exact ⟨key _ _ _ _ (by exact_mod_cast hLR) (by exact_mod_cast hSB),
+         key _ _ _ _ (by exact_mod_cast hUD) (by exact_mod_cast hSB)⟩
+
+/-- **Pauli closure from count balance** — the keystone. Every count-balanced
+    twist history folds, under the 8-twist Pauli mapping, to a Pauli scalar
+    `{+I, -I, +iI, -iI}`. This closes the cross-axis-interleaving case that
+    `concat_pairs_is_pauli_scalar` flagged as out of scope: it holds for ALL
+    count-balanced histories, not only concatenations of adjacent Hermitian
+    pairs. Runtime ZFA (`is_count_balanced ∧ is_pauli_closed`) is therefore
+    Lean-anchored end-to-end — count balance alone implies Pauli closure. -/
+theorem count_balanced_pauli_closed {ts : List Twist} (h : countBalanced ts) :
+    ∃ p : PauliScalar, twistMatrixFold ts = pauliScalarToMatrix p := by
+  obtain ⟨p, hp⟩ := nf_decomp ts
+  refine ⟨p, ?_⟩
+  rw [hp, axisProd_eq_I_of_countBalanced h]
+  simp [axisMatrix, pauliScalarToMatrix_eq]
+
 end QLF
