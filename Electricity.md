@@ -90,7 +90,7 @@ so **the quantum of resistance is the impedance of free space divided by `2α`**
 
 ## 8. What the demo shows
 
-[`electricity_demo.py`](electricity_demo.py) (pure Python, ~2 s) backs the five claims numerically:
+[`electricity_demo.py`](electricity_demo.py) (pure Python, ~2 s) backs the six claims numerically:
 
 1. **Ohm's law** — `I` linear in `V` (fit `R² ≈ 0.999`).
 2. **`R ∝ 1/W_ZFA`** — `R·W_ZFA ≈ 250` constant across `W = 1,2,4,8`.
@@ -131,7 +131,7 @@ Granting the premise, the rest is derivation. Charge is the gauge-fold count; cu
 - [TheQuantumBrain.md](TheQuantumBrain.md) §3 — the same frequency-isolation mechanism in the brain
 - [Magnetism_Spatial_Dynamics.md](Magnetism_Spatial_Dynamics.md) §6.1, [`lean/QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean) — `α` from substrate (`alpha_QLF_eq`); fixes `R_K = Z₀/(2α)`
 - [`lean/QLF_FreeEnergy.lean`](lean/QLF_FreeEnergy.lean) — `zfa_closure_minimizes_free_energy` (the per-event `log 2`)
-- [`electricity_demo.py`](electricity_demo.py) — runnable companion (the five numerical checks above)
+- [`electricity_demo.py`](electricity_demo.py) — runnable companion (the six numerical checks above)
 
 ### External
 
