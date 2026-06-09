@@ -24,6 +24,7 @@
 
 import Mathlib.LinearAlgebra.Matrix.Hermitian
 import Mathlib.Data.Complex.Basic
+import Mathlib.Data.ZMod.Basic
 import QLF_Pauli
 
 namespace QLF
@@ -552,5 +553,37 @@ theorem nf_decomp (ts : List Twist) :
           • axisMatrix (axisMul (twistNF t).2 (axisProd rest))
     rw [hp, twist_toMatrix_smul, smul_mul_smul', axisMatrix_mul_smul, smul_smul,
         ← coePS_mul, ← coePS_mul]
+
+-- ==========================================
+-- Count balance ⟹ trivial axis  — Milestone 2 step 4
+-- ==========================================
+
+/-- The Klein four-group of axes embedded in `(ZMod 2)²`: `I ↦ 0`, `X ↦ (1,0)`,
+    `Y ↦ (0,1)`, `Z ↦ (1,1)`. Under this map `axisMul` becomes addition, so an
+    axis is trivial iff its vector is zero. -/
+def axisToVec : Axis → ZMod 2 × ZMod 2
+  | Axis.I => (0, 0)
+  | Axis.X => (1, 0)
+  | Axis.Y => (0, 1)
+  | Axis.Z => (1, 1)
+
+/-- `axisToVec` is a group homomorphism `(Axis, axisMul) → ((ZMod 2)², +)`. -/
+theorem axisToVec_mul (a b : Axis) :
+    axisToVec (axisMul a b) = axisToVec a + axisToVec b := by
+  cases a <;> cases b <;> decide
+
+/-- The embedding is injective at the identity: zero vector ⟹ trivial axis. -/
+theorem axisToVec_eq_zero {a : Axis} (h : axisToVec a = 0) : a = Axis.I := by
+  cases a <;> first | rfl | exact absurd h (by decide)
+
+/-- The axis vector of a history is the sum of its per-twist axis vectors
+    (the homomorphism carried over the `axisProd` fold). -/
+theorem axisToVec_axisProd (ts : List Twist) :
+    axisToVec (axisProd ts) = (ts.map (fun t => axisToVec (twistNF t).2)).sum := by
+  induction ts with
+  | nil => simp [axisProd, axisToVec]
+  | cons t rest ih =>
+    have e : axisProd (t :: rest) = axisMul (twistNF t).2 (axisProd rest) := rfl
+    rw [e, axisToVec_mul, ih, List.map_cons, List.sum_cons]
 
 end QLF
