@@ -76,6 +76,20 @@ In QLF terms, the proton is not just another particle scale. It is the stable ha
 
 ---
 
+## 2.1 Accuracy of the coincidence, and the clean geometric depth
+
+Two honest caveats temper the boxed law.
+
+**The proton cube is a large-number coincidence good to a few orders of magnitude — not a precise law.** Numerically `(m_P/m_p)³ ≈ 2.2×10⁵⁷`, while the measured cosmic depth is `n_obs = R_H/l_P ≈ T/t_P ≈ 8×10⁶⁰` — the cube **undershoots by ~3,700×** (§4). This is expected, and it is informative about *which* hadron the relation really picks: the Weinberg relation `m³ ~ ℏ²H₀/(Gc)` is classically satisfied by the **pion** (`(m_P/m_π)³ ≈ 7×10⁵⁹`, only ~10× short), and the proton is a further `(m_p/m_π)³ ≈ 300×` heavier scale, hence ~3,700× short overall. So the relation fixes the cosmic *scale* to within a few orders of magnitude — the inherent precision of large-number coincidences — not to a sharp value.
+
+**The clean cosmic depth comes from the primordial Markov blanket, not the proton.** The cosmic horizon is itself a Fuller geodesic-sphere Markov blanket of frequency
+
+$$v(R_{\mathrm H}) = \sqrt{\tfrac{\pi}{5}}\,\frac{R_{\mathrm H}}{l_{\mathrm P}} \approx 6.7 \times 10^{60}$$
+
+([`Primordial_Markov_Blankets.md`](Primordial_Markov_Blankets.md)) — a purely *geometric* count of the substrate's holographic boundary (`F_v = 20v² = 4πR²/l_P²`), needing no proton anchor and agreeing with `R_H/l_P ≈ 8×10⁶⁰` up to the `√(π/5) ≈ 0.79` shape factor. **That is the firm `n`.** The proton-cube law is then a separate, weaker statement — that the stable-hadronic-closure scale lands within ~3–4 orders of the geometric cosmic depth. Reconciling the two (deriving why `m_p` sits where it does relative to `v(R_H)`) is the open content, and it is the same residual proton depth `R_p` that the gravitational hierarchy reduces to ([`Gravity_From_Delay.md`](Gravity_From_Delay.md) §8.1).
+
+---
+
 ## 3. Deriving the Size of the Universe
 
 Once `n` is fixed, the horizon size follows immediately:
@@ -112,9 +126,9 @@ Numerically, using SI values:
 | $m_{\mathrm p}$ | $1.67 \times 10^{-27}$ kg |
 | $m_{\mathrm P}/m_{\mathrm p}$ | $\approx 1.30 \times 10^{19}$ |
 | $n \sim (m_{\mathrm P}/m_{\mathrm p})^3$ | $\approx 2.2 \times 10^{57}$ |
-| $T \sim n\,t_{\mathrm P}$ | $\approx 2.2 \times 10^{57} \times 5.4 \times 10^{-44}$ s $\approx 3.7 \times 10^{17}$ s $\approx 11.7$ Gyr |
+| $T \sim n\,t_{\mathrm P}$ | $\approx 2.2 \times 10^{57} \times 5.39 \times 10^{-44}$ s $\approx 1.2 \times 10^{14}$ s $\approx 3.8$ Myr |
 
-This is within a factor of ~1.2 of the measured value (13.8 Gyr), consistent with the order-of-magnitude nature of the Weinberg-style scaling relation.
+The proton cube therefore **undershoots** the measured age — 13.8 Gyr $\approx 4.35 \times 10^{17}$ s, i.e. a true cosmic depth $n_{\text{obs}} = T/t_{\mathrm P} \approx R_{\mathrm H}/l_{\mathrm P} \approx 8 \times 10^{60}$ — by a factor of **~3,700** (≈3.6 orders of magnitude). (Earlier versions of this doc miscomputed the product as $3.7 \times 10^{17}$ s ≈ 11.7 Gyr and claimed a "factor of ~1.2" match; that was an arithmetic error — it had silently substituted the *observed* $n \approx 8\times10^{60}$, not the cube's $2.2\times10^{57}$.) Section 2.1 explains why the coincidence has this precision and gives the clean geometric depth.
 
 The complementary derivation from the ZPE frequency distribution is in [`AgeOfUniverse.md`](AgeOfUniverse.md).
 
@@ -162,17 +176,17 @@ The QLF claim is subtler:
 
 Once `n` is fixed, the horizon size `R`, the age `T`, and the effective gravitational scale `G` are no longer independent. They become different projections of the same finite-depth logical structure.
 
-In this sense, the tiny infrared scale of cosmology is not a separate mystery from the Planck scale. It is the natural dilution of Planck-scale action across a universe of finite but enormous generative depth. The "hierarchy problem" between the Planck scale and the electroweak scale has its QLF analog here: the large ratio $m_{\mathrm P}/m_{\mathrm p} \sim 10^{19}$ is simply the base of the cube root of the cosmic bit budget.
+In this sense, the tiny infrared scale of cosmology is not a separate mystery from the Planck scale. It is the natural dilution of Planck-scale action across a universe of finite but enormous generative depth. The "hierarchy problem" between the Planck scale and the electroweak scale has its QLF analog here: the large ratio $m_{\mathrm P}/m_{\mathrm p} \sim 10^{19}$ is, to within the few-orders-of-magnitude precision of the coincidence (§2.1), the cube-root scale of the cosmic bit budget — exactly for the Weinberg estimate `(m_P/m_p)³ ≈ 2.2×10⁵⁷`, and ~3,700× below the geometric cosmic depth `~8×10⁶⁰`.
 
 ---
 
 ## 7. The Hadronic Depth Hypothesis (Formal Statement)
 
-> **In QLF, the present cosmic generation depth is anchored by the stable proton mass through the scaling law**
+> **In QLF, the present cosmic generation depth is anchored by the stable proton mass through the scaling law** (order-of-magnitude only — see §2.1; it undershoots the geometric depth by ~3,700×)
 >
 > $$n \sim \left(\frac{m_{\mathrm P}}{m_{\mathrm p}}\right)^3.$$
 >
-> **Consequently,**
+> **Consequently,** (each to the same few-orders precision)
 >
 > $$R \sim n\,l_{\mathrm P}, \qquad T \sim n\,t_{\mathrm P}, \qquad G \sim \frac{\hbar^2}{m_{\mathrm p}^3 R} \sim \frac{\hbar^2}{c\,m_{\mathrm p}^3 T}.$$
 >
