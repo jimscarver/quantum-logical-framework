@@ -596,12 +596,14 @@ theorem map_axisVec_sum (ts : List Twist) :
           (ts.count Twist.up : ZMod 2) + ts.count Twist.down
             + ts.count Twist.slash + ts.count Twist.backslash ) := by
   induction ts with
-  | nil => simp
+  | nil => simp [Prod.ext_iff]
   | cons t rest ih =>
-    rw [List.map_cons, List.sum_cons, ih]
+    rw [List.map_cons, List.sum_cons, ih, Prod.ext_iff]
     cases t <;>
-      simp [twistNF, axisToVec, List.count_cons, Nat.cast_add, Nat.cast_one,
-            Prod.ext_iff, add_comm, add_left_comm, add_assoc]
+      refine ⟨?_, ?_⟩ <;>
+      simp [twistNF, axisToVec, List.count_cons, Prod.fst_add, Prod.snd_add,
+            Nat.cast_add, Nat.cast_one] <;>
+      ring
 
 /-- **Count balance** on a twist history: each Hermitian-conjugate pair occurs
     equally often — the discrete signed action vector vanishes (matches the
@@ -622,8 +624,11 @@ theorem axisProd_eq_I_of_countBalanced {ts : List Twist} (h : countBalanced ts) 
   obtain ⟨hUD, hLR, hSB, _⟩ := h
   have key : ∀ a b c d : ZMod 2, a = b → c = d → a + b + c + d = 0 := by decide
   rw [Prod.ext_iff]
-  exact ⟨key _ _ _ _ (by exact_mod_cast hLR) (by exact_mod_cast hSB),
-         key _ _ _ _ (by exact_mod_cast hUD) (by exact_mod_cast hSB)⟩
+  refine ⟨key _ _ _ _ ?_ ?_, key _ _ _ _ ?_ ?_⟩
+  · rw [hLR]
+  · rw [hSB]
+  · rw [hUD]
+  · rw [hSB]
 
 /-- **Pauli closure from count balance** — the keystone. Every count-balanced
     twist history folds, under the 8-twist Pauli mapping, to a Pauli scalar
