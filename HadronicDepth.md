@@ -106,7 +106,7 @@ The observable size of the universe is therefore determined by three quantities:
 - gravity `G`,
 - and the stable proton mass `m_p`.
 
-No separate cosmological constant or dark-energy density is required as input. (This `R` is the Weinberg estimate `ℏ²/(G m_p³) ≈ 3.6×10²² m` — about 3,700× below the observed horizon `~1.4×10²⁶ m`; the relation fixes the *scale* to within a few orders of magnitude, not the precise size. See §2.1, §4, and the geometric depth `v(R_H) ≈ 6.7×10⁶⁰` for the firm value.)
+No separate cosmological constant or dark-energy density is required as input. (This `R` is the Weinberg estimate `ℏ²/(G m_p³) ≈ 3.6×10²² m` — about 3,900× below the observed horizon `~1.4×10²⁶ m`; the relation fixes the *scale* to within a few orders of magnitude, not the precise size. See §2.1, §4, and the geometric depth `v(R_H) ≈ 6.7×10⁶⁰` for the firm value.)
 
 **Cosmic-ratio identity.** Reading `n` as both a *spatial* count of Planck lengths (here in §3) and a *temporal* count of Planck ticks (in §4), the ratio `R / T = (n · l_P) / (n · t_P) = l_P / t_P = c` derives the substrate light speed. The cosmic-horizon depth `n` cancels exactly: `c` is recovered as the irreducible Planck space-time event quantum from two independently-derived QLF quantities. See [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5.3 and [`lean/QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean).
 
