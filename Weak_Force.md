@@ -194,6 +194,20 @@ Where the quark masses (§5d) and the strong `d↔u` step (§5e) are open, deute
 
 **Positive vs. open.** The deuteron's *existence, uniqueness, and stability* are structural QLF results (Pauli + `d↔u` distinguishability + the §5e margin). The binding-energy *magnitude* (`2.224 MeV`) is open (nuclear/QCD dynamics, same level as the strong step). **The payoff:** no-diproton (Pauli) is the *deuterium bottleneck* — why stars fuse slowly and controllably rather than burning all their hydrogen at once — and QLF gets that structural reason from verified Pauli exclusion. (Cf. [`Fusion.md`](Fusion.md).)
 
+### 5g. Heavy leptons: an RH electron shell over a proton-mirroring core (conjecture)
+
+A structural proposal for what makes a heavy lepton heavy, tying together §5b (Koide 3-phase), §5f, and the `m_p/m_e = 6π⁵` bridge. A heavy lepton (`μ`, `τ`) is:
+
+- **External — a right-handed, weak-singlet electron identity.** Same charge, spin, EM coupling, and chiral loop as the electron (lepton *universality* — μ and τ are electrons from outside). Being the **RH (weak-singlet)** component, it is EM-only and does **not** couple to the leak vertex.
+- **Core — a balanced, closed structure that *mirrors the proton's internals*** (a three-fold / Borromean, binding-dominated closure) at a *deeper* substrate scale (a different frequency). It carries the generation/flavor content and the bulk of the mass.
+- **Leak — the LH-doublet channel.** The W bleeds the core into neutrinos (`μ⁻ → e⁻ + ν̄_e + ν_μ`), at the weak rate `Γ ∝ G_F² m⁵`. Deeper core ⇒ faster leak: `τ_μ/τ_τ = (m_τ/m_μ)⁵/BR(eνν) = 7.55×10⁶` vs measured `7.57×10⁶` (**0.3%**) — and *why* the τ can't bind (§4a).
+
+**The payoff — it unifies the two "threes."** The Koide **3-phase** lepton generations (§5b) and the proton's **3-quark Borromean** closure become *the same three-fold*: the lepton generation core *is* a proton-mirror. This makes `m_p/m_e = 6π⁵` legible — the proton is the electron's heavy core (the `|S₃| = 6` three-quark permutation is the shared three-fold) — and is the structural form of the "leptons mirror proton processes at different frequencies" intuition.
+
+**The tension (load-bearing).** Charged leptons are **pointlike to ~10⁻¹⁹ m** — no substructure seen — while the proton has structure at ~1 fm. So a proton-mirroring core cannot be a literal proton inside the muon; it must sit ~10⁴× *deeper*, **fully closed/balanced so only the electron identity shows externally** (the closure hides it as confinement hides the proton's quarks). Self-consistent, but substrate-level and not directly resolvable at current scales.
+
+**Status: a research-direction conjecture.** The one solid quantitative anchor is the `m⁵` leak (`τ_μ/τ_τ` to 0.3%). Not derived: the precise proton-mirror core, the lepton masses (open, Koide-constrained, §5b–5c), and a resolvable test. Recorded as the structural form of intuition #2 — coherent and unifying, but conjecture.
+
 ---
 
 ## 6. Honest open list (quantitative weak sector)
