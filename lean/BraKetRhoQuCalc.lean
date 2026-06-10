@@ -397,6 +397,91 @@ theorem tau_zx_product : τz * τx = -τy := by
         Complex.ofReal_re, Complex.ofReal_im] <;>
   ring
 
+/-! ## 16b. Weak-isospin su(2): the τ-subalgebra of Σ₈
+
+    The three Σ₈ generators `τx, τy, τz` (= `i·σ`) close, under the matrix
+    commutator, into the **su(2) ≅ so(3) Lie algebra**: `[τᵢ,τⱼ] = −2 εᵢⱼₖ τₖ`.
+    Together with `τᵢ² = −I` and the vanishing mixed anticommutators
+    `{τᵢ,τⱼ} = 0` (i≠j), the multiplicative group they generate is the
+    quaternion group `Q₈ = {±I, ±τx, ±τy, ±τz} ⊂ SU(2)`.
+
+    This is the machine-verified **group-theoretic** identification of the weak
+    isospin SU(2) inside the 8-twist algebra (the item Standard_Model.md §3.4
+    listed as open). SCOPE: this is the Lie-algebra / quaternion-group level
+    ONLY — it does NOT derive the W/Z masses, the Weinberg angle value, or
+    `G_F`, all of which remain open (see Weak_Force.md). -/
+
+/-- τy · τx = +τz  (reverse of the anti-cyclic `tau_xy_product`). -/
+theorem tau_yx_product : τy * τx = τz := by
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+  simp only [τx, τy, τz, Matrix.mul_apply, Fin.sum_univ_two, Matrix.neg_apply,
+    Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.head_fin_const] <;>
+  apply Complex.ext <;>
+  simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+        Complex.neg_re, Complex.neg_im, Complex.I_re, Complex.I_im,
+        Complex.ofReal_re, Complex.ofReal_im] <;>
+  ring
+
+/-- τz · τy = +τx. -/
+theorem tau_zy_product : τz * τy = τx := by
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+  simp only [τx, τy, τz, Matrix.mul_apply, Fin.sum_univ_two, Matrix.neg_apply,
+    Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.head_fin_const] <;>
+  apply Complex.ext <;>
+  simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+        Complex.neg_re, Complex.neg_im, Complex.I_re, Complex.I_im,
+        Complex.ofReal_re, Complex.ofReal_im] <;>
+  ring
+
+/-- τx · τz = +τy. -/
+theorem tau_xz_product : τx * τz = τy := by
+  apply Matrix.ext; intro i j
+  fin_cases i <;> fin_cases j <;>
+  simp only [τx, τy, τz, Matrix.mul_apply, Fin.sum_univ_two, Matrix.neg_apply,
+    Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.head_fin_const] <;>
+  apply Complex.ext <;>
+  simp [Complex.mul_re, Complex.mul_im, Complex.add_re, Complex.add_im,
+        Complex.neg_re, Complex.neg_im, Complex.I_re, Complex.I_im,
+        Complex.ofReal_re, Complex.ofReal_im] <;>
+  ring
+
+/-- **su(2) structure constant**: `[τx,τy] = −2 τz` (written `−(τz+τz)`). -/
+theorem tau_comm_xy : τx * τy - τy * τx = -(τz + τz) := by
+  rw [tau_xy_product, tau_yx_product]; abel
+
+/-- `[τy,τz] = −2 τx`. -/
+theorem tau_comm_yz : τy * τz - τz * τy = -(τx + τx) := by
+  rw [tau_yz_product, tau_zy_product]; abel
+
+/-- `[τz,τx] = −2 τy`. -/
+theorem tau_comm_zx : τz * τx - τx * τz = -(τy + τy) := by
+  rw [tau_zx_product, tau_xz_product]; abel
+
+/-- Mixed anticommutators vanish: `{τx,τy} = 0` (quaternionic). -/
+theorem tau_anticomm_xy : τx * τy + τy * τx = 0 := by
+  rw [tau_xy_product, tau_yx_product]; abel
+
+/-- `{τy,τz} = 0`. -/
+theorem tau_anticomm_yz : τy * τz + τz * τy = 0 := by
+  rw [tau_yz_product, tau_zy_product]; abel
+
+/-- `{τz,τx} = 0`. -/
+theorem tau_anticomm_zx : τz * τx + τx * τz = 0 := by
+  rw [tau_zx_product, tau_xz_product]; abel
+
+/-- **Weak isospin su(2) ⊂ Σ₈** — the three Σ₈ generators carry the
+    su(2)≅so(3) commutator structure `[τᵢ,τⱼ] = −2 εᵢⱼₖ τₖ`. Machine-verified
+    identification of the weak-isospin Lie algebra inside the 8-twist algebra
+    (group-theoretic only; W/Z masses, the Weinberg angle, and `G_F` remain
+    open — see Weak_Force.md). -/
+theorem weak_isospin_su2 :
+    τx * τy - τy * τx = -(τz + τz) ∧
+    τy * τz - τz * τy = -(τx + τx) ∧
+    τz * τx - τx * τz = -(τy + τy) :=
+  ⟨tau_comm_xy, tau_comm_yz, tau_comm_zx⟩
+
 /-! ## 17. Trace preservation under unitary evolution -/
 
 /-- Tr(UρU†) = Tr(ρ) for any unitary U (U†U = I).
