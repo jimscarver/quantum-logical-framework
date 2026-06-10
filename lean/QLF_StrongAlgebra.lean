@@ -26,9 +26,8 @@ see Standard_Model.md §3.4 and Forces_From_Three_Axes.md §6).
 -/
 
 import Mathlib.LinearAlgebra.Matrix.Trace
+import Mathlib.LinearAlgebra.Matrix.Hermitian
 import Mathlib.Data.Complex.Basic
-import Mathlib.Data.Matrix.Notation
-import Mathlib.Tactic.NormNum
 
 namespace QLF
 
