@@ -3,34 +3,37 @@ import QLF_Axioms
 set_option linter.unusedVariables false
 
 /-!
-# QLF_BMinusL — B−L (and every annihilation-odd signed count) is conserved by ZFA dynamics
+# QLF_BMinusL — signed-count conservation, and why B−L is NOT a weight dictionary
 
-The conserved *additive* quantum numbers of QLF are **signed twist counts**. This
-module proves, in full generality, that **any annihilation-odd signed count is
-invariant under the ZFA pruning dynamics** (`zeno_prune`, `full_zeno_prune`) and
-additive under concatenation. Electric charge (`count_pos − count_neg`) is one
-instance; **B−L is another** — so *B−L conservation is the same theorem as charge
-conservation*, not a separate assumption.
+This module anchors the conservation of QLF's **signed twist counts** (electric
+charge is the prototype) — and, in doing so, proves a sharp **obstruction**: B−L
+*cannot* be any such weight dictionary, so it must be a winding / topological
+invariant. This corrects an earlier framing that called B−L "the same theorem as
+charge conservation"; the attempt to build a B−L weight dictionary is what proved
+the route impossible.
 
 A weight `w : TopoElement → Int` is **annihilation-odd** when it negates under the
-half-spin swap (`w x + w (swap_topo x) = 0`). This is exactly the antiparticle
-relation, and it is precisely what makes the pos/neg pairs that `zeno_prune`
-removes contribute zero — so the count survives pruning.
+half-spin swap (`w x + w (swap_topo x) = 0`) — exactly the antiparticle relation,
+and exactly what makes the pos/neg pairs `zeno_prune` removes cancel.
 
-* `wcount_append`     — additive under concatenation (composition of histories).
+* `wcount_append`       — additive under concatenation (composition of histories).
 * `wcount_zeno_prune` / `wcount_full_zeno_prune` — invariant under the ZFA dynamics.
-* `bMinusL_conserved` — the named B−L specialisation (any annihilation-odd `w`).
-* `no_spontaneous`    — the precise sense in which **proton synthesis cannot break
-  B−L**: a history that starts `B−L`-neutral stays `B−L`-neutral through closure,
-  so a proton's `B−L = +1` (it is a quantum black hole carrying B−L as *hair*,
-  `BLACK-HOLES.md` §3a) must be co-produced with a balancing lepton — never
-  conjured from a neutral input.
+* `signed_count_conserved` — the named conservation theorem (charge is the instance).
+* `no_spontaneous`      — a charge-neutral input stays charge-neutral through closure.
+* **`wcount_zero_on_ZFA`** — the obstruction: *every* annihilation-odd signed count
+  is **zero on every ZFA closure** (a closure prunes to the empty string).
 
-What this does **not** pin down is the *value dictionary* — which combination of
-twist axes equals physical B−L (`Q=0` yet `B−L=1` for the neutron requires an axis
-orthogonal to charge, i.e. the multi-axis 8-twist alphabet). Conservation holds
-for the whole class regardless, so the open piece is the value assignment, not the
-conservation. See `Conservation.md` §8.
+**Why B−L is not a weight dictionary.** Electric charge is consistent with
+`wcount_zero_on_ZFA` — every QLF closure is electrically neutral. But B−L is **not
+zero on closures**: a stable neutral closure such as the deuterium atom carries
+`B−L = 1`. Equivalently and decisively: a baryon and an antibaryon are both
+count-balanced closures with the *identical* twist multiset (conjugation maps the
+balanced counts to themselves), yet they carry `B−L = +1` vs `−1`; a weight
+dictionary is a function of the counts alone, so it must assign them the *same*
+value — it cannot distinguish them. Hence **B−L depends on the sequence/orientation
+(a winding invariant), not on twist counts** — matching "baryon number = topological
+winding" (`Conservation.md` §8). The winding anchor is the correct, still-open
+object; this module proves the weight-dictionary route is closed.
 -/
 
 namespace QLF.BMinusL
@@ -107,21 +110,41 @@ theorem wcount_full_zeno_prune (w : TopoElement → Int) (hw : AnnihilationOdd w
     · rw [full_zeno_prune, dif_neg hlt]
   exact hP s.length s rfl
 
-/-- **B−L conservation is the same theorem as charge conservation.** Any additive
-    quantum number whose antiparticle relation is the half-spin swap is
-    annihilation-odd, hence invariant under the ZFA dynamics. B−L is such a
-    number. -/
-theorem bMinusL_conserved (w : TopoElement → Int) (hw : AnnihilationOdd w)
+/-- **Signed-count conservation.** Any annihilation-odd signed count is invariant
+    under the ZFA dynamics. Electric charge is the canonical instance (below).
+    Note: this does **not** cover B−L — see `wcount_zero_on_ZFA`. -/
+theorem signed_count_conserved (w : TopoElement → Int) (hw : AnnihilationOdd w)
     (s : TopoString) : wcount w (full_zeno_prune s) = wcount w s :=
   wcount_full_zeno_prune w hw s
 
-/-- **Proton synthesis cannot break B−L.** A history that is `B−L`-neutral before
-    closure stays `B−L`-neutral after — net `B−L` is never conjured from a neutral
-    input. A proton's `B−L = +1` (it is a quantum black hole carrying B−L as hair)
-    must be co-produced with a balancing lepton. -/
+/-- **No spontaneous net charge.** A history that is charge-neutral before closure
+    stays charge-neutral after — a signed count is never conjured from a neutral
+    input. (This is the *charge* statement; the analogous B−L statement does not
+    follow this way, since B−L is not a signed count — `wcount_zero_on_ZFA`.) -/
 theorem no_spontaneous (w : TopoElement → Int) (hw : AnnihilationOdd w)
     (s : TopoString) (h0 : wcount w s = 0) : wcount w (full_zeno_prune s) = 0 := by
   rw [wcount_full_zeno_prune w hw s, h0]
+
+/-- A ZFA closure prunes to the empty string: `achieves_ZFA` says the fully-pruned
+    history has no `is_gauge` element, and every element *is* `is_gauge`. -/
+theorem zfa_prune_nil {s : TopoString} (h : achieves_ZFA s) :
+    full_zeno_prune s = [] := by
+  unfold achieves_ZFA at h
+  cases hfp : full_zeno_prune s with
+  | nil => rfl
+  | cons x xs =>
+    rw [hfp] at h
+    cases x <;> simp [is_gauge] at h
+
+/-- **The obstruction — B−L is not a weight dictionary.** Every annihilation-odd
+    signed count (the conserved, charge-class weights) is **zero on every ZFA
+    closure**, because a closure prunes to the empty string. Electric charge is
+    consistent (QLF closures are neutral); B−L is not (the deuterium atom is a
+    stable neutral closure with `B−L = 1`), so B−L cannot be any such weight — it
+    is a winding invariant. -/
+theorem wcount_zero_on_ZFA (w : TopoElement → Int) (hw : AnnihilationOdd w)
+    (s : TopoString) (h : achieves_ZFA s) : wcount w s = 0 := by
+  rw [← wcount_full_zeno_prune w hw s, zfa_prune_nil h, wcount_nil]
 
 /-! ## Electric charge is the canonical instance -/
 
