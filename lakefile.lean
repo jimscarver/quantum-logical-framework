@@ -46,5 +46,6 @@ lean_lib QLF where
     `QLF_MercuryPerihelion,
     `QLF_CosmologicalConstant,
     `QLF_PrimordialMarkovBlanket,
-    `QLF_Koide
+    `QLF_Koide,
+    `QLF_StrongAlgebra
   ]
