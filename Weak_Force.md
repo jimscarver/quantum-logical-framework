@@ -178,6 +178,12 @@ Both differences are positive: the proton has more quark self-energy *and* less 
 
 So this is an honest **partial**: the decomposition is clean, the EM half's sign and ~MeV scale fall out of QLF's `α` + proton depth + gauge structure, and the strong half + precise value stay open. The sign result is not nothing — *neutron heavier ⇒ proton stable ⇒ hydrogen and chemistry exist*, and QLF gets that sign from charge structure alone.
 
+**The cleaner observable: `m_n − m_H`.** Comparing the neutron to the *proton* compares a neutral closure to a charge *deficit* (§4a) — which is why the EM piece had to be separated. The QLF-natural comparison is between two **neutral observable closures**: the neutron and the hydrogen *atom*. Their gap,
+
+$$m_n - m_H \;=\; 0.782\ \text{MeV},$$
+
+is exactly the energy of the Majorana antineutrino in **bound-state beta decay** `n → H + ν̄` — a real (rare, ~4×10⁻⁶) channel in which the neutron decays *directly into a hydrogen atom*. This is the literal realization of §4a: the neutron unspools into hydrogen's constituents and sheds `m_n − m_H` into the neutrino. So the clean QLF statement of the weak transition is **neutron-closure → hydrogen-closure + Majorana ν̄** — two neutral observables, the gap carried by the neutrino. Its being *small and positive* makes the free neutron unstable but long-lived (~880 s, rate ∝ `Q⁵`), and the margin is anthropic (free neutrons decay, bound neutrons in nuclei are stable, chemistry exists; `m_n < m_H` would give a stable neutron and *unstable hydrogen*). **Honest:** quantitatively `m_n − m_H = (m_n − m_p) − m_e`, so it carries the same strong−EM content above — it is the *right observable*, not new derivational power.
+
 ---
 
 ## 6. Honest open list (quantitative weak sector)
