@@ -111,4 +111,90 @@ theorem baryon_zero_of_noZ :
       have ih := baryon_zero_of_noZ (b :: c :: rest) (fun t ht => h t (List.Mem.tail _ ht))
       rw [baryonNumber, hs, zero_add]; exact ih
 
+-- ===== General dagger-oddness: baryonNumber (antiparticle ts) = − baryonNumber ts =====
+
+/-- Hermitian conjugation preserves the spatial axis (`^↔v` etc. keep the axis). -/
+theorem axOf_conj (t : Twist) : axOf (Twist.conj t) = axOf t := by cases t <;> rfl
+
+/-- Reversing a triple flips its linking sign. -/
+theorem signTriple_rev : ∀ a b c : Option Ax, signTriple c b a = - signTriple a b c := by
+  decide
+
+/-- Axis-only baryon number — `baryonNumber` factors through `map axOf`. -/
+def bnA : List (Option Ax) → Int
+  | a :: b :: c :: rest => signTriple a b c + bnA (b :: c :: rest)
+  | _ => 0
+
+theorem baryon_eq_bnA : ∀ ts : List Twist, baryonNumber ts = bnA (ts.map axOf)
+  | a :: b :: c :: rest => by
+      have ih := baryon_eq_bnA (b :: c :: rest)
+      simp only [List.map_cons] at ih ⊢
+      simp only [baryonNumber, bnA]
+      rw [ih]
+  | [] => rfl
+  | [_] => rfl
+  | [_, _] => rfl
+
+/-- The end window: the linking sign of the last two elements of `l` with `x`. -/
+def endWindowA (l : List (Option Ax)) (x : Option Ax) : Int :=
+  match l.reverse with
+  | q :: p :: _ => signTriple p q x
+  | _ => 0
+
+/-- Appending two elements: the end window is exactly their sign with `x`. -/
+theorem endWindowA_append_two (l : List (Option Ax)) (p q x : Option Ax) :
+    endWindowA (l ++ [p, q]) x = signTriple p q x := by
+  simp only [endWindowA, List.reverse_append, List.reverse_cons, List.reverse_nil,
+             List.nil_append, List.cons_append]
+
+/-- Dropping the head of a `≥ 3`-element list does not change its end window. -/
+theorem endWindowA_cons3 (a b c : Option Ax) (rest : List (Option Ax)) (x : Option Ax) :
+    endWindowA (a :: b :: c :: rest) x = endWindowA (b :: c :: rest) x := by
+  have h1 : (a :: b :: c :: rest).reverse = (b :: c :: rest).reverse ++ [a] := by
+    rw [List.reverse_cons]
+  have h2 : (b :: c :: rest).reverse = rest.reverse ++ [c, b] := by
+    rw [List.reverse_cons, List.reverse_cons, List.append_assoc]
+  simp only [endWindowA]
+  rw [h1, h2]
+  rcases rest.reverse with _ | ⟨r, rs⟩
+  · simp
+  · rcases rs with _ | ⟨s, ss⟩ <;> simp
+
+/-- Snoc lemma: appending `x` adds exactly the new end window. -/
+theorem bnA_snoc : ∀ (os : List (Option Ax)) (x : Option Ax),
+    bnA (os ++ [x]) = bnA os + endWindowA os x
+  | a :: b :: c :: rest, x => by
+      have ih := bnA_snoc (b :: c :: rest) x
+      have hc := endWindowA_cons3 a b c rest x
+      simp only [List.cons_append] at ih ⊢
+      simp only [bnA]
+      rw [hc]
+      omega
+  | [], x => by simp [bnA, endWindowA]
+  | [_], x => by simp [bnA, endWindowA]
+  | [_, _], x => by simp [bnA, endWindowA]
+
+/-- **Reverse flips baryon number** on axis sequences. -/
+theorem bnA_reverse : ∀ os : List (Option Ax), bnA os.reverse = - bnA os
+  | a :: b :: c :: rest => by
+      have ih := bnA_reverse (b :: c :: rest)
+      have h2 : (b :: c :: rest).reverse = rest.reverse ++ [c, b] := by
+        rw [List.reverse_cons, List.reverse_cons, List.append_assoc]
+      rw [List.reverse_cons, bnA_snoc, ih, h2, endWindowA_append_two, signTriple_rev]
+      simp only [bnA]
+      ring
+  | [] => rfl
+  | [_] => rfl
+  | [_, _] => by simp [bnA]
+
+/-- **General dagger-oddness.** The antiparticle (Hermitian conjugate) negates
+    baryon number: `B(ts†) = −B(ts)`. So baryon and antibaryon carry `±B` for
+    *every* history — the full conjugation-oddness behind `baryon_antiproton`. -/
+theorem baryon_dagger_odd (ts : List Twist) :
+    baryonNumber (antiparticle ts) = - baryonNumber ts := by
+  simp only [antiparticle]
+  rw [baryon_eq_bnA, baryon_eq_bnA, List.map_reverse, List.map_map]
+  have h : (axOf ∘ Twist.conj) = axOf := by funext t; exact axOf_conj t
+  rw [h, bnA_reverse]
+
 end QLF.BaryonWinding
