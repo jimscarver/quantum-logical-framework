@@ -61,6 +61,7 @@ theorem gluon_commutator_nonzero : g1 * g3 - g3 * g1 ≠ 0 := by
   have h01 : (g1 * g3 - g3 * g1) 0 1 = (0 : M3) 0 1 := by rw [h]
   simp [g1, g3, Matrix.mul_apply, Fin.sum_univ_three, Matrix.sub_apply,
         Matrix.zero_apply] at h01
+  norm_num at h01
 
 /-- **su(3) as the traceless 3-axis tensor**: the traceless 3×3 matrices are
     closed under the Lie bracket (`trace_commutator_zero`) and non-abelian
