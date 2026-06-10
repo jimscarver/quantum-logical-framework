@@ -47,5 +47,6 @@ lean_lib QLF where
     `QLF_CosmologicalConstant,
     `QLF_PrimordialMarkovBlanket,
     `QLF_Koide,
-    `QLF_StrongAlgebra
+    `QLF_StrongAlgebra,
+    `QLF_BMinusL
   ]

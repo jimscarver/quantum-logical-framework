@@ -72,7 +72,7 @@ canonical status list; when an item moves, update it here and in its owning doc.
 | **Maxwell curl laws** (`∇×B=μ₀J`, `∇×E=−∂B/∂t`) | Stated structurally; await a time-indexed event-sequence Lean module (divergence laws already verified) | [`Maxwell.md`](Maxwell.md), [`Electricity.md`](Electricity.md) |
 | **γ (Euler–Mascheroni) convergence** | Structural form Lean-anchored; `lim (H_N − ln N) = γ` convergence proof deferred (standard real analysis) | [`lean/QLF_EulerMascheroni.lean`](lean/QLF_EulerMascheroni.lean) |
 | **Borromean 5-angle** | `chirality-mixing-per-pair = 2` not yet derived rigorously from `QLF_Pauli`'s scalar group | [`lean/QLF_BorromeanAngles.lean`](lean/QLF_BorromeanAngles.lean) |
-| **`B−L` conservation** (baryon/lepton) | `B−L` identified as the *exact* per-event-balanced signed count (winding `B` + chiral `L`); predicts **Dirac neutrino / no 0νββ** ([`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md) §1). Clean Noether tie to a specific 8-twist symmetry still open | [`Conservation.md`](Conservation.md) §8 |
+| **`B−L` conservation** (baryon/lepton) | **Conservation ✅ Lean-anchored** — `bMinusL_conserved` / `wcount_full_zeno_prune` ([`lean/QLF_BMinusL.lean`](lean/QLF_BMinusL.lean)): *any* annihilation-odd signed count (charge **and** `B−L`) is invariant under the ZFA dynamics; `no_spontaneous` ⟹ proton synthesis cannot break `B−L`. 🔵 Still open: the **value dictionary** (which twist axes = physical `B−L`, needing an axis orthogonal to charge). Predicts **Dirac neutrino / no 0νββ** | [`lean/QLF_BMinusL.lean`](lean/QLF_BMinusL.lean), [`Conservation.md`](Conservation.md) §8, [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md) §1 |
 
 ---
 
