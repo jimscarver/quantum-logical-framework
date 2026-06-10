@@ -145,7 +145,7 @@ theorem wcount_chargeWeight (s : TopoString) :
   | cons x xs ih =>
     rw [wcount_cons, count_pos_cons, count_neg_cons, ih]
     cases x with
-    | gauge => simp [chargeWeight, val_pos, val_neg]
-    | phase p => cases p <;> simp [chargeWeight, val_pos, val_neg]
+    | gauge => simp only [chargeWeight, val_pos, val_neg]; omega
+    | phase p => cases p <;> simp only [chargeWeight, val_pos, val_neg] <;> omega
 
 end QLF.BMinusL
