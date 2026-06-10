@@ -99,7 +99,7 @@ Standard Model masses span 11 orders of magnitude (neutrino at <1 eV, electron a
 
 Conjectured path: the multiplicity-as-energy framework of [Energy_Combinatorics.md](Energy_Combinatorics.md) plus the topological resonance counting of [HadronicDepth.md](HadronicDepth.md).
 
-**One quantitative handle now exists (charged leptons).** The Koide relation `Q = (m_e+m_μ+m_τ)/(√m_e+√m_μ+√m_τ)² = 2/3` holds to 0.0009%, and QLF reads its `2/3` as the **transverse-axis fraction** (2 of 3 spatial axes) — so `m_e, m_μ` **predict** `m_τ = 1776.97 MeV` (measured 1776.86, **0.006%**). This is parameter-light (only `2/3` is structural), and the Koide angle / overall scale remain inputs. See [Weak_Force.md](Weak_Force.md) §5a and [koide_tau_demo.py](koide_tau_demo.py). The full from-nothing generation spectrum (and the quark sector) is still open.
+**One quantitative handle now exists (charged leptons).** The Koide relation `Q = (m_e+m_μ+m_τ)/(√m_e+√m_μ+√m_τ)² = 2/3` holds to 0.0009%, and its `2/3` is now **machine-verified** as forced by `N=3` (three spatial axes) ∧ `A²=2` (two transverse axes) — `koide_two_thirds` in [lean/QLF_Koide.lean](lean/QLF_Koide.lean), the same `2 transverse + 1 longitudinal` split as the transverse fraction. Given `Q=2/3`, `m_e, m_μ` **predict** `m_τ = 1776.97 MeV` (measured 1776.86, **0.006%**). What remains an input: the lepton-√mass↔axis-phase *identification*, the Koide angle, and the overall scale. See [Weak_Force.md](Weak_Force.md) §5a–5b and [koide_tau_demo.py](koide_tau_demo.py). The quark sector is still open.
 
 ### 4.2 Mixing matrices (CKM, PMNS)
 
