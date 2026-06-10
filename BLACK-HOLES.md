@@ -62,21 +62,11 @@ Hawking radiation is **not** evaporation or pair creation in curved spacetime. I
 - The blanket statistically synchronizes with the exterior vacuum via a minimal active-inference handshake (`+-` pair).  
 - Information is preserved unitarily; the emitted spectrum matches the seed frequency.  
 
-See `immediate_reentry_unwind` in `particles.py` and the blanket logic in `Hadrons_Markov_Blankets.md`. This mechanism is identical at both particle and macroscopic black-hole scales. *Which* information returns is made precise in §3a.
+See `immediate_reentry_unwind` in `particles.py` and the blanket logic in `Hadrons_Markov_Blankets.md`. This mechanism is identical at both particle and macroscopic black-hole scales.
 
-## 3a. Hawking radiation carries the signed `B−L` count — QLF black holes have hair for every conserved charge
+## 3a. What the Hawking unwind returns — information and charge, but *not* `B−L`
 
-The unitarity claim above can be sharpened into a definite statement about *which* information returns — and this is what underwrites QLF's prediction of **exact global `B−L`** ([Quantum_Gravity.md §8](Quantum_Gravity.md), [Beta_Decay_Neutrino_Nature.md §1](Beta_Decay_Neutrino_Nature.md)).
-
-A QLF black hole is a **ZFA-closed gauge-fold structure**, and ZFA closure is exact balance of the *signed twist counts* — `rho_process_always_zfa` (every admissible history is ZFA-balanced) is **machine-verified** ([`lean/RhoQuCalc.lean`](lean/RhoQuCalc.lean)). Each conserved additive charge — electric charge, and **`B−L`** (baryon−lepton) — *is* one of those signed twist counts ([Conservation.md §8](Conservation.md)). Crucially, these charges are **not** quantities hidden *behind* the blanket: the `+`–`−` (and spatial) twists that carry them *are* the blanket.
-
-So the one-step re-entry unwind (§3) that releases the held gauge-fold information releases **exactly those signed counts**. The per-event log-2 ledger ([Conservation.md §6](Conservation.md), [Annihilation.md §4.4](Annihilation.md)) is the bookkeeping: every bit the constructing delay held inside the horizon is returned in the Hawking unwind — signed count and all. No admissible step can leave a signed count *un*-returned, because an unbalanced output history is not a constructible RhoProcess in the first place (`rho_process_always_zfa`). Hence:
-
-> **A QLF black hole conserves and returns its `B−L` (and electric charge) bit-for-bit. It cannot be a sink for global `B−L`.**
-
-This is the microscopic reason QLF diverges from the standard **no-hair / no-global-symmetry** expectation. That argument assumes a thermal horizon characterized only by mass, charge, and spin, behind which a global charge can be swallowed and lost — the evaporation spectrum carrying back no record of it. In QLF the "horizon" is the Markov blanket *made of* the count-carrying twists, and the radiation is the unwind of those very twists: the thermal spectrum is the **coarse-grained, statistical face** of an underlying re-entry that is exactly signed-count-conserving. **QLF black holes therefore have "hair" for every conserved signed count** — electric charge and `B−L` among them — not just for the gauged quantities of the classical no-hair theorems.
-
-**Honest tier.** This specializes the doc's existing unitarity claim (§3) to the `B−L` count; it is exactly as solid as that claim, resting on (i) `rho_process_always_zfa` — admissible histories are ZFA-balanced, machine-verified — and (ii) the per-event log-2 ledger ([Conservation.md §6](Conservation.md)). The one structural assumption it inherits is that `B−L` is realized as a specific signed twist count ([Conservation.md §8](Conservation.md)) — established structurally, not yet Lean-anchored (the lepton-number twist dictionary). It is a prediction grounded in the keystone, not an independent theorem; the lab-accessible signature is **no 0νββ**.
+The unitarity claim above is about **information** and the **exactly-conserved signed counts**. Electric charge is such a count (`signed_count_conserved`, [`lean/QLF_BMinusL.lean`](lean/QLF_BMinusL.lean)) and every QLF closure is electrically neutral, so charge is carried as "hair" and returned by the unwind. But **`B−L` is *not* an exactly-conserved signed count** — `wcount_zero_on_ZFA` shows every conserved signed count is zero on closures, yet the deuteron closure has `B−L = 1`, and the neutrino is **Majorana** (`neutrino_majorana`, [`lean/QLF_Majorana.lean`](lean/QLF_Majorana.lean)), so lepton number / `B−L` is violated. A QLF black hole therefore does **not** carry `B−L` as a protected hair — consistent with the standard quantum-gravity expectation (Banks–Seiberg, swampland, no-hair) that gravity admits no exact *global* symmetries. What is preserved is the unitary information ledger (§3, [Conservation.md §6](Conservation.md)) and the exact *gauge* charge — not the global `B−L`.
 
 ## 4. Logical Density Gradient and Emergent Dark Energy
 
@@ -134,8 +124,8 @@ The identical engine proves both the particle spectrum and quantum black-hole be
 - `Gravity.md`: Inward bias from time-creating blankets.  
 - `SpaceTime.md`: Density-dependent space/time role swap.  
 - `Hadrons_Markov_Blankets.md`: Blanket = horizon; Hawking = active-inference handshake.  
-- `Conservation.md` §6, §8: the per-event log-2 information ledger and `B−L` as the per-event-balanced signed count carried by the Hawking unwind (§3a).  
-- `Quantum_Gravity.md` §8 & `Beta_Decay_Neutrino_Nature.md` §1: the resulting finding — exact global `B−L` (no 0νββ; `B−L` conserved across evaporation) diverges from the QG no-global-symmetry expectation.  
+- `Conservation.md` §6, §8: the per-event log-2 information ledger; electric charge as an exactly-conserved signed count (returned by the unwind), and why `B−L` is *not* one (§3a).  
+- `Beta_Decay_Neutrino_Nature.md` §1 & [`lean/QLF_Majorana.lean`](lean/QLF_Majorana.lean): the neutrino is Majorana, so `B−L` is violated (`0νββ`) — QLF carries no protected global `B−L` hair.  
 
 ## Conclusion
 

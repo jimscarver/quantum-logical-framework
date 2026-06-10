@@ -11,7 +11,7 @@ The structure follows [Conservation.md §8](Conservation.md) (the "what is NOT y
 | **Spin-1/2 algebra (Pauli, Dirac)** | Derived from 8-twist Pauli mapping ([HALF-SPIN-ZFA-EMBEDDING.md](HALF-SPIN-ZFA-EMBEDDING.md), [Lagrangian_Formulation.md](Lagrangian_Formulation.md)) | ✓ Derived; machine-verified `tau_xy_product` etc. |
 | **Electron** (mass, charge, spin) | `^<` or `^<v>` chiral fluxoid; mass from gauge fold; charge from gauge-fold parity ([Electron.md](Electron.md), [Atom.md](Atom.md)) | ✓ Structurally derived; mass *ratio* to other leptons is open |
 | **Photon** (massless, spin 1) | Pure spatial fold `^>` or `^v` with no gauge folds ([Electron.md §2](Electron.md), [Particles.md](Particles.md)) | ✓ Derived |
-| **Neutrino** (left-handed, gauge-only) | `^-v+` (gauge-dominant, spatially non-chiral loop) — neutrino is **Dirac** (`ν ≠ ν̄`, distinguished by lepton count) per [Beta_Decay_Neutrino_Nature.md](Beta_Decay_Neutrino_Nature.md) | ✓ Structural derivation; predicts **no 0νββ** (`B−L` exact), experimentally tested (all null) |
+| **Neutrino** (left-handed, gauge-only) | non-chiral loop `^v` — **Majorana** (its own antiparticle), machine-verified `neutrino_majorana` ([`lean/QLF_Majorana.lean`](lean/QLF_Majorana.lean)) per [Beta_Decay_Neutrino_Nature.md](Beta_Decay_Neutrino_Nature.md) | ✓ Structural + Lean-verified; predicts **0νββ** (lepton-number violation), under test (LEGEND/nEXO) |
 | **Proton, neutron** (Borromean three-quark) | Three open quarks interlocked under Borromean topology ([Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md), [HadronicDepth.md](HadronicDepth.md)) | ✓ Structural derivation; mass quantitative match open |
 | **Quark confinement** | Quarks are fractional ZFA (cannot exist as isolated unforgeable names) — must group in pairs/triples to form stable composite blankets | ✓ Qualitative derivation; quantitative confinement scale open |
 | **U(1) electromagnetic** | `+` ↔ `−` gauge swap symmetry of the 8-twist algebra ([Conservation.md §4](Conservation.md), [Maxwell.md](Maxwell.md)) | ✓ Derived; charge conservation Lean-verified via `no_magnetic_monopoles` |
@@ -43,7 +43,7 @@ From [Electron.md](Electron.md) and [Particles.md](Particles.md):
 
 - **Electron** `^<` (or compositely `^<v>`) — chiral fluxoid that gauge-folds; carries mass via the constructing delay and charge via the gauge parity.
 - **Photon** `^>` (or `^v`) — pure spatial fold with no gauge folds; massless; carries no charge; the canonical massless quantum.
-- **Neutrino** `^-v+` — gauge-dominant loop; no transverse spatial extent; nearly non-interacting; spatially non-chiral but **Dirac** — its conjugate antineutrino is distinguished by the opposite lepton count, so `B−L` is exactly conserved and QLF predicts **no 0νββ** (per [Beta_Decay_Neutrino_Nature.md](Beta_Decay_Neutrino_Nature.md) §1).
+- **Neutrino** `^v` — non-chiral loop; no transverse spatial extent; nearly non-interacting; **Majorana** (its own antiparticle): the `^v` loop is a fixed point of the Hermitian conjugate (conjugate-and-reverse), machine-verified `neutrino_majorana`, so lepton number is violated and QLF predicts **0νββ** (per [Beta_Decay_Neutrino_Nature.md](Beta_Decay_Neutrino_Nature.md) §1).
 
 These three are the directly derived light particles. Positron, anti-photon, anti-neutrino follow by Hermitian conjugation ([Annihilation.md §2](Annihilation.md)).
 
@@ -142,7 +142,7 @@ The path forward is to:
 - [Particles.md](Particles.md) — particle-as-unforgeable-name framing; electron/neutrino derivations
 - [Electron.md](Electron.md) — electron and photon worked examples
 - [Higgs.md](Higgs.md) — mass-generation via gauge folds
-- [Beta_Decay_Neutrino_Nature.md](Beta_Decay_Neutrino_Nature.md) — chirality, the Dirac neutrino (no 0νββ), beta decay
+- [Beta_Decay_Neutrino_Nature.md](Beta_Decay_Neutrino_Nature.md) — chirality, the Majorana neutrino (0νββ), beta decay
 - [Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md) — Borromean three-quark topology for hadrons
 - [HadronicDepth.md](HadronicDepth.md) — hadronic resonance hierarchy
 - [CP-Violation-and-Chirality.md](CP-Violation-and-Chirality.md) — CP violation and matter dominance

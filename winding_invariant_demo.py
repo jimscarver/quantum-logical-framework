@@ -24,6 +24,11 @@ RESULT (see output):
     * electron W=−1 = B−L(e), positron W=+1 = B−L(e+)   ✓  (a real hit)
     * neutrino ^v (and ^-v+)  W=0  but  B−L(ν)=−1        ✗  MISMATCH
 
+EPILOGUE: the neutrino's W=0 turned out not to be a candidate failure to fix but a
+*result*: the neutrino has no topological handle to carry B−L, i.e. it is its own
+antiparticle = MAJORANA. This is now machine-verified (lean/QLF_Majorana.lean:
+the `^v` loop is a fixed point of the Hermitian conjugate). See Beta_Decay_Neutrino_Nature.md.
+
 DIAGNOSIS: W tracks *spatial handedness*, and it vanishes on the neutrino — which
 is exactly the *spatially non-chiral* lepton. But lepton number is NOT spatial
 chirality (the Dirac argument already said the neutrino is spatially non-chiral yet
