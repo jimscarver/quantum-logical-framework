@@ -499,7 +499,7 @@ In QLF beta decay, a neutron's topologically stressed Markov blanket ejects an e
 
 This is a structural prediction grounded in QLF's foundational, machine-verified principle — **exact per-event signed-count balance** (`count_balanced_pauli_closed`). Lepton number is such a count, so **`B−L` is exactly conserved**, and **neutrinoless double-beta decay** (`2n → 2p + 2e⁻`, `Δ(B−L)=2`) — which would create two units of lepton number from nothing — is exactly the imbalance ZFA closure forbids. **QLF predicts no 0νββ.** Every search to date (LEGEND, nEXO, KamLAND-Zen, KATRIN) is **null**, consistent with the prediction. Implementation: `beta_decay.py` and [Beta_Decay_Neutrino_Nature.md](Beta_Decay_Neutrino_Nature.md).
 
-Note: this is QLF's clearest **specific empirical commitment** distinguishable from the Standard Model (which is agnostic on Dirac vs Majorana). A confirmed **positive** 0νββ signal would refute QLF's exact-`B−L` account specifically, and this section would need revision. (This corrects the corpus's earlier *Majorana* commitment, which conflated the neutrino's spatial non-chirality with self-conjugacy and ran against the framework's own balance principle.)
+Note: this is QLF's clearest **specific empirical commitment** distinguishable from the Standard Model (which is agnostic on Dirac vs Majorana). A confirmed **positive** 0νββ signal would refute QLF's exact-`B−L` account specifically, and this section would need revision. The exact-`B−L` stance also diverges from the mainstream quantum-gravity expectation that gravity admits no exact global symmetries — a distinctive, testable consequence of QLF's emergent gravity ([Quantum_Gravity.md §8](Quantum_Gravity.md)).
 
 ---
 

@@ -11,8 +11,7 @@ event and neutrinoless double-beta decay is forbidden.
 See Beta_Decay_Neutrino_Nature.md §1: the neutrino's *spatial* loop is
 non-chiral, but spatial non-chirality does NOT make it self-conjugate. Its
 charge/gauge conjugate is a DISTINCT string (twist closure is order- and
-sign-sensitive), so nu != nu-bar. The earlier "non-chiral => Majorana" reading
-conflated spatial symmetry with self-conjugacy and is corrected here.
+sign-sensitive), so nu != nu-bar — the neutrino is Dirac.
 """
 
 class QuCalcParticle:
@@ -30,11 +29,11 @@ class QuCalcParticle:
     def is_self_conjugate(self):
         """Self-conjugate (Majorana) iff the topology EQUALS its conjugate.
 
-        NOTE: we do NOT allow a reversal match. Twist closure (Pauli fold) is
-        order-sensitive, so a string and its reverse are different objects; only
-        an exact fixed point of conjugation is genuinely its own antiparticle.
-        This is the corrected test — the former reversal allowance is what
-        spuriously made the neutrino look Majorana.
+        NOTE: a reversal does NOT count as a match. Twist closure (Pauli fold)
+        is order-sensitive, so a string and its reverse are different objects;
+        only an exact fixed point of conjugation is genuinely its own
+        antiparticle. The neutrino is therefore Dirac (its conjugate is a
+        distinct string), not self-conjugate.
         """
         return self.topology == self._get_conjugate_string(self.topology)
 

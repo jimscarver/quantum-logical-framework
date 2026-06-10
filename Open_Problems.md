@@ -29,7 +29,7 @@ canonical status list; when an item moves, update it here and in its owning doc.
 
 | Item | Status | Where |
 |---|---|---|
-| **Neutrino nature — prediction FLIPPED** Majorana → **Dirac / no 0νββ** | 🔭 **Predicted** (reframed) — the former Majorana claim conflated *spatial* non-chirality with self-conjugacy and violated `B−L`; since per-event signed-count balance is exact, `B−L` is conserved ⟹ Dirac ⟹ no neutrinoless double-beta decay (consistent with all null searches) | [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md) §1 (renamed from `Majorana_Beta_Decay.md`), [`Experimental_Consistency.md`](Experimental_Consistency.md) §9–10 |
+| **Neutrino is Dirac → no 0νββ; exact global `B−L`** | 🔭 **Predicted** — per-event signed-count balance is exact ⟹ `B−L` conserved ⟹ Dirac neutrino ⟹ no neutrinoless double-beta decay (consistent with all null searches). Exact global `B−L` **diverges from the QG no-global-symmetry expectation** — a distinctive consequence of QLF's emergent gravity | [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md) §1, [`Quantum_Gravity.md`](Quantum_Gravity.md) §8, [`Experimental_Consistency.md`](Experimental_Consistency.md) §9–10 |
 | **Pauli closure** — count balance ⟹ Pauli scalar, all twist histories (incl. cross-axis interleaving) | ✅ **Closed** — `count_balanced_pauli_closed` | [`lean/QLF_TwistAlphabet.lean`](lean/QLF_TwistAlphabet.lean), [`Experimental_Consistency.md`](Experimental_Consistency.md) §2.1 |
 | **Bethe constant `k(n,0)`** (Lamb shift) | 🧱 **Boundary** — continuum-dominated (`I_1S ≈ 19.77 Ry`, all bound `ΔE < 1 Ry`); free-electron sector above the RCA₀ floor | [`Lamb_Shift.md`](Lamb_Shift.md) §6.1, [`bethe_log_demo.py`](bethe_log_demo.py) |
 
