@@ -16,7 +16,7 @@ The bright line: ✅ **forced** (machine-verified the value is *not free* but a 
 | **α** (EM coupling) | ✅ **forced** to 0.026% | `alpha_QLF_eq` = 1/137; `only_3d_substrate_gives_137` (2D→1/132, 4D→1/144) — α requires a **3-D** substrate |
 | **3 charged-lepton masses** | ✅ 1 relation forced; 🔵 2 inputs left | `koide_two_thirds`: `Q=2/3` is forced by 3 generations ∧ 2 transverse axes ⇒ `m_τ` from `m_e,m_μ` (0.006%). Scale + Koide angle remain inputs |
 | **g₂, g₃** (weak, strong couplings) | 🔵 open | the gauge *algebras* are verified (`weak_isospin_su2`, `trace_commutator_zero`); the couplings are not derived |
-| **6 quark masses** | 🔵 open | no twist assignments, no masses |
+| **6 quark masses** | 🔵 open — but *category-corrected* | quark masses are **non-observable** (confinement; scheme-dependent parameters). The observable is the mass *difference* — hadron splittings `m_n−m_p = (m_d−m_u) − EM`, the `d↔u` weak vertex. QLF *predicts* no clean quark-mass relation; the open target is the **hadron splitting spectrum** ([`Weak_Force.md`](Weak_Force.md) §5d) |
 | **4 CKM angles+phase** | 🔵 open | flavor change = gauge-fold pair-flip (operation); mixing angles open |
 | **Higgs mass, VEV** | 🔵 open | mechanism reframed (gauge-fold delay, [`Higgs.md`](Higgs.md)); the 125 GeV and `v=246 GeV` not derived |
 | **neutrino masses, PMNS** | 🔵 open masses; 🔭 **Majorana nature predicted** (§3) | — |

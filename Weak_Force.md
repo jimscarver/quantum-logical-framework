@@ -140,6 +140,22 @@ The famous near-coincidence `δ ≈ 2/9 = 0.22222` is tempting in QLF — `2/9 =
 
 ---
 
+### 5d. Quarks: it's the mass *difference* that's physical, not the mass
+
+A natural next question is whether the *quark* masses satisfy a Koide-like relation — "quark masses from leptons." They do not (`(u,d,s) → Q=0.567`, mixed triplets `0.73–0.85`; only the heaviest `(c,b,t) ≈ 0.669` drifts near `2/3`, where QCD dressing is least, and even there within the large quark-mass uncertainties). **But that is consistent with QLF, not a failure of it — and the test was the wrong object.**
+
+In QLF a quark is **fractional ZFA**: it does not exist independently (the same principle that makes the proton a deficit, §4a). A confined quark has **no physical mass of its own**; only the composite closure — the hadron — is an observable. Standard physics agrees: the quoted "quark masses" are scheme-dependent *running* Lagrangian parameters (MS-bar at a chosen scale), never measured. So "quark Koide" tests non-observables, and QLF *predicts* clean mass relations should live among the **observables** (leptons, hadrons) and be absent among the quark parameters — exactly what the data shows.
+
+**Where the physics actually lives is the mass *difference*.** Individual quark masses are not observable, but quark-flavor *differences* manifest as **observable hadron isospin splittings**:
+
+$$m_n - m_p = 1.2933\ \text{MeV} \;=\; \underbrace{(m_d - m_u)}_{\text{flavor step, }n\text{ heavier}} \;-\; \underbrace{\text{(EM self-energy)}}_{p\text{ heavier}}.$$
+
+The `d ↔ u` flavor step **is** the weak vertex — the gauge-fold pair-flip of §4. So the `n–p` splitting is the *energy of the flavor-change closure step*, an observable tied directly to the machine-verified weak structure, even though the absolute quark masses are not. (Its **sign** — neutron heavier, so the proton is stable and hydrogen exists — is one of the most consequential facts in physics.) The analogous statement holds for `π± − π0` and the other isospin multiplets.
+
+So the right QLF target is **not** a quark-mass Koide (which QLF's own confinement principle says should not exist) but the **hadron mass *splittings*** = flavor-step energy minus EM closure-depth difference — observable, gauge-sector, and connected to the weak vertex. This remains **open** (we do not yet derive `m_n − m_p` from closure structure; the loose ratios `(m_n−m_p)/m_e ≈ 2.53`, `(m_d−m_u)/m_e ≈ 5` are flagged as coincidences, not relations) — but it is the *tractable, well-posed* form of "connecting the quarks," replacing the category error of asking for their absolute masses.
+
+---
+
 ## 6. Honest open list (quantitative weak sector)
 
 - **The Koide angle `δ`** — the genuine remaining lepton-sector input (§5c); `2/9` is a flagged 0.02% coincidence, not a derivation.

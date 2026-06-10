@@ -64,6 +64,8 @@ The synthesis says **color `SU(3)` = the traceless 3-axis directional tensor**, 
 
 So the synthesis upgrades the *gauge* picture (color = traceless 3-axis tensor) but leaves the *flavor* picture where it was: open.
 
+**A category note on quark masses.** Asking for *quark masses* (e.g. a "quark Koide") is the wrong object in QLF: quarks are fractional ZFA with no independent mass — only hadrons are observables, and the quoted quark masses are scheme-dependent Lagrangian parameters. The physical, observable quantity is the mass *difference* — hadron isospin splittings like `m_n − m_p = (m_d − m_u) − EM`, which *are* the quark flavor step (`d↔u` = the weak vertex). That is the well-posed target; see [`Weak_Force.md`](Weak_Force.md) §5d.
+
 ---
 
 ## 5. Leptons mirroring quark structure — the "three" 🔶
