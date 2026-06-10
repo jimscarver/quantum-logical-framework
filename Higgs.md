@@ -84,6 +84,8 @@ The Mexican-hat potential shape is the effective potential of the gauge-fold pos
 
 ## 4. W and Z Bosons in QLF
 
+> Consolidated treatment of the weak sector — including the machine-verified weak-isospin SU(2)⊂Σ₈ identification, beta decay, and the τ-decay-vertex blocker — is in [`Weak_Force.md`](Weak_Force.md).
+
 The W⁺, W⁻, and Z bosons are the three massive gauge bosons of the electroweak sector. In QLF they are ZFA-closed gauge-fold closures with specific twist structures:
 
 | Boson | SM charge | QLF structure | Topological depth |

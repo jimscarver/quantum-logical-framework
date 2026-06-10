@@ -19,7 +19,7 @@ The structure follows [Conservation.md §8](Conservation.md) (the "what is NOT y
 | **CP violation** | Residual clustering of LH/RH topology in the early universe ([CP-Violation-and-Chirality.md](CP-Violation-and-Chirality.md), [Annihilation.md §5](Annihilation.md)) | ⚠ Partial — qualitative; CKM matrix angles open |
 | **Generation structure (3 lepton families, 6 quarks)** | Higher-order resonant harmonics of primordial split ([Primordial_Entanglement.md §2](Primordial_Entanglement.md), [Particles.md §3](Particles.md)) | ⚠ Partial — structural reason for "more than one", specific generation count open |
 | **Strong SU(3) confinement** | Borromean three-element topology is the unique stable three-body closure | ⚠ Partial — SU(3) gauge group identification open |
-| **Weak SU(2) doublets** | Pair-grouping under chirality — left-handed particles in SU(2) doublets, right-handed in singlets ([Majorana_Beta_Decay.md](Majorana_Beta_Decay.md)) | ⚠ Partial — group-theoretic identification of SU(2) within 8-twist algebra open |
+| **Weak SU(2) doublets** | Pair-grouping under chirality — left-handed particles in SU(2) doublets, right-handed in singlets ([Majorana_Beta_Decay.md](Majorana_Beta_Decay.md), [Weak_Force.md](Weak_Force.md)) | ⚠ Partial — **Lie-algebra identification machine-verified** (`weak_isospin_su2`: the Σ₈ τ-subalgebra carries `[τᵢ,τⱼ]=−2εᵢⱼₖτₖ`, su(2)≅so(3); `Q₈⊂SU(2)`); doublet representation, coupling `g`, and W/Z masses open |
 | **Baryon number conservation** | Topological winding number of composite blankets | ⚠ Partial — Noether-style derivation open |
 | **Lepton number conservation** | Chiral fluxoid count of electron-type structures | ⚠ Partial — same |
 | **Sterile neutrino** | Would require pure-`+` or pure-`-` gauge sequence with no spatial twists | ✗ Open — experimental status unsettled; QLF predicts a specific topology if it exists |
@@ -87,9 +87,9 @@ From [Primordial_Entanglement.md §2](Primordial_Entanglement.md) and [Particles
 
 From [Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md) and [Majorana_Beta_Decay.md](Majorana_Beta_Decay.md): the strong force is the Borromean three-quark binding; the weak force is the gauge-fold pair-flip that mediates beta decay.
 
-**What's derived**: the structural reason for confinement (SU(3)-like three-element grouping) and for chirality-mediated weak interactions (SU(2)-like doublet structure).
+**What's derived**: the structural reason for confinement (SU(3)-like three-element grouping) and for chirality-mediated weak interactions (SU(2)-like doublet structure). The **weak SU(2) Lie algebra is now machine-verified** inside the 8-twist algebra: the Σ₈ τ-subalgebra (`τᵢ = iσᵢ`) carries `[τᵢ,τⱼ] = −2εᵢⱼₖτₖ` (su(2)≅so(3)), generating `Q₈ ⊂ SU(2)` — `weak_isospin_su2` in [`lean/BraKetRhoQuCalc.lean`](lean/BraKetRhoQuCalc.lean) (see [`Weak_Force.md`](Weak_Force.md) §3).
 
-**What's open**: identifying the *specific* SU(3) and SU(2) subgroups of the 8-twist algebra; matching the gauge-boson masses ($W^\pm$, $Z^0$, gluons); the running of the coupling constants (asymptotic freedom).
+**What's open**: the *specific* SU(3) subgroup; the SU(2) **doublet representation** and coupling `g` (the Lie algebra is identified, the rep and coupling are not); matching the gauge-boson masses ($W^\pm$, $Z^0$, gluons); the running of the coupling constants (asymptotic freedom).
 
 ## 4. The fully open sector
 
