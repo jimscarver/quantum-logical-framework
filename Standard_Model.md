@@ -97,7 +97,9 @@ From [Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md) and [Majorana_Beta
 
 Standard Model masses span 11 orders of magnitude (neutrino at <1 eV, electron at 511 keV, top quark at 173 GeV). QLF says mass comes from gauge-fold constructing delay; the specific delay values for each particle type are open.
 
-Conjectured path: the multiplicity-as-energy framework of [Energy_Combinatorics.md](Energy_Combinatorics.md) plus the topological resonance counting of [HadronicDepth.md](HadronicDepth.md). No quantitative match has been demonstrated.
+Conjectured path: the multiplicity-as-energy framework of [Energy_Combinatorics.md](Energy_Combinatorics.md) plus the topological resonance counting of [HadronicDepth.md](HadronicDepth.md).
+
+**One quantitative handle now exists (charged leptons).** The Koide relation `Q = (m_e+m_μ+m_τ)/(√m_e+√m_μ+√m_τ)² = 2/3` holds to 0.0009%, and QLF reads its `2/3` as the **transverse-axis fraction** (2 of 3 spatial axes) — so `m_e, m_μ` **predict** `m_τ = 1776.97 MeV` (measured 1776.86, **0.006%**). This is parameter-light (only `2/3` is structural), and the Koide angle / overall scale remain inputs. See [Weak_Force.md](Weak_Force.md) §5a and [koide_tau_demo.py](koide_tau_demo.py). The full from-nothing generation spectrum (and the quark sector) is still open.
 
 ### 4.2 Mixing matrices (CKM, PMNS)
 
