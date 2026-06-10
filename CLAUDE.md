@@ -6,7 +6,7 @@ Project context for Claude Code sessions. Read this before making any changes.
 
 ## Project overview
 
-**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **19 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
+**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **41 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
 
 Core claim: *ZFA balance is the selection principle for physical reality.* Every terminating computation is a ZFA string; every ZFA string is symmetric (lies on the critical line). The Church-Turing universe filtered to ZFA-balanced strings is our physical universe.
 
@@ -14,31 +14,53 @@ Core claim: *ZFA balance is the selection principle for physical reality.* Every
 
 ---
 
-## 19 active modules
+## 41 active modules
 
-In `lean/`, registered in `lakefile.lean` roots array:
+In `lean/`, registered in `lakefile.lean` roots array (in build order). For fuller per-module descriptions + the complete key-theorem lists, see [`lean/README.md`](lean/README.md).
 
 | Module | What it proves |
 |---|---|
-| `QLF_Axioms` | Types, counting, pruning, ZFA definition; `zfa_implies_critical_line` |
+| `QLF_Axioms` | Types, counting, pruning, ZFA definition; `zfa_implies_critical_line`, `full_prune_invariant`, `single_prune_invariant` |
 | `QLF_Combinatorics` | Phase-string generation helpers |
 | `QLF_QuCalc` | Phase-generation engine; `find_stable_states_length_even` = C(2n,n); `emergent_blanket_formation` (count-balance preserved under concatenation) |
-| `QLF_Universality` | Every terminating computation IS a ZFA string (Church-Turing) |
-| `QLF_Critical_Line` | ZFA → symmetry bridge |
-| `QLF_Spectral` | Hermitian spectral projectors; Hilbert-Pólya bridge |
-| `QLF_Riemann` | Riemann hypothesis program; `riemann_hypothesis_in_qlf` |
+| `QLF_Universality` | Every terminating computation IS a ZFA string (Church-Turing); `qlf_universality` |
+| `QLF_Critical_Line` | ZFA → symmetry bridge; `riemann_zfa_critical_line` |
+| `QLF_Spectral` | Hermitian spectral projectors; Hilbert-Pólya bridge; `toSpectralMode_hermitian`, `spectral_symmetric_eq_scalar_id` |
+| `QLF_Riemann` | Riemann hypothesis program; `critical_line_forcing`, `riemann_hypothesis_in_qlf` |
 | `SpacetimeDynamics` | Pauli-basis 2×2 Hermitian matrices; `Form.toMatrix_adjoint` |
 | `RhoQuCalc` | ρ-process algebra; `rho_process_always_zfa`; `eval_dagger` |
-| `ZFAEventDynamics` | ZFA event dynamics; spacetime acceleration |
-| `AgeOfUniverse` | Cosmological age from ZFA event rate |
+| `ZFAEventDynamics` | ZFA event dynamics; spacetime acceleration; `zfa_dynamics_drive_acceleration` |
+| `AgeOfUniverse` | Cosmological age from ZFA event rate; `age_is_finite_and_positive` |
 | `ER_EPR_QLF` | Entanglement-geometry axioms (speculative, not used elsewhere) |
-| `PauliExclusion` | Fermionic statistics via matrix commutator; `fermi_nonzero_example` |
+| `PauliExclusion` | Fermionic statistics via matrix commutator; `pauli_exclusion`, `fermi_nonzero_example` |
 | `StringTheoryQLF` | String modes; C(2n,n) degeneracy; `string_mass_spectrum` |
 | `MTheoryQLF` | M-theory; S/T-duality; 11D; `m11d_zfa_stable` |
-| `BraKetRhoQuCalc` | Bra-ket ↔ RhoQuCalc correspondence; `bra_ket_always_balanced` |
-| `QLF_FreeEnergy` | Per-event ΔF = -log 2 at half-spin ZFA closure; `zfa_closure_minimizes_free_energy` |
+| `BraKetRhoQuCalc` | Bra-ket ↔ RhoQuCalc correspondence; the Σ₈ τ-algebra and its weak-isospin su(2) closure; `bra_ket_always_balanced`, **`weak_isospin_su2`** (`[τᵢ,τⱼ]=−2εᵢⱼₖτₖ`, `Q₈⊂SU(2)`) |
+| `QLF_FreeEnergy` | Per-event ΔF = -log 2 at half-spin ZFA closure; `zfa_closure_minimizes_free_energy`, `binary_kl_uniform_lt_log_two` |
 | `QLF_Pauli` | 4-element Pauli scalar group {±I, ±iI}; group closure + `pauli_closed_of_admissible_zfa` |
-| `QLF_TwistAlphabet` | 8-twist alphabet with σ-matrix mapping; `hermitian_pair_is_pauli_scalar` (every Hermitian pair folds to -I); `concat_pairs_is_pauli_scalar` (N-pair concatenations land in {+I, -I}); **`count_balanced_pauli_closed`** (count balance ⟹ Pauli closure for ALL histories — general, via `nf_decomp` + `(ZMod 2)²` axis-parity bridge; the keystone) |
+| `QLF_TwistAlphabet` | 8-twist alphabet with σ-matrix mapping; `hermitian_pair_is_pauli_scalar`; `concat_pairs_is_pauli_scalar`; **`count_balanced_pauli_closed`** (count balance ⟹ Pauli closure for ALL histories — via `nf_decomp` + `(ZMod 2)²` axis-parity bridge; the keystone) |
+| `QLF_VacuumAlignment` | Vacuum-alignment TOE-completing principle (KL saturation ≡ ZFA closure, per-event + trajectory); `vacuum_alignment_selects_zfa`, `global_alignment_selects_zfa` |
+| `QLF_RhoProcessBridge` | Every constructible RhoProcess's event trajectory saturates the cumulative info bound; `rho_process_alignment_saturates` |
+| `QLF_LocalClock` | A depth-`R` Markov blanket IS a local clock (Kitada local time); `markov_blanket_local_clock`, `local_clock_tick_is_log_two` |
+| `QLF_EinsteinGeometricFactor` | Einstein `8π = 4π·2` (boundary solid angle × Hermitian-pair degeneracy); `einstein_geometric_factor_eight_pi` |
+| `QLF_SubstrateLightSpeed` | `c = L_Planck/τ_Planck` via ρ-cancellation → local Lorentz invariance; `substrate_light_speed_from_cosmic_ratio`, `local_light_speed_invariant` |
+| `QLF_FineStructureSubstrate` | α = 1/137 from substrate combinatorics, zero free params; `alpha_QLF_eq`, `only_3d_substrate_gives_137` (2D→1/132, 4D→1/144) |
+| `QLF_LenzMassRatio` | `m_p/m_e = 6π⁵ = \|S₃\|·π⁵`, 0.002%; `mass_ratio_QLF_eq` + counterfactuals |
+| `QLF_BorromeanAngles` | The 5-angle count `5 = 3 + 2` (Jacobi internal + chirality-mixing); `total_angular_DOF_eq_five`, `matches_lenz_hidden_chirality_angles` |
+| `QLF_EulerMascheroni` | γ as the harmonic excess `H_N − ln N` of the ZFA ensemble; `gamma_QLF_structural` (structural form; convergence proof deferred) |
+| `QLF_RiemannZeta` | Substrate ↔ ζ bridge: `γ_QLF` = ζ's Laurent constant at `s=1`; `zeta_laurent_constant_eq_gamma_QLF`, `rh_not_proved_here` |
+| `QLF_DiracCorrection` | Hydrogen fine structure (α² kinematic/spin-orbit/Darwin); `hydrogen_spectrum_from_h_and_m_e`, `three_mechanisms_alpha_squared` |
+| `QLF_LambShift` | Lamb-shift prefactor `4/(3πn³) = 4·(2/3)·(1/2π)·(1/n³)`; `lamb_prefactor_loop_phase`, `lamb_shift_substrate_summary` |
+| `QLF_GMinusTwo` | Electron `g−2`: `a_e = α/2π` (Schwinger), 0.2%; `a_e_QLF_eq_schwinger`, `g_factor_QLF_eq` |
+| `QLF_GravityFromDelay` | Newton's law + `G = L_P²c³/ℏ` from holographic delay; `newton_exponent_only_3d_matches`, `gravity_substrate_summary` |
+| `QLF_MercuryPerihelion` | Perihelion advance 42.99″/century (0.03%); `mercury_perihelion_substrate_summary` |
+| `QLF_CosmologicalConstant` | `Ω_Λ = log 2` (1.2%), closing the 10¹²² vacuum catastrophe; `only_2_gauge_matches_observed_Omega_Lambda`, `cosmological_constant_substrate_summary` |
+| `QLF_PrimordialMarkovBlanket` | Markov blankets as Fuller geodesic spheres; icosahedral closure → E₈ via McKay; `mckay_2I_E8_anchor`, `E8_dimension_eq`, `primordial_blanket_euler` |
+| `QLF_Koide` | Koide `Q = 2/3` forced by `N=3 ∧ A²=2` ⇒ `m_τ` to 0.006%; `koide_two_thirds`, `koide_three_phase` |
+| `QLF_StrongAlgebra` | Strong `SU(3)` = traceless 3-axis directional tensor; `trace_commutator_zero`, `gluon_commutator_nonzero`, `strong_su3_summary` |
+| `QLF_BMinusL` | Electric charge = exactly-conserved signed twist count (`signed_count_conserved`); **obstruction** `wcount_zero_on_ZFA` — every conserved signed count is zero on closures, so `B−L` is NOT a weight dictionary (it is winding) |
+| `QLF_Majorana` | The neutrino is **Majorana**: antiparticle = Hermitian conjugate (conjugate-and-reverse), and `^v` is a fixed point of it; `neutrino_majorana`, `electron_not_majorana` (electron is Dirac), `antiparticle_involutive` |
+| `QLF_BaryonWinding` | Baryon number = signed 3-axis linking (winding) invariant; `baryonNumber` (proton +1, antiproton −1, leptons/meson 0), `baryon_zero_of_noZ` (lepton/EM sector = 0), **`baryon_dagger_odd`** (`B(ts†)=−B(ts)`, fully general) |
 
 ---
 
@@ -299,7 +321,7 @@ Avoid framings that contradict the above:
 | Path | Purpose |
 |---|---|
 | `lean/` | All Lean source files |
-| `lakefile.lean` | Build config; `roots` array lists all 19 modules |
+| `lakefile.lean` | Build config; `roots` array lists all 41 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |
