@@ -19,7 +19,7 @@ The bright line: ✅ **forced** (machine-verified the value is *not free* but a 
 | **6 quark masses** | 🔵 open — but *category-corrected* | quark masses are **non-observable** (confinement; scheme-dependent parameters). The observable is the mass *difference* — hadron splittings `m_n−m_p = (m_d−m_u) − EM`, the `d↔u` weak vertex. QLF *predicts* no clean quark-mass relation; the open target is the **hadron splitting spectrum** ([`Weak_Force.md`](Weak_Force.md) §5d) |
 | **4 CKM angles+phase** | 🔵 open | flavor change = gauge-fold pair-flip (operation); mixing angles open |
 | **Higgs mass, VEV** | 🔵 open | mechanism reframed (gauge-fold delay, [`Higgs.md`](Higgs.md)); the 125 GeV and `v=246 GeV` not derived |
-| **neutrino masses, PMNS** | 🔵 open masses; 🔭 **Majorana nature predicted** (§3) | — |
+| **neutrino masses, PMNS** | 🔵 open masses; 🔭 **Dirac nature predicted → no 0νββ** (§3) | — |
 | **θ_QCD** (strong-CP) | 🔵 not addressed | — |
 
 **Honest tally:** of the ~19–26 SM parameters, QLF *firmly forces* **one** fundamental coupling (α) and **one relation** among the three lepton masses (Koide). That is a handful — but the SM forces **zero**, and the difference is the whole point: see §2.
@@ -44,9 +44,9 @@ This is the real, provable "beyond SM": **the SM's unexplained constants are for
 
 You cannot *prove* new physics; you test it. QLF makes **one sharp, clean, currently-tested** commitment:
 
-> **Neutrinos are Majorana** (their own antiparticle) → **neutrinoless double-beta decay** (`0νββ`).
+> **Neutrinos are Dirac** (`ν ≠ ν̄`); `B−L` is exactly conserved → **no neutrinoless double-beta decay** (`0νββ`).
 
-The SM is *agnostic* (Dirac vs Majorana is open); QLF's chirality algebra **forces** Majorana ([`Majorana_Beta_Decay.md`](Majorana_Beta_Decay.md), [`Experimental_Consistency.md`](Experimental_Consistency.md) §10). **LEGEND, nEXO, KATRIN are testing this now.** A Dirac result would refute QLF's account specifically — exactly the kind of falsifiable, distinguishable-from-the-SM claim a serious framework needs. This is the corpus's own "clearest specific empirical commitment distinguishable from the Standard Model."
+The SM is *agnostic* (Dirac vs Majorana is open); QLF's **exact per-event signed-count balance** (the `count_balanced_pauli_closed` keystone) makes `B−L` an exactly conserved count, and 0νββ — which would create two units of lepton number from nothing (`Δ(B−L)=2`) — is exactly the imbalance ZFA closure forbids ([`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md) §1, [`Experimental_Consistency.md`](Experimental_Consistency.md) §10). **LEGEND, nEXO, KamLAND-Zen are testing this now**, and *every search to date is null* — consistent with the prediction. A confirmed **positive** 0νββ signal would refute QLF's exact-`B−L` account specifically — a falsifiable, distinguishable-from-the-SM claim, and a cleaner one than a Majorana claim would be: it predicts the *absence* of a signal that is, so far, absent. (This corrects the corpus's earlier Majorana commitment, which conflated the neutrino's *spatial* non-chirality with self-conjugacy and ran against the framework's own balance principle.)
 
 Softer, also beyond-SM but less sharp:
 - **Dark matter is not a particle** — emergent vacuum time-folding ([`DarkMatter.md`](DarkMatter.md)); prediction: no DM particle is found (consistent with decades of null WIMP searches).
@@ -66,7 +66,7 @@ Softer, also beyond-SM but less sharp:
 - It does **not** derive most of the SM: the quark masses, CKM, the weak/strong couplings, the Higgs mass and VEV, and `θ_QCD` are all 🔵 open (§1).
 - The lepton sector is **constrained, not closed**: `Q=2/3` is forced, but the scale and the Koide angle are inputs ([`Weak_Force.md`](Weak_Force.md) §5c — `2/9` is a flagged coincidence, not a derivation).
 - α matches at **0.026%**, not exactly — the residual (Schwinger-scale) is open.
-- The new-physics predictions (§3) **cannot be proved** — Majorana awaits 0νββ; dark-matter-as-vacuum is qualitative.
+- The new-physics predictions (§3) **cannot be proved** — the Dirac / no-0νββ prediction awaits ongoing 0νββ searches; dark-matter-as-vacuum is qualitative.
 - The Riemann-hypothesis link is an **axiom** (`spectral_hilbert_polya`), not a proof.
 
 ---
@@ -77,19 +77,19 @@ Softer, also beyond-SM but less sharp:
 |---|---|---|
 | SM parameters QLF **forces** (machine-verified) | ~1 coupling (α) + 1 lepton-mass relation (Koide) | retrodiction, but the *forcing* is proved |
 | Beyond-SM/GR quantities derived | Ω_Λ, Λ, Mercury perihelion, m_p/m_e | retrodiction; several Lean-anchored |
-| Falsifiable **new** predictions | 1 sharp (Majorana/0νββ) + 2 soft (dark matter, sterile ν) | untested; physics, not proof |
+| Falsifiable **new** predictions | 1 sharp (Dirac / no 0νββ) + 2 soft (dark matter, sterile ν) | untested; physics, not proof |
 | SM parameters left **open** | the large majority (quarks, CKM, couplings, Higgs numbers, ν masses, θ_QCD) | 🔵 |
 
-**Bottom line.** QLF's beyond-SM strength is *not* a finished theory of everything — it is that it turns several of the SM's unexplained constants into **forced** consequences of one substrate (machine-verified that they are not free), plus **one clean falsifiable prediction** (Majorana). That is strictly more than reproducing the SM, and strictly less than deriving it — stated here so the line is never blurred.
+**Bottom line.** QLF's beyond-SM strength is *not* a finished theory of everything — it is that it turns several of the SM's unexplained constants into **forced** consequences of one substrate (machine-verified that they are not free), plus **one clean falsifiable prediction** (Dirac neutrino / no 0νββ). That is strictly more than reproducing the SM, and strictly less than deriving it — stated here so the line is never blurred.
 
 ---
 
 ## 7. References
 
 - [`Open_Problems.md`](Open_Problems.md) — the open-work registry this complements.
-- [`Experimental_Consistency.md`](Experimental_Consistency.md) §10 — the falsifiability section; the Majorana commitment.
+- [`Experimental_Consistency.md`](Experimental_Consistency.md) §10 — the falsifiability section; the Dirac / no-0νββ commitment.
 - [`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md) — the three machine-verified gauge algebras.
 - [`Weak_Force.md`](Weak_Force.md) §5 — Koide `Q=2/3`, `m_τ`, the Koide angle.
-- [`Majorana_Beta_Decay.md`](Majorana_Beta_Decay.md), [`DarkMatter.md`](DarkMatter.md) — the new-physics predictions.
+- [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md), [`DarkMatter.md`](DarkMatter.md) — the new-physics predictions.
 - [`Cosmological_Constant.md`](Cosmological_Constant.md) — `Ω_Λ = log 2`, the vacuum catastrophe.
 - Lean anchors: `alpha_QLF_eq`, `koide_two_thirds`, `Omega_Lambda_QLF`, `mass_ratio_QLF_eq`, `mercury_perihelion_substrate_summary`, `weak_isospin_su2`, `trace_commutator_zero`.

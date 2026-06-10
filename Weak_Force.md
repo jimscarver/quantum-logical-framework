@@ -1,6 +1,6 @@
 # The Weak Force and the W/Z Bosons in QLF
 
-**The weak sector, consolidated — what QLF derives, what it sketches, and what is open, with the honest three-tier discipline of the rest of the corpus.** Previously this content was scattered across [`Higgs.md`](Higgs.md) §4, [`Standard_Model.md`](Standard_Model.md), [`Majorana_Beta_Decay.md`](Majorana_Beta_Decay.md), and [`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) §6.
+**The weak sector, consolidated — what QLF derives, what it sketches, and what is open, with the honest three-tier discipline of the rest of the corpus.** Previously this content was scattered across [`Higgs.md`](Higgs.md) §4, [`Standard_Model.md`](Standard_Model.md), [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md), and [`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) §6.
 
 **Headline:** the **group-theoretic identification of the weak-isospin SU(2) inside the 8-twist algebra is now machine-verified** (`weak_isospin_su2`, [`lean/BraKetRhoQuCalc.lean`](lean/BraKetRhoQuCalc.lean)). The **quantitative** weak sector — W/Z masses, the Weinberg-angle value, the Fermi constant, the flavor-change vertex — remains explicitly open.
 
@@ -8,7 +8,7 @@
 
 ## 1. The weak force as a gauge-fold pair-flip
 
-The 8-twist alphabet splits `6 spatial (^v<>/\) + 2 gauge (+-)`. The gauge sector (`+`/`−` folds) is what carries charge and generates mass. In QLF the **weak force is the gauge-fold pair-flip** — the operation that flips gauge content — which is exactly what is needed to restructure one closed history into another of different charge (e.g. `n → p`-deficit, co-produced with its completing lepton — §4a). It is **chirality-mediated**: left-handed loops pair into SU(2)-like doublets, right-handed into singlets, a structure inherited from the half-spin Pauli algebra ([`Standard_Model.md`](Standard_Model.md) §3.4, [`Majorana_Beta_Decay.md`](Majorana_Beta_Decay.md)).
+The 8-twist alphabet splits `6 spatial (^v<>/\) + 2 gauge (+-)`. The gauge sector (`+`/`−` folds) is what carries charge and generates mass. In QLF the **weak force is the gauge-fold pair-flip** — the operation that flips gauge content — which is exactly what is needed to restructure one closed history into another of different charge (e.g. `n → p`-deficit, co-produced with its completing lepton — §4a). It is **chirality-mediated**: left-handed loops pair into SU(2)-like doublets, right-handed into singlets, a structure inherited from the half-spin Pauli algebra ([`Standard_Model.md`](Standard_Model.md) §3.4, [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md)).
 
 This is the force as an **operation**. Whether it is also carried by an explicit propagator particle in every context is subtle — see §4.
 
@@ -48,10 +48,10 @@ So **the weak-isospin SU(2) is the τ-quaternion subalgebra of Σ₈** — a con
 
 ## 4. Beta decay — and the W-as-operation vs W-as-particle tension
 
-QLF's account of beta decay ([`Majorana_Beta_Decay.md`](Majorana_Beta_Decay.md)) is **boundary restructuring**, and — read directly — it **never names the W as a particle**. A free neutron carries topological stress; it relieves it by *unspooling* its Markov-blanket boundary into a **proton** (itself a net-charge *deficit*, not a free observable — see §4a) plus two ejected unforgeable names:
+QLF's account of beta decay ([`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md)) is **boundary restructuring**, and — read directly — it **never names the W as a particle**. A free neutron carries topological stress; it relieves it by *unspooling* its Markov-blanket boundary into a **proton** (itself a net-charge *deficit*, not a free observable — see §4a) plus two ejected unforgeable names:
 
 - the **electron** — a highly chiral ZFA loop, `^<v>` (left-handed) vs `^>v<` (right-handed), carrying the asymmetric logical debt;
-- the **Majorana neutrino** — a *non-chiral* loop (`^v`), whose Hermitian conjugate is identical to itself, hence its own antiparticle (a falsifiable QLF commitment: neutrinoless double-beta decay).
+- the **Dirac antineutrino** — a *spatially non-chiral* loop (`^v` / `^-v+`), carrying the balancing lepton count (`L=−1`). Its spatial non-chirality does **not** make it self-conjugate: it is the distinct conjugate of the neutrino, so `B−L` is exactly conserved per event (a falsifiable QLF commitment: **no** neutrinoless double-beta decay — [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md) §1).
 
 Concrete anchor: the chiral electron loop `^<v>` is exactly the cross-axis **interleaved closure** machine-verified this cycle — `interleaved_xlvr_folds_to_negI` (`σ_y·−σ_x·−σ_y·σ_x = −I`) in [`lean/QLF_TwistAlphabet.lean`](lean/QLF_TwistAlphabet.lean) — a count-balanced ZFA closure that the keystone `count_balanced_pauli_closed` covers.
 
@@ -61,7 +61,7 @@ Concrete anchor: the chiral electron loop `^<v>` is exactly the cross-axis **int
 
 It is tempting (and the β-decay accounts do this) to say the neutron decays *into a proton*. But by QLF's own rule — **charged particles do not exist independently** ([`HadronicDepth.md`](HadronicDepth.md) §2.1, [`Electron.md`](Electron.md), [`Bound_States_QLF.md`](Bound_States_QLF.md)) — a bare proton is a net-charge deficit (`count(+) − count(−) = +1`), an *open* Hermitian/gauge half, **not** a completed ZFA closure. The proton is an observable only once its deficit is completed by a counter-charge into a **neutral joint closure**. So wherever the weak sector says "proton" as a stand-alone product, the conceptually correct object is the **closed hydrogen-class atom**.
 
-What makes β decay clean here: it **co-produces the completer**. The same unspooling that leaves a proton-deficit also ejects the electron whose `−1` exactly cancels it — i.e. the *constituents of a neutral (hydrogen-class) closure*, born together, so global neutrality is preserved by construction (`m_p` should be read as `m_H`, a 0.05 % wash, per [`HadronicDepth.md`](HadronicDepth.md) §2.1). The neutral neutron does not produce a free charge; it produces a deficit **and** its completer, plus the self-balancing Majorana neutrino.
+What makes β decay clean here: it **co-produces the completer**. The same unspooling that leaves a proton-deficit also ejects the electron whose `−1` exactly cancels it — i.e. the *constituents of a neutral (hydrogen-class) closure*, born together, so global neutrality is preserved by construction (`m_p` should be read as `m_H`, a 0.05 % wash, per [`HadronicDepth.md`](HadronicDepth.md) §2.1). The neutral neutron does not produce a free charge; it produces a deficit **and** its completer, plus the Dirac antineutrino that balances the lepton count.
 
 **The completing lepton's *variety* is a weak / generation degree of freedom.** Exactly as the electron's deficit can be completed by a positron (**positronium**), an antimuon (**muonium**), or a proton (**hydrogen**) ([`Electron.md`](Electron.md), [`Bound_States_QLF.md`](Bound_States_QLF.md)), the **proton's** deficit can be completed by any negative lepton:
 
@@ -182,7 +182,7 @@ So this is an honest **partial**: the decomposition is clean, the EM half's sign
 
 $$m_n - m_H \;=\; 0.782\ \text{MeV},$$
 
-is exactly the energy of the Majorana antineutrino in **bound-state beta decay** `n → H + ν̄` — a real (rare, ~4×10⁻⁶) channel in which the neutron decays *directly into a hydrogen atom*. This is the literal realization of §4a: the neutron unspools into hydrogen's constituents and sheds `m_n − m_H` into the neutrino. So the clean QLF statement of the weak transition is **neutron-closure → hydrogen-closure + Majorana ν̄** — two neutral observables, the gap carried by the neutrino. Its being *small and positive* makes the free neutron unstable but long-lived (~880 s, rate ∝ `Q⁵`), and the margin is anthropic (free neutrons decay, bound neutrons in nuclei are stable, chemistry exists; `m_n < m_H` would give a stable neutron and *unstable hydrogen*). **Honest:** quantitatively `m_n − m_H = (m_n − m_p) − m_e`, so it carries the same strong−EM content above — it is the *right observable*, not new derivational power.
+is exactly the energy of the (Dirac) antineutrino in **bound-state beta decay** `n → H + ν̄` — a real (rare, ~4×10⁻⁶) channel in which the neutron decays *directly into a hydrogen atom*. This is the literal realization of §4a: the neutron unspools into hydrogen's constituents and sheds `m_n − m_H` into the antineutrino. So the clean QLF statement of the weak transition is **neutron-closure → hydrogen-closure + ν̄** — two neutral observables, the gap carried by the antineutrino. Its being *small and positive* makes the free neutron unstable but long-lived (~880 s, rate ∝ `Q⁵`), and the margin is anthropic (free neutrons decay, bound neutrons in nuclei are stable, chemistry exists; `m_n < m_H` would give a stable neutron and *unstable hydrogen*). **Honest:** quantitatively `m_n − m_H = (m_n − m_p) − m_e`, so it carries the same strong−EM content above — it is the *right observable*, not new derivational power.
 
 ### 5f. Deuterium stability — a positive structural result
 
@@ -244,7 +244,7 @@ A structural proposal for what makes a heavy lepton heavy, tying together §5b (
 - [`Primordial_Entanglement.md`](Primordial_Entanglement.md) §2 — the `N=4/8/12` generation loop-length picture refined by §5a's phase reading.
 - [`Higgs.md`](Higgs.md) §4 — W/Z as gauge-fold closures, `m = αR`, `cos θ_W = R_W/R_Z`.
 - [`Standard_Model.md`](Standard_Model.md) §§2–4 — the honest scoreboard; weak SU(2) row.
-- [`Majorana_Beta_Decay.md`](Majorana_Beta_Decay.md) — beta decay as boundary restructuring; the Majorana neutrino.
+- [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md) — beta decay as boundary restructuring; the Dirac neutrino and the no-0νββ prediction.
 - [`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) §6, [`Bound_States_QLF.md`](Bound_States_QLF.md) §4 — the τ-decay vertex (the W blocker).
 - [`Lagrangian_Formulation.md`](Lagrangian_Formulation.md) — the Σ₈ algebra and `τᵢ = iσᵢ`.
 - [`Open_Problems.md`](Open_Problems.md) — registry status of the weak-sector items.

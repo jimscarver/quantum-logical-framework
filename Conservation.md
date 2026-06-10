@@ -106,8 +106,7 @@ CPT conservation is the global statement of unitarity (§5): every QLF event has
 
 QLF does not yet provide constructive derivations of:
 
-- **Baryon number conservation** — partially derived: composite hadron blankets ([Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md)) have a quantized topological-winding number. A clean Noether-style derivation tying this to a specific 8-twist symmetry is open work.
-- **Lepton number conservation** — similar; tied to the electron's RH fluxoid structure ([Atom.md](Atom.md), [Majorana_Beta_Decay.md](Majorana_Beta_Decay.md)). Open.
+- **`B−L` conservation** — the *exact* baryonic/leptonic symmetry. The signed twist count that ZFA balances per event is `B−L` (the difference), not `B` or `L` separately: composite hadron blankets ([Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md)) carry a quantized topological-winding number (`B`), and the electron's chiral fluxoid carries the lepton count (`L`, [Atom.md](Atom.md)), but only their `B−L`-balanced combination is protected per event. This is what predicts the neutrino is **Dirac** and forbids `0νββ` ([Beta_Decay_Neutrino_Nature.md](Beta_Decay_Neutrino_Nature.md) §1): `0νββ` would be a `Δ(B−L)=2` imbalance. `B` and `L` may each shift in a `B−L`-conserving (sphaleron / baryogenesis) process — consistent with the Sakharov `B`-violation needed for matter dominance (§7). A clean Noether-style derivation tying `B−L` to a specific 8-twist symmetry is open work; the structural identification (`B−L` = the per-event-balanced signed count) is in hand.
 - **Color SU(3) confinement** — requires the Borromean three-quark topology to be derived as the unique stable closure under a specific symmetry. Open.
 - **Weak SU(2) doublet structure** — requires a specific 8-twist subgroup to be identified as the weak gauge group. Open.
 

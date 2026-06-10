@@ -71,7 +71,7 @@ canonical status list; when an item moves, update it here and in its owning doc.
 | **Maxwell curl laws** (`∇×B=μ₀J`, `∇×E=−∂B/∂t`) | Stated structurally; await a time-indexed event-sequence Lean module (divergence laws already verified) | [`Maxwell.md`](Maxwell.md), [`Electricity.md`](Electricity.md) |
 | **γ (Euler–Mascheroni) convergence** | Structural form Lean-anchored; `lim (H_N − ln N) = γ` convergence proof deferred (standard real analysis) | [`lean/QLF_EulerMascheroni.lean`](lean/QLF_EulerMascheroni.lean) |
 | **Borromean 5-angle** | `chirality-mixing-per-pair = 2` not yet derived rigorously from `QLF_Pauli`'s scalar group | [`lean/QLF_BorromeanAngles.lean`](lean/QLF_BorromeanAngles.lean) |
-| **Baryon-number conservation** | Topological-winding number present; clean Noether tie to an 8-twist symmetry open | [`Conservation.md`](Conservation.md) §9 |
+| **`B−L` conservation** (baryon/lepton) | `B−L` identified as the *exact* per-event-balanced signed count (winding `B` + chiral `L`); predicts **Dirac neutrino / no 0νββ** ([`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md) §1). Clean Noether tie to a specific 8-twist symmetry still open | [`Conservation.md`](Conservation.md) §8 |
 
 ---
 

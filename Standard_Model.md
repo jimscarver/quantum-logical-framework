@@ -11,7 +11,7 @@ The structure follows [Conservation.md §8](Conservation.md) (the "what is NOT y
 | **Spin-1/2 algebra (Pauli, Dirac)** | Derived from 8-twist Pauli mapping ([HALF-SPIN-ZFA-EMBEDDING.md](HALF-SPIN-ZFA-EMBEDDING.md), [Lagrangian_Formulation.md](Lagrangian_Formulation.md)) | ✓ Derived; machine-verified `tau_xy_product` etc. |
 | **Electron** (mass, charge, spin) | `^<` or `^<v>` chiral fluxoid; mass from gauge fold; charge from gauge-fold parity ([Electron.md](Electron.md), [Atom.md](Atom.md)) | ✓ Structurally derived; mass *ratio* to other leptons is open |
 | **Photon** (massless, spin 1) | Pure spatial fold `^>` or `^v` with no gauge folds ([Electron.md §2](Electron.md), [Particles.md](Particles.md)) | ✓ Derived |
-| **Neutrino** (left-handed, gauge-only) | `^-v+` (gauge-dominant loop) — neutrino is Majorana per [Majorana_Beta_Decay.md](Majorana_Beta_Decay.md) | ✓ Structural derivation; Dirac-vs-Majorana experimentally open |
+| **Neutrino** (left-handed, gauge-only) | `^-v+` (gauge-dominant, spatially non-chiral loop) — neutrino is **Dirac** (`ν ≠ ν̄`, distinguished by lepton count) per [Beta_Decay_Neutrino_Nature.md](Beta_Decay_Neutrino_Nature.md) | ✓ Structural derivation; predicts **no 0νββ** (`B−L` exact), experimentally tested (all null) |
 | **Proton, neutron** (Borromean three-quark) | Three open quarks interlocked under Borromean topology ([Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md), [HadronicDepth.md](HadronicDepth.md)) | ✓ Structural derivation; mass quantitative match open |
 | **Quark confinement** | Quarks are fractional ZFA (cannot exist as isolated unforgeable names) — must group in pairs/triples to form stable composite blankets | ✓ Qualitative derivation; quantitative confinement scale open |
 | **U(1) electromagnetic** | `+` ↔ `−` gauge swap symmetry of the 8-twist algebra ([Conservation.md §4](Conservation.md), [Maxwell.md](Maxwell.md)) | ✓ Derived; charge conservation Lean-verified via `no_magnetic_monopoles` |
@@ -19,7 +19,7 @@ The structure follows [Conservation.md §8](Conservation.md) (the "what is NOT y
 | **CP violation** | Residual clustering of LH/RH topology in the early universe ([CP-Violation-and-Chirality.md](CP-Violation-and-Chirality.md), [Annihilation.md §5](Annihilation.md)) | ⚠ Partial — qualitative; CKM matrix angles open |
 | **Generation structure (3 lepton families, 6 quarks)** | Higher-order resonant harmonics of primordial split ([Primordial_Entanglement.md §2](Primordial_Entanglement.md), [Particles.md §3](Particles.md)) | ⚠ Partial — structural reason for "more than one", specific generation count open |
 | **Strong SU(3) confinement** | Borromean three-element topology is the unique stable three-body closure | ⚠ Partial — SU(3) gauge group identification open |
-| **Weak SU(2) doublets** | Pair-grouping under chirality — left-handed particles in SU(2) doublets, right-handed in singlets ([Majorana_Beta_Decay.md](Majorana_Beta_Decay.md), [Weak_Force.md](Weak_Force.md)) | ⚠ Partial — **Lie-algebra identification machine-verified** (`weak_isospin_su2`: the Σ₈ τ-subalgebra carries `[τᵢ,τⱼ]=−2εᵢⱼₖτₖ`, su(2)≅so(3); `Q₈⊂SU(2)`); doublet representation, coupling `g`, and W/Z masses open |
+| **Weak SU(2) doublets** | Pair-grouping under chirality — left-handed particles in SU(2) doublets, right-handed in singlets ([Beta_Decay_Neutrino_Nature.md](Beta_Decay_Neutrino_Nature.md), [Weak_Force.md](Weak_Force.md)) | ⚠ Partial — **Lie-algebra identification machine-verified** (`weak_isospin_su2`: the Σ₈ τ-subalgebra carries `[τᵢ,τⱼ]=−2εᵢⱼₖτₖ`, su(2)≅so(3); `Q₈⊂SU(2)`); doublet representation, coupling `g`, and W/Z masses open |
 | **Baryon number conservation** | Topological winding number of composite blankets | ⚠ Partial — Noether-style derivation open |
 | **Lepton number conservation** | Chiral fluxoid count of electron-type structures | ⚠ Partial — same |
 | **Sterile neutrino** | Would require pure-`+` or pure-`-` gauge sequence with no spatial twists | ✗ Open — experimental status unsettled; QLF predicts a specific topology if it exists |
@@ -43,7 +43,7 @@ From [Electron.md](Electron.md) and [Particles.md](Particles.md):
 
 - **Electron** `^<` (or compositely `^<v>`) — chiral fluxoid that gauge-folds; carries mass via the constructing delay and charge via the gauge parity.
 - **Photon** `^>` (or `^v`) — pure spatial fold with no gauge folds; massless; carries no charge; the canonical massless quantum.
-- **Neutrino** `^-v+` — gauge-dominant loop; no transverse spatial extent; nearly non-interacting; QLF predicts Majorana (the loop is its own Hermitian conjugate per [Majorana_Beta_Decay.md](Majorana_Beta_Decay.md)).
+- **Neutrino** `^-v+` — gauge-dominant loop; no transverse spatial extent; nearly non-interacting; spatially non-chiral but **Dirac** — its conjugate antineutrino is distinguished by the opposite lepton count, so `B−L` is exactly conserved and QLF predicts **no 0νββ** (per [Beta_Decay_Neutrino_Nature.md](Beta_Decay_Neutrino_Nature.md) §1).
 
 These three are the directly derived light particles. Positron, anti-photon, anti-neutrino follow by Hermitian conjugation ([Annihilation.md §2](Annihilation.md)).
 
@@ -85,7 +85,7 @@ From [Primordial_Entanglement.md §2](Primordial_Entanglement.md) and [Particles
 
 ### 3.4 Strong SU(3) and weak SU(2) groups
 
-From [Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md) and [Majorana_Beta_Decay.md](Majorana_Beta_Decay.md): the strong force is the Borromean three-quark binding; the weak force is the gauge-fold pair-flip that mediates beta decay.
+From [Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md) and [Beta_Decay_Neutrino_Nature.md](Beta_Decay_Neutrino_Nature.md): the strong force is the Borromean three-quark binding; the weak force is the gauge-fold pair-flip that mediates beta decay.
 
 **What's derived**: the structural reason for confinement (SU(3)-like three-element grouping) and for chirality-mediated weak interactions (SU(2)-like doublet structure). **Both gauge Lie algebras are now machine-verified** as the symmetry of the three spatial axes: the **weak SU(2)** is the Σ₈ τ-subalgebra (`[τᵢ,τⱼ] = −2εᵢⱼₖτₖ`, `Q₈ ⊂ SU(2)` — `weak_isospin_su2`), and the **strong SU(3)** is the traceless part of the 3×3 directional tensor (closed under the bracket and non-abelian — `trace_commutator_zero` + `gluon_commutator_nonzero` in [`lean/QLF_StrongAlgebra.lean`](lean/QLF_StrongAlgebra.lean)). With `U(1)` (`no_magnetic_monopoles`), all three SM gauge algebras are verified, with dimensions `1 + 3 + 8 = 12` (`1 + 8 = 9 = N`, the α tensor) — see [`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md).
 
@@ -142,7 +142,7 @@ The path forward is to:
 - [Particles.md](Particles.md) — particle-as-unforgeable-name framing; electron/neutrino derivations
 - [Electron.md](Electron.md) — electron and photon worked examples
 - [Higgs.md](Higgs.md) — mass-generation via gauge folds
-- [Majorana_Beta_Decay.md](Majorana_Beta_Decay.md) — chirality, Majorana neutrino, beta decay
+- [Beta_Decay_Neutrino_Nature.md](Beta_Decay_Neutrino_Nature.md) — chirality, the Dirac neutrino (no 0νββ), beta decay
 - [Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md) — Borromean three-quark topology for hadrons
 - [HadronicDepth.md](HadronicDepth.md) — hadronic resonance hierarchy
 - [CP-Violation-and-Chirality.md](CP-Violation-and-Chirality.md) — CP violation and matter dominance
