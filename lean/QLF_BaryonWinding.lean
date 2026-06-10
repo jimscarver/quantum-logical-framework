@@ -37,7 +37,9 @@ open QLF QLF.Majorana
 
 /-- The three spatial axes. -/
 inductive Ax | x | y | z
-  deriving DecidableEq, Fintype
+  deriving DecidableEq
+
+instance : Fintype Ax := ⟨{Ax.x, Ax.y, Ax.z}, fun a => by cases a <;> decide⟩
 
 /-- Spatial axis of a twist; gauge twists (`+`,`−`) have none. -/
 def axOf : Twist → Option Ax
