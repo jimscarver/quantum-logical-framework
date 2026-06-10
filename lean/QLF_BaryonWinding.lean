@@ -153,7 +153,7 @@ theorem endWindowA_cons3 (a b c : Option Ax) (rest : List (Option Ax)) (x : Opti
   have h1 : (a :: b :: c :: rest).reverse = (b :: c :: rest).reverse ++ [a] := by
     rw [List.reverse_cons]
   have h2 : (b :: c :: rest).reverse = rest.reverse ++ [c, b] := by
-    rw [List.reverse_cons, List.reverse_cons, List.append_assoc]
+    simp [List.reverse_cons]
   simp only [endWindowA]
   rw [h1, h2]
   rcases rest.reverse with _ | ⟨r, rs⟩
@@ -179,7 +179,7 @@ theorem bnA_reverse : ∀ os : List (Option Ax), bnA os.reverse = - bnA os
   | a :: b :: c :: rest => by
       have ih := bnA_reverse (b :: c :: rest)
       have h2 : (b :: c :: rest).reverse = rest.reverse ++ [c, b] := by
-        rw [List.reverse_cons, List.reverse_cons, List.append_assoc]
+        simp [List.reverse_cons]
       rw [List.reverse_cons, bnA_snoc, ih, h2, endWindowA_append_two, signTriple_rev]
       simp only [bnA]
       ring
