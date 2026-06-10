@@ -156,6 +156,30 @@ So the right QLF target is **not** a quark-mass Koide (which QLF's own confineme
 
 ---
 
+### 5e. Attempt — the n–p splitting from closure structure
+
+Taking §5d's target literally: can QLF derive `m_n − m_p = 1.2933 MeV`? It is two gauge-sector pieces (this decomposition is standard, recast in QLF terms; reproducible in [`np_splitting_demo.py`](np_splitting_demo.py)):
+
+$$m_n - m_p \;=\; \underbrace{(m_d - m_u)}_{\text{strong flavor step, }n\text{ heavier}} \;-\; \underbrace{\Delta E_{\text{EM}}}_{\text{EM closure difference, }p\text{ heavier}}.$$
+
+**The EM half — QLF fixes its sign and scale.** The two baryons are Borromean three-quark closures differing only in quark *charge* (the `+−` gauge-fold content): proton `uud`, neutron `udd`. The charge structure alone determines the EM sign:
+
+| | `Σ qᵢ²` (self-energy) | `Σ_{i<j} qᵢqⱼ` (Coulomb) |
+|---|---|---|
+| proton `uud` | `1` | `0` |
+| neutron `udd` | `2/3` | `−1/3` |
+| **p − n** | **`+1/3`** | **`+1/3`** |
+
+Both differences are positive: the proton has more quark self-energy *and* less Coulomb attraction, so **EM makes the proton heavier** (`ΔE_EM > 0`) — the correct sign for keeping the proton stable. The magnitude comes from QLF's own constants: `α·ℏc/R_p = (1/137)(197.3)/(0.84 fm) = 1.71 MeV` (α the substrate value `alpha_QLF_eq`, `R_p` the proton blanket depth), and with the `O(1/3)` charge factors the required `ΔE_EM ≈ 1.22 MeV` sits squarely inside it. **So QLF — α + proton depth + the quark-charge gauge structure — fixes the EM half's sign and order of magnitude.**
+
+**The strong half — open.** `(m_d − m_u) ≈ 2.5 MeV` makes the neutron heavier and *is* the `d↔u` weak vertex (§4). But quark masses are non-observable (§5d), so this flavor-step energy is **not derived** — it is the open piece.
+
+**The net — a hard cancellation, not shortcut.** `m_n − m_p ≈ (+2.5) − (1.2) ≈ +1.3 MeV` is a delicate sub-MeV cancellation of two ~MeV gauge-sector effects, the same one that required lattice QCD+QED (BMW 2015) to compute from first principles. QLF supplies the **structure** and the **EM scale**; it does **not** supply the cancellation.
+
+So this is an honest **partial**: the decomposition is clean, the EM half's sign and ~MeV scale fall out of QLF's `α` + proton depth + gauge structure, and the strong half + precise value stay open. The sign result is not nothing — *neutron heavier ⇒ proton stable ⇒ hydrogen and chemistry exist*, and QLF gets that sign from charge structure alone.
+
+---
+
 ## 6. Honest open list (quantitative weak sector)
 
 - **The Koide angle `δ`** — the genuine remaining lepton-sector input (§5c); `2/9` is a flagged 0.02% coincidence, not a derivation.
@@ -165,6 +189,7 @@ So the right QLF target is **not** a quark-mass Koide (which QLF's own confineme
 - **The τ-decay-vertex topology** — §5a gives a mass handle (Koide `Q=2/3` ⇒ `m_τ` to 0.006%) and a vertex reading (deepest-phase un-binding), but: **deriving `Q=2/3` from the τ-closure**, the **Koide angle `δ ≈ 2/9`**, and the **scale `M`** are open (`m_e, m_μ` are still inputs).
 - **Why exactly three generations** — the 120°-phase structure is *consistent* with QLF's "three axes" but not derived; the quark generations and the lepton↔quark mass correlation are separate and open.
 - **Flavor change** (`d → u + e⁻ + ν̄`) — the explicit topological flavor-change process is not detailed.
+- **Hadron mass splittings** (`m_n − m_p`, `π±−π0`, …) — §5e: the EM half's sign and ~MeV scale fall out of QLF (α + proton depth + quark-charge gauge structure), but the strong `d↔u` flavor-step energy and the precise sub-MeV cancellation are open. This is the well-posed "connect the quarks" target (the *difference*, not absolute masses).
 - **CKM / PMNS mixing angles** — open ([`Standard_Model.md`](Standard_Model.md) §4.2).
 
 ---
@@ -185,6 +210,7 @@ So the right QLF target is **not** a quark-mass Koide (which QLF's own confineme
 - [`lean/BraKetRhoQuCalc.lean`](lean/BraKetRhoQuCalc.lean) — `weak_isospin_su2`, `tau_comm_xy/yz/zx`, `tau_anticomm_*`, the Σ₈ τ-algebra (machine-verified).
 - [`lean/QLF_TwistAlphabet.lean`](lean/QLF_TwistAlphabet.lean) — `interleaved_xlvr_folds_to_negI` (the chiral electron loop `^<v>`); `count_balanced_pauli_closed`.
 - [`koide_tau_demo.py`](koide_tau_demo.py) — §5a reproducible: Koide `Q` from measured masses, the `m_τ` prediction from `m_e, m_μ, Q=2/3`, and the three-phase equivalence.
+- [`np_splitting_demo.py`](np_splitting_demo.py) — §5e reproducible: the `m_n − m_p` decomposition, the EM half's sign + scale from the quark-charge gauge structure and `α·ℏc/R_p`.
 - [`Primordial_Entanglement.md`](Primordial_Entanglement.md) §2 — the `N=4/8/12` generation loop-length picture refined by §5a's phase reading.
 - [`Higgs.md`](Higgs.md) §4 — W/Z as gauge-fold closures, `m = αR`, `cos θ_W = R_W/R_Z`.
 - [`Standard_Model.md`](Standard_Model.md) §§2–4 — the honest scoreboard; weak SU(2) row.
