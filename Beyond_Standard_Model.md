@@ -80,7 +80,12 @@ Softer, also beyond-SM but less sharp:
 | Falsifiable **new** predictions | 1 sharp (Dirac / no 0νββ) + 2 soft (dark matter, sterile ν) | untested; physics, not proof |
 | SM parameters left **open** | the large majority (quarks, CKM, couplings, Higgs numbers, ν masses, θ_QCD) | 🔵 |
 
-**Bottom line.** QLF's beyond-SM strength is *not* a finished theory of everything — it is that it turns several of the SM's unexplained constants into **forced** consequences of one substrate (machine-verified that they are not free), plus **one clean falsifiable prediction** (Dirac neutrino / no 0νββ). That is strictly more than reproducing the SM, and strictly less than deriving it — stated here so the line is never blurred.
+**Bottom line.** Two senses of "theory of everything" must be kept apart, because QLF's honest status is opposite in each:
+
+- **As a foundational *ontology*** — one selection principle (ZFA on the computational possibility space) from which the structure of physics is meant to emerge — QLF **is** a TOE-scope framework, and says so openly ([`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md), [`VacuumEnergy.md`](VacuumEnergy.md) §6: vacuum-alignment as the TOE-completing layer). The claim "reality is the ZFA-balanced subset of computation" is a TOE-class claim about *what everything is*.
+- **As a parameter-complete *derivation*** — deriving *every* SM+gravity constant from first principles with no free inputs and matching all experiment — QLF is **not** finished, and this document is the honest ledger of the distance: it *forces* ~one coupling (α) and one lepton-mass relation (Koide), derives a handful of beyond-SM/GR quantities (§2), and leaves the large majority open (§1, §5).
+
+So the precise status is **a TOE-scope ontology with a partial, forced-not-fitted derivation attached** — strictly more than reproducing the SM (which forces *zero* of its parameters), strictly less than deriving it. Calling it a *finished* TOE would be the overclaim; calling it *only* an SM-fit would miss the ontological scope. The line to never blur is the second sense: the open parameters in §1 are open. The one clean falsifiable *new* prediction is Dirac neutrinos / no 0νββ (§3).
 
 ---
 
