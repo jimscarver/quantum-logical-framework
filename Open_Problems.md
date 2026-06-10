@@ -2,7 +2,9 @@
 
 A single map of what is **closed**, what is a **principled boundary**, and what is
 genuinely **open**, with a pointer to the document that owns each item. This is an
-*index*, not a re-derivation: the substance lives in the linked docs. It complements
+*index*, not a re-derivation: the substance lives in the linked docs. Its mirror is
+[`Beyond_Standard_Model.md`](Beyond_Standard_Model.md) (what QLF *forces / predicts* past the SM).
+It complements
 [`Experimental_Consistency.md`](Experimental_Consistency.md) (which tracks per-result
 precision) by collecting the *forward* work in one place.
 
