@@ -10,7 +10,7 @@ A Majorana fermion is a particle that is its own antiparticle. In a universe gov
 ## 2. Beta Decay as Boundary Restructuring
 A Hadron (like a Neutron) is a Markov Blanket—a macroscopic Context that hides complex fractional logic (quarks) from the surrounding vacuum Environment. 
 
-A free Neutron contains a topological stress (excess Bound Action) relative to the vacuum. To achieve a more stable bisimilarity with the Environment, the Neutron must restructure its Markov Blanket into a lower-energy Proton.
+A free Neutron contains a topological stress (excess Bound Action) relative to the vacuum. To achieve a more stable bisimilarity with the Environment, the Neutron must restructure its Markov Blanket into a lower-energy Proton. (The Proton is a net-charge *deficit*, not a free observable: it is completed into a neutral hydrogen-class closure by a negative lepton — and the β-decay event co-produces exactly that completer, the electron below. Which lepton variety completes it — `e⁻`/`μ⁻`/`τ⁻` → hydrogen / muonic / tauonic — is a generation degree of freedom; see [Weak_Force.md](Weak_Force.md) §4a.)
 * **The Unspooling:** The Neutron opens its topological boundary, unspooling the excess logic.
 * **The Ejection:** This logic must immediately resolve to preserve global ZFA. It splits into two Unforgeable Names:
   1. **The Electron:** A highly chiral, tightly bound ZFA loop that carries away the asymmetric logical debt.
