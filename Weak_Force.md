@@ -184,6 +184,16 @@ $$m_n - m_H \;=\; 0.782\ \text{MeV},$$
 
 is exactly the energy of the Majorana antineutrino in **bound-state beta decay** `n → H + ν̄` — a real (rare, ~4×10⁻⁶) channel in which the neutron decays *directly into a hydrogen atom*. This is the literal realization of §4a: the neutron unspools into hydrogen's constituents and sheds `m_n − m_H` into the neutrino. So the clean QLF statement of the weak transition is **neutron-closure → hydrogen-closure + Majorana ν̄** — two neutral observables, the gap carried by the neutrino. Its being *small and positive* makes the free neutron unstable but long-lived (~880 s, rate ∝ `Q⁵`), and the margin is anthropic (free neutrons decay, bound neutrons in nuclei are stable, chemistry exists; `m_n < m_H` would give a stable neutron and *unstable hydrogen*). **Honest:** quantitatively `m_n − m_H = (m_n − m_p) − m_e`, so it carries the same strong−EM content above — it is the *right observable*, not new derivational power.
 
+### 5f. Deuterium stability — a positive structural result
+
+Where the quark masses (§5d) and the strong `d↔u` step (§5e) are open, deuterium *stability* is a place QLF can speak **positively**, because it rests on machine-verified **Pauli exclusion** plus the §5e neutron margin.
+
+**Existence + uniqueness (Pauli).** The deuteron binds only in the spin-triplet, `L=0` channel. By Fermi antisymmetry, two *identical* nucleons (`pp` or `nn`) are forbidden that channel — so **there is no diproton or dineutron**. Only `np` binds, because the neutron and proton are **distinguishable** closures (differing by one `d↔u` flavor step). Distinguishable ⇒ no Pauli block ⇒ the bound triplet is available. This is anchored in QLF's verified Pauli exclusion (`pauli_exclusion : [A,A]=0`, with `fermi_nonzero_example` showing it is a genuine non-vacuous constraint — [`lean/PauliExclusion.lean`](lean/PauliExclusion.lean)). So the deuteron is the *unique* simplest bound nucleus, for a reason QLF has.
+
+**Stability (the bound neutron can't unspool).** `d → p+p+e⁻+ν̄` needs `m_d > 2m_p + m_e = 1877.06 MeV`, but `m_deuteron = 1875.61 MeV` — short by `1.44 MeV`, **forbidden**. Two QLF facts conspire: the diproton *isn't a closure* (Pauli again), and the joint-closure binding (`B_d = 2.224 MeV`) exceeds the free-neutron unspooling energy (`0.782 MeV`, §5e), so binding stabilizes the neutron — the §5e "bound neutrons are stable" point in its simplest case.
+
+**Positive vs. open.** The deuteron's *existence, uniqueness, and stability* are structural QLF results (Pauli + `d↔u` distinguishability + the §5e margin). The binding-energy *magnitude* (`2.224 MeV`) is open (nuclear/QCD dynamics, same level as the strong step). **The payoff:** no-diproton (Pauli) is the *deuterium bottleneck* — why stars fuse slowly and controllably rather than burning all their hydrogen at once — and QLF gets that structural reason from verified Pauli exclusion. (Cf. [`Fusion.md`](Fusion.md).)
+
 ---
 
 ## 6. Honest open list (quantitative weak sector)
