@@ -48,5 +48,6 @@ lean_lib QLF where
     `QLF_PrimordialMarkovBlanket,
     `QLF_Koide,
     `QLF_StrongAlgebra,
-    `QLF_BMinusL
+    `QLF_BMinusL,
+    `QLF_Majorana
   ]
