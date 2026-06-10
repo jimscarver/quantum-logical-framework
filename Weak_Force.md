@@ -130,10 +130,19 @@ So **Koide's `2/3` is QLF's `2 transverse + 1 longitudinal` split over `3` axes*
 
 What remains an **identification** (not a proof) is one sharp physical claim: that the lepton `√`-mass vector decomposes as `1` longitudinal baseline `+ 2` transverse 120°-phased oscillations across the `3` generation-axes. That is a far tighter conjecture than "`2/3` happens to match" — it pins the *entire* structure (`N=3`, `A=√2`, balanced phases) to the substrate's `6 = 2+1`-per-axis geometry, leaving only `δ` and `M` as inputs. Demo: [`koide_tau_demo.py`](koide_tau_demo.py) §3b.
 
+### 5c. The Koide angle `δ` — the genuine input (and a flagged coincidence)
+
+With `Q = 2/3` derived (§5b), the three lepton masses are fixed by **two** inputs: the scale `M` and the overall phase offset `δ` (the Koide angle) — equivalently, `m_e` and `m_μ`. Solving `Q = 2/3` with the precisely-known `m_e, m_μ` pins
+
+$$\delta = 0.22227\ \text{rad}.$$
+
+The famous near-coincidence `δ ≈ 2/9 = 0.22222` is tempting in QLF — `2/9 = 2/3²` reads as **(2 transverse axes) / (9 = 3² directional-coupling tensor)**, the *same* `N = 9 = 3²` that fixes α ([`Magnetism_Spatial_Dynamics.md`](Magnetism_Spatial_Dynamics.md) §6.1). It matches to **0.02%** and predicts `m_τ` to 0.001%. **But it is a coincidence, not a result:** `m_e` and `m_μ` are known to `~10⁻⁸` and demand `δ = 0.22227`, not `0.22222`, so `δ = 2/9` is *excluded* at that precision (it misses the electron-sensitive ratios `m_μ/m_e` by ~0.2%). Like the `I_1S ≈ 2π²` near-miss ([`HadronicDepth.md`](HadronicDepth.md)-style honesty), `2/9` is flagged, not claimed. **`δ` remains a genuine input** — deriving it (which would make the lepton mass *ratios* first-principles, leaving only the scale) is open.
+
 ---
 
 ## 6. Honest open list (quantitative weak sector)
 
+- **The Koide angle `δ`** — the genuine remaining lepton-sector input (§5c); `2/9` is a flagged 0.02% coincidence, not a derivation.
 - **`R_W`, `R_Z` from first principles** — the structure `M = αR` is there; the depths are not computed. ⇒ W/Z masses, and the **Weinberg-angle value** `cos θ_W = R_W/R_Z`, are open.
 - **The SU(2) coupling `g` and the breaking scale** (the Higgs VEV `v ≈ 246 GeV`) — not derived; [`Higgs.md`](Higgs.md) reframes the *mechanism* (gauge-fold delay) but not the numbers.
 - **Fermi constant `G_F`** — no derivation anywhere in the corpus.
