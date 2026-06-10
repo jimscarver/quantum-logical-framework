@@ -108,6 +108,31 @@ def main():
     print("  Koide angle ≈ 2/9 rad) and the scale M are the remaining open inputs.")
     print()
 
+    header("3b. WHY Q = 2/3 — the derivation, with counterfactuals")
+    print()
+    print("  For N balanced phases of amplitude A:  √m_k = M(1 + A·cos(δ + 2πk/N)),")
+    print("    Σcos = 0  ⇒  Σ√m = N·M;   Σcos² = N/2  ⇒  Σm = M²·N·(1 + A²/2)")
+    print("    ⇒  Q = Σm / (Σ√m)²  =  (1 + A²/2) / N      [machine-verified: QLF_Koide.lean]")
+    print()
+    print(f"  {'N':>3}  {'A²':>4}  {'Q = (1+A²/2)/N':>16}   reading")
+    print(f"  {'-'*3}  {'-'*4}  {'-'*16}   {'-'*40}")
+    for N, A2, note in [(3, 2, "QLF: 3 axes, 2 transverse  →  EXACTLY 2/3"),
+                        (2, 2, "2 generations"),
+                        (4, 2, "4 generations"),
+                        (3, 1, "only 1 transverse axis"),
+                        (3, 3, "3 transverse (no longitudinal baseline)")]:
+        q = (1 + A2 / 2) / N
+        star = "  ←" if (N, A2) == (3, 2) else ""
+        print(f"  {N:>3}  {A2:>4}  {q:>16.5f}   {note}{star}")
+    print()
+    print("  Q = 2/3 is forced by exactly two structural facts:")
+    print("    N  = 3   — three generations = the three spatial axes")
+    print("    A² = 2   — amplitude √2 = the TWO transverse axes")
+    print("               (the one longitudinal axis is the common '1' baseline)")
+    print("  i.e. the 2-transverse + 1-longitudinal split over 3 axes — the same")
+    print("  split as the transverse fraction 2/3 (Lamb prefactor, polarization sum).")
+    print()
+
     header("4. The τ-decay vertex, in this reading")
     print()
     print("  The τ is the deepest generation phase (largest √m).  Per Weak_Force")

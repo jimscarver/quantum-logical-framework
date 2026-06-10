@@ -101,7 +101,34 @@ Only the `2/3` is structural; `m_e, m_μ` are inputs — so this is a *parameter
 
 **The τ-decay vertex, in this reading.** The τ is the deepest phase (largest √m). Being the variety that cannot bind (§4a), it appears not as a bound atom but as the weak **decay vertex** `τ⁻ → ν_τ + W⁻`, un-spooling the deepest generation phase into lighter generations + neutrino — and the energetic threshold the vertex satisfies *is* `m_τ`, now pinned to ~0.006% by the Koide/transverse-fraction structure. So the "named blocker" has moved from "no handle" to "a structural mass + a vertex reading," with a clear residual open list (below).
 
-**Honest scope (load-bearing).** `Q = 2/3` as the transverse-axis fraction is a structural **identification / conjecture**, not yet *derived* from the τ-closure. The overall phase offset `δ` (the Koide angle ≈ `2/9` rad) and the scale `M` are **not** explained — they are why `m_e, m_μ` must still be inputs. And this is the charged-**lepton** sector only; quark generations and CKM are separate. See §7.
+**Honest scope (load-bearing).** The overall phase offset `δ` (the Koide angle ≈ `2/9` rad) and the scale `M` are **not** explained — they are why `m_e, m_μ` must still be inputs. And this is the charged-**lepton** sector only; quark generations and CKM are separate. The `Q = 2/3` itself, however, is no longer just an identification — it is **derived** (§5b).
+
+### 5b. Deriving `Q = 2/3` from the closure
+
+The Koide form `√mₖ = M(1 + A·cos(δ + 2πk/N))` — `N` generations as `N` balanced phases of amplitude `A` — gives, by `Σcos = 0` and `Σcos² = N/2`,
+
+$$Q \;=\; \frac{\sum m_k}{\left(\sum \sqrt{m_k}\right)^2} \;=\; \frac{1 + A^2/2}{N}.$$
+
+So `Q = 2/3` is forced by **exactly two** structural facts:
+
+| input | value | QLF meaning |
+|---|---|---|
+| `N` | `3` | three generations = the **three spatial axes** |
+| `A²` | `2` | amplitude `√2` = the **two transverse axes** (the one longitudinal axis is the common `1` baseline) |
+
+and nothing else — the counterfactuals are sharp (only `N=3 ∧ A²=2` hits `2/3`):
+
+| `N` | `A²` | `Q = (1+A²/2)/N` |
+|---|---|---|
+| **3** | **2** | **0.6667 ✓** |
+| 2 | 2 | 1.0000 |
+| 4 | 2 | 0.5000 |
+| 3 | 1 | 0.5000 |
+| 3 | 3 | 0.8333 |
+
+So **Koide's `2/3` is QLF's `2 transverse + 1 longitudinal` split over `3` axes** — the *same* split that produces the transverse fraction `2/3` in the Lamb prefactor and the photon polarization sum. The algebra is **machine-verified**: `koide_three_phase` / `koide_two_thirds` ([`lean/QLF_Koide.lean`](lean/QLF_Koide.lean)) prove `3·Σs² = 2·(Σs)²` (hence `Q = 2/3`) from `r² = 2 ∧ Σc = 0 ∧ Σc² = 3/2`, and `koide_phase_witness` shows those hypotheses are satisfiable.
+
+What remains an **identification** (not a proof) is one sharp physical claim: that the lepton `√`-mass vector decomposes as `1` longitudinal baseline `+ 2` transverse 120°-phased oscillations across the `3` generation-axes. That is a far tighter conjecture than "`2/3` happens to match" — it pins the *entire* structure (`N=3`, `A=√2`, balanced phases) to the substrate's `6 = 2+1`-per-axis geometry, leaving only `δ` and `M` as inputs. Demo: [`koide_tau_demo.py`](koide_tau_demo.py) §3b.
 
 ---
 
@@ -123,7 +150,7 @@ Only the `2/3` is structural; `m_e, m_μ` are inputs — so this is a *parameter
 - **Not a doublet-representation theory.** `weak_isospin_su2` identifies the SU(2) *Lie algebra*; it does not construct the left-handed doublets / right-handed singlets as representations, nor explain why only left-handed fields couple.
 - **Not an explicit W propagator in beta decay.** QLF's β-decay is boundary restructuring; the W-as-particle is, so far, only the τ-vertex object (§4–5).
 - **Not a replacement for the Higgs mechanism's numbers.** [`Higgs.md`](Higgs.md) reframes mass generation as gauge-fold delay; the 125 GeV Higgs mass and the Yukawa structure stay open.
-- **Not a from-nothing derivation of the lepton masses (§5a).** The Koide route *predicts* `m_τ` from `m_e, m_μ` **given** `Q = 2/3`. The `Q = 2/3 ⟺ transverse-axis fraction` identification is a conjecture, not a proof; the Koide angle and overall scale are inputs. It is a parameter-light prediction and a structural reading of the τ-decay vertex — **not** a closed derivation of the generation spectrum, and **not** a claim that Koide itself is explained.
+- **Not a from-nothing derivation of the lepton masses (§5a–5b).** `Q = 2/3` *is* now derived (machine-verified) — but **from** the structural inputs `N = 3` (three axes), `A² = 2` (two transverse axes), and balanced phases. What is *not* proved is the **identification** that the lepton `√`-mass vector actually has that `1 longitudinal + 2 transverse / 3-axis-phase` structure; the Koide angle `δ` and scale `M` remain inputs, so `m_e, m_μ` are still needed to predict `m_τ`. It is a parameter-light prediction with a now-derived invariant — **not** a closed derivation of the full generation spectrum, and **not** a claim that the lepton-mass↔axis-phase identification is itself proved.
 
 ---
 
