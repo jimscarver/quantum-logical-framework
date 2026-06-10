@@ -87,9 +87,9 @@ From [Primordial_Entanglement.md §2](Primordial_Entanglement.md) and [Particles
 
 From [Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md) and [Majorana_Beta_Decay.md](Majorana_Beta_Decay.md): the strong force is the Borromean three-quark binding; the weak force is the gauge-fold pair-flip that mediates beta decay.
 
-**What's derived**: the structural reason for confinement (SU(3)-like three-element grouping) and for chirality-mediated weak interactions (SU(2)-like doublet structure). The **weak SU(2) Lie algebra is now machine-verified** inside the 8-twist algebra: the Σ₈ τ-subalgebra (`τᵢ = iσᵢ`) carries `[τᵢ,τⱼ] = −2εᵢⱼₖτₖ` (su(2)≅so(3)), generating `Q₈ ⊂ SU(2)` — `weak_isospin_su2` in [`lean/BraKetRhoQuCalc.lean`](lean/BraKetRhoQuCalc.lean) (see [`Weak_Force.md`](Weak_Force.md) §3).
+**What's derived**: the structural reason for confinement (SU(3)-like three-element grouping) and for chirality-mediated weak interactions (SU(2)-like doublet structure). **Both gauge Lie algebras are now machine-verified** as the symmetry of the three spatial axes: the **weak SU(2)** is the Σ₈ τ-subalgebra (`[τᵢ,τⱼ] = −2εᵢⱼₖτₖ`, `Q₈ ⊂ SU(2)` — `weak_isospin_su2`), and the **strong SU(3)** is the traceless part of the 3×3 directional tensor (closed under the bracket and non-abelian — `trace_commutator_zero` + `gluon_commutator_nonzero` in [`lean/QLF_StrongAlgebra.lean`](lean/QLF_StrongAlgebra.lean)). With `U(1)` (`no_magnetic_monopoles`), all three SM gauge algebras are verified, with dimensions `1 + 3 + 8 = 12` (`1 + 8 = 9 = N`, the α tensor) — see [`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md).
 
-**What's open**: the *specific* SU(3) subgroup; the SU(2) **doublet representation** and coupling `g` (the Lie algebra is identified, the rep and coupling are not); matching the gauge-boson masses ($W^\pm$, $Z^0$, gluons); the running of the coupling constants (asymptotic freedom).
+**What's open**: the SU(2) **doublet representation** and coupling `g`; the `SU(3)` `finrank = 8` count (elementary codim-1, not yet a Lean theorem); matching the gauge-boson masses ($W^\pm$, $Z^0$, gluons); the running of the coupling constants (asymptotic freedom).
 
 ## 4. The fully open sector
 
