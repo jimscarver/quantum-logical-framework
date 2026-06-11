@@ -306,7 +306,7 @@ Beyond evaluation, a room runs **group governance** as the *same* ZFA operation 
 - **Notes with terms** — promissory notes can carry issuer-signed terms & conditions; `/note grant USD 5 | redeemable for one coffee` mints a terms-stamped series `cap:note-USD~<hash>` whose token commits to the terms hash. Different terms for one currency are different stamped series.
 - **Removal & retraction** — `/forget` removes a poll/lemma/note; the owner broadcasts a dyncap-signed `retract` everyone honors, tombstoned so it can't re-sync back.
 
-A worked multi-peer walkthrough — two peers prove a syllogism, then the room ratifies it by group vote and records it as a named lemma — is in [`AI.md`](AI.md) (*Live Collaboration Script*).
+A worked multi-peer walkthrough — two peers prove a syllogism, then the room ratifies it by group vote and records it as a named lemma — is in [`AI.md`](AI.md) (*Live Collaboration Script*). A dedicated governance walkthrough — ranked-choice vote → decision of record → terms-bearing IOU → retraction — is in [`Group_Decisions_Demo.md`](Group_Decisions_Demo.md).
 
 ---
 

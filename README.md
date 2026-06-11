@@ -387,7 +387,7 @@ achieves_ZFA: ✗  gap=3  (not a physical process)
 
 States supported by `/braket`: `0`, `1`, `+`, `-`, `i`, `-i`. Twist alphabet for `/qucalc`: `^v<>/\+-` or hex `0-7` or any `cap:label:hex` capability token. Type `/help` for the full list.
 
-The same room also runs **collaboration and governance** on the ZFA substrate: name claims as multi-word lemmas (`/lemma [all men are mortal] ^v`, referenced `@[all men are mortal]`), **group decisions** by approval / ranked-choice voting (`/poll new What's for lunch?`), promissory notes that can carry issuer-signed terms (`/note grant USD 5 | redeemable for one coffee`), and owner-gated removal/retraction (`/forget`). A two-peer walkthrough is in [`AI.md`](AI.md) (*Live Collaboration Script*); the full family of decision processes is mapped in [Group_Decisions.md](https://github.com/jimscarver/quantum-os/blob/main/Group_Decisions.md).
+The same room also runs **collaboration and governance** on the ZFA substrate: name claims as multi-word lemmas (`/lemma [all men are mortal] ^v`, referenced `@[all men are mortal]`), **group decisions** by approval / ranked-choice voting (`/poll new What's for lunch?`), promissory notes that can carry issuer-signed terms (`/note grant USD 5 | redeemable for one coffee`), and owner-gated removal/retraction (`/forget`). A two-peer logic walkthrough is in [`AI.md`](AI.md) (*Live Collaboration Script*) and a full multi-peer **decide → record → issue → retract** walkthrough is in [`Group_Decisions_Demo.md`](Group_Decisions_Demo.md); the family of decision processes is mapped in [Group_Decisions.md](https://github.com/jimscarver/quantum-os/blob/main/Group_Decisions.md).
 
 ### Build Lean
 
