@@ -304,7 +304,8 @@ Beyond evaluation, a room runs **group governance** as the *same* ZFA operation 
 
 - **Group decisions** — `/poll` provides approval and ranked-choice (IRV) voting with open nominations (`/poll new What's for lunch?` → everyone adds options and votes). See [`Group_Decisions.md`](https://github.com/jimscarver/quantum-os/blob/main/Group_Decisions.md) in [quantum-os](https://github.com/jimscarver/quantum-os) for the full family (consensus, atomic rendezvous, delegation, sortition, …).
 - **Notes with terms** — promissory notes can carry issuer-signed terms & conditions; `/note grant USD 5 | redeemable for one coffee` mints a terms-stamped series `cap:note-USD~<hash>` whose token commits to the terms hash. Different terms for one currency are different stamped series.
-- **Removal & retraction** — `/forget` removes a poll/lemma/note; the owner broadcasts a dyncap-signed `retract` everyone honors, tombstoned so it can't re-sync back.
+- **Liquid-democracy governance** — `/gov` brings RChain [rgov](https://github.com/rchain-community/rgov)'s governance (groups, members, issues, **delegated voting**) onto quantum-os primitives: standing, transitive, revocable delegation where a non-voter's weight flows to their delegate, feeding a delegation-weighted ranked-choice tally. See [`Governance.md`](https://github.com/jimscarver/quantum-os/blob/main/Governance.md).
+- **Removal & retraction** — `/forget` removes a poll/lemma/note/group; the owner broadcasts a dyncap-signed `retract` everyone honors, tombstoned so it can't re-sync back.
 
 A worked multi-peer walkthrough — two peers prove a syllogism, then the room ratifies it by group vote and records it as a named lemma — is in [`AI.md`](AI.md) (*Live Collaboration Script*). A dedicated governance walkthrough — ranked-choice vote → decision of record → terms-bearing IOU → retraction — is in [`Group_Decisions_Demo.md`](Group_Decisions_Demo.md).
 
