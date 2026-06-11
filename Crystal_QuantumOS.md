@@ -77,8 +77,11 @@ The QuantumOS browser app ([github.com/jimscarver/quantum-os](https://github.com
 | `/cap [label]` / `/grant [label]` | mint a `cap:qubit-N:hex` capability token authorising a specific qubit register |
 | `/qucalc <twists>` | compile a twist sequence into a pulse program on the crystal |
 | `/braket <states>` | prepare initial state, run circuit, measure |
-| `/lemma <name> <twists>` | register a calibrated subroutine as a named lemma |
+| `/lemma <name> <twists>` | register a calibrated subroutine as a named lemma (multi-word: `/lemma [pi pulse 171Yb] …`, referenced `@[pi pulse 171Yb]`) |
 | `/request <name>` / `/pass <name> <peer>` | transfer a calibrated lemma to another control node |
+| `/forget <sub>` | retire a calibration: remove a lemma/note/poll; the owner broadcasts a dyncap-signed `retract` (tombstoned so it can't re-sync back) |
+| `/poll <sub>` | group decision among control nodes (approval / ranked-choice) — e.g. agree which calibration set to promote |
+| `/note <sub>` | issue resource/credit tokens; `/note grant <cur> <N> \| terms…` attaches dyncap-signed terms (an SLA) bound to the token |
 | `/rdv <sub>` | N-party atomic synchronisation for entangling operations across crystals |
 | `/dyncap <sub>` | hash-only signed envelopes for remote control without re-handshaking |
 | `/probe <sub>` | joiner-local consensus on shared register state when a new control node joins |
@@ -87,6 +90,8 @@ The QuantumOS browser app ([github.com/jimscarver/quantum-os](https://github.com
 | `/channel <sub>` | tagged broadcast for telemetry / shared calibration channels |
 | `/persist <sub>` | agreed cross-peer replication of calibration tables |
 | `/rhoqu <text>` | high-level macro language (`process` / `new` / `\|` parallel / `if` / `on channel` / `for`) compiles to slash commands → pulse sequences |
+
+Multi-node coordination (which calibration to promote, scheduling a shared crystal, retiring a bad pulse) reuses the app's governance primitives — group voting, atomic rendezvous, removal/retraction — all the same dyncap-signed substrate; see [`Group_Decisions.md`](https://github.com/jimscarver/quantum-os/blob/main/Group_Decisions.md).
 
 The capability-token model IS the right authorisation model for QPU control: possessing `cap:qubit-euyso-N:hex` IS the authority to apply pulses to that qubit; there is no separate ACL or kernel-mode/user-mode split. Linear-logic no-cloning at the type level matches quantum no-cloning at the substrate level — capability tokens cannot be duplicated by linear-logic typing, and the qubits they reference cannot be duplicated by the no-cloning theorem. The two no-cloning constraints align.
 

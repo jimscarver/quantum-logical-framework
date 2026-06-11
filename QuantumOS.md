@@ -298,6 +298,16 @@ This is the selection principle in action: `+-+-` (gap=0) survives as a physical
 
 See [`BraKetRhoQuCalc.md`](BraKetRhoQuCalc.md) for the `/braket` command that evaluates `Form.toMatrix` directly.
 
+### Collaborative governance on the same substrate
+
+Beyond evaluation, a room runs **group governance** as the *same* ZFA operation — dyncap-signed envelopes plus a deterministic, joiner-local tally (no central counter):
+
+- **Group decisions** — `/poll` provides approval and ranked-choice (IRV) voting with open nominations (`/poll new What's for lunch?` → everyone adds options and votes). See [`Group_Decisions.md`](https://github.com/jimscarver/quantum-os/blob/main/Group_Decisions.md) in [quantum-os](https://github.com/jimscarver/quantum-os) for the full family (consensus, atomic rendezvous, delegation, sortition, …).
+- **Notes with terms** — promissory notes can carry issuer-signed terms & conditions; `/note grant USD 5 | redeemable for one coffee` mints a terms-stamped series `cap:note-USD~<hash>` whose token commits to the terms hash. Different terms for one currency are different stamped series.
+- **Removal & retraction** — `/forget` removes a poll/lemma/note; the owner broadcasts a dyncap-signed `retract` everyone honors, tombstoned so it can't re-sync back.
+
+A worked multi-peer walkthrough — two peers prove a syllogism, then the room ratifies it by group vote and records it as a named lemma — is in [`AI.md`](AI.md) (*Live Collaboration Script*).
+
 ---
 
 ## Related Documents

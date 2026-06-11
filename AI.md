@@ -232,6 +232,38 @@ Bob> /zfa cap:mortal:024602460246024602460246…
 
 ---
 
+### Step 6 — the room ratifies the conclusion and records it as a decision
+
+A proof is individual; a *decision* is collective. The room — the higher-order Markov blanket `parallel(Alice, Bob)` — ratifies the synthesis by a group vote, then mints it as a durable, named claim. Alice opens an approval poll:
+
+```
+Alice> /poll new Ratify "Socrates is mortal"? | accept, reject
+```
+
+Both peers vote (the tally is **deterministic and joiner-local** — each peer recomputes the same result from the signed ballots it holds, with no central counter):
+
+```
+Alice> /poll vote accept
+Bob>   /poll vote accept
+Alice> /poll close
+· 🗳 poll closed — "Ratify "Socrates is mortal"?" · winner: accept (2 votes)
+```
+
+Alice then records the ratified conclusion as a **multi-word lemma** — a natural-language name, referenced anywhere with `@[…]`:
+
+```
+Alice> /lemma [Socrates is mortal] ^v+-
+· lemma registered: @[Socrates is mortal]  =  ^v+-
+Alice> /qucalc @[Socrates is mortal]
+·   achieves_ZFA: ✓  (the ratified conclusion, re-checked on demand)
+```
+
+The lemma syncs to every peer and persists across reloads, becoming the room's decision of record. Had the room mis-stated it, its author could retract it for everyone with `/forget lemma [Socrates is mortal]` (a dyncap-signed retraction that won't re-sync back).
+
+**Interpretation:** approval/ranked-choice voting, open nominations, atomic multi-party agreement, and decisions-of-record are all the *same* ZFA substrate as the proof above — dyncap-signed envelopes plus a deterministic joiner-local tally. For the full family of group-decision processes the interface supports, see [Group_Decisions.md](https://github.com/jimscarver/quantum-os/blob/main/Group_Decisions.md) in [quantum-os](https://github.com/jimscarver/quantum-os).
+
+---
+
 ### Summary: Syllogism as ZFA Blanket Fusion
 
 | Step | Peer | Command | ZFA result | Logical role |
@@ -241,6 +273,7 @@ Bob> /zfa cap:mortal:024602460246024602460246…
 | 3 | Alice | `/qucalc ^v+-` | gap=0 ✓ | Joint consistency: Middle Term cancels, premises fuse |
 | 4 | Bob | `/braket 0 1` | I matrix ✓ | Conclusion: completeness relation, full basis coverage |
 | 5 | Alice | `/grant mortal` | gap=0 ✓ | Proved conclusion issued as unforgeable capability |
+| 6 | Both | `/poll` → `/lemma [Socrates is mortal]` | winner: accept | Room ratifies by group vote, records the decision as a named lemma |
 
 The three-step syllogism maps exactly onto ZFA Blanket Fusion:
 - **Major Premise** (`^v`) = Thesis Markov Blanket

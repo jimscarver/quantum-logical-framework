@@ -219,7 +219,9 @@ Curry-Howard token-persistence is the basis for a structurally different form of
 
 Multiple peers contribute closures (twists, lemmas, notes, rendezvous proposals) into a shared room process. Each contribution is a ZFA-balanced closure on its own; the room's `parallel(…)` composition stays balanced as long as each contribution does. This is collective intelligence done *structurally*: the network is performing one large synthesis, with the individual peers as Markov-blanket sub-agents.
 
-The syllogism demonstration ([`SyllogismDemo.md`](https://github.com/jimscarver/quantum-os/blob/main/SyllogismDemo.md)) makes it concrete: Alice and Bob collaboratively verify the Aristotelian syllogism over a peer-to-peer room. Each step is a capability-token-carrying ZFA closure. The conclusion is a `cap:mortal:` token that *any peer can independently verify* — there's no central authority claiming Socrates is mortal; the algebra of the token does.
+The syllogism demonstration ([`SyllogismDemo.md`](https://github.com/jimscarver/quantum-os/blob/main/SyllogismDemo.md), and the extended walkthrough in [`AI.md`](AI.md) *Live Collaboration Script*) makes it concrete: Alice and Bob collaboratively verify the Aristotelian syllogism over a peer-to-peer room, then **the room ratifies the result by a group vote** and records it as a named lemma. Each step is a capability-token-carrying ZFA closure. The conclusion is a `cap:mortal:` token that *any peer can independently verify* — there's no central authority claiming Socrates is mortal; the algebra of the token does.
+
+When the collective needs to *decide* rather than *derive* — pick one option, agree shared state, allocate a resource — it uses the same substrate: group voting, atomic rendezvous, decisions-of-record, all dyncap-signed envelopes with a deterministic joiner-local tally. The full family is mapped in [`Group_Decisions.md`](https://github.com/jimscarver/quantum-os/blob/main/Group_Decisions.md). Decision and derivation are one mechanism: a vote is just a closure the room ratifies.
 
 - Major Premise (Alice): `/qucalc ^v` → ZFA-balanced ✓
 - Minor Premise (Bob): `/qucalc +-` → ZFA-balanced ✓
