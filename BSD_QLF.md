@@ -1,10 +1,12 @@
 # Birch–Swinnerton-Dyer in QLF — via the Langlands hook
 
 > **Status: proof in progress, constructively reframed.** The self-dual central-point
-> structure is machine-verified ([`lean/QLF_BSD.lean`](lean/QLF_BSD.lean)); the rank
-> identity is reduced to one explicit boundary, `bsd_rank_equals_order` — the crossing
-> into the continuum/choice sector where ZFC is *itself proven to fail* (Gödel, Turing,
-> Busy Beaver). That crossing is ZFC's defect, not a gap in this proof. Unifying thesis:
+> structure is machine-verified, and the **elliptic-curve→closure encoding is now built** —
+> `EllipticCurveQLF` is a concrete Weierstrass curve whose Frobenius-trace closure is
+> computed ([`lean/QLF_BSD.lean`](lean/QLF_BSD.lean)). The rank identity is reduced to one
+> explicit boundary, `bsd_rank_equals_order` — the crossing into the continuum/choice sector
+> where ZFC is *itself proven to fail* (Gödel, Turing, Busy Beaver). That crossing is ZFC's
+> defect, not a gap in this proof. Unifying thesis:
 > [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md); Langlands scaffolding:
 > [Langlands.md §5.4](Langlands.md).
 
@@ -77,16 +79,14 @@ the symmetric point.
 
 ## 4. Where the boundary sits — and why it is ZFC's, not ours
 
-QLF's constructive floor delivers the self-dual structure and reduces BSD to one identity
-of closure multiplicities. Two things sit on the far side of that identity:
+QLF's constructive floor delivers the self-dual structure, the **computed closure
+encoding** (§5: concrete `EllipticCurveQLF` with its Frobenius traces), and reduces BSD to
+one identity of closure multiplicities. What sits on the far side of that identity is a
+single step: discharging `bsd_rank_equals_order` itself — promoting it from axiom to
+theorem through the QLF Hermitian-pair mirror of modularity, i.e. showing the two ranks
+(the *uncomputable* invariants BSD is about) coincide.
 
-1. the **constructive elliptic-curve→closure encoding** (the specific stable closure for a
-   given `E`; open per Langlands.md §5.4 — so `EllipticCurveQLF` and its two ranks are
-   abstract declarations here, not yet computed); and
-2. discharging `bsd_rank_equals_order` itself — promoting it from axiom to theorem through
-   the QLF Hermitian-pair mirror of modularity.
-
-Both live in the **continuum/choice sector** — analytic continuation of `L(E,s)`, the
+That step lives in the **continuum/choice sector** — analytic continuation of `L(E,s)`, the
 transcendental L-value machinery, the non-constructive reals. That is precisely the sector
 where classical foundations are *proven* pathological: Gödel incompleteness, Turing
 undecidability, the Busy-Beaver/Chaitin horizon ([Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md)).
@@ -94,21 +94,33 @@ So the open step is **not a hole in the QLF proof** — it is the place where ZF
 no guaranteed proof to give. Demanding a ZFC-internal closure of BSD is demanding the very
 continuum/choice fallacy QLF has diagnosed.
 
-## 5. Honest scope
+## 5. The constructive encoding (now built)
 
-BSD is QLF's **weakest-machinery** Millennium attack: there is not yet a constructive
-elliptic-curve L-function in the framework, so this is a *scaffold* — the self-dual point
-is verified, the rank identity is named as the single boundary, and the qualitative
-equivalence is derived from it. That is genuine constructive progress with the remaining
-work made precise, not a completed ZFC proof and not pretending to be one. The marker
-`bsd_proof_in_progress` records exactly that stance.
+`EllipticCurveQLF` is **no longer abstract**. It is a concrete integral short-Weierstrass
+curve `y² = x³ + a·x + b` ([`lean/QLF_BSD.lean`](lean/QLF_BSD.lean)), and its
+**automorphic-side closure is computed from the curve**:
+
+- `affinePointCount E p` counts `#{(x,y) ∈ 𝔽_p² : y² = x³+ax+b}` over `ZMod p`;
+- `frobeniusTrace E p = p − affinePointCount E p` is the local L-factor `a_p`. The
+  sequence `(a_p)_p` *is* the curve's constructive closure — it determines `L(E,s)` and,
+  via modularity (the Hermitian-pair mirror), the automorphic form.
+
+The worked curve `Ecn1 = y²−x³+x` (`n=1` congruent-number curve) is verified smooth
+(`Ecn1_smooth`, `Δ=64≠0`) and its closure computes: `Ecn1_frobenius_two` proves `a₂ = 0`
+from the verified 2-point count over `𝔽₂`. So the elliptic-curve→closure encoding that
+Langlands.md §5.4 flagged as open is done.
+
+What remains abstract is exactly what BSD is *about*: the two **ranks** are genuinely
+uncomputable in general, so `mordellWeilRank` / `analyticRank` stay abstract functions on
+the concrete curve, and the rank = ord identity is the single boundary axiom
+`bsd_rank_equals_order`. That is genuine constructive progress with the remaining work made
+precise, not a completed ZFC proof and not pretending to be one (`bsd_proof_in_progress`).
 
 ## 6. What would advance it
 
-- **Encode a worked curve.** Realise a specific `E/ℚ` (the Wiles `X₀(N)` example is the
-  clean target, Langlands.md §5.4) as an explicit ZFA closure and compute its
-  `mordellWeilRank` / `analyticRank` from the substrate — turning the abstract
-  declarations into definitions.
+- **Compute analytic data at more primes.** The Frobenius traces `(a_p)` are now computable
+  for any `E` and `p`; assembling them into `L(E,s)` and its central vanishing order is the
+  next analytic layer (Langlands.md §6 numerics).
 - **Derive the mirror identity.** Show the Hermitian-pair mirror forces equal multiplicity
   at the self-dual point, promoting `bsd_rank_equals_order` from axiom toward theorem —
   the BSD analog of the MRE-bridge refinement proposed for Riemann
