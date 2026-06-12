@@ -6,7 +6,7 @@ Project context for Claude Code sessions. Read this before making any changes.
 
 ## Project overview
 
-**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **46 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
+**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **47 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
 
 Core claim: *ZFA balance is the selection principle for physical reality.* Every terminating computation is a ZFA string; every ZFA string is symmetric (lies on the critical line). The Church-Turing universe filtered to ZFA-balanced strings is our physical universe.
 
@@ -14,7 +14,7 @@ Core claim: *ZFA balance is the selection principle for physical reality.* Every
 
 ---
 
-## 46 active modules
+## 47 active modules
 
 In `lean/`, registered in `lakefile.lean` roots array (in build order). For fuller per-module descriptions + the complete key-theorem lists, see [`lean/README.md`](lean/README.md).
 
@@ -49,6 +49,7 @@ In `lean/`, registered in `lakefile.lean` roots array (in build order). For full
 | `QLF_BorromeanAngles` | The 5-angle count `5 = 3 + 2` (Jacobi internal + chirality-mixing); `total_angular_DOF_eq_five`, `matches_lenz_hidden_chirality_angles` |
 | `QLF_EulerMascheroni` | γ as the harmonic excess `H_N − ln N` of the ZFA ensemble; `gamma_QLF_structural` (structural form; convergence proof deferred) |
 | `QLF_RiemannZeta` | Substrate ↔ ζ bridge: `γ_QLF` = ζ's Laurent constant at `s=1`; `zeta_laurent_constant_eq_gamma_QLF`, `rh_proof_in_progress` |
+| `QLF_RiemannMRE` | **MRE bridge** — a constructive scaffold for the Riemann boundary. `Z_QLF = (1/(1−5x)+1/(1−3x))/2` concrete with verified singularities at `1/5`,`1/3` (`Z_QLF_pole_fifth/third`); MRE saturation grounded in `binary_kl` (`mre_saturation_only_at_closure`, reusing QLF_FreeEnergy), with the saturating prior `1/2` = `critical_line_real_part` (`mre_prior_is_critical_line`). The bare `spectral_hilbert_polya` is refined into `MRE_bridge` (+ `zero_is_mellin_singularity`), giving `riemann_hypothesis_in_qlf_via_MRE`. Residual Mellin↔ζ correspondence = WKL₀ boundary; `rh_mre_proof_in_progress` |
 | `QLF_DiracCorrection` | Hydrogen fine structure (α² kinematic/spin-orbit/Darwin); `hydrogen_spectrum_from_h_and_m_e`, `three_mechanisms_alpha_squared` |
 | `QLF_LambShift` | Lamb-shift prefactor `4/(3πn³) = 4·(2/3)·(1/2π)·(1/n³)`; `lamb_prefactor_loop_phase`, `lamb_shift_substrate_summary` |
 | `QLF_GMinusTwo` | Electron `g−2`: `a_e = α/2π` (Schwinger), 0.2%; `a_e_QLF_eq_schwinger`, `g_factor_QLF_eq` |
@@ -197,7 +198,8 @@ theorem foo (p : RhoProcess) : achieves_ZFA (toTopoString p) :=
 
 | Axiom | Module | Role |
 |---|---|---|
-| `spectral_hilbert_polya` | `QLF_Riemann` | RCA₀ → WKL₀ boundary; QLF form of Hilbert-Pólya |
+| `spectral_hilbert_polya` | `QLF_Riemann` | RCA₀ → WKL₀ boundary; QLF form of Hilbert-Pólya. Refined in `QLF_RiemannMRE` into the structurally-motivated `MRE_bridge` (over the concrete `Z_QLF`, motivated by the proven MRE-saturation theorem) |
+| `MRE_bridge` / `zero_is_mellin_singularity` / `MellinStructuralSingularity` | `QLF_RiemannMRE` | The refined Riemann boundary: a Mellin structural singularity of `Z_QLF` lies on the critical line, and every ζ-zero is such a singularity. The Mellin↔ζ correspondence is the WKL₀/continuum sector |
 | `NonTrivialZero` | `QLF_Riemann` | Connects QLF combinatorics to analytic number theory |
 | `resonant_computation_for` | `QLF_Riemann` | Bridge from combinatorics to Dirichlet series |
 | `yang_mills_continuum_gap` | `QLF_MassGap` | RCA₀ → analytic (continuum-QFT) boundary; the continuum Yang–Mills theory's gap = the substrate `log 2` closure quantum |
@@ -334,7 +336,7 @@ Avoid framings that contradict the above:
 | Path | Purpose |
 |---|---|
 | `lean/` | All Lean source files |
-| `lakefile.lean` | Build config; `roots` array lists all 46 modules |
+| `lakefile.lean` | Build config; `roots` array lists all 47 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |
