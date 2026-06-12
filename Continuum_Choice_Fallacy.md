@@ -111,7 +111,7 @@ in every case:
 | **Yang–Mills mass gap** | lightest non-vacuum gauge closure = one `log 2` quantum ⇒ positive gap (`mass_gap_quantum_pos`) | continuum-QFT existence on ℝ⁴ — `yang_mills_continuum_gap` |
 | **Navier–Stokes** | blow-up = non-terminating (infinite-frequency) history, pruned by `full_zeno_prune` | continuum-PDE inheritance under the limit |
 | **P vs NP** | verify = O(n) closure check; realized set = `C(2n,n)` of an exponential tree | the complexity separation over an infinite computational model |
-| **Birch–Swinnerton-Dyer** | the central point `s=1` is the self-dual fixed point of `s↦2−s` (`bsd_central_point_self_dual`); rank = analytic rank reduced to one boundary (`bsd_rank_equals_order`) | analytic continuation of `L(E,s)`; the modularity / Hermitian-pair mirror — `bsd_rank_equals_order` |
+| **Birch–Swinnerton-Dyer** | central point `s=1` self-dual (`bsd_central_point_self_dual`); concrete curve with computed closure (`frobeniusTrace`); rank = ord is a *theorem* via the modularity mirror (`bsd_rank_equals_order`) | analytic continuation of `L(E,s)`; *why* the mirror preserves multiplicity at its fixed point — `modularity_mirror_invariant` |
 | **Hodge** | the Hodge conjugation `H^{p,q}↔H^{q,p}` is the adjoint involution H↔H†; the `(p,p)` diagonal is its balanced self-dual locus (`conj_involutive`, `conj_fixed_of_isHodge`) | balanced ⟹ algebraic over the complex-analytic continuum — `hodge_class_is_algebraic` |
 
 **Each boundary axiom is the same boundary** — the line where one steps off the
