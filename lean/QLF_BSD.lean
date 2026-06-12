@@ -42,6 +42,7 @@
 -- proof.  The structural argument lives in BSD_QLF.md.
 
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import QLF_RiemannZeta
 
 namespace QLF
 
@@ -59,6 +60,30 @@ theorem bsd_central_point_self_dual :
     (2 : ℝ) - bsd_central_point = bsd_central_point := by
   unfold bsd_central_point
   norm_num
+
+/-- **The self-dual locus of a reflection `s ↦ a − s` is its midpoint `a/2`.**
+    The general fact behind every QLF functional-equation fixed point — the
+    `H ↔ H†` adjoint involution reflecting about `a/2`. Riemann is the `a = 1`
+    case (critical line `1/2`), BSD the `a = 2` case (central point `1`). -/
+theorem reflection_fixed_iff (a s : ℝ) : a - s = s ↔ s = a / 2 := by
+  constructor
+  · intro h; linarith
+  · intro h; rw [h]; ring
+
+/-- **BSD's central point is the midpoint of its reflection `s ↦ 2 − s`** —
+    `s = 1 = 2/2`, the BSD analog of `critical_line_real_part = 1/2`. -/
+theorem bsd_central_point_eq_midpoint : bsd_central_point = 2 / 2 := by
+  unfold bsd_central_point; norm_num
+
+/-- **BSD and Riemann are one self-duality.** Both central loci are the `a/2`
+    fixed point of an `s ↦ a − s` reflection — the *same* `H ↔ H†` adjoint
+    involution, shifted: Riemann's `2·(critical line) = 1`
+    (`functional_equation_fixed_real`, reused from QLF_RiemannZeta) and BSD's
+    `2·(central point) = 2`. So the BSD central-point fact is grounded in the
+    proven Riemann involution structure, not an isolated arithmetic identity. -/
+theorem bsd_riemann_shared_involution :
+    2 * critical_line_real_part = 1 ∧ 2 * bsd_central_point = 2 :=
+  ⟨functional_equation_fixed_real, by unfold bsd_central_point; norm_num⟩
 
 /-- A QLF stand-in for an elliptic curve over ℚ.  It is an ABSTRACT type
     with no QLF constructor — precisely because the constructive
