@@ -95,6 +95,8 @@ That makes QLF both a physical proposal and a foundational proposal about mathem
 
 QLF is the mathematics that has **active inference built into its foundation**. Mathematical objects are admissible trajectories of a free-energy-minimizing agent (a Markov blanket); the single rule is per-event ΔF = −log 2 saturation by half-spin ZFA closure. Not classical mathematics (ZFC), not standard constructive mathematics (no agent), a third thing.
 
+- [**Quantum_Logic_Foundations.md**](Quantum_Logic_Foundations.md) — the positive thesis: quantum logic (propositions = phase-string distinctions, truth = ZFA closure = measurement, algebra = Hermitian) is the **correct** foundation of mathematics, built bottom-up from one finite distinction; the universe's logic is *not* incomplete because incompleteness is exactly the non-physical tail `full_zeno_prune` removes. Positive companion to the continuum/choice critique
+- [**Continuum_Choice_Fallacy.md**](Continuum_Choice_Fallacy.md) — the negative thesis: the unrestricted continuum + Axiom of Choice are mathematics' ultraviolet catastrophe (Gödel/Turing/Busy Beaver its shadows); the organizing frame for the Millennium-prize program
 - [**Active_Inference_Mathematics.md**](Active_Inference_Mathematics.md) — meta-doc framing the QLF program as active-inference mathematics: primitives, single rule, classical/constructive/active-inference comparison table, honest derived/partial/open scoreboard. Names the system as a candidate TOE and ZFC-replacement for the part of mathematics that is not mathematical fantasy (with the Gödel + Busy Beaver scope marker)
 - [**Hierarchical_Control.md**](Hierarchical_Control.md) — the bottom-up/top-down architecture; §3 derives Friston's free energy principle from ZFA
 - [**MRE.md**](MRE.md) — the per-event log 2 quantum that is the math's selection principle
@@ -407,7 +409,7 @@ lake build
 
 ### If you care most about foundations
 
-[Philosophy.md](Philosophy.md) → [GodCreatedTheIntegers.md](GodCreatedTheIntegers.md) → [Universality.md](Universality.md) → [Lagrangian_Formulation.md](Lagrangian_Formulation.md)
+[Philosophy.md](Philosophy.md) → [Quantum_Logic_Foundations.md](Quantum_Logic_Foundations.md) → [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md) → [GodCreatedTheIntegers.md](GodCreatedTheIntegers.md) → [Universality.md](Universality.md) → [Lagrangian_Formulation.md](Lagrangian_Formulation.md)
 
 ### If you care most about physics
 

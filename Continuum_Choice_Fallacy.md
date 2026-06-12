@@ -5,7 +5,10 @@
 
 This is the organizing thesis behind QLF's attacks on the Millennium Prize Problems.
 It sharpens the [ZFC ultraviolet-catastrophe](CLAUDE.md) commitment already load-bearing
-across the framework.
+across the framework. This document is the **negative** half — what classical foundations
+get wrong. Its **positive** companion,
+[Quantum_Logic_Foundations.md](Quantum_Logic_Foundations.md), states what replaces them:
+quantum logic as the correct, complete-for-physics, bottom-up foundation.
 
 ## 1. The two catastrophes
 
