@@ -41,8 +41,14 @@ becomes a statement about **one** closure counted two ways at its symmetric poin
 `L(E,s)` satisfies a functional equation relating `s` and `2 − s`; its **central point is
 the self-dual fixed point `s = 1`** — the BSD analog of ζ's critical line `s = 1/2` (fixed
 by `s ↔ 1 − s`). This is the one piece QLF discharges constructively:
-`bsd_central_point_self_dual` (`2 − 1 = 1`), mirroring `functional_equation_fixed_real`
-in [`lean/QLF_RiemannZeta.lean`](lean/QLF_RiemannZeta.lean).
+`bsd_central_point_self_dual` (`2 − 1 = 1`). It is not an isolated arithmetic identity —
+it is **the same `H ↔ H†` adjoint involution as Riemann's**, shifted. The general fact is
+`reflection_fixed_iff`: the fixed locus of any reflection `s ↦ a − s` is its midpoint
+`a/2`. Riemann is the `a = 1` case (critical line `1/2`) and BSD the `a = 2` case (central
+point `1`), and `bsd_riemann_shared_involution` proves both at once — **reusing** the
+verified `functional_equation_fixed_real` from
+[`lean/QLF_RiemannZeta.lean`](lean/QLF_RiemannZeta.lean) for the Riemann half. So BSD's
+self-dual point inherits the proven Riemann involution structure rather than standing alone.
 
 At that self-dual point the closure has a **multiplicity** — the number of independent
 ZFA-closure deformation directions (zero-modes). QLF reads both BSD invariants as that one
