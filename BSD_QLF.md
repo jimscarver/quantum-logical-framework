@@ -149,3 +149,11 @@ work made precise, not a completed ZFC proof and not pretending to be one
 - **Numerical match.** Extend the L-function tooling (Langlands.md §6, `constants_mapper.py`
   / `path_integral.py`) to compute low-rank `L(E,s)` vanishing orders from QLF combinatorics
   and check them against tabulated curves.
+
+## References
+
+- B. J. Birch & H. P. F. Swinnerton-Dyer, *Notes on elliptic curves. II*, J. Reine Angew. Math. **218** (1965) 79–108 — the conjecture.
+- A. Wiles, *Modular elliptic curves and Fermat's Last Theorem*, Ann. Math. **141** (1995) 443–551; R. Taylor & A. Wiles, *Ring-theoretic properties of certain Hecke algebras*, Ann. Math. **141** (1995) 553–572 — modularity (semistable case).
+- C. Breuil, B. Conrad, F. Diamond & R. Taylor, *On the modularity of elliptic curves over ℚ: wild 3-adic exercises*, J. Amer. Math. Soc. **14** (2001) 843–939 — full modularity (BCDT).
+- B. Gross & D. Zagier, *Heegner points and derivatives of L-series*, Invent. Math. **84** (1986) 225–320; V. A. Kolyvagin, *Euler systems* (1990) — BSD for analytic rank ≤ 1.
+- A. Wiles, *The Birch and Swinnerton-Dyer Conjecture* — Clay Mathematics Institute (official problem description). <https://www.claymath.org/millennium-problems/>

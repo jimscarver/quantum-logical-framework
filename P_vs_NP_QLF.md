@@ -94,3 +94,10 @@ without searching for it. The circuit lower bound is the remaining step, and it 
 the same infinite-model sector where ZFC is proven to fail — so this document names that
 boundary as ZFC's defect, and claims the substrate-constructive asymmetry as genuine
 progress, not as a finished ZFC proof.
+
+## References
+
+- S. A. Cook, *The complexity of theorem-proving procedures*, Proc. 3rd ACM STOC (1971) 151–158 — NP-completeness.
+- L. A. Levin, *Universal sequential search problems*, Probl. Peredachi Inf. **9** (1973) — independent formulation.
+- R. M. Karp, *Reducibility among combinatorial problems*, in *Complexity of Computer Computations* (1972) 85–103.
+- S. Cook, *The P versus NP Problem* — Clay Mathematics Institute (official problem description). <https://www.claymath.org/millennium-problems/>

@@ -97,3 +97,14 @@ boundary registry is [Open_Problems.md](Open_Problems.md); the unifying thesis i
 
 > ZFC is flawed logic, suitable only where there are no exploding infinities. ZFA is correct
 > logic.
+
+## Key references
+
+- **The Millennium Prize Problems** — Clay Mathematics Institute (2000). <https://www.claymath.org/millennium-problems/>
+- **Riemann** — B. Riemann, *Über die Anzahl der Primzahlen unter einer gegebenen Größe* (1859); M. V. Berry & J. P. Keating, *The Riemann zeros and eigenvalue asymptotics*, SIAM Review **41** (1999) 236–266; E. Bombieri, *The Riemann Hypothesis* (official Clay description).
+- **Yang–Mills mass gap** — C. N. Yang & R. L. Mills, *Conservation of isotopic spin and isotopic gauge invariance*, Phys. Rev. **96** (1954) 191–195; A. Jaffe & E. Witten, *Quantum Yang–Mills Theory* (official Clay description).
+- **Birch–Swinnerton-Dyer** — B. J. Birch & H. P. F. Swinnerton-Dyer, *Notes on elliptic curves. II*, J. Reine Angew. Math. **218** (1965) 79–108; A. Wiles, *Modular elliptic curves and Fermat's Last Theorem*, Ann. Math. **141** (1995) 443–551; C. Breuil, B. Conrad, F. Diamond & R. Taylor, *On the modularity of elliptic curves over ℚ*, J. Amer. Math. Soc. **14** (2001) 843–939.
+- **Hodge** — W. V. D. Hodge, *The topological invariants of algebraic varieties*, Proc. ICM (1950) 182–192; P. Deligne, *The Hodge Conjecture* (official Clay description); G. Birkhoff & J. von Neumann, *The logic of quantum mechanics*, Ann. Math. **37** (1936) 823–843.
+- **P vs NP** — S. A. Cook, *The complexity of theorem-proving procedures*, Proc. 3rd STOC (1971) 151–158; R. M. Karp, *Reducibility among combinatorial problems* (1972) 85–103; S. Cook, *The P versus NP Problem* (official Clay description).
+- **Navier–Stokes** — J. Leray, *Sur le mouvement d'un liquide visqueux emplissant l'espace*, Acta Math. **63** (1934) 193–248; C. L. Fefferman, *Existence and smoothness of the Navier–Stokes equation* (official Clay description).
+- **Foundations** (the continuum/choice thesis) — K. Gödel (1931); A. M. Turing (1936); S. Banach & A. Tarski, Fund. Math. **6** (1924) 244–277; S. G. Simpson, *Subsystems of Second Order Arithmetic* (1999); C. E. Shannon (1948). See [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md), [Quantum_Logic_Foundations.md](Quantum_Logic_Foundations.md).

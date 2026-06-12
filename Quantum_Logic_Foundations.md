@@ -137,3 +137,10 @@ interpretation among many. It is the **correct** logic, demonstrated by what it 
 companion) · [Philosophy.md](Philosophy.md) · [Active_Inference_Mathematics.md](Active_Inference_Mathematics.md)
 · [TheContinuum.md](TheContinuum.md) · [ReverseMathematics.md](ReverseMathematics.md) ·
 [Intuitionistic_Logic.md](Intuitionistic_Logic.md) · [Millennium.md](Millennium.md)
+
+## References
+
+- G. Birkhoff & J. von Neumann, *The logic of quantum mechanics*, Ann. Math. **37** (1936) 823–843 — quantum logic (propositions as projectors).
+- C. E. Shannon, *A Mathematical Theory of Communication*, Bell System Tech. J. **27** (1948) 379–423, 623–656 — information is physical and constructible.
+- J. A. Wheeler, *Information, physics, quantum: the search for links*, Proc. 3rd Int. Symp. Found. Quantum Mech. (1989) — "it from bit".
+- L. E. J. Brouwer (intuitionism); S. G. Simpson, *Subsystems of Second Order Arithmetic* (1999) — the constructive floor.

@@ -154,3 +154,12 @@ The unifying claim: **the continuum and choice are mathematics' ultraviolet cata
 and the discrete ZFA substrate with its computable pruning is the quantum that resolves
 it** — turning each Millennium problem into a constructive core plus one honestly-named
 boundary.
+
+## References
+
+- K. Gödel, *Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I*, Monatsh. Math. Phys. **38** (1931) 173–198 — incompleteness; *The consistency of the axiom of choice...* (1940).
+- A. M. Turing, *On computable numbers, with an application to the Entscheidungsproblem*, Proc. London Math. Soc. **42** (1936) 230–265 — undecidability.
+- S. Banach & A. Tarski, *Sur la décomposition des ensembles de points en parties respectivement congruentes*, Fund. Math. **6** (1924) 244–277 — the paradoxical decomposition (Choice's visible unsoundness).
+- P. J. Cohen, *The independence of the continuum hypothesis*, Proc. Nat. Acad. Sci. **50** (1963) 1143–1148 & **51** (1964) 105–110.
+- T. Radó, *On non-computable functions*, Bell System Tech. J. **41** (1962) 877–884 — the Busy Beaver function.
+- S. G. Simpson, *Subsystems of Second Order Arithmetic*, Springer (1999) — reverse mathematics / RCA₀.

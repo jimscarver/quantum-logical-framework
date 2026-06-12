@@ -120,3 +120,10 @@ names that boundary as ZFC's proven defect rather than claiming Hodge solved.
   balance ⟹ closure) from the twist alphabet to the cohomological category, promoting
   `hodge_class_is_algebraic` from axiom toward theorem — the Hodge analog of the MRE-bridge
   refinement proposed for Riemann ([ReverseMathematics.md §4](ReverseMathematics.md)).
+
+## References
+
+- W. V. D. Hodge, *The topological invariants of algebraic varieties*, Proc. Internat. Congr. Math. (1950) 182–192 — the conjecture.
+- S. Lefschetz, *L'Analysis Situs et la Géométrie Algébrique* (1924) — the `(1,1)` theorem (the easy direction).
+- G. Birkhoff & J. von Neumann, *The logic of quantum mechanics*, Ann. Math. **37** (1936) 823–843 — quantum logic (the `H↔H†` framing).
+- P. Deligne, *The Hodge Conjecture* — Clay Mathematics Institute (official problem description). <https://www.claymath.org/millennium-problems/>

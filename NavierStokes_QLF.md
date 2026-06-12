@@ -85,3 +85,9 @@ realized flows achieve ZFA (`realized_flow_achieves_zfa`, reusing `encode_is_zfa
 stable closures (`realized_flow_is_stable`, reusing `qlf_universality`), with the
 continuum-limit step named as the explicit boundary axiom `navier_stokes_continuum_limit`
 and the `navier_stokes_proof_in_progress` status marker.
+
+## References
+
+- J. Leray, *Sur le mouvement d'un liquide visqueux emplissant l'espace*, Acta Math. **63** (1934) 193–248 — weak solutions.
+- L. Caffarelli, R. Kohn & L. Nirenberg, *Partial regularity of suitable weak solutions of the Navier–Stokes equations*, Comm. Pure Appl. Math. **35** (1982) 771–831 — partial regularity.
+- C. L. Fefferman, *Existence and smoothness of the Navier–Stokes equation* — Clay Mathematics Institute (official problem description). <https://www.claymath.org/millennium-problems/>

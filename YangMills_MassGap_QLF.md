@@ -107,3 +107,9 @@ continuum limit of the ZFA event field whose reconstructed two-point function ha
 spectral gap — the QLF analogue of the MRE-bridge refinement proposed for Riemann
 ([ReverseMathematics.md](ReverseMathematics.md) §4). That is the real open work; this
 document and module make the target precise and the boundary explicit.
+
+## References
+
+- C. N. Yang & R. L. Mills, *Conservation of isotopic spin and isotopic gauge invariance*, Phys. Rev. **96** (1954) 191–195 — non-abelian gauge theory.
+- K. Osterwalder & R. Schrader, *Axioms for Euclidean Green's functions*, Comm. Math. Phys. **31** (1973) 83–112 & **42** (1975) 281–305; A. S. Wightman (Wightman axioms) — the continuum reconstruction the mass-gap problem asks for.
+- A. Jaffe & E. Witten, *Quantum Yang–Mills Theory* — Clay Mathematics Institute (official problem description). <https://www.claymath.org/millennium-problems/>
