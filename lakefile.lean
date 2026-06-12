@@ -52,5 +52,6 @@ lean_lib QLF where
     `QLF_Majorana,
     `QLF_BaryonWinding,
     `QLF_MassGap,
-    `QLF_BSD
+    `QLF_BSD,
+    `QLF_Hodge
   ]
