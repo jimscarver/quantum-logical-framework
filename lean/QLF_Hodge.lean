@@ -108,11 +108,20 @@ axiom CohClass.isAlgebraic : CohClass → Prop
 def CohClass.encode (c : CohClass) : List Twist :=
   List.replicate c.p Twist.up ++ List.replicate c.q Twist.down
 
+/-- Count of `a` in a replicate of `b`: `n` if equal, else `0`. -/
+private theorem count_rep (a b : Twist) (n : ℕ) :
+    List.count a (List.replicate n b) = if a = b then n else 0 := by
+  by_cases hab : a = b
+  · subst hab; simp [List.count_replicate_self]
+  · rw [if_neg hab, List.count_eq_zero]
+    intro hmem
+    exact hab (List.mem_replicate.mp hmem).2
+
 /-- A Hodge class encodes to a **count-balanced** history. -/
 theorem CohClass.encode_countBalanced (c : CohClass) (h : c.isHodge) :
     countBalanced c.encode := by
   have hpq : c.p = c.q := h
-  simp [countBalanced, CohClass.encode, List.count_append, List.count_replicate, hpq]
+  simp [countBalanced, CohClass.encode, List.count_append, count_rep, hpq]
 
 /-- **Substrate realization**: a class is realized on the substrate iff its encoded
     history folds to a Pauli scalar — a genuine closure. Computed, not postulated. -/
