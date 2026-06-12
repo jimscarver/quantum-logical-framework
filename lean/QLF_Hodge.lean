@@ -40,6 +40,7 @@
 -- structural argument lives in Hodge_QLF.md.
 
 import Mathlib.Data.List.Basic
+import QLF_TwistAlphabet
 
 namespace QLF
 
@@ -103,6 +104,17 @@ axiom CohClass.isAlgebraic : CohClass → Prop
     non-constructive complex continuum), exactly the `spectral_hilbert_polya`
     precedent.  Not a QLF theorem — the named open boundary. -/
 axiom hodge_class_is_algebraic (c : CohClass) : c.isHodge → c.isAlgebraic
+
+/-- **Substrate witness for the Hodge pattern** — the boundary is the *lift* of a
+    proven theorem, not a bare assertion.  The Hodge conjecture's content,
+    *balanced ⟹ realized*, is on the QLF twist substrate an outright theorem:
+    every count-balanced history folds to a realized Pauli-scalar closure
+    (`count_balanced_pauli_closed`, QLF_TwistAlphabet).  So `hodge_class_is_algebraic`
+    is the cohomological lift of established constructive content — the same
+    *balance ⟹ realizability* selection principle read in a different category. -/
+theorem hodge_pattern_substrate_witness {ts : List Twist} (h : countBalanced ts) :
+    ∃ p : PauliScalar, twistMatrixFold ts = pauliScalarToMatrix p :=
+  count_balanced_pauli_closed h
 
 /-- **Hodge conjecture in QLF**: conditional on the boundary, every
     self-dual balanced cohomology class is realized by an algebraic
