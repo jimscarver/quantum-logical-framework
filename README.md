@@ -58,7 +58,7 @@ The deepest result is `qlf_universality`: the ZFA filter is not a restriction on
 
 ---
 
-## What QLF Is
+## What QLF unifies
 
 QLF is not just an interpretation of quantum mechanics. It is a broader attempt to build a unified framework in which:
 
