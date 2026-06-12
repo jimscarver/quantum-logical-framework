@@ -311,8 +311,13 @@ theorem riemann_hypothesis_in_qlf :
   exact critical_line_forcing (encode_is_phase_only (resonant_computation_for ρ)) h_sym h_zero
 
 -- =====================================================================
--- PROPOSED REFINEMENT: MRE_bridge (commented sketch, not yet adopted)
+-- REFINEMENT: MRE_bridge — now implemented in QLF_RiemannMRE.lean
 -- =====================================================================
+-- The sketch below is realized in `lean/QLF_RiemannMRE.lean`: `Z_QLF` is
+-- defined concretely (with verified singularities), MRE saturation is grounded
+-- in the proven `binary_kl` theorems, and `MRE_bridge` / `zero_is_mellin_singularity`
+-- give `riemann_hypothesis_in_qlf_via_MRE`. The original sketch is retained here
+-- for the structural argument and promotion path.
 --
 -- See ReverseMathematics.md §4 ("The MRE bridge: structurally motivating
 -- the WKL₀ axiom") for the full development. Numerical evidence: see

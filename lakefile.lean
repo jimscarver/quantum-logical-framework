@@ -55,5 +55,6 @@ lean_lib QLF where
     `QLF_BSD,
     `QLF_Hodge,
     `QLF_PvsNP,
-    `QLF_NavierStokes
+    `QLF_NavierStokes,
+    `QLF_RiemannMRE
   ]
