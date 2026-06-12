@@ -4,7 +4,9 @@
 > the analytic (continuum-QFT) step marked by one explicit boundary axiom —
 > `yang_mills_continuum_gap` in [`lean/QLF_MassGap.lean`](lean/QLF_MassGap.lean),
 > exactly the [`spectral_hilbert_polya`](lean/QLF_Riemann.lean) precedent of the
-> Riemann program. See [Open_Problems.md](Open_Problems.md).
+> Riemann program. See [Open_Problems.md](Open_Problems.md). The unifying thesis —
+> *the continuum and choice are mathematics' ultraviolet catastrophe* — is in
+> [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md).
 
 ## 1. The classical problem
 

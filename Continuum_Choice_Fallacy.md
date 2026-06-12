@@ -1,0 +1,101 @@
+# The Fallacy of the Continuum and Choice — Mathematics' Ultraviolet Catastrophe
+
+> *Just as physics had to face the ultraviolet catastrophe, mathematics must face the
+> fallacy of the continuum and choice.*
+
+This is the organizing thesis behind QLF's attacks on the Millennium Prize Problems.
+It sharpens the [ZFC ultraviolet-catastrophe](CLAUDE.md) commitment already load-bearing
+across the framework.
+
+## 1. The two catastrophes
+
+**Physics, 1900.** Classical statistical mechanics, applied to the continuum of
+electromagnetic modes, predicted infinite energy in the high-frequency tail of
+black-body radiation — the **ultraviolet catastrophe**. The cure was not a better
+integral; it was a change of ontology: energy comes in **discrete quanta**
+(Planck, `E = ℏω`). The continuum of modes was the fallacy; discreteness was the fact.
+
+**Mathematics.** Classical foundations build on an *unrestricted continuum* (the
+uncountable, mostly non-constructive reals) and the *Axiom of Choice* (selection from
+infinitely many sets with no constructive procedure). The high-frequency tail of that
+ontology is also pathological:
+
+- **Gödel incompleteness** — truths unprovable in any sufficiently strong system.
+- **Turing undecidability** — total functions no algorithm computes.
+- **Busy Beaver / Chaitin's Ω** — uncomputable growth with no finite closure; `BB(745)`
+  is independent of ZFC.
+
+These are not separate accidents. They are the **shadows of one fallacy**: a logic
+that can name objects with *no finite construction* — the continuum's non-constructive
+reals and choice's non-constructive selections. That is the mathematical ultraviolet
+catastrophe.
+
+## 2. The cure is the same: discreteness + a computable selection
+
+QLF's ontology is the change of foundations the catastrophe demands:
+
+- **The continuum is not assumed; it is the limit.** Physical reality is a
+  *dense-but-discrete* stream of ZFA-closed events; the smooth continuum is their
+  coarse-grained statistical average ([TheContinuum.md](TheContinuum.md)). There is no
+  primitive uncountable line — only the limit of finitely-closing events, each carrying
+  one `log 2` quantum.
+- **Choice is replaced by a computable filter.** The Axiom of Choice asserts a
+  selection function with no construction. QLF replaces it with **`full_zeno_prune`** —
+  a decidable, RCA₀-level selection that keeps exactly the ZFA-closed histories. Chaitin's
+  Ω, the information of the pruning boundary, is *physically realized* as that filter.
+- **The floor is RCA₀.** QLF's core lives in **RCA₀** — the computable floor of reverse
+  mathematics, *below* the Busy-Beaver horizon, *below* the Axiom of Choice, *below* ZFC
+  ([ReverseMathematics.md](ReverseMathematics.md), [Active_Inference_Mathematics.md](Active_Inference_Mathematics.md) §6).
+  Gödel cannot bite where unprovability has been physically excised.
+
+> ZFC is flawed logic, suitable only where there are no exploding infinities. ZFA is
+> correct logic.
+
+## 3. Why this is exactly where the Millennium problems are hard
+
+Every Millennium problem QLF attacks has a **discrete structural core** that QLF
+discharges constructively, and an **open boundary** that is *precisely the step into the
+unrestricted continuum or choice*. The hardness lives at the crossing — the same crossing
+in every case:
+
+| Problem | Discrete core (RCA₀, machine-verified) | The continuum/choice boundary |
+|---|---|---|
+| **Riemann** | every ZFA closure is count-balanced ⇒ on the critical-ratio `1/2` (`zfa_forces_critical_line`) | analytic continuation of ζ; Hilbert–Pólya spectrum — `spectral_hilbert_polya` |
+| **Yang–Mills mass gap** | lightest non-vacuum gauge closure = one `log 2` quantum ⇒ positive gap (`mass_gap_quantum_pos`) | continuum-QFT existence on ℝ⁴ — `yang_mills_continuum_gap` |
+| **Navier–Stokes** | blow-up = non-terminating (infinite-frequency) history, pruned by `full_zeno_prune` | continuum-PDE inheritance under the limit |
+| **P vs NP** | verify = O(n) closure check; realized set = `C(2n,n)` of an exponential tree | the complexity separation over an infinite computational model |
+
+**Each boundary axiom is the same boundary** — the line where one steps off the
+constructive floor into the non-constructive continuum or a non-computable choice. QLF
+does not hide it in a `sorry`; it *names* it, once per problem, as an explicit `axiom`.
+
+## 4. The epistemic stance
+
+This reframes what "proof" should mean for the constructive part of mathematics. QLF's
+claim is **not** that it proves these problems inside ZFC. It is that:
+
+1. The **RCA₀-constructive** content has its own foundational adequacy — it is the part of
+   mathematics with a physical / agent-constructible referent.
+2. Demanding a **ZFC-internal** proof of the boundary step is asking the framework to
+   validate the very continuum/choice fallacy it has diagnosed — and, by Busy
+   Beaver/Gödel, ZFC cannot always provide such a proof anyway.
+
+So QLF reduces each Millennium problem to *(structural theorem on the discrete floor) +
+(one explicit axiom naming the continuum/choice crossing)*, and claims the structural
+content as proof *within the constructive frame*. A mathematician who accepts only
+ZFC-internal proofs has a coherent but different commitment; both answer to different
+foundations. The honest markers (`rh_not_proved_here`, `mass_gap_not_proved_here`, …) keep
+the boundary visible in every module.
+
+## 5. The program
+
+- [Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md) · [`lean/QLF_Riemann.lean`](lean/QLF_Riemann.lean)
+- [YangMills_MassGap_QLF.md](YangMills_MassGap_QLF.md) · [`lean/QLF_MassGap.lean`](lean/QLF_MassGap.lean)
+- [P_vs_NP_QLF.md](P_vs_NP_QLF.md)
+- [NavierStokes_QLF.md](NavierStokes_QLF.md)
+- Boundary registry: [Open_Problems.md](Open_Problems.md) · foundations: [ReverseMathematics.md](ReverseMathematics.md), [Active_Inference_Mathematics.md](Active_Inference_Mathematics.md), [TheContinuum.md](TheContinuum.md)
+
+The unifying claim: **the continuum and choice are mathematics' ultraviolet catastrophe,
+and the discrete ZFA substrate with its computable pruning is the quantum that resolves
+it** — turning each Millennium problem into a constructive core plus one honestly-named
+boundary.

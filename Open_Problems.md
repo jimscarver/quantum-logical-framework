@@ -41,6 +41,8 @@ canonical status list; when an item moves, update it here and in its owning doc.
 |---|---|---|
 | **Riemann critical line** | `spectral_hilbert_polya` is an explicit axiom marking the RCA₀ → WKL₀ boundary; RH is *conditional*, not proved | [`lean/QLF_Riemann.lean`](lean/QLF_Riemann.lean) |
 | **Yang–Mills mass gap** | Substrate gap is structural (lightest non-vacuum closure = one `log 2` quantum; `mass_gap_quantum_pos`); the continuum-QFT existence is the explicit axiom `yang_mills_continuum_gap`. Mass gap is *conditional*, not proved | [`lean/QLF_MassGap.lean`](lean/QLF_MassGap.lean), [`YangMills_MassGap_QLF.md`](YangMills_MassGap_QLF.md) |
+| **P vs NP** | Substrate makes the generate(QuCalc tree, exponential) / verify(ZFA closure, O(n)) asymmetry explicit and gives a reason it should not collapse (closure is global, no greedy certificate); the formal separation P ≠ NP is the open boundary, not a QLF theorem | [`P_vs_NP_QLF.md`](P_vs_NP_QLF.md) |
+| **Navier–Stokes smoothness** | Blow-up = non-terminating (infinite-frequency, Busy-Beaver-class) history, pruned by `full_zeno_prune`; realized flows are ZFA event streams and globally smooth. The continuum-PDE inheritance is the open analytic boundary | [`NavierStokes_QLF.md`](NavierStokes_QLF.md) |
 | **Speed of light `c`** | The substrate event quantum (one Planck length × one Planck tick *together*) is the foundational postulate — no Tier-3 below it | [`Experimental_Consistency.md`](Experimental_Consistency.md) §3, [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5.3 |
 | **Bethe `k(n,0)`** | Continuum-sector (see live edge above) | [`Lamb_Shift.md`](Lamb_Shift.md) §6.1 |
 

@@ -251,6 +251,8 @@ The Axiom of Choice asserts the existence of sets with no constructive selection
 
 The formal mathematics of this argument — math with active inference built in, restricted to the non-fantasy half — is named in [Active_Inference_Mathematics.md](Active_Inference_Mathematics.md) §6.1.
 
+This is the organizing thesis of QLF's **Millennium Prize program**: *the continuum and choice are mathematics' ultraviolet catastrophe, resolved by the discrete ZFA substrate and its computable pruning.* Each attacked problem reduces to a constructive RCA₀ core plus **one explicit boundary axiom naming the continuum/choice crossing** — Riemann (`spectral_hilbert_polya`), Yang–Mills mass gap (`yang_mills_continuum_gap`, `QLF_MassGap`), Navier–Stokes (continuum-PDE limit), P vs NP (the complexity separation). Nothing is claimed *proved* in ZFC; each module carries its `*_not_proved_here` marker. See [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md) (the unifying doc), [YangMills_MassGap_QLF.md](YangMills_MassGap_QLF.md), [P_vs_NP_QLF.md](P_vs_NP_QLF.md), [NavierStokes_QLF.md](NavierStokes_QLF.md).
+
 ### Spacetime is synthesized, not background
 
 Spacetime is not given — it is the **output** of ZFA event generation. Every ZFA-closed event synthesizes its own local space and time. Space emerges from spatial free-action components; time emerges as the inverse of local free action (`f = 1/t`). The universe is a distributed network of clocks, each synthesizing local time through ZFA closure. This is formalized in `ZFAEventDynamics.lean`.
