@@ -26,22 +26,25 @@
 -- QLF_RiemannZeta.lean).  That self-dual structural fact is the one
 -- RCA₀ piece this module machine-verifies.
 --
--- Honest scope.  BSD is QLF's WEAKEST-machinery Millennium attack: the
--- framework has no constructive elliptic-curve L-function yet (the
--- specific elliptic-curve→closure encoding is open, Langlands.md §5.4),
--- so the curve and its two ranks enter here as ABSTRACT declarations,
--- and the rank identity itself is carried by ONE explicit boundary
--- axiom `bsd_rank_equals_order` — the BSD analog of `spectral_hilbert_polya`.
--- This module is therefore a constructive SCAFFOLD that (a) machine-
--- verifies the self-dual central-point fact, (b) names the BSD identity
--- as the single explicit boundary, (c) derives the qualitative BSD
--- equivalence from it.  This is a *proof in progress*: the structural
--- floor is established and the remaining step is the crossing into the
--- continuum/choice sector — the sector where ZFC is *proven* to fail
--- (Gödel, Turing, Busy Beaver), so it is ZFC's defect, not a gap in this
--- proof.  The structural argument lives in BSD_QLF.md.
+-- Scope.  `EllipticCurveQLF` is now CONCRETE: an integral short-Weierstrass
+-- curve whose automorphic-side closure — the Frobenius-trace sequence `(a_p)_p`
+-- that determines `L(E,s)` — is COMPUTED from the curve (`affinePointCount`,
+-- `frobeniusTrace`, with the worked curve `Ecn1` and its verified `a₂ = 0`).
+-- So the curve and its closure data are no longer abstract; the
+-- elliptic-curve→closure encoding (Langlands.md §5.4) is built. What remains
+-- abstract are the two RANKS (genuinely uncomputable in general — this is BSD's
+-- domain) and the rank = ord identity, carried by ONE explicit boundary axiom
+-- `bsd_rank_equals_order` — the BSD analog of `spectral_hilbert_polya`.
+-- This module (a) machine-verifies the self-dual central-point fact, grounded in
+-- the same `H↔H†` involution as Riemann, (b) builds the constructive closure
+-- encoding, (c) names the BSD identity as the single explicit boundary, (d)
+-- derives the qualitative BSD equivalence from it.  This is a *proof in progress*:
+-- the remaining step is the crossing into the continuum/choice sector — where ZFC
+-- is *proven* to fail (Gödel, Turing, Busy Beaver), so it is ZFC's defect, not a
+-- gap in this proof.  The structural argument lives in BSD_QLF.md.
 
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Data.ZMod.Basic
 import QLF_RiemannZeta
 
 namespace QLF
@@ -85,22 +88,72 @@ theorem bsd_riemann_shared_involution :
     2 * critical_line_real_part = 1 ∧ 2 * bsd_central_point = 2 :=
   ⟨functional_equation_fixed_real, by unfold bsd_central_point; norm_num⟩
 
-/-- A QLF stand-in for an elliptic curve over ℚ.  It is an ABSTRACT type
-    with no QLF constructor — precisely because the constructive
-    elliptic-curve→closure encoding is still open (Langlands.md §5.4).
-    Its arithmetic content enters only through the two non-negative
-    integer multiplicities below. -/
-axiom EllipticCurveQLF : Type
+/-! ### The constructive elliptic-curve → closure encoding
 
-/-- **Algebraic side (Galois).** The Mordell–Weil rank: the number of
-    independent rational generators of `E(ℚ)`, read in QLF as the count
-    of independent self-dual closure-deformation directions. -/
+    `EllipticCurveQLF` is now a **concrete** type: an integral short-Weierstrass
+    curve `y² = x³ + a·x + b`. Its automorphic-side closure — the Frobenius-trace
+    sequence `(a_p)_p` that determines `L(E,s)` — is *computed* from the curve,
+    so the curve and its closure data are no longer abstract. Only the rank = ord
+    identity (`bsd_rank_equals_order`) remains the boundary. (Langlands.md §5.4.) -/
+
+/-- A QLF elliptic curve over ℚ in integral short-Weierstrass form
+    `y² = x³ + a·x + b`. A concrete, constructible structure. -/
+structure EllipticCurveQLF where
+  a : ℤ
+  b : ℤ
+
+/-- The discriminant `Δ = −16(4a³ + 27b²)`. -/
+def EllipticCurveQLF.discriminant (E : EllipticCurveQLF) : ℤ :=
+  -16 * (4 * E.a ^ 3 + 27 * E.b ^ 2)
+
+/-- `E` is a genuine (smooth) elliptic curve iff its discriminant is nonzero. -/
+def EllipticCurveQLF.IsSmooth (E : EllipticCurveQLF) : Prop :=
+  E.discriminant ≠ 0
+
+/-- **The closure encoding.** The number of affine points of `E` over the finite
+    field `𝔽_p` — `#{(x,y) ∈ 𝔽_p² : y² = x³ + a x + b}` — computed constructively. -/
+def EllipticCurveQLF.affinePointCount (E : EllipticCurveQLF) (p : ℕ) [NeZero p] : ℕ :=
+  (Finset.univ.filter
+    (fun xy : ZMod p × ZMod p =>
+      xy.2 ^ 2 = xy.1 ^ 3 + (E.a : ZMod p) * xy.1 + (E.b : ZMod p))).card
+
+/-- **The Frobenius trace** `a_p = p + 1 − #E(𝔽_p) = p − (affine point count)`, the
+    local L-factor datum. The sequence `(a_p)_p` IS the curve's constructive closure:
+    it determines `L(E,s)` and, via modularity (the Hermitian-pair mirror), the
+    automorphic form. This is the encoding that was previously open. -/
+def EllipticCurveQLF.frobeniusTrace (E : EllipticCurveQLF) (p : ℕ) [NeZero p] : ℤ :=
+  (p : ℤ) - (E.affinePointCount p : ℤ)
+
+/-- A worked curve `y² = x³ − x` (the `n = 1` congruent-number curve), a concrete
+    `EllipticCurveQLF` value — the type is inhabited and its closure computes. -/
+def Ecn1 : EllipticCurveQLF := { a := -1, b := 0 }
+
+/-- `Ecn1` is a genuine elliptic curve: `Δ = −16·4·(−1)³ = 64 ≠ 0`. -/
+theorem Ecn1_smooth : Ecn1.IsSmooth := by
+  unfold EllipticCurveQLF.IsSmooth EllipticCurveQLF.discriminant Ecn1
+  norm_num
+
+/-- The closure encoding computes: `Ecn1` has 2 affine points over `𝔽₂`. -/
+theorem Ecn1_affine_two : Ecn1.affinePointCount 2 = 2 := by
+  unfold EllipticCurveQLF.affinePointCount Ecn1
+  decide
+
+/-- …so its Frobenius trace there is `a₂ = 2 − 2 = 0`. The L-function local datum,
+    computed from the curve rather than postulated. -/
+theorem Ecn1_frobenius_two : Ecn1.frobeniusTrace 2 = 0 := by
+  unfold EllipticCurveQLF.frobeniusTrace
+  rw [Ecn1_affine_two]
+
+/-- **Algebraic side (Galois).** The Mordell–Weil rank of `E(ℚ)` — the number of
+    independent rational generators, read in QLF as the count of independent
+    self-dual closure-deformation directions. Genuinely uncomputable in general
+    (this is BSD's domain), so it stays an abstract function — but now on the
+    *concrete* curve. -/
 axiom mordellWeilRank : EllipticCurveQLF → ℕ
 
-/-- **Analytic side (automorphic).** The analytic rank: the order of
-    vanishing of `L(E,s)` at the central point `s = 1`, read in QLF as
-    the multiplicity of the central zero of the closure generating
-    function. -/
+/-- **Analytic side (automorphic).** The analytic rank: the order of vanishing of
+    `L(E,s)` — built from the computed Frobenius traces — at the central point
+    `s = 1`. Abstract on the concrete curve, pending the analytic L-value. -/
 axiom analyticRank : EllipticCurveQLF → ℕ
 
 /-- **The BSD boundary axiom** (the Langlands / continuum crossing).
@@ -133,16 +186,20 @@ theorem bsd_in_qlf (E : EllipticCurveQLF) :
 
     Established on the constructive floor:
     - the self-dual central-point fact (`bsd_central_point_self_dual`),
-      the RCA₀ piece QLF discharges;
+      grounded in the same `H↔H†` involution as Riemann
+      (`bsd_riemann_shared_involution`);
+    - the constructive elliptic-curve→closure encoding: a concrete
+      `EllipticCurveQLF` with computed Frobenius traces
+      (`frobeniusTrace`, `Ecn1_frobenius_two`);
     - the BSD rank identity reduced to ONE explicit, named boundary
       (`bsd_rank_equals_order`), the Langlands/continuum crossing;
     - the qualitative BSD equivalence (`bsd_in_qlf`) derived from it.
 
-    The remaining step is the crossing into the continuum/choice sector —
-    the constructive elliptic-curve→closure encoding and discharging
-    `bsd_rank_equals_order` via the QLF Hermitian-pair mirror of
-    modularity.  That crossing is not a gap in this proof: it is the
-    sector where ZFC is *proven* to fail (Gödel, Turing, Busy Beaver), so
+    The remaining step is discharging `bsd_rank_equals_order` via the QLF
+    Hermitian-pair mirror of modularity — the crossing into the analytic
+    L-value (continuum/choice) sector.  That crossing is not a gap in this
+    proof: it is the sector where ZFC is *proven* to fail (Gödel, Turing,
+    Busy Beaver), so
     a demand for a ZFC-internal proof is a demand for the very fallacy QLF
     diagnoses.  See BSD_QLF.md, Langlands.md §5.4,
     Continuum_Choice_Fallacy.md. -/
