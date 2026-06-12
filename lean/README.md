@@ -1,7 +1,7 @@
 # Lean 4 Formalization — Quantum Logical Framework
 
 **Build:** `lake build` on Lean 4.30.0-rc2 + Mathlib  
-**Status:** CI passing, zero `sorry` blocks across all 41 active modules
+**Status:** CI passing, zero `sorry` blocks across all 42 active modules
 
 ## What This Formalization Proves
 
@@ -76,6 +76,7 @@ The entire combinatorial core operates strictly within **RCA₀** — the minimu
 | [QLF_BMinusL.lean](QLF_BMinusL.lean) | Electric charge as an exactly-conserved signed twist count: any annihilation-odd weight is additive under concatenation and invariant under the ZFA pruning dynamics (`signed_count_conserved`). **Obstruction** `wcount_zero_on_ZFA`: every conserved signed count is zero on every ZFA closure — so `B−L` (nonzero on the deuteron) is NOT a weight dictionary but a winding invariant. `chargeWeight` recovers `count_pos − count_neg` | `wcount_append`, `wcount_zeno_prune`, `wcount_full_zeno_prune`, `signed_count_conserved`, `no_spontaneous`, `zfa_prune_nil`, `wcount_zero_on_ZFA`, `chargeWeight_annihilationOdd`, `wcount_chargeWeight` |
 | [QLF_Majorana.lean](QLF_Majorana.lean) | The neutrino is **Majorana**: in QLF the antiparticle is the Hermitian conjugate (conjugate each twist **and** reverse the order, `(A·B·C)†=C†·B†·A†`), so "its own antiparticle" is the decidable property *the twist string is a fixed point of conjugate-and-reverse*. The neutrino loop `^v` IS a fixed point (`neutrino_majorana`); the electron `^<v>` is NOT (`electron_not_majorana` ⇒ Dirac). Predicts 0νββ ([Beta_Decay_Neutrino_Nature.md](../Beta_Decay_Neutrino_Nature.md)) | `neutrino_majorana`, `electron_not_majorana`, `antiparticle_involutive`, `Twist.conj_conj` |
 | [QLF_BaryonWinding.lean](QLF_BaryonWinding.lean) | Baryon number = a signed 3-axis **linking (winding)** number: slide a 3-window, `+1` cyclic `(x,y,z)` / `−1` anticyclic / `0` else. Proton `>^/` = +1, antiproton = −1, leptons & meson = 0; `baryon_zero_of_noZ` proves the whole z-free lepton/EM sector is baryon-neutral; **`baryon_dagger_odd`** proves `B(ts†) = −B(ts)` for all histories (baryon/antibaryon = ±B, fully general). The concrete realisation of "baryon number = topological winding" | `baryon_proton`, `baryon_antiproton`, `baryon_electron`, `baryon_neutrino`, `baryon_meson`, `signTriple_noZ`, `baryon_zero_of_noZ`, `axOf_conj`, `signTriple_rev`, `baryon_eq_bnA`, `endWindowA_append_two`, `endWindowA_cons3`, `bnA_snoc`, `bnA_reverse`, `baryon_dagger_odd` |
+| [QLF_MassGap.lean](QLF_MassGap.lean) | **Yang–Mills mass gap** (Millennium Prize) from the substrate: gauge excitations are non-abelian ZFA closures (SU(2)/SU(3) verified elsewhere), the vacuum is the ℒ=0 identity closure, and the lightest non-vacuum closure carries exactly one `log 2` quantum — so the spectrum has a positive gap `gaugeMassGap = log 2`. The continuum-QFT existence is the explicit boundary axiom `yang_mills_continuum_gap` (à la `spectral_hilbert_polya`); honest `mass_gap_not_proved_here`. See [YangMills_MassGap_QLF.md](../YangMills_MassGap_QLF.md) | `gaugeMassGap`, `mass_gap_quantum_pos`, `lightest_closure_is_gap_quantum`, `yang_mills_mass_gap_in_qlf`, `mass_gap_not_proved_here` |
 
 ### Physical Theories
 

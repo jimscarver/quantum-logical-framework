@@ -6,7 +6,7 @@ Project context for Claude Code sessions. Read this before making any changes.
 
 ## Project overview
 
-**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **41 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
+**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **42 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
 
 Core claim: *ZFA balance is the selection principle for physical reality.* Every terminating computation is a ZFA string; every ZFA string is symmetric (lies on the critical line). The Church-Turing universe filtered to ZFA-balanced strings is our physical universe.
 
@@ -14,7 +14,7 @@ Core claim: *ZFA balance is the selection principle for physical reality.* Every
 
 ---
 
-## 41 active modules
+## 42 active modules
 
 In `lean/`, registered in `lakefile.lean` roots array (in build order). For fuller per-module descriptions + the complete key-theorem lists, see [`lean/README.md`](lean/README.md).
 
@@ -61,6 +61,7 @@ In `lean/`, registered in `lakefile.lean` roots array (in build order). For full
 | `QLF_BMinusL` | Electric charge = exactly-conserved signed twist count (`signed_count_conserved`); **obstruction** `wcount_zero_on_ZFA` — every conserved signed count is zero on closures, so `B−L` is NOT a weight dictionary (it is winding) |
 | `QLF_Majorana` | The neutrino is **Majorana**: antiparticle = Hermitian conjugate (conjugate-and-reverse), and `^v` is a fixed point of it; `neutrino_majorana`, `electron_not_majorana` (electron is Dirac), `antiparticle_involutive` |
 | `QLF_BaryonWinding` | Baryon number = signed 3-axis linking (winding) invariant; `baryonNumber` (proton +1, antiproton −1, leptons/meson 0), `baryon_zero_of_noZ` (lepton/EM sector = 0), **`baryon_dagger_odd`** (`B(ts†)=−B(ts)`, fully general) |
+| `QLF_MassGap` | **Yang–Mills mass gap** (Millennium Prize) on the substrate: vacuum = ℒ=0 identity closure; lightest non-vacuum gauge closure carries one `log 2` quantum ⟹ positive gap `gaugeMassGap = log 2` (`mass_gap_quantum_pos`, `lightest_closure_is_gap_quantum` reusing `QLF_FreeEnergy`). Continuum-QFT existence is the explicit boundary axiom `yang_mills_continuum_gap`; `yang_mills_mass_gap_in_qlf` is conditional; honest `mass_gap_not_proved_here`. See `YangMills_MassGap_QLF.md` |
 
 ---
 
@@ -195,6 +196,8 @@ theorem foo (p : RhoProcess) : achieves_ZFA (toTopoString p) :=
 | `spectral_hilbert_polya` | `QLF_Riemann` | RCA₀ → WKL₀ boundary; QLF form of Hilbert-Pólya |
 | `NonTrivialZero` | `QLF_Riemann` | Connects QLF combinatorics to analytic number theory |
 | `resonant_computation_for` | `QLF_Riemann` | Bridge from combinatorics to Dirichlet series |
+| `yang_mills_continuum_gap` | `QLF_MassGap` | RCA₀ → analytic (continuum-QFT) boundary; the continuum Yang–Mills theory's gap = the substrate `log 2` closure quantum |
+| `YangMillsMassGap` | `QLF_MassGap` | The continuum Yang–Mills theory's mass gap (opaque real; its well-definedness is the Clay problem) |
 | Various philosophical | `ER_EPR_QLF` | Explicitly speculative; not used elsewhere |
 
 `critical_line_forcing` is a **theorem** derived from `spectral_hilbert_polya`, not an axiom.
@@ -321,7 +324,7 @@ Avoid framings that contradict the above:
 | Path | Purpose |
 |---|---|
 | `lean/` | All Lean source files |
-| `lakefile.lean` | Build config; `roots` array lists all 41 modules |
+| `lakefile.lean` | Build config; `roots` array lists all 42 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |
