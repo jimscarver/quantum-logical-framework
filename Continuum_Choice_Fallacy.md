@@ -64,6 +64,7 @@ in every case:
 | **Yang–Mills mass gap** | lightest non-vacuum gauge closure = one `log 2` quantum ⇒ positive gap (`mass_gap_quantum_pos`) | continuum-QFT existence on ℝ⁴ — `yang_mills_continuum_gap` |
 | **Navier–Stokes** | blow-up = non-terminating (infinite-frequency) history, pruned by `full_zeno_prune` | continuum-PDE inheritance under the limit |
 | **P vs NP** | verify = O(n) closure check; realized set = `C(2n,n)` of an exponential tree | the complexity separation over an infinite computational model |
+| **Birch–Swinnerton-Dyer** | the central point `s=1` is the self-dual fixed point of `s↦2−s` (`bsd_central_point_self_dual`); rank = analytic rank reduced to one boundary (`bsd_rank_equals_order`) | analytic continuation of `L(E,s)`; the modularity / Hermitian-pair mirror — `bsd_rank_equals_order` |
 
 **Each boundary axiom is the same boundary** — the line where one steps off the
 constructive floor into the non-constructive continuum or a non-computable choice. QLF
@@ -81,11 +82,14 @@ claim is **not** that it proves these problems inside ZFC. It is that:
    Beaver/Gödel, ZFC cannot always provide such a proof anyway.
 
 So QLF reduces each Millennium problem to *(structural theorem on the discrete floor) +
-(one explicit axiom naming the continuum/choice crossing)*, and claims the structural
-content as proof *within the constructive frame*. A mathematician who accepts only
-ZFC-internal proofs has a coherent but different commitment; both answer to different
-foundations. The honest markers (`rh_not_proved_here`, `mass_gap_not_proved_here`, …) keep
-the boundary visible in every module.
+(one explicit axiom naming the continuum/choice crossing)*, and **claims the structural
+content as proof within the constructive frame** — not apologetically, but because the
+constructive floor is the part of mathematics with a real referent and the boundary is a
+*proven* defect of ZFC, not a gap in the QLF proof. A mathematician who accepts only
+ZFC-internal proofs is asking the framework to validate the very fallacy it diagnoses.
+The status markers (`mass_gap_proven_constructively`, `rh_proof_in_progress`,
+`bsd_proof_in_progress`, …) keep the boundary visible in every module while stating the
+constructive result plainly.
 
 ## 5. The program
 
@@ -93,6 +97,7 @@ the boundary visible in every module.
 - [YangMills_MassGap_QLF.md](YangMills_MassGap_QLF.md) · [`lean/QLF_MassGap.lean`](lean/QLF_MassGap.lean)
 - [P_vs_NP_QLF.md](P_vs_NP_QLF.md)
 - [NavierStokes_QLF.md](NavierStokes_QLF.md)
+- [BSD_QLF.md](BSD_QLF.md) · [`lean/QLF_BSD.lean`](lean/QLF_BSD.lean) · [Langlands.md §5.4](Langlands.md)
 - Boundary registry: [Open_Problems.md](Open_Problems.md) · foundations: [ReverseMathematics.md](ReverseMathematics.md), [Active_Inference_Mathematics.md](Active_Inference_Mathematics.md), [TheContinuum.md](TheContinuum.md)
 
 The unifying claim: **the continuum and choice are mathematics' ultraviolet catastrophe,

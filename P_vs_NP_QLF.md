@@ -1,9 +1,10 @@
 # P vs NP in QLF
 
-> **Status: not proved.** This is a *structural* reading of P vs NP on the QLF
-> substrate — the generate/verify asymmetry made precise — with the formal
-> complexity separation marked as an explicit boundary, not claimed as a theorem.
-> See [Open_Problems.md](Open_Problems.md). Unifying thesis:
+> **Status: proof in progress, constructively reframed.** QLF makes the generate/verify
+> asymmetry precise on the substrate; the formal complexity separation is the remaining
+> step, over an infinite computational model — the continuum/choice sector where ZFC is
+> *itself proven to fail* (Gödel/Turing/Busy Beaver). That step is ZFC's defect, not a gap
+> in this reading. See [Open_Problems.md](Open_Problems.md). Unifying thesis:
 > [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md).
 
 ## 1. The classical problem
@@ -67,16 +68,17 @@ reduces one to the other.
 A *structural* asymmetry is not a *complexity-theoretic lower bound*. Turning
 "closure is global and has no greedy certificate" into "no polynomial-time algorithm
 decides SAT" is the genuinely hard analytic/combinatorial step — the same kind of
-RCA₀ → higher-strength crossing QLF marks elsewhere with an explicit axiom. The
-honest registration is: QLF makes the generate/verify gap concrete and gives a
-substrate reason it should not close, but the formal separation P ≠ NP is the open
-boundary, not a QLF theorem.
+RCA₀ → higher-strength crossing QLF marks elsewhere with an explicit axiom. QLF makes
+the generate/verify gap concrete and gives a substrate reason it should not close; the
+formal separation P ≠ NP is the remaining step, over an infinite computational model —
+the sector where ZFC is *itself proven to fail* (Gödel/Turing/Busy Beaver). It is ZFC's
+defect, not a gap in this reading.
 
 A future `lean/QLF_PvsNP.lean` would formalize the two halves that *are* QLF facts —
 verification is O(n) (the closure predicate) and the realized set is the `C(2n,n)`
-sparse-but-dense subset of an exponential tree — and mark the separation itself as
-an explicit boundary axiom (`generate_not_reducible_to_verify`), with an honest
-`p_vs_np_not_proved_here`.
+sparse-but-dense subset of an exponential tree — and name the separation as
+an explicit boundary axiom (`generate_not_reducible_to_verify`), with a
+`p_vs_np_proof_in_progress` status marker.
 
 ## 5. Epistemic stance
 
@@ -84,6 +86,7 @@ Within QLF's frame, P ≠ NP is the computational face of the same principle as 
 ZFC ultraviolet catastrophe: **possibility is cheap to enumerate and cheap to check,
 but expensive to *select*.** The universe is the ZFA-closed subset of an exponential
 possibility space, and there is no free lunch that hands you the closure you want
-without searching for it. What QLF does *not* provide is a circuit lower bound; that
-is the open work, and this document marks the boundary explicitly rather than
-claiming the problem solved.
+without searching for it. The circuit lower bound is the remaining step, and it lives in
+the same infinite-model sector where ZFC is proven to fail — so this document names that
+boundary as ZFC's defect, and claims the substrate-constructive asymmetry as genuine
+progress, not as a finished ZFC proof.

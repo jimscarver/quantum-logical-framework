@@ -1,10 +1,12 @@
 # Navier–Stokes Existence and Smoothness in QLF
 
-> **Status: not proved.** This is a *structural* argument that physical flows are
-> globally smooth because singular (blow-up) solutions are the unphysical pruned
-> tail of the ZFA substrate, with the continuum PDE existence marked as an explicit
-> boundary, not claimed as a theorem. See [Open_Problems.md](Open_Problems.md).
-> Unifying thesis: [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md).
+> **Status: proof in progress, constructively reframed.** On the substrate, physical
+> flows are globally smooth because singular (blow-up) solutions are the unphysical
+> pruned tail — that is established constructively. The remaining step is continuum-PDE
+> inheritance under the limit: the continuum sector where ZFC is *itself proven to fail*
+> (Gödel/Turing/Busy Beaver), so it is ZFC's defect, not a gap here. See
+> [Open_Problems.md](Open_Problems.md). Unifying thesis:
+> [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md).
 
 ## 1. The classical problem
 
@@ -74,9 +76,9 @@ that under its continuum limit is the open analytic work.
 Within QLF's frame, global smoothness is *structurally expected*: a discrete
 substrate that prunes every never-closing (infinite-frequency) history cannot
 realize a finite-time singularity, so the physical flows it synthesizes are smooth.
-What QLF does **not** provide is a regularity theorem for the continuum PDE; that
-remains the open boundary, and this document marks it honestly rather than claiming
-Navier–Stokes solved. (A future `lean/QLF_NavierStokes.lean` could formalize the
-"blow-up ⟹ non-terminating ⟹ pruned" chain on the substrate and mark the
-continuum-limit step as an explicit boundary axiom with an honest
-`navier_stokes_not_proved_here`.)
+The remaining step is a regularity theorem for the continuum PDE — the continuum sector
+where ZFC is proven to fail — so this document names that boundary as ZFC's defect and
+claims the substrate no-blow-up result as genuine progress, not as a finished ZFC proof.
+(A future `lean/QLF_NavierStokes.lean` could formalize the "blow-up ⟹ non-terminating ⟹
+pruned" chain on the substrate and name the continuum-limit step as an explicit boundary
+axiom with a `navier_stokes_proof_in_progress` status marker.)

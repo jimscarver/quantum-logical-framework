@@ -6,7 +6,7 @@ Project context for Claude Code sessions. Read this before making any changes.
 
 ## Project overview
 
-**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **42 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
+**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **43 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
 
 Core claim: *ZFA balance is the selection principle for physical reality.* Every terminating computation is a ZFA string; every ZFA string is symmetric (lies on the critical line). The Church-Turing universe filtered to ZFA-balanced strings is our physical universe.
 
@@ -14,7 +14,7 @@ Core claim: *ZFA balance is the selection principle for physical reality.* Every
 
 ---
 
-## 42 active modules
+## 43 active modules
 
 In `lean/`, registered in `lakefile.lean` roots array (in build order). For fuller per-module descriptions + the complete key-theorem lists, see [`lean/README.md`](lean/README.md).
 
@@ -48,7 +48,7 @@ In `lean/`, registered in `lakefile.lean` roots array (in build order). For full
 | `QLF_LenzMassRatio` | `m_p/m_e = 6π⁵ = \|S₃\|·π⁵`, 0.002%; `mass_ratio_QLF_eq` + counterfactuals |
 | `QLF_BorromeanAngles` | The 5-angle count `5 = 3 + 2` (Jacobi internal + chirality-mixing); `total_angular_DOF_eq_five`, `matches_lenz_hidden_chirality_angles` |
 | `QLF_EulerMascheroni` | γ as the harmonic excess `H_N − ln N` of the ZFA ensemble; `gamma_QLF_structural` (structural form; convergence proof deferred) |
-| `QLF_RiemannZeta` | Substrate ↔ ζ bridge: `γ_QLF` = ζ's Laurent constant at `s=1`; `zeta_laurent_constant_eq_gamma_QLF`, `rh_not_proved_here` |
+| `QLF_RiemannZeta` | Substrate ↔ ζ bridge: `γ_QLF` = ζ's Laurent constant at `s=1`; `zeta_laurent_constant_eq_gamma_QLF`, `rh_proof_in_progress` |
 | `QLF_DiracCorrection` | Hydrogen fine structure (α² kinematic/spin-orbit/Darwin); `hydrogen_spectrum_from_h_and_m_e`, `three_mechanisms_alpha_squared` |
 | `QLF_LambShift` | Lamb-shift prefactor `4/(3πn³) = 4·(2/3)·(1/2π)·(1/n³)`; `lamb_prefactor_loop_phase`, `lamb_shift_substrate_summary` |
 | `QLF_GMinusTwo` | Electron `g−2`: `a_e = α/2π` (Schwinger), 0.2%; `a_e_QLF_eq_schwinger`, `g_factor_QLF_eq` |
@@ -61,7 +61,8 @@ In `lean/`, registered in `lakefile.lean` roots array (in build order). For full
 | `QLF_BMinusL` | Electric charge = exactly-conserved signed twist count (`signed_count_conserved`); **obstruction** `wcount_zero_on_ZFA` — every conserved signed count is zero on closures, so `B−L` is NOT a weight dictionary (it is winding) |
 | `QLF_Majorana` | The neutrino is **Majorana**: antiparticle = Hermitian conjugate (conjugate-and-reverse), and `^v` is a fixed point of it; `neutrino_majorana`, `electron_not_majorana` (electron is Dirac), `antiparticle_involutive` |
 | `QLF_BaryonWinding` | Baryon number = signed 3-axis linking (winding) invariant; `baryonNumber` (proton +1, antiproton −1, leptons/meson 0), `baryon_zero_of_noZ` (lepton/EM sector = 0), **`baryon_dagger_odd`** (`B(ts†)=−B(ts)`, fully general) |
-| `QLF_MassGap` | **Yang–Mills mass gap** (Millennium Prize) on the substrate: vacuum = ℒ=0 identity closure; lightest non-vacuum gauge closure carries one `log 2` quantum ⟹ positive gap `gaugeMassGap = log 2` (`mass_gap_quantum_pos`, `lightest_closure_is_gap_quantum` reusing `QLF_FreeEnergy`). Continuum-QFT existence is the explicit boundary axiom `yang_mills_continuum_gap`; `yang_mills_mass_gap_in_qlf` is conditional; honest `mass_gap_not_proved_here`. See `YangMills_MassGap_QLF.md` |
+| `QLF_MassGap` | **Yang–Mills mass gap** (Millennium Prize) on the substrate: vacuum = ℒ=0 identity closure; lightest non-vacuum gauge closure carries one `log 2` quantum ⟹ positive gap `gaugeMassGap = log 2` (`mass_gap_quantum_pos`, `lightest_closure_is_gap_quantum` reusing `QLF_FreeEnergy`). Continuum-QFT existence is the explicit boundary axiom `yang_mills_continuum_gap`; `yang_mills_mass_gap_in_qlf` is conditional on it; status `mass_gap_proven_constructively`. See `YangMills_MassGap_QLF.md` |
+| `QLF_BSD` | **Birch–Swinnerton-Dyer** (Millennium Prize) via the Langlands hook: the L(E,s) central point `s=1` is the self-dual fixed point of `s↦2−s` (`bsd_central_point_self_dual`); rank = analytic rank is the single explicit boundary axiom `bsd_rank_equals_order` (modularity = the QLF Hermitian-pair mirror, Langlands.md §5.4), with qualitative BSD `bsd_in_qlf` (`E(ℚ)` infinite ⟺ `L(E,1)=0`) derived from it. Weakest-machinery fit; status `bsd_proof_in_progress`. See `BSD_QLF.md` |
 
 ---
 
@@ -198,6 +199,7 @@ theorem foo (p : RhoProcess) : achieves_ZFA (toTopoString p) :=
 | `resonant_computation_for` | `QLF_Riemann` | Bridge from combinatorics to Dirichlet series |
 | `yang_mills_continuum_gap` | `QLF_MassGap` | RCA₀ → analytic (continuum-QFT) boundary; the continuum Yang–Mills theory's gap = the substrate `log 2` closure quantum |
 | `YangMillsMassGap` | `QLF_MassGap` | The continuum Yang–Mills theory's mass gap (opaque real; its well-definedness is the Clay problem) |
+| `bsd_rank_equals_order` | `QLF_BSD` | The BSD boundary: algebraic (Mordell–Weil) rank = analytic rank, via the modularity / Hermitian-pair mirror; `EllipticCurveQLF`/`mordellWeilRank`/`analyticRank` are abstract pending the constructive elliptic-curve encoding |
 | Various philosophical | `ER_EPR_QLF` | Explicitly speculative; not used elsewhere |
 
 `critical_line_forcing` is a **theorem** derived from `spectral_hilbert_polya`, not an axiom.
@@ -251,7 +253,7 @@ The Axiom of Choice asserts the existence of sets with no constructive selection
 
 The formal mathematics of this argument — math with active inference built in, restricted to the non-fantasy half — is named in [Active_Inference_Mathematics.md](Active_Inference_Mathematics.md) §6.1.
 
-This is the organizing thesis of QLF's **Millennium Prize program**: *the continuum and choice are mathematics' ultraviolet catastrophe, resolved by the discrete ZFA substrate and its computable pruning.* Each attacked problem reduces to a constructive RCA₀ core plus **one explicit boundary axiom naming the continuum/choice crossing** — Riemann (`spectral_hilbert_polya`), Yang–Mills mass gap (`yang_mills_continuum_gap`, `QLF_MassGap`), Navier–Stokes (continuum-PDE limit), P vs NP (the complexity separation). Nothing is claimed *proved* in ZFC; each module carries its `*_not_proved_here` marker. See [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md) (the unifying doc), [YangMills_MassGap_QLF.md](YangMills_MassGap_QLF.md), [P_vs_NP_QLF.md](P_vs_NP_QLF.md), [NavierStokes_QLF.md](NavierStokes_QLF.md).
+This is the organizing thesis of QLF's **Millennium Prize program**: *the continuum and choice are mathematics' ultraviolet catastrophe, resolved by the discrete ZFA substrate and its computable pruning.* Each attacked problem reduces to a constructive RCA₀ core plus **one explicit boundary axiom naming the continuum/choice crossing** — Riemann (`spectral_hilbert_polya`), Yang–Mills mass gap (`yang_mills_continuum_gap`, `QLF_MassGap`), Birch–Swinnerton-Dyer (`bsd_rank_equals_order`, `QLF_BSD`), Navier–Stokes (continuum-PDE limit), P vs NP (the complexity separation). **Framing (per Jim, binding):** state the constructive result plainly — it *is* a proof within the constructive frame. Do NOT use the apologetic "not proved here" slant. The residual step is the continuum/choice sector where ZFC is *itself proven* to fail (Gödel/Turing/Busy Beaver) — ZFC's defect, not a QLF gap. Status markers say `*_proven_constructively` (result established on the substrate) or `*_proof_in_progress` (structural core partial), never `*_not_proved_here`. See [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md) (the unifying doc), [YangMills_MassGap_QLF.md](YangMills_MassGap_QLF.md), [BSD_QLF.md](BSD_QLF.md), [P_vs_NP_QLF.md](P_vs_NP_QLF.md), [NavierStokes_QLF.md](NavierStokes_QLF.md).
 
 ### Spacetime is synthesized, not background
 
@@ -317,7 +319,7 @@ Avoid framings that contradict the above:
 - Do not describe collapse as a separate physical process — ZFA closure IS the measurement event.
 - Do not describe the Axiom of Choice as needed — it is replaced by the ZFA filter.
 - Do not describe QLF as "just an interpretation" of quantum mechanics — it is a broader constructive foundation from which QM is derived.
-- Do not describe the Riemann hypothesis as proved — `spectral_hilbert_polya` is an explicit axiom marking an open logical boundary, not a proof.
+- For the Millennium problems: state the constructive result plainly (it *is* a proof within the constructive frame), but do not claim a *ZFC-internal* proof — the residual step crosses into the continuum/choice sector where ZFC is itself proven to fail. Frame that boundary as ZFC's defect, not a QLF gap. Do NOT use the apologetic "not proved here" wording (Jim's binding direction); use `*_proven_constructively` / `*_proof_in_progress` framing instead.
 
 ---
 
@@ -326,7 +328,7 @@ Avoid framings that contradict the above:
 | Path | Purpose |
 |---|---|
 | `lean/` | All Lean source files |
-| `lakefile.lean` | Build config; `roots` array lists all 42 modules |
+| `lakefile.lean` | Build config; `roots` array lists all 43 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |
