@@ -143,6 +143,7 @@ theorem Ecn1_affine_two : Ecn1.affinePointCount 2 = 2 := by
 theorem Ecn1_frobenius_two : Ecn1.frobeniusTrace 2 = 0 := by
   unfold EllipticCurveQLF.frobeniusTrace
   rw [Ecn1_affine_two]
+  norm_num
 
 /-- **Algebraic side (Galois).** The Mordell–Weil rank of `E(ℚ)` — the number of
     independent rational generators, read in QLF as the count of independent
