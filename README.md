@@ -4,7 +4,17 @@
 **Spacetime is synthesized.**  
 **Physical reality is the subset of possibility that achieves Zero Free Action.**
 
-The **Quantum Logical Framework (QLF)** is a constructive research program that treats physics as a problem of **logical generation and closure** rather than one of brute-force formalism or fixed background geometry. Its core claims are **machine-verified in Lean 4** across **36 modules with zero `sorry` blocks** — the combinatorial heart operates strictly within RCA₀, the minimum constructive logical subsystem, with no Axiom of Choice and no continuity assumptions.
+## What this is
+
+The **Quantum Logical Framework (QLF)** is a new, constructive **foundation for mathematics and physics, built from the bottom up** out of a single finite distinction — one bit, one Zero-Free-Action (ZFA) event.
+
+- **Its logic is quantum logic.** Propositions are phase-string distinctions in an 8-twist alphabet; truth is decided by *measurement*, which is ZFA closure. QLF argues this is the **correct** logic — *complete where reality is*, with Gödel/Turing incompleteness confined to the non-terminating tail it physically prunes. ([Quantum_Logic_Foundations.md](Quantum_Logic_Foundations.md))
+- **Physics is derived, not assumed.** From that one primitive follow spacetime, measurement, entanglement, the Standard-Model gauge groups, gravity, and the fundamental constants — each **machine-verified in Lean 4** across **44 modules with zero `sorry` blocks**, the combinatorial core operating strictly within **RCA₀** (no Axiom of Choice, no continuity).
+- **It is demonstrated, not just asserted.** The same logic derives `α = 1/137`, `m_p/m_e = 6π⁵`, and `Ω_Λ = log 2` from the substrate with zero free parameters (table below), and turns **all six open Millennium Prize Problems** into constructive cores plus one honestly-named continuum/choice boundary. ([Millennium.md](Millennium.md))
+
+In one line: **the universe is logical, its logic is constructive and complete-for-physics, and we build it from the bottom up — then check it in Lean.**
+
+New here? Read [**Quantum_Logic_Foundations.md**](Quantum_Logic_Foundations.md) (what kind of mathematics this is) and [**Philosophy.md**](Philosophy.md), then the discoveries below.
 
 ---
 
