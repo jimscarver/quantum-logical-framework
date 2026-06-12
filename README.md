@@ -248,6 +248,10 @@ Every QLF string maps to a 2×2 Hermitian operator (its *spectral mode*) built f
 
 QLF refactors physical laws using the structural framework of Harvey Friedman's **Reverse Mathematics** program. The core QLF engine — `expand_generation`, `full_zeno_prune`, `find_stable_states`, `find_stable_states_length_even` — operates strictly within **RCA₀**, the bedrock of constructive computable mathematics: no axiom of choice, no continuity, no non-constructive existence. The transition from discrete QLF combinatorics to the continuous Riemann zeta function (Dirichlet series, analytic continuation) represents a genuine jump to a higher logical subsystem (WKL₀/ACA₀). Isolating `spectral_hilbert_polya` as an explicit axiom in `lean/QLF_Riemann.lean` is a meta-mathematical necessity — it marks the exact logical boundary where discrete computation projects its continuous statistical shadow. See [**ReverseMathematics.md**](ReverseMathematics.md) for the full treatment.
 
+### The Millennium Prize Program
+
+QLF attacks all six open Clay Millennium Prize Problems — Riemann, Yang–Mills mass gap, Birch–Swinnerton-Dyer, Hodge, Navier–Stokes, and P vs NP — with one repeatable template: a discrete structural core proven constructively in Lean, plus **one explicit boundary axiom** naming the single crossing into the continuum/choice sector. The organizing thesis: **the continuum and the Axiom of Choice are mathematics' ultraviolet catastrophe**, and the discrete ZFA substrate with its computable pruning (`full_zeno_prune`) is the quantum that resolves it — Gödel, Turing, and Busy Beaver are its shadows. The same engine recurs across all six: *balance ⟹ realizability* (the substrate theorem `count_balanced_pauli_closed`), the adjoint involution `H ↔ H†` as the self-dual mirror, and non-termination pruned before it can be physical. The constructive content is claimed as proof *within the constructive frame*; the residual step is named honestly as the sector where ZFC is *itself proven to fail* — ZFC's defect, not a QLF gap. See [**Millennium.md**](Millennium.md) (the program index) and [**Continuum_Choice_Fallacy.md**](Continuum_Choice_Fallacy.md) (the thesis).
+
 ### QuantumOS: QLF as a Native OS Kernel for Quantum Simulators
 
 QLF is not only a theoretical framework — it is an executable architecture for quantum hardware. [**QuantumOS.md**](QuantumOS.md) specifies how the QLF stack maps onto a native operating system for QPUs and quantum simulators. It is the quantum analogue of seL4 (the first formally verified OS kernel) with ZFA as the hardware-enforced invariant.
@@ -293,7 +297,7 @@ The Einstein-ether row is the most load-bearing for QLF's relativity. Einstein's
 
 ## Current Status
 
-The Lean formalization compiles with **zero `sorry` blocks** across all 16 modules. The entire combinatorial core operates within **RCA₀** — the minimum constructive logical subsystem (no Axiom of Choice, no continuity). The only axioms are three in `QLF_Riemann` marking the exact RCA₀ → WKL₀ boundary, and philosophical axioms in `ER_EPR_QLF` (not used by other modules).
+The Lean formalization compiles with **zero `sorry` blocks** across all 44 modules. The entire combinatorial core operates within **RCA₀** — the minimum constructive logical subsystem (no Axiom of Choice, no continuity). The explicit axioms are confined to the Millennium-program boundaries — each problem reduces to a constructive core plus *one* named axiom marking the continuum/choice crossing (`spectral_hilbert_polya`, `yang_mills_continuum_gap`, `bsd_rank_equals_order`, `hodge_class_is_algebraic`; see [Millennium.md](Millennium.md)) — plus philosophical axioms in `ER_EPR_QLF` (not used by other modules).
 
 **Key proof chains** (see [lean/README.md](lean/README.md) for full detail):
 
@@ -424,6 +428,10 @@ lake build
 ### If you care most about the Riemann program
 
 [Universality.md](Universality.md) → [Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md) → [lean/QLF_Riemann.lean](lean/QLF_Riemann.lean)
+
+### If you care most about the Millennium Prize program
+
+[Millennium.md](Millennium.md) → [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md) → [YangMills_MassGap_QLF.md](YangMills_MassGap_QLF.md) / [BSD_QLF.md](BSD_QLF.md) / [Hodge_QLF.md](Hodge_QLF.md) → [Open_Problems.md](Open_Problems.md)
 
 ### If you care most about consciousness and cognition
 
