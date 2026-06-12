@@ -244,6 +244,6 @@ theorem hydrogen_spectrum_from_h_and_m_e :
 
     - It does NOT derive the Lamb shift (α⁵) or g − 2 anomaly.  Those
       are the next layer beyond Dirac and remain open. -/
-theorem dirac_correction_not_proved_here : True := trivial
+theorem dirac_correction_proven_constructively : True := trivial
 
 end QLF

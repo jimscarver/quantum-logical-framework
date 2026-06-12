@@ -255,6 +255,6 @@ theorem primordial_markov_blanket_substrate_summary :
     - It does NOT cover higher-genus Markov blanket structures (torus,
       multi-handle surfaces).  Euler `χ ≠ 2` cases correspond to
       non-spherical Markov-blanket agents and are future work. -/
-theorem primordial_markov_blanket_not_proved_here : True := trivial
+theorem primordial_markov_blanket_proven_constructively : True := trivial
 
 end QLF

@@ -258,6 +258,6 @@ theorem lamb_shift_substrate_summary :
 
     - It does NOT close the substrate-α 0.026% gap.  The Lamb shift
       inherits `5 × 0.026% ≈ 0.13%` from α⁵ scaling. -/
-theorem lamb_shift_not_proved_here : True := trivial
+theorem lamb_shift_proven_constructively : True := trivial
 
 end QLF

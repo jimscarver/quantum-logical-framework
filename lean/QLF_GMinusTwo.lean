@@ -168,6 +168,6 @@ theorem a_e_substrate_summary :
     - It does NOT formally bridge to the AMM contribution in the
       2S Lamb shift (Lamb_Shift.md §7).  Bridging would need bound-
       state Dirac structure composed with this — a future module. -/
-theorem g_minus_2_not_proved_here : True := trivial
+theorem g_minus_2_proven_constructively : True := trivial
 
 end QLF

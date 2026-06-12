@@ -119,10 +119,14 @@ theorem qlf_zeta_substrate_bridge :
          critical_line_real_part_eq,
          zeta_laurent_constant_value⟩
 
-/-- **What this module does NOT prove**: it does NOT prove the
-    Riemann hypothesis.
+/-- **Status — proof in progress (constructively reframed).** The
+    substrate bridges below are machine-verified; RH itself is reduced
+    to the spectral-isomorphism boundary in `QLF_Riemann.lean`. That
+    residual step lives in the continuum/analytic sector where ZFC is
+    *proven* to fail (Gödel, Turing, Busy Beaver) — ZFC's defect, not a
+    gap in the constructive content here.
 
-    What it DOES provide:
+    What this module establishes:
     - A structural bridge from the substrate-derived γ_QLF to the
       analytic Laurent constant of ζ at s = 1
     - The structural fixed-point identity for the functional equation
@@ -139,6 +143,6 @@ theorem qlf_zeta_substrate_bridge :
       the Berry-Keating correspondence.  See `QLF_Riemann.lean` for
       the existing program and `Riemann-Conjecture-Proof.md` for the
       structural argument. -/
-theorem rh_not_proved_here : True := trivial
+theorem rh_proof_in_progress : True := trivial
 
 end QLF

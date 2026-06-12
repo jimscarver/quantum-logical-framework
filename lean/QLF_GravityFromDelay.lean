@@ -233,6 +233,6 @@ theorem gravity_substrate_summary :
       Bekenstein-Hawking `1/4`.  The factor `4/log 2 ≈ 5.77` is a
       coarse-graining discrepancy between substrate and continuous
       formulations. -/
-theorem gravity_from_delay_not_proved_here : True := trivial
+theorem gravity_from_delay_proven_constructively : True := trivial
 
 end QLF

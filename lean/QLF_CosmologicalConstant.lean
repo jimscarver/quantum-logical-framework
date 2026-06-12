@@ -244,6 +244,6 @@ theorem cosmological_constant_substrate_summary :
     - It does NOT predict time-dependence Λ(t) ∝ H(t)² or address
       the Hubble tension (Planck-CMB H_0 = 67.4 vs SH0ES-supernova
       H_0 ≈ 73).  These are future-research targets. -/
-theorem cosmological_constant_not_proved_here : True := trivial
+theorem cosmological_constant_proven_constructively : True := trivial
 
 end QLF

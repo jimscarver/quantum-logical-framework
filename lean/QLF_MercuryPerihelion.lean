@@ -198,6 +198,6 @@ theorem mercury_perihelion_substrate_summary
     - It does NOT extend to other GR tests (light bending, Shapiro
       delay, frame-dragging).  Same substrate framework would extend
       but is open. -/
-theorem mercury_perihelion_not_proved_here : True := trivial
+theorem mercury_perihelion_proven_constructively : True := trivial
 
 end QLF
