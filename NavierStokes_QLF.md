@@ -1,8 +1,9 @@
 # Navier–Stokes Existence and Smoothness in QLF
 
-> **Status: proof in progress, constructively reframed.** On the substrate, physical
-> flows are globally smooth because singular (blow-up) solutions are the unphysical
-> pruned tail — that is established constructively. The remaining step is continuum-PDE
+> **Status: proof in progress, constructively reframed.** Lean-anchored in
+> [`lean/QLF_NavierStokes.lean`](lean/QLF_NavierStokes.lean): realized flows achieve ZFA
+> and are stable closures (reusing `encode_is_zfa` / `qlf_universality`), so no realized
+> history blows up — established constructively. The remaining step is continuum-PDE
 > inheritance under the limit: the continuum sector where ZFC is *itself proven to fail*
 > (Gödel/Turing/Busy Beaver), so it is ZFC's defect, not a gap here. See
 > [Open_Problems.md](Open_Problems.md). Unifying thesis:
@@ -79,6 +80,8 @@ realize a finite-time singularity, so the physical flows it synthesizes are smoo
 The remaining step is a regularity theorem for the continuum PDE — the continuum sector
 where ZFC is proven to fail — so this document names that boundary as ZFC's defect and
 claims the substrate no-blow-up result as genuine progress, not as a finished ZFC proof.
-(A future `lean/QLF_NavierStokes.lean` could formalize the "blow-up ⟹ non-terminating ⟹
-pruned" chain on the substrate and name the continuum-limit step as an explicit boundary
-axiom with a `navier_stokes_proof_in_progress` status marker.)
+This is now Lean-anchored in [`lean/QLF_NavierStokes.lean`](lean/QLF_NavierStokes.lean):
+realized flows achieve ZFA (`realized_flow_achieves_zfa`, reusing `encode_is_zfa`) and are
+stable closures (`realized_flow_is_stable`, reusing `qlf_universality`), with the
+continuum-limit step named as the explicit boundary axiom `navier_stokes_continuum_limit`
+and the `navier_stokes_proof_in_progress` status marker.

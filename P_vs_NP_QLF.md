@@ -1,10 +1,12 @@
 # P vs NP in QLF
 
-> **Status: proof in progress, constructively reframed.** QLF makes the generate/verify
-> asymmetry precise on the substrate; the formal complexity separation is the remaining
-> step, over an infinite computational model — the continuum/choice sector where ZFC is
-> *itself proven to fail* (Gödel/Turing/Busy Beaver). That step is ZFC's defect, not a gap
-> in this reading. See [Open_Problems.md](Open_Problems.md). Unifying thesis:
+> **Status: proof in progress, constructively reframed.** Lean-anchored in
+> [`lean/QLF_PvsNP.lean`](lean/QLF_PvsNP.lean): the generate/verify asymmetry is proven on
+> real theorems (the realized set is the O(n) verify-filter of the candidates, with size
+> `C(2n,n)`); the formal complexity separation is the remaining step, over an infinite
+> computational model — the continuum/choice sector where ZFC is *itself proven to fail*
+> (Gödel/Turing/Busy Beaver). That step is ZFC's defect, not a gap in this reading. See
+> [Open_Problems.md](Open_Problems.md). Unifying thesis:
 > [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md).
 
 ## 1. The classical problem
@@ -74,11 +76,13 @@ formal separation P ≠ NP is the remaining step, over an infinite computational
 the sector where ZFC is *itself proven to fail* (Gödel/Turing/Busy Beaver). It is ZFC's
 defect, not a gap in this reading.
 
-A future `lean/QLF_PvsNP.lean` would formalize the two halves that *are* QLF facts —
-verification is O(n) (the closure predicate) and the realized set is the `C(2n,n)`
-sparse-but-dense subset of an exponential tree — and name the separation as
-an explicit boundary axiom (`generate_not_reducible_to_verify`), with a
-`p_vs_np_proof_in_progress` status marker.
+This is now Lean-anchored in [`lean/QLF_PvsNP.lean`](lean/QLF_PvsNP.lean): the two halves
+that *are* QLF facts are proven by reusing verified theorems — the realized set IS the
+O(n) verify-filter of the generated candidates (`realized_is_verify_filter`, definitional)
+and its cardinality is the genuine `C(2n,n)` (`realized_count_eq_central_binomial`, reusing
+`find_stable_states_length_even`) — while the separation itself is the single explicit
+boundary axiom `generate_not_reducible_to_verify` over an abstract `PTime`/`search` cost
+model, with the `p_vs_np_proof_in_progress` status marker.
 
 ## 5. Epistemic stance
 

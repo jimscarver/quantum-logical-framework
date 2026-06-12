@@ -6,7 +6,7 @@ Project context for Claude Code sessions. Read this before making any changes.
 
 ## Project overview
 
-**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **44 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
+**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **46 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
 
 Core claim: *ZFA balance is the selection principle for physical reality.* Every terminating computation is a ZFA string; every ZFA string is symmetric (lies on the critical line). The Church-Turing universe filtered to ZFA-balanced strings is our physical universe.
 
@@ -14,7 +14,7 @@ Core claim: *ZFA balance is the selection principle for physical reality.* Every
 
 ---
 
-## 44 active modules
+## 46 active modules
 
 In `lean/`, registered in `lakefile.lean` roots array (in build order). For fuller per-module descriptions + the complete key-theorem lists, see [`lean/README.md`](lean/README.md).
 
@@ -63,7 +63,9 @@ In `lean/`, registered in `lakefile.lean` roots array (in build order). For full
 | `QLF_BaryonWinding` | Baryon number = signed 3-axis linking (winding) invariant; `baryonNumber` (proton +1, antiproton −1, leptons/meson 0), `baryon_zero_of_noZ` (lepton/EM sector = 0), **`baryon_dagger_odd`** (`B(ts†)=−B(ts)`, fully general) |
 | `QLF_MassGap` | **Yang–Mills mass gap** (Millennium Prize) on the substrate: vacuum = ℒ=0 identity closure; lightest non-vacuum gauge closure carries one `log 2` quantum ⟹ positive gap `gaugeMassGap = log 2` (`mass_gap_quantum_pos`, `lightest_closure_is_gap_quantum` reusing `QLF_FreeEnergy`). Continuum-QFT existence is the explicit boundary axiom `yang_mills_continuum_gap`; `yang_mills_mass_gap_in_qlf` is conditional on it; status `mass_gap_proven_constructively`. See `YangMills_MassGap_QLF.md` |
 | `QLF_BSD` | **Birch–Swinnerton-Dyer** (Millennium Prize) via the Langlands hook: the L(E,s) central point `s=1` is the self-dual fixed point of `s↦2−s` (`bsd_central_point_self_dual`); rank = analytic rank is the single explicit boundary axiom `bsd_rank_equals_order` (modularity = the QLF Hermitian-pair mirror, Langlands.md §5.4), with qualitative BSD `bsd_in_qlf` (`E(ℚ)` infinite ⟺ `L(E,1)=0`) derived from it. Weakest-machinery fit; status `bsd_proof_in_progress`. See `BSD_QLF.md` |
-| `QLF_Hodge` | **Hodge conjecture** (Millennium Prize) as the cohomological face of ZFA selection: the Hodge conjugation `H^{p,q}↔H^{q,p}` IS the QLF adjoint involution H↔H† (`conj_involutive`), and Hodge classes are exactly its balanced self-dual fixed points — the `(p,p)` diagonal (`conj_fixed_of_isHodge`, `isHodge_of_conj_fixed`). The conjecture = *balanced ⟹ realized*, the cohomological lift of the substrate theorem `count_balanced_pauli_closed`, reduced to the single boundary axiom `hodge_class_is_algebraic` (`non_algebraic_not_hodge` derived). Weakest-machinery fit; status `hodge_proof_in_progress`. See `Hodge_QLF.md` |
+| `QLF_Hodge` | **Hodge conjecture** (Millennium Prize) as the cohomological face of ZFA selection: the Hodge conjugation `H^{p,q}↔H^{q,p}` IS the QLF adjoint involution H↔H† (`conj_involutive`), and Hodge classes are exactly its balanced self-dual fixed points — the `(p,p)` diagonal (`conj_fixed_of_isHodge`, `isHodge_of_conj_fixed`). The conjecture = *balanced ⟹ realized*, the cohomological lift of the substrate theorem `count_balanced_pauli_closed` (now embedded as `hodge_pattern_substrate_witness`), reduced to the single boundary axiom `hodge_class_is_algebraic` (`non_algebraic_not_hodge` derived). Status `hodge_proof_in_progress`. See `Hodge_QLF.md` |
+| `QLF_PvsNP` | **P vs NP** (Millennium Prize): the generate/verify asymmetry made precise on real theorems — the realized (verifiable) set IS the O(n) verify-filter of the generated candidates (`realized_is_verify_filter`, `rfl`) with cardinality the genuine `C(2n,n)` (`realized_count_eq_central_binomial`, reusing `find_stable_states_length_even`). The formal separation is the single boundary axiom `generate_not_reducible_to_verify` over an abstract `PTime`/`search` cost model; status `p_vs_np_proof_in_progress`. See `P_vs_NP_QLF.md` |
+| `QLF_NavierStokes` | **Navier–Stokes smoothness** (Millennium Prize): realized flows achieve ZFA (`realized_flow_achieves_zfa`, reusing `encode_is_zfa`) and are stable closures (`realized_flow_is_stable`, reusing `qlf_universality`) — no realized history blows up; blow-up = non-terminating history pruned by `full_zeno_prune`. Continuum-PDE inheritance is the single boundary axiom `navier_stokes_continuum_limit`; status `navier_stokes_proof_in_progress`. See `NavierStokes_QLF.md` |
 
 ---
 
@@ -201,7 +203,9 @@ theorem foo (p : RhoProcess) : achieves_ZFA (toTopoString p) :=
 | `yang_mills_continuum_gap` | `QLF_MassGap` | RCA₀ → analytic (continuum-QFT) boundary; the continuum Yang–Mills theory's gap = the substrate `log 2` closure quantum |
 | `YangMillsMassGap` | `QLF_MassGap` | The continuum Yang–Mills theory's mass gap (opaque real; its well-definedness is the Clay problem) |
 | `bsd_rank_equals_order` | `QLF_BSD` | The BSD boundary: algebraic (Mordell–Weil) rank = analytic rank, via the modularity / Hermitian-pair mirror; `EllipticCurveQLF`/`mordellWeilRank`/`analyticRank` are abstract pending the constructive elliptic-curve encoding |
-| `hodge_class_is_algebraic` | `QLF_Hodge` | The Hodge boundary: every Hodge (balanced, conjugation-fixed (p,p)) class is algebraic — *balanced ⟹ realized*, over the complex-analytic continuum; `CohClass.isAlgebraic` is abstract pending the constructive cohomology/cycle encoding |
+| `hodge_class_is_algebraic` | `QLF_Hodge` | The Hodge boundary: every Hodge (balanced, conjugation-fixed (p,p)) class is algebraic — *balanced ⟹ realized*, over the complex-analytic continuum; `CohClass.isAlgebraic` is abstract pending the constructive cohomology/cycle encoding (the pattern itself is proven on the substrate, `hodge_pattern_substrate_witness`) |
+| `generate_not_reducible_to_verify` | `QLF_PvsNP` | The P vs NP boundary: a property polynomial to verify whose realized-closure search is not polynomial. The `PTime`/`search` cost model is abstract (QLF has no machine model); the real content (`C(2n,n)` count, verify-filter identity) is proven |
+| `navier_stokes_continuum_limit` | `QLF_NavierStokes` | The Navier–Stokes boundary: the continuum incompressible PDE inherits the substrate's no-blow-up under the continuum limit; `NavierStokesGlobalSmoothness` is the abstract analytic statement |
 | Various philosophical | `ER_EPR_QLF` | Explicitly speculative; not used elsewhere |
 
 `critical_line_forcing` is a **theorem** derived from `spectral_hilbert_polya`, not an axiom.
@@ -255,7 +259,7 @@ The Axiom of Choice asserts the existence of sets with no constructive selection
 
 The formal mathematics of this argument — math with active inference built in, restricted to the non-fantasy half — is named in [Active_Inference_Mathematics.md](Active_Inference_Mathematics.md) §6.1.
 
-This is the organizing thesis of QLF's **Millennium Prize program**: *the continuum and choice are mathematics' ultraviolet catastrophe, resolved by the discrete ZFA substrate and its computable pruning.* Each attacked problem reduces to a constructive RCA₀ core plus **one explicit boundary axiom naming the continuum/choice crossing** — Riemann (`spectral_hilbert_polya`), Yang–Mills mass gap (`yang_mills_continuum_gap`, `QLF_MassGap`), Birch–Swinnerton-Dyer (`bsd_rank_equals_order`, `QLF_BSD`), Hodge (`hodge_class_is_algebraic`, `QLF_Hodge`), Navier–Stokes (continuum-PDE limit), P vs NP (the complexity separation). **Framing (per Jim, binding):** state the constructive result plainly — it *is* a proof within the constructive frame. Do NOT use the apologetic "not proved here" slant. The residual step is the continuum/choice sector where ZFC is *itself proven* to fail (Gödel/Turing/Busy Beaver) — ZFC's defect, not a QLF gap. Status markers say `*_proven_constructively` (result established on the substrate) or `*_proof_in_progress` (structural core partial), never `*_not_proved_here`. See [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md) (the unifying doc), [YangMills_MassGap_QLF.md](YangMills_MassGap_QLF.md), [BSD_QLF.md](BSD_QLF.md), [Hodge_QLF.md](Hodge_QLF.md), [P_vs_NP_QLF.md](P_vs_NP_QLF.md), [NavierStokes_QLF.md](NavierStokes_QLF.md).
+This is the organizing thesis of QLF's **Millennium Prize program**: *the continuum and choice are mathematics' ultraviolet catastrophe, resolved by the discrete ZFA substrate and its computable pruning.* Each attacked problem reduces to a constructive RCA₀ core plus **one explicit boundary axiom naming the continuum/choice crossing** — Riemann (`spectral_hilbert_polya`), Yang–Mills mass gap (`yang_mills_continuum_gap`, `QLF_MassGap`), Birch–Swinnerton-Dyer (`bsd_rank_equals_order`, `QLF_BSD`), Hodge (`hodge_class_is_algebraic`, `QLF_Hodge`), Navier–Stokes (`navier_stokes_continuum_limit`, `QLF_NavierStokes`), P vs NP (`generate_not_reducible_to_verify`, `QLF_PvsNP`). All six now have a Lean module reusing real substrate theorems plus the one boundary axiom. **Framing (per Jim, binding):** state the constructive result plainly — it *is* a proof within the constructive frame. Do NOT use the apologetic "not proved here" slant. The residual step is the continuum/choice sector where ZFC is *itself proven* to fail (Gödel/Turing/Busy Beaver) — ZFC's defect, not a QLF gap. Status markers say `*_proven_constructively` (result established on the substrate) or `*_proof_in_progress` (structural core partial), never `*_not_proved_here`. See [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md) (the unifying doc), [YangMills_MassGap_QLF.md](YangMills_MassGap_QLF.md), [BSD_QLF.md](BSD_QLF.md), [Hodge_QLF.md](Hodge_QLF.md), [P_vs_NP_QLF.md](P_vs_NP_QLF.md), [NavierStokes_QLF.md](NavierStokes_QLF.md).
 
 ### Spacetime is synthesized, not background
 
@@ -330,7 +334,7 @@ Avoid framings that contradict the above:
 | Path | Purpose |
 |---|---|
 | `lean/` | All Lean source files |
-| `lakefile.lean` | Build config; `roots` array lists all 44 modules |
+| `lakefile.lean` | Build config; `roots` array lists all 46 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |
