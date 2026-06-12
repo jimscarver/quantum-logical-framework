@@ -108,6 +108,12 @@ axiom CohClass.isAlgebraic : CohClass → Prop
 def CohClass.encode (c : CohClass) : List Twist :=
   List.replicate c.p Twist.up ++ List.replicate c.q Twist.down
 
+/-- `Twist` has a lawful `BEq` (it derives `BEq`/`DecidableEq`); needed so the
+    standard `List.count` lemmas apply. -/
+instance : LawfulBEq Twist where
+  eq_of_beq {a b} h := by cases a <;> cases b <;> first | rfl | exact absurd h (by decide)
+  rfl {a} := by cases a <;> decide
+
 /-- Count of `a` in a replicate of `b`: `n` if equal, else `0`. -/
 private theorem count_rep (a b : Twist) (n : ℕ) :
     List.count a (List.replicate n b) = if a = b then n else 0 := by
