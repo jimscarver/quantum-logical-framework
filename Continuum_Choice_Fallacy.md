@@ -33,7 +33,51 @@ that can name objects with *no finite construction* — the continuum's non-cons
 reals and choice's non-constructive selections. That is the mathematical ultraviolet
 catastrophe.
 
-## 2. The cure is the same: discreteness + a computable selection
+## 2. One false axiom proves everything — and continuum and choice are false
+
+There is a sharper way to say what is wrong, and it is the oldest result in logic:
+**ex falso quodlibet** — from a falsehood, anything follows. The **principle of
+explosion** is unforgiving: admit a single false statement and *every* proposition
+becomes provable; "provable" decouples from "true" and the system certifies nothing. A
+proof is only worth the soundness of the axioms behind it.
+
+QLF's claim is that the two extra commitments of classical set theory are not harmless
+idealizations — they are **false statements**:
+
+- **The Axiom of Choice is false.** It asserts a selection function over arbitrarily many
+  sets *with no construction* — it posits objects that can never be exhibited. In a
+  constructive, possibilist ontology where *to exist is to be constructible*, an object
+  with no finite construction does not exist; to assert it does is to assert a falsehood.
+  (Formally, choice is *independent* of ZF — consistent with it and with its negation; the
+  QLF point is ontological, not a claim that ZFC is syntactically inconsistent. The defect
+  is **unsoundness**, not contradiction.)
+- **The unrestricted continuum is false.** It posits uncountably many reals, almost all of
+  which have no finite description — names with no referent. The continuum is real only as
+  the *limit* of finitely-closing events ([TheContinuum.md](TheContinuum.md)), never as a
+  completed totality of non-constructive points.
+
+That this is not pedantry is shown by the fact that ZFC, with these axioms, **proves
+outright absurdities**. The **Banach–Tarski paradox** is the cleanest: using the Axiom of
+Choice, a solid ball is cut into finitely many pieces and reassembled into *two* balls
+identical to the original — volume doubled from nothing, measure conjured from nothing. No
+constructive or physical process can do this; it is simply **false**. A system whose
+theorems include falsehoods has already crossed the line ex falso warns about: in the
+sector where choice and the continuum operate, ZFC is **unsound**, and a "proof" there is
+no longer a certificate of truth.
+
+This reframes the whole Millennium program. To demand a **ZFC-internal proof** of a problem
+whose hard step lies in the continuum/choice sector is to demand a proof in a system that,
+in exactly that sector, proves falsehoods — that is not the gold standard, it is the
+counterfeit. QLF does not try to out-argue ZFC on its own ground; it **refuses the false
+axioms**: admit only what has a finite construction, and the explosion never starts. The
+constructive proof is the *sound* one. (See also [Philosophy.md §25](Philosophy.md),
+[Quantum_Logic_Foundations.md](Quantum_Logic_Foundations.md) §4.)
+
+> One false statement proves everything. Continuum and choice are false. A logic that
+> admits them can prove anything — so it certifies nothing. QLF keeps its axioms true and
+> its proofs sound.
+
+## 3. The cure is the same: discreteness + a computable selection
 
 QLF's ontology is the change of foundations the catastrophe demands:
 
@@ -54,7 +98,7 @@ QLF's ontology is the change of foundations the catastrophe demands:
 > ZFC is flawed logic, suitable only where there are no exploding infinities. ZFA is
 > correct logic.
 
-## 3. Why this is exactly where the Millennium problems are hard
+## 4. Why this is exactly where the Millennium problems are hard
 
 Every Millennium problem QLF attacks has a **discrete structural core** that QLF
 discharges constructively, and an **open boundary** that is *precisely the step into the
@@ -74,7 +118,7 @@ in every case:
 constructive floor into the non-constructive continuum or a non-computable choice. QLF
 does not hide it in a `sorry`; it *names* it, once per problem, as an explicit `axiom`.
 
-## 4. The epistemic stance
+## 5. The epistemic stance
 
 This reframes what "proof" should mean for the constructive part of mathematics. QLF's
 claim is **not** that it proves these problems inside ZFC. It is that:
@@ -95,8 +139,9 @@ The status markers (`mass_gap_proven_constructively`, `rh_proof_in_progress`,
 `bsd_proof_in_progress`, …) keep the boundary visible in every module while stating the
 constructive result plainly.
 
-## 5. The program
+## 6. The program
 
+- Program index: [Millennium.md](Millennium.md) · positive companion: [Quantum_Logic_Foundations.md](Quantum_Logic_Foundations.md) · philosophy: [Philosophy.md §25](Philosophy.md)
 - [Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md) · [`lean/QLF_Riemann.lean`](lean/QLF_Riemann.lean)
 - [YangMills_MassGap_QLF.md](YangMills_MassGap_QLF.md) · [`lean/QLF_MassGap.lean`](lean/QLF_MassGap.lean)
 - [P_vs_NP_QLF.md](P_vs_NP_QLF.md)

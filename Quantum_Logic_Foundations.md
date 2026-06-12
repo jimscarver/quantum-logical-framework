@@ -97,6 +97,19 @@ hence no exploding infinities, hence no ultraviolet catastrophe — and one whos
 computational core sits at the **RCA₀** bedrock of reverse mathematics, below choice, below
 the Busy-Beaver horizon ([ReverseMathematics.md](ReverseMathematics.md)).
 
+And "correct" means **sound**, which is the decisive point. Logic's oldest law is *ex falso
+quodlibet* — from one false premise, the principle of explosion makes everything provable, so
+"provable" stops meaning "true." Classical set theory's two extra axioms are, in a
+constructive ontology where *to exist is to be constructible*, **false**: choice asserts
+selections with no construction, and the unrestricted continuum asserts uncountably many
+reals with no finite description. The visible proof is that ZFC proves outright absurdities —
+the **Banach–Tarski paradox** (one ball cut and reassembled into two identical balls, by the
+Axiom of Choice). A system that proves a falsehood is **unsound**, and a proof inside it
+certifies nothing. QLF is correct logic because it admits only what is constructible — it
+keeps its axioms *true*, so its proofs stay *sound*, and the explosion never starts. The full
+argument is in [Continuum_Choice_Fallacy.md §2](Continuum_Choice_Fallacy.md); the
+philosophical statement in [Philosophy.md §25](Philosophy.md).
+
 ## 5. The demonstration
 
 We do not merely assert that quantum logic is the correct foundation — we **demonstrate** it

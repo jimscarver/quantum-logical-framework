@@ -14,8 +14,13 @@ own pathological tail — Gödel incompleteness, Turing undecidability, the Busy
 Chaitin horizon. These are not separate accidents; they are the shadows of one fallacy:
 logic that can name objects with no finite construction. QLF's core lives **below** that
 horizon, at the **RCA₀** floor of reverse mathematics, and replaces the Axiom of Choice
-with `full_zeno_prune` — a decidable, computable selection. See
-[Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md) for the full thesis.
+with `full_zeno_prune` — a decidable, computable selection. The deeper charge is
+**unsoundness**: continuum and choice are *false* (objects with no finite construction),
+and by *ex falso quodlibet* one false axiom makes everything provable — ZFC's
+Banach–Tarski paradox is the visible symptom. See
+[Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md) for the full thesis (the
+negative half), [Quantum_Logic_Foundations.md](Quantum_Logic_Foundations.md) for the
+positive foundation, and [Philosophy.md §25](Philosophy.md) for the philosophical statement.
 
 ---
 
