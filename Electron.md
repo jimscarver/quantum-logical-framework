@@ -19,6 +19,8 @@ Most everything we experience is due to electrons participating in joint closure
 
 In QLF the electron is not an abstract point particle with mysterious properties. It is a **gauge-folded topological half-loop** — a partial twist sequence containing at least one `+` or `-` fold along the LOCAL gauge axis. By itself the half-loop has not closed; it carries an open Hermitian deficit. When it intersects a Hermitian-conjugate partner's causal frontier, the joint ZFA closure completes, and the gauge-fold depth of the electron's half contributes its share of the bound system's constructing delay and rest energy.
 
+Its **spin is not mysterious either** — it is literally the twists. The electron loop `^<v>` folds to `−I` (a half-spin fermion needing 720° to return, the SU(2)→SO(3) double cover), and the electron is **Dirac** (not its own antiparticle), all machine-verified in [`Spin_QLF.md`](Spin_QLF.md) / [`lean/QLF_Spin.lean`](lean/QLF_Spin.lean) (`fold_electron`, `rotation_360_eq_negI`, `electron_not_majorana`). Charge conjugation = view-from-behind: the positron is the electron's loop read in reverse.
+
 ## 1. The Electron's Half of a Joint Closure
 
 The electron is the **gauge-folded half-loop** that completes a joint ZFA closure when paired with its Hermitian-conjugate partner.

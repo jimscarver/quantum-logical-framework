@@ -30,7 +30,7 @@ This boundary screens entropy (unresolved distinctions) while allowing the syste
 - Three quarks (open strings) interlock via Borromean topology → proton blanket.  
 - Internal gauge folds handle color and weak interactions; electromagnetic and spatial folds remain partially exposed.  
 - The blanket isolates the internal free-energy deficit, making the hadron stable against the dense vacuum ecology.  
-- The composite blanket **is** a horizon (every hadron is a Markov-blanket quantum black hole — see [Hadron_BlackHoles.md](Hadron_BlackHoles.md)); it does not radiate *while its gauge/chirality stays hidden* inside the Borromean closure (the stable proton). A hadron that **exposes** its chirality — the pion, a `q q̄` Goldstone — has a radiating horizon, and that radiation **is** its decay (Hawking evaporation). Hidden vs exposed chirality fixes both the mass factor (`π⁵` vs `1/α`) and the horizon's fate.
+- The composite blanket **is** a horizon (every hadron is a Markov-blanket quantum black hole — see [Hadron_BlackHoles.md](Hadron_BlackHoles.md)); it does not radiate *while its gauge/chirality stays hidden* inside the Borromean closure (the stable proton). A hadron that **exposes** its chirality — the pion, a `q q̄` Goldstone (see [Pion_QLF.md](Pion_QLF.md), `m_π±/m_e = 2/α`) — has a radiating horizon, and that radiation **is** its decay (Hawking evaporation). Hidden vs exposed chirality fixes both the mass factor (`π⁵` vs `1/α`) and the horizon's fate.
 
 ## 3. Gauge Folding Creates Microscopic (Particle-Scale) Blankets (New Rule)
 

@@ -217,6 +217,8 @@ Only the substrate with 2 gauge axes (the empirical 6+2 split that gives α and 
 
 [`Gravity_From_Delay.md`](Gravity_From_Delay.md) and the Lean module [`QLF_GravityFromDelay.lean`](lean/QLF_GravityFromDelay.lean) supply the holographic event count `N = 4π R²` and the substrate G structure — direct primitives reused here.
 
+[`DarkMatter.md`](DarkMatter.md) §5 closes the **other** dark-sector observable on the *same* Hubble radius `R_H = c/H₀`: the dark-matter / MOND acceleration scale `a₀ = cH₀/(2π) = c²/(2π R_H)` (Lean: `mond_acceleration_horizon_form`, [`QLF_DarkMatter.lean`](lean/QLF_DarkMatter.lean)). So `Ω_Λ = log 2` (sparse exterior, dark energy) and `a₀` (crossover into the denser-logic interior, dark matter) are **one horizon, read two ways** — the expand/contract duality of [`Curvature.md`](Curvature.md).
+
 ---
 
 ## §9 References
