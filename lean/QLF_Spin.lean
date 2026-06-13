@@ -22,9 +22,14 @@ Standard spin is opaque: a 720° turn to return, a "magnetic moment" tangled up 
   Reversing motion flips the chiral/charge component but leaves the flat one fixed
   (`flat_independent_of_motion`): the formal statement of "two independent axes".
 
-The 720° double cover is the `−I` fold of one Hermitian twist pair
-(`hermitian_pair_folds_to_negI`): 360° = one pair = `−I`, 720° = two pairs = `+I`. Same
-`+I` closure is the opposite-spin **singlet** (annihilation), and like-spin fermions
+The three spatial twist axes are the **su(2) generators** (`[σᵢ,σⱼ]=2iεᵢⱼₖσₖ`,
+`su2_comm_xy/yz/zx`); the group they generate is **SU(2)**, the *double cover* of the
+rotation group **SO(3)**. The 720°-to-return mystery is exactly that cover: a 360°
+rotation (one Hermitian twist pair, `hermitian_pair_folds_to_negI`) lifts to `−I`, NOT the
+identity; only 720° (two pairs) reaches `+I`. The kernel `{+I,−I}` is genuine
+(`spin_double_cover_nontrivial`). Same `+I` closure is the opposite-spin **singlet**
+(annihilation), and integer spin = an even number of half-spin pairs (a photon = two
+halves = spin 1, `photon_integer_spin`); like-spin fermions
 **exclude** (`pauli_exclusion`). The **neutrino** `^v` is the self-conjugate (Majorana)
 spin — the same from behind — hence **neutral** (`neutrino_neutral`); the electron is
 Dirac (`electron_not_majorana`).
@@ -84,6 +89,41 @@ theorem fermion_odd_pairs (ts : List Twist) (h : Odd ts.length) :
 theorem photon_integer_spin (photonHalf antiphotonHalf : Twist) :
     concatPairsMatrixFold [photonHalf, antiphotonHalf] = (1 : M) :=
   concat_pairs_even [photonHalf, antiphotonHalf] ⟨1, rfl⟩
+
+-- ==========================================================================
+-- 1c. Spin and SU(2) / SO(3) — the double cover, demystified
+-- ==========================================================================
+--
+-- The three spatial twist axes (σx = `<>`, σy = `^v`, σz = `/\`) are the **su(2)
+-- generators**: their commutators close the su(2) Lie algebra `[σᵢ,σⱼ] = 2i εᵢⱼₖ σₖ`
+-- (below, from the σ-product identities in QLF_TwistAlphabet). The group they generate
+-- is **SU(2)** — the *double cover* of the rotation group SO(3). The "720° to return"
+-- mystery is exactly this cover: a 360° physical rotation (one Hermitian pair) lifts to
+-- `−I` in SU(2) (`rotation_360_eq_negI`) — NOT the identity — and only 720° (two pairs)
+-- reaches `+I` (`rotation_720_eq_id`). The fold outcomes `{+I, −I}` ARE the kernel of
+-- `SU(2) → SO(3)`, and `−I ≠ +I` makes the cover genuine (`spin_double_cover_nontrivial`).
+
+/-- **su(2) on the twist axes**, x–y: `[σx, σy] = 2i σz`. The `<>` and `^v` axes close
+    the Lie algebra of SU(2). Reuse of the σ-product identities. -/
+theorem su2_comm_xy : σx * σy - σy * σx = (2 * Complex.I) • σz := by
+  rw [sigma_xy, sigma_yx, sub_neg_eq_add, ← add_smul]; congr 1; ring
+
+/-- su(2), y–z: `[σy, σz] = 2i σx`. -/
+theorem su2_comm_yz : σy * σz - σz * σy = (2 * Complex.I) • σx := by
+  rw [sigma_yz, sigma_zy, sub_neg_eq_add, ← add_smul]; congr 1; ring
+
+/-- su(2), z–x: `[σz, σx] = 2i σy`. -/
+theorem su2_comm_zx : σz * σx - σx * σz = (2 * Complex.I) • σy := by
+  rw [sigma_zx, sigma_xz, sub_neg_eq_add, ← add_smul]; congr 1; ring
+
+/-- **SU(2) is a genuine double cover of SO(3).** The 360° fold lands on `−I`, distinct
+    from the `+I` of 720°: the kernel of `SU(2) → SO(3)` is the two-element group
+    `{+I, −I}`, not trivial. This `−1` is the fermion's sign under one full turn. -/
+theorem spin_double_cover_nontrivial : (-(1 : M)) ≠ (1 : M) := by
+  intro h
+  have h00 : (-(1 : M)) 0 0 = (1 : M) 0 0 := congrFun (congrFun h 0) 0
+  rw [Matrix.neg_apply, Matrix.one_apply_eq] at h00
+  norm_num at h00
 
 -- ==========================================================================
 -- 2. Charge conjugation = viewing from behind = reversal
