@@ -9,7 +9,7 @@
 The **Quantum Logical Framework (QLF)** is a new, constructive **foundation for mathematics and physics, built from the bottom up** out of a single finite distinction — one bit, one Zero-Free-Action (ZFA) event.
 
 - **Its logic is quantum logic.** Propositions are phase-string distinctions in an 8-twist alphabet; truth is decided by *measurement*, which is ZFA closure. QLF argues this is the **correct** logic — *complete where reality is*, with Gödel/Turing incompleteness confined to the non-terminating tail it physically prunes. ([Quantum_Logic_Foundations.md](Quantum_Logic_Foundations.md))
-- **Physics is derived, not assumed.** From that one primitive follow spacetime, measurement, entanglement, the Standard-Model gauge groups, gravity, and the fundamental constants — each **machine-verified in Lean 4** across **48 modules with zero `sorry` blocks**, the combinatorial core operating strictly within **RCA₀** (no Axiom of Choice, no continuity).
+- **Physics is derived, not assumed.** From that one primitive follow spacetime, measurement, entanglement, the Standard-Model gauge groups, gravity, spin, and the fundamental constants — each **machine-verified in Lean 4** across **48 modules with zero `sorry` blocks**, the combinatorial core operating strictly within **RCA₀** (no Axiom of Choice, no continuity).
 - **It is demonstrated, not just asserted.** The same logic derives `α = 1/137`, `m_p/m_e = 6π⁵`, and `Ω_Λ = log 2` from the substrate with zero free parameters (table below), and turns **all six open Millennium Prize Problems** into constructive cores plus one honestly-named continuum/choice boundary. ([Millennium.md](Millennium.md))
 
 In one line: **the universe is logical, its logic is constructive and complete-for-physics, and we build it from the bottom up — then check it in Lean.**
@@ -253,6 +253,9 @@ The AdS/CFT analog is exact: a conformal field theory on the boundary ↔ gravit
 
 ### The Spectral Structure of QLF
 Every QLF string maps to a 2×2 Hermitian operator (its *spectral mode*) built from rank-1 phase projectors. This is formalized in [`lean/QLF_Spectral.lean`](lean/QLF_Spectral.lean), which proves two machine-verified theorems: (1) the spectral mode of any string is always Hermitian; (2) for symmetric strings (equal pos/neg counts), the spectral mode is a scalar multiple of the identity — the QLF spectral analog of sitting on the critical line. The Hilbert-Pólya conjecture, that Riemann zeros are eigenvalues of a Hermitian operator, is encoded as a single geometric axiom (`spectral_hilbert_polya`) from which `critical_line_forcing` is now a derived theorem rather than a bare axiom.
+
+### Spin demystified — spin IS the twists
+Spin's mysteries dissolve into twist folds, machine-verified in [`lean/QLF_Spin.lean`](lean/QLF_Spin.lean) ([**Spin_QLF.md**](Spin_QLF.md)): the **720° double cover** is `−I = ` one Hermitian pair (360°), `+I = ` two pairs (720°), with the three twist axes closing **su(2)** and the **SU(2)→SO(3)** cover genuine (`−I ≠ +I`); **charge conjugation = viewing from behind** (a positron from behind reads as an electron — charge and chirality co-negate under conjugate-and-reverse); **integer spin = a composite of half-spins** (a photon = ½+½ = 1); the **neutrino** is the self-conjugate, hence neutral, spin; and **magnetism** is the flat spin axis, independent of motion.
 
 ### QLF and Reverse Mathematics
 
