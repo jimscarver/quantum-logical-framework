@@ -57,5 +57,6 @@ lean_lib QLF where
     `QLF_PvsNP,
     `QLF_NavierStokes,
     `QLF_RiemannMRE,
-    `QLF_Spin
+    `QLF_Spin,
+    `QLF_PionMassRatio
   ]
