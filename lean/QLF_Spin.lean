@@ -59,7 +59,31 @@ theorem rotation_720_eq_id (s t : Twist) :
 /-- The same `+I` via the canonical even-pair fold (`concat_pairs_even`, N = 2 pairs). -/
 theorem rotation_720_concat (s t : Twist) :
     concatPairsMatrixFold [s, t] = (1 : M) :=
-  concat_pairs_even [s, t] (by decide)
+  concat_pairs_even [s, t] ⟨1, rfl⟩
+
+-- ==========================================================================
+-- 1b. Integer spin = a composite of half-spins
+-- ==========================================================================
+
+/-- **Integer spin = an even number of half-spin pairs ⇒ boson (`+I`).** Each Hermitian
+    pair is a spin-½ unit folding to `−I`; an even count folds to `+I` (returns under
+    360°). Reuse of `concat_pairs_even`. -/
+theorem boson_even_pairs (ts : List Twist) (h : Even ts.length) :
+    concatPairsMatrixFold ts = (1 : M) :=
+  concat_pairs_even ts h
+
+/-- **Half-integer spin = an odd number of half-spin pairs ⇒ fermion (`−I`).** -/
+theorem fermion_odd_pairs (ts : List Twist) (h : Odd ts.length) :
+    concatPairsMatrixFold ts = -(1 : M) :=
+  concat_pairs_odd ts h
+
+/-- **The photon is spin 1.** A half-spin photon and a half-spin antiphoton — two
+    half-spin pairs (½ + ½ = 1) — fold to `+I`: an integer-spin boson. (Photon = the
+    joint emitter–absorber ZFA closure, `Collective_Electrodynamics.md`.) So integer spin
+    is not fundamental: it is two half-spins, exactly as the substrate forces. -/
+theorem photon_integer_spin (photonHalf antiphotonHalf : Twist) :
+    concatPairsMatrixFold [photonHalf, antiphotonHalf] = (1 : M) :=
+  concat_pairs_even [photonHalf, antiphotonHalf] ⟨1, rfl⟩
 
 -- ==========================================================================
 -- 2. Charge conjugation = viewing from behind = reversal
@@ -173,18 +197,18 @@ def Sign.neg : Sign → Sign
 
 /-- The two-axis spin descriptor: a **chiral** sign (relative to motion → charge sense)
     and a **flat** up/down sign (independent of motion → magnetic moment). -/
-structure Spin where
+structure SpinState where
   perp : Sign
   flat : Sign
 deriving DecidableEq, Repr
 
 /-- The **magnetic moment** is the flat spin component (Stern–Gerlach up/down). -/
-def magneticMoment (sp : Spin) : Sign := sp.flat
+def magneticMoment (sp : SpinState) : Sign := sp.flat
 
 /-- **The flat axis is independent of motion.** Reversing motion flips the chiral/charge
     component (`perp`, cf. `C_eq_motional_reversal`) but leaves the magnetic moment
     fixed — the formal content of "two independent spin axes". -/
-theorem flat_independent_of_motion (sp : Spin) :
+theorem flat_independent_of_motion (sp : SpinState) :
     magneticMoment { perp := sp.perp.neg, flat := sp.flat } = magneticMoment sp := rfl
 
 end QLF.Spin
