@@ -63,5 +63,6 @@ lean_lib QLF where
     `QLF_DarkMatter,
     `QLF_Generations,
     `QLF_HorizonTemperature,
-    `QLF_WeinbergAngle
+    `QLF_WeinbergAngle,
+    `QLF_RunningCouplings
   ]
