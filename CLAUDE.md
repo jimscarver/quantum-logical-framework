@@ -6,7 +6,7 @@ Project context for Claude Code sessions. Read this before making any changes.
 
 ## Project overview
 
-**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **51 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
+**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **52 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
 
 Core claim: *ZFA balance is the selection principle for physical reality.* Every terminating computation is a ZFA string; every ZFA string is symmetric (lies on the critical line). The Church-Turing universe filtered to ZFA-balanced strings is our physical universe.
 
@@ -14,7 +14,7 @@ Core claim: *ZFA balance is the selection principle for physical reality.* Every
 
 ---
 
-## 51 active modules
+## 52 active modules
 
 In `lean/`, registered in `lakefile.lean` roots array (in build order). For fuller per-module descriptions + the complete key-theorem lists, see [`lean/README.md`](lean/README.md).
 
@@ -61,6 +61,7 @@ In `lean/`, registered in `lakefile.lean` roots array (in build order). For full
 | `QLF_CosmologicalConstant` | `Ω_Λ = log 2` (1.2%), closing the 10¹²² vacuum catastrophe; `only_2_gauge_matches_observed_Omega_Lambda`, `cosmological_constant_substrate_summary` |
 | `QLF_PrimordialMarkovBlanket` | Markov blankets as Fuller geodesic spheres; icosahedral closure → E₈ via McKay; `mckay_2I_E8_anchor`, `E8_dimension_eq`, `primordial_blanket_euler` |
 | `QLF_Koide` | Koide `Q = 2/3` forced by `N=3 ∧ A²=2` ⇒ `m_τ` to 0.006%; `koide_two_thirds`, `koide_three_phase` |
+| `QLF_Generations` | **Three fermion generations = the 3 spatial axes** (`num_generations = substrate_spatial_dimension = 3`, `num_generations_eq_three`). The *same* `3` behind Koide (N=3 phases), colour SU(3), and α (`N=9=3²`): `three_axis_signature`. The 3 generations realized concretely as Koide's three 120° phases `(1,−½,−½)` ⇒ `Q=2/3` (`three_generations_satisfy_koide`, reuses `koide_two_thirds`); 2D/4D counterfactuals (`only_3d_gives_three_generations`). **Honest scope:** reduces "why 3 generations" to "why 3 spatial dimensions" (argued elsewhere via Newton `1/r²`, magic numbers, the α tensor), not derived from nothing (`generations_from_three_axes_constructive`) |
 | `QLF_StrongAlgebra` | Strong `SU(3)` = traceless 3-axis directional tensor; `trace_commutator_zero`, `gluon_commutator_nonzero`, `strong_su3_summary` |
 | `QLF_BMinusL` | Electric charge = exactly-conserved signed twist count (`signed_count_conserved`); **obstruction** `wcount_zero_on_ZFA` — every conserved signed count is zero on closures, so `B−L` is NOT a weight dictionary (it is winding) |
 | `QLF_Majorana` | The neutrino is **Majorana**: antiparticle = Hermitian conjugate (conjugate-and-reverse), and `^v` is a fixed point of it; `neutrino_majorana`, `electron_not_majorana` (electron is Dirac), `antiparticle_involutive` |
@@ -340,7 +341,7 @@ Avoid framings that contradict the above:
 | Path | Purpose |
 |---|---|
 | `lean/` | All Lean source files |
-| `lakefile.lean` | Build config; `roots` array lists all 51 modules |
+| `lakefile.lean` | Build config; `roots` array lists all 52 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |
