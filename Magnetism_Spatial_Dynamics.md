@@ -18,6 +18,8 @@ Per the QLF substrate-first ontology, the half-spin ZFA closure is the foundatio
 
 The third mechanism subsumes the earlier "B = vacuum spin-orientation imbalance" reading. What's new here is the *dynamical content* — B doesn't just bias orientations passively; it spatially reshapes the substrate through the exclusion/annihilation push-pull on closures of different orientations.
 
+**Spin demystified — the substrate atoms are now machine-verified.** Each mechanism reduces to a twist fold in [`Spin_QLF.md`](Spin_QLF.md) / [`lean/QLF_Spin.lean`](lean/QLF_Spin.lean): like-spin exclusion is `like_spin_excludes` (= `pauli_exclusion`); the opposite-spin singlet `(−I)·(−I)=+I` is `opposite_spin_singlet_closes`; and the magnetic moment is the **flat** spin axis, *independent of motion* (`magneticMoment`, `flat_independent_of_motion`) — distinct from the perpendicular/chiral axis whose handedness *is* electric charge. The orientation `m_s = ±1/2` is one Hermitian pair folding to `−I` (`fold_up_down`, the 720°-double-cover sign); `g = 2` is its Pauli-scalar return ([`QLF_GMinusTwo`](lean/QLF_GMinusTwo.lean)).
+
 ---
 
 ## §2 Pauli exclusion as substrate expansion

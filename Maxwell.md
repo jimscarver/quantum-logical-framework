@@ -31,6 +31,8 @@ The E-field is the transverse momentum exchange rate — defined via the time-se
 
 The single-history `B(h)` definitions above are the *closure-level* projection of a broader structural reading: macroscopically, `B` is the spatial-gradient signature of the local vacuum's spin-orientation distribution. The spatial-dynamics reframe — like-spin pairs expanding space via Pauli exclusion, opposite-spin pairs contracting it via singlet annihilation, B-field as the directional gradient — is in [`Magnetism_Spatial_Dynamics.md`](Magnetism_Spatial_Dynamics.md).
 
+**Charge conjugation = viewing from behind.** The signed gauge count `charge(h) = count(+) − count(−)` **negates** under the antiparticle map (conjugate-and-reverse) — a positron read from behind carries the electron's charge — machine-verified as `chiralCharge_conj` / `C_eq_motional_reversal` in [`Spin_QLF.md`](Spin_QLF.md) / [`lean/QLF_Spin.lean`](lean/QLF_Spin.lean), where charge co-negates with the perpendicular-spin chirality (the handedness *is* the charge). So the electric axis (`+−`) is spin's chiral component seen from the other side.
+
 ---
 
 ## Equation 1: ∇·B = 0 (No Magnetic Monopoles)
