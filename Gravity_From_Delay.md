@@ -82,6 +82,38 @@ $$T \;=\; \frac{M G \, \hbar}{2 \pi r^2 c \, k_B}.$$
 
 — the standard Unruh-like horizon temperature, with G arising from the substrate event quantum via `L_Planck² = ℏ G / c³`.
 
+### §5.1 The canonical surface-gravity temperature: one relation, three horizons
+
+The equipartition estimate above (`T ∝ M/r²`, a *shell* temperature) is distinct from the
+**canonical** horizon temperature `T ∝ 1/M`, which QLF now Lean-anchors
+([`QLF_HorizonTemperature.lean`](lean/QLF_HorizonTemperature.lean)). Every horizon temperature
+is the **Unruh master relation** at the appropriate acceleration `a`, with the universal `2π`
+being the **substrate loop phase** — the same `2π` of one full closure that appears in
+`g−2 = α/2π` ([`QLF_GMinusTwo.lean`](lean/QLF_GMinusTwo.lean)):
+
+$$T \;=\; \frac{\hbar\, a}{2\pi c\, k_B}\qquad(\texttt{unruh\_temperature}).$$
+
+The three classic temperatures are three values of `a`:
+
+| temperature | acceleration `a` | result | Lean |
+|---|---|---|---|
+| **Unruh** | proper acceleration `a` | `ℏa/(2πck_B)` | `unruh_temperature` |
+| **Hawking** | surface gravity `κ = c⁴/(4GM)` | `ℏc³/(8πGMk_B)` | `hawking_temperature_eq` |
+| **de Sitter** | `cH₀ = c²/R_H` | `ℏH₀/(2πk_B)` | `desitter_temperature_eq` |
+
+Hawking's `8π` is the loop `2π` times the `4` in the Schwarzschild surface gravity
+`κ = c⁴/(4GM)` — the *same* `8π` as Einstein's `8π = 4π·2`
+([`QLF_EinsteinGeometricFactor.lean`](lean/QLF_EinsteinGeometricFactor.lean)). `hawking_is_unruh`
+/ `desitter_is_unruh` show both are literally the one relation at different `a`.
+
+**Dark-sector closure.** The de Sitter acceleration `cH₀` is exactly the `hubble_acceleration`
+of [`QLF_DarkMatter.lean`](lean/QLF_DarkMatter.lean), and the dark-matter / MOND scale is that
+same acceleration reduced by the loop phase: `a₀ = cH₀/(2π) = a_dS/(2π)`
+(`mond_accel_is_hubble_over_loop`). So `Ω_Λ = log 2` (`QLF_CosmologicalConstant`), the horizon
+temperature, and the dark-matter scale all hang on **one Hubble horizon and one `2π`**. Honest
+scope: this is the algebraic unification + the identification of the `2π` as the loop phase,
+not a from-scratch QFT-in-curved-spacetime derivation (`horizon_temperature_constructive`).
+
 ---
 
 ## §6 Bekenstein bound at horizon crossing
