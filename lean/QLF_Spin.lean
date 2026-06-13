@@ -67,6 +67,37 @@ theorem rotation_720_concat (s t : Twist) :
   concat_pairs_even [s, t] ⟨1, rfl⟩
 
 -- ==========================================================================
+-- 1a. Worked QuCalc folds — the literal twist arithmetic (`/qucalc`)
+-- ==========================================================================
+--
+-- `Twist.toMatrix`: ^ = σy, v = −σy, < = −σx, > = σx, / = σz, \ = −σz, + = I, − = −I.
+-- These show the actual matrix products a QuCalc fold computes.
+
+/-- **`^v` fold** (the half-spin pair / neutrino loop): `σ_y · (−σ_y) = −σ_y² = −I`. One
+    full turn → the fermion sign `−I`. -/
+theorem fold_up_down : Twist.up.toMatrix * Twist.down.toMatrix = -(1 : M) := by
+  show σy * (-σy) = -(1 : M)
+  rw [mul_neg, sigma_y_sq]
+
+/-- **`^v^v` fold**: `(−I)(−I) = +I`. The 720° return, written out. -/
+theorem fold_up_down_twice :
+    (Twist.up.toMatrix * Twist.down.toMatrix) * (Twist.up.toMatrix * Twist.down.toMatrix)
+      = (1 : M) := by
+  rw [fold_up_down, neg_mul_neg, one_mul]
+
+/-- **Cross-axis fold `^>`**: `σ_y · σ_x = −i σ_z`. Two different axes fold to a third
+    (times `−i`) — the chiral/winding content, not a scalar (a `/qucalc` cross-fold). -/
+theorem fold_up_right : Twist.up.toMatrix * Twist.right.toMatrix = -(Complex.I • σz) := by
+  show σy * σx = -(Complex.I • σz)
+  exact sigma_yx
+
+/-- **Gauge fold `+−`**: `I · (−I) = −I` — the charge pair. `+` carries `+1` charge,
+    `−` carries `−1` (`twistCharge`). -/
+theorem fold_plus_minus : Twist.plus.toMatrix * Twist.minus.toMatrix = -(1 : M) := by
+  show (1 : M) * (-1) = -(1 : M)
+  rw [one_mul]
+
+-- ==========================================================================
 -- 1b. Integer spin = a composite of half-spins
 -- ==========================================================================
 
