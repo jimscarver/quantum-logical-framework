@@ -77,6 +77,31 @@ spectral_hilbert_polya : scalar spectral mode ⟹ ρ.re = 1/2
 
 `ρ : ℂ` is a complex number — an element of the completed continuous field. This axiom is where the discrete QLF world makes contact with the analytic number theory of ζ(s). Lean 4 marks it as an `axiom`, not a `theorem`, precisely because crossing from the constructive discrete world to the continuous analytic world requires genuine new logical content. See [ReverseMathematics.md](ReverseMathematics.md) for the subsystem analysis.
 
+### 3.1 Running couplings without a UV catastrophe
+
+The UV-divergence problem of §1 has a concrete face: **running coupling constants**. In a
+continuum QFT a coupling `α(μ)` runs with energy `μ`, and for an abelian theory (QED) it grows
+until it hits a **Landau pole** — `1/α = 0` at a *finite* energy, a genuine divergence, because
+the loop integrals run over an infinitely divisible momentum space.
+
+QLF anchors the one-loop structure in [`lean/QLF_RunningCouplings.lean`](lean/QLF_RunningCouplings.lean):
+the inverse coupling runs **logarithmically**, `1/α(t) = 1/α₀ + (b/2π)·t` with `t = ln(μ/μ₀)`
+(`inv_coupling`) — and the `2π` is the substrate **loop phase**, the same one in `g−2 = α/2π`
+and the horizon temperature. The sign of `b` splits the two regimes: `b > 0` gives
+**asymptotic freedom** (`asymptotic_freedom`, the non-abelian/QCD coupling vanishes at high
+energy), `b < 0` gives **screening** (`infrared_growth`, the QED coupling grows). The Landau
+pole is *located* at the finite `t* = −(1/α₀)·2π/b` (`landau_pole_location`).
+
+The QLF resolution is exactly §1's: the substrate is **discrete and bounded below by the Planck
+event scale**, so the running carries a hard UV cutoff `t_max = ln(M_Planck/μ₀)`; the
+integration never reaches a pole sitting above it, and every coupling is finite at every
+physical scale. *There is no UV catastrophe because there is no infinitely divisible momentum
+space to integrate over.* What QLF does **not** derive is the β-coefficients `b_i` (they need
+the full SU(3)×SU(2)×U(1) matter content) or the GUT scale, so the `sin²θ_W = 3/8 → 0.231`
+running ([`QLF_WeinbergAngle`](lean/QLF_WeinbergAngle.lean)) is *consistent with* one-loop
+evolution but not derived (`running_couplings_structural`) — the open numbers of the
+renormalization sector.
+
 ---
 
 ## 4. The Lorentz Invariance Problem
