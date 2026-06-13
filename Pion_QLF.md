@@ -47,6 +47,15 @@ status of the Lenz 5-angle count too). What is machine-verified is the arithmeti
 0.3% experimental matches (`pion_electron_ratio_eq`); deriving the `1/α` from the
 exposed-chirality EM coupling is the open mechanism (`pion_mass_ratio_in_progress`).
 
+## The pion as a quantum black hole
+
+Read as a Markov-blanket horizon, the pion is the **deepest hadronic horizon** (`m = E_P/R`,
+lightest hadron ⟹ largest `R`) and the one whose **exposed** chirality makes its horizon
+radiate — so the pion's decay *is* Hawking evaporation, where the proton's hidden-chirality
+horizon stays stable. The same hidden/exposed axis behind `π⁵` vs `1/α` thus also fixes the
+horizon's fate. See [Hadron_BlackHoles.md](Hadron_BlackHoles.md) and
+[`lean/QLF_QuantumBlackHole.lean`](lean/QLF_QuantumBlackHole.lean).
+
 ## What's still open
 
 No quark-flavour twist assignments, no `f_π`, no chiral anomaly (`π⁰ → γγ`), no
