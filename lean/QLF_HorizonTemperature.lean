@@ -91,7 +91,6 @@ theorem desitter_temperature_eq (hbar c H0 kB : ℝ) (hc : c ≠ 0) (hkB : kB �
   unfold desitter_temperature unruh_temperature hubble_acceleration
   have hpi : Real.pi ≠ 0 := Real.pi_ne_zero
   field_simp
-  ring
 
 /-- **Dark-sector coherence**: the dark-matter / MOND acceleration is the de Sitter horizon
     acceleration reduced by the loop phase, `a₀ = cH₀/(2π) = a_dS/(2π)` — the same Hubble
@@ -99,6 +98,7 @@ theorem desitter_temperature_eq (hbar c H0 kB : ℝ) (hc : c ≠ 0) (hkB : kB �
 theorem mond_accel_is_hubble_over_loop (c H0 : ℝ) :
     mond_acceleration c H0 = hubble_acceleration c H0 / (2 * Real.pi) := by
   unfold mond_acceleration hubble_acceleration
+  ring
 
 /-- **Established constructively:** the Unruh, Hawking, and de Sitter temperatures are one
     substrate relation `T = ℏa/(2πc k_B)` at three accelerations — the canonical `8π`/`2π`
