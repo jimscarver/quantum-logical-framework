@@ -79,7 +79,7 @@ theorem sub_planck_compton_gt_schwarzschild (μ : ℝ) (h0 : 0 < μ) (h : μ ^ 2
     schwarzschild_radius μ < compton_radius μ := by
   unfold compton_radius schwarzschild_radius
   have hμ : μ ≠ 0 := ne_of_gt h0
-  have e : 1 / μ - 2 * μ = (1 - 2 * μ ^ 2) / μ := by field_simp; ring
+  have e : 1 / μ - 2 * μ = (1 - 2 * μ ^ 2) / μ := by field_simp <;> ring
   have pos : 0 < 1 / μ - 2 * μ := by
     rw [e]
     apply div_pos
