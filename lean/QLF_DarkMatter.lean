@@ -73,7 +73,7 @@ theorem mond_acceleration_horizon_form (c H_0 : ℝ) (hc : c ≠ 0) (hH : H_0 �
     mond_acceleration c H_0 = c ^ 2 / (2 * Real.pi * (c / H_0)) := by
   unfold mond_acceleration
   have hpi : Real.pi ≠ 0 := Real.pi_ne_zero
-  field_simp <;> ring
+  field_simp
 
 /-! ### 2. The transition radius `σ = √(GM/a₀)` and the dense/sparse crossover -/
 
@@ -88,6 +88,7 @@ theorem mond_radius_accel (G M a_0 : ℝ) (ha : 0 < a_0) (hGM : 0 < G * M) :
   have hGM0 : G * M ≠ 0 := hGM.ne'
   have ha0 : a_0 ≠ 0 := ha.ne'
   rw [Real.sq_sqrt (div_nonneg hGM.le ha.le)]
+  rw [div_eq_iff (div_ne_zero hGM0 ha0)]
   field_simp <;> ring
 
 /-- **Dense vs sparse crossover.** The Newtonian pull beats the cosmological floor exactly
