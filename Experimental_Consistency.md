@@ -48,6 +48,7 @@ What the framework currently retrodicts, derives, or Lean-verifies. Each item is
 | **Atomic-system masses** | Ps 1.022 MeV, Mu 106.17 MeV, H 938.78 MeV | Per-qubit Compton accounting `m c² = E_Planck / R` | Exact via depth ratios (§5.5) |
 | **m_p/m_e** (Lenz factor) | 1836.118 | `|S_3| · π⁵ = 6π⁵` from 3-quark Bose permutation × 5-angle hidden-chirality integration. **Lean-verified** as `mass_ratio_QLF_eq` in `QLF_LenzMassRatio.lean` | **0.002%** vs PDG 1836.152 (zero free parameters) |
 | **Lepton mass ratios** | m_p/m_e=1836.15, m_μ/m_e=206.77, m_τ/m_μ=16.82 | Depth ratios `m_X/m_Y = R_Y/R_X` | PDG-exact (§5.5) |
+| **Three fermion generations** | exactly 3 | Generation count = spatial-axis count `substrate_spatial_dimension = 3` — the same `3` as Koide's `N=3` phases, colour `SU(3)`, and α's `N=9=3²`. **Lean-verified** as `num_generations_eq_three` / `three_axis_signature` in `QLF_Generations.lean`; the 3 generations realized as Koide's three 120° phases | structural (reduces "why 3 generations" to "why 3 spatial dimensions") |
 | **Nuclear magic numbers** | 2, 8, 20, 28, 50, 82, 126 | Dimensional growth (d=2,3,4 → 2,8,20) + vacuum-as-intruder + ℓ=3 threshold | All seven exact, end-to-end (§7.1) |
 | **Stern-Gerlach separation** | ~22 mm at 100 T/m / 10 cm | Spatial-dynamics gradient on like-spin atoms | matches standard SG (§6 magnetism) |
 | **Heavier-atom depth panel** | ¹H–²³⁸U, R ∝ 1/A baseline | Per-qubit Compton + vacuum-resonance peaks (⁴He, ¹⁶O, ⁴⁰Ca, ⁵⁶Fe, ⁹⁰Zr, ¹⁴⁰Ce, ²⁰⁸Pb) | structurally consistent (§5.6) |
