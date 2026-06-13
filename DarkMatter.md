@@ -2,8 +2,9 @@
 
 **Repository:** `quantum-logical-framework`
 **Document:** `DarkMatter.md`
-**Document version:** 2.0 (updated 23 April 2026)
-**Author:** Jim / Grok (Synthesized from QLF core axioms, QuCalc engine, and recent insights on Logical Density)
+**Document version:** 3.0 (updated 13 June 2026 — quantitative skeleton + Lean anchor)
+**Author:** Jim / Grok / Claude (Synthesized from QLF core axioms, QuCalc engine, the Logical-Density picture, and the curvature / quantum-black-hole / Mercury machinery)
+**Lean:** [`lean/QLF_DarkMatter.lean`](lean/QLF_DarkMatter.lean)
 
 ---
 
@@ -70,3 +71,118 @@ We can observe this behavior in the QuCalc engine by artificially overloading th
 ```bash
 # Overload the environment with spatial constraints to force gauge folding
 python particles.py --seed "^<v>^^<<" --max-depth 8 --enable-gauge True --environment-density HIGH
+```
+
+---
+
+## 5. The acceleration scale: where dense logic gives way to the cosmological floor
+
+The qualitative picture above ("denser logic near masses → emergent vacuum mass") needs **one
+number** to become predictive: the *acceleration* at which the local logical density stops
+dominating and the cosmological background takes over. That scale is not free — it is the de
+Sitter horizon acceleration on the **same Hubble radius** `R_H = c/H₀` that already fixes
+`Ω_Λ = log 2` ([`QLF_CosmologicalConstant`](lean/QLF_CosmologicalConstant.lean)), reduced by
+the substrate loop phase `2π`:
+
+$$a_0 \;=\; \frac{c H_0}{2\pi} \;=\; \frac{c^2}{2\pi R_H} \;\approx\; 1.05\times10^{-10}\ \text{m/s}^2$$
+
+versus Milgrom's empirical scale `a₀ ≈ 1.2×10⁻¹⁰ m/s²` — a **~13% match** with **zero new
+inputs** (the same `H₀` as the cosmological constant). Lean: `mond_acceleration_horizon_form`
+proves `a₀ = c²/(2π R_H)`. This is the QLF substrate version of the Verlinde / Milgrom
+acceleration scale: the dark sector closes on a **single horizon**, with `Ω_Λ = log 2`
+governing the sparse exterior (dark energy) and `a₀ = cH₀/2π` governing the crossover into the
+denser-logic interior (dark matter) — the **expand / contract duality** of
+[Curvature.md §6](Curvature.md).
+
+> **Honest scope.** The *scale* `cH₀` is principled (the de Sitter horizon acceleration). The
+> exact `O(1)` prefactor — `1/2π` here — is the open piece (the ~13% residual,
+> `dark_matter_acceleration_scale_in_progress`), the same status discipline as the pion `1/α`.
+
+---
+
+## 6. Two regimes: dense logic (Newton/GR) vs. sparse floor (apparent dark matter)
+
+For a baryonic mass `M`, the Newtonian acceleration `GM/r²` crosses the floor `a₀` at the
+**transition radius**
+
+$$\sigma \;=\; \sqrt{\frac{GM}{a_0}}\qquad(\text{Lean: } \texttt{mond\_radius\_accel} — GM/\sigma^2 = a_0).$$
+
+This splits cleanly into the two regimes you already see elsewhere in QLF
+(`newtonian_dominates_iff`: `a₀ < GM/r² ⟺ r² < GM/a₀`):
+
+| regime | condition | logic density | physics |
+|---|---|---|---|
+| **dense (interior)** | `r < σ`, `a ≫ a₀` | high | pure Newton + GR — **Mercury perihelion** (`a ≈ 0.04 m/s²`, ~10⁹×`a₀`), and at the extreme a hadron's **Planck-blanket quantum black hole** ([Hadron_BlackHoles.md](Hadron_BlackHoles.md)) |
+| **sparse (exterior)** | `r > σ`, `a ≲ a₀` | thins to floor | the `log 2` cosmological background is no longer negligible → **apparent extra mass** (dark matter) |
+
+So "denser logic near masses" and "the Mercury/black-hole regime" are the *same* statement —
+both live at `a ≫ a₀`, deep inside `σ`. Dark matter is what the *complement* (`a ≲ a₀`) looks
+like to an observer who assumes pure Newtonian gravity.
+
+In the deep regime the circular speed obeys `v² = a·r` with `a² = (GM/r²)·a₀`, giving the
+**baryonic Tully–Fisher relation** (Lean: `tully_fisher_flat`):
+
+$$v^4 \;=\; G M\, a_0 \qquad(\text{independent of } r — \text{flat rotation curve, } v_{\rm flat}^4 \propto M).$$
+
+---
+
+## 7. The shape of the congestion: a Gaussian (maximum-entropy) bump
+
+What is the *profile* of the excess logical density around the mass? The natural QLF answer is
+a **Gaussian** — and not by fiat: for a fixed spatial scale, the Gaussian is the
+**maximum-relative-entropy (MRE)** distribution, and MRE is the *same* selection principle that
+fixes `Ω_Λ = log 2` (the `binary_kl` machinery of [`QLF_FreeEnergy`](lean/QLF_FreeEnergy.lean)).
+The displaced logic relaxes to the least-committed profile consistent with its scale:
+
+$$\rho_{\rm logic}(r) \;=\; \rho_0\, e^{-r^2/2\sigma^2}\qquad(\text{Lean: } \texttt{gaussian\_logic\_density}),$$
+
+densest at the mass and monotonically thinning outward (`gaussian_denser_near_center`), with
+width set by the transition radius `σ = √(GM/a₀)` of §6.
+
+> **Honest scope — the Gaussian is the bump, not the tail.** A *pure* Gaussian halo does **not**
+> reproduce asymptotically flat rotation curves: for `r ≫ σ` its enclosed mass saturates and
+> `v² = GM/r` falls off Keplerian. The Gaussian is therefore the **transition-zone congestion
+> bump**; the genuinely *flat* outer curve belongs to the sparse `1/r²` (isothermal /
+> deep-MOND) cosmological-floor regime of §6, not the bump. The two stitch together at `σ`:
+> Gaussian bump inside, `1/r²` floor outside.
+
+---
+
+## 8. Dark matter and dark energy are one mechanism
+
+Both dark phenomena are the **same logical-density gradient** read in opposite directions
+(the expand/contract duality of [Curvature.md](Curvature.md), and the radial gradient of
+[BLACK-HOLES.md §4](BLACK-HOLES.md)):
+
+- **Interior, dense (contract):** excess logic folds into the gauge/time axes → emergent rest
+  mass → extra attraction → **dark matter** (`a ≲ a₀` is where it becomes visible).
+- **Exterior, sparse (expand):** the thin background carries the `Ω_Λ = log 2` gauge-axis
+  fraction → outward expansion bias → **dark energy**.
+
+One horizon scale (`R_H`), one per-event quantum (`log 2`), one crossover acceleration
+(`a₀ = cH₀/2π`). No WIMP, no quintessence field — both are how a single substrate distributes
+logical density around mass.
+
+---
+
+## 9. What is Lean-anchored vs. open
+
+| Claim | Status | Anchor |
+|---|---|---|
+| `a₀ = c²/(2π R_H)`, same `R_H` as `Ω_Λ` | **Lean** ✓ | `mond_acceleration_horizon_form` |
+| transition radius `σ = √(GM/a₀)`: `GM/σ² = a₀` | **Lean** ✓ | `mond_radius_accel` |
+| dense/sparse crossover `a₀ < GM/r² ⟺ r² < GM/a₀` | **Lean** ✓ | `newtonian_dominates_iff` |
+| baryonic Tully–Fisher `v⁴ = GM a₀` | **Lean** ✓ | `tully_fisher_flat` |
+| Gaussian MRE bump, densest at the mass | **Lean** ✓ | `gaussian_logic_density`, `gaussian_denser_near_center` |
+| the `1/2π` prefactor (the ~13% residual) | **open** | `dark_matter_acceleration_scale_in_progress` |
+| full rotation-curve profile (bump + `1/r²` tail) | **open** (structural) | §6–§7 |
+| logical density as a derived `ρ_logic(r)` from event counting | **open** | §2–§3 (prose) |
+
+---
+
+## References
+
+- M. Milgrom, *A modification of the Newtonian dynamics*, ApJ **270** (1983) 365 — the `a₀` acceleration scale.
+- E. Verlinde, *Emergent Gravity and the Dark Universe*, SciPost Phys. **2** (2017) 016 — apparent dark matter from displaced de Sitter entropy.
+- S. McGaugh, F. Lelli & J. Schombert, *Radial Acceleration Relation*, PRL **117** (2016) 201101 — the empirical `a₀`, baryonic Tully–Fisher.
+- **See also:** [Curvature.md](Curvature.md), [BLACK-HOLES.md](BLACK-HOLES.md), [Hadron_BlackHoles.md](Hadron_BlackHoles.md), [Cosmological_Constant.md](Cosmological_Constant.md), [Mercury_Perihelion.md](Mercury_Perihelion.md), [`lean/QLF_DarkMatter.lean`](lean/QLF_DarkMatter.lean), [`lean/QLF_CosmologicalConstant.lean`](lean/QLF_CosmologicalConstant.lean), [`lean/QLF_GravityFromDelay.lean`](lean/QLF_GravityFromDelay.lean).
