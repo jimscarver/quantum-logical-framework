@@ -6,7 +6,7 @@ Project context for Claude Code sessions. Read this before making any changes.
 
 ## Project overview
 
-**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **47 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
+**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **48 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
 
 Core claim: *ZFA balance is the selection principle for physical reality.* Every terminating computation is a ZFA string; every ZFA string is symmetric (lies on the critical line). The Church-Turing universe filtered to ZFA-balanced strings is our physical universe.
 
@@ -14,7 +14,7 @@ Core claim: *ZFA balance is the selection principle for physical reality.* Every
 
 ---
 
-## 47 active modules
+## 48 active modules
 
 In `lean/`, registered in `lakefile.lean` roots array (in build order). For fuller per-module descriptions + the complete key-theorem lists, see [`lean/README.md`](lean/README.md).
 
@@ -62,6 +62,7 @@ In `lean/`, registered in `lakefile.lean` roots array (in build order). For full
 | `QLF_BMinusL` | Electric charge = exactly-conserved signed twist count (`signed_count_conserved`); **obstruction** `wcount_zero_on_ZFA` — every conserved signed count is zero on closures, so `B−L` is NOT a weight dictionary (it is winding) |
 | `QLF_Majorana` | The neutrino is **Majorana**: antiparticle = Hermitian conjugate (conjugate-and-reverse), and `^v` is a fixed point of it; `neutrino_majorana`, `electron_not_majorana` (electron is Dirac), `antiparticle_involutive` |
 | `QLF_BaryonWinding` | Baryon number = signed 3-axis linking (winding) invariant; `baryonNumber` (proton +1, antiproton −1, leptons/meson 0), `baryon_zero_of_noZ` (lepton/EM sector = 0), **`baryon_dagger_odd`** (`B(ts†)=−B(ts)`, fully general) |
+| `QLF_Spin` | **Spin demystified — spin IS the twists.** Worked qucalc folds (`fold_up_down`: `^v`=σy·(−σy)=−I; `fold_up_down_twice`: `^v^v`=+I; `fold_up_right`: `^>`=−iσz; `fold_plus_minus`: `+−`=−I). 720° double cover: `rotation_360_eq_negI`/`rotation_720_eq_id`; twist axes close su(2) (`su2_comm_xy/yz/zx`), SU(2)→SO(3) genuine (`spin_double_cover_nontrivial`, −I≠+I). Charge conjugation = view-from-behind: charge & chirality co-negate under `antiparticle` (`C_eq_motional_reversal`, reusing `baryon_dagger_odd`). Neutrino self-conjugate ⟹ neutral (`neutrino_neutral`). Integer spin = composite of half-spins (`photon_integer_spin`: ½+½=1). Exclusion (`like_spin_excludes`) / singlet annihilation (`opposite_spin_singlet_closes`). Flat axis = magnetism, motion-independent (`flat_independent_of_motion`). See `Spin_QLF.md` |
 | `QLF_MassGap` | **Yang–Mills mass gap** (Millennium Prize) on the substrate: vacuum = ℒ=0 identity closure; lightest non-vacuum gauge closure carries one `log 2` quantum ⟹ positive gap `gaugeMassGap = log 2` (`mass_gap_quantum_pos`, `lightest_closure_is_gap_quantum` reusing `QLF_FreeEnergy`). Continuum-QFT existence is the explicit boundary axiom `yang_mills_continuum_gap`; `yang_mills_mass_gap_in_qlf` is conditional on it; status `mass_gap_proven_constructively`. See `YangMills_MassGap_QLF.md` |
 | `QLF_BSD` | **Birch–Swinnerton-Dyer** (Millennium Prize) via the Langlands hook: the L(E,s) central point `s=1` is the self-dual fixed point of `s↦2−s` (`bsd_central_point_self_dual`), grounded in the same `H↔H†` involution as Riemann (`reflection_fixed_iff`, `bsd_riemann_shared_involution` reusing `functional_equation_fixed_real`); **rank = ord (`bsd_rank_equals_order`) is now a THEOREM**, discharged through the modularity mirror: `Perspective` (galois/automorphic), the `modularityMirror` involution, and `centralMultiplicity` read on the two sides — equal by the single boundary axiom `modularity_mirror_invariant` (mirror-invariance at the self-dual fixed point). Qualitative BSD `bsd_in_qlf` (`E(ℚ)` infinite ⟺ `L(E,1)=0`) follows. **`EllipticCurveQLF` is concrete** (integral Weierstrass) with its closure encoding *computed* — `affinePointCount`/`frobeniusTrace` over `ZMod p`, worked curve `Ecn1` with verified `a₂=0` (`Ecn1_frobenius_two`); `centralMultiplicity`/ranks stay abstract (uncomputable = BSD's content). Status `bsd_proof_in_progress`. See `BSD_QLF.md` |
 | `QLF_Hodge` | **Hodge conjecture** (Millennium Prize) as the cohomological face of ZFA selection: the Hodge conjugation `H^{p,q}↔H^{q,p}` IS the QLF adjoint involution H↔H† (`conj_involutive`), and Hodge classes are exactly its balanced self-dual fixed points — the `(p,p)` diagonal (`conj_fixed_of_isHodge`, `isHodge_of_conj_fixed`). The conjecture = *balanced ⟹ realized*. **`hodge_class_is_algebraic` is now a THEOREM**, discharged through the substrate: a `(p,q)` class is encoded (`CohClass.encode`) as a twist history count-balanced iff `p=q` (`encode_countBalanced`), so Hodge ⟹ count-balanced ⟹ Pauli-closed (`count_balanced_pauli_closed`) ⟹ realized; the single boundary is now the faithfulness axiom `substrate_realization_is_algebraic` (substrate closure = algebraic realization). Status `hodge_proof_in_progress`. See `Hodge_QLF.md` |
@@ -336,7 +337,7 @@ Avoid framings that contradict the above:
 | Path | Purpose |
 |---|---|
 | `lean/` | All Lean source files |
-| `lakefile.lean` | Build config; `roots` array lists all 47 modules |
+| `lakefile.lean` | Build config; `roots` array lists all 48 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |
