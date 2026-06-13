@@ -113,7 +113,7 @@ The identical engine proves both the particle spectrum and quantum black-hole be
 |-------------------------|---------------|-------------------------|--------------------|------------|-------------------|--------------------|----------------------------------|
 | Primordial quantum BH   | `+`–`−`       | Massive particle        | \(\Delta t = R/f\) | Time       | Planck-scale      | Immediate Hawking  | Gravity + local time             |
 | Massless particle       | No `+`–`−`    | Photon/gluon/etc.       | 0                  | Space      | None              | None               | Propagation + local space        |
-| Hadron (composite)      | Mixed         | Stable composite        | Internal           | Mixed      | Composite blanket | None               | Confinement stability            |
+| Hadron (composite)      | Mixed         | Stable composite        | Internal           | Mixed      | Composite **horizon** | None *unless* gauge/chirality exposed (meson → decay) | Confinement stability; see [Hadron_BlackHoles.md](Hadron_BlackHoles.md) |
 | Macroscopic black hole  | Dense re-entry| Large entangled folds   | Global             | Time       | Large horizon     | Hawking (statistical) | Same mechanism, larger scale   |
 
 ## 7. Ties to Other Documents

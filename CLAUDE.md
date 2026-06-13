@@ -6,7 +6,7 @@ Project context for Claude Code sessions. Read this before making any changes.
 
 ## Project overview
 
-**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **49 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
+**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **50 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
 
 Core claim: *ZFA balance is the selection principle for physical reality.* Every terminating computation is a ZFA string; every ZFA string is symmetric (lies on the critical line). The Church-Turing universe filtered to ZFA-balanced strings is our physical universe.
 
@@ -14,7 +14,7 @@ Core claim: *ZFA balance is the selection principle for physical reality.* Every
 
 ---
 
-## 49 active modules
+## 50 active modules
 
 In `lean/`, registered in `lakefile.lean` roots array (in build order). For fuller per-module descriptions + the complete key-theorem lists, see [`lean/README.md`](lean/README.md).
 
@@ -47,6 +47,7 @@ In `lean/`, registered in `lakefile.lean` roots array (in build order). For full
 | `QLF_FineStructureSubstrate` | α = 1/137 from substrate combinatorics, zero free params; `alpha_QLF_eq`, `only_3d_substrate_gives_137` (2D→1/132, 4D→1/144) |
 | `QLF_LenzMassRatio` | `m_p/m_e = 6π⁵ = \|S₃\|·π⁵`, 0.002%; `mass_ratio_QLF_eq` + counterfactuals |
 | `QLF_PionMassRatio` | Charged-pion/electron ratio `m_π±/m_e = \|S₂\|/α = 2/α = 274` (`pion_electron_ratio_eq`), vs measured 273.1 (0.3%); proton↔pion consistency `6π⁵/(2/α) = 3π⁵/137 ≈ 6.70` (`proton_pion_ratio_eq`). Structural reading of Nambu's `m_π ≈ 2m_e/α` via QLF's derived α: `\|S₂\|=2` (two quarks) solid, `1/α` (exposed vs proton's hidden-`π⁵` chirality) is the open mechanism (`pion_mass_ratio_in_progress`). See `Pion_QLF.md` |
+| `QLF_QuantumBlackHole` | Every hadron (meson + baryon) is a Markov-blanket quantum black hole. New: the **Compton–Schwarzschild crossing** `1/μ = 2μ ⟺ μ²=1/2` (`compton_eq_schwarzschild_iff`) — a sub-Planck hadron lives on the Compton side (`sub_planck_compton_gt_schwarzschild`), so its horizon is the Planck blanket, not a Schwarzschild horizon. Horizon area law `S=4πR²log2` (`hadron_horizon_entropy_eq`, reuses `holographic_entropy_eq`); mass `m=1/R` (`lighter_is_deeper` ⟹ pion = deepest hadronic horizon); meson `B=0` vs baryon `B≠0` (`pion_meson_horizon`/`proton_baryon_horizon`, reuses `baryonNumber`). Coherence: hidden-vs-exposed chirality fixes mass factor (`π⁵` vs `1/α`) AND horizon fate (stable vs decay = Hawking evaporation). **Honest scope:** unification + thermodynamic reading, NOT a mass derivation (`R` is an input; `pion_mass_ratio_in_progress`). See `Hadron_BlackHoles.md` |
 | `QLF_BorromeanAngles` | The 5-angle count `5 = 3 + 2` (Jacobi internal + chirality-mixing); `total_angular_DOF_eq_five`, `matches_lenz_hidden_chirality_angles` |
 | `QLF_EulerMascheroni` | γ as the harmonic excess `H_N − ln N` of the ZFA ensemble; `gamma_QLF_structural` (structural form; convergence proof deferred) |
 | `QLF_RiemannZeta` | Substrate ↔ ζ bridge: `γ_QLF` = ζ's Laurent constant at `s=1`; `zeta_laurent_constant_eq_gamma_QLF`, `rh_proof_in_progress` |
@@ -338,7 +339,7 @@ Avoid framings that contradict the above:
 | Path | Purpose |
 |---|---|
 | `lean/` | All Lean source files |
-| `lakefile.lean` | Build config; `roots` array lists all 49 modules |
+| `lakefile.lean` | Build config; `roots` array lists all 50 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |
