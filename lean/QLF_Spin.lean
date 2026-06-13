@@ -97,6 +97,27 @@ theorem fold_plus_minus : Twist.plus.toMatrix * Twist.minus.toMatrix = -(1 : M) 
   show (1 : M) * (-1) = -(1 : M)
   rw [one_mul]
 
+/-- **The electron loop `^<v>` fold**: a cross-axis history that is *not* a concatenation
+    of adjacent pairs, yet still folds to the fermion sign `−I`. Step by step (via the
+    σ-product identities):
+    `σ_y · (−σ_x)` = `iσ_z`; `(iσ_z) · (−σ_y)` = `−σ_x`; `(−σ_x) · σ_x` = `−I`.
+    So the electron is a half-spin fermion. It is *not* its own antiparticle
+    (`electron_not_majorana`, [`QLF_Majorana`](QLF_Majorana.lean)) — it is **Dirac**, with a
+    distinct positron `v>v<`; the Majorana/Dirac split is the conjugate-reverse
+    fixed-point test, not the fold value (both `^v` and `^<v>` fold to `−I`). -/
+theorem fold_electron :
+    Twist.up.toMatrix * Twist.left.toMatrix * Twist.down.toMatrix * Twist.right.toMatrix
+      = -(1 : M) := by
+  show σy * (-σx) * (-σy) * σx = -(1 : M)
+  have e1 : σy * (-σx) = Complex.I • σz := by
+    rw [mul_neg, sigma_yx, neg_neg]
+  have e2 : (Complex.I • σz) * (-σy) = -σx := by
+    rw [mul_neg, smul_mul_assoc, sigma_zy, smul_neg, neg_neg, smul_smul,
+      Complex.I_mul_I, neg_one_smul]
+  have e3 : (-σx) * σx = -(1 : M) := by
+    rw [neg_mul, sigma_x_sq]
+  rw [e1, e2, e3]
+
 -- ==========================================================================
 -- 1b. Integer spin = a composite of half-spins
 -- ==========================================================================
