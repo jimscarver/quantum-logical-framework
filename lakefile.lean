@@ -60,5 +60,6 @@ lean_lib QLF where
     `QLF_Spin,
     `QLF_PionMassRatio,
     `QLF_QuantumBlackHole,
-    `QLF_DarkMatter
+    `QLF_DarkMatter,
+    `QLF_Generations
   ]
