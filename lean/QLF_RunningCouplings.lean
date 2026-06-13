@@ -76,6 +76,7 @@ theorem landau_pole_location (inv_alpha0 b : ℝ) (hb : b ≠ 0) :
   unfold inv_coupling
   have hpi : Real.pi ≠ 0 := Real.pi_ne_zero
   field_simp
+  ring
 
 /-- **No running at the fixed point**: at `t = 0` (the reference scale `μ = μ₀`) the coupling
     is exactly its boundary value — e.g. `sin²θ_W = 3/8` at the unification scale
