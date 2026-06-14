@@ -48,6 +48,26 @@ Generation 0500 | Matter: 5625 | Antimatter: 0
 
 Despite starting with absolute parity and no hard-coded physical bias, the symmetry spontaneously and violently breaks. The non-linear advantage of the Markov blanket ensures that one topology will always permanently consume the local matrix.
 
+## 4a. The Strong CP problem: `θ̄ = 0` without an axion
+
+QCD permits a CP-violating topological term `θ̄ (g²/32π²) G·G̃`, yet the neutron electric dipole
+moment bounds `θ̄ < 10⁻¹⁰`. Why is this CP-odd angle so finely zero? The textbook fix is a new
+field — the Peccei–Quinn **axion** — that dynamically relaxes `θ̄ → 0`.
+
+**QLF needs no axion.** The `θ`-term is a **CP-odd topological winding** — a signed count whose
+sign flips under charge conjugation (`swap_topo`). And QLF already proves that *every* CP-odd
+(annihilation-odd) signed count is **exactly zero on every ZFA closure** (`wcount_zero_on_ZFA`,
+[`lean/QLF_BMinusL.lean`](lean/QLF_BMinusL.lean)) — the same mechanism behind charge neutrality
+and the `B−L` obstruction. So on every physical (ZFA-closed) state, the strong-CP angle vanishes
+structurally, with no fine-tuning and no new field: **ZFA closure does the Peccei–Quinn
+symmetry's job** (`theta_zero_on_closure` / `cp_odd_winding_zero_on_closure`,
+[`lean/QLF_StrongCP.lean`](lean/QLF_StrongCP.lean)).
+
+**Honest scope.** This anchors the *mechanism* — CP-odd topological windings are forced to zero
+on ZFA closures. The identification of the QCD `θ`-vacuum / the gluonic `G·G̃` integral with a QLF
+CP-odd signed winding is structural; the instanton θ-vacuum is not field-theoretically
+constructed (`strong_cp_in_progress`).
+
 ## 5. Scaling to Biology: The Handedness of Reality
 
 This topological victory has massive macroscopic consequences because the QuCalc alphabet is fundamentally built on **half-spin combinatorial logic**, which is intrinsically chiral (handed).
