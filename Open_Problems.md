@@ -111,6 +111,29 @@ canonical status list; when an item moves, update it here and in its owning doc.
 
 ---
 
+## Foundational reframings (substrate vs continuum-notation — issues #36–#52, #23)
+
+A critique series (Allen / "find the machine, not the notation"): continuum objects — `π`, complex
+amplitudes, real numbers, Hilbert space, light cones, `U(1)` optics — should be **emergent
+renderings of the finite ZFA substrate**, not primitives. The framing is largely owned by
+[`TheContinuum.md`](TheContinuum.md) (continuum emergent, RCA₀ floor, no infinite precision); what
+remains is the **ZFA-native operator formalization** of each.
+
+| Item | Status | Where |
+|---|---|---|
+| **`π` as a ZFA loop-closure, not a primitive** (#36, #50) | 🟣 The `2π` is the *loop-phase* primitive everywhere (`g−2=α/2π`, horizon T, `a₀=cH₀/2π`); reframing `2π → zfa_loop_closure()` is a naming/formalization step, the value inherited. Continuum-as-notation framing is `TheContinuum.md` | [`TheContinuum.md`](TheContinuum.md), [`lean/QLF_HorizonTemperature.lean`](lean/QLF_HorizonTemperature.lean) |
+| **Finite phase precision required** (#37) | ⚪ Answerable & simple: the Schwinger/`g−2` and `a₀` terms need only ~10–11 significant digits of a `π`-equivalent closure constant to match measurement — no infinite precision anywhere. A `pi_precision` audit script is future work | [`TheContinuum.md`](TheContinuum.md) |
+| **Complex amplitudes / reals as finite bookkeeping** (#39, #40, #44) | 🟣 The substrate is finite registers; `i` is the σ-rotation already concrete (`QLF_Spin`: `i•σ`), reals = finite scale, Hilbert space = closure machinery. Replacing `ℝ`/`ℂ` *in the Lean kernel* with finite phase registers is a large refactor, not done | [`TheContinuum.md`](TheContinuum.md) §3, [`lean/QLF_Spin.lean`](lean/QLF_Spin.lean) |
+| **ZFA as a pruning/filter operator before Hilbert** (#39) | ✅ Already so: `full_zeno_prune` is the filter, applied *before* the spectral/Hilbert representation (`toSpectralMode`); the discrete combinatorial core is RCA₀, the Hilbert side is downstream | [`lean/QLF_Axioms.lean`](lean/QLF_Axioms.lean), [`lean/QLF_Spectral.lean`](lean/QLF_Spectral.lean) |
+| **Optics as finite phase cycles, not continuum U(1)** (#38) | 🟣 `phase = distance/wavelength` in cycles; the finite-closure optics formalization is open | [`Maxwell.md`](Maxwell.md), [`TheContinuum.md`](TheContinuum.md) |
+| **Light cones / causal diamonds as emergent, not primitive** (#46) | 🟣 Spacetime is synthesized (`ZFAEventDynamics`); a light cone is the continuum rendering of *closure-reachability* — the ZFA-native "reachable-event" object is named but not yet a Lean def | [`SpaceTime.md`](SpaceTime.md), [`lean/ZFAEventDynamics.lean`](lean/ZFAEventDynamics.lean) |
+| **Operational 3D from the deeper 8-twist structure** (#42) | ✅ Anchored: `substrate_spatial_dimension = 3` from the 6+2 alphabet (6 spatial twists = 3 axis-pairs), the same `3` behind α/SU(3)/generations; apparent 3D *is* the stable rendering of the 8-twist machine | [`lean/QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean), [`Magic_numbers.md`](Magic_numbers.md) |
+| **Dark-matter `ρ_logic(r)` *mechanism*** (#41) | 🔵 Scale + Gaussian-MRE bump anchored (`QLF_DarkMatter`); the generating *mechanism* (central-organizer / chromodynamic-impedance harmonics, per Allen's CharacteristicImpedancePython) is open | [`lean/QLF_DarkMatter.lean`](lean/QLF_DarkMatter.lean), [`DarkMatter.md`](DarkMatter.md) |
+| **Time-as-driving-force / thermodynamics refactor** (#45) | ⚪ Parking-lot: heat/energy as emergent appearances of temporal-closure dynamics; a later thermodynamics refactor | [`Time.md`](Time.md), [`Entropy.md`](Entropy.md) |
+| **QLF as a generative discrete latent space; LLM-native physics** (#23, #52) | ⚪ Framing: the macroscopic universe is the decoded manifestation of a discrete logical latent space; LLMs given a bitwise vocabulary of substrate constants are a natural semantic engine for it | [`QLF_as_Intelligence.md`](QLF_as_Intelligence.md), [`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md) |
+
+---
+
 ## Notes
 
 - **Tiers vs. this file.** `Experimental_Consistency.md` uses Tier-1/2/3 for *achieved precision*; this registry uses the status tags above for *forward work*. A "Tier-3 open" result there maps to 🔵/🟣 here, unless it is a 🧱 boundary.
