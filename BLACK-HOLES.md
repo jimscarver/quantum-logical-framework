@@ -78,6 +78,8 @@ Around every gauge-folded primordial black hole the Markov blanket induces a rad
 - **Blanket (horizon)**: screens unresolved distinctions.  
 - **Exterior**: lower density → future-directed expansion bias (dark-energy equivalent).  
 
+This radial (spatial) gradient has a **temporal companion** ([Curvature.md §8](Curvature.md)): read across time rather than radius, the same expand/contract duality is *inflation* in the past (high-`V` epoch), *gravity* in the present-local, and *dark energy* in the future — inflation and dark energy being the one `w=−1` field at two scales ([`lean/QLF_CosmicInflation.lean`](lean/QLF_CosmicInflation.lean)).
+
 This gradient is the unified microscopic origin of both local gravity and cosmic acceleration. The same blanket mechanism that produces Hawking radiation at high density produces the net outward bias in voids. No cosmological constant or exotic fields are needed.
 
 ## 5. Computational Verification (`particles.py` v2.2)

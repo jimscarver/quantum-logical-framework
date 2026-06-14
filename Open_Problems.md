@@ -103,7 +103,7 @@ canonical status list; when an item moves, update it here and in its owning doc.
 | QuantumOS active-inference scheduler on QPU silicon (today: browser control plane) | [`Crystal_QuantumOS.md`](Crystal_QuantumOS.md) §7 |
 | Quantitative delayed-choice visibility match (Kim et al. 1999) | [`Delayed_Choice_Eraser.md`](Delayed_Choice_Eraser.md) |
 | Strong-field FLRW coupling for the cosmological constant | [`Cosmological_Constant.md`](Cosmological_Constant.md) |
-| Cosmic inflation / initial conditions (Logical-Bang blanket-merger cascade; no inflaton — early-universe high vacuum frequency → exponential expansion) — not detailed | [`Fusion.md`](Fusion.md) |
+| Cosmic inflation — initial conditions / e-folds / `n_s` / `r` / reheating, and the vacuum-frequency evolution `f(t)`, remain open. **Structure now Lean-anchored:** inflation and dark energy are the same `w=−1` event-synthesis field at two energy scales (no inflaton — `inflation_and_dark_energy_same_field`); early high-`V` ⇒ faster expansion (`higher_energy_faster_expansion`) | [`lean/QLF_CosmicInflation.lean`](lean/QLF_CosmicInflation.lean), [`Curvature.md`](Curvature.md) §8 |
 | Proton decay / GUT lifetime (higher-order gauge-fold re-entry forbidden at low logical density) — beyond the gauge-algebra alignment already verified | [`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md) |
 | Material-specific carrier-scattering / `ρ(T)` / `T_c` | [`Electricity.md`](Electricity.md) |
 | QRNG Closure Observatory — falsifiable test of whether QRNG streams deviate from the analytic ZFA-closure null (predeclared sieve + controls; expected Tier-0) | [`QRNG_Closure_Observatory.md`](QRNG_Closure_Observatory.md) |
