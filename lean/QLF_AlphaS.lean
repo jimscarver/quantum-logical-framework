@@ -50,7 +50,6 @@ theorem log_hierarchy_pure_integer (b : ℝ) (hb : b ≠ 0) :
     2 * Real.pi / (b * substrate_alpha_s b) = 2 * Real.pi * b := by
   unfold substrate_alpha_s
   field_simp
-  ring
 
 /-- Reusing the dimensional-transmutation depth: `ln(transmuted_hierarchy b (1/b²)) = 2π·b`. -/
 theorem log_transmuted_hierarchy_integer (b : ℝ) (hb : b ≠ 0) :
