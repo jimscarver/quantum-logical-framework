@@ -129,6 +129,66 @@ Combined: `8π = 4π · 2`. This is **not** a new mathematical fact (the trivial
 
 **What this closes.** This sub-section closes step 4 of §7 below: the `8π` geometric factor in Einstein's equations is now structurally articulated and Lean-anchored. The remaining open piece for the full Gap-3 derivation is the `G` coefficient itself (step 5: derive `G` as the vacuum's per-event entropy-gradient strength under [`VacuumEnergy.md`](VacuumEnergy.md) §6.2), which is independent of this sub-section and substantially harder.
 
+### 5.2 The Einstein equations as the equation of state of each local clock (Jacobson, Lean-anchored)
+
+§5.1 closes the `8π` geometric factor. The remaining structural step — *why the field equations
+take the form they do at all* — is now Lean-anchored in [`lean/QLF_EinsteinEquations.lean`](lean/QLF_EinsteinEquations.lean),
+and the route is precisely Kitada's.
+
+**Jacobson's derivation is local.** Jacobson (1995, "Thermodynamics of Spacetime: The Einstein
+Equation of State") obtains `G_μν = 8πG T_μν` not as a fundamental dynamical law but as the
+**Clausius relation `δQ = T δS`** demanded **at every local Rindler horizon** — a separate
+horizon through each spacetime point, seen by each local accelerated observer. The temperature is
+the *local* Unruh temperature; the entropy is the *local* horizon area. There is no global
+construction anywhere in the derivation: it is a statement about local thermodynamic equilibrium,
+point by point.
+
+**The local Rindler horizon *is* the Kitada local clock.** This is the Gap-1 identity (§3) read
+on the gravitational side. A QLF Markov blanket is a local clock (`markov_blanket_local_clock`,
+[`lean/QLF_LocalClock.lean`](lean/QLF_LocalClock.lean)); it is also a horizon — the screen
+separating its screened interior from its exterior, carrying the Unruh temperature
+([`QLF_HorizonTemperature`](lean/QLF_HorizonTemperature.lean)) and the area entropy
+`S = 4πR² log 2` ([`QLF_GravityFromDelay`](lean/QLF_GravityFromDelay.lean)). So Jacobson's "local
+Rindler horizon," QLF's "Markov-blanket horizon," and Kitada's "local clock" are **the same
+object**. The Einstein equation of state is the Clausius relation evaluated *at each Kitada local
+clock*, and the global field equations are the statement that every local clock in the network
+sits in local thermodynamic equilibrium simultaneously — exactly Kitada's picture of GR as the
+consistency condition of the network of local times.
+
+**The coefficient.** With both of Jacobson's inputs supplied by the substrate, the field-equation
+coefficient is forced to be the Unruh `2π` over the Bekenstein–Hawking entropy density
+`η = 1/4G`:
+
+$$
+8\pi G \;=\; \frac{2\pi}{\eta}, \qquad \eta = \frac{1}{4G},
+$$
+
+machine-verified as `einstein_coupling_from_thermodynamics` (and the same `8π = 4π·2` of §5.1 as
+`einstein_coupling_geometric`). The Unruh `2π` is the local clock's accelerated-observer
+periodicity; the `1/4G` is the entropy per unit horizon area. The Einstein coupling is the ratio
+of these two *local-clock* quantities — Kitada's interior/exterior rate comparison, in
+thermodynamic dress.
+
+**The integration constant is the local-clock tick.** Jacobson's derivation leaves an undetermined
+integration constant — the cosmological constant `Λ`. QLF fixes it independently as `Ω_Λ = log 2`
+([`QLF_CosmologicalConstant`](lean/QLF_CosmologicalConstant.lean)), which is *the same `log 2`* as
+the per-tick quantum of every local clock (`local_clock_tick_is_log_two`,
+[`lean/QLF_LocalClock.lean`](lean/QLF_LocalClock.lean)) and the per-event free-energy quantum
+([`QLF_FreeEnergy`](lean/QLF_FreeEnergy.lean)). So **the cosmological constant is the local clock's
+own tick** — the irreducible `log 2` each ZFA closure advances, read at cosmic scale. The
+"unexplained" constant of Jacobson's derivation is, in the Kitada framing, simply the rate the
+local clocks tick.
+
+**Honest scoping.** This Lean-anchors the **coefficient and the thermodynamic skeleton**
+(`8πG = 2π/η`, both inputs substrate results) and identifies the integration constant with the
+local-clock tick. It does **not** carry out the full tensor derivation — the local Rindler
+construction, the Raychaudhuri focusing equation, and general covariance need differential-geometry
+machinery QLF's Lean core does not have (`einstein_equations_in_progress`). That is the same
+dynamical-metric step still open for the Schwarzschild metric and gravitational waves; see
+[`GR_Schwarzschild.md`](GR_Schwarzschild.md). What is new here is the identification — Jacobson's
+*local* horizon thermodynamics is QLF's Markov-blanket / Kitada local-clock thermodynamics, so the
+Einstein equation of state is literally the equation of state of the local-clock network.
+
 ### 5.3 Calculating local light speed — `c` from the apparent size and age of the universe
 
 The constancy of `c` is currently flagged as "definitional in current implementation; not yet a separate prediction" in [`Experimental_Consistency.md`](Experimental_Consistency.md) §3 line 92, with the "Lorentz covariance — partially closed" status in §4.5. Four specific technical obstacles block a clean derivation from QLF substrate properties:
