@@ -127,6 +127,30 @@ with no fine-tuning**; weaker coupling gives a larger hierarchy
 `QLF_RunningCouplings`), the substrate coupling `α_s`, and the Planck→SI calibration — equivalently
 the combinatorial `R_e` count above (`mass_spectrum_in_progress`).
 
+### 3.3b The hierarchy from one integer: `b₀ = 7` fixes both inputs
+
+The two inputs above — `b` and `α_s` — are now both read off the substrate, and the result is
+striking ([`lean/QLF_BetaFunction.lean`](lean/QLF_BetaFunction.lean), [`lean/QLF_AlphaS.lean`](lean/QLF_AlphaS.lean)).
+
+- **`b₀ = 7`** is the QCD one-loop coefficient `11 N_c/3 − 2 n_f/3` with `N_c = 3` (the three
+  spatial axes) and `n_f = 6` (two flavours × three generations) — `beta_coefficient_eq_seven`.
+- **`α_s(substrate) = 1/b₀²`** (`substrate_alpha_s`) — *consistent with the measured running*: from
+  `M_Z` to the Planck scale, `1/α_s(M_Planck) ≈ 52` (one-loop, `b₀=7`), and `b₀² = 49` (~7%).
+
+With both, the dimensional-transmutation hierarchy **collapses to a pure integer**
+(`log_hierarchy_pure_integer`):
+
+```
+ln R_p = 2π / (b₀ · α_s) = 2π / (b₀ · 1/b₀²) = 2π · b₀ = 14π ≈ 43.98,
+```
+
+matching the measured `ln(M_Planck/m_p) ≈ 44.01` to **0.07%** (`hierarchy_log_eq_fourteen_pi`). So
+`R_p = e^{2π b₀} = e^{14π}`, and — via the one-parameter reduction of §3.3a — **the entire absolute
+mass spectrum follows from the single integer `b₀ = 7`** (itself `N_c=3`, `n_f=6`). Honest residual:
+`α_s = 1/b₀²` is a running-consistent *posit* (not yet a derivation), and the value-level match is
+~3% (`e^{14π} = 1.26×10¹⁹` vs `1.30×10¹⁹` — the Planck-mass/SI calibration); the log match is 0.07%
+(`alpha_s_substrate_in_progress`).
+
 **Structural relation `Ry = (1/2) α² m_e c²`.** The QLF Bohr derivation in [`Hydrogen.md`](Hydrogen.md) §§2–4 produces this identity from Coulomb-via-gauge-twist-exchange (§2) + ZFA-depth quantization (§3). Equivalently in QLF Planck units:
 
 ```
