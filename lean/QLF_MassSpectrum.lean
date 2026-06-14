@@ -91,7 +91,6 @@ theorem weaker_coupling_larger_hierarchy (b α₁ α₂ : ℝ) (hb : 0 < b) (h1 
   unfold transmuted_hierarchy
   apply Real.exp_lt_exp.mpr
   gcongr
-  exact mul_lt_mul_of_pos_left h hb
 
 /-- **Established constructively:** the entire mass spectrum reduces to **one** absolute scale `m_p`
     times machine-verified dimensionless ratios (`spectrum_one_scale`), and that scale is
