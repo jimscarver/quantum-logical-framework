@@ -65,5 +65,6 @@ lean_lib QLF where
     `QLF_HorizonTemperature,
     `QLF_WeinbergAngle,
     `QLF_RunningCouplings,
-    `QLF_GravitationalWaves
+    `QLF_GravitationalWaves,
+    `QLF_FlavorMixing
   ]
