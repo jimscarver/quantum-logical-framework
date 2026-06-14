@@ -6,7 +6,7 @@ Project context for Claude Code sessions. Read this before making any changes.
 
 ## Project overview
 
-**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **56 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
+**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **57 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
 
 Core claim: *ZFA balance is the selection principle for physical reality.* Every terminating computation is a ZFA string; every ZFA string is symmetric (lies on the critical line). The Church-Turing universe filtered to ZFA-balanced strings is our physical universe.
 
@@ -14,7 +14,7 @@ Core claim: *ZFA balance is the selection principle for physical reality.* Every
 
 ---
 
-## 56 active modules
+## 57 active modules
 
 In `lean/`, registered in `lakefile.lean` roots array (in build order). For fuller per-module descriptions + the complete key-theorem lists, see [`lean/README.md`](lean/README.md).
 
@@ -66,6 +66,7 @@ In `lean/`, registered in `lakefile.lean` roots array (in build order). For full
 | `QLF_WeinbergAngle` | **Weak mixing angle `sin²θ_W = 3/8` at the unification scale** = spatial/alphabet fraction (`sin2_weinberg_substrate_eq`) = the SU(5) GUT normalization; the third constant from the same 6+2 split as α (`N=3²`) and `Ω_Λ` (gauge `2/8`), packaged in `electroweak_substrate_signature`. Tree-level relations: custodial `ρ=1` (`rho_one_of_mass_relation`) and on-shell `cos²θ_W=(M_W/M_Z)²` (`onshell_weinberg`). **Honest scope:** `3/8` is the *unification* value, NOT the measured `0.231` at `M_Z` — the RG running is the open renormalization sector, absolute `W/Z`/`G_F` need the Higgs VEV (`weinberg_running_in_progress`). See `Weak_Force.md` §2 |
 | `QLF_RunningCouplings` | **One-loop RG structure + substrate UV-finiteness.** `1/α(t) = 1/α₀ + (b/2π)·t` (`inv_coupling`), the `2π` = loop phase. `asymptotic_freedom` (b>0, QCD coupling vanishes at high E), `infrared_growth` (b<0, QED screening), `landau_pole_location` (`1/α=0` at `t*=−(1/α₀)·2π/b` — *located but cut off by the substrate's discrete UV floor*: no continuum divergence — the "continuum = UV catastrophe" thesis). **Honest scope:** anchors the RG structure + UV-finiteness, NOT the β-coefficients (need full matter content) or the GUT scale, so `sin²θ_W 3/8→0.231` is consistent-with not derived (`running_couplings_structural`). See `TheContinuum.md` §3.1 |
 | `QLF_GravitationalWaves` | **What the substrate fixes about GWs.** A GW is a massless (gauge-fold-free) transverse ripple of synthesized spacetime ⇒ propagates at `c = L_Planck/τ_Planck` (`gw_speed_eq_planck_ratio`; GW170817 `|v_GW−c|/c<10⁻¹⁵`). Graviton is spin-2 = four half-spins = two photon-worths (`graviton_integer_spin`, reuses `boson_even_pairs`); 2 transverse polarizations from masslessness, not `2J+1=5` (`massless_two_polarizations`). **Honest scope:** the wave equation `□h=0` + quadrupole luminosity are NOT derived — they need the dynamical substrate metric (same gap as the full Einstein field equations); `gravitational_waves_in_progress`. See `GR_Schwarzschild.md` |
+| `QLF_FlavorMixing` | **CKM/PMNS parameter count + Kobayashi–Maskawa.** An `N×N` unitary mixing matrix has `N(N−1)/2` angles (`mixing_angles`) + `(N−1)(N−2)/2` CP phases (`cp_phases`); QLF's exactly-3 generations give **3 angles + 1 CP phase** (`substrate_mixing_parameters`). KM: CP needs ≥3 generations — 0 phases for N=1,2; 1 for N=3 (`cp_requires_three_generations`); the same `3` behind Koide/SU(3)/α. **Honest scope:** anchors the counting + CP condition, NOT the angle values (Yukawa sector open, like the Koide δ); quark-small/lepton-large is a structural reading on the hidden/exposed-chirality axis (`flavor_mixing_in_progress`). See `Standard_Model.md` §4.2 |
 | `QLF_StrongAlgebra` | Strong `SU(3)` = traceless 3-axis directional tensor; `trace_commutator_zero`, `gluon_commutator_nonzero`, `strong_su3_summary` |
 | `QLF_BMinusL` | Electric charge = exactly-conserved signed twist count (`signed_count_conserved`); **obstruction** `wcount_zero_on_ZFA` — every conserved signed count is zero on closures, so `B−L` is NOT a weight dictionary (it is winding) |
 | `QLF_Majorana` | The neutrino is **Majorana**: antiparticle = Hermitian conjugate (conjugate-and-reverse), and `^v` is a fixed point of it; `neutrino_majorana`, `electron_not_majorana` (electron is Dirac), `antiparticle_involutive` |
@@ -345,7 +346,7 @@ Avoid framings that contradict the above:
 | Path | Purpose |
 |---|---|
 | `lean/` | All Lean source files |
-| `lakefile.lean` | Build config; `roots` array lists all 56 modules |
+| `lakefile.lean` | Build config; `roots` array lists all 57 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |

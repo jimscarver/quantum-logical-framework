@@ -24,7 +24,7 @@ The structure follows [Conservation.md §8](Conservation.md) (the "what is NOT y
 | **Lepton number conservation** | Chiral fluxoid count of electron-type structures | ⚠ Partial — same |
 | **Sterile neutrino** | Would require pure-`+` or pure-`-` gauge sequence with no spatial twists | ✗ Open — experimental status unsettled; QLF predicts a specific topology if it exists |
 | **Specific lepton mass ratios** ($m_\mu / m_e \approx 207$, $m_\tau / m_e \approx 3477$) | Would follow from the multiplicity ratios at successive resonant harmonics | ✗ Open — no quantitative prediction yet |
-| **CKM matrix angles, neutrino mixing** | Would follow from the chirality-rotation structure between generations | ✗ Open |
+| **CKM matrix angles, neutrino mixing** | Parameter count + CP condition machine-verified (3 angles + 1 phase; KM needs ≥3 generations — `QLF_FlavorMixing`); the angle *values* would follow from the chirality-rotation structure between generations | ⚠ Partial — counting/CP anchored, angle values open |
 | **Dark matter sector** | Possibly a class of stable ZFA closures with no `+`–`−` content (no EM coupling) — see [DarkMatter.md](DarkMatter.md) | ✗ Open — qualitative speculation |
 
 **Summary**: roughly 8 derived, 6 partial, 4 fully open. The framework is structurally rich but most quantitative numbers remain to be extracted.
@@ -105,7 +105,9 @@ Conjectured path: the multiplicity-as-energy framework of [Energy_Combinatorics.
 
 The CKM matrix encodes quark mixing across generations; PMNS encodes neutrino mixing. Both have specific angle structures whose origin is unexplained in standard physics.
 
-Conjectured path: chirality-rotation between generations under the resonant-harmonic hierarchy. Open.
+**What the substrate fixes — the parameter count and the CP condition** (machine-verified, [`lean/QLF_FlavorMixing.lean`](lean/QLF_FlavorMixing.lean)). An `N×N` unitary mixing matrix carries `N(N−1)/2` physical mixing angles (`mixing_angles`) and `(N−1)(N−2)/2` CP-violating phases (`cp_phases`). QLF has **exactly three generations** (`num_generations = 3`, [`QLF_Generations`](lean/QLF_Generations.lean)), so the CKM/PMNS content is exactly **3 angles + 1 CP phase** (θ₁₂, θ₂₃, θ₁₃ + δ; `substrate_mixing_parameters`). And the **Kobayashi–Maskawa condition** falls out: a physical CP phase needs `(N−1)(N−2)/2 ≥ 1`, i.e. `N ≥ 3` — `0` phases for one or two generations (the Cabibbo case has one angle, no CP), `1` for three (`cp_requires_three_generations`). So the substrate's three-ness — the same `3` behind Koide, colour SU(3), and `α`'s `N=3²` — is *why CP violation is possible at all*.
+
+**What is open — the angle values.** The mixing-angle *values* (the Cabibbo angle, the large PMNS angles, the phase δ) live in the Yukawa/mass-matrix sector QLF flags as open (the Koide angle δ is itself an input; no quark masses). Conjectured path: chirality-rotation between generations under the resonant-harmonic hierarchy, with a structural contrast — quarks (hidden, confined chirality) mix *small* and hierarchically, leptons (exposed chirality) mix *large* (near tri-bimaximal: `sin²θ₁₂ ≈ 1/3`, θ₂₃ near-maximal, broken by `θ₁₃ ≈ 8.6°`) — read on the same hidden/exposed-chirality axis as the pion/black-hole work. Not derived (`flavor_mixing_in_progress`).
 
 ### 4.3 Sterile neutrino, fourth generation, exotic particles
 
