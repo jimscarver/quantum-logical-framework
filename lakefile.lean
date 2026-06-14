@@ -73,5 +73,6 @@ lean_lib QLF where
     `QLF_Baryogenesis,
     `QLF_Nucleosynthesis,
     `QLF_MassSpectrum,
-    `QLF_BetaFunction
+    `QLF_BetaFunction,
+    `QLF_Anyons
   ]
