@@ -130,6 +130,38 @@ The boundaries that remain are degrees of *specification*, not doubt about the p
 
 ---
 
+## 8. Temporal reading: inflation (past), gravity (present), dark energy (future)
+
+The expand/contract duality of §2 is stated *spatially* (interior contracts → gravity; exterior
+expands → dark energy, [`BLACK-HOLES.md §4`](BLACK-HOLES.md)). Read it **temporally** and it
+becomes a complete cosmic history. **Every event expands the future and contracts locally** — the
+two faces are one per-event quantum, oppositely signed (`event_duality_balanced`,
+[`lean/QLF_CosmicInflation.lean`](lean/QLF_CosmicInflation.lean)). What you see then depends on
+*where in time* you look:
+
+- **Past (telescopes look backward) → inflation.** Early on, the vacuum energy `V` and event
+  frequency `f` were high, so the expansion rate `H ∝ √V` was large and quasi-exponential
+  (`higher_energy_faster_expansion`): **inflation**, decaying to the slow Hubble flow.
+- **Present, local → gravity.** Here we see the *contraction* face — bound gauge-folds, mass, the
+  inward bias of constructing delay.
+- **Future / exterior → dark energy.** The residual expansion bias of the low-density vacuum
+  (Ω_Λ = log 2).
+
+The unification is already verified: a static event-synthesis field has equation of state
+`w = −1` (`zfa_dynamics_drive_acceleration`), so **inflation and dark energy are the *same*
+`w = −1` field at two energy scales** — high `V` early, low `V` now
+(`inflation_and_dark_energy_same_field`). **Inflation without an inflaton:** the "inflaton" is
+QLF's event-synthesis field, not a new field — inflation is just its high-energy limit, the same
+field that is dark energy today (the §6 "one signed deformation, two scales", now read across
+*time* as well as scale).
+
+**Honest scope.** This anchors the duality, the `√V` monotonicity, and the shared-`w=−1`
+unification. It does **not** derive the quantitative inflation observables — the number of
+e-folds (~60), the spectral index `n_s ≈ 0.965`, the tensor ratio `r`, reheating — nor the
+vacuum-frequency evolution law `f(t)`; those remain open (`cosmic_inflation_in_progress`).
+
+---
+
 ## References
 
 ### Internal
