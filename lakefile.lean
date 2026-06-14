@@ -70,5 +70,6 @@ lean_lib QLF where
     `QLF_CondensedMatter,
     `QLF_CosmicInflation,
     `QLF_StrongCP,
-    `QLF_Baryogenesis
+    `QLF_Baryogenesis,
+    `QLF_Nucleosynthesis
   ]

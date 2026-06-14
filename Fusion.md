@@ -102,6 +102,23 @@ This output demonstrates the full QLF narrative in action: gauge-fold handshake,
 - In stars: plasma increases logical density → blanket mergers become statistically favored → nucleosynthesis chain emerges automatically.  
 - Terrestrial fusion reactors: the framework suggests optimizing plasma density and gauge-accessible isotopes rather than brute-force temperature.
 
+## 7a. Big-Bang nucleosynthesis: the quarter-helium universe
+
+The same blanket-merger chain in the early universe sets the **primordial abundances** — ~75%
+hydrogen, ~25% helium-4 by mass. The helium mass fraction is fixed almost entirely by the
+**neutron-to-proton ratio** `r = n/p` at weak freeze-out: essentially every surviving neutron is
+swept into the deepest light closure, **⁴He** (the doubly-magic `Z=N=2` nucleus,
+[`Magic_numbers.md`](Magic_numbers.md)), so `Y_p = 2n/(n+p) = 2r/(1+r)`
+([`lean/QLF_Nucleosynthesis.lean`](lean/QLF_Nucleosynthesis.lean), `helium_fraction`). With the
+standard freeze-out `r ≈ 1/7`, this gives `Y_p = 1/4` (`helium_fraction_one_seventh`), matching
+the observed `Y_p ≈ 0.247`; the counterfactual `r = 1` would give `Y_p = 1` (all helium), so the
+quarter-helium universe *requires* the small freeze-out `r`.
+
+**Honest scope.** This anchors the `Y_p = 2r/(1+r)` funnel and `r ≈ 1/7 ⟹ Y_p ≈ 1/4`. It does
+**not** derive `r` (set by the n–p mass difference + weak rates `G_F`, open — [Weak_Force.md](Weak_Force.md) §5e/§6),
+nor the deuterium / ⁷Li abundances or the **CMB power spectrum**; those need the full thermal
+history (`nucleosynthesis_in_progress`).
+
 ## Conclusion
 
 Nuclear fusion in QLF is the elegant, inevitable next step in constructive topological synthesis. Two Markov blankets, brought to sufficient logical density, interlock their gauge folds and synthesize a single, lower-free-action nucleus. The energy released is the direct topological payoff of achieving a more compact ZFA closure.
