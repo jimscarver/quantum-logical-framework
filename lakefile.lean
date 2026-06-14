@@ -74,5 +74,6 @@ lean_lib QLF where
     `QLF_Nucleosynthesis,
     `QLF_MassSpectrum,
     `QLF_BetaFunction,
-    `QLF_Anyons
+    `QLF_Anyons,
+    `QLF_MuonG2
   ]
