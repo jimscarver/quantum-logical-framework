@@ -31,4 +31,12 @@ A free neutron contains a topological stress (excess bound action) relative to t
   1. **The Electron:** a highly chiral, tightly bound ZFA loop (`^<v>`) that carries away the asymmetric logical debt — and being chiral, it has a *distinct* antiparticle (the positron): the electron is Dirac.
   2. **The Majorana Neutrino:** a *non-chiral* loop (`^v`) whose Hermitian conjugate is identical to itself, hence its own antiparticle. It carries away the residual relational momentum without disturbing the chiral balance of the new system.
 
+**β⁺ as the key to the first fusion.** Read forward instead of as decay, the same `u→d` blanket
+restructuring is the **fusion-enabling step** of every star. Two identical proton blankets are
+Pauli-insulated — `pauli_exclusion` forbids a bound diproton — so the pp-chain's first step
+`p + p → ²H + e⁺ + ν_e` *must* convert one proton to a neutron (β⁺) to make the pair distinguishable
+before the blankets can join into a deuteron. The weak β⁺ is therefore the precondition for the first
+Markov-blanket join, and its weak-mediated rarity is what makes the Sun burn slowly; see
+[`Fusion.md`](Fusion.md) §3a and [`SEX.md`](SEX.md) (the deuteron distinguishability condition).
+
 See also: [Annihilation.md](Annihilation.md) — develops the LH `^<v>` vs RH `^>v<` chiral twist patterns as Hermitian pairs whose composition folds to identity (the algebraic content of pair annihilation); the unspooling described in §2 is the same topological unwinding read at the hadron scale. [Weak_Force.md](Weak_Force.md) — consolidates the weak sector and flags the tension that this account mediates β decay by a gauge-fold pair-flip *operation* without an explicit W *particle* (which appears only in the τ-decay vertex). [`lean/QLF_Majorana.lean`](lean/QLF_Majorana.lean) — the machine-verified self-conjugacy of the neutrino loop.

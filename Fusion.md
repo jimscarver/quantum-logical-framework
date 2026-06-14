@@ -40,6 +40,56 @@ The process is **immediate once the topological pathway opens** — no tunneling
 - Nuclei with mostly spatial folds (e.g., heavy nuclei) have tighter blankets → higher barrier, lower fusion probability.  
 - This explains why D-T fusion is easiest and why stellar nucleosynthesis follows a specific sequence: light elements with gauge-rich topologies fuse first.
 
+## 3a. The β⁺ keystone: breaking Pauli insulation to join two identical blankets
+
+The blanket-merger picture of §2 has a hidden precondition that the *first* fusion step in the
+universe — and in every hydrogen-burning star — cannot skip. The proton–proton chain opens with
+
+$$
+p + p \;\longrightarrow\; {}^2\mathrm{H} \;+\; e^{+} \;+\; \nu_e,
+$$
+
+which is **simultaneously a fusion (two blankets join) and a β⁺ decay (one proton → neutron).** It
+has to be both, and the reason is the insulator proof.
+
+**Two identical blankets are Pauli-insulated.** Two protons are *identical* closures. The gauge-fold
+handshake of §2 requires the two blankets to share a single bound ZFA closure — and identical
+fermionic closures **cannot**: `pauli_exclusion` proves `fermi_antisym p p = 0`
+([`lean/PauliExclusion.lean`](lean/PauliExclusion.lean); reused as `like_spin_excludes` in
+[`lean/QLF_Spin.lean`](lean/QLF_Spin.lean)) — an identical pair commutes with itself, so it has **no
+antisymmetric bound state**. There is no diproton; ²He is unbound. So the §2 merger pathway is
+**closed for two protons**: the obstruction is not (only) the Coulomb barrier — it is a *logical*
+barrier behind it, the Pauli insulation between identical blankets.
+
+**β⁺ is what breaks the insulation.** The only way to open the joint closure is to make the two
+blankets **distinguishable** — and that is exactly a β⁺ conversion: one proton's `u→d` flavour step,
+emitting `e⁺ + ν_e`, turns the pair into `p + n`. Now distinguishable, they bind in the spin-triplet
+`L=0` channel — the **deuteron** — the same distinguishability requirement proved for the static
+deuteron in [`SEX.md`](SEX.md) (pp/nn Pauli-blocked, np binds) and closing on
+`opposite_spin_singlet_closes` ([`lean/QLF_Spin.lean`](lean/QLF_Spin.lean)). β⁺ is the
+**symmetry-breaking step that the join requires**, not an accident that happens to accompany it:
+
+> **The weak force is the precondition for the first Markov-blanket join.** Two identical proton
+> blankets are insulated from each other by `pauli_exclusion`; the only key that opens the joint
+> closure is a β⁺ flavour step that makes them distinguishable. No β⁺ → no deuteron → no chain.
+
+**This is why the Sun is slow.** The β⁺ step is weak-mediated and therefore rare — it is the
+rate-limiting step of the entire pp-chain. The Pauli insulation between identical proton blankets is
+precisely what forces stellar fusion to wait on the weak interaction, so hydrogen burns over billions
+of years instead of detonating. The "insulator" reading is exact: just as identical fermions are
+blocked from a shared conducting state in a band/Mott insulator, two identical proton blankets are
+blocked from a shared *bound* state; β⁺ is the symmetry-breaking "dopant" that opens it. The deeper
+chain — `pauli_exclusion` insulates → β⁺ makes distinguishable → deuteron closes → every surviving
+neutron is swept into ⁴He — is what sets the quarter-helium universe of §7a
+([`lean/QLF_Nucleosynthesis.lean`](lean/QLF_Nucleosynthesis.lean)).
+
+**Honest scope.** What QLF *owns* here is the **necessity**: the insulator proof makes β⁺ a logical
+precondition for the first join, unifying fusion + the weak force + the deuteron condition under one
+already-verified theorem. What stays **open** is the *rate* — the actual β⁺ cross-section / the
+weak-coupling `G_F` that fixes how slow the pp-chain is — the same open weak-rate sector flagged in
+§7a and [`Weak_Force.md`](Weak_Force.md) §5e/§6. The β-decay-as-blanket-restructuring mechanism is
+developed in [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md).
+
 ## 4. Computational Demonstration (`fusion_sim.py`)
 
 Fusion is now fully simulatable with the new `fusion_sim.py` module, which reuses the exact `IntuitionisticEngine` from `particles.py` v2.2.
@@ -89,6 +139,8 @@ This output demonstrates the full QLF narrative in action: gauge-fold handshake,
 
 ## 6. Ties to Other Documents
 
+- `SEX.md` & `lean/PauliExclusion.lean`: the **β⁺ keystone** (§3a) — two identical proton blankets are Pauli-insulated, so the first join needs a β⁺ distinguishability step (the dynamic face of the deuteron condition).  
+- `Beta_Decay_Neutrino_Nature.md`: β decay as blanket restructuring — the same `u→d` step read here as the fusion-enabling key.  
 - `Hadrons_Markov_Blankets.md`: Fusion = blanket merger + active inference.  
 - `BLACK-HOLES.md` & `Particles.md`: Gauge folding determines fusability (primordial-BH-like behavior at nuclear scale).  
 - `Frequency_Synchronization.md` & `Entropy.md`: High \(f\) and logical density enable the merger; entropy balance gives exact Q-value.  

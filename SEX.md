@@ -69,6 +69,15 @@ chemistry → no us. A free proton is stable but inert; a free neutron is fertil
 the joint closure is both stable and generative.** Higher-order closure = capabilities neither part
 has — the whole point of sex.
 
+**The dynamic face: the β⁺ keystone of stellar fusion.** The deuteron condition above is *static* —
+it says which bound nucleus exists. Its dynamic face is the first step of every star's pp-chain,
+`p + p → ²H + e⁺ + ν_e`: two **identical** proton blankets are Pauli-insulated (`pauli_exclusion` —
+no diproton), so they cannot join until one converts to a neutron by β⁺ (`u→d`), making them
+distinguishable. **The weak β⁺ is the key that opens the first Markov-blanket join** — the same
+distinguishable-binds / identical-blocked logic, now as the rate-limiting step that makes the Sun
+burn slowly rather than detonate ([`Fusion.md`](Fusion.md) §3a). Sex (distinguishable union) is not
+just *a* path to higher closure — for two protons it is the *only* one.
+
 > **Speculative direction (flagged, not claimed).** #53 asks whether modelling the np
 > "relationship" illuminates low-energy fusion. QLF frames fusion as a blanket merger that
 > proceeds *once the topological pathway opens* ([`Fusion.md`](Fusion.md) §2–3), and
