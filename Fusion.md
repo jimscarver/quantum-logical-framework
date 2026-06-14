@@ -90,6 +90,74 @@ weak-coupling `G_F` that fixes how slow the pp-chain is — the same open weak-r
 §7a and [`Weak_Force.md`](Weak_Force.md) §5e/§6. The β-decay-as-blanket-restructuring mechanism is
 developed in [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md).
 
+## 3b. Catalyzing the keystone: lepton-catalyzed fusion is QLF cold fusion
+
+§3a shows the first blanket-join is gated by a rare weak β⁺ step. A natural question follows: can the
+join be **catalyzed** — driven without raising the temperature? It can, and the mechanism is
+**established physics**: *muon-catalyzed fusion* (μCF). This is the **legitimate cold fusion** —
+fusion at room temperature — proposed by Frank and Sakharov and observed by Alvarez in 1956. It is
+*completely distinct* from the discredited Fleischmann–Pons electrochemical "cold fusion" (1989), for
+which QLF makes no claim (cf. §3a's caveat and [`SEX.md`](SEX.md)). μCF is real, decades-proven, and
+QLF reproduces it — in **agreement with the Standard Model**.
+
+**The mechanism.** A μ⁻ (≈207× the electron mass) replaces the electron in a hydrogen molecule. The
+muonic molecule is ≈207× *smaller*, so the two nuclei sit ≈207× closer: the Coulomb barrier collapses
+and the zero-separation overlap `|ψ(0)|²` — the prefactor the fusion rate is proportional to — is
+boosted enormously. Fusion proceeds at room temperature; the muon is released and catalyzes again.
+
+**The QLF reframe — "cold" means density-by-depth, not by temperature.** In QLF a μ⁻ is a
+**deeper-generation completer** of the proton (the generation degree of freedom `e⁻/μ⁻/τ⁻` →
+hydrogen/muonic/tauonic, [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md),
+[`Weak_Force.md`](Weak_Force.md) §4a, [`lean/QLF_Generations.lean`](lean/QLF_Generations.lean)). A
+deeper completer **shrinks the composite blanket and raises the logical density `ρ`**, pushing the
+system over the *same* critical-density threshold of §2 — but reached by **generation-depth instead of
+temperature**. Hot fusion raises `ρ` thermally; muon injection raises it by depth. That is exactly
+what "cold" means here: closure density attained by a tighter blanket, no heat.
+
+**Scope — D-T, not p-p.** Muon catalysis collapses the *Coulomb* barrier, so it accelerates
+**strong-force fusion (D-T, D-D)** — no weak step. For **p-p** the weak β⁺ vertex (`∝ G_F²`) remains
+the bottleneck: catalysis boosts the *overlap* prefactor, **not** `G_F`, so catalyzed p-p is still
+Sun-slow. **Cold fusion via muons is a D-T path.** The §3a keystone stands intact and even sharpens:
+**catalysis touches the rate (overlap/density), never the β⁺ necessity** — Lean-anchored as
+`catalyzed_join_still_requires_beta` ([`lean/QLF_MuonCatalysis.lean`](lean/QLF_MuonCatalysis.lean)):
+the identical-pair Pauli block is independent of any completer, so no catalyst makes two protons
+distinguishable; only a real `u→d` does.
+
+**Why it is not net-energy (the muon economy).** μCF works but does not yet break even:
+
+- a muon costs ≈5 GeV to produce (pion → muon);
+- each D-T fusion yields 17.6 MeV;
+- a muon catalyzes only ≈150 fusions before it is lost ⇒ ≈2.6 GeV out vs ≈5 GeV in — **≈2× energy-negative**.
+
+The ≈150-cycle cap is set by **α-sticking** (≈0.4–1% per cycle: the muon is captured by the ⁴He
+product) plus the muon lifetime (2.2 µs). **α-sticking has a clean QLF reading**: the muon blanket is
+captured into the deep, doubly-magic ⁴He closure (muonic helium, [`Magic_numbers.md`](Magic_numbers.md))
+— a blanket-capture into a *deeper attractor*. The very depth that makes the muon a good catalyst is
+what lets ⁴He swallow it.
+
+**Why the muon and not a tau — the generation depth/lifetime trade-off.**
+
+| lepton | mass | lifetime | molecule shrink | catalysis |
+|---|---|---|---|---|
+| e⁻ | 0.51 MeV | stable | ×1 | none (too large) |
+| μ⁻ | 106 MeV | 2.2 µs | ≈×207 | **yes — ≈150 cycles** |
+| τ⁻ | 1777 MeV | 0.29 ps | ≈×3477 | none — decays before the molecule forms |
+
+Catalytic *strength* rises with generation depth (tighter blanket, larger `ρ` boost), but catalytic
+*lifetime* falls off a cliff (deeper blankets are more unstable — the same instability that makes
+μ/τ decay). The τ⁻ would shrink the molecule ≈17× more than the μ⁻, but atomic capture + molecular
+formation take ≈10⁻¹²–10⁻⁹ s and the tau lives 2.9×10⁻¹³ s — it decays before it can shrink-and-hold.
+**The muon is the sweet spot; the tau is past the cliff.**
+
+**Honest scope.** This is a *genuine finding in agreement with the Standard Model*: QLF reproduces
+muon-catalyzed cold fusion and adds three readings — "cold" = crossing the density threshold by
+**generation-depth** rather than temperature; **α-sticking** = muon-blanket capture into the deep ⁴He
+closure; and the **rate-vs-necessity separation** (catalysis accelerates the gated step but cannot
+bypass the β⁺ keystone, Lean-anchored). What QLF does **not** change is the **energetics** — the muon
+production cost and α-sticking that keep μCF ≈2× energy-negative are SM/engineering limits, not QLF
+gaps (`muon_catalysis_in_progress`). Net-energy cold fusion this way needs cheaper muons or lower
+α-sticking.
+
 ## 4. Computational Demonstration (`fusion_sim.py`)
 
 Fusion is now fully simulatable with the new `fusion_sim.py` module, which reuses the exact `IntuitionisticEngine` from `particles.py` v2.2.
