@@ -1,108 +1,120 @@
-# Complementarity and Collective Intelligence
+# SEX — higher-order closure through complementary specialists
 
-**Higher-order closure through complementary specialists — from the deuteron to the group.**
+*From the deuteron to the group. Issues [#53](https://github.com/jimscarver/quantum-logical-framework/issues/53)
+and [#57](https://github.com/jimscarver/quantum-logical-framework/issues/57).*
 
-*Origin: [issue #53](https://github.com/jimscarver/quantum-logical-framework/issues/53). This
-note immortalizes the finding that a higher-level closure formed by **complementary** (rather than
-identical) parts achieves what neither part could alone — the same distinguishability principle
-that lets the proton and neutron bind, scaled up to collective intelligence and to decentralized
-QLF agents in quantum-os.*
+Sex, in QLF, is the formation of a **higher-order closure from two *complementary* specialists** —
+parts that are *not* copies of each other. The thesis, all the way down: **distinguishable
+closures bind into a higher closure that identical copies are forbidden**, and that higher closure
+has capabilities (stability, fertility, intelligence) neither part has alone. The cleanest
+instance is nuclear — the proton and the neutron — and it is *modelled*, not just asserted:
+[`proton_neutron_demo.py`](proton_neutron_demo.py).
 
 ---
 
-## 1. The principle: closure through complementarity
+## 1. The model: the sex of a proton and a neutron
 
-QLF's exclusion theorem (`pauli_exclusion`, [`lean/PauliExclusion.lean`](lean/PauliExclusion.lean))
-says **identical** closures cannot occupy the same state — the matrix commutator of two identical
-ρ-processes is zero. The constructive flip side is the productive one:
+Run `python proton_neutron_demo.py`. It models two complementary baryon closures and their
+pairing.
 
-> **Distinguishable closures can join a bound closure that identical copies are forbidden.**
+**The two protocols.**
 
-Complementarity is not a weakness to be averaged away; it is the *enabling condition* for the next
-level of structure. Two specialists that differ — that are not bisimulations of each other — open
-closure pathways that two copies of the same thing cannot.
+| | proton ♂ | neutron ♀ |
+|---|---|---|
+| net charge | **+1** — projects a gauge deficit | **0** — receptive / neutral |
+| free stability | stable but **inert** | **unstable** — β-decays in ~880 s |
+| carries | the EM surface / the `+1` the atom needs | the extra **down-quark** (fertility), the convertibility |
+| protocol | initiate, penetrate, charge outward | receive, stabilize, convert |
+| alone | a bare `+1` deficit — **not a closure** | a decaying imbalance |
+| in the deuteron | charge anchored | **stabilized** — stops decaying |
 
-## 2. The physics anchor: the deuteron (proton ♂ × neutron ♀)
+A bare proton's net `+1` is, in QLF, an **open gauge deficit** — *not* a complete ZFA closure; it
+projects, seeking a counter-structure ([`Electron.md`](Electron.md), [`HadronicDepth.md`](HadronicDepth.md) §2.1,
+[`Weak_Force.md`](Weak_Force.md) §4a). That is the **male protocol**: outward, charge-carrying,
+initiating an unresolved distinction. The neutron is net-neutral but internally fertile (the extra
+`d`-quark) and, alone, unstable — the **female protocol**: receptive, convertible, stabilized in
+the bond.
 
-The simplest case is nuclear. The **deuteron** (one proton + one neutron) binds only in the
-spin-triplet, `L = 0` channel. By Fermi antisymmetry, two *identical* nucleons — `pp` (diproton)
-or `nn` (dineutron) — are **forbidden** that channel, so **they do not bind**. Only `np` binds,
-because the neutron and proton are **distinguishable** closures, differing by exactly one `d↔u`
-flavour step ([`Weak_Force.md`](Weak_Force.md) §5f, anchored on the verified `pauli_exclusion` plus
-the `n–p` margin; baryon distinguishability is `baryon_dagger_odd`,
-[`lean/QLF_BaryonWinding.lean`](lean/QLF_BaryonWinding.lean)).
+**Why only ♂×♀ closes — the deuteron condition.** A bound nucleus forms in the spin-triplet,
+`L=0` channel only if the two nucleons are **distinguishable**:
 
-So the proton and neutron are **complementary specialists** — a "male" proton and a "female"
-neutron, in the issue's framing — and their union is the deuteron, the **first rung of
-nucleosynthesis** ([`Fusion.md`](Fusion.md), [`lean/QLF_Nucleosynthesis.lean`](lean/QLF_Nucleosynthesis.lean)).
-Every heavier element, and the energy of every star, is built on this complementary pairing. The
-distinguishability that QLF proves is *why* fusion has a first step at all: a universe of identical
-nucleons would have no deuteron, no chemistry, no us.
+- **p + p** (♂+♂) — *identical* closures → **Pauli-blocked**: no diproton.
+- **n + n** (♀+♀) — *identical* → **Pauli-blocked**: no dineutron.
+- **p + n** (♂+♀) — *distinguishable* (one `d↔u` flavour step) → **binds**: the **deuteron**.
 
-> **Speculative direction (flagged).** The issue asks whether modelling the proton–neutron
-> "relationship" as a complementary closure could illuminate low-energy fusion pathways. QLF does
-> frame fusion as a blanket merger that proceeds *once the topological pathway opens*
-> ([`Fusion.md`](Fusion.md) §2–§3), and complementarity is what opens it. **This is a research
-> direction, not a result** — "cold fusion" as commonly claimed is unproven and we make no claim
-> for it here. What QLF *does* own is the deuteron's distinguishability requirement and the
-> blanket-merger picture; whether that suggests engineerable low-temperature pathways is open.
+This is machine-anchored: identical closures cannot share a state (`pauli_exclusion`,
+[`lean/PauliExclusion.lean`](lean/PauliExclusion.lean)); the np distinguishability is the
+deuteron's existence-and-uniqueness ([`Weak_Force.md`](Weak_Force.md) §5f; baryon distinguishability
+is `baryon_dagger_odd`, [`lean/QLF_BaryonWinding.lean`](lean/QLF_BaryonWinding.lean)). Only the
+complementary pair reproduces — exactly the intuition behind "male and female."
 
-## 3. Collective intelligence: the same principle at the group scale
+## 2. Why the higher-level closure is significant
 
-A group is itself a Markov blanket — a higher-order closure over its members
-([`Hierarchical_Control.md`](Hierarchical_Control.md), [`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md)).
-And the empirical finding mirrors the deuteron exactly. **Woolley, Chabris, Pentland, Hashmi &
-Malone (2010, *Science*)** measured a general **collective-intelligence factor `c`** for groups,
-and found it is **not** predicted by the average or maximum individual IQ. It *is* predicted by:
+The deuteron is not just "two nucleons." It does two things **neither partner can do alone**:
 
-1. the average **social sensitivity** of members,
-2. the **evenness of conversational turn-taking**, and
-3. the **proportion of women** in the group.
+**(a) It stabilizes the unstable — a higher-order immune response.** A *free* neutron β-decays in
+~880 s: the vacuum's ZFA pruning kills it. **Bound** in the deuteron, the neutron is **stable** —
+the pairing *protects it from the decay that kills it alone*. This answers Allen's question
+([#57](https://github.com/jimscarver/quantum-logical-framework/issues/57)): there **is** an immune
+response in fundamental physics beyond blanket error correction — the higher closure error-corrects
+its members, conferring a stability the free parts lack. And the "evolution from information-horizon
+issues" is the same selection: only closures that survive the vacuum's pruning persist
+([`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md) — the proton's Borromean topology is *selected*
+for stability against annihilation). The deuteron is a fitter closure than its free neutron part.
 
-In QLF terms: collective intelligence is the group's capacity to reach **joint ZFA closures**
-(shared, consistent decisions) under active inference. Homogeneous groups — copies of the same
-specialist, dominating the same channel — are *Pauli-blocked*: they cannot occupy complementary
-states, so they explore a narrow closure space and predict the world poorly. **Complementary,
-diverse, socially-sensitive members open more closure pathways** — exactly as a distinguishable
-`np` pair binds where `pp` cannot. Diversity (the proportion-of-women effect, more carefully the
-social-sensitivity it tracks) is the group-scale deuteron condition.
+**(b) It is generative — the seed of all complexity.** `d + p → ³He`, `d + d → ⁴He`, … → every
+heavier element, every star's energy ([`Fusion.md`](Fusion.md),
+[`lean/QLF_Nucleosynthesis.lean`](lean/QLF_Nucleosynthesis.lean)). No deuteron → no fusion → no
+chemistry → no us. A free proton is stable but inert; a free neutron is fertile but decays. **Only
+the joint closure is both stable and generative.** Higher-order closure = capabilities neither part
+has — the whole point of sex.
 
-This is the decentralized-intelligence thesis of [`QLF_as_Intelligence.md`](QLF_as_Intelligence.md)
-made concrete: intelligence is not a property of the best single agent but of the **complementary
-closure** the agents form together.
+> **Speculative direction (flagged, not claimed).** #53 asks whether modelling the np
+> "relationship" illuminates low-energy fusion. QLF frames fusion as a blanket merger that
+> proceeds *once the topological pathway opens* ([`Fusion.md`](Fusion.md) §2–3), and
+> complementarity is what opens it. Whether that suggests engineerable low-temperature pathways is
+> **open** — "cold fusion" as commonly claimed is unproven and we make no claim for it. What QLF
+> *owns* is the deuteron's distinguishability requirement and the stabilization result above.
 
-## 4. Best practices for quantum-os rooms (group decisions)
+## 3. The same principle, at the group scale: collective intelligence
 
-Decentralized QLF agents share a room and reach decisions by the same mechanism — joint closure
-under active inference ([`QuantumOS.md`](QuantumOS.md),
-[`qos-cli`/`qos-daemon`](https://github.com/jimscarver/quantum-os)). The complementarity principle
-gives concrete practices:
+A group is a higher-order Markov blanket ([`Hierarchical_Control.md`](Hierarchical_Control.md),
+[`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md)), and it obeys the deuteron
+condition. **Woolley, Chabris, Pentland, Hashmi & Malone (2010, *Science*)** found a general
+collective-intelligence factor `c` predicted by members' **social sensitivity**, **even
+turn-taking**, and the **proportion of women** — *not* by individual IQ. In QLF terms: a room of
+clones is Pauli-blocked, re-deriving one closure; **complementary, diverse, socially-sensitive
+members open the closure space** — the group-scale deuteron. The "at least one woman raises `c`"
+effect is the np condition: a lone complementary voice can be the difference between a bound
+decision and no closure at all.
 
-- **Seat complementary specialists, not clones.** A room of identical agents is Pauli-blocked —
-  it re-derives the same closures. Diversity of role/perspective is what opens the decision space.
-- **Even the turn-taking.** One agent dominating the channel collapses the group to a single
-  blanket; balanced participation keeps the joint closure genuinely collective (Woolley's
-  turn-taking factor).
-- **Reward social sensitivity over raw throughput.** The strongest predictor of group CI is
-  members modelling each other (theory-of-mind), i.e. good active inference *about the other
-  agents*, not just about the task.
-- **Decisions are closures, not votes.** A group decision in QLF is a *joint ZFA closure* — a
-  configuration all the blankets can consistently inhabit — not a majority count. Seek the
-  configuration that closes for everyone; that is the stable (non-pruned) outcome.
-- **Keep a complementary minority.** As `np` binds where `pp` cannot, a lone complementary voice
-  (the "at least one woman raises `c`" effect) can be the difference between a bound decision and
-  no closure at all. Protect it.
+**Allen's emergence question** — how higher-order effects arise — has the same answer as the
+neutron's stabilization: **delayed communication across complementary impedances**. Each agent is a
+blanket with an impedance (what it lets through). Matched impedances (clones) reflect nothing new;
+*mismatched* impedances, given the iteration time (QLF's constructing delay `Δt = R/f`), transform
+— the Skeptic's failure-mode, delayed and integrated, becomes a closure stronger than either
+started with. That emergent joint closure is the higher-order effect.
 
-These belong in the quantum-os room conventions as well as here.
+## 4. QuantumOS rooms — best practices (issue #57)
 
-## 5. References
+Decentralized QLF agents reach decisions by the same mechanism — joint closure under active
+inference. The complementarity principle becomes concrete room practice: seat **complementary
+specialists, not clones**; require a **dissent/checking role** before closure; treat **decisions as
+joint closures, not votes**; even the turn-taking; **protect the complementary minority**. The full
+role templates (Proposer / Skeptic / Integrator / Evidence keeper / Operator / Boundary keeper), the
+8-point **closure checklist**, the defer/split/escalate/issue protocol, and a worked
+clones-vs-specialists demo room live in the quantum-os repo:
+[**Room_Best_Practices.md**](https://github.com/jimscarver/quantum-os/blob/main/Room_Best_Practices.md)
+(companion to `Group_Decisions.md` / `Governance.md`).
+
+## References
 
 - A. W. Woolley, C. F. Chabris, A. Pentland, N. Hashmi & T. W. Malone, *Evidence for a Collective
   Intelligence Factor in the Performance of Human Groups*, **Science 330** (2010) 686.
-- K. Friston, *The free-energy principle: a unified brain theory?*, Nat. Rev. Neurosci. **11**
-  (2010) 127 — the active-inference substrate of group closure.
-- **See also:** [`Weak_Force.md`](Weak_Force.md) §5f (deuteron distinguishability),
+- K. Friston, *The free-energy principle: a unified brain theory?*, Nat. Rev. Neurosci. **11** (2010) 127.
+- **In-repo:** [`proton_neutron_demo.py`](proton_neutron_demo.py) (the model),
+  [`Weak_Force.md`](Weak_Force.md) §5f (deuteron distinguishability),
   [`lean/PauliExclusion.lean`](lean/PauliExclusion.lean), [`Fusion.md`](Fusion.md),
+  [`lean/QLF_Nucleosynthesis.lean`](lean/QLF_Nucleosynthesis.lean),
   [`QLF_as_Intelligence.md`](QLF_as_Intelligence.md),
-  [`Hierarchical_Control.md`](Hierarchical_Control.md),
-  [`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md), [`QuantumOS.md`](QuantumOS.md).
+  [`Hierarchical_Control.md`](Hierarchical_Control.md).
