@@ -6,7 +6,7 @@ Project context for Claude Code sessions. Read this before making any changes.
 
 ## Project overview
 
-**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **68 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
+**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **69 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
 
 Core claim: *ZFA balance is the selection principle for physical reality.* Every terminating computation is a ZFA string; every ZFA string is symmetric (lies on the critical line). The Church-Turing universe filtered to ZFA-balanced strings is our physical universe.
 
@@ -14,7 +14,7 @@ Core claim: *ZFA balance is the selection principle for physical reality.* Every
 
 ---
 
-## 68 active modules
+## 69 active modules
 
 In `lean/`, registered in `lakefile.lean` roots array (in build order). For fuller per-module descriptions + the complete key-theorem lists, see [`lean/README.md`](lean/README.md).
 
@@ -78,6 +78,7 @@ In `lean/`, registered in `lakefile.lean` roots array (in build order). For full
 | `QLF_MuonG2` | **Placing the muon `g−2` honestly.** Leading `a_μ = α/2π = a_e` (universal one-loop QED, mass-independent; `a_mu_leading_eq_a_e`, reuses `QLF_GMinusTwo`) to ~0.6%. The muon's `(m_μ/m_e)² ≈ 42753` hadronic-sensitivity amplification (`hadronic_sensitivity_value`) is *why* the discrepancy is a muon effect (invisible in the electron). **Honest scope:** the residual is the hadronic-vacuum-polarization sector (QLF's open hadronic frontier, pion-dominated) and the experimental anomaly is **unsettled** (data-driven ~5σ vs lattice/CMD-3 ~1σ) — QLF claims no new-physics anomaly (`muon_g2_in_progress`). See `g_minus_2.md` §4a |
 | `QLF_AlphaS` | **The hierarchy from one integer.** Closes `QLF_MassSpectrum`'s last input: posit `α_s(substrate) = 1/b₀²` (`substrate_alpha_s`) — consistent with the measured running (`1/α_s(M_Planck)≈52≈b₀²=49`, ~7%) — and the dimensional-transmutation hierarchy collapses to a **pure integer**: `ln R_p = 2π/(b₀·α_s) = 2π·b₀` (`log_hierarchy_pure_integer`). With substrate `b₀=7`, `ln R_p = 14π ≈ 43.98` vs measured `ln(M_P/m_p) ≈ 44.01` — **0.07%** (`hierarchy_log_eq_fourteen_pi`). So the absolute mass scale (and the whole spectrum) follows from the single integer `7` (=`N_c=3`,`n_f=6`). **Honest scope:** `α_s=1/b₀²` is a running-consistent posit (not derived); value-level match ~3% (Planck-mass calibration; `alpha_s_substrate_in_progress`). See `Per_Qubit_Mass_Quantum.md` §3.3b |
 | `QLF_EinsteinEquations` | **The Einstein equations as the substrate's equation of state (Jacobson 1995).** The full field equations follow from `δQ = T δS` on every local horizon — and QLF supplies *both* inputs from its own substrate: the area law `S=4πR²log2` (`QLF_GravityFromDelay`) and the Unruh temperature (`QLF_HorizonTemperature`). This forces the coefficient `8πG = 2π/η` with entropy density `η=1/4G` (`einstein_coupling_from_thermodynamics`), the same `8π=4π·2` of `QLF_EinsteinGeometricFactor` (`einstein_coupling_geometric`); the integration constant `Λ = Ω_Λ = log 2`. **Kitada tie:** Jacobson's *local* Rindler horizon IS the Markov-blanket / Kitada local clock (`markov_blanket_local_clock`), so the Einstein equation of state is the Clausius relation at each local clock and `Λ = log 2` is the local-clock tick (`local_clock_tick_is_log_two`). **Honest scope:** anchors the coefficient + thermodynamic skeleton, NOT the full tensor derivation (local Rindler construction, Raychaudhuri focusing, general covariance need differential geometry QLF's Lean lacks — `einstein_equations_in_progress`). See `Einstein_Equations.md`, `Kitada_Local_Time_GR.md` §5.2, `GR_Schwarzschild.md` |
+| `QLF_Fusion` | **The β⁺ keystone — joining two Markov blankets needs distinguishability.** The pp-chain's first step `p+p→²H+e⁺+ν` is fusion AND β⁺ at once, and the insulator proof says why it must be: two *identical* proton blankets have **no** bound fermionic channel (`diproton_pauli_blocked`: `fermi_antisym p p = 0`, reusing **`pauli_exclusion`** — no diproton, ²He unbound), while a *distinguishable* `p+n` Hermitian-pair channel **closes** to identity (`deuteron_channel_closes`, reusing `opposite_spin_singlet_closes`). Packaged as **`pp_join_requires_distinguishability`** (the conjunction): the first blanket-join requires a β⁺ `u→d` step to make the pair distinguishable — the weak force is the precondition for fusion, and its rarity is why the Sun burns slowly. **Honest scope:** the necessity is owned (reuses two verified theorems); the β⁺ *rate* (`G_F`) is open (`fusion_weak_rate_in_progress`). See `Fusion.md` §3a, `SEX.md`, `Beta_Decay_Neutrino_Nature.md` |
 | `QLF_StrongAlgebra` | Strong `SU(3)` = traceless 3-axis directional tensor; `trace_commutator_zero`, `gluon_commutator_nonzero`, `strong_su3_summary` |
 | `QLF_BMinusL` | Electric charge = exactly-conserved signed twist count (`signed_count_conserved`); **obstruction** `wcount_zero_on_ZFA` — every conserved signed count is zero on closures, so `B−L` is NOT a weight dictionary (it is winding) |
 | `QLF_Majorana` | The neutrino is **Majorana**: antiparticle = Hermitian conjugate (conjugate-and-reverse), and `^v` is a fixed point of it; `neutrino_majorana`, `electron_not_majorana` (electron is Dirac), `antiparticle_involutive` |
@@ -357,7 +358,7 @@ Avoid framings that contradict the above:
 | Path | Purpose |
 |---|---|
 | `lean/` | All Lean source files |
-| `lakefile.lean` | Build config; `roots` array lists all 68 modules |
+| `lakefile.lean` | Build config; `roots` array lists all 69 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |
