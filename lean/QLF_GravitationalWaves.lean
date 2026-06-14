@@ -39,6 +39,8 @@ The `G` and `8π` that appear in the quadrupole formula are the substrate `G = L
 
 namespace QLF
 
+open QLF.Spin
+
 /-! ### 1. A gravitational wave propagates at the substrate light speed `c` -/
 
 /-- **Propagation speed of a gravitational wave** — a massless (gauge-fold-free) transverse
