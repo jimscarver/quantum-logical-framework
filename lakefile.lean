@@ -77,5 +77,6 @@ lean_lib QLF where
     `QLF_Anyons,
     `QLF_MuonG2,
     `QLF_AlphaS,
-    `QLF_EinsteinEquations
+    `QLF_EinsteinEquations,
+    `QLF_Fusion
   ]
