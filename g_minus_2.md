@@ -83,6 +83,33 @@ Numerical verification: [`g_minus_2_demo.py`](g_minus_2_demo.py).
 
 ---
 
+## §4a The muon `g−2`: same leading term, the "anomaly" localized
+
+The muon `g−2` is famous for a ~5σ *data-driven* discrepancy with the Standard Model. QLF places
+it honestly ([`lean/QLF_MuonG2.lean`](lean/QLF_MuonG2.lean)).
+
+**The leading term is QLF's, and it is universal.** The one-loop QED vertex is mass-independent, so
+the dominant contribution is the *same* Schwinger term `a_μ = α/(2π) = a_e` (`a_mu_leading_eq_a_e`)
+— QLF derives `a_μ ≈ 1.1617×10⁻³` to the same ~0.6% as the electron.
+
+**Why the muon is the sensitive probe.** Everything beyond the universal QED part is
+mass-dependent, and the muon is heavy: its sensitivity to **hadronic vacuum-polarization** loops is
+amplified by `(m_μ/m_e)² ≈ 42753` (`hadronic_sensitivity_value`). That is *why* a hadronic-sector
+discrepancy shows up for the muon and is invisible in the (far better measured) electron. The
+discrepancy lives entirely in the hadronic contributions — dominated by the `ππ`/`ρ` channel, i.e.
+the **pion**, which in QLF is the lightest hadron / deepest hadronic horizon
+([`QLF_QuantumBlackHole`](lean/QLF_QuantumBlackHole.lean), [`QLF_PionMassRatio`](lean/QLF_PionMassRatio.lean)).
+
+**The honest status of the "anomaly."** It is **not settled**: the discrepancy size depends on the
+hadronic-vacuum-polarization input — the *data-driven* `e⁺e⁻` value gives ~5σ, but the *lattice*
+(BMW 2020) and the CMD-3 measurement shrink it toward ~1σ; the field has been converging away from
+a clear anomaly. So QLF makes **no claim** to explain a new-physics anomaly. It identifies the
+residual as the hadronic-vacuum-polarization sector — (a) QLF's own open hadronic quantitative
+frontier (no quark masses, no `f_π`; `pion_mass_ratio_in_progress`) and (b) experimentally in flux
+(`muon_g2_in_progress`).
+
+---
+
 ## §5 What this is NOT
 
 - **Not a complete derivation including higher-order corrections.** Schwinger's `α/(2π)` is the leading term; the full expansion is
