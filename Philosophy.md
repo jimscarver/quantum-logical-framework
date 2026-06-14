@@ -154,5 +154,5 @@ lean --run lean/SpacetimeDynamics.lean # see formal proofs of logical equivalenc
 
 See also: [Active_Inference_Mathematics.md](Active_Inference_Mathematics.md) — the modern foundations meta-doc, same possibilist + ZFA commitments framed as the math itself: a candidate ZFC replacement and TOE for the part of mathematics that is not mathematical fantasy.
 
-## [Quantum-Os]([url](https://github.com/jimscarver/quantum-os)) live peer to peer radically decentralized collaborative intelligence interface
+## [Quantum-Os](https://github.com/jimscarver/quantum-os) live peer to peer radically decentralized collaborative intelligence interface
 - Join ([my public room](https://jimscarver.github.io/quantum-os/#room=cap%3Aroom%3A05214747236101414325074505234721)) or ([start a private room](https://jimscarver.github.io/quantum-os))

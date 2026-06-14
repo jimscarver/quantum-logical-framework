@@ -130,7 +130,7 @@ This demonstration matches real BEC experiments (e.g., interference in rubidium 
 
 Companion documents:
 - [HALF-SPIN-ZFA-EMBEDDING.md](./HALF-SPIN-ZFA-EMBEDDING.md)
-- [MEASUREMENT-PROBLEM.md](./MEASUREMENT-PROBLEM.md)
+- [Measurement_Problem.md](./Measurement_Problem.md)
 - [Simulation_Impossibility.md](./Simulation_Impossibility.md)
 
 ## Conclusion

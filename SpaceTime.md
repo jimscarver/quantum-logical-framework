@@ -37,7 +37,7 @@ In highly constrained environments (like near massive objects), the Markov blank
 
 There is no universal clock: **each mass runs its own independent time thread**, and this latency is the tick rate of that one thread. Dilation is therefore never absolute — it is the *ratio* of one thread's synthesis rate to another's, a point made precise in §4.
 
-* **Formal Proof:** See [`SpacetimeDynamics.lean`](SpacetimeDynamics.lean). This file formally proves `time_dilation_in_constrained_space`, mathematically guaranteeing that logic nodes with lower $W_{ZFA}$ have strictly greater logical latency.
+* **Formal Proof:** See [`SpacetimeDynamics.lean`](lean/SpacetimeDynamics.lean). This file formally proves `time_dilation_in_constrained_space`, mathematically guaranteeing that logic nodes with lower $W_{ZFA}$ have strictly greater logical latency.
 * **Empirical Demo:** Run [`muon_lifetime_demo.py`](muon_lifetime_demo.py). This script demonstrates how particle lifetime depends on the internal logical bit synthesis rate. As velocity shifts the reference frame, the internal synthesis rate drops, matching empirical observations of high-velocity muons living longer in the lab frame.
 
 ## 3. Space as Logical Distance
@@ -73,7 +73,7 @@ Mass is a dense cluster of localized, stable ZFA closures. These clusters restri
 
 Gravity is simply the statistical gradient of ZFA resolution latency.
 
-* **Formal Proof:** See the `gravity_is_time_dilation` theorem in [`SpacetimeDynamics.lean`](SpacetimeDynamics.lean). This verifies that a shift in the gravitational gradient strictly implies a shift in time dilation, linking the two phenomena computationally.
+* **Formal Proof:** See the `gravity_is_time_dilation` theorem in [`SpacetimeDynamics.lean`](lean/SpacetimeDynamics.lean). This verifies that a shift in the gravitational gradient strictly implies a shift in time dilation, linking the two phenomena computationally.
 * **Empirical Demo:** Run [`SpaceTime.py`](SpaceTime.py). 
   * *Tutorial Step:* When you execute this file, a simulated QuCalc grid is generated with a "massive" ZFA cluster at the center. Watch as the test particle's random walk is statistically biased toward the mass, moving from regions of high $W_{ZFA}$ (empty space) into the high-latency gravity well, perfectly modeling the possibilist gradient descent.
 
