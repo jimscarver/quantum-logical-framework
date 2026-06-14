@@ -6,7 +6,7 @@ Project context for Claude Code sessions. Read this before making any changes.
 
 ## Project overview
 
-**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **70 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
+**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **71 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
 
 Core claim: *ZFA balance is the selection principle for physical reality.* Every terminating computation is a ZFA string; every ZFA string is symmetric (lies on the critical line). The Church-Turing universe filtered to ZFA-balanced strings is our physical universe.
 
@@ -14,7 +14,7 @@ Core claim: *ZFA balance is the selection principle for physical reality.* Every
 
 ---
 
-## 70 active modules
+## 71 active modules
 
 In `lean/`, registered in `lakefile.lean` roots array (in build order). For fuller per-module descriptions + the complete key-theorem lists, see [`lean/README.md`](lean/README.md).
 
@@ -80,6 +80,7 @@ In `lean/`, registered in `lakefile.lean` roots array (in build order). For full
 | `QLF_EinsteinEquations` | **The Einstein equations as the substrate's equation of state (Jacobson 1995).** The full field equations follow from `δQ = T δS` on every local horizon — and QLF supplies *both* inputs from its own substrate: the area law `S=4πR²log2` (`QLF_GravityFromDelay`) and the Unruh temperature (`QLF_HorizonTemperature`). This forces the coefficient `8πG = 2π/η` with entropy density `η=1/4G` (`einstein_coupling_from_thermodynamics`), the same `8π=4π·2` of `QLF_EinsteinGeometricFactor` (`einstein_coupling_geometric`); the integration constant `Λ = Ω_Λ = log 2`. **Kitada tie:** Jacobson's *local* Rindler horizon IS the Markov-blanket / Kitada local clock (`markov_blanket_local_clock`), so the Einstein equation of state is the Clausius relation at each local clock and `Λ = log 2` is the local-clock tick (`local_clock_tick_is_log_two`). **Honest scope:** anchors the coefficient + thermodynamic skeleton, NOT the full tensor derivation (local Rindler construction, Raychaudhuri focusing, general covariance need differential geometry QLF's Lean lacks — `einstein_equations_in_progress`). See `Einstein_Equations.md`, `Kitada_Local_Time_GR.md` §5.2, `GR_Schwarzschild.md` |
 | `QLF_Fusion` | **The β⁺ keystone — joining two Markov blankets needs distinguishability.** The pp-chain's first step `p+p→²H+e⁺+ν` is fusion AND β⁺ at once, and the insulator proof says why it must be: two *identical* proton blankets have **no** bound fermionic channel (`diproton_pauli_blocked`: `fermi_antisym p p = 0`, reusing **`pauli_exclusion`** — no diproton, ²He unbound), while a *distinguishable* `p+n` Hermitian-pair channel **closes** to identity (`deuteron_channel_closes`, reusing `opposite_spin_singlet_closes`). Packaged as **`pp_join_requires_distinguishability`** (the conjunction): the first blanket-join requires a β⁺ `u→d` step to make the pair distinguishable — the weak force is the precondition for fusion, and its rarity is why the Sun burns slowly. **Honest scope:** the necessity is owned (reuses two verified theorems); the β⁺ *rate* (`G_F`) is open (`fusion_weak_rate_in_progress`). See `Fusion.md` §3a, `SEX.md`, `Beta_Decay_Neutrino_Nature.md` |
 | `QLF_InfoSynthesis` | **Information synthesis as disjunctive (OR) closure.** A ZFA closure takes the *random signal* of the possibility stream (`expand_generation`, every admissible history) and **closes on an OR condition**: `List.any verify` is the Boolean OR-fold `⋁_s verify s` over the stream. `disjunctive_closure` (`any verify = true ↔ ∃ s ∈ generated, verify s` — closing on the OR *is* the existential); `disjunct_count_eq_central_binomial` (the OR has exactly `C(2n,n)` satisfying disjuncts, reusing `realized_count_eq_central_binomial` from `QLF_PvsNP`); `closure_always_fires` (`C(2n,n)≥1`, so the OR is always satisfiable — synthesis never stalls). The realized closure synthesizes one bit `ΔF=−log2` (`QLF_FreeEnergy`). **Honest scope:** the disjunctive *structure* is anchored (no new axioms); the log-2 synthesis (`QLF_FreeEnergy`) and the OR-looks-lossy-vs-unitarity tension — resolved holographically as a *screened boundary-OR* (which-disjunct-fired coarse-grained out, bulk retains it) — stay prose (`info_synthesis_disjunctive`). See `MRE.md`, `Active_Inference_Mathematics.md`, `P_vs_NP_QLF.md` |
+| `QLF_MuonCatalysis` | **Lepton-catalyzed fusion is QLF cold fusion (rate, not necessity).** Muon-catalyzed fusion (μCF) is the *legitimate* cold fusion — room-temperature, Frank/Sakharov/Alvarez 1956, distinct from Fleischmann–Pons — reproduced **in agreement with the SM**. QLF reading: "cold" = crossing the §2 critical-density threshold by **generation-depth** (a deeper-generation completer shrinks the blanket, raising `ρ`) not temperature; **α-sticking** = the muon blanket captured into the deep doubly-magic ⁴He closure. The one structural claim QLF owns is **catalysis touches rate, not necessity**: `catalysis_preserves_necessity` (the identical-pair Pauli block is catalyst-independent — no completer makes two protons distinguishable, only a real `u→d` does) and `catalyzed_join_still_requires_beta` (the full §3a keystone holds with any catalyst, reusing `pp_join_requires_distinguishability`). **Honest scope:** D-T not p-p (catalysis boosts overlap, not the weak `G_F`); τ⁻ too short-lived to catalyze (depth↔lifetime trade-off); the muon economy (~2× energy-negative: production cost + α-sticking) is SM/engineering, not a QLF gap (`muon_catalysis_in_progress`). See `Fusion.md` §3b |
 | `QLF_StrongAlgebra` | Strong `SU(3)` = traceless 3-axis directional tensor; `trace_commutator_zero`, `gluon_commutator_nonzero`, `strong_su3_summary` |
 | `QLF_BMinusL` | Electric charge = exactly-conserved signed twist count (`signed_count_conserved`); **obstruction** `wcount_zero_on_ZFA` — every conserved signed count is zero on closures, so `B−L` is NOT a weight dictionary (it is winding) |
 | `QLF_Majorana` | The neutrino is **Majorana**: antiparticle = Hermitian conjugate (conjugate-and-reverse), and `^v` is a fixed point of it; `neutrino_majorana`, `electron_not_majorana` (electron is Dirac), `antiparticle_involutive` |
@@ -359,7 +360,7 @@ Avoid framings that contradict the above:
 | Path | Purpose |
 |---|---|
 | `lean/` | All Lean source files |
-| `lakefile.lean` | Build config; `roots` array lists all 70 modules |
+| `lakefile.lean` | Build config; `roots` array lists all 71 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |
