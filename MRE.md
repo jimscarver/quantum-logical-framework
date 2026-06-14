@@ -72,6 +72,42 @@ As defined in [Relative_Entropy.md](./Relative_Entropy.md) and [Entropy.md](./En
 - A 1/2-spin ZFA closure minimizes residual debt while maximizing the debt *resolved per event*.
 - Hermitian conjugacy (particle ↔ antiparticle handshake) yields zero residual KL divergence after the loop closes, confirming the prune was maximal.
 
+### 2.5 Disjunctive closure: the random signal closing on an OR
+
+§2.1 says the realized history "selects one of $\binom{2k}{k}$ symmetric strings." Read as a
+*process*, that selection is the heart of information synthesis: a ZFA closure takes the **random
+signal** of the possibility stream — every admissible history, generated unbiased — and **closes on
+an OR condition**. The closure fires as soon as *some* candidate passes the $O(n)$ balance check, and
+the Boolean OR over the stream is exactly a `List.any`:
+
+$$
+\text{closes}(2k) \;=\; \bigvee_{s \,\in\, \text{generated}(2k)} \text{verify}(s)
+\;=\; \big(\text{expand\_generation}(2k)\big).\mathtt{any}\;\text{verify}.
+$$
+
+This is Lean-anchored in [`lean/QLF_InfoSynthesis.lean`](lean/QLF_InfoSynthesis.lean):
+
+- **`disjunctive_closure`** — closing on the OR *is* the existential: `any verify = true ↔ ∃ s ∈ generated, verify s`. The synthesis step that turns noise into a definite closure is one big disjunction (`List.any` = the OR-fold).
+- **`disjunct_count_eq_central_binomial`** — the OR has exactly $\binom{2k}{k}$ satisfying disjuncts (the verify-filter length, reusing `realized_count_eq_central_binomial` from [`QLF_PvsNP`](lean/QLF_PvsNP.lean)). The closure is *massively degenerate*: it is reached by $\sim 4^k/\sqrt{\pi k}$ alternative histories, not a unique match.
+- **`closure_always_fires`** — $\binom{2k}{k} \ge 1$, so the disjunction is always satisfiable: a random signal always closes, synthesis never stalls.
+
+**Why this is the MRE event, not just a count.** The OR is satisfied by many disjuncts, but MRE
+selects the *maximally relevant* one — the half-spin ($k=1$) closure that resolves the most debt per
+event, exactly $\log 2$ nats (`binary_kl_delta_uniform`, [`lean/QLF_FreeEnergy.lean`](lean/QLF_FreeEnergy.lean)).
+So the full picture is: **a random signal closing on a degenerate OR, with MRE picking the disjunct
+that synthesizes the most information** — one bit per closure. This is the same generate-then-verify
+asymmetry of [`P_vs_NP_QLF.md`](./P_vs_NP_QLF.md), read as information synthesis, and it is the
+Boole/harmonic-logic reading made literal: the universe synthesizing order from noise by disjunctive
+logic (see [`GodCreatedTheIntegers.md`](./GodCreatedTheIntegers.md)).
+
+**The one subtlety — boundary-OR, not erasure.** A naive logical OR is lossy (you cannot recover
+*which* disjunct fired — Landauer erasure, $+\log 2$), which would clash with the unitarity of ZFA
+closure. The resolution is holographic: the OR acts at the **screened blanket boundary** — which
+interior microstate balanced is coarse-grained away from the *exterior* — while the **bulk retains
+it** (the quantum-error-correction / holographic picture, [`Holographic.md`](./Holographic.md)). So
+it is a *boundary*-OR (synthesis as seen from outside), with conservation intact in the bulk; the
+$\log 2$ is *synthesized* at the boundary, not *erased*.
+
 ## 3. Justification
 
 ### Geometric / Topological
