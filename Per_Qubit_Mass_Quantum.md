@@ -100,6 +100,33 @@ This is a cleaner statement of the open problem than "derive `α R_e = m_e`" bec
 
 The required depth `R_e ≈ 2.4 × 10²²` is far beyond any tractable BFS enumeration. A first-principles derivation will involve depth-as-mass scaling at the Planck-event scale plus a structural argument for why the electron's specific Markov-blanket sits at that depth.
 
+### 3.3a The absolute spectrum is one scale, exponentially generated
+
+Two honest results sharpen this further ([`lean/QLF_MassSpectrum.lean`](lean/QLF_MassSpectrum.lean)).
+
+**The whole spectrum is one parameter.** Because every QLF mass *ratio* is a machine-verified
+dimensionless number — `m_p/m_e = 6π⁵`, `m_p/m_π = 3π⁵/137`, Koide `Q=2/3`, the depth ratios —
+**every mass is the single proton scale `m_p` times a verified ratio** (`spectrum_one_scale`;
+`m_e = m_p/6π⁵`, `electron_mass_from_proton_eq`). The Standard Model's ~13 independent mass
+parameters collapse to **one** absolute input. So the absolute-spectrum problem is exactly:
+*derive one number* — `R_p ≈ 1.30×10¹⁹` (equivalently `R_e = 6π⁵ R_p ≈ 2.4×10²²`).
+
+**That one number is exponentially generated — dimensional transmutation.** Why is `R_p ≈ 10¹⁹`
+so huge? Not fine-tuning. The strong coupling runs *logarithmically* (asymptotic freedom,
+[`QLF_RunningCouplings`](lean/QLF_RunningCouplings.lean)), so starting from a moderate
+substrate-scale coupling `α`, it reaches strong coupling — confinement, the proton scale — only
+after a depth **exponential in `1/α`**: `R ~ exp(2π/(b·α))`, with log linear in `1/α`,
+`ln R = 2π/(b·α)` (`log_transmuted_hierarchy`). With the QCD one-loop coefficient `b = 7` and a
+moderate `α_s ≈ 0.02`, `ln R ≈ 2π/(7·0.02) ≈ 44.9`, matching the measured
+`ln(M_Planck/m_p) ≈ 44.0`. A moderate input, exponentially amplified — **the `10¹⁹` hierarchy
+with no fine-tuning**; weaker coupling gives a larger hierarchy
+(`weaker_coupling_larger_hierarchy`, the asymptotic-freedom amplification).
+
+**Honest scope.** This reduces the spectrum to one scale and shows the scale is exponentially
+*natural*, but does **not** derive its value: that needs the β-coefficient `b` (open in
+`QLF_RunningCouplings`), the substrate coupling `α_s`, and the Planck→SI calibration — equivalently
+the combinatorial `R_e` count above (`mass_spectrum_in_progress`).
+
 **Structural relation `Ry = (1/2) α² m_e c²`.** The QLF Bohr derivation in [`Hydrogen.md`](Hydrogen.md) §§2–4 produces this identity from Coulomb-via-gauge-twist-exchange (§2) + ZFA-depth quantization (§3). Equivalently in QLF Planck units:
 
 ```
