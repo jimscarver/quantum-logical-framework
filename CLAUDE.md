@@ -6,7 +6,7 @@ Project context for Claude Code sessions. Read this before making any changes.
 
 ## Project overview
 
-**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **60 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
+**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **61 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
 
 Core claim: *ZFA balance is the selection principle for physical reality.* Every terminating computation is a ZFA string; every ZFA string is symmetric (lies on the critical line). The Church-Turing universe filtered to ZFA-balanced strings is our physical universe.
 
@@ -14,7 +14,7 @@ Core claim: *ZFA balance is the selection principle for physical reality.* Every
 
 ---
 
-## 60 active modules
+## 61 active modules
 
 In `lean/`, registered in `lakefile.lean` roots array (in build order). For fuller per-module descriptions + the complete key-theorem lists, see [`lean/README.md`](lean/README.md).
 
@@ -70,6 +70,7 @@ In `lean/`, registered in `lakefile.lean` roots array (in build order). For full
 | `QLF_CondensedMatter` | **Quantum Hall resistance from α + Cooper pairs as bosons.** von Klitzing constant `R_K = h/e² = Z₀/(2α)` (`von_klitzing`); with QLF's `α=1/137`, `R_K = Z₀·137/2 ≈ 25806 Ω` vs measured 25812.807 (**0.026%**, the α error) (`von_klitzing_substrate`); integer-QHE plateaus `R_xy = R_K/ν` (`hall_resistance`). Cooper pair = two half-spins = an even pair fold = boson (`cooper_pair_boson`, reuses `boson_even_pairs`). **Honest scope:** anchors `R_K` + integer-QHE + Cooper-pair-boson, NOT the BCS gap equation, fractional QHE/anyons, or topological bands (`condensed_matter_in_progress`). See `Electricity.md` §6–§7 |
 | `QLF_CosmicInflation` | **Inflation (past) + gravity (present) as one event duality.** Each event expands the future + contracts locally (`event_duality_balanced`). Inflation and dark energy are the **same `w=−1` event-synthesis field** at two energy scales — no inflaton (`inflation_and_dark_energy_same_field`, reuses the verified `zfa_dynamics_drive_acceleration`); Friedmann `H∝√V` makes the early high-`V` epoch inflate (`higher_energy_faster_expansion`). Temporal vantage: past = high-`V` expansion (inflation), present-local = contraction (gravity), future = residual `w=−1` (dark energy). **Honest scope:** anchors the duality + √-monotonicity + shared-`w=−1` unification, NOT the inflation observables (e-folds, `n_s`, `r`) or `f(t)` (`cosmic_inflation_in_progress`). See `Curvature.md` §8 |
 | `QLF_StrongCP` | **`θ̄ = 0` without an axion.** The strong-CP θ-term is a CP-odd topological winding; QLF proves every CP-odd (annihilation-odd) signed count is zero on every ZFA closure (`cp_odd_winding_zero_on_closure`, `theta_zero_on_closure`, reusing `wcount_zero_on_ZFA` + `chargeWeight_annihilationOdd` from `QLF_BMinusL`). So `θ̄=0` is forced on physical states — no axion, no fine-tuning (ZFA closure does the Peccei–Quinn job). **Honest scope:** the QCD θ-vacuum↔QLF-winding identification is structural (`strong_cp_in_progress`). See `CP-Violation-and-Chirality.md` §4a |
+| `QLF_Baryogenesis` | **The three Sakharov conditions are met ⟹ matter excess is generic.** Matter/antimatter carry opposite baryon winding (`matter_antimatter_opposite`, reuses `baryon_dagger_odd`); B not conjugation-invariant (proton `B=1` vs antiproton `B=−1`). B-violation (winding + Majorana `B−L`), C/CP violation (chirality engine + `QLF_StrongCP`), out-of-equilibrium (`QLF_CosmicInflation` expansion) all hold. **Honest scope:** the *magnitude* `η_B ≈ 6×10⁻¹⁰` is open, as in the SM (`baryogenesis_in_progress`). See `CP-Violation-and-Chirality.md` §4b |
 | `QLF_StrongAlgebra` | Strong `SU(3)` = traceless 3-axis directional tensor; `trace_commutator_zero`, `gluon_commutator_nonzero`, `strong_su3_summary` |
 | `QLF_BMinusL` | Electric charge = exactly-conserved signed twist count (`signed_count_conserved`); **obstruction** `wcount_zero_on_ZFA` — every conserved signed count is zero on closures, so `B−L` is NOT a weight dictionary (it is winding) |
 | `QLF_Majorana` | The neutrino is **Majorana**: antiparticle = Hermitian conjugate (conjugate-and-reverse), and `^v` is a fixed point of it; `neutrino_majorana`, `electron_not_majorana` (electron is Dirac), `antiparticle_involutive` |
@@ -349,7 +350,7 @@ Avoid framings that contradict the above:
 | Path | Purpose |
 |---|---|
 | `lean/` | All Lean source files |
-| `lakefile.lean` | Build config; `roots` array lists all 60 modules |
+| `lakefile.lean` | Build config; `roots` array lists all 61 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |

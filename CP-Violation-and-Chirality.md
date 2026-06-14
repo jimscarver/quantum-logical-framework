@@ -68,6 +68,29 @@ on ZFA closures. The identification of the QCD `θ`-vacuum / the gluonic `G·G̃
 CP-odd signed winding is structural; the instanton θ-vacuum is not field-theoretically
 constructed (`strong_cp_in_progress`).
 
+## 4b. Baryogenesis: the three Sakharov conditions are met
+
+The matter excess of the universe (`η_B = n_B/n_γ ≈ 6×10⁻¹⁰`) follows, by Sakharov (1967), from
+any dynamics with **(1) baryon-number violation, (2) C and CP violation, (3) departure from
+thermal equilibrium**. The substrate meets all three, so a matter excess is **generic**:
+
+1. **B-violation** — baryon number is a signed 3-axis *winding* (`baryonNumber`,
+   [`lean/QLF_BaryonWinding.lean`](lean/QLF_BaryonWinding.lean)), not a conserved signed count;
+   it flips under conjugation (`baryon_dagger_odd`), so matter and antimatter carry *opposite*
+   winding (`matter_antimatter_opposite`, [`lean/QLF_Baryogenesis.lean`](lean/QLF_Baryogenesis.lean)),
+   and `B−L` is violated in the lepton sector (the neutrino is Majorana, `neutrino_majorana`).
+2. **C and CP violation** — the chirality engine of §3–§4 spontaneously breaks LH/RH symmetry;
+   charge and chirality co-negate under conjugation (`C_eq_motional_reversal`, `QLF_Spin`);
+   CP-odd windings are nonzero off closure (§4a).
+3. **Departure from equilibrium** — the early universe inflates / expands (`w = −1`,
+   [`lean/QLF_CosmicInflation.lean`](lean/QLF_CosmicInflation.lean), [Curvature.md §8](Curvature.md)).
+
+**Honest scope.** This anchors that matter and antimatter are distinguishable (opposite baryon
+winding) and that all three Sakharov conditions hold — so a nonzero asymmetry is forced. It does
+**not** derive the *magnitude* `η_B ≈ 6×10⁻¹⁰`, which is open in QLF exactly as it is in the
+Standard Model (whose CP violation undershoots by ~10⁸); the quantitative CP phase and the
+out-of-equilibrium rate are open (`baryogenesis_in_progress`).
+
 ## 5. Scaling to Biology: The Handedness of Reality
 
 This topological victory has massive macroscopic consequences because the QuCalc alphabet is fundamentally built on **half-spin combinatorial logic**, which is intrinsically chiral (handed).
