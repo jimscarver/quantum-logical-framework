@@ -73,6 +73,9 @@ canonical status list; when an item moves, update it here and in its owning doc.
 | **Gauge unification (forces from 3 axes)** | Structural conjecture: `dim(U(1)×SU(2)×SU(3)) = 12 = 1+3+8`, with `1+8 = 9 = N` (the α tensor). **All three gauge algebras now machine-verified** — U(1) (`no_magnetic_monopoles`), SU(2) (`weak_isospin_su2`), SU(3) (`trace_commutator_zero`+`gluon_commutator_nonzero`, [`lean/QLF_StrongAlgebra.lean`](lean/QLF_StrongAlgebra.lean)). Still a dimension *alignment*, not a derivation: no couplings, chirality, masses; quark flavors/CKM open; `SU(3)` finrank=8 is the elementary codim-1 (not yet Lean) | [`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md) |
 | **Constants program** (π, e, δ; α below the 0.026% floor) | Methods exist in `constants_mapper.py`; full CODATA agreement is the active research front | [`Experimental_Consistency.md`](Experimental_Consistency.md) §6.3, §11 |
 | **Lamb shift radiative pieces** | AMM `+68 MHz` (Schwinger `α/2π` on the bound moment) and vacuum polarization (Uehling) `−27 MHz` taken as inputs | [`Lamb_Shift.md`](Lamb_Shift.md) §8 |
+| **Neutrino masses / oscillations / seesaw** | Nature solved — neutrino is **Majorana** (`neutrino_majorana`, ✅ above). Open: the tiny masses (`m ∝ 1/R` with very large depth `R`), the PMNS mixing angles + mass-squared splittings (oscillation = gauge-fold harmonic desync, `Frequency_Synchronization.md`), and the seesaw — none quantitatively derived | [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md), [`Standard_Model.md`](Standard_Model.md) §4.2 |
+| **Baryogenesis (matter–antimatter asymmetry)** | Mechanism named (CP via LH/RH chirality clustering, `B−L` violation via Majorana, sphaleron) but the magnitude `η_B ≈ 6×10⁻¹⁰` is **not** derived; the Sakharov conditions are met structurally, the number is open | [`CP-Violation-and-Chirality.md`](CP-Violation-and-Chirality.md), [`Conservation.md`](Conservation.md) §5 |
+| **Strong CP problem (`θ̄ ≈ 0`)** | Conjectured topological necessity: only the `+`/`−` gauge axes can host a `θ`-term, and ZFA closure may force `θ̄ = 0` with no axion/fine-tuning — a structural claim, **not** yet a theorem | [`CP-Violation-and-Chirality.md`](CP-Violation-and-Chirality.md) |
 
 ---
 
@@ -98,6 +101,8 @@ canonical status list; when an item moves, update it here and in its owning doc.
 | QuantumOS active-inference scheduler on QPU silicon (today: browser control plane) | [`Crystal_QuantumOS.md`](Crystal_QuantumOS.md) §7 |
 | Quantitative delayed-choice visibility match (Kim et al. 1999) | [`Delayed_Choice_Eraser.md`](Delayed_Choice_Eraser.md) |
 | Strong-field FLRW coupling for the cosmological constant | [`Cosmological_Constant.md`](Cosmological_Constant.md) |
+| Cosmic inflation / initial conditions (Logical-Bang blanket-merger cascade; no inflaton — early-universe high vacuum frequency → exponential expansion) — not detailed | [`Fusion.md`](Fusion.md) |
+| Proton decay / GUT lifetime (higher-order gauge-fold re-entry forbidden at low logical density) — beyond the gauge-algebra alignment already verified | [`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md) |
 | Material-specific carrier-scattering / `ρ(T)` / `T_c` | [`Electricity.md`](Electricity.md) |
 | QRNG Closure Observatory — falsifiable test of whether QRNG streams deviate from the analytic ZFA-closure null (predeclared sieve + controls; expected Tier-0) | [`QRNG_Closure_Observatory.md`](QRNG_Closure_Observatory.md) |
 
