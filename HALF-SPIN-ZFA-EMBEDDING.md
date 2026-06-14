@@ -162,7 +162,7 @@ All further development of QuCalc — whether new rewrite rules, extensions to h
 - [Rho-calculus (rewriting calculus)](https://drops.dagstuhl.de/storage/00lipics/lipics-vol015-rta2012/v20120508-organizer-final/LIPIcs.RTA.2012.2/LIPIcs.RTA.2012.2.pdf)
 - [Relational Quantum Mechanics – Rovelli (1996)](https://arxiv.org/abs/quant-ph/9609002)
 - [ZFA – nLab](https://ncatlab.org/nlab/show/ZFA)
-- Companion document: [INFEASIBILITY-OF-FULL-UNIVERSE-SIMULATION.md](./INFEASIBILITY-OF-FULL-UNIVERSE-SIMULATION.md)
+- Companion document: [Simulation_Impossibility.md](./Simulation_Impossibility.md)
 - [Measurement_Problem.md](Measurement_Problem.md) — the half-spin ZFA embedding IS the foundational resolution: ZFA closure at causal intersection dissolves collapse without extra postulates
 - [Spin_Statistics.md](Spin_Statistics.md) — the spin-statistics theorem derived from the per-atom -I Pauli fold: odd atom count = anticommute (fermion), even atom count = commute (boson)
 - [Langlands.md](Langlands.md) — half-spin closures as the bottom-up scaffolding of Langlands; QLF generates any geometry from these atoms, providing a constructive path to RH, functoriality, modularity, geometric Langlands, and Kapustin-Witten quantum Langlands
