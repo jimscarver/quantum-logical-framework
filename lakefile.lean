@@ -67,5 +67,6 @@ lean_lib QLF where
     `QLF_RunningCouplings,
     `QLF_GravitationalWaves,
     `QLF_FlavorMixing,
-    `QLF_CondensedMatter
+    `QLF_CondensedMatter,
+    `QLF_CosmicInflation
   ]
