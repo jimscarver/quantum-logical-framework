@@ -69,5 +69,6 @@ lean_lib QLF where
     `QLF_FlavorMixing,
     `QLF_CondensedMatter,
     `QLF_CosmicInflation,
-    `QLF_StrongCP
+    `QLF_StrongCP,
+    `QLF_Baryogenesis
   ]
