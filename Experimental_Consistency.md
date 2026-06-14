@@ -45,6 +45,7 @@ What the framework currently retrodicts, derives, or Lean-verifies. Each item is
 |---|---|---|---|
 | Hydrogen spectrum `E_n = −Ry/n²` | NIST Lyman/Balmer | QLF Bohr from §§2-4; Dirac residual structurally decomposed in [`Dirac_Correction.md`](Dirac_Correction.md) into three substrate origins (Cross_Frequency_Lorentz kinematic + Magnetism_Spatial_Dynamics single-α² spin-orbit + Per_Qubit Compton zitterbewegung Darwin) | 0.053% Bohr → ~0.002–0.003% with Dirac + reduced-mass (n=1: 0.0002%) |
 | **21cm hyperfine line** | 1420.4 MHz | `ΔE_HFS = (4/3) α⁴ g_p (m_e/m_p) m_e c²` from spatial-dynamics framing | 0.054% (1421 MHz pred) |
+| **von Klitzing constant `R_K`** (quantum Hall) | 25812.807 Ω | `R_K = h/e² = Z₀/(2α)`; with substrate `α = 1/137`, `R_K = Z₀·137/2`. **Lean-verified** `von_klitzing_substrate` in `QLF_CondensedMatter.lean`; integer-QHE plateaus `R_xy = R_K/ν` | **0.026%** (25806 Ω pred; exactly the α error — the most precise resistance in metrology reading back the substrate α) |
 | **Atomic-system masses** | Ps 1.022 MeV, Mu 106.17 MeV, H 938.78 MeV | Per-qubit Compton accounting `m c² = E_Planck / R` | Exact via depth ratios (§5.5) |
 | **m_p/m_e** (Lenz factor) | 1836.118 | `|S_3| · π⁵ = 6π⁵` from 3-quark Bose permutation × 5-angle hidden-chirality integration. **Lean-verified** as `mass_ratio_QLF_eq` in `QLF_LenzMassRatio.lean` | **0.002%** vs PDG 1836.152 (zero free parameters) |
 | **Lepton mass ratios** | m_p/m_e=1836.15, m_μ/m_e=206.77, m_τ/m_μ=16.82 | Depth ratios `m_X/m_Y = R_Y/R_X` | PDG-exact (§5.5) |
