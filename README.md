@@ -49,7 +49,7 @@ QLF now spans **65 machine-verified Lean modules** (zero `sorry`) covering the S
 Reading order:
 - Start with [**Active_Inference_Mathematics.md**](Active_Inference_Mathematics.md) for the meta-framing.
 - See [**Magnetism_Spatial_Dynamics.md §6**](Magnetism_Spatial_Dynamics.md) for the α derivation that anchors the substrate program.
-- See [**Gravity_From_Delay.md**](Gravity_From_Delay.md) and [**Mercury_Perihelion.md**](Mercury_Perihelion.md) for the gravity/GR program.
+- See [**Gravity_From_Delay.md**](Gravity_From_Delay.md), [**Einstein_Equations.md**](Einstein_Equations.md) (the field equations as the substrate's equation of state, Jacobson), and [**Mercury_Perihelion.md**](Mercury_Perihelion.md) for the gravity/GR program.
 - See [**Experimental_Consistency.md §1.1**](Experimental_Consistency.md) for the full quick-reference scoreboard.
 
 ---

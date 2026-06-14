@@ -1,0 +1,160 @@
+# The Einstein equations as the substrate's equation of state
+
+**Module:** [`lean/QLF_EinsteinEquations.lean`](lean/QLF_EinsteinEquations.lean) (#68)
+**Companions:** [`GR_Schwarzschild.md`](GR_Schwarzschild.md) (the metric), [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5.2 (the local-time reading), [`Gravity_From_Delay.md`](Gravity_From_Delay.md) (the area law), [`QLF_HorizonTemperature.lean`](lean/QLF_HorizonTemperature.lean) (the Unruh temperature), [`Cosmological_Constant.md`](Cosmological_Constant.md) (`Λ = Ω_Λ = log 2`).
+
+---
+
+## §1 The gap this closes
+
+QLF already had Newton's law, `G = L_P²c³/ℏ`, the Mercury perihelion, and the weak-field
+Schwarzschild metric — but the **full** field equations
+
+$$
+G_{\mu\nu} \;=\; \frac{8\pi G}{c^4}\, T_{\mu\nu}
+$$
+
+were flagged open: only the `8π = 4π·2` factor ([`QLF_EinsteinGeometricFactor`](lean/QLF_EinsteinGeometricFactor.lean))
+and the weak-field limit ([`GR_Schwarzschild.md`](GR_Schwarzschild.md)) were anchored. The curvature
+side — *why the field equations take the form they do at all* — was missing.
+
+The honest route does not require differential geometry. It is **Jacobson (1995)**.
+
+---
+
+## §2 Jacobson: the field equations are an equation of state
+
+Jacobson, *"Thermodynamics of Spacetime: The Einstein Equation of State"* (Phys. Rev. Lett. **75**,
+1260, 1995), showed the Einstein equations are **not** a fundamental dynamical law but the
+**equation of state** of horizon thermodynamics. They follow from demanding the Clausius relation
+
+$$
+\delta Q \;=\; T\, \delta S
+$$
+
+at **every local Rindler horizon** — a separate causal horizon through each spacetime point, as seen
+by each local accelerated observer — with `T` the **Unruh temperature** of that observer and `S` the
+**Bekenstein–Hawking area entropy** of the horizon. Heat flux across the horizon, equated to the
+temperature times the entropy change (the area change via Raychaudhuri focusing), yields the Einstein
+tensor. The derivation is **entirely local**: there is no global construction anywhere in it.
+
+This is *exactly* QLF's picture — synthesized spacetime, local clocks, horizon screening — and QLF
+supplies **both** of Jacobson's inputs from its own substrate.
+
+---
+
+## §3 QLF supplies both inputs
+
+| Jacobson input | QLF substrate result | Anchor |
+|---|---|---|
+| Horizon **area entropy** `S = 4πR² log 2` ⟹ entropy density `η = 1/(4G)` | holographic delay area law | [`holographic_entropy_eq`](lean/QLF_GravityFromDelay.lean), [`Gravity_From_Delay.md`](Gravity_From_Delay.md) |
+| Horizon **temperature** `T = ℏκ/(2πck_B)` (Unruh) | the loop-phase `2π` master relation | [`unruh_temperature`](lean/QLF_HorizonTemperature.lean) |
+
+The substrate area law carries one `log 2` bit per cell; its continuum coarse-graining is the
+Bekenstein–Hawking entropy density `η = 1/(4G)` (the `log 2 / 4` gap is the substrate→continuum
+factor noted in [`Gravity_From_Delay.md`](Gravity_From_Delay.md)). The Unruh `2π` is QLF's **loop
+phase** — the same `2π` as `g−2 = α/2π` and the horizon temperatures
+([`QLF_HorizonTemperature`](lean/QLF_HorizonTemperature.lean)).
+
+---
+
+## §4 The coefficient is forced
+
+With both inputs fixed, the Clausius relation forces the field-equation coefficient to be the **Unruh
+`2π` over the entropy density**:
+
+$$
+8\pi G \;=\; \frac{2\pi}{\eta}, \qquad \eta = \frac{1}{4G}.
+$$
+
+Machine-verified as
+[`einstein_coupling_from_thermodynamics`](lean/QLF_EinsteinEquations.lean):
+
+```lean
+theorem einstein_coupling_from_thermodynamics (G : ℝ) (hG : G ≠ 0) :
+    einstein_coupling G = 2 * Real.pi / entropy_density G
+```
+
+with `einstein_coupling G = 8πG` and `entropy_density G = 1/(4G)`. And the same `8π` is QLF's
+geometric `8π = 4π·2` — boundary solid angle × Hermitian-pair degeneracy
+([`einstein_coupling_geometric`](lean/QLF_EinsteinEquations.lean),
+[`QLF_EinsteinGeometricFactor`](lean/QLF_EinsteinGeometricFactor.lean)):
+
+$$
+8\pi G \;=\; (4\pi \cdot 2)\, G \;=\; 2\pi \cdot (4G).
+$$
+
+The `2π` is the local horizon's accelerated-observer periodicity; the `4G` is the inverse entropy
+density. The Einstein coupling is the **ratio of these two local-horizon quantities**.
+
+---
+
+## §5 The integration constant is the local-clock tick
+
+Jacobson's derivation leaves an undetermined integration constant — the cosmological constant `Λ`.
+QLF fixes it independently as `Ω_Λ = log 2` ([`QLF_CosmologicalConstant`](lean/QLF_CosmologicalConstant.lean),
+[`Cosmological_Constant.md`](Cosmological_Constant.md)), which is *the same* `log 2` as the per-tick
+quantum of every local clock ([`local_clock_tick_is_log_two`](lean/QLF_LocalClock.lean)) and the
+per-event free-energy quantum ([`QLF_FreeEnergy`](lean/QLF_FreeEnergy.lean)). So
+
+> **the cosmological constant is the local clock's own tick** — the irreducible `log 2` each ZFA
+> closure advances, read at cosmic scale.
+
+The "unexplained" constant of Jacobson's derivation is, on the substrate, just the rate the local
+clocks tick.
+
+---
+
+## §6 The Kitada local-time reading
+
+Jacobson's derivation is **local** — `δQ = T δS` at *each* local Rindler horizon. QLF already proved
+([`markov_blanket_local_clock`](lean/QLF_LocalClock.lean), [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md))
+that a Markov blanket **is** a Kitada local clock, and it is also a horizon — carrying the Unruh
+temperature and the area entropy. So the three are the **same object**:
+
+> Jacobson's local Rindler horizon **=** QLF's Markov-blanket horizon **=** Kitada's local clock.
+
+Hence the Einstein equation of state is the Clausius relation evaluated **at each Kitada local clock**,
+and the global field equations are the statement that every local clock in the network sits in local
+thermodynamic equilibrium simultaneously — precisely Hitoshi Kitada's picture of GR as the consistency
+condition of the network of local times ([gr-qc/9612043](https://arxiv.org/abs/gr-qc/9612043)). The
+local-time reading is developed in [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5.2.
+
+---
+
+## §7 Honest scope
+
+This anchors the **coefficient and the thermodynamic skeleton** — `8πG = 2π/η`, both inputs being QLF
+substrate results, reproducing Jacobson's "Einstein equation of state," with `Λ = Ω_Λ = log 2` the
+integration constant = the local-clock tick. Status marker:
+[`einstein_equations_in_progress`](lean/QLF_EinsteinEquations.lean).
+
+It does **not** carry out the full **tensor** derivation: the local Rindler construction, the
+Raychaudhuri focusing equation, and general covariance need differential-geometry machinery QLF's Lean
+core does not have — the same dynamical-metric step still open for the Schwarzschild metric
+([`GR_Schwarzschild.md`](GR_Schwarzschild.md)) and gravitational waves
+([`QLF_GravitationalWaves`](lean/QLF_GravitationalWaves.lean)). What is new here is the **identification**:
+Jacobson's local horizon thermodynamics *is* QLF's Markov-blanket / Kitada local-clock thermodynamics,
+so the Einstein equation of state is literally the equation of state of the local-clock network.
+
+---
+
+## §8 Lean anchors
+
+| Theorem | Statement |
+|---|---|
+| `entropy_density` | `η = 1/(4G)` — Bekenstein–Hawking entropy density (continuum coarse-graining of `S = 4πR² log 2`) |
+| `einstein_coupling` | `8πG` — the Einstein gravitational coupling |
+| `einstein_coupling_from_thermodynamics` | `8πG = 2π/η` — the coefficient as Unruh `2π` over entropy density (Jacobson) |
+| `einstein_coupling_geometric` | `8πG = (4π·2)G = 2π·(4G)` — the same `8π = 4π·2` |
+| `einstein_equations_in_progress` | status: coefficient + thermodynamic skeleton anchored; full tensor derivation open |
+
+---
+
+## §9 References
+
+- T. Jacobson, *Thermodynamics of Spacetime: The Einstein Equation of State*, Phys. Rev. Lett. **75**, 1260 (1995), [gr-qc/9504004](https://arxiv.org/abs/gr-qc/9504004).
+- E. Verlinde, *On the Origin of Gravity and the Laws of Newton*, JHEP **04**, 029 (2011), [arXiv:1001.0785](https://arxiv.org/abs/1001.0785).
+- H. Kitada, *Theory of Local Times*, [gr-qc/9612043](https://arxiv.org/abs/gr-qc/9612043) (1996).
+- J. D. Bekenstein, *Black Holes and Entropy*, Phys. Rev. D **7**, 2333 (1973).
+- W. G. Unruh, *Notes on black-hole evaporation*, Phys. Rev. D **14**, 870 (1976).
