@@ -359,6 +359,7 @@ Avoid framings that contradict the above:
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |
 | `braket_rho.py` | Numerical demo of bra-ket ↔ RhoQuCalc correspondence |
+| `proton_neutron_demo.py` / `SEX.md` | Model of the proton♂/neutron♀ pairing (issues #53/#57): `pn` binds where `pp`/`nn` are Pauli-blocked, the bond stabilizes the decaying neutron; complementarity → collective intelligence. Room best practices live in quantum-os `Room_Best_Practices.md` |
 | `BraKetRhoQuCalc.md` | Reference doc for bra-ket ↔ RhoQuCalc correspondence |
 | `Lagrangian_Formulation.md` | Variational formulation: ℒ=0 as origin, Σ₈ algebra, Zeno stationarity, decoherence impossibility; Lean theorem anchors for all claims |
 | `Philosophy.md` | Possibilist ontology; ZFA as sole fundamental axiom |

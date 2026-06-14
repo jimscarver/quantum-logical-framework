@@ -121,6 +121,7 @@ QLF is the mathematics that has **active inference built into its foundation**. 
 - [**TheBigProblem.md**](TheBigProblem.md) — how QLF addresses the measurement problem, entanglement, spacetime, time, and consciousness
 - [**TheQuantumBrain.md**](TheQuantumBrain.md) — the quantum brain in QLF: frequency-isolated, error-corrected, active-inference coherence as the mechanism of savant cognition; numbers/primes/pitch/calendar as resonant access to the pre-existing logical landscape, not computation
 - [**GodCreatedTheIntegers.md**](GodCreatedTheIntegers.md) — a broad framing of QLF in relation to Kronecker, Leibniz, Newton, Einstein, Mach, Noether, Faraday, Wheeler, Shannon, Feynman, Bohm, Schrödinger, Bell, Planck, Gödel, Turing, Penrose, Mead, Cramer, Everett, Zuse, Wolfram, ’t Hooft, Hofstadter, Hawking, and Susskind
+- [**SEX.md**](SEX.md) — higher-order closure through complementary specialists: the modelled proton♂/neutron♀ pairing (`proton_neutron_demo.py`) — `pn` binds where `pp`/`nn` are Pauli-blocked, and the bond *stabilizes* the otherwise-decaying neutron — scaling to the collective-intelligence factor and quantum-os room best practices
 
 ### 2. Core theoretical claims
 - [**BraKetRhoQuCalc.md**](BraKetRhoQuCalc.md) — how bra-ket notation maps onto RhoQuCalc: action=ket, lift=bra, parallel=superposition, sequence=composition, ZFA=bra-ket balance (numerical demos in `braket_rho.py`; live evaluation via `/braket` in [quantum-os](https://github.com/jimscarver/quantum-os))
