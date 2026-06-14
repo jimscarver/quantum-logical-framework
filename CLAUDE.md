@@ -6,7 +6,7 @@ Project context for Claude Code sessions. Read this before making any changes.
 
 ## Project overview
 
-**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **63 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
+**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **64 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
 
 Core claim: *ZFA balance is the selection principle for physical reality.* Every terminating computation is a ZFA string; every ZFA string is symmetric (lies on the critical line). The Church-Turing universe filtered to ZFA-balanced strings is our physical universe.
 
@@ -14,7 +14,7 @@ Core claim: *ZFA balance is the selection principle for physical reality.* Every
 
 ---
 
-## 63 active modules
+## 64 active modules
 
 In `lean/`, registered in `lakefile.lean` roots array (in build order). For fuller per-module descriptions + the complete key-theorem lists, see [`lean/README.md`](lean/README.md).
 
@@ -73,6 +73,7 @@ In `lean/`, registered in `lakefile.lean` roots array (in build order). For full
 | `QLF_Baryogenesis` | **The three Sakharov conditions are met ⟹ matter excess is generic.** Matter/antimatter carry opposite baryon winding (`matter_antimatter_opposite`, reuses `baryon_dagger_odd`); B not conjugation-invariant (proton `B=1` vs antiproton `B=−1`). B-violation (winding + Majorana `B−L`), C/CP violation (chirality engine + `QLF_StrongCP`), out-of-equilibrium (`QLF_CosmicInflation` expansion) all hold. **Honest scope:** the *magnitude* `η_B ≈ 6×10⁻¹⁰` is open, as in the SM (`baryogenesis_in_progress`). See `CP-Violation-and-Chirality.md` §4b |
 | `QLF_Nucleosynthesis` | **Primordial helium fraction.** Every surviving neutron → deepest light closure ⁴He, so `Y_p = 2r/(1+r)` (`helium_fraction`); freeze-out `r=n/p=1/7` ⟹ `Y_p=1/4` (`helium_fraction_one_seventh`), matching observed 0.247; counterfactual `r=1` ⟹ `Y_p=1` (`helium_fraction_equal_np`). **Honest scope:** does NOT derive `r` (needs n–p splitting + `G_F`, open), D/⁷Li abundances, or the CMB power spectrum (`nucleosynthesis_in_progress`). See `Fusion.md` §7a |
 | `QLF_MassSpectrum` | **The absolute spectrum is one scale, exponentially generated.** (1) Every mass = one proton scale `m_p` × a verified ratio (`spectrum_one_scale`; `m_e=m_p/6π⁵` `electron_mass_from_proton_eq`, reuses `mass_ratio_QLF` + `proton_pion_ratio_eq`) — the SM's ~13 mass params collapse to ONE absolute input. (2) That scale is **dimensional transmutation**: the log running of the strong coupling (`QLF_RunningCouplings`) hits confinement after `exp(2π/(bα))`; `log_transmuted_hierarchy` (`ln R = 2π/(bα)`) gives `b=7, α_s≈0.02 ⟹ ln R ≈ 44.9 ≈ ln(M_P/m_p)=44.0` — the 10¹⁹ hierarchy, no fine-tuning; `weaker_coupling_larger_hierarchy`. **Honest scope:** reduces spectrum to one scale + shows it exponentially natural; does NOT derive the value (`b`, `α_s`, calibration = the combinatorial `R_e≈2.4×10²²` count, open; `mass_spectrum_in_progress`). See `Per_Qubit_Mass_Quantum.md` §3.3a |
+| `QLF_BetaFunction` | **QCD `b₀ = 7` from the substrate.** The one-loop β-coefficient `b₀ = 11N_c/3 − 2n_f/3` with `N_c = color_count = substrate_spatial_dimension = 3` (axes) and `n_f = flavor_count = 2·num_generations = 6` (3 generations × 2 flavours) ⟹ `b₀ = 7` (`beta_coefficient_eq_seven`, `substrate_qcd_counts`); antiscreening `11>4` ⟹ `b₀>0` = asymptotic freedom (`asymptotic_freedom_from_substrate`). Feeds `QLF_MassSpectrum`'s `ln R_p = 2π/(7 α_s)`. **Honest scope:** QLF fixes the counts `N_c=3`, `n_f=6`; the `11/3`,`2/3` one-loop structure is standard group-theory input; `α_s`+calibration open (`beta_function_in_progress`). See `TheContinuum.md` §3.1 |
 | `QLF_StrongAlgebra` | Strong `SU(3)` = traceless 3-axis directional tensor; `trace_commutator_zero`, `gluon_commutator_nonzero`, `strong_su3_summary` |
 | `QLF_BMinusL` | Electric charge = exactly-conserved signed twist count (`signed_count_conserved`); **obstruction** `wcount_zero_on_ZFA` — every conserved signed count is zero on closures, so `B−L` is NOT a weight dictionary (it is winding) |
 | `QLF_Majorana` | The neutrino is **Majorana**: antiparticle = Hermitian conjugate (conjugate-and-reverse), and `^v` is a fixed point of it; `neutrino_majorana`, `electron_not_majorana` (electron is Dirac), `antiparticle_involutive` |
@@ -352,7 +353,7 @@ Avoid framings that contradict the above:
 | Path | Purpose |
 |---|---|
 | `lean/` | All Lean source files |
-| `lakefile.lean` | Build config; `roots` array lists all 63 modules |
+| `lakefile.lean` | Build config; `roots` array lists all 64 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |

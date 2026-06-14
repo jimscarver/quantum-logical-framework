@@ -102,6 +102,17 @@ running ([`QLF_WeinbergAngle`](lean/QLF_WeinbergAngle.lean)) is *consistent with
 evolution but not derived (`running_couplings_structural`) — the open numbers of the
 renormalization sector.
 
+**Update — the strong β-coefficient *is* substrate-fixed.** The QCD one-loop coefficient
+`b₀ = 11 N_c/3 − 2 n_f/3` is now read off the substrate ([`lean/QLF_BetaFunction.lean`](lean/QLF_BetaFunction.lean)):
+`N_c = 3` is the three spatial axes (the SU(3) of `QLF_StrongAlgebra`) and `n_f = 6` is two
+quark flavours per generation times the three generations (`QLF_Generations`), giving
+`b₀ = 11·3/3 − 2·6/3 = 7` (`beta_coefficient_eq_seven`) — antiscreening (`11 > 4`) ⟹
+asymptotic freedom. That feeds the hierarchy `ln R_p = 2π/(b₀ α_s) = 2π/(7 α_s)`
+([`QLF_MassSpectrum`](lean/QLF_MassSpectrum.lean) §3.3a of `Per_Qubit_Mass_Quantum.md`), so the
+`~10¹⁹` proton scale is dimensional transmutation with a substrate-fixed coefficient — only
+`α_s` and the Planck→SI calibration remain. The `11/3`, `2/3` one-loop *structure* itself is
+standard β-function group theory (input), and the electroweak coefficients stay open.
+
 ---
 
 ## 4. The Lorentz Invariance Problem
