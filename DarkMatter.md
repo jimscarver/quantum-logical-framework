@@ -148,16 +148,23 @@ width set by the transition radius `σ = √(GM/a₀)` of §6.
 
 ---
 
-## 8. Dark matter and dark energy are one mechanism
+## 8. Dark matter and dark energy may be two faces of one logical-density gradient
 
-Both dark phenomena are the **same logical-density gradient** read in opposite directions
-(the expand/contract duality of [Curvature.md](Curvature.md), and the radial gradient of
-[BLACK-HOLES.md §4](BLACK-HOLES.md)):
+The thesis: both dark phenomena are **two horizon-scale expressions of one logical-density
+gradient**, read in opposite directions (the expand/contract duality of [Curvature.md](Curvature.md),
+and the radial gradient of [BLACK-HOLES.md §4](BLACK-HOLES.md)):
 
 - **Interior, dense (contract):** excess logic folds into the gauge/time axes → emergent rest
   mass → extra attraction → **dark matter** (`a ≲ a₀` is where it becomes visible).
 - **Exterior, sparse (expand):** the thin background carries the `Ω_Λ = log 2` gauge-axis
   fraction → outward expansion bias → **dark energy**.
+
+**Honest scope (issue [#69](https://github.com/jimscarver/quantum-logical-framework/issues/69)).**
+This is a *thesis, not yet a closure*: the two sides share the same Hubble horizon and the same `2π`
+loop phase (`a₀ = cH₀/2π`, `Ω_Λ = log 2`), but **the exact operator tying enhancement and screening
+into one derived field remains open** — as does the generator of `ρ_logic(r)` itself (§5, the open
+dark-matter front). The single-horizon coincidence is real and falsifiable; calling it *one
+mechanism* would outrun the formal substrate until that bridging operator is written.
 
 One horizon scale (`R_H`), one per-event quantum (`log 2`), one crossover acceleration
 (`a₀ = cH₀/2π`). No WIMP, no quintessence field — both are how a single substrate distributes

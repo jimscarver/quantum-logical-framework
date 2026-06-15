@@ -167,6 +167,41 @@ QLF *synthesises* (one operation, three names, persistent output, falsehood-filt
 
 [`AI.md`](AI.md)'s "Neuro-Symbolic Solution" already gestures at this distinction (LLM as sensory layer, QLF as logic coprocessor). This section makes the structural claim sharper: it is not that LLMs are *worse at intelligence* — it is that they are *structurally not performing the operation we call intelligence*. They perform a different operation (statistical retrieval) that happens to mimic intelligence in well-covered domains.
 
+### §6a A QLF-native runtime: closure tokens vs float logits (issue [#65](https://github.com/jimscarver/quantum-logical-framework/issues/65))
+
+A sharper, *computational* question (Allen): not just "are LLMs the wrong model of mind," but **could
+an AI run and learn better if its runtime basis were integer closure tokens instead of real-valued
+probability/logit machinery?** The two architectures, side by side:
+
+```text
+Current AI (continuum/statistical):
+  token embeddings → float weights → logits → softmax probabilities → sampled token
+    (everything is a non-constructive real; "meaning" is a direction in ℝ^d; transitions are
+     weighted, lossy, and never exactly closed)
+
+QLF-native (discrete/closure):
+  closure tokens → integer ledgers → admissible transitions → semantic closure
+    (a token IS a ZFA-closed structure = its own proof, `cap:label:hex`; transitions are the
+     decidable admissibility check `full_zeno_prune`; "meaning" is which closures a token composes
+     into, not a float coordinate)
+```
+
+The thesis: this is the same **continuum-vs-discrete** move as everywhere else in QLF
+([`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md)). Float logits are the *rendering*; the
+operation underneath is disjunctive closure — a random signal closing on an OR condition, synthesising
+one `log 2` bit (`QLF_InfoSynthesis`, [`MRE.md`](MRE.md) §2.5). A QLF-native runtime would replace
+lossy float bookkeeping with exact integer closure ledgers and decidable admissibility, so each step
+*persists as a proof object* (Curry-Howard token) rather than evaporating as a sample. The expected
+wins are **structural, not just numerical**: built-in falsehood-rejection (the ZFA filter), built-in
+persistence (the token), and no continuum UV-tail (the discrete floor).
+
+**Honest scope.** This is an *architecture proposal*, not a built system or a benchmark: QLF does not
+yet ship a closure-token learner, and whether integer-ledger transitions *train* better than
+gradient descent on floats (e.g. credit assignment without differentiability) is genuinely open
+(`qlf_native_ai_in_progress`, tracked in [`Open_Problems.md`](Open_Problems.md)). What is anchored is
+the *operation* (synthesis = disjunctive closure, Lean) and the *token-as-proof* primitive; the
+learning dynamics on that basis are the research frontier the issue points at.
+
 ---
 
 ## §7 What this means for intelligence
