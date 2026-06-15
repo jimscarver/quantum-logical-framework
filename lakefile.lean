@@ -85,5 +85,6 @@ lean_lib QLF where
     `QLF_ReachableEvent,
     `QLF_SU5,
     `QLF_CausalInterval,
-    `QLF_CausalDimension
+    `QLF_CausalDimension,
+    `QLF_GaugeUnification
   ]
