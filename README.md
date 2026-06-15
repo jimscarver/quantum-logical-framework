@@ -319,7 +319,7 @@ The Einstein-ether row is the most load-bearing for QLF's relativity. Einstein's
 
 ## Current Status
 
-The Lean formalization compiles with **zero `sorry` blocks** across all 71 modules. The entire combinatorial core operates within **RCA₀** — the minimum constructive logical subsystem (no Axiom of Choice, no continuity). The explicit axioms are confined to the Millennium-program boundaries — all six open Clay problems now have a Lean module reducing each to a constructive core plus *one* named axiom marking the continuum/choice crossing (`spectral_hilbert_polya`, `yang_mills_continuum_gap`, `bsd_rank_equals_order`, `hodge_class_is_algebraic`, `navier_stokes_continuum_limit`, `generate_not_reducible_to_verify`; see [Millennium.md](Millennium.md)) — plus philosophical axioms in `ER_EPR_QLF` (not used by other modules).
+The Lean formalization compiles with **zero `sorry` blocks** across all 71 modules. The entire combinatorial core operates within **RCA₀** — the minimum constructive logical subsystem (no Axiom of Choice, no continuity). The explicit axioms are confined to the Millennium-program boundaries — all six open Clay problems now have a Lean module reducing each to a constructive core plus *one* named axiom marking the continuum/choice crossing (`spectral_hilbert_polya`, `yang_mills_continuum_gap`, `modularity_mirror_invariant`, `substrate_realization_is_algebraic`, `navier_stokes_continuum_limit`, `generate_not_reducible_to_verify` — with `bsd_rank_equals_order` and `hodge_class_is_algebraic` now *theorems* discharged through them; see [Millennium.md](Millennium.md)) — plus philosophical axioms in `ER_EPR_QLF` (not used by other modules).
 
 **Key proof chains** (see [lean/README.md](lean/README.md) for full detail):
 

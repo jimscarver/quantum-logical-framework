@@ -88,9 +88,9 @@ continuum/choice sector that classical foundations are *proven* unable to ground
 
 ## Status and honesty
 
-Every module compiles in CI with **zero `sorry`**. Each carries exactly one explicit boundary
-axiom (or, for the two doc-led problems, a named boundary awaiting its Lean module) and a status
-marker. Nothing is claimed proved *inside ZFC*; the constructive content is claimed as proof
+Every module compiles in CI with **zero `sorry`**. **All six problems now have a Lean module**,
+each carrying exactly one explicit boundary axiom (never a hidden `sorry`, always a named `axiom`)
+and a status marker. Nothing is claimed proved *inside ZFC*; the constructive content is claimed as proof
 *within the constructive frame*, with the boundary named honestly as ZFC's proven defect. The
 boundary registry is [Open_Problems.md](Open_Problems.md); the unifying thesis is
 [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md).
