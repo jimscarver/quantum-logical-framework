@@ -1,7 +1,7 @@
 # The Einstein equations as the substrate's equation of state
 
 **Module:** [`lean/QLF_EinsteinEquations.lean`](lean/QLF_EinsteinEquations.lean) (#68)
-**Companions:** [`GR_Schwarzschild.md`](GR_Schwarzschild.md) (the metric), [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5.2 (the local-time reading), [`Gravity_From_Delay.md`](Gravity_From_Delay.md) (the area law), [`QLF_HorizonTemperature.lean`](lean/QLF_HorizonTemperature.lean) (the Unruh temperature), [`Cosmological_Constant.md`](Cosmological_Constant.md) (`Λ = Ω_Λ = log 2`).
+**Companions:** [`GR_Schwarzschild.md`](GR_Schwarzschild.md) (the metric), [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5.2 (the local-time reading), [`Gravity_From_Delay.md`](Gravity_From_Delay.md) (the area law), [`QLF_HorizonTemperature.lean`](lean/QLF_HorizonTemperature.lean) (the Unruh temperature), [`Cosmological_Constant.md`](Cosmological_Constant.md) (`Λ = Ω_Λ = log 2`), [`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md) §3b (**gravity as the fourth force** — the geometry of the same closures whose gauge-twist vertex gives EM/weak/strong; mass = constructing delay is the hinge).
 
 ---
 

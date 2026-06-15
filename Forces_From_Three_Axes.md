@@ -107,6 +107,52 @@ remain the open electroweak sector (§6, [`Weak_Force.md`](Weak_Force.md) §2).
 
 ---
 
+## 3b. And gravity: the fourth force as the geometry of the same closures 🔶
+
+The three gauge forces (§3, §3a) are the gauge-twist **vertex** — how *individual* ZFA closures
+interact, the projections of one gauge fold on the three axes. The fourth force, **gravity, is not a
+fourth gauge force.** QLF does not try to make gravity a gauge interaction (the move that has defeated
+quantum-gravity programs for fifty years). Gravity is the **emergent geometry of the *aggregate* of
+closures** — the same events, read collectively instead of individually:
+
+- the **causal order** of the closures is a causal set ([`QLF_ReachableEvent`](lean/QLF_ReachableEvent.lean)),
+  whose number↔volume and layer-growth give the metric and curvature (Sorkin / Benincasa–Dowker,
+  [`QLF_CausalInterval`](lean/QLF_CausalInterval.lean), [`QLF_CausalDimension`](lean/QLF_CausalDimension.lean));
+- the **thermodynamics** of each local horizon fixes the coefficient `8πG = 2π/η` and `Λ = log 2`
+  (Jacobson, [`QLF_EinsteinEquations`](lean/QLF_EinsteinEquations.lean), [`Einstein_Equations.md`](Einstein_Equations.md)).
+
+So the gauge forces are how closures **interact**; gravity is how closures **arrange**. Same substrate,
+read at two scales.
+
+**The hinge that joins them is mass = constructing delay.** In §3a, electroweak symmetry breaking gives
+`W`/`Z` their mass as **gauge-fold depth** — the constructing delay `m = 1/R`
+([`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md)). That *same* delay, aggregated over the
+causal-set geometry, is exactly what curves spacetime — gravity sources on mass-energy. So the
+gauge-fold delay is **both** the output of the Higgs sector (inertial mass) **and** the source of
+gravity (gravitational mass): the **equivalence principle falls out of the substrate** — one delay,
+read as inertia at the vertex and as curvature in the geometry. (The graviton is correspondingly *not*
+a fundamental gauge boson but spin-2 = four half-spins, a composite,
+[`QLF_GravitationalWaves`](lean/QLF_GravitationalWaves.lean).)
+
+**The complete statement — all four forces are ZFA closure.**
+
+> One substrate: ZFA closure. The **gauge forces** are the closure *vertex* — one gauge twist seen as
+> its abelian trace (EM) and non-abelian spatial projections (weak `SU(2)`, strong `SU(3)`) at
+> different logical densities. **Gravity** is the closure *geometry* — the causal-set curvature and
+> horizon thermodynamics of the aggregate. **Mass** — the constructing delay — is the hinge: the
+> gauge-fold delay that the Higgs sector reads as inertia is the same delay the geometry reads as
+> gravity. Four forces, one closure, joined at mass.
+
+**Honest scope.** Gravity is unified **under** the substrate (emergent geometry), *not* **as** a gauge
+force — that is the claim, and it is the right one (gravity has no gauge boson; the graviton is
+composite). What stays open is the dynamical side: the discrete d'Alembertian → Ricci on the branching
+graph and the continuum field equations (the named causal-curvature rung,
+[`Einstein_Equations.md`](Einstein_Equations.md) §6a), and on the gauge side the couplings and the
+Higgs VEV (§3a). The *unification* — four forces as one closure, joined at mass — is structural and
+substrate-grounded; the quantitative dynamics on each side are the remaining work.
+
+---
+
 ## 4. Quark flavors, honestly
 
 The synthesis says **color `SU(3)` = the traceless 3-axis directional tensor**, consistent with the existing Borromean three-quark picture (the three "colors" = the three axes). But the flavor sector is almost entirely open in QLF:
