@@ -68,6 +68,24 @@ needs ≤ 15 digits for the most demanding measured physics ([pi_precision_demo.
 [TheContinuum.md](TheContinuum.md)). The continuum is emergent notation over a
 finite-information substrate — never a completed physical totality.
 
+**The boundary of the Shannon argument — transmitted novelty, not activated structure** (issue
+[#79](https://github.com/jimscarver/quantum-logical-framework/issues/79)). Shannon's finiteness bounds
+the **novel distinction transmitted through a channel** — it does *not* bound the **pre-existing
+structure a finite codeword selects, activates, or renders operational**. A short codeword (`FGD 135 →
+Wing Attack Plan R`) carries one selection but triggers an enormous pre-shared plan; the plan was
+already in the codebook, not in the channel. So four quantities must be kept apart: (1) the
+**transmitted** Shannon information, (2) the information stored in the **codebook/decoder**, (3) the
+**decoded** semantic content, and (4) the **downstream** causal consequences. A `log 2` ZFA closure
+resolves *one* binary choice (1), but it may *select* a vast pre-existing branch of the possibility
+tree (2)–(4). **This is not an overextension to guard against — it is exactly QLF's possibilism.** The
+"codebook" is the full space of admissible histories, which exists *a priori* (§ above); ZFA closure is
+the finite-information **selection** of a branch that pre-exists, not its transmission. So the `log 2`
+quantum bounds the *synthesized novelty per event* (correct), **not** the size of the structure that
+closure activates — a single bit can flip a system into a large, already-present configuration (one
+neutron's `log 2` β-decay choice triggers a whole nuclear cascade). Shannon stands; what it bounds is
+the channel, and QLF's finiteness claim is about *transmission and synthesis*, never a claim that a
+closure can only select something small.
+
 ## 2. One false axiom proves everything — and continuum and choice are false
 
 There is a sharper way to say what is wrong, and it is the oldest result in logic:
