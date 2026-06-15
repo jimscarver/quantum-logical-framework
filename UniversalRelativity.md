@@ -14,22 +14,29 @@
 > relative views of it. (§4a.)
 **Related updates:** [`AgeOfUniverse.md`](AgeOfUniverse.md), [`lean/AgeOfUniverse.lean`](lean/AgeOfUniverse.lean), [`StringTheory.md`](StringTheory.md)
 
-## Summary for MyStory Readers
+## Summary
 
-In MyStory.md I wrote that my quantum logical deterministic constructive model **vindicates Einstein**. This file delivers that vindication in full:
+Universal Relativity extends Einstein's central move — *no absolute frame, no absolute simultaneity* —
+from spacetime to the whole of physics. From the single postulate that only zero-free-action (ZFA)
+histories persist:
 
-- Spacetime intervals are synthesized event-by-event from Zero Free Action (ZFA) closures.  
-- Local speed of light, Lorentz invariance, and gravitational equivalence all emerge directly from the single ZFA postulate.  
-- Singularities are impossible by construction; gravity and cosmic expansion arise as local quantum event synthesis.  
-- **The four forces are one** (§4a): electromagnetism, the weak force, and the strong force are relative perspectives on a single gauge-twist closure (the abelian trace and its non-abelian spatial projections, at different logical densities), and gravity is the geometry of the same closures — joined at mass = constructing delay. Einstein made spacetime relative; this makes *everything* relative.  
+- **Spacetime is synthesized**, not given: intervals are built event-by-event from ZFA closures.
+- **Special relativity is derived**: local `c`, Lorentz invariance, and the equivalence principle
+  emerge from closure in a statistically uniform stateless ether ([`Time.md`](Time.md) §4), rather than
+  being postulated.
+- **Singularities are impossible by construction**: event synthesis is discrete and finite, so gravity
+  and cosmic expansion are local quantum event synthesis, not divergences.
+- **The four forces are one perspective-dependent closure** (§4a): electromagnetism is the *abelian*
+  trace, the weak and strong forces are its *non-abelian* spatial projections (at different logical
+  densities), and gravity is the *geometry* of the same closures — joined at **mass = constructing
+  delay**. Einstein made spacetime relative; Universal Relativity makes *everything* relative: which
+  projection, what density, whose frame.
+- **Causality stays strictly local**: light-speed correlations are same-time, same-place closure
+  events; only information from the past acts locally, and the past determines the future purely
+  locally.
+- **Cosmic age is a derived count of Planck ticks** `t₀ = N·τ_Planck`, not an empirical input (§5).
 
-Einstein is fully vindicated: light-speed entanglements are local (same-time, same-place) events; only information arriving from the past can cause anything locally. The past determines the future purely locally.
-
-*(See the complete personal story and Einstein dialog in MyStory.md)*
-
-```text
-universe_age = "~13.8 Gyr effective cosmic age from ZFA event-synthesis history"
-```
+The personal narrative and the Einstein dialog behind this completion are in [`MyStory.md`](MyStory.md).
 
 ## Abstract
 
@@ -54,7 +61,7 @@ All possible quantum-logical histories exist as possibilities. A physical event 
 Every physical process is represented as a history string in the 8-twist algebra. Zero Free Action is the closure condition:
 
 $$
-\sum_{i=0}^{7} \operatorname{imbalance}_i = 0
+\sum_{i=0}^{7} \text{imbalance}_i = 0
 $$
 
 This means exact balance among the eight twist directions:
@@ -94,7 +101,7 @@ The central claim is not that events occur inside spacetime. The stronger claim 
 
 ## 3. Emergence of Special Relativity
 
-In `SpaceTime.py`, a ZFA event is converted into emergent macroscopic intervals:
+In [`SpaceTime.py`](SpaceTime.py), a ZFA event is converted into emergent macroscopic intervals:
 
 ```python
 photon = SpacetimeGenerator("^^^^<<<<////")
@@ -171,8 +178,9 @@ is read through ([`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md) §3, �
 So the abelian/non-abelian split **is** the massless-photon-vs-massive-`W`/`Z` split. **Electroweak
 symmetry breaking** is the **logical-density threshold**: above it the projections are symmetric (all
 gauge bosons massless, unified); below it the Markov-blanket structure (QLF's constructive Higgs =
-gauge-fold delay) confines the non-abelian projections, giving `W`/`Z` mass as gauge-fold depth
-(`m = 1/R`) while the photon stays free. The Weinberg angle `sin²θ_W = 3/8` is the projection ratio.
+gauge-fold delay, [`Higgs.md`](Higgs.md)) confines the non-abelian projections, giving `W`/`Z` mass as
+gauge-fold depth (`m = 1/R`) while the photon stays free. The Weinberg angle `sin²θ_W = 3/8` is the
+projection ratio (`sin2_weinberg_substrate_eq`, [`lean/QLF_WeinbergAngle.lean`](lean/QLF_WeinbergAngle.lean)).
 The weak projection **catalyzes** transformations because it *re-projects the blanket itself* (a flavour
 change is a change of 3-D perspective — the β⁺ keystone of [`Fusion.md`](Fusion.md)).
 
@@ -182,7 +190,8 @@ emergent geometry of the *aggregate* of closures: the **causal order** is a caus
 ([`lean/QLF_ReachableEvent.lean`](lean/QLF_ReachableEvent.lean)) whose number↔volume and layer growth
 give the metric and curvature (Sorkin / Benincasa–Dowker, [`lean/QLF_CausalInterval.lean`](lean/QLF_CausalInterval.lean),
 [`lean/QLF_CausalDimension.lean`](lean/QLF_CausalDimension.lean)), and the **thermodynamics** of each
-local horizon fixes `8πG = 2π/η`, `Λ = log 2` (Jacobson, [`Einstein_Equations.md`](Einstein_Equations.md)).
+local horizon fixes `8πG = 2π/η`, `Λ = log 2` (Jacobson, `einstein_coupling_from_thermodynamics`,
+[`lean/QLF_EinsteinEquations.lean`](lean/QLF_EinsteinEquations.lean), [`Einstein_Equations.md`](Einstein_Equations.md)).
 The gauge forces are how closures *interact*; gravity is how closures *arrange*.
 
 **The hinge is mass = constructing delay.** The gauge-fold delay that electroweak breaking reads as
@@ -197,8 +206,11 @@ the geometry. (The graviton is correspondingly composite spin-2, not a fundament
 > relative: which projection, what density, whose frame. There is one closure; physics is its set of
 > relative views.*
 
-This is the same `6+2` / three-axis substrate that fixes `α` (`N=3²`), `Ω_Λ` (`2/8`), the Weinberg
-angle (`3/8`), the `5̄⊕10` generation, and the 3-dimensionality of space itself
+This is the same `6+2` / three-axis substrate that fixes `α` (`N=3²`,
+[`lean/QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean)), `Ω_Λ` (`2/8`,
+[`lean/QLF_CosmologicalConstant.lean`](lean/QLF_CosmologicalConstant.lean)), the Weinberg angle (`3/8`,
+[`lean/QLF_WeinbergAngle.lean`](lean/QLF_WeinbergAngle.lean)), the `5̄⊕10` generation
+([`lean/QLF_SU5.lean`](lean/QLF_SU5.lean)), and the 3-dimensionality of space itself
 ([`SpaceTime.md`](SpaceTime.md) §3a). **Honest scope:** the *unification* is structural and
 substrate-grounded (the gauge algebras, the abelian/non-abelian split, the Weinberg ratio, the
 equation-of-state coefficient, the causal-order curvature structure are all machine-anchored); the
@@ -350,13 +362,13 @@ The theory must reproduce existing observations before any new prediction can be
 
 The theory is represented in the repository through:
 
-- **Core engine:** `qucalc_engine.py`, `twist_core.py`
-- **Spacetime synthesis:** `SpaceTime.py`
-- **Gravity and tensors:** `gravitational_tensor.py`, `spacetime_dynamics.py`
-- **Age of universe:** `AgeOfUniverse.md`, `lean/AgeOfUniverse.lean`
-- **String bridge:** `StringTheory.md`, `lean/StringTheoryQLF.lean`, `lean/MTheoryQLF.lean`
-- **RhoQuCalc:** `rho_transpiler.py`, `quantum_simulator.py`
-- **Formalization:** `lean/ZFAEventDynamics.lean`, `lean/RhoQuCalc.lean`, `lean/SpacetimeDynamics.lean`, `lean/PauliExclusion.lean`
+- **Core engine:** [`qucalc_engine.py`](qucalc_engine.py), [`twist_core.py`](twist_core.py)
+- **Spacetime synthesis:** [`SpaceTime.py`](SpaceTime.py)
+- **Gravity and tensors:** [`gravitational_tensor.py`](gravitational_tensor.py), [`spacetime_dynamics.py`](spacetime_dynamics.py)
+- **Age of universe:** [`AgeOfUniverse.md`](AgeOfUniverse.md), [`lean/AgeOfUniverse.lean`](lean/AgeOfUniverse.lean)
+- **String bridge:** [`StringTheory.md`](StringTheory.md), [`lean/StringTheoryQLF.lean`](lean/StringTheoryQLF.lean), [`lean/MTheoryQLF.lean`](lean/MTheoryQLF.lean)
+- **RhoQuCalc:** [`rho_transpiler.py`](rho_transpiler.py), [`quantum_simulator.py`](quantum_simulator.py)
+- **Formalization:** [`lean/ZFAEventDynamics.lean`](lean/ZFAEventDynamics.lean), [`lean/RhoQuCalc.lean`](lean/RhoQuCalc.lean), [`lean/SpacetimeDynamics.lean`](lean/SpacetimeDynamics.lean), [`lean/PauliExclusion.lean`](lean/PauliExclusion.lean)
 
 Run:
 
