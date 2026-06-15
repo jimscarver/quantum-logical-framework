@@ -96,8 +96,9 @@ Universal Relativity replaces multiple physical assumptions with one quantum-log
 > **Every realized history must close with Zero Free Action.**
 
 This is not a manifesto — it is **rooted in machine-verified Lean 4 proofs**: every claim below is anchored
-to a `sorry`-free module in the formalization (the full map and proof chains are in
-[`lean/README.md`](lean/README.md)). From this single rule the framework accounts for:
+to a `sorry`-free module in the formalization (project overview in [`README.md`](README.md); the full
+module map and proof chains in [`lean/README.md`](lean/README.md)). From this single rule the framework
+accounts for:
 
 - spacetime interval synthesis ([`SpaceTime.md`](SpaceTime.md), [`lean/ZFAEventDynamics.lean`](lean/ZFAEventDynamics.lean));
 - constant local light speed ([`Time.md`](Time.md) §4, [`lean/QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean));
