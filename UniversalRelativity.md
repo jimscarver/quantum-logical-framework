@@ -110,6 +110,22 @@ The central claim is not that events occur inside spacetime. The stronger claim 
 
 > **Events synthesize spacetime.**
 
+### Why *zero* — the universe cannot get free action from nowhere
+
+ZFA is not an arbitrary stipulation. That a realized history closes with **δS = 0** is *over-determined* — five independent lines of standard physics already force it, and Universal Relativity only reads them ontologically:
+
+1. **It is already the law of all physics (Hamilton's principle).** Newton, Maxwell, general relativity, quantum mechanics, and the Standard Model each derive their equations of motion from the *same* stationary-action condition, **δS = 0**. Universal Relativity adds no new dynamical law — it reframes the one law every fundamental theory shares: the stationary histories are not merely the *calculable* ones, they are the *realized* ones. Selection by δS = 0 is the variational principle taken as ontology.
+
+2. **The totality has no outside to borrow from (conservation).** "Free action" means *net, unbalanced* action — action created or destroyed with no source or sink. By Noether's theorem (1918) every continuous symmetry yields a conserved current, and a **closed** system's total charge cannot change. The universe as a whole is closed *by definition*: there is no external reservoir to draw from or dump into, so its ledger must balance. A history producing net free action would be an *effect with no cause* — a perpetual-motion machine in the currency of change itself. "From nowhere" names a reservoir that does not exist.
+
+3. **This is standard general relativity: the Hamiltonian constraint H = 0.** A spatially closed universe has an *identically vanishing* total Hamiltonian — the ADM constraint (Arnowitt–Deser–Misner 1962), the Wheeler–DeWitt equation **HΨ = 0** (DeWitt 1967). The "zero-energy universe" (Tryon 1973 — positive matter energy exactly cancelled by negative gravitational potential energy) is the same fact. **Zero free action for the totality is literally GR's own constraint, not a QLF invention.** Universal Relativity's one move is to apply the *same* H = 0 closure to every **Markov blanket**: each closed sub-history is a miniature zero-energy universe with its own balanced boundary — its own local clock (§3–§5).
+
+4. **To be a distinct thing at all is to close (holography).** An unbalanced history is an open thread with a dangling end — it leaks across its boundary, has no separable state, and is *not yet a definite existent*. Closure is the condition of *being a thing*: the boundary that balances is δS = 0, and the holographic principle is exactly this closure read on the boundary. Existence and ZFA-balance are the same predicate.
+
+5. **Logically, free-action-from-nowhere = an unsourced computation.** A process that manufactured net free action would be a non-terminating, unsourced computation — precisely the undecidable / Busy-Beaver tail that `full_zeno_prune` removes *before* it can become an event. ZFA closure **is** causal closure: every event's action is sourced by prior events, and around a closed loop the initial and final states are the same vacuum, so the net is zero.
+
+The local-vs-global subtlety is the usual one: along a *sub-arc* the action need not be numerically zero — there you recover ordinary stationary-action dynamics. The **null** statement (the books summing to exactly zero, `S = ∫ℒ dΩ` with `ℒ = 0`) is for the *closed* history — the loop, the Markov blanket, the totality — where the boundary terms vanish. So δS = 0 is not a law imposed on physics from outside; it is the statement that **the ledger of change is closed**. The universe cannot get free action from nowhere because *nowhere* — an outside reservoir, an uncaused source — is not a place that exists. (Fuller philosophical treatment: [`Philosophy.md`](Philosophy.md) §4.)
+
 ## 3. Emergence of Special Relativity
 
 In [`SpaceTime.py`](SpaceTime.py), a ZFA event is converted into emergent macroscopic intervals:
