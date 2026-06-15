@@ -79,6 +79,71 @@ Both are a **"three"** of the three axes — three lepton phases, three quark co
 
 ---
 
+## 5a. QLF and SU(5) — reproducing the wins, escaping the failure 🔶
+
+Georgi–Glashow **SU(5)** is the smallest simple group containing `SU(3)×SU(2)×U(1)`. QLF is **not** an
+SU(5) GUT — it does not embed the SM in a simple group — yet it has a precise relationship to it: QLF
+reproduces SU(5)'s genuine, parameter-free successes from the **same 3-axis substrate**, while its own
+topology explains the prediction that *sank* minimal SU(5).
+
+**1. `sin²θ_W = 3/8` — SU(5)'s parameter-free win, read from the substrate.** In SU(5) the value comes
+from the trace normalization over the `5̄ = (3 colored d^c) + (2-component lepton doublet)`:
+`sin²θ_W = ΣT₃²/ΣQ² = (1/2)/(4/3) = 3/8`. In QLF it is the **spatial fraction** `3/8` (3 spatial twists
+/ 8-twist alphabet, [`QLF_WeinbergAngle`](lean/QLF_WeinbergAngle.lean)). The "`5 = 3 + 2`" of SU(5) *is*
+QLF's "3 spatial axes + 2 gauge twists" — same `3`, same split, same `3/8`. QLF supplies the **substrate
+origin** of the number Georgi–Glashow discovered. (Honest scope unchanged: it is the *unification*
+value; the RG running to the measured `0.231` is open, [`Weak_Force.md`](Weak_Force.md) §2.)
+
+**2. `5̄ ⊕ 10 = 15` — one generation IS the antisymmetric tensor content of QLF's `3 ⊕ 2`.** The `15`
+left-handed Weyl fermions of a generation are not an extra input: they are exactly the **rank-≤2
+antisymmetric tensors over the fundamental `5`** — rank 1 → the `5` (conjugated to `5̄`), rank 2 →
+`Λ²(5)`, of dimension `C(5,2) = 10`. QLF identifies that fundamental with its own split `5 = 3 ⊕ 2`
+(the same `3+2` behind `α`, `Ω_Λ`, and `3/8`), and the whole generation falls out:
+
+| SU(5) piece | as a tensor of `5 = 3⊕2` | SM field | count |
+|---|---|---|---|
+| `5̄` | `3̄ ⊕ 2` | `d^c` ⊕ `(ν,e)` | `3 + 2 = 5` |
+| `10` | `Λ²3 ⊕ (3⊗2) ⊕ Λ²2` | `u^c` ⊕ `Q` ⊕ `e^c` | `3 + 6 + 1 = 10` |
+| **generation** | rank ≤ 2 antisymmetric | | **`15`** |
+
+Machine-verified in [`lean/QLF_SU5.lean`](lean/QLF_SU5.lean) (`generation_eq_fifteen`,
+`ten_decomposition`, `ten_pieces`). Two QLF readings ride along: the antisymmetry of the `10` **is the
+Pauli/fermionic wedge** (`pauli_exclusion`) — a generation is the *fermionic* tensor content of the
+`3⊕2` substrate; and the count is **15, not SO(10)'s 16** (`so10_eq_sixteen`) — exactly what QLF's
+**Majorana neutrino** wants (no independent light Dirac `ν_R`; any `ν_R` is the heavy seesaw partner, a
+sterile pure-gauge sequence).
+
+**3. QLF is *not* the embedding — and that is a feature.** QLF unifies the forces as the symmetry of the
+three spatial axes directly (`dim = 1+3+8 = 12`, with `1+8 = 9 = N`, §2), *not* by embedding the SM in
+the simple group SU(5) (`dim 24`). The `24 − 12 = 12` extra SU(5) generators are the **X/Y leptoquark
+bosons**. QLF has no fundamental X/Y; in QLF they would be a higher-order gauge-fold **re-entry forbidden
+at low logical density**.
+
+**4. No proton decay — escaping SU(5)'s fatal failure.** Minimal SU(5)'s signature is `p → e⁺π⁰` via
+X/Y at `τ_p ~ 10³⁰–10³¹ yr` — **experimentally excluded** (Super-K, `τ_p > 2.4×10³⁴ yr`); this killed
+minimal Georgi–Glashow. In QLF, **baryon number is a topological winding invariant** (`baryon_dagger_odd`,
+[`lean/QLF_BaryonWinding.lean`](lean/QLF_BaryonWinding.lean)) — the proton's 3-axis Borromean linking —
+conserved by the low-density vacuum; the re-entry that would unwind it is forbidden. **QLF keeps SU(5)'s
+good prediction (`3/8`) and drops its bad one (fast proton decay)**: proton stability is structural, not
+fine-tuned.
+
+**5. Charge quantization without the multiplet.** SU(5)'s other genuine win — `Q_proton = −Q_electron`
+*exactly*, because quarks and leptons share a multiplet — QLF gets independently: charge is an
+**exactly-conserved signed twist count** (`signed_count_conserved`,
+[`lean/QLF_BMinusL.lean`](lean/QLF_BMinusL.lean)) and every closure is neutral, so charges are quantized
+and balanced with no unifying multiplet needed.
+
+**The honest reading.** SU(5) is a *partial rendering* of the substrate's `3+2` structure — right where
+it reflects the genuine "3 axes + 2 gauge" counting (the `3/8`, the `5̄⊕10` generation, charge
+quantization, one coupling at high scale), wrong to promote the X/Y re-entry modes to fundamental gauge
+bosons (hence the proton decay that does not happen). QLF unifies *below* SU(5): not a bigger group, the
+shared 3-axis tensor `N=9`. **Scope:** the `3/8` is the unification value (running open); the `5̄⊕10`
+result anchors the **counting and group-theoretic decomposition under the `5=3⊕2` identification**, not
+the hypercharges, the chirality, or the per-field twist-closure map (`su5_generation_content_in_progress`);
+QLF derives no GUT scale, X/Y masses, or proton-lifetime number.
+
+---
+
 ## 6. What this is NOT
 
 - **Not a derivation of the Standard Model.** This is a **dimension/structure alignment** (`12 = 1 + 3 + 8`, with `1 + 8 = 9 = N`) plus a conjecture that the gauge group *is* the three-axis symmetry. It derives **no** coupling constants, **no** running, **no** chiral structure (why `SU(2)_L` is left-handed), **no** hypercharge assignments, and **no** masses.
@@ -103,4 +168,4 @@ The defensible claim is narrow and worth stating plainly: **all three gauge alge
 
 ### External
 - The Standard Model gauge group `SU(3)_c × SU(2)_L × U(1)_Y` (dim 8 + 3 + 1 = 12); the eight gluons of `SU(3)`; `su(N)` has dimension `N² − 1`.
-- Grand-unified theories (SU(5), SO(10)) — the standard *high-energy* unification this does **not** reproduce.
+- Grand-unified theories (SU(5), SO(10)) — QLF does **not** embed the SM in a simple group, but it has a precise relationship to SU(5) (§5a): it reproduces the parameter-free wins (`sin²θ_W=3/8`, the `5̄⊕10=15` generation, charge quantization) from the same `3+2` substrate, and its baryon-winding topology explains the *non*-observation of proton decay that sank minimal SU(5).
