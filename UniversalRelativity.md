@@ -45,7 +45,7 @@ In this framework the universe is **possibilist**: all admissible logical histor
 
 Einstein assumed a constant local speed of light and the equivalence principle. Universal Relativity **derives** local `c` and Lorentz invariance from ZFA closure — the uniform-ether mechanism of [`Time.md`](Time.md) §4 / [`SpaceTime.md`](SpaceTime.md) §4 (see §3) — and grounds the equivalence principle in the same dilation mechanism. The program is computable and singularity-free by construction.
 
-The recent `AgeOfUniverse.md` update extends this idea to cosmology. The observed cosmic age of approximately **13.8 billion years** is interpreted not as the age of possibility itself, nor as proof of an absolute beginning, but as the effective proper time accumulated along the realized ZFA event history of our observable universe.
+The recent `AgeOfUniverse.md` update extends this idea to cosmology. The cosmic age of approximately **13.8 billion years** is interpreted not as the age of possibility itself, nor as proof of an absolute beginning, nor as a free empirical input, but as a **derived count of Planck ticks** — the effective proper time accumulated along the realized ZFA event history of our observable universe (`ℏ` fixes the tick, the substrate fixes the count; §5).
 
 ## 1. Possibilist Ontology
 
@@ -214,9 +214,16 @@ The recent repository update [`AgeOfUniverse.md`](AgeOfUniverse.md) adds a QLF t
 universe_age = "~13.8 Gyr effective cosmic age from ZFA event-synthesis history"
 ```
 
-In standard cosmology, the age of the observable universe is inferred from the expansion history of the scale factor. Universal Relativity retains the observed age scale but changes its interpretation.
+In standard cosmology, the age of the observable universe is *inferred* from the expansion history of
+the scale factor — an empirical fit. Universal Relativity does **not** retain it as an empirical scale:
+the age is a **count of Planck ticks**, `t₀ = N · τ_Planck`. Planck's constant fixes the tick
+`τ_Planck = √(ℏG/c⁵)` with no empirical input; the substrate fixes the count `N` (the cosmic depth, via
+hadronic depth and the `Ω_Λ = log 2` crossover), so `t₀ ≈ 13.8 Gyr` is *derived* with no `H₀` tuning
+([`AgeOfUniverse.md`](AgeOfUniverse.md)), up to a single calibration.
 
-The age of the universe is not the age of possibility itself. It is the effective accumulated proper time synthesized by the realized ZFA event history of our observable universe.
+The age of the universe is not the age of possibility itself, and it is not a free empirical input. It
+is the effective accumulated proper time synthesized by the realized ZFA event history of our
+observable universe — a finite integer of `ℏ`-sized ticks, *what the cosmic clock reads now*.
 
 In QLF notation:
 
