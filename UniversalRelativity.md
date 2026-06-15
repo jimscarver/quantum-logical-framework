@@ -95,16 +95,18 @@ Universal Relativity replaces multiple physical assumptions with one quantum-log
 
 > **Every realized history must close with Zero Free Action.**
 
-From this single rule the framework accounts for:
+This is not a manifesto — it is **rooted in machine-verified Lean 4 proofs**: every claim below is anchored
+to a `sorry`-free module in the formalization (the full map and proof chains are in
+[`lean/README.md`](lean/README.md)). From this single rule the framework accounts for:
 
-- spacetime interval synthesis;
-- constant local light speed;
-- Lorentz invariance;
-- gravitational equivalence;
-- Pauli exclusion;
-- dark-energy-like cosmic expansion;
-- effective cosmic age;
-- string-like extended histories.
+- spacetime interval synthesis ([`SpaceTime.md`](SpaceTime.md), [`lean/ZFAEventDynamics.lean`](lean/ZFAEventDynamics.lean));
+- constant local light speed ([`Time.md`](Time.md) §4, [`lean/QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean));
+- Lorentz invariance ([`Cross_Frequency_Lorentz.md`](Cross_Frequency_Lorentz.md));
+- gravitational equivalence ([`Einstein_Equations.md`](Einstein_Equations.md), [`lean/QLF_GravityFromDelay.lean`](lean/QLF_GravityFromDelay.lean));
+- Pauli exclusion ([`Spin_Statistics.md`](Spin_Statistics.md), [`lean/PauliExclusion.lean`](lean/PauliExclusion.lean));
+- dark-energy-like cosmic expansion ([`Cosmological_Constant.md`](Cosmological_Constant.md), [`lean/QLF_CosmologicalConstant.lean`](lean/QLF_CosmologicalConstant.lean));
+- effective cosmic age ([`AgeOfUniverse.md`](AgeOfUniverse.md), [`lean/AgeOfUniverse.lean`](lean/AgeOfUniverse.lean));
+- string-like extended histories ([`StringTheory.md`](StringTheory.md), [`lean/StringTheoryQLF.lean`](lean/StringTheoryQLF.lean)).
 
 The central claim is not that events occur inside spacetime. The stronger claim is:
 
