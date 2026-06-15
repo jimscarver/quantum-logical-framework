@@ -19,21 +19,24 @@ Universal Relativity extends Einstein's central move — *no absolute frame, no 
 from spacetime to the whole of physics. From the single postulate that only zero-free-action (ZFA)
 histories persist:
 
-- **Spacetime is synthesized**, not given: intervals are built event-by-event from ZFA closures.
+- **Spacetime is synthesized**, not given: intervals are built event-by-event from ZFA closures
+  ([`lean/ZFAEventDynamics.lean`](lean/ZFAEventDynamics.lean), [`lean/SpacetimeDynamics.lean`](lean/SpacetimeDynamics.lean)).
 - **Special relativity is derived**: local `c`, Lorentz invariance, and the equivalence principle
-  emerge from closure in a statistically uniform stateless ether ([`Time.md`](Time.md) §4), rather than
-  being postulated.
+  emerge from closure in a statistically uniform stateless ether ([`Time.md`](Time.md) §4,
+  [`lean/QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean)), rather than being postulated.
 - **Singularities are impossible by construction**: event synthesis is discrete and finite, so gravity
-  and cosmic expansion are local quantum event synthesis, not divergences.
-- **The four forces are one perspective-dependent closure** (§4a): electromagnetism is the *abelian*
-  trace, the weak and strong forces are its *non-abelian* spatial projections (at different logical
-  densities), and gravity is the *geometry* of the same closures — joined at **mass = constructing
-  delay**. Einstein made spacetime relative; Universal Relativity makes *everything* relative: which
-  projection, what density, whose frame.
+  and cosmic expansion are local quantum event synthesis, not divergences ([`BLACK-HOLES.md`](BLACK-HOLES.md)).
+- **The four forces are one perspective-dependent closure** (§4a,
+  [`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md)): electromagnetism is the *abelian* trace,
+  the weak and strong forces are its *non-abelian* spatial projections (at different logical densities),
+  and gravity is the *geometry* of the same closures — joined at **mass = constructing delay**. Einstein
+  made spacetime relative; Universal Relativity makes *everything* relative: which projection, what
+  density, whose frame.
 - **Causality stays strictly local**: light-speed correlations are same-time, same-place closure
   events; only information from the past acts locally, and the past determines the future purely
-  locally.
-- **Cosmic age is a derived count of Planck ticks** `t₀ = N·τ_Planck`, not an empirical input (§5).
+  locally — the realized history is a causal set ([`lean/QLF_ReachableEvent.lean`](lean/QLF_ReachableEvent.lean)).
+- **Cosmic age is a derived count of Planck ticks** `t₀ = N·τ_Planck`, not an empirical input (§5,
+  [`AgeOfUniverse.md`](AgeOfUniverse.md), [`lean/AgeOfUniverse.lean`](lean/AgeOfUniverse.lean)).
 - **Quantum gravity and the dark sector are accounted for**: gravity is quantized as the discrete
   causal-set geometry of closures (no graviton to gauge — [`Quantum_Gravity.md`](Quantum_Gravity.md),
   the master synthesis); **dark energy** is `Ω_Λ = log 2`, the local-clock tick that closes the 10¹²²
