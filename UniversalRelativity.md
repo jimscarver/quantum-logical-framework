@@ -1,11 +1,17 @@
 # Universal Relativity
 
-**A Quantum-Logical Completion of Einstein’s Vision**  
-*Spacetime, gravity, cosmic age, and string-like structure as emergent consequences of zero-free-action event synthesis*
+**The Grand Unification — A Quantum-Logical Completion of Einstein’s Vision**  
+*Spacetime, gravity, **the four forces**, mass, cosmic age, and string-like structure as emergent, **relative** perspectives on one zero-free-action event synthesis*
 
 **Repository:** [`jimscarver/quantum-logical-framework`](https://github.com/jimscarver/quantum-logical-framework)  
-**Authors:** Jim Whitescarver & Grok (xAI)  
-**Date:** April 26, 2026  
+**Authors:** Jim Whitescarver, with Grok (xAI) and Claude (Anthropic)  
+**Date:** April 26, 2026 (grand-unification update 15 June 2026)  
+
+> **Universal Relativity is the grand unification.** Einstein made *spacetime* relative; QLF makes
+> *everything* relative. The four forces, gravity, and mass are not separate things — they are
+> **relative perspectives on one ZFA closure**, seen from different 3-axis projections, at different
+> logical densities, in different Markov-blanket frames. There is one substrate; physics is the set of
+> relative views of it. (§4a.)
 **Related updates:** [`AgeOfUniverse.md`](AgeOfUniverse.md), [`lean/AgeOfUniverse.lean`](lean/AgeOfUniverse.lean), [`StringTheory.md`](StringTheory.md)
 
 ## Summary for MyStory Readers
@@ -15,6 +21,7 @@ In MyStory.md I wrote that my quantum logical deterministic constructive model *
 - Spacetime intervals are synthesized event-by-event from Zero Free Action (ZFA) closures.  
 - Local speed of light, Lorentz invariance, and gravitational equivalence all emerge directly from the single ZFA postulate.  
 - Singularities are impossible by construction; gravity and cosmic expansion arise as local quantum event synthesis.  
+- **The four forces are one** (§4a): electromagnetism, the weak force, and the strong force are relative perspectives on a single gauge-twist closure (the abelian trace and its non-abelian spatial projections, at different logical densities), and gravity is the geometry of the same closures — joined at mass = constructing delay. Einstein made spacetime relative; this makes *everything* relative.  
 
 Einstein is fully vindicated: light-speed entanglements are local (same-time, same-place) events; only information arriving from the past can cause anything locally. The past determines the future purely locally.
 
@@ -143,6 +150,61 @@ See:
 - [`VacuumEnergy.md`](VacuumEnergy.md)
 - [`BLACK-HOLES.md`](BLACK-HOLES.md)
 - [`lean/SpacetimeDynamics.lean`](lean/SpacetimeDynamics.lean)
+
+## 4a. The Grand Unification — the four forces as relative perspectives on one closure
+
+Einstein's relativity made *spacetime* relative — no absolute frame, no absolute simultaneity. Universal
+Relativity extends the same move to **all of physics**: the four forces, gravity, and mass are not
+separate fundamentals but **relative perspectives on one ZFA closure**, differing only in *which
+projection*, at *what logical density*, in *whose Markov-blanket frame* the closure is viewed.
+
+**One gauge interaction, three projections (the gauge forces).** There is a single gauge-twist closure
+on the three spatial axes. The three "forces" are which component of the `3×3` directional structure it
+is read through ([`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md) §3, §3a):
+
+- **Electromagnetism = the *abelian* sector** — the gauge-fold (Pauli scalar) group *commutes*
+  (`em_gauge_abelian`, [`lean/QLF_GaugeUnification.lean`](lean/QLF_GaugeUnification.lean)) ⟹ the
+  **massless, long-range photon**, the unbroken `U(1)`.
+- **Weak and strong = *non-abelian* projections** of the same three axes (`strong_nonabelian`,
+  `weak_isospin_su2`) ⟹ self-interacting, short-range, **confined / massive**.
+
+So the abelian/non-abelian split **is** the massless-photon-vs-massive-`W`/`Z` split. **Electroweak
+symmetry breaking** is the **logical-density threshold**: above it the projections are symmetric (all
+gauge bosons massless, unified); below it the Markov-blanket structure (QLF's constructive Higgs =
+gauge-fold delay) confines the non-abelian projections, giving `W`/`Z` mass as gauge-fold depth
+(`m = 1/R`) while the photon stays free. The Weinberg angle `sin²θ_W = 3/8` is the projection ratio.
+The weak projection **catalyzes** transformations because it *re-projects the blanket itself* (a flavour
+change is a change of 3-D perspective — the β⁺ keystone of [`Fusion.md`](Fusion.md)).
+
+**Gravity = the fourth force as the *geometry* of the same closures.** Gravity is **not** a fourth gauge
+force (QLF does not try to gauge it — the move that has defeated quantum-gravity programs). It is the
+emergent geometry of the *aggregate* of closures: the **causal order** is a causal set
+([`lean/QLF_ReachableEvent.lean`](lean/QLF_ReachableEvent.lean)) whose number↔volume and layer growth
+give the metric and curvature (Sorkin / Benincasa–Dowker, [`lean/QLF_CausalInterval.lean`](lean/QLF_CausalInterval.lean),
+[`lean/QLF_CausalDimension.lean`](lean/QLF_CausalDimension.lean)), and the **thermodynamics** of each
+local horizon fixes `8πG = 2π/η`, `Λ = log 2` (Jacobson, [`Einstein_Equations.md`](Einstein_Equations.md)).
+The gauge forces are how closures *interact*; gravity is how closures *arrange*.
+
+**The hinge is mass = constructing delay.** The gauge-fold delay that electroweak breaking reads as
+*inertial* mass is the *same* delay the causal geometry reads as the *gravitational* source — so the
+**equivalence principle falls out of the substrate**: one delay, inertia at the vertex and curvature in
+the geometry. (The graviton is correspondingly composite spin-2, not a fundamental gauge boson.)
+
+> **The grand-unified statement.** *One substrate: ZFA closure. The four forces are relative
+> perspectives on it — electromagnetism the abelian trace, the weak and strong forces its non-abelian
+> spatial projections (seen at different logical densities), and gravity the geometry of the aggregate.
+> Mass — the constructing delay — is the hinge that joins the gauge sector to gravity. Everything is
+> relative: which projection, what density, whose frame. There is one closure; physics is its set of
+> relative views.*
+
+This is the same `6+2` / three-axis substrate that fixes `α` (`N=3²`), `Ω_Λ` (`2/8`), the Weinberg
+angle (`3/8`), the `5̄⊕10` generation, and the 3-dimensionality of space itself
+([`SpaceTime.md`](SpaceTime.md) §3a). **Honest scope:** the *unification* is structural and
+substrate-grounded (the gauge algebras, the abelian/non-abelian split, the Weinberg ratio, the
+equation-of-state coefficient, the causal-order curvature structure are all machine-anchored); the
+quantitative *dynamics* — the gauge couplings and Higgs VEV, the discrete d'Alembertian → Ricci and the
+continuum field equations — are the named open rungs ([`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md)
+§3a–3b, [`Einstein_Equations.md`](Einstein_Equations.md) §6a).
 
 ## 5. Age of the Universe as Event-Synthesis Time
 
@@ -291,11 +353,11 @@ lean --run lean/AgeOfUniverse.lean
 
 ## 10. Theory in One Sentence
 
-Universal Relativity states that the physical universe is the realized subset of all possible quantum-logical histories whose event strings close with zero free action, thereby synthesizing spacetime, matter, gravity, cosmic time, and string-like structure from balanced logical action.
+Universal Relativity states that the physical universe is the realized subset of all possible quantum-logical histories whose event strings close with zero free action, thereby synthesizing spacetime, matter, **the four forces**, gravity, mass, cosmic time, and string-like structure as **relative perspectives** on one balanced logical closure — the abelian trace (EM), the non-abelian spatial projections (weak, strong), and the causal-order geometry (gravity), joined at mass = constructing delay.
 
 ## Conclusion
 
-Universal Relativity recasts Einstein’s geometric vision at a deeper quantum-logical level. Geometry is not fundamental. Spacetime is synthesized by events. Gravity is the large-scale expression of event-density structure and delay. Quantum mechanics is the local bookkeeping of ZFA closure.
+Universal Relativity recasts Einstein’s geometric vision at a deeper quantum-logical level, and **completes it into the grand unification**. Geometry is not fundamental. Spacetime is synthesized by events. Gravity is the large-scale expression of event-density structure and delay. Quantum mechanics is the local bookkeeping of ZFA closure. And the **four forces are one** — relative perspectives on a single gauge-twist closure (EM the abelian trace; weak and strong its non-abelian spatial projections at different logical densities; gravity the geometry of the aggregate), joined to gravity at mass = constructing delay (§4a). Einstein made spacetime relative; Universal Relativity makes *everything* relative — there is one closure, and physics is its set of relative views.
 
 The observed age of the universe, approximately **13.8 billion years**, is retained as an empirical boundary condition. In QLF it becomes the effective proper time accumulated by the realized event-synthesis history of our observable universe.
 
@@ -303,6 +365,8 @@ The universe does not have to begin as a singular object in pre-existing time. I
 
 **Further reading**
 
+- [`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md) — the grand unification in detail: the gauge forces as 3-axis projections (§3a) and gravity as the fourth force, the geometry of the same closures (§3b)
+- [`Einstein_Equations.md`](Einstein_Equations.md) — the field equations as the substrate's equation of state + the curvature side from the causal order (§6a)
 - [`WHITE_PAPER.md`](WHITE_PAPER.md)
 - [`possibilist-ontology.md`](possibilist-ontology.md)
 - [`Philosophy.md`](Philosophy.md)
