@@ -20,7 +20,7 @@ All entropy accounting is native to `particles.py`, `holographic.py`, and the Qu
 
 The von Neumann entropy of the coarse-grained state is:
 \[
-S = -\operatorname{Tr}(\rho \ln \rho)
+S = -\mathrm{Tr}(\rho \ln \rho)
 \]
 where \(\rho\) is the reduced density matrix after tracing out distinctions beyond the observer’s causal horizon. In QLF this horizon is the **Markov blanket** — the topological boundary formed by interlocking folds.
 

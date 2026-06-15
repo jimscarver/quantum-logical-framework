@@ -224,7 +224,7 @@ Two paths to a discharge worth flagging:
 
 $$H^\dagger \;=\; \overline{s_n}\,\overline{s_{n-1}}\,\cdots\,\overline{s_1}$$
 
-where the per-letter parity flip is `t ↦ t ⊕ 1` (pairing `^↔v, >↔<, /↔\, +↔-`). Concretely: reverse the sequence, then flip every twist to its conjugate. This is the operator-level adjoint — `(AB)† = B†A†` — and is implemented as `adjoint_history` in [`twist_core.py`](twist_core.py:238), `Twist.conj` in [`lean/QLF_TwistAlphabet.lean`](lean/QLF_TwistAlphabet.lean) (with history-level `adjoint` in [`lean/BraKetRhoQuCalc.lean`](lean/BraKetRhoQuCalc.lean)), and `Twist::conjugate` in the runtime kernel.
+where the per-letter parity flip is `t ↦ t ⊕ 1` (pairing `^↔v, >↔<, /↔\, +↔-`). Concretely: reverse the sequence, then flip every twist to its conjugate. This is the operator-level adjoint — `(AB)† = B†A†` — and is implemented as `adjoint_history` (line 238) in [`twist_core.py`](twist_core.py), `Twist.conj` in [`lean/QLF_TwistAlphabet.lean`](lean/QLF_TwistAlphabet.lean) (with history-level `adjoint` in [`lean/BraKetRhoQuCalc.lean`](lean/BraKetRhoQuCalc.lean)), and `Twist::conjugate` in the runtime kernel.
 
 The adjoint is involutive: `H†† = H`. Its defining identity, proved in [`Hermitian_Conjugacy_Proof.md`](Hermitian_Conjugacy_Proof.md), is
 

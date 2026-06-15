@@ -51,7 +51,7 @@ $$\gamma \;=\; \frac{f_A^{\text{proper}}}{f_B^{\text{observed-in-}A}} \;=\; \fra
 
 In words: if $A$ observes $B$'s clock ticking at half $A$'s own rate, then $\gamma = 2$ — $B$'s clock is dilated by factor 2 relative to $A$'s. This is exactly the standard time-dilation reading, restated in terms of internal Markov-blanket frequencies rather than coordinate time.
 
-Equivalently, in rapidity form $\varphi \equiv \operatorname{atanh}\beta$:
+Equivalently, in rapidity form $\varphi \equiv \mathrm{atanh}\,\beta$:
 
 $$\xi_{B \mid A} \;=\; e^{-\varphi}, \qquad \gamma \;=\; \cosh\varphi \;=\; \frac{\xi^{-1} + \xi}{2}.$$
 
