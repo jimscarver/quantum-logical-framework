@@ -81,5 +81,6 @@ lean_lib QLF where
     `QLF_Fusion,
     `QLF_InfoSynthesis,
     `QLF_MuonCatalysis,
-    `QLF_LoopClosure
+    `QLF_LoopClosure,
+    `QLF_ReachableEvent
   ]
