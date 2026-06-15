@@ -256,7 +256,19 @@ $$
 t_0 = \int_0^1 \frac{da}{aH(a)}
 $$
 
-Thus the observed value of approximately **13.8 Gyr** becomes an empirical target for the event-synthesis model. The universe need not begin from a singular instant. It has a measurable ZFA event history.
+**The age is not an empirical input — it is a count of Planck ticks.** Write `t₀ = N · τ_Planck`. The
+**tick** `τ_Planck = √(ℏG/c⁵)` is the substrate event quantum, fixed by `ℏ` (with `G`, `c` themselves
+substrate-derived) — *Planck's constant alone sets the size of one tick of the cosmic clock, with no
+empirical input*. What remains is the **count** `N` (the cosmic Markov-blanket depth, `~6.7×10⁶⁰`), and
+`N` is **not free** either: the substrate fixes it through the **hadronic-depth** relation
+`N ~ (m_P/m_p)³` and the **dark-energy crossover** (we observe at the era where `Ω_Λ = log 2`, which
+fixes the Hubble horizon `R_H` and hence `N`). [`AgeOfUniverse.md`](AgeOfUniverse.md) derives `t₀ ≈ 13.8
+Gyr` from the ZFA event-frequency spectrum *with no tuning to `H₀` or the dark-energy density*. So the
+`~13.8 Gyr` is a **derived count of ℏ-sized ticks**, not an empirical boundary condition; the one
+residual is a single calibration (effectively `H₀`/the overall scale), which "reduces to deriving `N`"
+([`Open_Problems.md`](Open_Problems.md)). The only genuinely state-like fact is that "now" is a clock
+reading — *how far the construction has got* — but the characteristic age (the dark-energy-onset epoch)
+is substrate-determined.
 
 See:
 
@@ -359,7 +371,12 @@ Universal Relativity states that the physical universe is the realized subset of
 
 Universal Relativity recasts Einstein’s geometric vision at a deeper quantum-logical level, and **completes it into the grand unification**. Geometry is not fundamental. Spacetime is synthesized by events. Gravity is the large-scale expression of event-density structure and delay. Quantum mechanics is the local bookkeeping of ZFA closure. And the **four forces are one** — relative perspectives on a single gauge-twist closure (EM the abelian trace; weak and strong its non-abelian spatial projections at different logical densities; gravity the geometry of the aggregate), joined to gravity at mass = constructing delay (§4a). Einstein made spacetime relative; Universal Relativity makes *everything* relative — there is one closure, and physics is its set of relative views.
 
-The observed age of the universe, approximately **13.8 billion years**, is retained as an empirical boundary condition. In QLF it becomes the effective proper time accumulated by the realized event-synthesis history of our observable universe.
+The age of the universe, approximately **13.8 billion years**, is **not** an empirical boundary
+condition — it is a *count of Planck ticks*, `t₀ = N · τ_Planck`. Planck's constant fixes the tick
+`τ_Planck = √(ℏG/c⁵)` with no empirical input; the substrate fixes the count `N` (hadronic depth,
+`Ω_Λ = log 2` crossover), so `t₀` is derived (no `H₀` tuning, [`AgeOfUniverse.md`](AgeOfUniverse.md)) up
+to one calibration. It is the effective proper time accumulated by the realized event-synthesis history
+of our observable universe — *what time the cosmic clock reads*, whose tick is `ℏ`.
 
 The universe does not have to begin as a singular object in pre-existing time. It is an ongoing quantum-logical synthesis of time, space, matter, and relation.
 
