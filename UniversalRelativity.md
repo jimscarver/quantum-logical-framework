@@ -12,7 +12,6 @@
 > **relative perspectives on one ZFA closure**, seen from different 3-axis projections, at different
 > logical densities, in different Markov-blanket frames. There is one substrate; physics is the set of
 > relative views of it. (§4a.)
-**Related updates:** [`AgeOfUniverse.md`](AgeOfUniverse.md), [`lean/AgeOfUniverse.lean`](lean/AgeOfUniverse.lean), [`StringTheory.md`](StringTheory.md)
 
 ## Summary
 
