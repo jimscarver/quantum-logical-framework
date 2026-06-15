@@ -48,6 +48,13 @@ The universe is not made of “stuff.” It is made of logic.
 
 Every physical process is a finite string in the 8-twist alphabet (`^ v < > / \ + -`). These strings are not metaphors — they are the literal building blocks of reality. Because ZFA closure is decidable and computable, the entire cosmos is **constructible in finite time**. No infinite regress, no external creator, no primordial randomness is required.
 
+Two distinct claims are folded into that sentence, and both are load-bearing:
+
+- **Constructable** (the *what*): every object QLF admits has a *finite construction* — the RCA₀ floor, no Axiom of Choice, no non-constructive reals. *To exist is to be constructible*; a name with no finite referent (the uncountable continuum, AC's selections) is not unused but **false** ([Continuum_Choice_Fallacy.md §2](Continuum_Choice_Fallacy.md)).
+- **Constructed in finite time** (the *how*): every realized event is reached by *finitely many* ZFA closure steps. Histories are finite strings by construction, and non-terminating (infinite-time) computations are **pruned by `full_zeno_prune` before they can become physical** — `qlf_universality` ([`lean/QLF_Universality.lean`](lean/QLF_Universality.lean)) admits exactly the *terminating* (finite) computations, and the cosmic age is finite (`age_is_finite_and_positive`, [`lean/AgeOfUniverse.lean`](lean/AgeOfUniverse.lean)).
+
+The precision that keeps this honest: QLF has **potential** infinity (the construction is *unbounded* — always extensible, the future open) but **no actual / completed** infinity (no finished infinite totality). Every realized thing took finitely many steps; the process never *completes* an infinity. This is the Aristotelian/Brouwerian line, and it is exactly the boundary QLF draws against ZFC's completed continuum — and *why* the pathologies cannot bite: Gödel unprovability, Turing undecidability, the Busy Beaver function, and Banach–Tarski each require either a non-constructive object or a completed infinity, and a *finite-time construction of constructable objects* reaches **neither**. "Constructable, and constructed in finite time" is mathematics' ultraviolet catastrophe resolved, restated as ontology.
+
 There is no external “source of free action.” The only activity in existence is the generation and closure of quantum logical ZFA events. Every apparent motion, every force, every interval of time is simply the bookkeeping of these events achieving balance.
 
 From the limited perspective of any single observer this logical activity looks like a vast, dynamic universe. In absolute terms it is a **distorted view of nothingness** — a self-consistent pattern that arises precisely because there is nothing else to balance against.
