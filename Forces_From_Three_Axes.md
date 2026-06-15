@@ -52,6 +52,61 @@ This is precisely the intuition that *the weak and strong forces are electromagn
 
 ---
 
+## 3a. Completing the unification: projections × densities, and electroweak breaking 🔶
+
+§3 says the three forces are one gauge-twist seen through different projections. Two more pieces close
+the loop — the **crisp algebraic form** of "different projections," and the **second axis** (logical
+density) that makes them look so different at low energy.
+
+**The crisp form: EM is the *abelian* sector; weak and strong are *non-abelian* projections.** This is
+now machine-anchored ([`lean/QLF_GaugeUnification.lean`](lean/QLF_GaugeUnification.lean)):
+
+- **EM = abelian** — the gauge-fold (Pauli scalar) group *commutes* (`em_gauge_abelian`, reusing
+  `QLF.PauliScalar.mul_comm`). An abelian generator self-interacts with nothing, so the **photon is
+  massless and long-range** — the unbroken `U(1)`.
+- **Weak & strong = non-abelian** — the projections *do not commute* (`strong_nonabelian` =
+  `gluon_commutator_nonzero`; `weak_isospin_su2`, `[τᵢ,τⱼ]=−2εᵢⱼₖτₖ ≠ 0`). A non-abelian generator
+  self-interacts, so these are **short-range, confined / massive**.
+
+So the **abelian/non-abelian split *is* the massless-photon-vs-massive-`W`/`Z` split** — electroweak
+unification's heart, restated as substrate structure (`gauge_unification_signature`).
+
+**The second axis — logical density (blanket frequency).** The *same* force looks different at
+different Markov-blanket densities (the "different 3-D perspectives" are perspectives *at different
+frequencies*):
+
+- **Low density / free** → the abelian limit: ordinary long-range **EM** (massless photon).
+- **High density (inside a hadronic blanket)** → the non-abelian **strong** projection dominates —
+  confinement, the three-axis Borromean binding.
+- **The weak projection is the one that *re-projects the blanket itself*** — a flavour change is a
+  change of which 3-D perspective the blanket presents. That is exactly why the weak force
+  **catalyzes**: it is the force that transforms one blanket into another (the β⁺ keystone that lets
+  two Markov blankets join, [`Fusion.md`](Fusion.md) §3a, [`SEX.md`](SEX.md)).
+
+**Electroweak symmetry breaking = the density threshold.** Above it (high frequency / energy) the
+projections are symmetric — all gauge bosons massless, the electroweak symmetry unbroken. Below it the
+Markov-blanket structure — QLF's constructive Higgs, the **gauge-fold delay** of
+[`Higgs.md`](Higgs.md) §3–4 — **confines the non-abelian projections**: `W`/`Z` acquire mass as
+gauge-fold depth (`m = 1/R`, [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md)), while the
+abelian trace, the photon, stays free. The projection ratio is the **Weinberg angle `sin²θ_W = 3/8`**
+(`sin2_weinberg_substrate_eq`, [`QLF_WeinbergAngle`](lean/QLF_WeinbergAngle.lean)).
+
+**The one statement.** *There is one substrate gauge interaction. The three forces are its **abelian
+trace** (EM) and its **non-abelian spatial projections** (weak `SU(2)`, strong `SU(3)`) of the same
+three axes, seen at different **logical densities**. The photon is the free abelian limit; the `W`,
+`Z`, and gluons are the blanket-confined non-abelian modes. Electroweak symmetry breaking is the
+density threshold below which the blanket confines the non-abelian projections and gives them mass; the
+weak projection catalyzes because it re-projects the blanket.* This is the same `6+2` / three-axis
+structure that fixes `α` (`N=3²`), `Ω_Λ` (`2/8`), `sin²θ_W` (`3/8`), and the `5̄⊕10` generation (§5a).
+
+**Honest scope.** This ties the *proven* pieces — the three gauge algebras, the abelian/non-abelian
+split, the Weinberg `3/8`, and Higgs-as-gauge-fold-delay — into one structural unification. It does
+**not** derive the gauge *couplings*, the `W`/`Z` mass *values* (which need the Higgs VEV), the RG
+running, or the symmetry-breaking dynamics as a field theory (`gauge_unification_in_progress`); those
+remain the open electroweak sector (§6, [`Weak_Force.md`](Weak_Force.md) §2).
+
+---
+
 ## 4. Quark flavors, honestly
 
 The synthesis says **color `SU(3)` = the traceless 3-axis directional tensor**, consistent with the existing Borromean three-quark picture (the three "colors" = the three axes). But the flavor sector is almost entirely open in QLF:
