@@ -91,6 +91,17 @@ idealizations — they are **false statements**:
   the *limit* of finitely-closing events ([TheContinuum.md](TheContinuum.md)), never as a
   completed totality of non-constructive points.
 
+**The fallacy is the *non-computable* reals — not constants like `π`.** A common confusion:
+`π`, `e`, and `γ` are **computable** reals — a *finite algorithm* produces any number of digits,
+so each has a finite description and lives at the **RCA₀ floor**, on the constructive side of the
+line. They are *not* the continuum fallacy; "infinite precision" is a non-issue, because a finite
+program generates whatever precision a measurement needs (the audit below: ≤15 digits suffice for
+the most demanding *audited* observable). What is false is the **non-computable** continuum — the
+uncountably many reals that *no* algorithm produces. So a substrate that writes `π` is not importing
+the fallacy: `π` is one of *our* objects. The only honest tidying is the **dependency direction** —
+that closure is primitive (`phase = · % N`, `Real.pi`-free) and `2π` is its *rendering*, recovered
+not assumed ([`lean/QLF_LoopClosure.lean`](lean/QLF_LoopClosure.lean), issues #59/#71/#73).
+
 That this is not pedantry is shown by the fact that ZFC, with these axioms, **proves
 outright absurdities**. The **Banach–Tarski paradox** is the cleanest: using the Axiom of
 Choice, a solid ball is cut into finitely many pieces and reassembled into *two* balls
