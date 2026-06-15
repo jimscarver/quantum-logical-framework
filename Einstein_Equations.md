@@ -122,6 +122,42 @@ local-time reading is developed in [`Kitada_Local_Time_GR.md`](Kitada_Local_Time
 
 ---
 
+## §6a The curvature side: from the causal order (Sorkin / Benincasa–Dowker)
+
+Jacobson's route fixes the **coefficient** (`8πG = 2π/η`) and the constant (`Λ = log 2`). The *other*
+half of the field equations — the **curvature** side, `G_μν = R_μν − ½ g_μν R` — used to be flagged as
+"needs differential-geometry machinery QLF's Lean core lacks." That framing is now too pessimistic,
+because QLF supplies the curvature side from the **same substrate** by a second, independent route.
+
+**The substrate is a causal set.** [`QLF_ReachableEvent`](lean/QLF_ReachableEvent.lean) makes QLF's
+reachability order a Lean object — a partial order of events with no metric: exactly a **causal set**
+(Bombelli–Sorkin). And Causal Set Theory's central result is that **geometry is recovered from order +
+number**: the **Benincasa–Dowker** discrete d'Alembertian applied to the causal order returns the
+**Ricci scalar** `R`, and the causal-set action limits to the **Einstein–Hilbert action** `∫R` in the
+continuum. So the curvature side of the Einstein equations is not an arbitrary differential-geometry
+gap — it is the concrete **order → metric** program running *on QLF's own closure graph*.
+
+**The first rung is Lean-anchored.** The basic object is the **causal (Alexandrov) interval**
+`[A,B] = {C : A ≤ C ≤ B}`, and CST's foundational principle is **number ↔ volume**: counting events
+measures spacetime volume / proper time. On QLF's causal set this is
+[`QLF_CausalInterval`](lean/QLF_CausalInterval.lean): `intervalVolume A B = |B| − |A| + 1` — the
+Markov-blanket **depth difference**, which is exactly the **Kitada local-clock tick count** between the
+two events (`Kitada_Local_Time_GR.md`). The geometric content anchored is that **proper time is
+additive along a causal chain** (`intervalVolume_additive`) — the discrete seed of the line element
+from which `R` and `∫R` are built. (The Minkowski metric itself re-emerges from the *statistics* of
+causal links in the dense limit — [`TheContinuum.md`](TheContinuum.md) — the Lorentz-invariant CST
+mechanism.)
+
+So the Einstein field equations sit on **two substrate legs that meet**: the **coefficient +
+thermodynamics** (Jacobson, §§2–5: `8πG = 2π/η`, `Λ = log 2`) and the **curvature from causal order**
+(Sorkin / Benincasa–Dowker, here: `∫R` as the continuum limit of the closure-graph action). Both are
+the *same* local object — the Markov-blanket / Kitada clock, which is at once the thermodynamic horizon
+*and* a node of the causal set. The field equations are the statement that this one network is
+simultaneously in local thermodynamic equilibrium (the coefficient) and rendered from its own causal
+order (the curvature).
+
+---
+
 ## §7 Honest scope
 
 This anchors the **coefficient and the thermodynamic skeleton** — `8πG = 2π/η`, both inputs being QLF
@@ -129,13 +165,19 @@ substrate results, reproducing Jacobson's "Einstein equation of state," with `Λ
 integration constant = the local-clock tick. Status marker:
 [`einstein_equations_in_progress`](lean/QLF_EinsteinEquations.lean).
 
-It does **not** carry out the full **tensor** derivation: the local Rindler construction, the
-Raychaudhuri focusing equation, and general covariance need differential-geometry machinery QLF's Lean
-core does not have — the same dynamical-metric step still open for the Schwarzschild metric
+It does **not** carry out the full **tensor** derivation. But that open step is now *concrete and
+named*, not "differential geometry QLF lacks": it is the **causal-set order → metric** program
+(Sorkin / Benincasa–Dowker, §6a) running on QLF's own causal set
+([`QLF_ReachableEvent`](lean/QLF_ReachableEvent.lean)), of which the **number↔volume / proper-time
+rung is Lean-anchored** ([`QLF_CausalInterval`](lean/QLF_CausalInterval.lean)). What remains open
+(`einstein_curvature_in_progress`): the interval *cardinality* = volume, the discrete
+**d'Alembertian → Ricci scalar** (Benincasa–Dowker), and the **continuum limit** to
+`G_μν = 8πG T_μν` — the same dynamical-metric step still open for the Schwarzschild metric
 ([`GR_Schwarzschild.md`](GR_Schwarzschild.md)) and gravitational waves
-([`QLF_GravitationalWaves`](lean/QLF_GravitationalWaves.lean)). What is new here is the **identification**:
-Jacobson's local horizon thermodynamics *is* QLF's Markov-blanket / Kitada local-clock thermodynamics,
-so the Einstein equation of state is literally the equation of state of the local-clock network.
+([`QLF_GravitationalWaves`](lean/QLF_GravitationalWaves.lean)), now a definite causal-set computation
+rather than a missing toolbox. What is established: the **identification** (Jacobson's local horizon =
+QLF's Markov-blanket / Kitada local clock = a node of the causal set), so the Einstein equations sit on
+two meeting substrate legs — the equation of state (coefficient) and the causal order (curvature).
 
 ---
 
