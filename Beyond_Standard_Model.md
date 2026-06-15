@@ -20,9 +20,9 @@ The bright line: ✅ **forced** (machine-verified the value is *not free* but a 
 | **4 CKM angles+phase** | 🔵 open | flavor change = gauge-fold pair-flip (operation); mixing angles open |
 | **Higgs mass, VEV** | 🔵 open | mechanism reframed (gauge-fold delay, [`Higgs.md`](Higgs.md)); the 125 GeV and `v=246 GeV` not derived |
 | **neutrino masses, PMNS** | 🔵 open masses; 🔭 **Majorana nature predicted → 0νββ** (§3), machine-verified `neutrino_majorana` | — |
-| **θ_QCD** (strong-CP) | 🔵 not addressed | — |
+| **θ_QCD** (strong-CP) | ✅ **forced to 0** (no axion) | `theta_zero_on_closure`: every CP-odd topological winding is zero on every ZFA closure ⟹ `θ̄=0` on all physical states — with **no Peccei–Quinn axion** (ZFA closure does the axion's job) ([`lean/QLF_StrongCP.lean`](lean/QLF_StrongCP.lean)) |
 
-**Honest tally:** of the ~19–26 SM parameters, QLF *firmly forces* **one** fundamental coupling (α) and **one relation** among the three lepton masses (Koide). That is a handful — but the SM forces **zero**, and the difference is the whole point: see §2.
+**Honest tally:** of the ~19–26 SM parameters, QLF *firmly forces* **one** fundamental coupling (α), **one relation** among the three lepton masses (Koide), and **`θ̄=0`** (the strong-CP angle — with no axion). That is a handful — but the SM forces **zero** (and needs a hypothetical axion to address `θ̄` at all), and the difference is the whole point: see §2.
 
 ---
 
@@ -36,6 +36,7 @@ The SM cannot even *formulate* "why is α 1/137" or "why is Ω_Λ ≈ 0.69." QLF
 - **m_p/m_e = 6π⁵** (`mass_ratio_QLF_eq`, 0.002%), with counterfactuals tying it to 3-quark permutation symmetry.
 - **The SM gauge group is the symmetry of the 3 axes** — all three gauge algebras machine-verified (`no_magnetic_monopoles`, `weak_isospin_su2`, `trace_commutator_zero`), dims `1+3+8=12`, `1+8=9=N` ([`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md)).
 - **The neutrino is Majorana, the electron is Dirac** — `neutrino_majorana` / `electron_not_majorana` ([`lean/QLF_Majorana.lean`](lean/QLF_Majorana.lean)): the antiparticle is the Hermitian conjugate (conjugate-and-reverse), the neutrino loop `^v` is a fixed point of it, the electron loop is not. The SM is *agnostic* on Dirac-vs-Majorana; QLF forces it (given the `^v` assignment), and forces that *only* the neutrino is self-conjugate. The empirical signature is `0νββ` (§3).
+- **The strong-CP angle is forced to zero — with no axion.** `theta_zero_on_closure` ([`lean/QLF_StrongCP.lean`](lean/QLF_StrongCP.lean)): every CP-odd (annihilation-odd) signed count is **zero on every ZFA closure** (reusing `wcount_zero_on_ZFA`), so `θ̄=0` on every physical state. The SM has no explanation for the observed `θ̄ < 10⁻¹⁰` (the strong-CP fine-tuning puzzle) and the standard fix postulates a hypothetical **Peccei–Quinn axion**; QLF needs none — ZFA closure does the axion's job. Forcing `θ̄=0` *without a new particle* is a genuine beyond-SM result.
 
 This is the real, provable "beyond SM": **the SM's unexplained constants are forced consequences of one substrate** — verified for a handful, with the *forcing* (not just the value) machine-checked.
 
@@ -51,6 +52,7 @@ The SM is *agnostic* (Dirac vs Majorana is open); QLF **forces Majorana** and th
 
 Softer, also beyond-SM but less sharp:
 - **Dark matter is not a particle** — emergent vacuum time-folding ([`DarkMatter.md`](DarkMatter.md)); prediction: no DM particle is found (consistent with decades of null WIMP searches).
+- **Matter won over antimatter generically** — the three Sakharov conditions are structurally met (B-violation via winding + Majorana `B−L`, C/CP via the chirality engine + strong-CP, out-of-equilibrium via expansion; `QLF_Baryogenesis`), so a matter excess is generic. The SM has the framework but too little CP violation; QLF shows the conditions hold. The *magnitude* `η_B ≈ 6×10⁻¹⁰` is open (as in the SM, `baryogenesis_in_progress`).
 - **Sterile neutrino**, *if* it exists, is a specific pure-gauge (no-spatial-twist) sequence.
 
 ---
@@ -64,7 +66,7 @@ Softer, also beyond-SM but less sharp:
 
 ## 5. What QLF does **not** do (the gaps, plainly)
 
-- It does **not** derive most of the SM: the quark masses, CKM, the weak/strong couplings, the Higgs mass and VEV, and `θ_QCD` are all 🔵 open (§1).
+- It does **not** derive most of the SM: the quark masses, CKM, the weak/strong couplings, and the Higgs mass and VEV are all 🔵 open (§1). (`θ_QCD` is the exception among the long-open puzzles — now ✅ forced to 0 without an axion.)
 - The lepton sector is **constrained, not closed**: `Q=2/3` is forced, but the scale and the Koide angle are inputs ([`Weak_Force.md`](Weak_Force.md) §5c — `2/9` is a flagged coincidence, not a derivation).
 - α matches at **0.026%**, not exactly — the residual (Schwinger-scale) is open.
 - The new-physics predictions (§3) **cannot be proved** by theory alone — the Majorana / `0νββ` prediction (though `neutrino_majorana` is machine-verified given the `^v` assignment) awaits an experimental `0νββ` observation; dark-matter-as-vacuum is qualitative.
@@ -76,10 +78,10 @@ Softer, also beyond-SM but less sharp:
 
 | | count | nature |
 |---|---|---|
-| SM parameters QLF **forces** (machine-verified) | ~1 coupling (α) + 1 lepton-mass relation (Koide) | retrodiction, but the *forcing* is proved |
+| SM parameters QLF **forces** (machine-verified) | 1 coupling (α) + 1 lepton-mass relation (Koide) + `θ̄=0` (strong-CP, no axion) | retrodiction, but the *forcing* is proved |
 | Beyond-SM/GR quantities derived | Ω_Λ, Λ, Mercury perihelion, m_p/m_e | retrodiction; several Lean-anchored |
 | Falsifiable **new** predictions | 1 sharp (Majorana / 0νββ, `neutrino_majorana` Lean-anchored) + 2 soft (dark matter, sterile ν) | untested; physics, not proof |
-| SM parameters left **open** | the large majority (quarks, CKM, couplings, Higgs numbers, ν masses, θ_QCD) | 🔵 |
+| SM parameters left **open** | the large majority (quarks, CKM, couplings, Higgs numbers, ν masses) | 🔵 |
 
 **Bottom line.** Two senses of "theory of everything" must be kept apart, because QLF's honest status is opposite in each:
 
@@ -98,4 +100,5 @@ So the precise status is **a TOE-scope ontology with a partial, forced-not-fitte
 - [`Weak_Force.md`](Weak_Force.md) §5 — Koide `Q=2/3`, `m_τ`, the Koide angle.
 - [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md), [`DarkMatter.md`](DarkMatter.md) — the new-physics predictions.
 - [`Cosmological_Constant.md`](Cosmological_Constant.md) — `Ω_Λ = log 2`, the vacuum catastrophe.
-- Lean anchors: `alpha_QLF_eq`, `koide_two_thirds`, `Omega_Lambda_QLF`, `mass_ratio_QLF_eq`, `mercury_perihelion_substrate_summary`, `weak_isospin_su2`, `trace_commutator_zero`, `neutrino_majorana`.
+- [`CP-Violation-and-Chirality.md`](CP-Violation-and-Chirality.md) §4a–4b — strong-CP `θ̄=0` without an axion, and the Sakharov baryogenesis conditions.
+- Lean anchors: `alpha_QLF_eq`, `koide_two_thirds`, `Omega_Lambda_QLF`, `mass_ratio_QLF_eq`, `mercury_perihelion_substrate_summary`, `weak_isospin_su2`, `trace_commutator_zero`, `neutrino_majorana`, `theta_zero_on_closure`.
