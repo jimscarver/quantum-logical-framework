@@ -29,13 +29,17 @@ that concrete: the three generations, realized as the three cube-root-of-unity p
 
 ## Honest scope
 
-This **reduces "why three generations" to "why three spatial dimensions"** — it does not
-derive 3-dimensionality from nothing. The 3D-ness of the substrate is itself argued elsewhere
-(Newton's `1/r²` from the holographic count, `QLF_GravityFromDelay`; nuclear magic numbers;
-the `α` directional tensor) and is the genuine input here
-(`generations_from_three_axes_constructive`). What is established: the generation count is
-locked to that one substrate integer, the same one that forces Koide, colour, and `α` — a
-unification, with the counterfactual that 2D/4D substrates would give 2/4 generations.
+This **reduces "why three generations" to "why three spatial dimensions"** — and that is itself
+now **derived**, not deferred: 3 is the *minimal dimension in which any relational/causal graph
+renders faithfully* (every finite graph embeds crossing-free in `ℝ³` via the moment curve; `ℝ²`
+fails for non-planar graphs like `K₅`, `K₃,₃`). The substrate *is* such a graph — the closure /
+reachability network (`QLF_ReachableEvent`) — and space is its faithful rendering, so it is
+minimally 3D (`SpaceTime.md` §3a). Newton's `1/r²` (`QLF_GravityFromDelay`), the nuclear magic
+numbers, and the `α` directional tensor `N=3²` are then **cross-checks** of that 3D rendering,
+not independent posits of it (`generations_from_three_axes_constructive`). What is established
+here: the generation count is locked to that one substrate integer, the same one that forces
+Koide, colour, and `α` — a unification, with the counterfactual that 2D/4D substrates would give
+2/4 generations.
 -/
 
 namespace QLF
