@@ -103,6 +103,33 @@ theorem interval_isChain {A B C D : Event α}
   · exact Or.inl (List.prefix_of_prefix_length_le hC.2 hD.2 h)
   · exact Or.inr (List.prefix_of_prefix_length_le hD.2 hC.2 h)
 
+/-- **The `k`-th causal layer below `x`** (Benincasa–Dowker): the events `y ≤ x` whose order interval
+    `[y,x]` has volume exactly `k`. The BD discrete d'Alembertian reads curvature from how the
+    *cardinalities* of these layers grow with `k`; the layers are its input. -/
+def layer (x : Event α) (k : ℕ) : Set (Event α) := { y | reachable y x ∧ intervalVolume y x = k }
+
+/-- **In the flat single-history (chain) substrate every causal layer is a singleton.** For each valid
+    depth `1 ≤ k ≤ |x|+1` there is a *unique* event at interval-volume `k` below `x` — the prefix
+    `x.take (|x|+1−k)`. Singleton layers are the Benincasa–Dowker signature of a **1-dimensional, flat**
+    causal order (pure time, no space): spatial dimensions and curvature appear only when the closure
+    graph *branches*, making layer cardinalities grow. -/
+theorem layer_unique (x : Event α) {k : ℕ} (hk : 1 ≤ k) (hk2 : k ≤ x.length + 1) :
+    ∃! y, y ∈ layer x k := by
+  have hm : (x.take (x.length + 1 - k)).length = x.length + 1 - k := by
+    rw [List.length_take]; omega
+  refine ⟨x.take (x.length + 1 - k), ⟨List.take_prefix _ x, ?_⟩, ?_⟩
+  · show intervalVolume (x.take (x.length + 1 - k)) x = k
+    unfold intervalVolume; rw [hm]; omega
+  · rintro y ⟨hyx, hvy⟩
+    have hyl : y.length ≤ x.length := reachable_length_mono hyx
+    have hyeq : y.length = x.length + 1 - k := by unfold intervalVolume at hvy; omega
+    have hw : reachable (x.take (x.length + 1 - k)) x := List.take_prefix _ x
+    have h1 : reachable y (x.take (x.length + 1 - k)) :=
+      List.prefix_of_prefix_length_le hyx hw (by omega)
+    have h2 : reachable (x.take (x.length + 1 - k)) y :=
+      List.prefix_of_prefix_length_le hw hyx (by omega)
+    exact reachable_antisymm h1 h2
+
 /-- **Established constructively:** the causal (Alexandrov) interval and its **number↔volume**
     proper-time structure on QLF's causal set — endpoints lie in the interval
     (`left_mem_interval`/`right_mem_interval`), self-volume is one tick (`intervalVolume_self`),
