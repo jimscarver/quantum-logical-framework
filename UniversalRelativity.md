@@ -35,8 +35,18 @@ histories persist:
   events; only information from the past acts locally, and the past determines the future purely
   locally.
 - **Cosmic age is a derived count of Planck ticks** `t₀ = N·τ_Planck`, not an empirical input (§5).
+- **Quantum gravity and the dark sector are accounted for**: gravity is quantized as the discrete
+  causal-set geometry of closures (no graviton to gauge — [`Quantum_Gravity.md`](Quantum_Gravity.md),
+  the master synthesis); **dark energy** is `Ω_Λ = log 2`, the local-clock tick that closes the 10¹²²
+  vacuum catastrophe ([`lean/QLF_CosmologicalConstant.lean`](lean/QLF_CosmologicalConstant.lean)); and
+  **dark matter** is denser logic near masses on the *same* Hubble horizon — `a₀ = cH₀/2π`, expand/contract
+  as the two faces of one horizon ([`lean/QLF_DarkMatter.lean`](lean/QLF_DarkMatter.lean),
+  [`DarkMatter.md`](DarkMatter.md)).
 
-The personal narrative and the Einstein dialog behind this completion are in [`MyStory.md`](MyStory.md).
+The single most complete companion is [`Quantum_Gravity.md`](Quantum_Gravity.md) — the master synthesis
+treating this completion as one face of a unified algebraic event (gravity, holography, expansion, the
+dark sector, ER=EPR). The personal narrative and the Einstein dialog behind it are in
+[`MyStory.md`](MyStory.md).
 
 ## Abstract
 
