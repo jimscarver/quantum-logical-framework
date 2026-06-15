@@ -20,7 +20,7 @@ ZFA is not a restriction on computation — it is a *selection principle*. Every
 full computational possibility space that achieves ZFA closure. What is pruned is not physics but the
 non-terminating, Turing-undecidable, Busy-Beaver-class tail.
 
-The framework is formally verified in **Lean 4 across 71 modules with zero `sorry` blocks**, its
+The framework is formally verified in **Lean 4 across 77 modules with zero `sorry` blocks**, its
 combinatorial core operating strictly within **RCA₀** — below the Axiom of Choice, below the
 continuum, below the Busy Beaver horizon. From the one postulate follow: spacetime synthesized
 event-by-event; particles and spin from twist parity; the Standard Model gauge groups and mass
@@ -75,6 +75,11 @@ parameters ([`Standard_Model.md`](Standard_Model.md)):
   and α.
 - **Gauge groups**: weak isospin SU(2) (the τ-algebra `Q₈ ⊂ SU(2)`), strong SU(3) (the traceless
   3-axis tensor), and the weak mixing angle `sin²θ_W = 3/8` at unification (the SU(5) value).
+- **Force unification**: the three gauge forces are **one** substrate gauge interaction — EM the
+  *abelian* sector (the photon), weak & strong *non-abelian* projections of the same three axes, seen
+  at different logical densities; electroweak breaking is the density threshold (`QLF_GaugeUnification`,
+  [`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md) §3a). One generation is the `5̄⊕10 = 15` of
+  SU(5) as the antisymmetric content of the substrate's `3⊕2` (`QLF_SU5`).
 - **The fine-structure constant** `α = 1/137` from substrate combinatorics alone (`only_3d` gives
   137; 2D→132, 4D→144), to 0.026%.
 - **The mass spectrum from one scale**: `m_p/m_e = 6π⁵` (0.002%), the charged-pion ratio `2/α`, Koide
@@ -94,6 +99,13 @@ parameters ([`Standard_Model.md`](Standard_Model.md)):
   supplied by the substrate, forcing `8πG = 2π/η`. The local Rindler horizon **is** the Markov-blanket
   / Kitada local clock, and the integration constant is `Λ = Ω_Λ = log 2` — the local clock's tick
   ([`Einstein_Equations.md`](Einstein_Equations.md), [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md)).
+- **The curvature side from the causal order** (Sorkin / Benincasa–Dowker): the closure graph is a
+  causal set (`QLF_ReachableEvent`) whose number↔volume, BD layers, and dimension-from-combining
+  (`QLF_CausalInterval`, `QLF_CausalDimension`) give the metric and curvature — so the open tensor side
+  is a definite causal-set computation, not missing differential geometry ([`Einstein_Equations.md`](Einstein_Equations.md) §6a).
+- **Gravity is the fourth force as the *geometry* of the same closures** — not a gauge force — joined
+  to the gauge sector at **mass = constructing delay** (the equivalence principle from the substrate;
+  the gauge-fold delay that gives mass is the delay the geometry reads as gravity; [`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md) §3b).
 - **Unruh, Hawking, and de Sitter temperatures** from one relation (the loop-phase `2π`).
 - **Dark matter and dark energy** as one expand/contract event-duality on a single Hubble horizon,
   with `Ω_Λ = log 2` closing the 10¹²² vacuum catastrophe to 1.2% ([`DarkMatter.md`](DarkMatter.md)).
@@ -187,7 +199,7 @@ they coincide.
 
 ## 10. Implementation and verification status
 
-- **71 Lean 4 modules, zero `sorry` blocks**; the combinatorial core within RCA₀. The full module
+- **77 Lean 4 modules, zero `sorry` blocks**; the combinatorial core within RCA₀. The full module
   table and key theorems are in [`lean/README.md`](lean/README.md).
 - The explicit axioms are confined to the six Millennium boundaries (above) plus speculative,
   unused-elsewhere axioms in `ER_EPR_QLF`.
