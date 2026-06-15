@@ -78,14 +78,43 @@ theorem intervalVolume_additive {A B C : Event α}
   unfold intervalVolume
   omega
 
+/-- **The causal interval is exactly the prefixes of `B` no shorter than `A`** (given `A ≤ B`):
+    `C ∈ [A,B] ↔ C ≤ B ∧ |A| ≤ |C|`. Both `A` and `C` are prefixes of `B`, so their order is fixed by
+    length — the interval is the "tail" of `B`'s prefix chain from depth `|A|` to `|B|`. -/
+theorem causalInterval_eq {A B : Event α} (hAB : reachable A B) :
+    causalInterval A B = {C | reachable C B ∧ A.length ≤ C.length} := by
+  ext C
+  constructor
+  · rintro ⟨hAC, hCB⟩
+    exact ⟨hCB, reachable_length_mono hAC⟩
+  · rintro ⟨hCB, hlen⟩
+    exact ⟨List.prefix_of_prefix_length_le hAB hCB hlen, hCB⟩
+
+/-- **Every causal interval in the prefix order is a chain** (totally ordered): any two events in
+    `[A,B]` are causally comparable. This is a *sharpening*, not a curvature claim: the prefix
+    substrate is a single **history line**, which is flat (1-dimensional) — so curvature does **not**
+    live here. It lives in the *branching* of the full closure graph (incomparable histories /
+    antichains, the `expand_generation` QuCalc tree), which is where the discrete d'Alembertian
+    samples it. This theorem tells the next rung exactly where to look. -/
+theorem interval_isChain {A B C D : Event α}
+    (hC : C ∈ causalInterval A B) (hD : D ∈ causalInterval A B) :
+    reachable C D ∨ reachable D C := by
+  rcases le_total C.length D.length with h | h
+  · exact Or.inl (List.prefix_of_prefix_length_le hC.2 hD.2 h)
+  · exact Or.inr (List.prefix_of_prefix_length_le hD.2 hC.2 h)
+
 /-- **Established constructively:** the causal (Alexandrov) interval and its **number↔volume**
     proper-time structure on QLF's causal set — endpoints lie in the interval
-    (`left_mem_interval`/`right_mem_interval`), self-volume is one tick (`intervalVolume_self`), and
-    **proper time is additive along the causal order** (`intervalVolume_additive`) — the first rung of
-    the order→metric program, reusing `QLF_ReachableEvent`. **Open (the named curvature step):** the
-    literal interval *cardinality* = `intervalVolume`, the discrete d'Alembertian → Ricci scalar
-    (Benincasa–Dowker), and the continuum limit to `G_μν = 8πG T_μν` — a concrete CST program on the
-    substrate, not generic differential geometry (`einstein_curvature_in_progress`). -/
+    (`left_mem_interval`/`right_mem_interval`), self-volume is one tick (`intervalVolume_self`),
+    **proper time is additive along the causal order** (`intervalVolume_additive`), the interval is
+    exactly the prefixes of `B` no shorter than `A` (`causalInterval_eq`), and it is a **chain**
+    (`interval_isChain`) — a single history line, which is flat. **Where curvature lives (the sharpened
+    next rung):** because each prefix interval is flat, the Ricci curvature must come from the
+    *branching* of the full closure graph — incomparable histories / antichains, the
+    `expand_generation` QuCalc tree — which is where the **Benincasa–Dowker** discrete d'Alembertian
+    samples it. **Open (`einstein_curvature_in_progress`):** the discrete d'Alembertian → Ricci scalar
+    on the branching graph and the continuum limit to `G_μν = 8πG T_μν` — a concrete CST program on the
+    substrate, not generic differential geometry. -/
 theorem einstein_curvature_in_progress : True := trivial
 
 end QLF.CausalInterval
