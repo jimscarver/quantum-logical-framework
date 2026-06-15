@@ -156,6 +156,17 @@ the *same* local object — the Markov-blanket / Kitada clock, which is at once 
 simultaneously in local thermodynamic equilibrium (the coefficient) and rendered from its own causal
 order (the curvature).
 
+**Where the curvature actually lives — the next rung points itself.** Pushing the Lean one step
+further sharpens the target: every causal interval *along a single history* is a **chain** — totally
+ordered (`interval_isChain`, `causalInterval_eq`: the interval is exactly the prefixes of `B` no
+shorter than `A`). A chain is **flat** — one history line carries proper time but no curvature. So the
+Ricci scalar cannot come from a single history; it must come from the **branching** of the full closure
+graph — *incomparable* histories, antichains, the places where `expand_generation` forks into
+distinguishable futures. That is exactly where the Benincasa–Dowker discrete d'Alembertian reads
+curvature (from how interval *abundances* deviate from the flat-chain count), so the open rung is now
+pinned to a definite structure: the curvature is the branching geometry of the QuCalc possibility tree,
+not anything in the single-history chain.
+
 ---
 
 ## §7 Honest scope
