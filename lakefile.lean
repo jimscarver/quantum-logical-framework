@@ -84,5 +84,6 @@ lean_lib QLF where
     `QLF_LoopClosure,
     `QLF_ReachableEvent,
     `QLF_SU5,
-    `QLF_CausalInterval
+    `QLF_CausalInterval,
+    `QLF_CausalDimension
   ]
