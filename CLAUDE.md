@@ -6,7 +6,7 @@ Project context for Claude Code sessions. Read this before making any changes.
 
 ## Project overview
 
-**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **72 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
+**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **73 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
 
 Core claim: *ZFA balance is the selection principle for physical reality.* Every terminating computation is a ZFA string; every ZFA string is symmetric (lies on the critical line). The Church-Turing universe filtered to ZFA-balanced strings is our physical universe.
 
@@ -14,7 +14,7 @@ Core claim: *ZFA balance is the selection principle for physical reality.* Every
 
 ---
 
-## 72 active modules
+## 73 active modules
 
 In `lean/`, registered in `lakefile.lean` roots array (in build order). For fuller per-module descriptions + the complete key-theorem lists, see [`lean/README.md`](lean/README.md).
 
@@ -82,6 +82,7 @@ In `lean/`, registered in `lakefile.lean` roots array (in build order). For full
 | `QLF_InfoSynthesis` | **Information synthesis as disjunctive (OR) closure.** A ZFA closure takes the *random signal* of the possibility stream (`expand_generation`, every admissible history) and **closes on an OR condition**: `List.any verify` is the Boolean OR-fold `⋁_s verify s` over the stream. `disjunctive_closure` (`any verify = true ↔ ∃ s ∈ generated, verify s` — closing on the OR *is* the existential); `disjunct_count_eq_central_binomial` (the OR has exactly `C(2n,n)` satisfying disjuncts, reusing `realized_count_eq_central_binomial` from `QLF_PvsNP`); `closure_always_fires` (`C(2n,n)≥1`, so the OR is always satisfiable — synthesis never stalls). The realized closure synthesizes one bit `ΔF=−log2` (`QLF_FreeEnergy`). **Honest scope:** the disjunctive *structure* is anchored (no new axioms); the log-2 synthesis (`QLF_FreeEnergy`) and the OR-looks-lossy-vs-unitarity tension — resolved holographically as a *screened boundary-OR* (which-disjunct-fired coarse-grained out, bulk retains it) — stay prose (`info_synthesis_disjunctive`). See `MRE.md`, `Active_Inference_Mathematics.md`, `P_vs_NP_QLF.md` |
 | `QLF_MuonCatalysis` | **Lepton-catalyzed fusion is QLF cold fusion (rate, not necessity).** Muon-catalyzed fusion (μCF) is the *legitimate* cold fusion — room-temperature, Frank/Sakharov/Alvarez 1956, distinct from Fleischmann–Pons — reproduced **in agreement with the SM**. QLF reading: "cold" = crossing the §2 critical-density threshold by **generation-depth** (a deeper-generation completer shrinks the blanket, raising `ρ`) not temperature; **α-sticking** = the muon blanket captured into the deep doubly-magic ⁴He closure. The one structural claim QLF owns is **catalysis touches rate, not necessity**: `catalysis_preserves_necessity` (the identical-pair Pauli block is catalyst-independent — no completer makes two protons distinguishable, only a real `u→d` does) and `catalyzed_join_still_requires_beta` (the full §3a keystone holds with any catalyst, reusing `pp_join_requires_distinguishability`). **Honest scope:** D-T not p-p (catalysis boosts overlap, not the weak `G_F`); τ⁻ too short-lived to catalyze (depth↔lifetime trade-off); the muon economy (~2× energy-negative: production cost + α-sticking) is SM/engineering, not a QLF gap (`muon_catalysis_in_progress`). See `Fusion.md` §3b |
 | `QLF_LoopClosure` | **The closure machine vs the `2π` rendering** (the dependency direction; issues #59/#71/#73, spirit of #66/#37). Answers "when QLF writes `2π`, is it the machine or the display?" by separating three objects: the **closure operation** `phase k N = k % N` is finite, decidable, RCA₀, **`Real.pi`-free** (`phase_full_cycle`: a full cycle closes; `phase_lt`: finite-alphabet residue); the **continuum `2π`** enters only in `renderAngle = 2π·k/N` and is *recovered* as the rendered full cycle (`render_full_cycle`, `render_one_cycle`), not imported; `τ_ZFA = 2·π_QLF` named (`tau_is_two_pi_QLF`). So the machine is `% N`; `2π` is the display. **Key reframing (per Jim):** `π` is a *computable* real (RCA₀) — precision was never the issue (the #37 audit: ≤15 digits suffice); only the dependency direction needed tidying. **Open:** which physical `N` a given loop closes on (`loop_closure_value_in_progress`). See `TheContinuum.md`, `Continuum_Choice_Fallacy.md` |
+| `QLF_ReachableEvent` | **Closure-reachability as a pre-geometric Lean object** (issues #63, #72). An `Event = List α` is a finite ZFA history (no coordinates); `reachable A B := A <+: B` (history-extension, **no spacetime primitive**) is a **partial order / causal set** (`reachable_refl`, `reachable_trans`, `reachable_antisymm` — Bombelli–Sorkin). `futureCone A = {B | reachable A B}` is the set the continuum **light cone renders** (`futureCone_subset`). **Answers #72** ("what drives closure succession *before* time?"): the reachability partial order is the pre-temporal driver — it exists with no time coordinate; time is its rendered total-order read-out. **Open:** the order→metric reconstruction (the Causal-Set continuum step) + binding `reachable` to `full_zeno_prune` (`light_cone_rendering_in_progress`). See `SpaceTime.md`, `TheContinuum.md` |
 | `QLF_StrongAlgebra` | Strong `SU(3)` = traceless 3-axis directional tensor; `trace_commutator_zero`, `gluon_commutator_nonzero`, `strong_su3_summary` |
 | `QLF_BMinusL` | Electric charge = exactly-conserved signed twist count (`signed_count_conserved`); **obstruction** `wcount_zero_on_ZFA` — every conserved signed count is zero on closures, so `B−L` is NOT a weight dictionary (it is winding) |
 | `QLF_Majorana` | The neutrino is **Majorana**: antiparticle = Hermitian conjugate (conjugate-and-reverse), and `^v` is a fixed point of it; `neutrino_majorana`, `electron_not_majorana` (electron is Dirac), `antiparticle_involutive` |
@@ -361,7 +362,7 @@ Avoid framings that contradict the above:
 | Path | Purpose |
 |---|---|
 | `lean/` | All Lean source files |
-| `lakefile.lean` | Build config; `roots` array lists all 72 modules |
+| `lakefile.lean` | Build config; `roots` array lists all 73 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |
