@@ -83,5 +83,6 @@ lean_lib QLF where
     `QLF_MuonCatalysis,
     `QLF_LoopClosure,
     `QLF_ReachableEvent,
-    `QLF_SU5
+    `QLF_SU5,
+    `QLF_CausalInterval
   ]
