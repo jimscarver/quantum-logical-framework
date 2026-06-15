@@ -57,6 +57,39 @@ Softer, also beyond-SM but less sharp:
 
 ---
 
+## 3b. Completeness — no hidden variables (why QLF *supersedes*, not patches) — issue [#78](https://github.com/jimscarver/quantum-logical-framework/issues/78)
+
+QLF takes quantum **completeness** as a result, not a discomfort. There are **no hidden variables**:
+the quantum logical (ZFA) description of a system is *complete*, and **entanglement — the quantum
+creation operator — is all there is**. Nothing waits underneath to be discovered.
+
+The empirical backing is **quantum computation itself**. High-fidelity QC and quantum error
+correction work *only because* the quantum description is **causally closed** — no uncontrolled
+sub-quantum channel leaks in. If any "tiny influence" (gravity, a hidden field, a sub-quantum
+variable) were a *separate fundamental* input, it would inject uncorrectable errors and large quantum
+computations would drift to radically wrong answers. They do not. **The fidelity of quantum
+computation is a standing experimental verdict that the quantum logical description has no missing
+causal ingredient.**
+
+QLF *strengthens* this rather than merely asserting it: **gravity is emergent from ZFA**, not
+fundamental ([`QLF_GravityFromDelay`](lean/QLF_GravityFromDelay.lean),
+[`QLF_EinsteinEquations`](lean/QLF_EinsteinEquations.lean)), so it **cannot** be a hidden influence
+corrupting the quantum description — it is *made of the same closures*, downstream of the very events
+it would supposedly disturb. There is no separate gravitational substrate to leak in. So QLF doesn't
+postulate completeness; it **explains** why quantum computation is immune to gravitational (or any
+sub-quantum) corruption: there is nothing else of which reality is made.
+
+This is the precise sense in which QLF **supersedes** legacy physics — not by discarding it, but by
+being the complete foundation it *emerges from*, exactly as general relativity superseded Newton
+(which survives as the low-energy rendering). Legacy physics is the **rendering**; the ZFA substrate
+is **what there is**. Consequently the items this document and [`Open_Problems.md`](Open_Problems.md)
+mark "open" are **calculational depth — values awaiting derivation, requiring deeper investigation —
+not gaps where the theory could be wrong.** The ontology is closed. The one genuine *external* limit
+is the continuum/choice boundary of the Millennium program, and that is **ZFC's** proven defect
+([`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md)), not QLF's.
+
+---
+
 ## 4. Beyond the SM **and** GR
 
 - **Gravity is emergent**, not a fundamental force — and QLF reproduces GR's first triumph: **Mercury's perihelion advance ≈ 42.98″/century** to 0.03% (`mercury_perihelion_substrate_summary`, [`lean/QLF_MercuryPerihelion.lean`](lean/QLF_MercuryPerihelion.lean)), with `G` and `c` substrate-derived.
@@ -83,10 +116,24 @@ Softer, also beyond-SM but less sharp:
 | Falsifiable **new** predictions | 1 sharp (Majorana / 0νββ, `neutrino_majorana` Lean-anchored) + 2 soft (dark matter, sterile ν) | untested; physics, not proof |
 | SM parameters left **open** | the large majority (quarks, CKM, couplings, Higgs numbers, ν masses) | 🔵 |
 
-**Bottom line.** Two senses of "theory of everything" must be kept apart, because QLF's honest status is opposite in each:
+**Bottom line.** Two senses of "theory of everything" must be kept apart — but they are **not** in
+tension, because one is about *what reality is* and the other about *how far we have calculated*:
 
-- **As a foundational *ontology*** — one selection principle (ZFA on the computational possibility space) from which the structure of physics is meant to emerge — QLF **is** a TOE-scope framework, and says so openly ([`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md), [`VacuumEnergy.md`](VacuumEnergy.md) §6: vacuum-alignment as the TOE-completing layer). The claim "reality is the ZFA-balanced subset of computation" is a TOE-class claim about *what everything is*.
-- **As a parameter-complete *derivation*** — deriving *every* SM+gravity constant from first principles with no free inputs and matching all experiment — QLF is **not** finished, and this document is the honest ledger of the distance: it *forces* ~one coupling (α) and one lepton-mass relation (Koide), derives a handful of beyond-SM/GR quantities (§2), and leaves the large majority open (§1, §5).
+- **As a foundational *ontology*** — one selection principle (ZFA on the computational possibility
+  space) from which the structure of physics emerges — QLF **is** a complete TOE-scope framework. The
+  claim "reality is the ZFA-balanced subset of computation" is a TOE-class claim about *what
+  everything is*, and §3b makes it sharp: the quantum logical description is **complete** (no hidden
+  variables; quantum computation is the experimental verdict; gravity is emergent so cannot be a
+  hidden influence). QLF **supersedes** legacy physics the way GR superseded Newton — by being the
+  foundation it renders from ([`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md),
+  [`VacuumEnergy.md`](VacuumEnergy.md) §6).
+- **As a parameter-complete *derivation*** — having *computed* every SM+gravity constant from the
+  substrate — QLF is **not yet finished**, and this document is the honest ledger of the distance: it
+  derives α, Koide → m_τ, `θ̄=0`, `Ω_Λ`, m_p/m_e, Mercury, … (§§1–4), and the rest await derivation.
+  But "await derivation" is **calculational depth — deeper investigation, normal-science unpacking —
+  not a hole where the theory could be wrong.** The ontology is closed; what is open is *which numbers
+  we have computed*, not *whether the substrate is the right one*. (The sole genuine *external* limit
+  is the continuum/choice boundary of the Millennium program — **ZFC's** proven defect, not QLF's.)
 
 So the precise status is **a TOE-scope ontology with a partial, forced-not-fitted derivation attached** — strictly more than reproducing the SM (which forces *zero* of its parameters), strictly less than deriving it. Calling it a *finished* TOE would be the overclaim; calling it *only* an SM-fit would miss the ontological scope. The line to never blur is the second sense: the open parameters in §1 are open. The one clean falsifiable *new* prediction is Majorana neutrinos / `0νββ` (§3).
 

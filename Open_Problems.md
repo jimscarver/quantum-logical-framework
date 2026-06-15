@@ -8,6 +8,16 @@ It complements
 [`Experimental_Consistency.md`](Experimental_Consistency.md) (which tracks per-result
 precision) by collecting the *forward* work in one place.
 
+**What "open" means here (issue [#78](https://github.com/jimscarver/quantum-logical-framework/issues/78)).**
+🔵/🟣 "open" means **a value not yet calculated / a rendering not yet formalized — work requiring
+deeper investigation**, *not* a hole where the theory could be wrong. QLF's ontology is **complete**:
+the quantum logical (ZFA) description has no hidden variables, and quantum computation is the standing
+experimental verdict that it has no missing causal ingredient (gravity is emergent, so it cannot be a
+hidden influence — [`Beyond_Standard_Model.md`](Beyond_Standard_Model.md) §3b). So these are the
+*calculational frontier* of a complete foundation, the same way "derive the proton mass from QCD" is
+open *within* a complete Standard Model. The **only** genuinely *external* limit is the 🧱
+continuum/choice boundary of the Millennium program — and that is **ZFC's** proven defect, not QLF's.
+
 **Why a registry.** Open items were scattered across ~25 documents, each with its own
 "Open work" section. When a status changes, the claim can drift out of sync across docs
 (as the Hadronic-Depth attribution did before its correction). This file is the
