@@ -33,6 +33,41 @@ that can name objects with *no finite construction* — the continuum's non-cons
 reals and choice's non-constructive selections. That is the mathematical ultraviolet
 catastrophe.
 
+### Shannon: the information-theoretic form of the same quantum
+
+Planck quantized *energy*; thirty years later Claude Shannon quantized *information* — and
+the second is a falsification of the **physical continuum** as direct as the first. Two
+theorems do it:
+
+- **The sampling theorem** (Nyquist–Shannon, 1949): a signal bandlimited to `B` is
+  *exactly* reconstructible from discrete samples at rate `2B`. A "continuous" physical
+  waveform carries no more information than a *countable* sample sequence — the smooth
+  curve is redundant notation over discrete data.
+- **The channel-capacity theorem**: `C = B·log₂(1 + S/N)` bits per second — **finite**. A
+  channel of finite bandwidth and finite signal-to-noise carries only finitely many bits;
+  noise sets a finite resolution, so amplitude differences below the noise floor carry
+  *zero* information. No physical signal of finite power can encode a real number — its
+  infinitely many bits do not exist.
+
+Together: **no physical signal, measurement, or finite region carries more than finitely
+many bits.** A real-valued amplitude with infinite precision is not merely unmeasurable —
+it is *physically meaningless*, because the information that would distinguish it from its
+neighbours does not exist.
+
+And the two catastrophes are *one* catastrophe. The continuum is needed only for signals of
+unbounded bandwidth — which carry unbounded energy: the original ultraviolet catastrophe. So
+the continuum is required **exactly** where physics already broke, and **only** there:
+finite energy ⟹ finite bandwidth ⟹ finite information ⟹ a discrete, finite-alphabet signal.
+This is the **empirical** companion to the logical argument of §2: Banach–Tarski shows the
+continuum + choice *prove falsehoods* (logical unsoundness); Shannon shows the physical world
+*never instantiates* the continuum (empirical falsification). QLF's per-event `log 2` quantum
+*is* the substrate's Shannon bit, reinforced by the **Bekenstein bound** (finite information
+`S ≤ A/4ℓ_P²` in any finite region) and **Landauer's principle** (erasing one bit costs
+`kT·log 2` — the same `log 2`); the finite-precision audit confirms the loop-closure constant
+needs ≤ 15 digits for the most demanding measured physics ([pi_precision_demo.py](pi_precision_demo.py),
+[TheContinuum.md](TheContinuum.md)). The continuum is emergent notation over a
+finite-information substrate — never a completed physical totality.
+
 ## 2. One false axiom proves everything — and continuum and choice are false
 
 There is a sharper way to say what is wrong, and it is the oldest result in logic:
@@ -163,3 +198,5 @@ boundary.
 - P. J. Cohen, *The independence of the continuum hypothesis*, Proc. Nat. Acad. Sci. **50** (1963) 1143–1148 & **51** (1964) 105–110.
 - T. Radó, *On non-computable functions*, Bell System Tech. J. **41** (1962) 877–884 — the Busy Beaver function.
 - S. G. Simpson, *Subsystems of Second Order Arithmetic*, Springer (1999) — reverse mathematics / RCA₀.
+- C. E. Shannon, *A Mathematical Theory of Communication*, Bell System Tech. J. **27** (1948) 379–423, 623–656 — the sampling and channel-capacity theorems: finite information in any physical signal (the empirical falsification of the physical continuum).
+- J. D. Bekenstein, *Universal upper bound on the entropy-to-energy ratio for bounded systems*, Phys. Rev. D **23** (1981) 287–298; R. Landauer, *Irreversibility and heat generation in the computing process*, IBM J. Res. Dev. **5** (1961) 183–191 — finite information in finite regions; the cost of one bit.
