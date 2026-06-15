@@ -9,7 +9,7 @@
 The **Quantum Logical Framework (QLF)** is a new, constructive **foundation for mathematics and physics, built from the bottom up** out of a single finite distinction — one bit, one Zero-Free-Action (ZFA) event.
 
 - **Its logic is quantum logic.** Propositions are phase-string distinctions in an 8-twist alphabet; truth is decided by *measurement*, which is ZFA closure. QLF argues this is the **correct** logic — *complete where reality is*, with Gödel/Turing incompleteness confined to the non-terminating tail it physically prunes. ([Quantum_Logic_Foundations.md](Quantum_Logic_Foundations.md))
-- **Physics is derived, not assumed.** From that one primitive follow spacetime, measurement, entanglement, the Standard-Model gauge groups, gravity, spin, and the fundamental constants — each **machine-verified in Lean 4** across **71 modules with zero `sorry` blocks**, the combinatorial core operating strictly within **RCA₀** (no Axiom of Choice, no continuity).
+- **Physics is derived, not assumed.** From that one primitive follow spacetime, measurement, entanglement, the Standard-Model gauge groups, gravity, spin, and the fundamental constants — each **machine-verified in Lean 4** across **72 modules with zero `sorry` blocks**, the combinatorial core operating strictly within **RCA₀** (no Axiom of Choice, no continuity).
 - **It is demonstrated, not just asserted.** The same logic derives `α = 1/137`, `m_p/m_e = 6π⁵`, and `Ω_Λ = log 2` from the substrate with zero free parameters (table below), and turns **all six open Millennium Prize Problems** into constructive cores plus one honestly-named continuum/choice boundary. ([Millennium.md](Millennium.md))
 
 In one line: **the universe is logical, its logic is constructive and complete-for-physics, and we build it from the bottom up — then check it in Lean.**
@@ -18,7 +18,7 @@ In one line: **the universe is logical, its logic is constructive and complete-f
 
 ## 🚀 Major substrate-derivation discoveries (June 2026)
 
-QLF now spans **71 machine-verified Lean modules** (zero `sorry`) covering the Standard Model, gravity/GR, cosmology, condensed matter, nuclear fusion, and the Millennium problems — see the [module table](#the-lean-formalization) and [`Open_Problems.md`](Open_Problems.md) for the full map. The **ten headline quantitative wins** from ZFA + h alone:
+QLF now spans **72 machine-verified Lean modules** (zero `sorry`) covering the Standard Model, gravity/GR, cosmology, condensed matter, nuclear fusion, and the Millennium problems — see the [module table](#the-lean-formalization) and [`Open_Problems.md`](Open_Problems.md) for the full map. The **ten headline quantitative wins** from ZFA + h alone:
 
 | # | Result | Match | Empirical input | Lean module |
 |---|---|---|---|---|
@@ -319,7 +319,7 @@ The Einstein-ether row is the most load-bearing for QLF's relativity. Einstein's
 
 ## Current Status
 
-The Lean formalization compiles with **zero `sorry` blocks** across all 71 modules. The entire combinatorial core operates within **RCA₀** — the minimum constructive logical subsystem (no Axiom of Choice, no continuity). The explicit axioms are confined to the Millennium-program boundaries — all six open Clay problems now have a Lean module reducing each to a constructive core plus *one* named axiom marking the continuum/choice crossing (`spectral_hilbert_polya`, `yang_mills_continuum_gap`, `modularity_mirror_invariant`, `substrate_realization_is_algebraic`, `navier_stokes_continuum_limit`, `generate_not_reducible_to_verify` — with `bsd_rank_equals_order` and `hodge_class_is_algebraic` now *theorems* discharged through them; see [Millennium.md](Millennium.md)) — plus philosophical axioms in `ER_EPR_QLF` (not used by other modules).
+The Lean formalization compiles with **zero `sorry` blocks** across all 72 modules. The entire combinatorial core operates within **RCA₀** — the minimum constructive logical subsystem (no Axiom of Choice, no continuity). The explicit axioms are confined to the Millennium-program boundaries — all six open Clay problems now have a Lean module reducing each to a constructive core plus *one* named axiom marking the continuum/choice crossing (`spectral_hilbert_polya`, `yang_mills_continuum_gap`, `modularity_mirror_invariant`, `substrate_realization_is_algebraic`, `navier_stokes_continuum_limit`, `generate_not_reducible_to_verify` — with `bsd_rank_equals_order` and `hodge_class_is_algebraic` now *theorems* discharged through them; see [Millennium.md](Millennium.md)) — plus philosophical axioms in `ER_EPR_QLF` (not used by other modules).
 
 **Key proof chains** (see [lean/README.md](lean/README.md) for full detail):
 

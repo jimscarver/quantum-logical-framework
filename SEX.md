@@ -10,6 +10,16 @@ has capabilities (stability, fertility, intelligence) neither part has alone. Th
 instance is nuclear — the proton and the neutron — and it is *modelled*, not just asserted:
 [`proton_neutron_demo.py`](proton_neutron_demo.py).
 
+> **Terminology (for the formal reader; issue [#58](https://github.com/jimscarver/quantum-logical-framework/issues/58)).**
+> "Sex" here names one precise relation — **complementary non-identical closure**: two
+> *distinguishable* closures binding into a higher closure that *identical copies cannot form*
+> (Pauli-blocked, `pauli_exclusion`). Neutral synonyms, if the word distracts: **complementary
+> closure**, **specialist closure**, **impedance pairing** (matched impedances reflect nothing new;
+> mismatched ones transform, given iteration time). The provocative name is deliberate — but the
+> content is the math, and survives any renaming: *collective intelligence does not require cloning;
+> it arises when non-identical specialist closures compose into a higher-order closure no single
+> participant can produce alone.*
+
 ---
 
 ## 1. The model: the sex of a proton and a neutron
