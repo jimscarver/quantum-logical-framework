@@ -173,9 +173,19 @@ the operator is an alternating sum of their cardinalities `|L_k|`, and applied t
 curvature are the same thing**: they are the *growth of* `|L_k|` once the closure graph branches. This
 dovetails with the graph-rendering result that space is 3D ([`SpaceTime.md`](SpaceTime.md) §3a) — the
 branching that renders into three spatial dimensions is the same branching whose layer-growth the BD
-operator turns into `R`. The open rung is thus fully pinned: **compute `|L_k|` on the branching
+operator turns into `R`.
+
+That layer-growth is anchored in the one case that is exactly a product of chains:
+[`QLF_CausalDimension`](lean/QLF_CausalDimension.lean) builds the **2-D causal diamond as the product
+order of two chains** — precisely `1+1` Minkowski in light-cone coordinates `(u,v)`, the two null
+directions being two QLF histories. Its volume is the **product** of the two chain volumes
+(`diamond_eq_product`: `(m+1)(n+1)`), and — the dimension fingerprint — that volume is **many-to-one**
+(`diamondVolume_collision`: `1×1`, `0×3`, `3×0` all have volume `4`), whereas the 1-D chain volume is
+**injective** (`chainVolume_injective`: one interval per volume, singleton layers). *Multiplicity of
+intervals at a fixed volume is the layer growth*, so combining histories literally raises the
+Myrheim–Meyer dimension. The open rung is thus fully pinned: **compute `|L_k|` on the general branching
 closure graph and feed the Benincasa–Dowker sum** — a definite combinatorial computation on QLF's own
-substrate, with the flat (chain) baseline already Lean-anchored.
+substrate, with the 1-D flat baseline (singleton layers) and the 2-D product case both Lean-anchored.
 
 ---
 
