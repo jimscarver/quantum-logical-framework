@@ -162,10 +162,20 @@ ordered (`interval_isChain`, `causalInterval_eq`: the interval is exactly the pr
 shorter than `A`). A chain is **flat** — one history line carries proper time but no curvature. So the
 Ricci scalar cannot come from a single history; it must come from the **branching** of the full closure
 graph — *incomparable* histories, antichains, the places where `expand_generation` forks into
-distinguishable futures. That is exactly where the Benincasa–Dowker discrete d'Alembertian reads
-curvature (from how interval *abundances* deviate from the flat-chain count), so the open rung is now
-pinned to a definite structure: the curvature is the branching geometry of the QuCalc possibility tree,
-not anything in the single-history chain.
+distinguishable futures.
+
+That is exactly where the **Benincasa–Dowker** discrete d'Alembertian reads curvature. Its input is the
+sequence of **causal layers** `L_k(x) = {y ≤ x : volume[y,x] = k}` ([`layer`](lean/QLF_CausalInterval.lean));
+the operator is an alternating sum of their cardinalities `|L_k|`, and applied to a constant it returns
+`−½ R` in the continuum. On QLF's single-history substrate the layers are **singletons** —
+`layer_unique` proves exactly one event sits at each interval-depth below `x` — the BD signature of a
+**1-dimensional, flat** order (pure time, no space, `R = 0`). So both **the spatial dimensions and the
+curvature are the same thing**: they are the *growth of* `|L_k|` once the closure graph branches. This
+dovetails with the graph-rendering result that space is 3D ([`SpaceTime.md`](SpaceTime.md) §3a) — the
+branching that renders into three spatial dimensions is the same branching whose layer-growth the BD
+operator turns into `R`. The open rung is thus fully pinned: **compute `|L_k|` on the branching
+closure graph and feed the Benincasa–Dowker sum** — a definite combinatorial computation on QLF's own
+substrate, with the flat (chain) baseline already Lean-anchored.
 
 ---
 
