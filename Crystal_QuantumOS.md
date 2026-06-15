@@ -183,7 +183,7 @@ Honest inventory, same standard as [Active_Inference_Mathematics.md §5](Active_
 | Constructible RhoProcess achieves ZFA | ✓ Lean-verified (`rho_process_always_zfa`) |
 | Bra-ket / RhoQuCalc correspondence preserves ZFA | ✓ Lean-verified (`bra_ket_always_balanced`) |
 | ΔF = −log 2 per half-spin ZFA closure | ✓ Lean-verified (`zfa_closure_minimizes_free_energy`) |
-| Per-axis Pauli mapping for the 8-twist alphabet | ✓ Derived ([Maxwell.md](Maxwell.md), [BraKetRhoQuCalc.lean]) |
+| Per-axis Pauli mapping for the 8-twist alphabet | ✓ Derived ([Maxwell.md](Maxwell.md), [BraKetRhoQuCalc.lean](lean/BraKetRhoQuCalc.lean)) |
 | Intrinsic frequency/phase-mismatch correction | ✓ Derived ([Error_Correction.md](Error_Correction.md)) |
 | QuantumOS capability tokens as QPU authorisation | ✓ Implemented (browser app) |
 | Mapping the 8-twist alphabet to crystal-hardware pulses (§3 table) | ⚠ Sketched in this doc |

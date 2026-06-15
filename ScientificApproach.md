@@ -32,7 +32,7 @@ This document catalogs **verified quantitative matches** between QLF predictions
 | **Superposition & measurement** | Real possibilities until joint ZFA closure with observer | Reproduces Copenhagen statistics without collapse postulate | Verified | `qucalc_engine.py` + `path_integral.py` |
 | **Particle classification** | Gauge-folded (\( + \)-\( - \)) closures = massive; pure spatial = massless | Matches Standard Model + predicts primordial quantum black holes | Verified | `particles.py --enable-gauge` |
 
-**New finding (April 2026)**: RhoQuCalc parallelism (`|` and `*`) reproduces multi-particle entanglement and interference with **polynomial scaling** (see `docs/performance-comparison.md`).
+**New finding (April 2026)**: RhoQuCalc parallelism (`|` and `*`) reproduces multi-particle entanglement and interference with **polynomial scaling** (see [`quantum-computation-optimization.md`](quantum-computation-optimization.md) §4).
 
 ---
 
@@ -78,7 +78,7 @@ Expected output (already analytically confirmed in `E_mc2_derivation.md`):
 | Double-slit (10⁴ histories) | ~minutes (grid FFT) | < 2 ms (parallel paths) | >10⁴× |
 | 100-particle gas | Intractable | Laptop-feasible (linear in N) | Dramatic |
 
-See full table in `docs/performance-comparison.md`. All benchmarks run on a single CPU core; no GPU required.
+See full table in [`quantum-computation-optimization.md`](quantum-computation-optimization.md) §4. All benchmarks run on a single CPU core; no GPU required.
 
 ---
 
@@ -104,7 +104,7 @@ These will be added to the repository as soon as numerical or lab results become
 
 - **RhoQuCalc** (Issue #18): Turns exponential quantum simulation into catalog-driven composition → verified polynomial scaling.
 - **Constructive \( E = mc^2 \)** (Issue #19): Full relativistic mechanics now derived and numerically verifiable from existing multiplicity + gauge-fold rules.
-- **Possibilist ontology** (`docs/possibilist-ontology.md`): All verified phenomena are now understood as real possibilities closing under ZFA.
+- **Possibilist ontology** ([`possibilist-ontology.md`](possibilist-ontology.md)): All verified phenomena are now understood as real possibilities closing under ZFA.
 
 **Bottom line**: Every major pillar of modern physics — QM phenomenology, special relativity, constants, gravity, and computational scalability — is now **constructively reproduced** inside a single 8-twist logical engine. No external postulates required.
 

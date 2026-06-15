@@ -93,7 +93,7 @@ is the continuum/choice boundary of the Millennium program, and that is **ZFC's*
 ## 4. Beyond the SM **and** GR
 
 - **Gravity is emergent**, not a fundamental force — and QLF reproduces GR's first triumph: **Mercury's perihelion advance ≈ 42.98″/century** to 0.03% (`mercury_perihelion_substrate_summary`, [`lean/QLF_MercuryPerihelion.lean`](lean/QLF_MercuryPerihelion.lean)), with `G` and `c` substrate-derived.
-- **The cosmological constant** — `Ω_Λ = log 2` (1.2%) closing the **10¹²² "vacuum catastrophe,"** QFT+GR's worst prediction (`QLF_CosmologicalConstant.lean`). This is the single most beyond-SM-and-GR result in the corpus.
+- **The cosmological constant** — `Ω_Λ = log 2` (1.2%) closing the **10¹²² "vacuum catastrophe,"** QFT+GR's worst prediction (`only_2_gauge_matches_observed_Omega_Lambda`, [`lean/QLF_CosmologicalConstant.lean`](lean/QLF_CosmologicalConstant.lean)). This is the single most beyond-SM-and-GR result in the corpus.
 
 ---
 
