@@ -50,6 +50,40 @@ Constant velocity is simply a continuous shift in logical perspective relative t
 
 This ZFA network is not a passive backdrop — it is the *uniform ether* against which every thread's motion is measured, and §4 shows why its uniformity is what makes $c$ the same for all observers.
 
+### 3a. Why exactly three spatial dimensions — the graph-rendering necessity
+
+Space being the *network of closures* answers a question usually deferred as an input: **why three
+dimensions?** The substrate is a **relational graph** — events are ZFA closures, edges are
+closure-reachability (the pre-geometric causal network of [`lean/QLF_ReachableEvent.lean`](lean/QLF_ReachableEvent.lean)).
+Space is the **faithful rendering** of that graph, and the rendering dimension is *forced* by a
+theorem of graph embedding:
+
+- **Every finite graph embeds in ℝ³ without crossings.** Place the vertices on the moment curve
+  `(t, t², t³)`; no four are coplanar, so no two edges cross — for *any* graph, `Kₙ` included.
+- **Three is the minimum.** In ℝ² only *planar* graphs embed; `K₅` and `K₃,₃` cannot (Kuratowski).
+  One and two dimensions cannot faithfully render an arbitrary relational structure.
+
+So three dimensions is **necessary** (a general closure graph contains non-planar substructure, so
+fewer than three would force distinct relations to cross or coincide — spurious identifications, an
+incoherent world), **sufficient** (every graph fits in 3D; none needs more), and **selected** (the
+minimal faithful rendering is the most economical — the MRE / minimal-description optimum — and the
+only *comprehensible* one; more dimensions render nothing 3D cannot, at extra descriptive cost). In
+one line:
+
+> **Three is the minimal dimension in which any relational structure can be faithfully and
+> comprehensibly rendered at all — so *that there is anything (any rendered world) at all* entails
+> three spatial dimensions.**
+
+This is a derivation of `substrate_spatial_dimension = 3`, not an assumption of it. The other QLF
+3-signatures — Newton's `1/r²` (Gauss's law in 3D), the nuclear magic numbers, and `α = N = 3²`
+([`Magic_numbers.md`](Magic_numbers.md), [`QLF_FineStructureSubstrate`](lean/QLF_FineStructureSubstrate.lean)) —
+are then *consequences and cross-checks* of the 3D rendering, not independent posits of it; and the
+three fermion generations inherit it (`num_generations = substrate_spatial_dimension = 3`,
+[`QLF_Generations`](lean/QLF_Generations.lean)). **Honest scope:** the embedding theorem is exact; the
+premises it rests on — that the substrate *is* a relational graph and space *is* its minimal faithful
+rendering — are QLF's own load-bearing ontology (the synthesis claim + `QLF_ReachableEvent`), not
+extra assumptions, so this derives 3D *within QLF*, not from nothing external.
+
 ## 4. The Uniform Ether and Lorentz Invariance
 
 The ZFA network of §3 is more than a relational graph — it is **Einstein's stateless ether**. In his 1920 Leiden address Einstein rehabilitated the ether as something with real physical and metric properties but **no state of motion**: a medium you cannot ride, with no preferred rest frame. The QuCalc substrate is exactly this. It is structured — it supplies the degeneracy $W_{ZFA}$ that sets each thread's tick rate — yet statistically **homogeneous**: away from mass clusters, every node of the network offers the same $W_{ZFA}$. Because the ether has no mechanical state, no thread can measure absolute motion through it.
