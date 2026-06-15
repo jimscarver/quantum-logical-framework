@@ -68,7 +68,6 @@ theorem render_full_cycle (k N : ℕ) (hN : 0 < N) :
   have hN' : (N : ℝ) ≠ 0 := Nat.cast_ne_zero.mpr hN.ne'
   push_cast
   field_simp
-  ring
 
 /-- The bare full-cycle constant `τ_ZFA = 2π` is the rendered single cycle. -/
 theorem render_one_cycle (N : ℕ) (hN : 0 < N) : renderAngle N N = 2 * Real.pi := by
