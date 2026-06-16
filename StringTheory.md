@@ -96,6 +96,7 @@ Welcome to the possibilist universe.
 
 **Further reading**  
 - [`LQG_QLF.md`](LQG_QLF.md) — the **Loop Quantum Gravity** companion: QLF's substrate *is* a spin network of half-spin (j=½) ZFA closures, the Immirzi `log 2`-per-puncture entropy is QLF's per-Planck-patch quantum, and background independence is the synthesized-spacetime ontology  
+- [`SUSY_QLF.md`](SUSY_QLF.md) — the **Supersymmetry** companion: the supercharge `Q` is the half-spin shift (boson↔fermion = even↔odd closure parity), `{Q,Q†}=2P` is two half-spins closing one spacetime event (the half-spin = the square root of the event), and SUSY is realized *without* a doubled spectrum — so QLF predicts the LHC superpartner null result  
 - [`UniversalRelativity.md`](https://github.com/jimscarver/quantum-logical-framework/blob/main/UniversalRelativity.md)  
 - [`Philosophy.md`](https://github.com/jimscarver/quantum-logical-framework/blob/main/Philosophy.md)  
 - [`WHITE_PAPER.md`](https://github.com/jimscarver/quantum-logical-framework/blob/main/WHITE_PAPER.md)  
