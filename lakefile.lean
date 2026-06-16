@@ -93,5 +93,7 @@ lean_lib QLF where
     `QLF_GaugeHolonomy,
     `QLF_WeakChirality,
     `QLF_Confinement,
-    `QLF_HiggsMechanism
+    `QLF_HiggsMechanism,
+    `QLF_CKM,
+    `QLF_QuarkMass
   ]
