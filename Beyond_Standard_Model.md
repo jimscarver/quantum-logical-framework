@@ -22,7 +22,7 @@ The bright line: ✅ **derived** (machine-verified the value is *not free* but a
 | **neutrino masses, PMNS** | 🔵 open masses; 🔭 **Majorana nature predicted → 0νββ** (§3), machine-verified `neutrino_majorana` | — |
 | **θ_QCD** (strong-CP) | ✅ **derived as 0** (no axion) | `theta_zero_on_closure`: every CP-odd topological winding is zero on every ZFA closure ⟹ `θ̄=0` on all physical states — with **no Peccei–Quinn axion** (ZFA closure does the axion's job) ([`lean/QLF_StrongCP.lean`](lean/QLF_StrongCP.lean)) |
 
-**Honest tally:** of the ~19–26 SM parameters, QLF *firmly derives* **one** fundamental coupling (α), **one relation** among the three lepton masses (Koide), and **`θ̄=0`** (the strong-CP angle — with no axion). That is a handful — but the SM derives **zero** (and needs a hypothetical axion to address `θ̄` at all), and the difference is the whole point: see §2.
+**Honest tally:** of the ~19–26 SM parameters, QLF *firmly derives* **one** fundamental coupling (α), **one relation** among the three lepton masses (Koide), and **`θ̄=0`** (the strong-CP angle — with no axion). That is a handful — but the SM derives **zero** (and needs a hypothetical axion to address `θ̄` at all), and the difference is the whole point: see §2. The deeper structural claim — that the *dimensionless force strengths* all root in α (itself `N=3²`) plus the integers `2,7`, leaving **one empirical mass** as the only scale input — is [`Forces_From_Alpha.md`](Forces_From_Alpha.md).
 
 ---
 
