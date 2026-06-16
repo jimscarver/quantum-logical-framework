@@ -84,7 +84,26 @@ The repository combines:
 - **conceptual essays** grounding QLF in the external literature
 - **Python experiments and demonstrations** that numerically confirm the Lean theorems
 - **Lean 4 machine-verified formalization** of all key structural claims — zero `sorry` blocks
-- **physical theory extensions** (strings, M-theory, holographic QEC, QuantumOS) built on the proved core
+- **physical theory extensions** (strings, M-theory, Loop Quantum Gravity, supersymmetry, holographic QEC, QuantumOS) built on the proved core
+
+---
+
+## Relation to the major Theory-of-Everything candidates
+
+QLF does not compete with the leading quantum-gravity programs — it **grounds the one deep structural
+relation each was built around**, as a theorem about half-spin ZFA closures. The recurring move: the
+"new fundamental object" each program posits (a string, a spin-network node, a superpartner) is a
+*feature of the substrate's closures*, not a new primitive — so QLF reproduces the program's structural
+wins from one rule, and explains why its conjectured extra spectrum has not been found.
+
+| Candidate | QLF's grounding (one line) | Companion |
+|---|---|---|
+| **String / M-theory** | A string is a gauge-fold tower; its level-`n` mode degeneracy is the central binomial `C(2n,n)` — the *same closure census* as Born statistics, P-vs-NP, and π; extra dimensions are twists, the landscape is ZFA-closure sectors (with ZFA the selection rule string theory lacks), and S/T-duality is a ZFA-preserving involution. | [`StringTheory.md`](StringTheory.md), [`lean/StringTheoryQLF.lean`](lean/StringTheoryQLF.lean), [`lean/MTheoryQLF.lean`](lean/MTheoryQLF.lean) |
+| **Loop Quantum Gravity** | The substrate *is* a spin network of half-spin (j=½) ZFA closures; the LQG black-hole entropy count (dominant j=½ punctures, each `log 2`) is QLF's holographic entropy `S=4πR²log2`, so the Barbero–Immirzi parameter is fixed by construction; background independence is the synthesized-spacetime ontology. | [`LQG_QLF.md`](LQG_QLF.md), [`lean/QLF_LoopQuantumGravity.lean`](lean/QLF_LoopQuantumGravity.lean) |
+| **Supersymmetry** | The supercharge `Q` is the half-spin shift (boson↔fermion = even↔odd closure parity); `{Q,Q†}=2P` is two half-spins closing one spacetime event (the half-spin is the *square root of the event*) — realized **without a doubled spectrum**, so QLF predicts the LHC superpartner null result. | [`SUSY_QLF.md`](SUSY_QLF.md), [`lean/QLF_Supersymmetry.lean`](lean/QLF_Supersymmetry.lean) |
+| **Causal Set Theory** | Spacetime is a discrete partial order of causal events — QLF's reachability causal set (`reachable A B := A <+: B`), the pre-temporal driver that the continuum light cone renders. | [`SpaceTime.md`](SpaceTime.md), [`lean/QLF_ReachableEvent.lean`](lean/QLF_ReachableEvent.lean) |
+
+The four forces are grounded the same way: the gauge *force* is the holonomy of the closure connection (abelian-flat photon vs curved non-abelian `W`/gluon), confinement is the singlet-closure obstruction, mass is the gauge-fold delay (the constructive Higgs), and gravity is the *geometry* of the closures — joined at **mass = constructing delay** ([`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md), [`Forces_From_Alpha.md`](Forces_From_Alpha.md): the couplings root in α, the scale in one mass).
 
 ---
 
