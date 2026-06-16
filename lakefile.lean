@@ -91,5 +91,7 @@ lean_lib QLF where
     `QLF_PlanckScale,
     `QLF_LoopQuantumGravity,
     `QLF_GaugeHolonomy,
-    `QLF_WeakChirality
+    `QLF_WeakChirality,
+    `QLF_Confinement,
+    `QLF_HiggsMechanism
   ]
