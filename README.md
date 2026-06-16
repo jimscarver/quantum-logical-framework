@@ -289,9 +289,9 @@ QLF is not only a theoretical framework — it is an executable architecture for
 - **Hardware-native AI with absolute interpretability**: `Form.toMatrix` maps cognitive constructs to Clifford algebra elements — the correct geometric inductive bias for physical AI (Bronstein et al. 2021, Geometric Deep Learning). Every AI program running on QLF hardware runs in machine-verified ZFA-correct code; the output is a geometric proof of Zero Free Action, not a probabilistic best-guess.
 - **Ruliad/RCA₀**: `expand_generation` explores the full ruliadic multiway space (Wheeler, Zuse, Lloyd, Wolfram); `full_zeno_prune` filters it to physical reality. The engine operates strictly within RCA₀ (Harvey Friedman's Reverse Mathematics) — the minimum constructive logical subsystem consistent with physics. Convergent with Causal Set Theory, Causal Dynamical Triangulations, and Loop Quantum Gravity.
 
-### Convergence: seventeen independent programs arriving at the same place
+### Convergence: eighteen independent programs arriving at the same place
 
-The most striking feature of QLF is not any single proof — it is that seventeen or more independent research programs, with no coordination, have each arrived at the same core picture: **reality is informational, computable, and bounded by a logical closure condition**. QLF is the intersection point.
+The most striking feature of QLF is not any single proof — it is that eighteen or more independent research programs, with no coordination, have each arrived at the same core picture: **reality is informational, computable, and bounded by a logical closure condition**. QLF is the intersection point.
 
 | Program | Key figure(s) | Convergent claim |
 |---|---|---|
@@ -302,6 +302,7 @@ The most striking feature of QLF is not any single proof — it is that seventee
 | Holographic principle | Bekenstein, Hawking, 't Hooft, Susskind (1972–1995) | Bulk physics is bounded by boundary information |
 | Relativistic ether | Albert Einstein (1920, Leiden) | Spacetime is a medium with real metric properties but no preferred frame or state of motion |
 | Causal Set Theory | Bombelli, Sorkin, Henson (1987–present) | Spacetime is a discrete partial order of causal events |
+| Loop Quantum Gravity | Ashtekar, Rovelli, Smolin (1986–present) | Space is a spin network of SU(2) quanta; area/volume discrete; background-independent — QLF's substrate is a spin network of half-spin ZFA closures ([`LQG_QLF.md`](LQG_QLF.md)) |
 | Girard linear logic | Jean-Yves Girard (1987) | Resource-sensitive reasoning; proof = process; use-once tokens |
 | Reverse Mathematics | Harvey Friedman (1975–present) | Physical laws can be stratified by minimum logical strength; RCA₀ is the computable floor |
 | Session types | Kohei Honda (1993) | Communication protocols have types; safety = type-checking |
