@@ -1,7 +1,7 @@
 # Lean 4 Formalization — Quantum Logical Framework
 
 **Build:** `lake build` on Lean 4.30.0-rc2 + Mathlib  
-**Status:** CI passing, zero `sorry` blocks across all 80 active modules
+**Status:** CI passing, zero `sorry` blocks across all 81 active modules
 
 ## What This Formalization Proves
 
