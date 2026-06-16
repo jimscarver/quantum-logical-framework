@@ -71,6 +71,19 @@ now machine-anchored ([`lean/QLF_GaugeUnification.lean`](lean/QLF_GaugeUnificati
 So the **abelian/non-abelian split *is* the massless-photon-vs-massive-`W`/`Z` split** — electroweak
 unification's heart, restated as substrate structure (`gauge_unification_signature`).
 
+**The gauge *force* (dynamics), machine-verified.** Beyond the algebras, the *interaction* is the
+**holonomy** of the closure connection — the Wilson-loop plaquette `A·B·A⁻¹·B⁻¹`: trivial in the abelian
+(EM) sector (`em_plaquette_trivial = 1` — flat `U(1)`, massless long-range photon) and non-trivial in the
+non-abelian sector (`σxσyσxσy = -1 ≠ 1` — curved `SU(2)`/`SU(3)`, self-interacting `W`/gluon)
+([`lean/QLF_GaugeHolonomy.lean`](lean/QLF_GaugeHolonomy.lean)). **Confinement** is the singlet-closure
+obstruction: a net-colored state carries an annihilation-odd signed count that is **zero on every ZFA
+closure**, so a lone quark *cannot close* — only color singlets are physical (`charged_not_closed`,
+`singlet_closure`, [`lean/QLF_Confinement.lean`](lean/QLF_Confinement.lean)); the flux-tube linear
+potential is the constructing delay growing with separation. And **mass is the gauge-fold delay** `m=1/R`
+— a fold makes mass (`weak_boson_mass_pos`), the abelian photon stays massless, custodial `ρ=1`
+([`lean/QLF_HiggsMechanism.lean`](lean/QLF_HiggsMechanism.lean)). The couplings `g₁,g₂,g₃`, the string
+tension, and the Higgs VEV stay the open dynamics.
+
 **The second axis — logical density (blanket frequency).** The *same* force looks different at
 different Markov-blanket densities (the "different 3-D perspectives" are perspectives *at different
 frequencies*):

@@ -106,6 +106,8 @@ The charged weak closures (W⁺, W⁻) carry one net charge twist on top of the 
 
 The masslessness of the photon follows immediately: the photon is a pure spatial closure with no gauge-fold twists, so R = 0 and m = 0.
 
+**Machine-verified** ([`lean/QLF_HiggsMechanism.lean`](lean/QLF_HiggsMechanism.lean)): mass *is* the gauge-fold delay — `mass_is_gauge_fold_delay` (`m = 1/R` for blanket depth `R`, in Planck units, reusing `mass_from_depth`); a gauge fold makes mass — `weak_boson_mass_pos` (depth `R > 0 ⟹ m > 0`, so the non-abelian `W`/`Z` are massive while the abelian, fold-free photon is massless, the curved-vs-flat Wilson loop of [`QLF_GaugeHolonomy`](lean/QLF_GaugeHolonomy.lean)); masses are blanket depths — `heavier_is_shallower`; and the tree-level **custodial `ρ = 1`** — `custodial_rho_one` (reusing `rho_one_of_mass_relation` from [`QLF_WeinbergAngle`](lean/QLF_WeinbergAngle.lean)), with `cos²θ_W = 1 − sin²θ_W` and the unification `sin²θ_W = 3/8`. The constructive Higgs needs no fundamental scalar; the VEV `v ≈ 246 GeV`, the `125 GeV` Higgs mass, and the absolute `W`/`Z` masses remain open (`higgs_mechanism_in_progress`).
+
 ---
 
 ## 5. The Higgs Boson as a Topological Resonance
