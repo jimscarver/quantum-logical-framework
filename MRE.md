@@ -11,7 +11,7 @@ This per-fold maximum is why 1/2-spin is the foundational building block of ferm
 ## 1. Intuition
 
 - Before closure, an unresolved history in the [8-twist alphabet](./eight-twists-sufficiency.md) encodes an **exponentially branching possibility tree**.
-- The ZFA constraint forces each event to be a **Hermitian-conjugate pair**: every twist must close with its conjugate (`bra_ket_always_balanced`, [BraKetRhoQuCalc.lean](./lean/BraKetRhoQuCalc.lean)). The minimal such closure is a **binary partition** — one twist plus its conjugate. Higher-multiplicity partitions decompose into compositions of binary closures (`decoherence_impossibility`).
+- The ZFA constraint requires each event to be a **Hermitian-conjugate pair**: every twist must close with its conjugate (`bra_ket_always_balanced`, [BraKetRhoQuCalc.lean](./lean/BraKetRhoQuCalc.lean)). The minimal such closure is a **binary partition** — one twist plus its conjugate. Higher-multiplicity partitions decompose into compositions of binary closures (`decoherence_impossibility`).
 - A binary partition has at most log 2 nats (= 1 bit) of information gain, and saturates the bound when the partition is exactly 50/50.
 - Therefore the 1/2-spin closure is the unique event-shape that simultaneously **satisfies ZFA** (Hermitian pair) and **saturates the information-gain bound** per event. Anything coarser is a composite of 1/2-spin atoms; anything finer is forbidden by the Hermitian-pair structure.
 

@@ -56,7 +56,7 @@ In QLF the same quantities are constructive:
 
 ### 3.2 Per-event free-energy minimization
 
-Each ZFA closure minimizes $F$ by exactly $\log 2$ nats at the 1/2-spin atom (the per-event maximum proved in [MRE.md §2.1](MRE.md)). The Hermitian-pair structure forces binary partition, and the 50/50 binary partition saturates information gain. Anything coarser is a composite; anything finer is forbidden.
+Each ZFA closure minimizes $F$ by exactly $\log 2$ nats at the 1/2-spin atom (the per-event maximum proved in [MRE.md §2.1](MRE.md)). The Hermitian-pair structure imposes binary partition, and the 50/50 binary partition saturates information gain. Anything coarser is a composite; anything finer is forbidden.
 
 $$\Delta F = -\log 2 \quad \text{per 1/2-spin ZFA atom}$$
 
@@ -80,7 +80,7 @@ The hierarchical-control architecture follows from §1–§3.
 
 **Why slow controls top-down.** Each Markov blanket filters which micro-events are admissible at the next instant via its causal-frontier prior. The blanket integrates information across many fast events into a slowly-evolving boundary state. That state IS the prior the agent inside the blanket must condition its next closure on. The cosmic horizon's slow entropy ledger ([AgeOfUniverse.md](AgeOfUniverse.md)) is the highest-level prior — gravitational warping ([Gravity.md](Gravity.md)) and the holographic encoding ([Holographic.md](Holographic.md)) are its expression at the bulk.
 
-**Why relativity crosses frequencies.** Any consistent observer must match its internal clock to its frame-local ZFA event rate. Different scales tick at different rates by construction. Lorentz transformations between scales are forced by ZFA closure consistency, not postulated as a separate principle.
+**Why relativity crosses frequencies.** Any consistent observer must match its internal clock to its frame-local ZFA event rate. Different scales tick at different rates by construction. Lorentz transformations between scales follow from ZFA closure consistency, not postulated as a separate principle.
 
 ## 5. Implications
 

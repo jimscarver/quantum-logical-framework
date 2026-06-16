@@ -12,7 +12,7 @@
 
 In standard cosmology, "Dark Matter" is assumed to be an invisible, non-interacting particle (like a WIMP) necessary to explain the flat rotation curves of galaxies. 
 
-In the Quantum Logical Framework (QLF), **Dark Matter is not a separate particle.** Instead, it is an **emergent property of the vacuum itself**. Near massive bodies (like galaxies), the *logical density* of the QuCalc engine is significantly higher. This congestion forces the local spatial vacuum to resolve topological traffic by folding into the **local time direction** (the `+` and `-` LOCAL gauge axes). 
+In the Quantum Logical Framework (QLF), **Dark Matter is not a separate particle.** Instead, it is an **emergent property of the vacuum itself**. Near massive bodies (like galaxies), the *logical density* of the QuCalc engine is significantly higher. This congestion drives the local spatial vacuum to resolve topological traffic by folding into the **local time direction** (the `+` and `-` LOCAL gauge axes). 
 
 Because any gauge fold necessarily introduces a **constructing delay** ($\Delta t = R/f$) and creates local time, this folded vacuum spacetime effectively acquires a distributed **rest mass**. To distant observers, this slow-down of time and emergent distributed vacuum mass is measured as the Dark Matter halo.
 
@@ -49,10 +49,10 @@ To an outside observer, **time slows down** near a mass, and the coordinate **sp
 
 As one moves from a single star to the galactic scale, the logical density becomes extreme. The standard spatial folds (`^, v, <, >`) become combinatorially congested. 
 
-To maintain ZFA and prevent the engine from halting, QuCalc must route excess interaction paths through the orthogonal dimensions. **Space is forced to fold into the local time direction**—specifically, the `+` and `-` LOCAL gauge axes.
+To maintain ZFA and prevent the engine from halting, QuCalc must route excess interaction paths through the orthogonal dimensions. **Space must fold into the local time direction**—specifically, the `+` and `-` LOCAL gauge axes.
 
 ### The Emergence of Rest Mass in the Vacuum
-When the vacuum itself is forced to route histories through `+` and `-`:
+When the vacuum must route histories through `+` and `-`:
 1. The vacuum acquires a **constructing delay** ($\Delta t = R/f$).
 2. By the fundamental rules of QLF, any region with a constructing delay and local time possesses **mass**.
 3. Therefore, the heavily congested space surrounding a galaxy *exhibits a rest mass of its own*.

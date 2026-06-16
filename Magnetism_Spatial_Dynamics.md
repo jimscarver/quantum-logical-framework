@@ -24,7 +24,7 @@ The third mechanism subsumes the earlier "B = vacuum spin-orientation imbalance"
 
 ## §2 Pauli exclusion as substrate expansion
 
-The Pauli exclusion principle — "two identical fermions cannot occupy the same quantum state" — has a direct substrate reading. Two half-spin ZFA closures of the same orientation would, if co-located, produce a joint Pauli product `(−I) · (−I) = +I`. But the joint state requires both closures' state spaces to match; for *identical* same-orientation closures at the same spatial event, the substrate has no way to distinguish them, and the substrate's closure-uniqueness principle forces them apart.
+The Pauli exclusion principle — "two identical fermions cannot occupy the same quantum state" — has a direct substrate reading. Two half-spin ZFA closures of the same orientation would, if co-located, produce a joint Pauli product `(−I) · (−I) = +I`. But the joint state requires both closures' state spaces to match; for *identical* same-orientation closures at the same spatial event, the substrate has no way to distinguish them, and the substrate's closure-uniqueness principle keeps them apart.
 
 Spatially, this means same-orientation closures occupy *distinct* substrate events. They tile space, creating effective "exclusion volume" per closure.
 
@@ -280,7 +280,7 @@ N = 9
 | Spatial co-location | 1 | λ_binding/2 ≈ 45 nm >> a₀ ≈ 0.053 nm | Geometric fact |
 | **N = 9** | **integer** | **3² directional-coupling tensor** (3 spatial axes input × 3 output) | **Substrate dimensional count** |
 
-The substrate alphabet's 6+2 split forces 3 spatial dimensions ([`Magic_numbers.md`](Magic_numbers.md)); 3² = 9 follows for the directional tensor of a binding interaction in the bound state. No free parameter is chosen to fit α.
+The substrate alphabet's 6+2 split fixes 3 spatial dimensions ([`Magic_numbers.md`](Magic_numbers.md)); 3² = 9 follows for the directional tensor of a binding interaction in the bound state. No free parameter is chosen to fit α.
 
 ### §6.1.4 Counterfactuals
 

@@ -73,13 +73,13 @@ $$
 N_{\text{ex}} = \sum_{k \geq 1} \frac{g_k}{e^{(\varepsilon_k - \mu)/k_B T} - 1}
 $$
 
-In the discrete QuCalc picture, the sum is replaced by the count of available **non-ground-state history prefixes** that remain open before ZFA closure forces synchronization. In the continuum limit (large trap, many directional moves), this recovers the standard ideal Bose-gas integral. For the lowest-energy trap (harmonic oscillator), the critical temperature is obtained by setting $\mu \to \varepsilon_0$ and $N_{\text{ex}} = N$:
+In the discrete QuCalc picture, the sum is replaced by the count of available **non-ground-state history prefixes** that remain open before ZFA closure drives synchronization. In the continuum limit (large trap, many directional moves), this recovers the standard ideal Bose-gas integral. For the lowest-energy trap (harmonic oscillator), the critical temperature is obtained by setting $\mu \to \varepsilon_0$ and $N_{\text{ex}} = N$:
 
 $$
 T_c = \frac{h^2}{2\pi m k_B} \left( \frac{N}{V \zeta(3/2)} \right)^{2/3}
 $$
 
-**QLF derivation insight**: The zeta function $\zeta(3/2)$ emerges naturally as the topological multiplicity of excited directional prefixes at the first few energy levels. When the thermal history-string length exceeds the number of distinct excited prefixes, QuCalc confluence *forces* all remaining atoms onto the shared ground-state prefix $G$. This is an exact, discrete phase transition with no mean-field approximation.
+**QLF derivation insight**: The zeta function $\zeta(3/2)$ emerges naturally as the topological multiplicity of excited directional prefixes at the first few energy levels. When the thermal history-string length exceeds the number of distinct excited prefixes, QuCalc confluence *drives* all remaining atoms onto the shared ground-state prefix $G$. This is an exact, discrete phase transition with no mean-field approximation.
 
 The formula is identical to the standard result, but derived purely from history-string counting and ZFA closure — no continuous wavefunction or second quantization is required.
 

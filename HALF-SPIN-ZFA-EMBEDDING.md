@@ -96,7 +96,7 @@ The four base 1/2-spin atoms — `^v`, `<>`, `/\`, `+-` — each fold to $-I$ in
 - **Pauli closure** (the algebraic / non-abelian projection — [Experimental_Consistency.md §2.1](Experimental_Consistency.md))
 - **Maximum information gain** (the information-theoretic projection — [MRE.md](MRE.md))
 
-The 720° spinor statistics of fermions are the macroscopic signature of this $-I$ fold: a single 1/2-spin atom contributes the $-1$ phase a fermion picks up under 360° rotation; two atoms in parallel restore $+I$ at 720°. This is now **machine-verified** in [`Spin_QLF.md`](Spin_QLF.md) / [`lean/QLF_Spin.lean`](lean/QLF_Spin.lean): the three twist axes close the su(2) Lie algebra (`su2_comm_xy/yz/zx`), 360°→`−I` / 720°→`+I` (`rotation_360_eq_negI` / `rotation_720_eq_id`), and the SU(2)→SO(3) cover is genuine, `−I ≠ +I` (`spin_double_cover_nontrivial`). **Half-spin is foundational not as the lucky intersection of independent constraints, but as a single principle (half-spin Hermitian closure) decomposed into its set-theoretic, algebraic, and information-theoretic faces.** See §6 below for *why* the algebra carrying this closure is forced to be H ≅ SU(2) (Hurwitz + half-spin uniqueness).
+The 720° spinor statistics of fermions are the macroscopic signature of this $-I$ fold: a single 1/2-spin atom contributes the $-1$ phase a fermion picks up under 360° rotation; two atoms in parallel restore $+I$ at 720°. This is now **machine-verified** in [`Spin_QLF.md`](Spin_QLF.md) / [`lean/QLF_Spin.lean`](lean/QLF_Spin.lean): the three twist axes close the su(2) Lie algebra (`su2_comm_xy/yz/zx`), 360°→`−I` / 720°→`+I` (`rotation_360_eq_negI` / `rotation_720_eq_id`), and the SU(2)→SO(3) cover is genuine, `−I ≠ +I` (`spin_double_cover_nontrivial`). **Half-spin is foundational not as the lucky intersection of independent constraints, but as a single principle (half-spin Hermitian closure) decomposed into its set-theoretic, algebraic, and information-theoretic faces.** See §6 below for *why* the algebra carrying this closure must be H ≅ SU(2) (Hurwitz + half-spin uniqueness).
 
 See [MRE.md](MRE.md) for the per-event $\log 2$ derivation and [Hierarchical_Control.md](Hierarchical_Control.md) for the consequences in the bottom-up/top-down architecture (each 1/2-spin atom is one quantum of free-energy minimization).
 
@@ -105,7 +105,7 @@ See [MRE.md](MRE.md) for the per-event $\log 2$ derivation and [Hierarchical_Con
 Only half-spin loops that employ **gauge folding (`+` and `-`)** are primordial quantum black holes:
 - They accumulate a **constructing delay** \(\Delta t_{\rm construct} = R / f\) (topological depth \(R\) at vacuum frequency \(f\)).
 - This delay **creates local time** inside the fold.
-- Upon ZFA closure the Markov blanket forces **immediate one-step Hawking radiation** (horizon re-entry unwind).
+- Upon ZFA closure the Markov blanket drives **immediate one-step Hawking radiation** (horizon re-entry unwind).
 - Transverse area = 0 → Planck-scale horizon forms instantly.
 
 Loops without `+`–`−` folding are **massless particles**:
@@ -127,7 +127,7 @@ The half-spin ZFA embedding is the **minimal faithful realization** of quantum l
 - Proves its own irreducibility
 - Naturally encodes observer relativity
 
-## 6. Why complex / quaternions — the carrying algebra is forced
+## 6. Why complex / quaternions — the carrying algebra is determined
 
 §3a frames Pauli closure as the SU(2)-scalar-return face of half-spin closure, not as an ad-hoc extra condition. A sharper companion question is: *why does the carrying algebra have to be SU(2) ≅ H (the unit quaternions) in the first place?* The 8-twist alphabet just **is** the Hermitian-Pauli basis of $M_2(\mathbb{C})$; that choice is currently asserted, not derived. Here is the structural argument, drawing on Hurwitz's theorem.
 
@@ -141,9 +141,9 @@ The half-spin ZFA embedding is the **minimal faithful realization** of quantum l
 
 5. **SU(2) ≅ unit quaternions.** The Pauli algebra over $\mathbb{C}$ is the standard matrix representation of $\mathbb{H}$ acting on $\mathbb{C}^2$: "working over complex Pauli matrices" and "working over quaternions" are two names for the same algebra. The 8-twist alphabet is the SU(2) generator basis up to sign (3 Pauli axes × 2 signs + 2 scalar gauge $\pm I$); equivalently, the unit-quaternion basis up to phase.
 
-**Therefore the choice of carrying algebra is forced**: QLF runs on $\mathbb{H} \cong \mathrm{SU}(2)$ because that is the unique minimal non-commutative associative composition real algebra, and half-spin Hermitian-pair closure demands exactly that combination of properties. $\mathbb{C}$ appears in the Pauli matrix representation as the carrier of distinct-axis anti-commutation. The 8-twist alphabet is therefore not a choice but the **minimal admissible generator set** of $\mathbb{H} \cong \mathrm{SU}(2)$.
+**Therefore the choice of carrying algebra is determined**: QLF runs on $\mathbb{H} \cong \mathrm{SU}(2)$ because that is the unique minimal non-commutative associative composition real algebra, and half-spin Hermitian-pair closure demands exactly that combination of properties. $\mathbb{C}$ appears in the Pauli matrix representation as the carrier of distinct-axis anti-commutation. The 8-twist alphabet is therefore not a choice but the **minimal admissible generator set** of $\mathbb{H} \cong \mathrm{SU}(2)$.
 
-This parallels the §3a claim: just as Pauli closure is not arbitrary (it IS half-spin closure read non-abelianly), the carrying algebra is not arbitrary (it IS forced by the four-fold constraint *Hermitian-pair · non-commutative · associative · composition*). Lean anchors for the resulting Pauli-scalar group and the twist→σ-matrix mapping live in [`lean/QLF_Pauli.lean`](lean/QLF_Pauli.lean) and [`lean/QLF_TwistAlphabet.lean`](lean/QLF_TwistAlphabet.lean) respectively; both stand under the reframed reading without renaming.
+This parallels the §3a claim: just as Pauli closure is not arbitrary (it IS half-spin closure read non-abelianly), the carrying algebra is not arbitrary (it IS determined by the four-fold constraint *Hermitian-pair · non-commutative · associative · composition*). Lean anchors for the resulting Pauli-scalar group and the twist→σ-matrix mapping live in [`lean/QLF_Pauli.lean`](lean/QLF_Pauli.lean) and [`lean/QLF_TwistAlphabet.lean`](lean/QLF_TwistAlphabet.lean) respectively; both stand under the reframed reading without renaming.
 
 ## Conclusion
 

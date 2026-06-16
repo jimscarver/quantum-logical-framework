@@ -39,7 +39,7 @@ The presence of **LOCAL gauge twists** (`+` and `-`) upgrades a particle to a pr
 - **Gauge-folded particles** (`+`–`−`):  
   - Blanket = horizon.  
   - Constructing delay \(\Delta t = R / f\) accumulates local time inside the blanket.  
-  - Exact ZFA closure forces one-step horizon re-entry → **immediate Hawking radiation** (`+-` pair).  
+  - Exact ZFA closure requires one-step horizon re-entry → **immediate Hawking radiation** (`+-` pair).  
   - This radiation is the minimal active-inference handshake: the blanket statistically synchronizes with the exterior vacuum while preserving global unitarity.
 
 - **Non-gauge particles** (no `+` or `-`):  

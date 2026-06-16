@@ -76,7 +76,7 @@ The discreteness of angular momentum (quantized in $\hbar/2$ units) follows from
 
 ## 4. Charge
 
-From [Maxwell.md §4.1](Maxwell.md) and the Lean-verified `no_magnetic_monopoles`: ZFA closure forces every individual twist count to zero, so the net gauge count $\text{charge}(h) = \text{count}(+) - \text{count}(-)$ is zero for any ZFA-closed event. For non-charge-neutral processes (an electron in isolation), the count is non-zero but constant — gauge folds can only be created or destroyed in Hermitian pairs `+−`, so total charge is conserved.
+From [Maxwell.md §4.1](Maxwell.md) and the Lean-verified `no_magnetic_monopoles`: ZFA closure requires every individual twist count to be zero, so the net gauge count $\text{charge}(h) = \text{count}(+) - \text{count}(-)$ is zero for any ZFA-closed event. For non-charge-neutral processes (an electron in isolation), the count is non-zero but constant — gauge folds can only be created or destroyed in Hermitian pairs `+−`, so total charge is conserved.
 
 The U(1) gauge symmetry of QED is here the discrete `+` ↔ `−` swap symmetry: any history with the gauge-fold counts exchanged remains ZFA-closed (the global sign of the charge is conventional). The conserved current = the net gauge fold count, which is exactly the QED electric charge in units of $e$.
 

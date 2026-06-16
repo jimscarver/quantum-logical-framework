@@ -97,7 +97,7 @@ The classical Reverse Mathematics program classifies *mathematical* theorems. QL
 Standard physics assumes macroscopic laws (conservation of energy, Lorentz invariance, phase symmetry) as foundational axioms imposed on a continuous background. QLF inverts this:
 
 > Start with the observed "theorem" of phase symmetry.  
-> Work backward using Lean to find what minimal microscale constraint forces it.  
+> Work backward using Lean to find what minimal microscale constraint yields it.  
 > Prove that over a computable base (RCA₀), **phase symmetry is logically equivalent to Zero Free Action**.
 
 The machine-verified equivalence is:
@@ -167,7 +167,7 @@ ACA₀:     ζ(s) has its non-trivial zeros on Re(s) = 1/2
 
 The bridge can then be stated as:
 
-**`MRE_bridge`** (proposed WKL₀-level axiom): under the Mellin-transform encoding (provable WKL₀-side), the MRE-saturation principle (RCA₀-statable) forces the structural singularities of $\mathcal{M}[Z_{\mathrm{QLF}}]$ — and hence of the QLF-encoded $\zeta$ — to lie on $\Re(s) = 1/2$.
+**`MRE_bridge`** (proposed WKL₀-level axiom): under the Mellin-transform encoding (provable WKL₀-side), the MRE-saturation principle (RCA₀-statable) requires the structural singularities of $\mathcal{M}[Z_{\mathrm{QLF}}]$ — and hence of the QLF-encoded $\zeta$ — to lie on $\Re(s) = 1/2$.
 
 This is the same logical strength as the existing `spectral_hilbert_polya`. The change is **content**: the axiom is now justified by an information-theoretic principle internal to QLF (MRE saturation), not by appeal to external Hilbert-Pólya conjectures.
 
@@ -203,7 +203,7 @@ This reading deepens §4's bridge motivation by giving `Re(s) = 1/2` **three coi
 2. **Half-spin closure** ([`HALF-SPIN-ZFA-EMBEDDING.md`](HALF-SPIN-ZFA-EMBEDDING.md) §3a): the 1/2-spin atom is the unique fixed point of set-theoretic minimality ∧ algebraic Pauli closure ∧ information-theoretic optimality.
 3. **Energy-Wheeler-Fields**: the per-event `ℏω` energy quantum and the per-event 1-bit information quantum saturate at the same locus. The Mellin variable `s` has a clean physical reading as an energy/frequency variable; the structural-singularity locus is the joint saturation point of information and energy.
 
-The bridge axiom's **content** is sharpened: not just "MRE saturation forces the critical line" but "the information-energy quantum jointly saturates on the critical line." The three readings are not independent claims; they all point at the same `1/2`, the unique fixed point of the half-spin ZFA closure.
+The bridge axiom's **content** is sharpened: not just "MRE saturation requires the critical line" but "the information-energy quantum jointly saturates on the critical line." The three readings are not independent claims; they all point at the same `1/2`, the unique fixed point of the half-spin ZFA closure.
 
 The bridge's **proof-theoretic strength is unchanged**: still a WKL₀-level axiom. The Mellin identity needed to discharge it remains an open analytic problem; no Lean theorem is added here.
 

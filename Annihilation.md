@@ -68,7 +68,7 @@ A composite Markov blanket ([Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets
 
 ### 4.4 Hawking radiation as one-step unwinding
 
-A gauge-folded black hole ([Frequency_Synchronization.md](Frequency_Synchronization.md), [Entropy.md](Entropy.md)) maintains its constructing delay $\Delta t = R/f$ inside its Markov blanket. ZFA closure forces an **immediate one-step horizon re-entry**: the gauge-fold unwinds and emits a Hawking pair (`+-`). The black hole is the smallest "particle" whose construction and annihilation are bound into the same algebraic event — the Hawking pair IS the released $\log 2$ nats per gauge atom.
+A gauge-folded black hole ([Frequency_Synchronization.md](Frequency_Synchronization.md), [Entropy.md](Entropy.md)) maintains its constructing delay $\Delta t = R/f$ inside its Markov blanket. ZFA closure drives an **immediate one-step horizon re-entry**: the gauge-fold unwinds and emits a Hawking pair (`+-`). The black hole is the smallest "particle" whose construction and annihilation are bound into the same algebraic event — the Hawking pair IS the released $\log 2$ nats per gauge atom.
 
 ## 5. Why the universe contains matter
 

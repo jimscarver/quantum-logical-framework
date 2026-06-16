@@ -31,7 +31,7 @@ The fastest computational route to ZFA is to immediately execute the exact geome
 These $N=4$ length loops are the smallest possible stable boundaries in the QuCalc logic. Because their internal Topological Volume (Emergent Energy) is small, they correspond to the lightest stable fermions (e.g., the electron and the positron). 
 
 ### System 2: The Resonant Harmonics (Particle Generations)
-If the string does not immediately close at $N=4$ due to environmental pressure or causal pruning (The Zeno Effect), it is forced into higher-order resonance to achieve ZFA. 
+If the string does not immediately close at $N=4$ due to environmental pressure or causal pruning (The Zeno Effect), it is driven into higher-order resonance to achieve ZFA. 
 * **The $N=8$ Loop:** `^^>>vv<<`
 * **The $N=12$ Loop:** `^^^>>>vvv<<<`
 

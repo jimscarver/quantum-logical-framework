@@ -28,7 +28,7 @@ In QLF an observer, a particle, a horizon — any closed system — is a **Marko
 
 $$V = 10v^2 + 2, \qquad E = 30v^2, \qquad F = 20v^2, \qquad V - E + F = 2,$$
 
-machine-verified as `primordial_blanket_euler` at every frequency. A flat triangular tiling has six triangles at every vertex; to *close* into a sphere, the surface must carry an **information deficit** — and the Euler characteristic forces it to appear at exactly **twelve 5-valent vertices** (`pentamon_count = 12`), the rest 6-valent. The twelve pentamons are the **irreducible, intrinsic curvature** of any closed blanket. They are present at v = 1 (the bare icosahedron) and at v ≈ 6.7 × 10⁶⁰ (the cosmic horizon) alike — curvature is a topological signature, not a quantity that can be tuned to zero.
+machine-verified as `primordial_blanket_euler` at every frequency. A flat triangular tiling has six triangles at every vertex; to *close* into a sphere, the surface must carry an **information deficit** — and the Euler characteristic requires it to appear at exactly **twelve 5-valent vertices** (`pentamon_count = 12`), the rest 6-valent. The twelve pentamons are the **irreducible, intrinsic curvature** of any closed blanket. They are present at v = 1 (the bare icosahedron) and at v ≈ 6.7 × 10⁶⁰ (the cosmic horizon) alike — curvature is a topological signature, not a quantity that can be tuned to zero.
 
 This is curvature as **discrete topological deficit**, not Regge angular deficit and not smooth Riemannian curvature. The familiar metric is recovered as the **continuum limit** of the blanket. The blanket's depth sets the scale,
 

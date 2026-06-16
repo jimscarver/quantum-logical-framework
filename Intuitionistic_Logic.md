@@ -10,7 +10,7 @@ In QLF, the Law of the Excluded Middle ($A \lor \neg A$) does not apply to unres
 
 ## 2. Dialectic Synthesis (Generating Dimensions)
 If an expanding history string cannot construct a ZFA loop in the standard 2D spatial basis due to dense environmental Context, it is caught in a paradox.
-To provide the intuitionistic proof of ZFA, the string is forced to step orthogonally into the local temporal/gauge axes (`+`, `-`). 
+To provide the intuitionistic proof of ZFA, the string must step orthogonally into the local temporal/gauge axes (`+`, `-`). 
 
 This means **extra dimensions and quantum spin are not pre-existing grid coordinates; they are intuitionistic synthesis.** The engine literally constructs the concept of "Spin" as the mathematical proof required to close a loop that was blocked in standard space.
 

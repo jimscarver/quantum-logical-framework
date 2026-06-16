@@ -19,7 +19,7 @@ Every time they successfully handshake and cancel the gauge phase, a discrete ti
 ## 2. Pauli Exclusion as "Path Blocking"
 Standard physics uses the Pauli Exclusion Principle as a mathematical axiom: no two electrons can share the same quantum state. In QLF, Pauli Exclusion is a strict **computational traffic jam** — formally proved in [`lean/PauliExclusion.lean`](lean/PauliExclusion.lean) via the matrix commutator: identical ρ-processes have commutator zero, and `fermi_nonzero_example` establishes this is non-vacuous by showing [σ_x, σ_z] ≠ 0. The spin-geometric reading of the same fact is in [`Spin_QLF.md`](Spin_QLF.md) / [`lean/QLF_Spin.lean`](lean/QLF_Spin.lean): like-spin electrons fold the same way and are pushed apart (`like_spin_excludes`), while an opposite-spin pair closes to a singlet (`opposite_spin_singlet_closes`) — the `−I` fold that excludes is the very 720° double-cover signature of a fermion.
 
-Once a specific geometric string is utilized to route a ZFA handshake between the nucleus and the vacuum, that topological path is mathematically *occupied*. The QuCalc engine cannot push overlapping logic through the exact same vector without generating a paradox. If the vacuum forces another electron into the system, the engine must actively synthesize a *new, orthogonal path* to route the logic around the blocked path.
+Once a specific geometric string is utilized to route a ZFA handshake between the nucleus and the vacuum, that topological path is mathematically *occupied*. The QuCalc engine cannot push overlapping logic through the exact same vector without generating a paradox. If the vacuum drives another electron into the system, the engine must actively synthesize a *new, orthogonal path* to route the logic around the blocked path.
 
 ## 3. Deriving the Orbital Shells ($s$ and $p$)
 This path-blocking mechanic natively constructs the electron shells without relying on continuous spherical harmonics. The shells are simply the geometric routing paths required to hide the core.
@@ -31,7 +31,7 @@ This path-blocking mechanic natively constructs the electron shells without rely
 * **Result:** Once 2 electrons occupy these gauge states, the $s$-shell is locked. The direct path is blocked.
 
 ### The $p$-Orbital (Orthogonal Spatial Routing)
-* **The Routing:** The nucleus still has unresolved core action, but the direct $s$-path is blocked. To bypass it, the QuCalc engine is forced to expand outward into the Primary Spatial Basis.
+* **The Routing:** The nucleus still has unresolved core action, but the direct $s$-path is blocked. To bypass it, the QuCalc engine must expand outward into the Primary Spatial Basis.
 * **The Variables:** The engine routes the new logic through the 3 orthogonal spatial axes (`< >`, `^ v`, etc., equivalent to the macroscopic $x, y, z$ axes). 
 * **The Multiplicity:** 3 spatial routes $\times$ 2 gauge states per route = **6 topological slots**.
 * **Result:** This constructs the distinct, figure-eight lobes of the $p$-shell, perfectly accommodating 6 electrons. 
@@ -49,7 +49,7 @@ $ python atomic_routing.py --core_state "Proton_Cluster" --inject_electrons 2 --
 ```
 Here are the simulated terminal outputs for atomic_routing.py formatted in Markdown. I have included two distinct runs: one showing the initial synthesis of the p-shell (Lithium equivalent) and one showing the complete topological sealing of the atom (Neon equivalent).
 ### 1. Forcing the p-Shell Synthesis (3 Electrons)
-This run demonstrates the QuCalc engine hitting the Pauli Exclusion "traffic jam" after filling the s-shell, forcing it to intuitively synthesize the orthogonal spatial axes.
+This run demonstrates the QuCalc engine hitting the Pauli Exclusion "traffic jam" after filling the s-shell, driving it to synthesize the orthogonal spatial axes.
 ```bash
 $ python atomic_routing.py --inject_electrons 3
 

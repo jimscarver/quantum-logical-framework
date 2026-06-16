@@ -7,7 +7,7 @@ In standard physics, particles are treated as fundamental axioms—objects that 
 In the **Quantum Logical Framework (QLF)**, particles are not objects. A particle is an **Unforgeable Name** given to a localized, constructive topological proof of Zero Free Action (ZFA). The entire "Particle Zoo" of the Standard Model is simply the exhaustive, computable set of all possible geometric ways to resolve the primordial divergence (`^>` and `^<`).
 
 ## 1. Intuitionistic Logic vs. Classical Physics
-Standard quantum mechanics relies on classical Boolean logic, assuming states exist in abstract superpositions until a measurement forces a binary (True/False) collapse. QLF abandons this in favor of **Constructive Intuitionistic Logic**.
+Standard quantum mechanics relies on classical Boolean logic, assuming states exist in abstract superpositions until a measurement drives a binary (True/False) collapse. QLF abandons this in favor of **Constructive Intuitionistic Logic**.
 
 In QLF, the Law of the Excluded Middle ($A \lor \neg A$) does not apply to unresolved topology. A particle does not "exist or not exist." A state only exists if the computational engine can provide a **constructive proof** of its closure. 
 * **Classical Pruning:** Generate all paths; if $E_{free} \neq 0$, delete the path.
@@ -16,7 +16,7 @@ In QLF, the Law of the Excluded Middle ($A \lor \neg A$) does not apply to unres
 ## 2. Dialectic Synthesis (The Birth of Spin & Dimensions)
 When an expanding history string is blocked from achieving standard 2D spatial closure by the dense Information Ecology (the vacuum), it encounters a topological paradox. 
 
-To provide the intuitionistic proof of ZFA, the string is forced to step orthogonally into the local temporal/gauge axes (`+`, `-`). **Extra dimensions, quantum spin, and charge are not pre-existing grid coordinates; they are intuitionistic synthesis.** The engine computationally constructs the concept of "Spin" as the mathematical proof required to close a logical loop that was blocked in standard space.
+To provide the intuitionistic proof of ZFA, the string must step orthogonally into the local temporal/gauge axes (`+`, `-`). **Extra dimensions, quantum spin, and charge are not pre-existing grid coordinates; they are intuitionistic synthesis.** The engine computationally constructs the concept of "Spin" as the mathematical proof required to close a logical loop that was blocked in standard space.
 
 ## 3. Computational Demonstration (`particles.py`)
 Because QLF is fully deterministic, the generation of particles can be directly simulated. By running the Intuitionistic Engine, we observe the algorithmic synthesis of the particle generations in real-time.

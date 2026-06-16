@@ -41,8 +41,8 @@ Here is the data comparing an unobserved expanding light cone against two differ
 ### What the Numbers Prove
 
 1.  **The Unobserved Cone ($4^t$):** Without geometric intersection, the particle's possibility space expands exponentially. By step 6, it has 4,096 valid topological geometries it could potentially collapse into. Its causal volume is massive.
-2.  **The Interval = 2 Observation:** The system is allowed to expand for one step (reaching 4 paths), but at $t=2$, the causal intersection forces a Joint ZFA resolution. The system is brutally pruned back down to 4 paths. It expands to 16, then is pruned back to 16. It is evolving, but its logical light cone is severely bounded.
-3.  **The Zeno Limit (Interval = 1):** The particle attempts to expand to 4 paths at every single step, but is instantly pruned back to 1 because the constant observation forces an immediate, rigid geometric alignment. 
+2.  **The Interval = 2 Observation:** The system is allowed to expand for one step (reaching 4 paths), but at $t=2$, the causal intersection requires a Joint ZFA resolution. The system is brutally pruned back down to 4 paths. It expands to 16, then is pruned back to 16. It is evolving, but its logical light cone is severely bounded.
+3.  **The Zeno Limit (Interval = 1):** The particle attempts to expand to 4 paths at every single step, but is instantly pruned back to 1 because the constant observation drives an immediate, rigid geometric alignment. 
 
 The visualization was designed to plot these three curves. The unobserved cone skyrockets off the top of the chart, the Interval 2 line steps up like a staircase, and the Zeno Limit is literally a flat, horizontal line at $Y=1$. 
 

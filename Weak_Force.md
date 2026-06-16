@@ -118,7 +118,7 @@ The Koide form `√mₖ = M(1 + A·cos(δ + 2πk/N))` — `N` generations as `N`
 
 $$Q \;=\; \frac{\sum m_k}{\left(\sum \sqrt{m_k}\right)^2} \;=\; \frac{1 + A^2/2}{N}.$$
 
-So `Q = 2/3` is forced by **exactly two** structural facts:
+So `Q = 2/3` follows by construction from **exactly two** structural facts:
 
 | input | value | QLF meaning |
 |---|---|---|

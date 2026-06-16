@@ -30,7 +30,7 @@ The qualitative material below remains valid as the conceptual foundation; the q
 
 ## Abstract
 
-Gravity is **not** a fundamental force or curvature of a pre-existing spacetime. It is the **relational distortion** that emerges when the full Zero Free Action (ZFA) network of distinctions is partially deconstructed by an observer’s Markov blanket. The gauge-folding rule (21 April 2026) supplies the microscopic engine: only `+`–`−` folds create local time, accumulate constructing delay, and produce immediate Hawking radiation, forcing the remaining geometry to warp.
+Gravity is **not** a fundamental force or curvature of a pre-existing spacetime. It is the **relational distortion** that emerges when the full Zero Free Action (ZFA) network of distinctions is partially deconstructed by an observer’s Markov blanket. The gauge-folding rule (21 April 2026) supplies the microscopic engine: only `+`–`−` folds create local time, accumulate constructing delay, and produce immediate Hawking radiation, warping the remaining geometry.
 
 ## 1. Emergence from Deconstruction
 

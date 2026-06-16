@@ -86,7 +86,7 @@ per atomic measurement, equivalently the surprise $-\log p(\text{realized branch
 This **reframes wavefunction collapse as binary-partition information extraction**:
 
 - Standard QM: collapse is a mysterious projection from superposition to eigenstate; the Born rule is postulated; the information gained by the observer is asserted to be $-\log p$.
-- QLF: closure is the Hermitian-pair partition forced by the ZFA algebra; the Born rule is the uniform-prior structure of the possibility tree; the information gained is **derived** as $\log 2$ per 1/2-spin atom from the binary-partition optimum (see [MRE.md §2.1](MRE.md)).
+- QLF: closure is the Hermitian-pair partition required by the ZFA algebra; the Born rule is the uniform-prior structure of the possibility tree; the information gained is **derived** as $\log 2$ per 1/2-spin atom from the binary-partition optimum (see [MRE.md §2.1](MRE.md)).
 
 The measurement apparatus is not a special object — it is whichever Markov blanket the closure happens inside ([Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md)). Different observers at different blanket scales extract different ZFA closures from the same underlying history, each contributing $\log 2$ nats to their own causal-frontier ledger. This is the bottom-up half of the [Hierarchical_Control.md](Hierarchical_Control.md) architecture: measurement IS the fast-clock event that drives structure upward.
 

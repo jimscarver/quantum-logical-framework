@@ -34,13 +34,13 @@ Thus every observable ( O ) that is a count ( n in Z ) satisfies
 Classical physics treats ( x ), ( p ), ( E ), ( t ), etc. as real-valued continua. In QLF these emerge only in the thermodynamic (large-history) limit. To obtain a definite measurement outcome:
 
 1. The observer’s history string synchronizes with the system’s string via directional re-entry.
-2. The synchronization forces the relevant count ( n ) to a single integer.
+2. The synchronization fixes the relevant count ( n ) to a single integer.
 3. The underlying classical-like parameter (phase-space coordinate, path integral phase, etc.) can lie anywhere in the open interval ( (n - 1/2) hbar , (n + 1/2) hbar ).
 
 The mapping error ( delta O ) for any single realization is therefore bounded by  
 ( |delta O| <= hbar / 2 ).
 
-Assuming uniform distribution over the bin (the natural ensemble average under RhoQuCalc parallelism and ZFA closure), the characteristic uncertainty - the root-mean-square half-width of the bin - is exactly ( hbar / 2 ). This is the minimal spread that must be assigned to the observable once it has been forced onto the integer lattice.
+Assuming uniform distribution over the bin (the natural ensemble average under RhoQuCalc parallelism and ZFA closure), the characteristic uncertainty - the root-mean-square half-width of the bin - is exactly ( hbar / 2 ). This is the minimal spread that must be assigned to the observable once it has been constrained onto the integer lattice.
 
 Hence, for any observable quantized in ( hbar ) increments we have the lower bound  
 ( Delta O >= hbar / 2 ).
@@ -53,7 +53,7 @@ Position ( x ) and momentum ( p ) (or ( E ) and ( t ), ( phi ) and ( L_z ), etc.
 - The integer count in one variable corresponds to a precise number of net twists in its direction.
 - The conjugate variable appears as the continuous phase parameter across the superposed branches.
 
-Because the two variables are related by the non-commutative 8-twist algebra (proven Hermitian-conjugate in Hermitian_Conjugacy_Proof.md), a precise integer count in one forces the phase of the other to be undetermined within one full bin. The spreads therefore satisfy  
+Because the two variables are related by the non-commutative 8-twist algebra (proven Hermitian-conjugate in Hermitian_Conjugacy_Proof.md), a precise integer count in one leaves the phase of the other undetermined within one full bin. The spreads therefore satisfy  
 ( Delta x * Delta p >= hbar / 2 ).
 
 This is not an operator commutator postulate imposed from outside; it is the direct geometric consequence of binning one axis of the logical phase space while the orthogonal axis remains continuous until synchronization.

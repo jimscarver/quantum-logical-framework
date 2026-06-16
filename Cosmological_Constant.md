@@ -112,7 +112,7 @@ Each factor of `R_H/L_Planck` comes from a distinct substrate principle:
 
 Together: `(R_H/L_Planck)² ≈ 10¹²²`. The vacuum catastrophe **is** the discrepancy between volume-Planck and surface-deSitter counting.
 
-This is the QLF substrate's structural answer to "why is Λ so small?" — because the substrate counts vacuum-aligned modes on the holographic 2-surface at the de Sitter scale, not in the bulk at the Planck scale. Both reductions are forced by QLF substrate primitives that already Lean-anchored other observables (G, Newton's 1/r², Mercury perihelion).
+This is the QLF substrate's structural answer to "why is Λ so small?" — because the substrate counts vacuum-aligned modes on the holographic 2-surface at the de Sitter scale, not in the bulk at the Planck scale. Both reductions follow from QLF substrate primitives that already Lean-anchored other observables (G, Newton's 1/r², Mercury perihelion).
 
 ---
 

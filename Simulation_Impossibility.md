@@ -38,7 +38,7 @@ This is the discrete analogue of [Relational Quantum Mechanics](https://arxiv.or
 
 ## 3. Why Conventional Computing Cannot Simulate the Full Universe
 
-Conventional computing inherits all limitations of classical Turing machines. It is forced into one of two fatal constraints:
+Conventional computing inherits all limitations of classical Turing machines. It is driven into one of two fatal constraints:
 
 1. **Single privileged perspective** → Introduces a preferred frame, violating Lorentz invariance and isotropy of the cosmic microwave background. Half-spin ZFA QuCalc on such a substrate *predicts* detectable artifacts (frame-dependent decoherence, hidden-variable leakage). None observed.
 

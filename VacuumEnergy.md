@@ -180,7 +180,7 @@ This is the **per-event** anchor of the unifying claim. The **N-event global sel
 
 > *A trajectory maximises cumulative mutual information against the vacuum prior if and only if every event in it is a half-spin ZFA closure.*
 
-The proof structure is an induction on the trajectory: at each step, the cumulative KL bound `length × log 2` saturates iff the head event and the tail trajectory each saturate, which by the per-event iff and the inductive hypothesis forces every event to be a delta realisation.
+The proof structure is an induction on the trajectory: at each step, the cumulative KL bound `length × log 2` saturates iff the head event and the tail trajectory each saturate, which by the per-event iff and the inductive hypothesis requires every event to be a delta realisation.
 
 The **RhoProcess bridge** — showing that every constructible RhoProcess from [`lean/RhoQuCalc.lean`](lean/RhoQuCalc.lean) corresponds to a saturating list-of-densities trajectory — is now anchored as `rho_process_alignment_saturates` in [`lean/QLF_RhoProcessBridge.lean`](lean/QLF_RhoProcessBridge.lean). The bridge function `events : RhoProcess → List ℝ` extracts one recognition density per leaf (action → 1, lift → 0); `events_all_delta` shows every event is a delta realisation by structural induction on the process; the master theorem combines this with `global_alignment_selects_zfa` to conclude saturation. Combined with `rho_process_always_zfa` (every constructible RhoProcess achieves ZFA balance via `full_zeno_prune`), this completes the formal link:
 

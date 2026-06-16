@@ -82,7 +82,7 @@ After 2 logical steps (partial expansion):
 ^>v    ^>^    ^><    ^>/    ...   (and dozens more)
 ```
 
-All of these strings exist **at once** inside the QuCalc engine. They are the superposition. Only when a closing twist arrives that forces net action = 0 do the surviving histories become a stable “particle.”
+All of these strings exist **at once** inside the QuCalc engine. They are the superposition. Only when a closing twist arrives that drives net action to 0 do the surviving histories become a stable “particle.”
 
 You can see this live in the engine:
 

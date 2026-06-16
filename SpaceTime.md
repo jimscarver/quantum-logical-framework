@@ -55,7 +55,7 @@ This ZFA network is not a passive backdrop — it is the *uniform ether* against
 Space being the *network of closures* answers a question usually deferred as an input: **why three
 dimensions?** The substrate is a **relational graph** — events are ZFA closures, edges are
 closure-reachability (the pre-geometric causal network of [`lean/QLF_ReachableEvent.lean`](lean/QLF_ReachableEvent.lean)).
-Space is the **faithful rendering** of that graph, and the rendering dimension is *forced* by a
+Space is the **faithful rendering** of that graph, and the rendering dimension is *determined* by a
 theorem of graph embedding:
 
 - **Every finite graph embeds in ℝ³ without crossings.** Place the vertices on the moment curve

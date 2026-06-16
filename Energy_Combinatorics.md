@@ -18,7 +18,7 @@ Energy is simply the **Topological Volume** of the particle's possibility space.
 When a causal intersection (observation) occurs, the particle must satisfy Joint Zero Free Action (ZFA). 
 Most of its parallel histories will fail this strict geometric requirement and be pruned. The few that survive have their free history consumed and reset to $R = 0$.
 
-Because the multiplicity of the collection drops instantly (e.g., from 256 paths down to 16 paths), the Emergent Energy plummets. This mathematically models **Wavefunction Collapse**: the act of observation forces the particle to dump its accumulated topological energy into the environment to satisfy the ZFA constraint.
+Because the multiplicity of the collection drops instantly (e.g., from 256 paths down to 16 paths), the Emergent Energy plummets. This mathematically models **Wavefunction Collapse**: the act of observation drives the particle to dump its accumulated topological energy into the environment to satisfy the ZFA constraint.
 
 This is a profound connection. We are bridging the QuCalc logic directly into the foundation of statistical mechanics.In standard physics, Boltzmann established that entropy (and by extension, energy) is determined by the number of microstates ($\Omega$) available to a system. 
 

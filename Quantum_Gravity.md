@@ -32,7 +32,7 @@ The four faces of §1 are different observer positions reading this same boundar
 
 ## 3. Gravity as residual
 
-From [Gravity.md](Gravity.md): "Gravity is **not** a fundamental force or curvature of a pre-existing spacetime. It is the **relational distortion** that emerges when the full Zero Free Action (ZFA) network of distinctions is partially deconstructed by an observer's Markov blanket. The gauge-folding rule supplies the microscopic engine: only `+`–`−` folds create local time, accumulate constructing delay, and produce immediate Hawking radiation, forcing the remaining geometry to warp."
+From [Gravity.md](Gravity.md): "Gravity is **not** a fundamental force or curvature of a pre-existing spacetime. It is the **relational distortion** that emerges when the full Zero Free Action (ZFA) network of distinctions is partially deconstructed by an observer's Markov blanket. The gauge-folding rule supplies the microscopic engine: only `+`–`−` folds create local time, accumulate constructing delay, and produce immediate Hawking radiation, warping the remaining geometry."
 
 The gauge folds are the source of mass ([E_mc2_derivation.md](E_mc2_derivation.md), [Frequency_Synchronization.md](Frequency_Synchronization.md)). Mass density therefore determines local ZFA event rate, which determines local proper-time tick rate, which appears as gravitational time dilation. Energy concentrations warp local geometry by altering the constructing delay $\Delta t = R/f$.
 

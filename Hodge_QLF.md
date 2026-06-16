@@ -53,7 +53,7 @@ selection principle for what exists.*
 
 And on the substrate the very same shape is already a **theorem**, not a conjecture:
 `count_balanced_pauli_closed` ([`lean/QLF_TwistAlphabet.lean`](lean/QLF_TwistAlphabet.lean))
-proves **count balance ⟹ Pauli closure** — balance forces realizability — for *every*
+proves **count balance ⟹ Pauli closure** — balance entails realizability — for *every*
 twist history. The Hodge conjecture is that theorem read in cohomology.
 
 ## 3. The two directions

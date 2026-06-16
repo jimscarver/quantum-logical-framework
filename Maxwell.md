@@ -37,7 +37,7 @@ The single-history `B(h)` definitions above are the *closure-level* projection o
 
 ## Equation 1: ∇·B = 0 (No Magnetic Monopoles)
 
-**ZFA origin:** `isZFAClosed` forces every individual twist count to zero. Therefore B_x = B_y = B_z = 0 for any ZFA-closed event, and their divergence ∇·B = B_x + B_y + B_z vanishes identically.
+**ZFA origin:** `isZFAClosed` requires every individual twist count to be zero. Therefore B_x = B_y = B_z = 0 for any ZFA-closed event, and their divergence ∇·B = B_x + B_y + B_z vanishes identically.
 
 **Machine-verified:** `no_magnetic_monopoles` — [lean/ZFAEventDynamics.lean](lean/ZFAEventDynamics.lean)
 

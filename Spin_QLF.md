@@ -108,7 +108,7 @@ an **even** number of them folds to `+I` (a boson, integer spin), an **odd** num
 A **photon is spin 1** because it is a half-spin photon **plus** a half-spin antiphoton —
 two halves, `½ + ½ = 1` — folding to `+I` (`photon_integer_spin`). The photon is the joint
 emitter–absorber ZFA closure (`Collective_Electrodynamics.md`); its integer spin is two
-half-spins, exactly as the substrate forces.
+half-spins, exactly as the substrate requires.
 
 ## 8. Exclusion and annihilation — the same folds again
 

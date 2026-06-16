@@ -4,10 +4,10 @@
 
 The structural facts:
 
-1. **Icosahedral symmetry from SU(2)** — the binary icosahedral group `2I` is the largest finite rotational symmetry compatible with the substrate's spin-1/2 closures; it sits inside SU(2) and forces 12 vertices, 30 edges, 20 triangular faces.
+1. **Icosahedral symmetry from SU(2)** — the binary icosahedral group `2I` is the largest finite rotational symmetry compatible with the substrate's spin-1/2 closures; it sits inside SU(2) and yields 12 vertices, 30 edges, 20 triangular faces.
 2. **Fuller subdivision (Buckminster Fuller)** — at frequency `v`, the primordial blanket has `V_v = 10v² + 2` vertices, `E_v = 30v²` edges, `F_v = 20v²` faces. Pure integer combinatorics.
 3. **Euler invariant** — `V − E + F = 2` for any frequency (topological sphere).
-4. **12 pentamons** — exactly 12 5-valent vertices forced by Euler χ = 2, at every frequency. Curvature = information deficit (each pentamon is one "missing" triangle).
+4. **12 pentamons** — exactly 12 5-valent vertices required by Euler χ = 2, at every frequency. Curvature = information deficit (each pentamon is one "missing" triangle).
 5. **Holographic event count = `F_v = 20v²`** — each triangular face is one substrate ZFA tile; the area-information accounting of [`Gravity_From_Delay.md`](Gravity_From_Delay.md) IS the face count of a high-frequency primordial blanket.
 6. **McKay correspondence → E₈** — the binary icosahedral closure group is McKay-dual to the simply-laced Dynkin diagram of **E₈** (largest exceptional Lie group). E₈ symmetry is built into the substrate via the primordial blanket.
 
@@ -22,7 +22,7 @@ A Markov blanket, in Friston's active-inference framework, is the boundary betwe
 **Primordial Markov blankets** are the substrate's natural localized-agent units — the discrete-geometric instantiation of a Markov blanket at the smallest closure-coherent scale. They:
 
 - Are formed entirely from the 8-twist alphabet ([`eight-twists-sufficiency.md`](eight-twists-sufficiency.md)).
-- Have icosahedral symmetry (forced by the substrate's spin-1/2 structure, §3).
+- Have icosahedral symmetry (required by the substrate's spin-1/2 structure, §3).
 - Tile their boundary with triangular ZFA closures (one face per substrate event, §4).
 - Carry the per-event log 2 information quantum on every face ([`MRE.md`](MRE.md), [`lean/QLF_FreeEnergy.lean`](lean/QLF_FreeEnergy.lean)).
 - Subdivide via Zeno pruning into higher-frequency geodesic spheres (§6).
@@ -75,7 +75,7 @@ The full geodesic sphere is then a tiling of these triangular ZFA closures. At f
 
 A flat-plane triangular tessellation has exactly **6 triangles** meeting at every vertex (hexagonal vertex degree). This represents flat Euclidean logical space.
 
-To close a surface, **information deficit** is forced at strategic points: vertices where only **5 triangles** meet — equivalently, one triangle "missing" relative to the flat tiling. The user named these **pentamons** (5-valent vertices).
+To close a surface, **information deficit** is required at strategic points: vertices where only **5 triangles** meet — equivalently, one triangle "missing" relative to the flat tiling. The user named these **pentamons** (5-valent vertices).
 
 **Theorem (Euler χ = 2)**: for any triangular tessellation of the topological 2-sphere, the count of pentamons is **exactly 12**, at every subdivision frequency.
 
@@ -88,7 +88,7 @@ Proof sketch (substrate-event accounting):
 - Substituting `V = p + h`, `E = 3F/2`: `(p + h) − 3F/2 + F = 2 ⟹ p + h − F/2 = 2`.
 - Combined with `5p + 6h = 3F`: solve to get **`p = 12`** independent of `h`. ✓
 
-In substrate terms: **12 pentamons are the universal topological signature of a primordial Markov blanket**. They cannot be removed by subdivision, deformation, or any operation that preserves the topological sphere. Curvature *is* information deficit, and the substrate's 6+2 alphabet split forces this signature on every closed Markov blanket.
+In substrate terms: **12 pentamons are the universal topological signature of a primordial Markov blanket**. They cannot be removed by subdivision, deformation, or any operation that preserves the topological sphere. Curvature *is* information deficit, and the substrate's 6+2 alphabet split yields this signature on every closed Markov blanket.
 
 The 12 pentamons are the **global topological anchors** the user identified — at every scale, from the v=1 icosahedron up to the v ~ 10⁶⁰ cosmic Markov blanket.
 
@@ -231,7 +231,7 @@ The headline: **E₈ is not an arbitrary mathematical choice — it falls out of
 - Quantitative substrate prediction of E₈-related particle observables (would require connecting to the existing string/M-theory Lean modules).
 - Substrate derivation of higher-genus Markov-blanket structures (torus, multi-handle surfaces) — what does Euler `χ ≠ 2` look like at the substrate level? These would correspond to non-spherical agents (multi-handle Markov blankets).
 - Substrate analog of the geometric Langlands correspondence — would require bridging substrate-event-counting to perverse-sheaf / D-module structures. Research-grade.
-- Lean-anchored proof that exactly 12 pentamons is forced by Euler χ = 2 and triangulation (current Lean module records the identity; full structural derivation is open).
+- Lean-anchored proof that exactly 12 pentamons is required by Euler χ = 2 and triangulation (current Lean module records the identity; full structural derivation is open).
 
 ---
 

@@ -63,7 +63,7 @@ structurally, with no fine-tuning and no new field: **ZFA closure does the Pecce
 symmetry's job** (`theta_zero_on_closure` / `cp_odd_winding_zero_on_closure`,
 [`lean/QLF_StrongCP.lean`](lean/QLF_StrongCP.lean)).
 
-**Honest scope.** This anchors the *mechanism* — CP-odd topological windings are forced to zero
+**Honest scope.** This anchors the *mechanism* — CP-odd topological windings are driven to zero
 on ZFA closures. The identification of the QCD `θ`-vacuum / the gluonic `G·G̃` integral with a QLF
 CP-odd signed winding is structural; the instanton θ-vacuum is not field-theoretically
 constructed (`strong_cp_in_progress`).
@@ -86,7 +86,7 @@ thermal equilibrium**. The substrate meets all three, so a matter excess is **ge
    [`lean/QLF_CosmicInflation.lean`](lean/QLF_CosmicInflation.lean), [Curvature.md §8](Curvature.md)).
 
 **Honest scope.** This anchors that matter and antimatter are distinguishable (opposite baryon
-winding) and that all three Sakharov conditions hold — so a nonzero asymmetry is forced. It does
+winding) and that all three Sakharov conditions hold — so a nonzero asymmetry follows. It does
 **not** derive the *magnitude* `η_B ≈ 6×10⁻¹⁰`, which is open in QLF exactly as it is in the
 Standard Model (whose CP violation undershoots by ~10⁸); the quantitative CP phase and the
 out-of-equilibrium rate are open (`baryogenesis_in_progress`).

@@ -75,7 +75,7 @@ deuteron in [`SEX.md`](SEX.md) (pp/nn Pauli-blocked, np binds) and closing on
 
 **This is why the Sun is slow.** The β⁺ step is weak-mediated and therefore rare — it is the
 rate-limiting step of the entire pp-chain. The Pauli insulation between identical proton blankets is
-precisely what forces stellar fusion to wait on the weak interaction, so hydrogen burns over billions
+precisely what makes stellar fusion wait on the weak interaction, so hydrogen burns over billions
 of years instead of detonating. The "insulator" reading is exact: just as identical fermions are
 blocked from a shared conducting state in a band/Mott insulator, two identical proton blankets are
 blocked from a shared *bound* state; β⁺ is the symmetry-breaking "dopant" that opens it. The deeper

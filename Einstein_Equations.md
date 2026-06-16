@@ -58,9 +58,9 @@ phase** — the same `2π` as `g−2 = α/2π` and the horizon temperatures
 
 ---
 
-## §4 The coefficient is forced
+## §4 The coefficient is fixed
 
-With both inputs fixed, the Clausius relation forces the field-equation coefficient to be the **Unruh
+With both inputs fixed, the Clausius relation fixes the field-equation coefficient at the **Unruh
 `2π` over the entropy density**:
 
 $$

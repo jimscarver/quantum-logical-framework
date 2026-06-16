@@ -124,7 +124,7 @@ Tunneling is therefore not a separate postulate — it is an automatic consequen
 
 Because QuCalc models **quantum logical expressions exactly**, tunneling emerges directly from the engine’s deterministic search for ZFA closure. No extra postulates, no wavefunctions, and no Born rule are required.
 
-The framework treats tunneling as the logical “detour” the universe is forced to take when classical spatial closure is topologically impossible.
+The framework treats tunneling as the logical “detour” the universe must take when classical spatial closure is topologically impossible.
 
 ---
 

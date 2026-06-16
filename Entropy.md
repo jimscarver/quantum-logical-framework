@@ -41,7 +41,7 @@ This gives QLF entropy a **constructive microscopic foundation**: the $\log 2$ v
 | `+`–`−` (gauge)    | Primordial quantum BH   | Internal topological depth \(R\) | \(\Delta t = R/f\) | Planck-scale Markov blanket | \(S = \log(2)\) per minimal loop (area law \(S = A/4\ell_P^2\)) | Immediate one-step Hawking (re-entry unwind) |
 | No `+`–`−`         | Massless particle       | None (pure spatial)         | 0                  | None              | \(S = 0\)                             | None                                 |
 
-- **Gauge-folded case**: The constructing delay accumulates hidden distinctions as local time. ZFA closure forces an immediate horizon re-entry → Hawking pair `+-` is emitted while preserving unitarity. Entropy is conserved globally.
+- **Gauge-folded case**: The constructing delay accumulates hidden distinctions as local time. ZFA closure drives an immediate horizon re-entry → Hawking pair `+-` is emitted while preserving unitarity. Entropy is conserved globally.
 - **Non-gauge case**: No temporal depth → no hidden interior → zero entropy and no radiation.
 
 ## 3. Holographic Area Law from Topology

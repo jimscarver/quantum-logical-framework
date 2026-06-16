@@ -68,7 +68,7 @@ For **charge-neutral** achieves_ZFA events (`charge = 0`): spatial gap = 0, i.e.
 
 For **isZFAClosed** events (the strongest condition, used in the Lean proof): all individual twist counts are 0, so both spatial gap and charge are individually 0.
 
-**Machine-verified anchor:** `no_magnetic_monopoles` — [lean/ZFAEventDynamics.lean](lean/ZFAEventDynamics.lean) — proves that ZFA closure forces the spatial spectral gap to zero, making magnetic monopoles algebraically impossible.
+**Machine-verified anchor:** `no_magnetic_monopoles` — [lean/ZFAEventDynamics.lean](lean/ZFAEventDynamics.lean) — proves that ZFA closure drives the spatial spectral gap to zero, making magnetic monopoles algebraically impossible.
 
 This means ∇·B = 0 (Gauss's law for magnetism) is not a postulate but a direct consequence of the spectral gap vanishing at ZFA closure. The two Gauss laws are dual faces of a single gap identity: `spatial_gap + charge_gap = 0`.
 
@@ -109,4 +109,4 @@ The spectral gap analysis clarifies why `spectral_hilbert_polya` remains an expl
 
 The spectral gap is thus a **boundary marker** as much as a physical quantity: it is exactly zero for all physically constructible objects (machine-verified), and the statistics of when it is zero in the full string space encode the Riemann zero distribution — but that encoding is analytic, not combinatorial.
 
-See [Lagrangian_Formulation.md](Lagrangian_Formulation.md) for the variational perspective (ℒ = 0 as the condition that forces gap = 0), [ReverseMathematics.md](ReverseMathematics.md) for the RCA₀/WKL₀ boundary (§4 refines the WKL₀ bridge with an MRE-saturation motivation — the "asymptotic not algebraically exact" caveat here is the natural Mellin-image form of MRE saturation), [Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md) for the full Riemann program, and [Langlands.md](Langlands.md) for the Wigner-Dyson connection read as evidence for the QLF-as-bottom-up-Langlands scaffolding (Montgomery-Odlyzko / GUE spacing is exactly the spectral signature Langlands predicts for L-function zeros).
+See [Lagrangian_Formulation.md](Lagrangian_Formulation.md) for the variational perspective (ℒ = 0 as the condition that sets gap = 0), [ReverseMathematics.md](ReverseMathematics.md) for the RCA₀/WKL₀ boundary (§4 refines the WKL₀ bridge with an MRE-saturation motivation — the "asymptotic not algebraically exact" caveat here is the natural Mellin-image form of MRE saturation), [Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md) for the full Riemann program, and [Langlands.md](Langlands.md) for the Wigner-Dyson connection read as evidence for the QLF-as-bottom-up-Langlands scaffolding (Montgomery-Odlyzko / GUE spacing is exactly the spectral signature Langlands predicts for L-function zeros).
