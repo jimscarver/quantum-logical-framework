@@ -140,7 +140,7 @@ QLF is the mathematics that has **active inference built into its foundation**. 
 ### 3. Physics and experiments
 - [**Experimental_Consistency.md**](Experimental_Consistency.md) — numerical and conceptual links between QLF and known physics
 - [**Open_Problems.md**](Open_Problems.md) — gap registry: what is closed, what is a principled boundary, and what is genuinely open, with a pointer to each item's owning doc
-- [**Beyond_Standard_Model.md**](Beyond_Standard_Model.md) — honest accounting of where QLF goes past the SM: which free parameters it *forces* (machine-verified), the one falsifiable new prediction (Majorana neutrino / 0νββ, `neutrino_majorana` Lean-anchored), and what it leaves open — with a bright forced/predicted/open line
+- [**Beyond_Standard_Model.md**](Beyond_Standard_Model.md) — honest accounting of where QLF goes past the SM: which free parameters it *fixes by construction* (machine-verified), the one falsifiable new prediction (Majorana neutrino / 0νββ, `neutrino_majorana` Lean-anchored), and what it leaves open — with a bright derived/predicted/open line
 - [**QRNG_Closure_Observatory.md**](QRNG_Closure_Observatory.md) — a disciplined, falsifiable protocol using ZFA closure as a predeclared sieve (with an analytic null) over quantum-RNG entropy; rigorously separates the testable core from esoteric overclaims
 - [**Weak_Force.md**](Weak_Force.md) — the weak sector consolidated: W/Z as gauge-fold closures, the machine-verified weak-isospin SU(2)⊂Σ₈ identification, beta decay, and the τ-decay-vertex blocker (Koide `Q=2/3` derived; `m_τ` predicted to 0.006%)
 - [**Forces_From_Three_Axes.md**](Forces_From_Three_Axes.md) — structural conjecture: the Standard-Model gauge group `U(1)×SU(2)×SU(3)` (dim 12 = 1+3+8 = the `N=9` α tensor + the verified weak `su(2)`) as the symmetry of QLF's three spatial axes — "all forces from one gauge-twist mechanism, different projections" (honestly tiered: a dimension alignment, not a derivation)
@@ -207,7 +207,7 @@ See [**lean/README.md**](lean/README.md) for the full module reference, proof ch
 - [**lean/BraKetRhoQuCalc.lean**](lean/BraKetRhoQuCalc.lean) — formal correspondence of Dirac bra-ket notation to RhoQuCalc: `action_topo_is_ket`, `lift_topo_is_bra`, `action_lift_eval_eq`, `bra_ket_always_balanced`, completeness relations, Pauli algebra σᵢ²=I (see [BraKetRhoQuCalc.md](BraKetRhoQuCalc.md))
 
 **Physical theories:**
-- [**lean/StringTheoryQLF.lean**](lean/StringTheoryQLF.lean) — gauge-fold excitation tower; `string_mass_spectrum`, `string_mode_count` (C(2n,n) forced by ZFA)
+- [**lean/StringTheoryQLF.lean**](lean/StringTheoryQLF.lean) — gauge-fold excitation tower; `string_mass_spectrum`, `string_mode_count` (C(2n,n) by ZFA balance)
 - [**lean/MTheoryQLF.lean**](lean/MTheoryQLF.lean) — M2/M5-branes, S/T-duality, 11D; `m2_mass_spectrum`, `s_dual_involution`
 
 **Speculative extensions** (explicitly beyond the proved core):
@@ -341,7 +341,7 @@ The Lean formalization compiles with **zero `sorry` blocks** across all 79 modul
 - Symmetric strings produce a scalar multiple of the identity (`spectral_symmetric_eq_scalar_id`)
 - Pauli exclusion: matrix commutator of identical ρ-processes is zero (`pauli_exclusion`); non-triviality witnessed by [σ_x, σ_z] ≠ 0 (`fermi_nonzero_example`)
 - String mass spectrum: eval of the n-th excitation level = n • (fold-pair matrix) (`string_mass_spectrum`)
-- String mode degeneracy at level n equals C(2n, n) — forced by ZFA balance, not a free parameter (`string_mode_count`)
+- String mode degeneracy at level n equals C(2n, n) — fixed by ZFA balance, not a free parameter (`string_mode_count`)
 - M2/M5-branes as parallel gauge-fold stacks; S-duality is an involution on Form; T-duality doubles the mass spectrum (`m2_mass_spectrum`, `s_dual_involution`, `t_duality_mass_spectrum`)
 
 Speculative extensions (ER=EPR, age of universe) are clearly broader than the proved core and marked explicitly in `lean/README.md`.

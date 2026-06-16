@@ -83,7 +83,7 @@ parameters ([`Standard_Model.md`](Standard_Model.md)):
 - **The fine-structure constant** `α = 1/137` from substrate combinatorics alone (`only_3d` gives
   137; 2D→132, 4D→144), to 0.026%.
 - **The mass spectrum from one scale**: `m_p/m_e = 6π⁵` (0.002%), the charged-pion ratio `2/α`, Koide
-  `Q = 2/3` forcing `m_τ` to 0.006%; the entire 10¹⁹ Planck/proton hierarchy collapses to the single
+  `Q = 2/3` fixing `m_τ` to 0.006%; the entire 10¹⁹ Planck/proton hierarchy collapses to the single
   integer `b₀ = 7` (= `N_c=3`, `n_f=6`) as `e^{14π}` — 0.07% on the log.
 - **CKM/PMNS counting**, baryogenesis (the three Sakharov conditions), strong-CP `θ̄ = 0` without an
   axion, and primordial nucleosynthesis (`Y_p = 1/4`) all follow.
@@ -96,7 +96,7 @@ parameters ([`Standard_Model.md`](Standard_Model.md)):
   three spatial dimensions. Mercury's perihelion advance to 0.03% ([`Gravity.md`](Gravity.md)).
 - **The Einstein field equations as the substrate's equation of state** (Jacobson 1995): from
   `δQ = T δS` on every local horizon, with both inputs (the area law and the Unruh temperature)
-  supplied by the substrate, forcing `8πG = 2π/η`. The local Rindler horizon **is** the Markov-blanket
+  supplied by the substrate, fixing `8πG = 2π/η`. The local Rindler horizon **is** the Markov-blanket
   / Kitada local clock, and the integration constant is `Λ = Ω_Λ = log 2` — the local clock's tick
   ([`Einstein_Equations.md`](Einstein_Equations.md), [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md)).
 - **The curvature side from the causal order** (Sorkin / Benincasa–Dowker): the closure graph is a

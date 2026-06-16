@@ -55,7 +55,7 @@ This is the QLF derivation of quark confinement. The strong-force binding scale 
 
 ### 2.4 U(1) electromagnetism, charge conservation
 
-From [Maxwell.md](Maxwell.md) and [Conservation.md §4](Conservation.md): the gauge pair `+` / `−` is the carrier of charge. The U(1) gauge symmetry is the `+` ↔ `−` swap symmetry of the 8-twist algebra; charge conservation is Lean-verified as `no_magnetic_monopoles` (ZFA closure forces net gauge count = 0 per closed event; for non-neutral systems the count is constant because gauge folds are created/destroyed only in Hermitian pairs).
+From [Maxwell.md](Maxwell.md) and [Conservation.md §4](Conservation.md): the gauge pair `+` / `−` is the carrier of charge. The U(1) gauge symmetry is the `+` ↔ `−` swap symmetry of the 8-twist algebra; charge conservation is Lean-verified as `no_magnetic_monopoles` (ZFA closure requires net gauge count = 0 per closed event; for non-neutral systems the count is constant because gauge folds are created/destroyed only in Hermitian pairs).
 
 ## 3. The partial sector
 
@@ -77,7 +77,7 @@ From [CP-Violation-and-Chirality.md](CP-Violation-and-Chirality.md) and [Annihil
 
 ### 3.3 Generations of matter
 
-From [Primordial_Entanglement.md §2](Primordial_Entanglement.md) and [Particles.md §3](Particles.md): if a primordial split doesn't immediately close at length $N=4$ due to environmental pressure, it is forced into higher-order resonance to achieve ZFA: $N=8$ (muon family), $N=12$ (tau family).
+From [Primordial_Entanglement.md §2](Primordial_Entanglement.md) and [Particles.md §3](Particles.md): if a primordial split doesn't immediately close at length $N=4$ due to environmental pressure, it is driven into higher-order resonance to achieve ZFA: $N=8$ (muon family), $N=12$ (tau family).
 
 **What's derived**: why there are multiple generations; the structural reason for the resonant-harmonic hierarchy.
 
@@ -99,7 +99,7 @@ Standard Model masses span 11 orders of magnitude (neutrino at <1 eV, electron a
 
 Conjectured path: the multiplicity-as-energy framework of [Energy_Combinatorics.md](Energy_Combinatorics.md) plus the topological resonance counting of [HadronicDepth.md](HadronicDepth.md).
 
-**One quantitative handle now exists (charged leptons).** The Koide relation `Q = (m_e+m_μ+m_τ)/(√m_e+√m_μ+√m_τ)² = 2/3` holds to 0.0009%, and its `2/3` is now **machine-verified** as forced by `N=3` (three spatial axes) ∧ `A²=2` (two transverse axes) — `koide_two_thirds` in [lean/QLF_Koide.lean](lean/QLF_Koide.lean), the same `2 transverse + 1 longitudinal` split as the transverse fraction. Given `Q=2/3`, `m_e, m_μ` **predict** `m_τ = 1776.97 MeV` (measured 1776.86, **0.006%**). What remains an input: the lepton-√mass↔axis-phase *identification*, the Koide angle, and the overall scale. See [Weak_Force.md](Weak_Force.md) §5a–5b and [koide_tau_demo.py](koide_tau_demo.py). The quark sector is still open.
+**One quantitative handle now exists (charged leptons).** The Koide relation `Q = (m_e+m_μ+m_τ)/(√m_e+√m_μ+√m_τ)² = 2/3` holds to 0.0009%, and its `2/3` is **machine-verified** as following by construction from `N=3` (three spatial axes) ∧ `A²=2` (two transverse axes) — `koide_two_thirds` in [lean/QLF_Koide.lean](lean/QLF_Koide.lean), the same `2 transverse + 1 longitudinal` split as the transverse fraction. Given `Q=2/3`, `m_e, m_μ` **predict** `m_τ = 1776.97 MeV` (measured 1776.86, **0.006%**). What remains an input: the lepton-√mass↔axis-phase *identification*, the Koide angle, and the overall scale. See [Weak_Force.md](Weak_Force.md) §5a–5b and [koide_tau_demo.py](koide_tau_demo.py). The quark sector is still open.
 
 ### 4.2 Mixing matrices (CKM, PMNS)
 
