@@ -90,5 +90,6 @@ lean_lib QLF where
     `QLF_PhysicalPi,
     `QLF_PlanckScale,
     `QLF_LoopQuantumGravity,
-    `QLF_GaugeHolonomy
+    `QLF_GaugeHolonomy,
+    `QLF_WeakChirality
   ]
