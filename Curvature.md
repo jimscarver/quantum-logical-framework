@@ -94,7 +94,9 @@ The largest Markov blanket is the **cosmic horizon** (v ≈ 6.7 × 10⁶⁰) —
 
 Our universe is net-expanding, so its global geometry **is de Sitter**. The cosmological constant is not tuned — it is the residual curvature of the near-uniform vacuum, with the dark-energy fraction *predicted*:
 
-$$\rho_\Lambda = \frac{3\log 2}{8\pi}\,\frac{c^4}{G\,R_H^2}, \qquad \Omega_\Lambda = \log 2 \approx 0.6931 \ \ (\text{Planck 2018: } 0.685,\ 1.2\%),$$
+$$\rho_\Lambda = \frac{3\log 2}{8\pi}\,\frac{c^4}{G\,R_H^2}, \qquad \Omega_\Lambda = \log 2 \approx 0.6931,$$
+
+(Planck 2018: 0.685 — a 1.2% match)
 
 with the notorious 10¹²² vacuum catastrophe closed structurally by the `(R_H/L_Planck)²` surface-vs-volume ratio ([`Cosmological_Constant.md`](Cosmological_Constant.md) §3, §5.5; [`VacuumEnergy.md`](VacuumEnergy.md) §5/§6.2; [`lean/QLF_CosmologicalConstant.lean`](lean/QLF_CosmologicalConstant.lean)). The event-synthesis tensor `T_μν^(synth)` replaces the bare Λ. de Sitter and AdS are *both* present — "different phases of the same underlying logical dynamics" — exactly as expansion and contraction are both present in magnetism.
 

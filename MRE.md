@@ -82,8 +82,9 @@ the Boolean OR over the stream is exactly a `List.any`:
 
 $$
 \text{closes}(2k) \;=\; \bigvee_{s \,\in\, \text{generated}(2k)} \text{verify}(s)
-\;=\; \big(\text{expand\_generation}(2k)\big).\mathtt{any}\;\text{verify}.
 $$
+
+— which is exactly `(expand_generation(2k)).any verify`, the Boolean OR-fold `List.any`.
 
 This is Lean-anchored in [`lean/QLF_InfoSynthesis.lean`](lean/QLF_InfoSynthesis.lean):
 

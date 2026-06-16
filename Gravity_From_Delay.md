@@ -91,7 +91,8 @@ is the **Unruh master relation** at the appropriate acceleration `a`, with the u
 being the **substrate loop phase** — the same `2π` of one full closure that appears in
 `g−2 = α/2π` ([`QLF_GMinusTwo.lean`](lean/QLF_GMinusTwo.lean)):
 
-$$T \;=\; \frac{\hbar\, a}{2\pi c\, k_B}\qquad(\texttt{unruh\_temperature}).$$
+$$T \;=\; \frac{\hbar\, a}{2\pi c\, k_B}$$
+(Lean: `unruh_temperature`.)
 
 The three classic temperatures are three values of `a`:
 

@@ -47,19 +47,18 @@ Rejecting the continuum as foundation is not the same as being excused from deri
 
 Allen's strongest generator is the **path-counting return walk**. In QLF the count is the substrate's
 own closure census: the number of ZFA-balanced stable closures of length `2n` is exactly the central
-binomial coefficient — **a QLF theorem**:
+binomial coefficient (`closure_census`, reusing `find_stable_states_length_even`) — **a QLF theorem**:
 
 $$
-\#\{\text{stable closures of length } 2n\} = \binom{2n}{n}
-\qquad(\texttt{closure\_census},\ \texttt{find\_stable\_states\_length\_even})
+\bigl\lvert \{\text{stable closures of length } 2n\} \bigr\rvert = \binom{2n}{n}
 $$
 
 — the same `C(2n,n)` behind the Born statistics, the P-vs-NP verify-filter
-(`realized_count_eq_central_binomial`), and the Riemann gap-zero density. Form the rational
+(`realized_count_eq_central_binomial`), and the Riemann gap-zero density. Form the rational return
+density (`returnDensity`, `returnDensity_eq_census`):
 
 $$
 P_{2n}(0) = \left(\frac{\binom{2n}{n}}{4^{n}}\right)^{2}
-\qquad(\texttt{returnDensity},\ \texttt{returnDensity\_eq\_census})
 $$
 
 a finite, computable **rational** with no `Real.pi` in it — also Lean-anchored. The classical asymptotic

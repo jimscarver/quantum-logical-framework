@@ -34,7 +34,7 @@ $$\Sigma = \{ \wedge, \vee, \langle, \rangle, /, \backslash, +, - \}$$
 These tokens are Pauli-basis Clifford algebra generators — each maps to a 2×2 Hermitian matrix via `Form.toMatrix` (machine-verified in [`lean/SpacetimeDynamics.lean`](lean/SpacetimeDynamics.lean), `Form.toMatrix_adjoint`). The alphabet is the spin-network basis of discrete quantum geometry, independently motivated by Penrose's spin networks and Loop Quantum Gravity. The full 8-twist sufficiency argument is in [`eight-twists-sufficiency.md`](eight-twists-sufficiency.md).
 
 * **Zero Free Action (ZFA):** The governing selection principle. Every admissible physical history must achieve local phase balance:
-$$\text{count\_pos} = \text{count\_neg}$$
+$$\text{count}_{\text{pos}} = \text{count}_{\text{neg}}$$
 This is machine-verified across the entire repo: `zfa_implies_critical_line` (ZFA implies symmetry), `encode_is_zfa` (every terminating computation achieves ZFA), and `qlf_universality` (ZFA strings are exactly the terminating computations) — proved in [`lean/QLF_Axioms.lean`](lean/QLF_Axioms.lean), [`lean/QLF_Universality.lean`](lean/QLF_Universality.lean). Any history that introduces uncompensated asymmetry is immediately eradicated by `full_zeno_prune`. The Zeno effect interpretation is in [`Zeno_Effect.md`](Zeno_Effect.md); the stable-state count `find_stable_states_length_even` proves there are exactly C(2n,n) stable states of length 2n. The variational grounding of ZFA as condition of origin (not a hardware filter on a pre-existing universe) — including the QPU core (Φ₀=U+M) and security conditions `rho_process_always_symmetric` / `orthogonality_01` — is in [`Lagrangian_Formulation.md`](Lagrangian_Formulation.md).
 
 ---

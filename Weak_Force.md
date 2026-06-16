@@ -40,7 +40,8 @@ $$\cos\theta_W = \frac{R_W}{R_Z}$$
 
 QLF's Σ₈ algebra uses `τᵢ = i σᵢ` (the Pauli matrices scaled by `i`), giving quaternionic squares `τᵢ² = −I` and anti-cyclic products `τxτy = −τz` (machine-verified: `tau_x/y/z_sq`, `tau_xy/yz/zx_product`). Adding the reverse products (`τy τx = +τz`, …), the three generators close under the matrix **commutator** into the su(2) ≅ so(3) Lie algebra:
 
-$$[\tau_i,\tau_j] = -2\,\varepsilon_{ijk}\,\tau_k \qquad(\text{machine-verified: } \texttt{tau\_comm\_xy/yz/zx},\ \texttt{weak\_isospin\_su2})$$
+$$[\tau_i,\tau_j] = -2\,\varepsilon_{ijk}\,\tau_k$$
+(machine-verified: `tau_comm_xy/yz/zx`, `weak_isospin_su2`)
 
 and the mixed anticommutators vanish (`{τᵢ,τⱼ} = 0`, `tau_anticomm_*`). Together with `τᵢ² = −I`, the multiplicative group they generate is the **quaternion group** `Q₈ = {±I, ±τx, ±τy, ±τz} ⊂ SU(2)` — the discrete subgroup whose continuous closure is exactly the weak-isospin SU(2).
 
@@ -87,7 +88,9 @@ The electron and muon are handled as two-body bound-state ("Bohr") half-loop clo
 
 §4a left the τ as "the lepton variety whose completion can't bind." That gives a handle on its **mass**, via the one near-exact empirical relation among the charged leptons — the **Koide relation**:
 
-$$Q \;=\; \frac{m_e + m_\mu + m_\tau}{\left(\sqrt{m_e} + \sqrt{m_\mu} + \sqrt{m_\tau}\right)^2} \;=\; \tfrac{2}{3}\quad(\text{measured } 0.6666605,\ 0.0009\%\text{ from }2/3).$$
+$$Q \;=\; \frac{m_e + m_\mu + m_\tau}{\left(\sqrt{m_e} + \sqrt{m_\mu} + \sqrt{m_\tau}\right)^2} \;=\; \tfrac{2}{3}$$
+
+(measured 0.6666605 — 0.0009% from 2/3)
 
 **The QLF reading.** `Q = 2/3` is *exactly* equivalent to writing the three √-masses as three phases 120° apart on a circle of radius `√2·M`:
 
@@ -99,7 +102,9 @@ Two QLF structures fall directly onto this form:
 
 **The payoff (reproducible — [`koide_tau_demo.py`](koide_tau_demo.py)).** If QLF supplies `Q = 2/3` structurally, then `m_e` and `m_μ` **predict** the third-generation mass:
 
-$$m_\tau \;=\; 1776.97\ \text{MeV}\quad\text{vs measured } 1776.86\ \text{MeV}\ (0.006\%).$$
+$$m_\tau \;=\; 1776.97\ \text{MeV}\quad\text{vs measured } 1776.86\ \text{MeV}$$
+
+(0.006% agreement)
 
 Only the `2/3` is structural; `m_e, m_μ` are inputs — so this is a *parameter-light prediction* of `m_τ`, the first quantitative handle QLF has on the third-generation mass (previously "no quantitative match", [`Standard_Model.md`](Standard_Model.md) §4.1).
 

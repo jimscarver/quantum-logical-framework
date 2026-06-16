@@ -105,7 +105,8 @@ denser-logic interior (dark matter) — the **expand / contract duality** of
 For a baryonic mass `M`, the Newtonian acceleration `GM/r²` crosses the floor `a₀` at the
 **transition radius**
 
-$$\sigma \;=\; \sqrt{\frac{GM}{a_0}}\qquad(\text{Lean: } \texttt{mond\_radius\_accel} — GM/\sigma^2 = a_0).$$
+$$\sigma \;=\; \sqrt{\frac{GM}{a_0}}\qquad(GM/\sigma^2 = a_0)$$
+(Lean: `mond_radius_accel`.)
 
 This splits cleanly into the two regimes you already see elsewhere in QLF
 (`newtonian_dominates_iff`: `a₀ < GM/r² ⟺ r² < GM/a₀`):
@@ -134,7 +135,8 @@ a **Gaussian** — and not by fiat: for a fixed spatial scale, the Gaussian is t
 fixes `Ω_Λ = log 2` (the `binary_kl` machinery of [`QLF_FreeEnergy`](lean/QLF_FreeEnergy.lean)).
 The displaced logic relaxes to the least-committed profile consistent with its scale:
 
-$$\rho_{\rm logic}(r) \;=\; \rho_0\, e^{-r^2/2\sigma^2}\qquad(\text{Lean: } \texttt{gaussian\_logic\_density}),$$
+$$\rho_{\rm logic}(r) \;=\; \rho_0\, e^{-r^2/2\sigma^2}$$
+(Lean: `gaussian_logic_density`)
 
 densest at the mass and monotonically thinning outward (`gaussian_denser_near_center`), with
 width set by the transition radius `σ = √(GM/a₀)` of §6.
