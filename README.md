@@ -19,7 +19,7 @@ In one line: **the universe is logical, its logic is constructive and complete-f
 
 ## 🚀 Major substrate-derivation discoveries (June 2026)
 
-QLF now spans **78 machine-verified Lean modules** (zero `sorry`) covering the Standard Model, gravity/GR, cosmology, condensed matter, nuclear fusion, and the Millennium problems — see the [module table](#the-lean-formalization) and [`Open_Problems.md`](Open_Problems.md) for the full map. The **ten headline quantitative wins** from ZFA + h alone:
+QLF now spans **89 machine-verified Lean modules** (zero `sorry`) covering the Standard Model, gravity/GR, cosmology, condensed matter, nuclear fusion, and the Millennium problems — see the [module table](#the-lean-formalization) and [`Open_Problems.md`](Open_Problems.md) for the full map. The **ten headline quantitative wins** from ZFA + h alone:
 
 | # | Result | Match | Empirical input | Lean module |
 |---|---|---|---|---|

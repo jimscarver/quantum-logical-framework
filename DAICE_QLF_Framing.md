@@ -128,7 +128,7 @@ or scaled secret evaluation — owned by cleared team members.
 
 State plainly what is solid and what is engineering:
 
-- **Solid:** the ZFA closure principle and its pruning filter are machine-verified (Lean 4, 78 modules,
+- **Solid:** the ZFA closure principle and its pruning filter are machine-verified (Lean 4, 89 modules,
   zero `sorry`); the capability-security model is grounded in five convergent formal foundations (§3);
   a working P2P QoS peer exists.
 - **Engineering (the proposal's actual work):** wiring real foundation-model agents through the closure

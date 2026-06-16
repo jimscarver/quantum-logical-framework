@@ -13,7 +13,7 @@ The structure follows [Conservation.md §8](Conservation.md) (the "what is NOT y
 | **Photon** (massless, spin 1) | Pure spatial fold `^>` or `^v` with no gauge folds ([Electron.md §2](Electron.md), [Particles.md](Particles.md)) | ✓ Derived |
 | **Neutrino** (left-handed, gauge-only) | non-chiral loop `^v` — **Majorana** (its own antiparticle), machine-verified `neutrino_majorana` ([`lean/QLF_Majorana.lean`](lean/QLF_Majorana.lean)) per [Beta_Decay_Neutrino_Nature.md](Beta_Decay_Neutrino_Nature.md) | ✓ Structural + Lean-verified; predicts **0νββ** (lepton-number violation), under test (LEGEND/nEXO) |
 | **Proton, neutron** (Borromean three-quark) | Three open quarks interlocked under Borromean topology ([Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md), [HadronicDepth.md](HadronicDepth.md)) | ✓ Structural derivation; mass quantitative match open |
-| **Quark confinement** | Quarks are fractional ZFA (cannot exist as isolated unforgeable names) — must group in pairs/triples to form stable composite blankets | ✓ Qualitative derivation; quantitative confinement scale open |
+| **Quark confinement** | Quarks are fractional ZFA (cannot exist as isolated unforgeable names) — must group in pairs/triples to form stable composite blankets | ✓ **Machine-verified obstruction** (`charged_not_closed`/`singlet_closure`, [`lean/QLF_Confinement.lean`](lean/QLF_Confinement.lean)): a net-colored state is not a ZFA closure, so only color singlets are physical; the string-tension *value* is open |
 | **U(1) electromagnetic** | `+` ↔ `−` gauge swap symmetry of the 8-twist algebra ([Conservation.md §4](Conservation.md), [Maxwell.md](Maxwell.md)) | ✓ Derived; charge conservation Lean-verified via `no_magnetic_monopoles` |
 | **Higgs mechanism** | Gauge folds create constructing delay $\Delta t = R/f$ which manifests as rest mass ([Higgs.md](Higgs.md), [Frequency_Synchronization.md](Frequency_Synchronization.md), [E_mc2_derivation.md](E_mc2_derivation.md)) | ⚠ Partial — explains *why* mass exists, not specific Higgs particle mass |
 | **CP violation** | Residual clustering of LH/RH topology in the early universe ([CP-Violation-and-Chirality.md](CP-Violation-and-Chirality.md), [Annihilation.md §5](Annihilation.md)) | ⚠ Partial — qualitative; CKM matrix angles open |
@@ -51,7 +51,7 @@ These three are the directly derived light particles. Positron, anti-photon, ant
 
 From [Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md): three quarks interlock via Borromean topology to form a closed Markov blanket — the proton. Each quark individually has fractional ZFA (it leaks free action) so cannot exist as an isolated unforgeable name; only the Borromean triple is stable.
 
-This is the QLF derivation of quark confinement. The strong-force binding scale is open work but the structural reason for confinement is built into the algebra.
+This is the QLF derivation of quark confinement, **machine-verified** as the singlet-closure obstruction (`charged_not_closed`/`singlet_closure`, [`lean/QLF_Confinement.lean`](lean/QLF_Confinement.lean)): a net-colored state carries an annihilation-odd charge that is zero on every ZFA closure, so a lone quark cannot close — only color singlets are physical. The strong-force binding *scale* (string tension) is open work, but the structural reason for confinement is built into the algebra and now Lean-anchored.
 
 ### 2.4 U(1) electromagnetism, charge conservation
 
