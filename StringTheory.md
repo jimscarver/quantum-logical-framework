@@ -16,71 +16,26 @@ We prove that **string theory and M-theory embed cleanly into the possibilist QL
 
 ## 1. The Embedding: String Theory as 2D ZFA Histories
 
-In QLF, a string worldsheet is simply a **two-dimensional RhoProcess** — a grid of ZFA-closed twist histories.
+In QLF, a closed string is a **gauge-fold tower in RhoQuCalc** — a level-`n` stack of Hermitian-pair (`+`–`−`) closures on a base `Form`. Each level is ZFA-balanced by construction.
 
-**Key theorems** (proven in [`StringTheoryQLF.lean`](https://github.com/jimscarver/quantum-logical-framework/blob/main/lean/StringTheoryQLF.lean)):
+**Key theorems** (machine-verified in [`StringTheoryQLF.lean`](https://github.com/jimscarver/quantum-logical-framework/blob/main/lean/StringTheoryQLF.lean)):
 
-- **String worldsheets are valid RhoProcesses**:
-  ```lean
-  theorem string_theory_embeds_into_possibilist_qlf
-  ```
-
-- **Vibrational modes = twist imbalance spectra**:
-  ```lean
-  theorem string_modes_correspond_to_zfa_imbalances
-  ```
-
-- **Compactified extra dimensions = extra twist directions** (plus, minus, slash, bslash, etc.).
-
-- **The string landscape = sectors of ZFA closure in the possibilist space**:
-  ```lean
-  theorem string_landscape_is_possibilist_sectors
-  ```
-
-**Live demo** (run `lean --run lean/StringTheoryQLF.lean`):
-
-```
-String worldsheet → RhoProcess with N ZFA events
-Event density φ          : 4.12
-Effective Λ_eff          : 25.13 (drives string vacuum energy)
-w ≈ -1.000               (dark-energy-like behaviour)
-```
+- **Every string level is a ZFA-stable, symmetric, Hermitian closure** — `string_level_zfa_stable`, `string_level_symmetric`, `string_level_hermitian`. A string excitation is a stable substrate closure, on the critical line, by construction.
+- **The mass spectrum is the gauge-fold tower** — `string_mass_spectrum`: the level-`n` state evaluates to the `n`-fold Hermitian-pair product (the discrete analogue of `M² ∝ n`).
+- **Mode degeneracy at level `n` is the central binomial `C(2n,n)`** — **`string_mode_count`** / `string_modes_count_eq_choose`: the number of distinct ZFA string modes of length `2n` is exactly `C(2n,n)` (every mode ZFA-balanced, `string_modes_all_zfa`). *This is the same `C(2n,n)` that counts Born-rule micro-paths, the P-vs-NP verify-filter, the Riemann gap-zero density, and the π-generating closure census ([`Physical_Pi.md`](Physical_Pi.md)).* **Strings run on the substrate's own closure census** — they are not a separate counting.
+- **Compactified extra dimensions = extra twist directions** — `compactifyForm`, `compactification_zfa_stable`, `compactification_mass_spectrum`: an "extra dimension" is one of the 8 alphabet twists, not a new manifold added by hand.
+- **The string landscape = ZFA-closure sectors of the possibilist space** — `landscape_zfa_stable`, `landscape_on_critical_line`, `landscape_mode_count`: every landscape vacuum is a stable closure with `C(2n,n)` modes; the "landscape" is the possibilist enumeration itself, with ZFA as the selection rule the string landscape lacks.
 
 ## 2. M-Theory Embedding: 11D as Higher-Dimensional ZFA Worldvolumes
 
 M-theory extends the picture naturally. M2-branes and M5-branes become higher-dimensional ZFA worldvolumes in RhoQuCalc.
 
-**Key theorems** (proven in [`MTheoryQLF.lean`](https://github.com/jimscarver/quantum-logical-framework/blob/main/lean/MTheoryQLF.lean)):
+**Key theorems** (machine-verified in [`MTheoryQLF.lean`](https://github.com/jimscarver/quantum-logical-framework/blob/main/lean/MTheoryQLF.lean)):
 
-- **M2- and M5-branes embed directly**:
-  ```lean
-  theorem m2_brane_embeds_into_qlf
-  theorem m5_brane_embeds_into_qlf
-  ```
-
-- **11D supergravity is the large-N limit of the event-synthesis tensor** `T_μν^(synth)`:
-  ```lean
-  theorem m_theory_low_energy_limit_is_qlf_completed_gr
-  ```
-
-- **Dualities (S-, T-, U-duality) are ZFA-preserving RhoProcess transformations**:
-  ```lean
-  theorem dualities_preserve_zfa
-  ```
-
-- **The entire M-theory landscape = possibilist ZFA sectors**:
-  ```lean
-  theorem m_theory_landscape_is_possibilist_zfa_sectors
-  ```
-
-**Live demo** (run `lean --run lean/MTheoryQLF.lean`):
-
-```
-M2-brane → RhoProcess with N ZFA events
-Event density φ          : 4.12
-Effective Λ_eff          : 25.13 (11D supergravity vacuum energy)
-11D directions           : embedded via 3 extra twist components
-```
+- **M2- and M5-branes embed directly as ZFA-stable Hermitian worldvolumes** — `mbrane2_zfa_stable` / `mbrane2_hermitian` / `m2_mass_spectrum`; `mbrane5_zfa_stable` / `mbrane5_hermitian`.
+- **11D is reached by three extra twist components** — `M11DBrane`, `m11d_zfa_stable`: the 11th dimension is three alphabet twists, not a postulated manifold.
+- **S- and T-duality are ZFA-preserving twist transformations** — `s_duality_zfa_stable`, **`s_dual_involution`** (`S(S f) = f`, a genuine involution), `t_duality_zfa_stable`, `t_duality_mass_spectrum` (`T` doubles the level). Duality is a symmetry of the closure algebra, by construction.
+- **The M-theory landscape = possibilist ZFA sectors** — the same `Form × ℕ` landscape, every member a stable closure.
 
 ## 3. Why QLF May Render String Theory Obsolete
 
@@ -140,6 +95,7 @@ It is the logical self-organisation of possibility itself.
 Welcome to the possibilist universe.
 
 **Further reading**  
+- [`LQG_QLF.md`](LQG_QLF.md) — the **Loop Quantum Gravity** companion: QLF's substrate *is* a spin network of half-spin (j=½) ZFA closures, the Immirzi `log 2`-per-puncture entropy is QLF's per-Planck-patch quantum, and background independence is the synthesized-spacetime ontology  
 - [`UniversalRelativity.md`](https://github.com/jimscarver/quantum-logical-framework/blob/main/UniversalRelativity.md)  
 - [`Philosophy.md`](https://github.com/jimscarver/quantum-logical-framework/blob/main/Philosophy.md)  
 - [`WHITE_PAPER.md`](https://github.com/jimscarver/quantum-logical-framework/blob/main/WHITE_PAPER.md)  
