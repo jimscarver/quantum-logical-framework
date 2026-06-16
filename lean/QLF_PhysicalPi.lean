@@ -36,14 +36,17 @@ What is **proven here** is exactly the *count* and the *rational return density*
   walks); QLF has not yet built that probability space from ZFA dynamics. These two are genuine,
   *discrete* QLF work-items.
 
-What is **declined as a target** (Allen #89's headline demand): "recover the continuum geometric `π`
-(`C/2r`, `A/r²`) from isotropy with no circle premise." That asks QLF to reconstruct the **continuum
-circle** — which QLF holds to be a *rendering*, the very ultraviolet catastrophe it retires, not a real
-object underneath the census ([`Continuum_Choice_Fallacy.md`](../Continuum_Choice_Fallacy.md)). The
-discrete census's limit **is** what `π` means; there is no continuum value it must "match." So `Real.pi`
-is not eliminated from Mathlib — it is *reframed* as the limit of these discrete machines. See
-[`Physical_Pi.md`](../Physical_Pi.md) (the full two-ledger scope), [`TheContinuum.md`](../TheContinuum.md),
-[`lean/QLF_LoopClosure.lean`](QLF_LoopClosure.lean) (`2π` is a *chosen* rendering of `% N`, not recovered).
+A third item is **owed, not declined** (Allen #90's correction): the *effective-limit* recovery of
+continuum geometry — coarse-grained QLF observables converging to the Euclidean relations `C(r)/2r → π`,
+`A(r)/r² → π`. This needs **no fundamental continuum**; it is the ordinary emergent-spacetime burden QLF
+carries *because it uses `Real.pi` in real predictions* (`α`, GR). Open and QLF's to do.
+
+What is **genuinely declined** is only the continuum as *substrate / fundamental* — an ontologically real
+circle *underneath* the discrete dynamics ([`Continuum_Choice_Fallacy.md`](../Continuum_Choice_Fallacy.md)).
+π is the limit of the discrete machine; `Real.pi` is the *effective* rendering QLF must **earn**, not a
+fundamental object it must *recover* — so `Real.pi` is not eliminated from Mathlib, it is *reframed*. See
+[`Physical_Pi.md`](../Physical_Pi.md) (the full two-ledger scope, #89 + #90), [`TheContinuum.md`](../TheContinuum.md),
+[`lean/QLF_LoopClosure.lean`](QLF_LoopClosure.lean) (`2π` is *inserted* in `renderAngle`, not recovered from `% N`).
 -/
 
 namespace QLF.PhysicalPi

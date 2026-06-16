@@ -10,14 +10,23 @@
 > wired into the Lean module; the 2-D *squaring* presupposes a random-walk model; the gauge phase
 > increments need group-theory caveats (`4π` is representation-dependent, `2π/3` is a center increment);
 > and the Riemann/GUE tie is a *shared object*, not a proof. Those are real and are fixed here.
-> **(b) The headline framing — declined on QLF grounds:** the demand "*recover the continuum geometric
-> `π` (circumference/area) from isotropy, or you have failed*" assumes there **is** a continuum `π` out
-> there to recover. QLF's foundational thesis is that there is **not** — the continuum is mathematics'
-> ultraviolet catastrophe ([`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md),
-> [`TheContinuum.md`](TheContinuum.md)). `π` is the **limit/rendering of the discrete closure machine**,
-> with no deeper continuum referent. So the honest QLF claim is: *a `Real.pi`-free, π-convergent closure
-> census, with its count Lean-anchored and its convergence a settled classical theorem (cited)* — **not**
-> "`π` recovered from the continuum," because under QLF's ontology that is not a coherent target.
+> **(b) The framing — refined after Allen's #90 (he is right to split it).** Two different claims were
+> being run together, and only one is declined:
+> - **Continuum as *substrate / fundamental* — declined.** There is no ontologically real continuum
+>   circle underneath the substrate; the continuum-as-foundation is mathematics' ultraviolet catastrophe
+>   ([`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md), [`TheContinuum.md`](TheContinuum.md)).
+> - **Continuum as an *effective limit* — owed, and open.** Because QLF *uses* `Real.pi` in physical
+>   predictions (`α`, GR, …), it must derive the *observed* continuum as the coarse-grained limit of the
+>   discrete dynamics: rods, light signals, diffusion shells, and circumference/area measurements
+>   converging to the Euclidean relations `C(r)/2r → π`, `A(r)/r² → π`. That is the **ordinary empirical
+>   burden of any discrete emergent-spacetime theory — not a continuum fallacy** — and QLF owes it. It is
+>   an **open obligation (Ledger A)**, not a declined one.
+>
+> So the honest QLF claim is: *a `Real.pi`-free, π-convergent closure census, count Lean-anchored,
+> convergence a settled classical theorem (cited)* — **not** "`π` established constructively," and **not**
+> "the effective-limit recovery is somebody else's problem." π is the limit of the discrete machine;
+> `Real.pi` is the effective rendering QLF must *earn* (it does elsewhere; for the geometric π it has not
+> yet).
 
 ---
 
@@ -29,8 +38,10 @@ process "goes around, compares with where it started, and asks whether the state
 and shows it is the *same* `C(2n,n)` that runs the Born statistics, the P-vs-NP verify-filter, and the
 Riemann gap-zero density. `π` is a **computable** real (a finite algorithm yields any precision — it was
 never the continuum fallacy). The machine is the discrete census; `Real.pi` is its **limit/rendering**,
-never a substrate primitive — and, crucially, never a hidden continuum the census is merely
-*approximating*. There is nothing "behind" the census to recover.
+never a *substrate* primitive. There is no continuum circle *underneath* the substrate to recover — but
+there **is** an *effective* continuum to earn: the macroscopic Euclidean `π` relations must emerge as the
+coarse-grained limit of the discrete dynamics (Allen #90 — see the status box and §5 Ledger A.3).
+Rejecting the continuum as foundation is not the same as being excused from deriving its effective limit.
 
 ## §1 The closure census (count Lean-anchored; convergence a cited classical theorem)
 
@@ -57,6 +68,12 @@ a finite, computable **rational** with no `Real.pi` in it — also Lean-anchored
 $$
 \pi \;=\; \lim_{n\to\infty}\frac{1}{n\,P_{2n}(0)}.
 $$
+
+**Wording precision (Allen #90):** the π-convergent object is **not** `C(2n,n)` by itself — the raw
+census count diverges. It is the *normalized, squared, `n`-weighted* quantity `n·P₂ₙ(0) =
+n·(C(2n,n)/4ⁿ)²` — and that normalization-and-squaring is exactly the **imposed two-axis walk model**
+(caveat 2 below). So "the closure census *is* the π-convergent census" is loose; the precise statement
+is "the return density of the two-axis walk *built from* the closure census converges to `1/π`."
 
 **Two honest caveats (Allen #89):**
 
@@ -121,35 +138,35 @@ What is true is a **structural resonance**, stated without overreach:
   correspondence through its named boundary axioms (`spectral_hilbert_polya`, `MRE_bridge`;
   `rh_mre_proof_in_progress`). No complexity ("faster than any known process") claim is made.
 
-## §5 Honest scope — two ledgers (Allen #89)
+## §5 Honest scope — two ledgers (Allen #89 + #90)
 
-It matters *which kind* of item each open point is.
+It matters *which kind* of item each open point is. **Allen's #90 correctly moved the geometry bridge
+from "declined" to "owed"** — the only thing genuinely declined is a *fundamental* continuum.
 
-**Ledger A — genuine QLF work-items (discrete, internal to the substrate):**
+**Ledger A — genuine QLF obligations (all earnable *without* a fundamental continuum):**
 
 1. **Wire in the convergence.** Import the Mathlib central-binomial/Wallis asymptotic and discharge
    `n·returnDensity → 1/π`, replacing the `physical_pi_in_progress` marker. (Settled math; not in doubt.)
-2. **Construct the walk probability space.** Derive the 2-D squaring from ZFA dynamics — i.e. prove the
-   substrate realizes two independent equally-weighted axis-walks — rather than imposing the Pólya model.
-   This is a *discrete* equivalence theorem, fully inside QLF's frame.
+2. **Construct the walk probability space + identify the process.** Derive the 2-D squaring from ZFA
+   dynamics — prove the substrate realizes two independent equally-weighted axis-walks — rather than
+   *imposing* the Pólya model. Until then the census is a **mathematically selected** object, not a
+   *physical process shown to be executed by nature*; calling it "the thing itself" is an ontology claim,
+   not a derivation (Allen #90, conceded). This is the same item as "no physical universe-machine
+   identified yet."
+3. **The effective-limit (geometry) recovery — the standard emergent-spacetime burden.** Show that
+   coarse-grained QLF observables converge to the Euclidean relations: `C(r)/2r → π`, `A(r)/r² → π`, from
+   discrete directionally-unbiased closure statistics. This needs **no fundamental continuum** — it is the
+   ordinary obligation every discrete emergent-spacetime theory (causal sets, LQG, …) carries, and QLF
+   carries it too *because it uses `Real.pi` in real predictions* (`α`, GR). It is **open**, and it is
+   QLF's to do.
 
-**Ledger B — *not* QLF defects: requests that presuppose the continuum QLF rejects.**
+**What is genuinely declined (one thing only):** the continuum as **substrate / fundamental** — an
+ontologically real circle *underneath* the discrete dynamics. That is the ultraviolet catastrophe QLF
+retires ([`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md)). Declining it is *not* the same as
+declining the **effective-limit** recovery of A.3 — Allen #90's central, correct, point.
 
-3. **"Derive the geometric continuum `π` (C/2r, A/r²) from isotropy, with no circle premise."** This asks
-   QLF to *recover the continuum circle*. But QLF's whole position is that the continuum circle is itself
-   a **rendering** — there is no continuum `π` underneath the census to derive. QLF can (and does) tell
-   the *discrete* isotropy story — directionally-unbiased closure statistics on the substrate — but it
-   will not, and need not, reconstruct a continuum object it holds to be non-physical. Demanding that is
-   demanding the ultraviolet catastrophe back. The discrete census's limit **is** what `π` means; "the
-   continuum value it should match" is the fallacy, not the standard ([`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md)).
-4. **"No physical universe-machine has been identified; it's just an estimator."** Under QLF the substrate
-   **is** the discrete closure process; the census is not an *estimator of* some external continuum `π`,
-   it is the thing itself. "Show nature executes the estimator" again presumes a continuum target the
-   discrete process is approximating. The open *physics* questions (locality, timing, energy cost,
-   dimensional emergence) are real and live elsewhere in the corpus — but they are not "π is unverified."
-
-**Bottom line.** Adopt Ledger A (real, discrete, doable). Decline Ledger B's *framing*: QLF identifies a
-`Real.pi`-free, π-convergent closure census (count proven, convergence a cited classical theorem), and
-holds — as its foundational thesis, not as an evasion — that there is no continuum `π` to "recover."
-`Real.pi` is not removed from Mathlib; it is *reframed* as the limit of these discrete machines. Allen's
-technical points sharpen the claim; his continuum premise is the very thing QLF was built to retire.
+**Bottom line.** π is the limit of the discrete machine; `Real.pi` is the *effective* rendering QLF must
+**earn**, not a fundamental object it must *recover*. Ledger A (convergence wiring, the physical
+process/probability space, and the geometry effective-limit) is all owed and all doable inside the
+discrete frame. The only rejection is continuum-as-foundation. Allen's #89 sharpened the verbs; his #90
+correctly converted the geometry bridge from "declined" into an open obligation — both adopted.

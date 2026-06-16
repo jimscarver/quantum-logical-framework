@@ -13,16 +13,19 @@ The answer, made explicit here by separating three objects (Allen's `ZFA / τ_ZF
   phase is `phase k N = k % N`; a full cycle of `N` ticks closes exactly (`phase_full_cycle`:
   `phase (k+N) N = phase k N`), and a phase is always a finite-alphabet residue `< N`
   (`phase_lt`). This is cyclic algebra, not a Euclidean circle — it is *the machine*.
-* **The continuum `2π` enters only in the rendering.** `renderAngle k N = 2π·k/N` is the map from
-  the finite cycle to the reported angle; `Real.pi` occurs **here and nowhere else**. The full-cycle
-  constant `2π` is *recovered* as the rendered cycle (`render_full_cycle`, `render_one_cycle`), not
-  imported as the source of closure.
+* **The continuum `2π` is *chosen* in the rendering, not recovered from the machine.** `renderAngle k
+  N = 2π·k/N` is the map from the finite cycle to the reported angle; `Real.pi` is *inserted* **here
+  and nowhere else**. `render_full_cycle` / `render_one_cycle` only confirm this chosen rendering is
+  *self-consistent* — a full `N`-tick cycle maps to a `+2π` increment — they do **not** derive `2π`
+  from the substrate (it is already in `renderAngle`'s definition). Honest verb (Allen #89/#90): `2π`
+  is the **chosen continuum rendering** of the finite cycle `% N`, not a quantity *recovered* from it.
 * **`τ_ZFA` and `π_QLF` named.** `tau_ZFA = 2π` (one full closure period) and `pi_QLF = π` (half a
   cycle) are the *continuum renderings* (`tau_is_two_pi_QLF`); the substrate object behind them is
   the finite cycle `cycleTicks N = N`.
 
 So the dependency direction is the honest one Allen asked for: **the closure machine (`% N`) is
-primitive and `Real.pi`-free; the continuum `2π` is the reporting approximation recovered from it.**
+primitive and `Real.pi`-free; the continuum `2π` is the reporting approximation *chosen to display*
+it (inserted in `renderAngle`, not recovered from `% N`).**
 The loop-phase `2π` that appears in `g−2 = α/2π`, the Unruh temperature, and `a₀ = cH₀/2π`
 ([`QLF_HorizonTemperature`](QLF_HorizonTemperature.lean), [`QLF_GMinusTwo`](QLF_GMinusTwo.lean)) is
 this rendered full cycle, not Euclidean geometry sneaking in as a primitive.
@@ -30,7 +33,8 @@ this rendered full cycle, not Euclidean geometry sneaking in as a primitive.
 ## Honest scope
 
 This anchors the **separation and the dependency direction** — closure is `Real.pi`-free, `2π` is the
-rendering recovered from the finite cycle. It does **not** derive the *value* of `π` from a specific
+rendering *chosen for* the finite cycle (`2π` inserted in `renderAngle`, the theorems confirming the
+choice is self-consistent). It does **not** derive the *value* of `π` from a specific
 substrate `N` (that is not required — a finite primitive is legitimate, #71); the finite-precision
 audit ([`pi_precision_demo.py`](../pi_precision_demo.py), #37) separately shows ≤15 digits of the
 loop constant reproduce all audited measured physics, so no infinite precision is needed. Which
@@ -60,8 +64,10 @@ theorem phase_lt (k N : ℕ) (hN : 0 < N) : phase k N < N :=
     `Real.pi` appears HERE and only here — in the rendering map, never in `phase`. -/
 noncomputable def renderAngle (k N : ℕ) : ℝ := 2 * Real.pi * (k : ℝ) / (N : ℝ)
 
-/-- **A full cycle renders to `+2π`** — the continuum loop constant is *recovered* as the rendered
-    full cycle (same point on the circle, `e^{iθ}` periodic), not assumed as the closure primitive. -/
+/-- **The chosen rendering is self-consistent over a full cycle.** Advancing the finite phase by a
+    whole `N`-tick cycle shifts the *chosen* rendered angle by exactly `+2π`. NOTE: `2π` is **inserted**
+    by `renderAngle`'s definition (`2 * Real.pi`); this theorem confirms the choice is consistent (a
+    full cycle ↦ one `+2π` step), it does **not** *recover* `2π` from the substrate. -/
 theorem render_full_cycle (k N : ℕ) (hN : 0 < N) :
     renderAngle (k + N) N = renderAngle k N + 2 * Real.pi := by
   unfold renderAngle
@@ -85,13 +91,16 @@ noncomputable def pi_QLF : ℝ := Real.pi
 theorem tau_is_two_pi_QLF : tau_ZFA = 2 * pi_QLF := by
   unfold tau_ZFA pi_QLF; ring
 
-/-- **Established constructively (the dependency direction):** the closure operation `phase = (· % N)`
-    is finite, decidable, and `Real.pi`-free (`phase_full_cycle`, `phase_lt`); the continuum `2π`
-    enters only in `renderAngle` and is *recovered* as the rendered full cycle (`render_full_cycle`,
-    `render_one_cycle`), with `τ_ZFA = 2·π_QLF` the named renderings. So `2π` displays the finite
-    closure `k % N` — it is not imported as the source of closure. **Open:** the *value* — which
-    physical `N` a given loop closes on (the finite-precision audit, #37, shows ≤15 digits suffice;
-    deriving `N` is `loop_closure_value_in_progress`). -/
+/-- **The dependency direction (closure machine vs chosen rendering):** the closure operation
+    `phase = (· % N)` is finite, decidable, and `Real.pi`-free (`phase_full_cycle`, `phase_lt`); the
+    continuum `2π` enters only in `renderAngle`, where it is **inserted** (`2 * Real.pi`). The render
+    theorems (`render_full_cycle`, `render_one_cycle`) confirm that *chosen* rendering is
+    self-consistent — a full cycle ↦ `+2π` — they do **not** recover `2π` from the substrate. So `2π`
+    *displays* the finite closure `k % N`; it is neither imported as the source of closure nor derived
+    from it (Allen #89/#90). **Open:** the *value* — which physical `N` a given loop closes on (the
+    finite-precision audit, #37, shows ≤15 digits suffice; `loop_closure_value_in_progress`). And the
+    *effective-limit* recovery of continuum geometry (coarse-grained observables → Euclidean `π`
+    relations) is the ordinary emergent-spacetime burden, tracked in `QLF_PhysicalPi` / `Physical_Pi.md`. -/
 theorem loop_closure_value_in_progress : True := trivial
 
 end QLF.LoopClosure
