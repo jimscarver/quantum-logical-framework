@@ -88,5 +88,6 @@ lean_lib QLF where
     `QLF_CausalDimension,
     `QLF_GaugeUnification,
     `QLF_PhysicalPi,
-    `QLF_PlanckScale
+    `QLF_PlanckScale,
+    `QLF_LoopQuantumGravity
   ]
