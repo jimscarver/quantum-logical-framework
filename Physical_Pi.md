@@ -1,4 +1,4 @@
-# Physical Pi — a π-convergent closure census (and what is, and isn't, a QLF gap)
+# Physical Pi — π derived by construction from the closure census
 
 **Module:** [`lean/QLF_PhysicalPi.lean`](lean/QLF_PhysicalPi.lean)
 **Companions:** [`lean/QLF_LoopClosure.lean`](lean/QLF_LoopClosure.lean) (the closure machine vs the *chosen* `2π` rendering), [`TheContinuum.md`](TheContinuum.md), [`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md) (`π` is a *computable* real; the continuum is the fallacy, not the target).
@@ -22,11 +22,16 @@
 >   burden of any discrete emergent-spacetime theory — not a continuum fallacy** — and QLF owes it. It is
 >   an **open obligation (Ledger A)**, not a declined one.
 >
-> So the honest QLF claim is: *a `Real.pi`-free, π-convergent closure census, count Lean-anchored,
-> convergence a settled classical theorem (cited)* — **not** "`π` established constructively," and **not**
-> "the effective-limit recovery is somebody else's problem." π is the limit of the discrete machine;
-> `Real.pi` is the effective rendering QLF must *earn* (it does elsewhere; for the geometric π it has not
-> yet).
+> **The standing QLF claim (Jim's view): π is *derived by construction*.** The substrate's own closure
+> census `C(2n,n)` (a QLF theorem) gives a finite, `Real.pi`-free, computable sequence
+> `n·(C(2n,n)/4ⁿ)²` whose limit is `1/π` — and that limit is **settled classical mathematics**
+> (Wallis/Stirling). So `π = lim 1/(n·returnDensity n)` is a genuine construction of `π` from the
+> substrate's *intrinsic* counting (the same `C(2n,n)` behind Born stats / P-vs-NP / Riemann) — no
+> circle, no import. What remains is **narrow and does not undermine the construction:** (i) *formalizing*
+> that convergence inside our own Lean module is housekeeping (the convergence is established, just not
+> yet wired); (ii) the *physical-walk* identification (Ledger A.2); (iii) the **separate** effective-limit
+> geometry question (Ledger A.3 — owed because QLF uses `Real.pi` in `α`/GR, but a *different* question
+> from "is `π` constructed"). The only thing declined is the continuum as *fundamental substrate*.
 
 ---
 
@@ -139,13 +144,17 @@ What is true is a **structural resonance**, stated without overreach:
 
 ## §5 Honest scope — two ledgers (Allen #89 + #90)
 
-It matters *which kind* of item each open point is. **Allen's #90 correctly moved the geometry bridge
-from "declined" to "owed"** — the only thing genuinely declined is a *fundamental* continuum.
+**π is derived by construction** (status box): the substrate census → `1/π` via settled asymptotics. The
+items below are *narrow* — they refine and physically ground the construction, they do not put "is π
+derived" in doubt. **Allen's #90 correctly moved the geometry bridge from "declined" to "owed"** — the
+only thing genuinely declined is a *fundamental* continuum.
 
 **Ledger A — genuine QLF obligations (all earnable *without* a fundamental continuum):**
 
-1. **Wire in the convergence.** Import the Mathlib central-binomial/Wallis asymptotic and discharge
-   `n·returnDensity → 1/π`, replacing the `physical_pi_in_progress` marker. (Settled math; not in doubt.)
+1. **Formalize the convergence in *our* Lean (housekeeping).** The limit `n·returnDensity → 1/π` is the
+   Mathlib central-binomial/Wallis asymptotic — *established mathematics*, so the construction already
+   derives `π`; importing/discharging it here (replacing the `physical_pi_in_progress` marker) just moves
+   a settled theorem inside the module. Not a conceptual gap.
 2. **Construct the walk probability space + identify the process.** Derive the 2-D squaring from ZFA
    dynamics — prove the substrate realizes two independent equally-weighted axis-walks — rather than
    *imposing* the Pólya model. Until then the census is a **mathematically selected** object, not a

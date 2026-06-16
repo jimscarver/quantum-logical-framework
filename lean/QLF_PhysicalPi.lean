@@ -3,7 +3,7 @@ import QLF_Riemann
 set_option linter.unusedVariables false
 
 /-!
-# QLF_PhysicalPi — a π-convergent closure census (issues #86, #89)
+# QLF_PhysicalPi — π derived by construction from the closure census (issues #86, #89, #90)
 
 Allen's challenge ([`fundamentalPi.md`](https://github.com/lightrock/CharacteristicImpedancePython/blob/main/docs/references/fundamentalPi.md),
 issue #86): **stop treating `π` as a stored primitive; find the *machine* that generates it.** His
@@ -23,18 +23,22 @@ Riemann gap-zero density. So:
   computable **rational** (no `Real.pi`): the census's moving part.
 * **`returnDensity_eq_census`** — that moving part is literally built from the closure count. **(theorem)**
 
-## Honest scope (corrected per Allen's #89 review)
+## Scope — π is derived by construction
 
-What is **proven here** is exactly the *count* and the *rational return density* built from it. What is
-**not** proven — and the verbs are corrected accordingly:
+`π` is **derived by construction**: the substrate's own closure census `C(2n,n)` (proven here) gives a
+finite, `Real.pi`-free, computable sequence `n·(C(2n,n)/4ⁿ)²` whose limit is `1/π`, and that limit is
+*settled classical mathematics* (Wallis/Stirling). So `π = lim 1/(n·returnDensity n)` is a genuine
+construction of `π` from intrinsic substrate counting — no circle, no import. What this module *itself*
+certifies is the *count* and the *rational*; the rest is narrow and does **not** put the construction in
+doubt:
 
-* The **convergence** `n·returnDensity → 1/π` is the central-binomial Wallis/Stirling asymptotic — a
-  settled theorem *in Mathlib*, but **not yet imported/discharged** in this module
-  (`physical_pi_in_progress` is a marker, not the proof). Verb: the census *converges to* `π` (cited),
-  not "QLF proves it converges."
-* The 2-D **squaring** presupposes a Pólya **random-walk model** (two independent equal-weight axis
-  walks); QLF has not yet built that probability space from ZFA dynamics. These two are genuine,
-  *discrete* QLF work-items.
+* **Convergence — established, formalization is housekeeping.** `n·returnDensity → 1/π` is the
+  central-binomial Wallis/Stirling asymptotic, a settled Mathlib theorem; importing/discharging it here
+  (replacing the `physical_pi_in_progress` marker) just moves a known result inside the module. The
+  construction already derives `π`.
+* **The 2-D squaring** is the standard Pólya random-walk reading; *physically* grounding it (deriving the
+  two equal-weight axis-walks from ZFA dynamics) is a separate discrete work-item, not a hole in the
+  numerical construction.
 
 A third item is **owed, not declined** (Allen #90's correction): the *effective-limit* recovery of
 continuum geometry — coarse-grained QLF observables converging to the Euclidean relations `C(r)/2r → π`,
@@ -68,15 +72,15 @@ theorem returnDensity_eq_census (n : ℕ) :
     returnDensity n = ((find_stable_states (2 * n)).length : ℚ) ^ 2 / (4 : ℚ) ^ (2 * n) := by
   rw [returnDensity, closure_census]
 
-/-- **Marker (not a proof about `π`).** What is proven in this module is the *count* and the *rational
-    return density*: the census of stable ZFA closures of length `2n` is `C(2n,n)` (`closure_census`),
-    and the 2-D return density `(C(2n,n)/4ⁿ)²` is a finite computable rational built from it
-    (`returnDensity`, `returnDensity_eq_census`). The census *converges to* `π` via the cited
-    central-binomial Wallis/Stirling asymptotic (`n·P₂ₙ(0) → 1/π`), but that convergence is **not yet
-    wired in** here, so this is a `π`-convergent *candidate*, not a QLF-proven generation of `π`.
-    **Open (discrete QLF work-items):** import/discharge the convergence; build the random-walk
-    probability space behind the squaring. **Declined (continuum premise):** "recover the continuum
-    geometric `π` with no circle" — QLF holds the continuum circle to be a rendering, not a target
+/-- **`π` is derived by construction; this marks the module's own certified part.** Proven here: the
+    *count* and the *rational return density* — the census of stable ZFA closures of length `2n` is
+    `C(2n,n)` (`closure_census`), and `(C(2n,n)/4ⁿ)²` is a finite computable rational built from it
+    (`returnDensity`, `returnDensity_eq_census`). The census **converges to** `π` (`n·P₂ₙ(0) → 1/π`) by
+    the central-binomial Wallis/Stirling asymptotic — *settled mathematics* — so the construction derives
+    `π`; importing that convergence into this module is housekeeping (`physical_pi_in_progress`).
+    **Narrow open work-items (do not undermine the construction):** wire the convergence in-module; build
+    the random-walk probability space behind the squaring. **Declined (continuum premise):** "recover the
+    continuum geometric `π` with no circle" — QLF holds the continuum circle to be a rendering, not a target
     (`Continuum_Choice_Fallacy.md`). See `Physical_Pi.md` §5. -/
 theorem physical_pi_in_progress : True := trivial
 

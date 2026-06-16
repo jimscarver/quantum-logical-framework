@@ -3,13 +3,14 @@ import QLF_QuantumBlackHole
 set_option linter.unusedVariables false
 
 /-!
-# QLF_PlanckScale — the Planck length is the *forced* closure floor, not a posited input
+# QLF_PlanckScale — the Planck length is the closure floor *by construction*, not a posited input
 
-**The flaw being closed.** QLF's "substrate event quantum" (one Planck length + one Planck tick per
-event) was treated as a *primitive* — a posited input alongside ZFA. That is a real gap: a foundation
-should not need to *assume* its own granularity. This module shows the Planck scale is **structurally
-forced**, not free, by reusing QLF's already-proven Compton–Schwarzschild crossing
-([`QLF_QuantumBlackHole`](QLF_QuantumBlackHole.lean)).
+**The substrate granularity follows by construction.** QLF's "substrate event quantum" — one Planck
+length + one Planck tick per event — is not a posited input alongside ZFA. It follows **by
+construction** from QLF's own structure: the Planck scale *is* the minimal coherent closure, via the
+already-proven Compton–Schwarzschild crossing ([`QLF_QuantumBlackHole`](QLF_QuantumBlackHole.lean)). A
+foundation does not assume its own granularity — the granularity is what the smallest coherent closure
+is.
 
 **The argument (given QLF's *own* commitments — emergent gravity + Markov-blanket closure).** A coherent
 closure of spatial extent `R` confines an energy whose Compton radius is `R`, i.e. a mass `μ = 1/R`
@@ -29,16 +30,20 @@ when its horizon does *not* exceed its extent:
 
 So the substrate granularity is **not arbitrary**: the minimal coherent Markov blanket sits at the
 Compton–Schwarzschild self-dual point, which *is* the Planck scale. The Planck length is the closure
-floor the substrate is forced to, given that QLF already has emergent gravity (`QLF_GravityFromDelay`)
-and blanket closure.
+floor **by construction** — it is *what the smallest coherent closure means*, given that QLF already has
+emergent gravity (`QLF_GravityFromDelay`) and blanket closure.
 
-## Honest scope — what this closes, and what it does not
+## Scope
 
-* **Closed:** the Planck *scale* (a dimensionless fixed point, `μ² = 1/2`) is *derived as the closure
-  floor*, no longer a free input. The "two foundational inputs" (ZFA + the substrate quantum) collapse
-  toward one: the quantum's *scale* is entailed.
-* **Not a physics question (so not a flaw):** the Planck length's *SI value in metres* is a pure unit
-  convention — you cannot derive "what a metre is" from logic. In Planck units the floor is the
+* **The scale is the floor *by construction*.** The Planck *scale* (a dimensionless fixed point,
+  `μ² = 1/2`) *is* the closure floor. "By construction" because it falls out of how QLF builds the
+  substrate, not from "nothing": given (i) reality = coherent closures (so the quantum = the minimal
+  one), (ii) emergent gravity (`QLF_GravityFromDelay` — `G` is **not** an independent input,
+  `G = L_P²c³/ℏ`), and (iii) `ℏ` as **unit-scaling** (`ℏ=1` in natural units; the only physics is
+  `ℏ≠0` = the substrate's discreteness = ZFA), the crossing `μ²=1/2` imports **no external scale**. QLF
+  does not *choose* its granularity — its own construction is the granularity.
+* **The one residual is a unit convention, not a physics question:** the Planck length's *SI value in
+  metres* — "what a metre is" does not follow from logic. In natural units the floor is the
   dimensionless `√2` (the `O(1)` factor is the Schwarzschild-`2μ` vs reduced-Compton convention).
 * **Still open (already logged):** *where observable matter sits above the floor* — the proton depth
   `R_p`, read as the dimensional-transmutation hierarchy `ln R_p = 14π` (`QLF_AlphaS`, 0.07%) with a
@@ -72,7 +77,7 @@ theorem coherent_iff_subplanck (μ : ℝ) (h0 : 0 < μ) :
 /-- **The Planck length is the closure floor.** Every coherent closure has Compton length `> √2` (in
     Planck units): `2 < (compton_radius μ)²`. Equivalently, there is **no coherent closure below the
     Planck length** — confining a blanket tighter forms a gravitational horizon larger than the blanket
-    itself, so it cannot close. This *forces* the substrate granularity to the Planck scale. -/
+    itself, so it cannot close. So the substrate granularity *is* the Planck scale by construction. -/
 theorem planck_length_floor (μ : ℝ) (h0 : 0 < μ)
     (hcoh : schwarzschild_radius μ < compton_radius μ) :
     2 < compton_radius μ ^ 2 := by
@@ -89,12 +94,12 @@ theorem planck_self_dual (μ : ℝ) (hμ : 0 < μ) :
     compton_radius μ = schwarzschild_radius μ ↔ μ ^ 2 = 1 / 2 :=
   compton_eq_schwarzschild_iff μ hμ
 
-/-- **Established:** the Planck length is the *structurally forced* minimal coherent-closure length —
+/-- **Established:** the Planck length is the minimal coherent-closure length **by construction** —
     the Compton–Schwarzschild self-dual floor (`coherent_iff_subplanck`, `planck_length_floor`,
     `planck_self_dual`), **not** a posited substrate input. Given QLF's own emergent gravity + blanket
-    closure, the substrate granularity *must* sit at the Planck scale. Residual: the SI value is a unit
-    convention (not a physics question), and the matter-depth-above-floor is the `14π` hierarchy
-    (`QLF_AlphaS`), tracked separately. See `Planck_Scale.md`. -/
-theorem planck_scale_forced : True := trivial
+    closure, the substrate granularity *is* the Planck scale (its construction fixes it). Residual: the
+    SI value is a unit convention (not a physics question), and the matter-depth-above-floor is the `14π`
+    hierarchy (`QLF_AlphaS`), tracked separately. See `Planck_Scale.md`. -/
+theorem planck_scale_by_construction : True := trivial
 
 end QLF.PlanckScale

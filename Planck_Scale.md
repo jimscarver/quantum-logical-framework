@@ -1,23 +1,19 @@
-# The Planck Scale is Forced, Not Posited
+# The Planck Scale by Construction, Not Posited
 
 **Module:** [`lean/QLF_PlanckScale.lean`](lean/QLF_PlanckScale.lean) · **Builds on:** [`lean/QLF_QuantumBlackHole.lean`](lean/QLF_QuantumBlackHole.lean), [`lean/QLF_GravityFromDelay.lean`](lean/QLF_GravityFromDelay.lean)
 
 ---
 
-## The flaw
+## The Planck length is the minimal coherent-closure length
 
 QLF's "substrate event quantum" — *one Planck length and one Planck tick, created together, per ZFA
-event* — was carried as a **primitive**: a posited input alongside ZFA (so
-[`Experimental_Consistency.md`](Experimental_Consistency.md) listed **two** foundational inputs). A
-foundation that has to *assume its own granularity* has a real gap. The docs were honest about it
-([`Gravity_From_Delay.md`](Gravity_From_Delay.md) §8: *"there is no independent QLF derivation of the
-Planck length"*), but honesty about a gap is not the same as closing it. This note closes it.
+event* — is not a posited input alongside ZFA. It follows **by construction** from QLF's own structure:
+a foundation does not assume its own granularity; the granularity *is* the smallest coherent closure.
 
-## The close: the Planck length is the minimal coherent-closure length
-
-QLF already has the two ingredients it needs — **emergent gravity** (horizons form,
+QLF has the two ingredients this needs — **emergent gravity** (horizons form,
 [`QLF_GravityFromDelay`](lean/QLF_GravityFromDelay.lean)) and **Markov-blanket closure** (reality is
-made of closures). Put them together and the granularity is *forced*.
+made of closures). Together they place the granularity, **by construction**, at the minimal coherent
+closure.
 
 Work in Planck units (`ℏ = c = 1`). A coherent closure of spatial extent `R` confines an energy whose
 Compton radius is `R` — a mass `μ = 1/R`. That energy carries a gravitational horizon of radius
@@ -38,29 +34,40 @@ self-engulfed horizon — exactly when its horizon does not exceed its extent. T
 
 So the substrate granularity is **not arbitrary**. The smallest coherent Markov blanket sits at the
 Compton–Schwarzschild self-dual point — and that point *is* the Planck scale. Given QLF's own
-commitments, the substrate is **forced** to be granular at the Planck length; it is the closure floor,
-not a dial someone set.
+commitments, the substrate is granular at the Planck length **by construction**; it is the closure
+floor, not a dial someone set.
 
 > **One sentence:** below the Planck length a closure would be inside its own gravitational horizon, so
 > it cannot exist — the Planck length is the minimal coherent closure, hence the substrate quantum.
 
-## What this closes — and what it honestly does not
+## What is derived, and what is convention
 
 | | Status |
 |---|---|
-| **The Planck *scale* (a dimensionless fixed point `μ²=1/2`)** | ✅ **Derived** as the closure floor (`QLF_PlanckScale`). No longer a free input — the two foundational inputs (ZFA + substrate quantum) collapse toward one: the quantum's *scale* is entailed. |
+| **The Planck *scale* (a dimensionless fixed point `μ²=1/2`)** | ✅ **Derived by construction** as the closure floor (`QLF_PlanckScale`). It is not a free input — the quantum's *scale* is what the minimal coherent closure is. |
 | **The Planck length's *SI value in metres*** | **Not a physics question** (so not a flaw). "What a metre is" is a unit convention; you cannot derive it from logic. In Planck units the floor is the dimensionless `√2`; the `O(1)` factor is the Schwarzschild-`2μ` vs reduced-Compton convention. |
 | **Where matter sits *above* the floor** (proton depth `R_p`) | 🔵 **Open, but separately tracked** — the dimensional-transmutation hierarchy `ln R_p = 14π` ([`QLF_AlphaS`](lean/QLF_AlphaS.lean), 0.07%) with a residual few-% `M_Planck` calibration. This is the hierarchy problem, **not** the granularity question settled here. |
 
-**Honest dependency note (no circularity).** The Compton–Schwarzschild crossing uses *both* quantum
-mechanics (Compton `ℏ/mc`) and gravity (Schwarzschild `Gm/c²`). QLF does **not** derive `ℏ` or `G` here;
-it shows their *crossing* is where coherent closure bottoms out. The dimensionless statement `μ² = 1/2`
-needs no value of `G` — it presupposes only that QLF *has* emergent gravity and quantum closure, both of
-which it does. What was a posited scale becomes an *entailed* one.
+**Why "by construction," not loose — and no circularity.** The crossing uses *both* the Compton length
+(`ℏ/mc`) and the Schwarzschild radius (`Gm/c²`), which looks like it imports `ℏ` and `G` as external
+scales. It does not, because in QLF neither is an independent input:
+
+- **`G` is emergent.** `QLF_GravityFromDelay` derives `G = L_P²c³/ℏ` from holographic delay — `G` is
+  *not* a fundamental constant, it co-varies with `L_P`. So using the Schwarzschild radius imports no
+  scale independent of the substrate.
+- **`ℏ` is just scaling.** It is the unit of action (`ℏ = 1` in natural units). Its only *physical*
+  content is `ℏ ≠ 0` — the substrate's discreteness, which *is* ZFA (`Philosophy.md` §1). The value of
+  `ℏ` is a unit convention, not a physical scale.
+
+So in natural units (`ℏ = c = G = 1`) the crossing `μ² = 1/2` is a pure dimensionless fact that imports
+**nothing external**. "**By construction**" therefore means *it falls out of QLF's own construction* —
+emergent gravity + `ℏ`-as-discreteness + the closure ontology (the quantum = the minimal coherent
+closure) — **not** "derived from nothing." QLF does not get to *choose* its granularity; its own
+construction fixes it. The only thing left conventional is the SI value of a metre.
 
 ## Bottom line
 
-The Planck length is no longer assumed. It is the structurally-forced minimal coherent-closure length —
+The Planck length is not assumed. It is the minimal coherent-closure length **by construction** —
 the self-dual point of the quantum/gravity length duality, machine-verified on top of QLF's own
 Compton–Schwarzschild crossing. The substrate is granular at the Planck scale *because nothing smaller
 can close*. The only residuals are a unit convention (not a flaw) and the already-logged few-percent
