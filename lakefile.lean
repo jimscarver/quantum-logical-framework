@@ -87,5 +87,6 @@ lean_lib QLF where
     `QLF_CausalInterval,
     `QLF_CausalDimension,
     `QLF_GaugeUnification,
-    `QLF_PhysicalPi
+    `QLF_PhysicalPi,
+    `QLF_PlanckScale
   ]
