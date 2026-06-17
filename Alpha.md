@@ -88,11 +88,12 @@ fact ([`SpaceTime.md`](SpaceTime.md) §3a: 3 is the minimal dimension in which a
 graph renders faithfully). The binding interaction's directional channels form the `3² = 9` tensor.
 **α's value is locked to the substrate being 3-dimensional**:
 
-| Substrate dimension | `N = d²` | `α = 1/(α_bare⁻¹ + N)` | Theorem |
+| Substrate dimension | `N = d²` | `α = 1/(128 + d²)` | Theorem |
 |---|---|---|---|
 | 2-D | `4` | `1/132` (off ~4%) | `alpha_QLF_2d_counterfactual` |
 | **3-D** | **`9`** | **`1/137` (0.026%)** | **`alpha_QLF_eq`** |
 | 4-D | `16` | `1/144` (off ~5%) | `alpha_QLF_4d_counterfactual` |
+| 5-D | `25` | `1/153` (off ~12%) | `alpha_at_dim_five` |
 
 `only_3d_substrate_gives_137` packages the conjunction. **α = N = 3² is therefore a *consequence* of
 3-D rendering, not an independent posit** ([`SpaceTime.md`](SpaceTime.md) §3a) — the same `6+2` split
@@ -169,6 +170,58 @@ derived, so this is a structural coincidence, not a claim.
 
 ---
 
+## 4a. Do the 4-D / 5-D values support atoms and force unification? — no, 3-D is over-determined
+
+The counterfactual values are `α(4) = 1/144` and `α(5) = 1/153` (`alpha_at_dim_four`,
+`alpha_at_dim_five`). The natural question — *do those support an atomic model or force unification?* —
+has a sharp answer: **no, and not merely because the number is a few percent off.** At `d ≥ 4` the
+*physics itself* collapses, from QLF's own derived structures, in three independent ways. That mutual
+failure is what makes `α = 1/137` a **selection**, not a fit.
+
+**1. Atoms — no stable atom above 3-D (from QLF's own force law).** QLF derives the Coulomb/Newton
+force as a holographic surface count: `F ∝ 1/r^(d−1)`, so the potential is `V ∝ 1/r^(d−2)`
+([`Gravity_From_Delay.md`](Gravity_From_Delay.md)). Then:
+
+| `d` | `V(r)` | Bound state |
+|---|---|---|
+| 3 | `∝ 1/r` | **stable** — Bohr orbits, the hydrogen spectrum, chemistry |
+| 4 | `∝ 1/r²` | **critically unstable** — same radial power as the centrifugal barrier; no normalizable ground state |
+| 5 | `∝ 1/r³` | **collapse** — steeper than the barrier; the electron falls into the nucleus |
+
+This is the **Ehrenfest (1917) / Tangherlini** dimensional-stability theorem — here a *consequence of
+QLF's own `1/r^(d−1)` law*, not an imported assumption. So `α(4) = 1/144` and `α(5) = 1/153` describe
+substrates with **no stable atoms at all**: they do not support the atomic model, they exclude it.
+`α = 1/137` (3-D) is the only value compatible with chemistry.
+
+**2. Nuclei — the wrong magic numbers above 3-D.** The nuclear shell `ℓ = 3` threshold comes from the
+3-D harmonic-oscillator degeneracy `(k+1)(k+2)` with `k > 2` ([`Magic_numbers.md`](Magic_numbers.md)).
+Counterfactual: `d = 4 → ℓ ≥ 2`, `d = 5 → ℓ ≥ 1`, `d = 2 → no threshold`. A 4-D/5-D substrate gives a
+*different, wrong* magic-number sequence; the observed `2, 8, 20, 28, 50, 82, 126` requires `d = 3`.
+
+**3. Forces — unification is 3-D-locked, and QLF unifies *without* extra dimensions.** The gauge group
+`U(1) × SU(2) × SU(3)` is the symmetry algebra of the **3 spatial axes**
+([`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md)); the unification constants are
+dimension-specific — `sin²θ_W = 3/8 = (3 spatial)/(8 alphabet)`, `α = N = 3²`. A 4-D substrate (more
+spatial twists) changes the split, giving a different Weinberg angle and a non-matching unification.
+Crucially, **QLF does not *add* dimensions to unify** — contrast Kaluza–Klein / string theory, where
+`5-D`+ *is* the unification mechanism; QLF unifies the three forces as different **projections of the
+same 3-axis closure**. So the 4-D/5-D α values are not a unification mechanism — they *break* the
+3-axis unification.
+
+**Over-determination — the real answer.** `α = 1/137` (`d = 3`) is the unique value simultaneously
+consistent with: the measured α, **stable atoms** (Ehrenfest, via QLF's force law), the nuclear
+**magic numbers** (`ℓ = 3`), **Newton's `1/r²`**, the **three generations**, `sin²θ_W = 3/8`, and the
+**minimal-faithful-rendering necessity** ([`SpaceTime.md`](SpaceTime.md) §3a). The 4-D (`1/144`) and 5-D
+(`1/153`) values fail *several of these at once*. They do not support the atomic model or force
+unification — and that simultaneous failure is precisely why 3-D is a derivation rather than a
+coincidence.
+
+**Honest caveat — where higher-`d` does appear.** QLF's *effective* dimension is not always 3: it flows
+`3 → 2` toward the UV (§4), and composing closures can produce effective higher-`d` configuration-space
+behavior ([`eight-twists-sufficiency.md`](eight-twists-sufficiency.md)). But the *macroscopic,
+atom-supporting, force-unifying* rendering is uniquely 3-D. The 4-D/5-D α values are counterfactuals,
+not the physical low-energy coupling.
+
 ## 5. Can we *prove* no cosmological-time drift of α(0)?
 
 The question conflates two different things the substrate cleanly separates:
@@ -243,7 +296,7 @@ Lean/Mathlib):
 - `N_directional_modes_eq_nine` — `N = 9` from `substrate_spatial_dimension = 3`, the `3²` count
 - **`alpha_QLF_eq`** — `α_QLF = 1/137` (exact rational), the main theorem
 - `alpha_QLF_2d_counterfactual` — `= 1/132` (the `d=2` value used in the §4 dimension-flow reading)
-- `alpha_QLF_4d_counterfactual` — `= 1/144`
+- `alpha_QLF_4d_counterfactual` / `alpha_at_dim_five` — `= 1/144` (4-D) / `= 1/153` (5-D); §4a
 - `only_3d_substrate_gives_137` — the conjunction (uniqueness of the 3-D substrate)
 - **`alpha_at_dim_closed_form`** — `α(d) = 1/(128 + d²)` (α a function of the rendering dimension alone)
 - `alpha_at_dim_three` / `alpha_at_dim_eq_alpha_QLF` — `α(3) = 1/137 = alpha_QLF`

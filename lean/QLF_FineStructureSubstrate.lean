@@ -303,6 +303,17 @@ theorem alpha_at_dim_closed_form (d : ℕ) :
 theorem alpha_at_dim_three : alpha_at_dim 3 = 1 / 137 := by
   rw [alpha_at_dim_closed_form]; norm_num
 
+/-- At `d = 5`, `α(5) = 1/153` (= `1/(128+25)`).  Completes the `d = 2,3,4,5`
+    counterfactual series.  But the higher-`d` values do not describe viable
+    physics: by QLF's own derived force law `F ∝ 1/r^(d−1)` (Gravity_From_Delay),
+    the Coulomb potential is `V ∝ 1/r^(d−2)`, so at `d ≥ 4` the bound state is
+    critically unstable (`d=4`) or collapses (`d≥5`) — **no stable atoms**
+    (Ehrenfest 1917 / Tangherlini).  Only `d = 3` (`α = 1/137`) supports atoms,
+    the nuclear `ℓ = 3` magic-number threshold, and the 3-axis gauge unification.
+    See Alpha.md §4a. -/
+theorem alpha_at_dim_five : alpha_at_dim 5 = 1 / 153 := by
+  rw [alpha_at_dim_closed_form]; norm_num
+
 /-- `α(d)` at the substrate's spatial dimension **is** `alpha_QLF`. -/
 theorem alpha_at_dim_eq_alpha_QLF :
     alpha_at_dim substrate_spatial_dimension = alpha_QLF := by
