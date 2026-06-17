@@ -13,30 +13,22 @@ The taxonomy: **one substrate → four domain families → ten domains → the i
 ## Master map — the substrate and its ten domains
 
 ```mermaid
-flowchart TD
+flowchart LR
   S["The QLF Substrate 8-twist alphabet - ZFA closure - synthesized spacetime"]
-  S --> FND
-  S --> MAT
-  S --> GRV
-  S --> FRN
-  subgraph FND["Foundations"]
-    D1["1 Space, time and the continuum"]
-    D2["2 The fundamental constants"]
-  end
-  subgraph MAT["Matter and forces"]
-    D3["3 Forces"]
-    D4["4 Atoms and QED"]
-    D7["7 Particles and the Standard Model"]
-  end
-  subgraph GRV["Gravity and the cosmos"]
-    D5["5 Gravity and GR"]
-    D6["6 Cosmology and the dark sector"]
-  end
-  subgraph FRN["Frontiers"]
-    D8["8 Quantum-gravity / TOE pillars"]
-    D9["9 The Millennium Prize program"]
-    D10["10 Beyond the SM"]
-  end
+  S --> FND["Foundations"]
+  S --> MAT["Matter and forces"]
+  S --> GRV["Gravity and the cosmos"]
+  S --> FRN["Frontiers"]
+  FND --> D1["1 Space, time and the continuum"]
+  FND --> D2["2 The fundamental constants"]
+  MAT --> D3["3 Forces"]
+  MAT --> D4["4 Atoms and QED"]
+  MAT --> D7["7 Particles and the Standard Model"]
+  GRV --> D5["5 Gravity and GR"]
+  GRV --> D6["6 Cosmology and the dark sector"]
+  FRN --> D8["8 Quantum-gravity / TOE pillars"]
+  FRN --> D9["9 The Millennium Prize program"]
+  FRN --> D10["10 Beyond the SM"]
 ```
 
 **Jump to:** [1 Space, time and the continuum](#1-space-time-and-the-continuum) &middot; [2 The fundamental constants](#2-the-fundamental-constants) &middot; [3 Forces](#3-forces) &middot; [4 Atoms and QED](#4-atoms-and-qed) &middot; [5 Gravity and GR](#5-gravity-and-gr) &middot; [6 Cosmology and the dark sector](#6-cosmology-and-the-dark-sector) &middot; [7 Particles and the Standard Model](#7-particles-and-the-standard-model) &middot; [8 Quantum-gravity / TOE pillars](#8-quantum-gravity--toe-pillars) &middot; [9 The Millennium Prize program](#9-the-millennium-prize-program) &middot; [10 Beyond the SM](#10-beyond-the-sm)
