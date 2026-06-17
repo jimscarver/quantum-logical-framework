@@ -1,4 +1,4 @@
-# α — The Fine-Structure Constant in QLF (comprehensive reference)
+# α — Why 1/137 in QLF (leading value derived; exact 1/137.036 in progress)
 
 > **This is a result of the [Quantum Logical Framework (QLF)](README.md)** — read it in that context.
 > QLF derives physics from one substrate (the 8-twist phase-string alphabet, ZFA closure, synthesized
@@ -6,9 +6,19 @@
 > standalone numerology here; it is a **consequence of QLF's derived 3-D rendering** of the closure
 > graph. And that 3-D is **the human/cosmic perspective**: the only dimension in which a relational
 > world renders faithfully and comprehensibly, supports stable atoms and chemistry (hence observers),
-> and supports stable cosmic structure (Newton's `1/r²`, bound orbits). So `α = 1/137` is *our* α — the
-> coupling of the world **as we, and the cosmos we observe, are rendered** — and the framework derives 3
+> and supports stable cosmic structure (Newton's `1/r²`, bound orbits). So the leading `1/137` is *our*
+> α's leading value — the coupling of the world **as we, and the cosmos we observe, are rendered** — and the framework derives 3
 > rather than assuming it ([`SpaceTime.md`](SpaceTime.md) §3a; the over-determination is §6 below).
+
+> **Status — `alpha_exact_value_in_progress`.** QLF derives **why the leading combinatorial value is
+> `1/137`**: the bare `2⁻⁷ = 1/128` coupling and the `+d² = 9` directional screening, both fixed by the
+> 8-twist substrate and 3-D rendering. The **exact** measured value is `1/137.035999` (the `q²→0` Thomson
+> limit); the residual `0.036` is the **convergent tail of higher-order (length-4+) closure census
+> orders** — an *internal* completeness target (the substrate has no external sector to defer it to), and
+> **not yet derived**: the next census order is positive and the right order of magnitude but *brackets*
+> `0.036` rather than producing it (a finite rational census term can only approach the irrational Thomson
+> value in the limit; the resummation rule that sums the tail is the open piece). So throughout:
+> **`1/137` = the derived leading value; `1/137.036` = the exact value, in progress.**
 
 **The canonical QLF document for the fine-structure constant `α ≈ 1/137`.** It collects, in one place,
 everything QLF says about α and links every related proof:
@@ -35,11 +45,12 @@ everything QLF says about α and links every related proof:
 ```
 
 In the **Standard Model α is a free input** — measured and plugged in; the SM cannot even *formulate*
-"why is α ≈ 1/137" ([`Beyond_Standard_Model.md`](Beyond_Standard_Model.md)). **QLF derives it**:
-`α = 1/137` (exact rational) from the structure of the 8-twist substrate alphabet and the
-3-dimensionality of synthesized space, with **no observable input** — 0.026% vs CODATA. This is the
-first Lean-verified theorem for a fundamental constant in the QLF tree (`alpha_QLF_eq`,
-`only_3d_substrate_gives_137`, [`lean/QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean)).
+"why is α ≈ 1/137" ([`Beyond_Standard_Model.md`](Beyond_Standard_Model.md)). **QLF derives the leading
+value**: `α_lead = 1/(128 + 9) = 1/137` (exact rational) from the 8-twist substrate alphabet and the
+3-dimensionality of synthesized space, with **no observable input** — `0.026%` from CODATA's
+`1/137.035999`. The leading value is Lean-verified (`alpha_QLF_eq`, `only_3d_substrate_gives_137`,
+[`lean/QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean)); the residual `0.036` to
+the exact Thomson value is the in-progress census tail (status box above).
 
 ---
 
@@ -63,18 +74,20 @@ Per Planck tick, four independent substrate selectivities multiply:
 α_bare = 1/16 × 1/4 × 1/2 × 1 = 1/128 = 2⁻⁷     (alpha_bare_eq)
 ```
 
-### Stage 2 — the screening correction (bare → dressed)
+### Stage 2 — the leading screening (bare → leading value)
 
-Energy conservation is **emergent**, not an axiom; its leading effect is the standard self-energy /
-vacuum-polarization resummation `α = α_bare / (1 + N·α_bare)`, with **`N = 9`** the components of the
-`3 × 3` directional-coupling tensor (`N_directional_modes_eq_nine`):
+Energy conservation is **emergent**, not an axiom; its **leading** effect is a screening resummation
+`α = α_bare / (1 + N·α_bare)`, with **`N = 9`** the components of the `3 × 3` directional-coupling tensor
+(`N_directional_modes_eq_nine`). This is a Dyson sum of a *constant* directional insertion — **not** the
+momentum-dependent QED vacuum-polarization loop; that difference is exactly the in-progress residual:
 
 ```
 α = (1/128) / (1 + 9/128) = 1/137.000     (alpha_QLF_eq)   vs  1/137.036  (0.026%)
 ```
 
-The `(1+9α)` factor *is* a screening step — the bare `2⁻⁷=1/128` is the unscreened coupling, `1/137` the
-screened (low-energy) one — which is why the derived number lands on the IR value (§3).
+The `(1+9α)` factor is the **leading** screening step — bare `2⁻⁷=1/128` → leading `1/137`. The
+higher-order census closures that would carry it the final `0.036` to the exact Thomson value are the
+in-progress tail (§3, status box).
 
 ### The closed form and the dimension counterfactuals
 
@@ -99,11 +112,14 @@ function of `d` **alone** — the key fact for §5.
 
 ## 3. Which scale — the 3-D-rendered IR anchor
 
-`1/137` is the coupling of **fully-rendered 3-D space** — the **IR, zero-momentum-transfer (`q²→0`),
-Thomson limit**, the macroscopic/low-energy value. Two facts pin this: (1) `N = 9 = 3²` exists only once
-space renders to dimension 3 (the macroscopic limit); (2) the `(1+9α)` resummation takes the unscreened
-`1/128` to the *screened* `1/137` (the fully-screened charge measured at large distances). So `1/137` is
-a **privileged, physically-defined** reference point, not an arbitrary one — the value CODATA quotes.
+The relevant *scale* is the **IR, zero-momentum-transfer (`q²→0`), Thomson limit** — the macroscopic,
+fully-screened, large-distance charge, which CODATA quotes as `1/137.035999`. `1/137` is the **leading**
+substrate coupling *at* that scale: (1) `N = 9 = 3²` exists only once space renders to dimension 3 (the
+macroscopic limit); (2) the `(1+9α)` resummation is the leading screening of the bare `1/128` toward the
+large-distance charge. So the *scale* is privileged and physically defined; `1/137` is the derived
+**leading** value there, and the residual `0.036` to the exact Thomson value is the in-progress census
+tail (status box). `1/137` is the leading value at the IR scale — **not** the exact IR value, which is
+`1/137.036`.
 
 ### Why 3-D — the human/cosmic perspective
 
@@ -144,9 +160,11 @@ running *magnitude* (`α(M_Z)≈1/128`) is matter vacuum-polarization — the op
 
 ## 5. No cosmological-time drift of α(0)
 
-**This is obvious within QLF — not a hard-won prediction.** The substrate is pure combinatorics with
-**no external scale** (the only scale, the Planck floor, is itself by-construction), so the *fundamental*
-dimensionless invariant `α(0)` has nothing to vary against — neither energy nor cosmic time. (The
+**Scoped to the *leading* value `α_lead(d)=1/(128+d²)`: it carries no time argument, so it cannot drift
+— obvious within QLF, not a hard-won prediction** (the *exact* value's full scale-dependence is the
+running of §4 plus the in-progress census tail). The substrate is pure combinatorics with
+**no external scale** (the only scale, the Planck floor, is itself by-construction), so the leading
+dimensionless value has nothing to vary against — neither energy nor cosmic time. (The
 *effective* coupling `α(μ)` *does* run with energy — §4 — but that is screening of the same fixed
 `α(0)`, not a change in it.) Concretely,
 `α(d)=1/(128+d²)` has **no scale and no time argument**: `α(0)=α(3)=1/137` is an atemporal, scale-free
@@ -260,8 +278,9 @@ The derived α feeds the atomic/EM tree; each derivation *justifies its α* by p
 
 ## 11. The constants mapper
 
-[`constants_mapper.py`](constants_mapper.py) reports α explicitly tagged **`[DERIVED]`** — a pure
-first-principles value, no measured input (`α = (1/128)/(1+9/128) = 1/137`, 0.026%) — distinct from the
+[`constants_mapper.py`](constants_mapper.py) reports α's **leading value** `α_lead = (1/128)/(1+9/128) =
+1/137` as derived (no measured input, `0.026%` from `1/137.036`); the exact value is in progress (status
+box). It is distinct from the
 `gauge_spatial_count_ratio` (a `[NATIVE]` ensemble observable, *not* α) and bridge quantities like
 `G_prediction_SI` (`[BRIDGE]`). Run `python3 constants_mapper.py` to see the full provenance-tagged
 report.
@@ -292,22 +311,26 @@ rational arithmetic (`norm_num`), no axioms beyond Lean/Mathlib.
 
 ## 13. Honest scope
 
-- **Derived (first-principles, zero free parameters, Lean-verified):** the IR / fully-rendered-3-D value
-  `α(0) = 1/137` (0.026% vs CODATA).
-- **Structural (*direction* only):** the QED running ≈ effective-dimension flow `3→2`
-  toward the UV (`QLF_CausalDimension` + the `1/132` counterfactual); not the running *magnitude*.
-- **Open (named):** the β-coefficients / matter vacuum polarization setting the running magnitude
-  (`running_couplings_structural`); the residual 0.026% at the Schwinger scale `α/2π`; the cross-pathway
-  consistency with the chirality-hiding route ([`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md)).
-- **Scale- and time-invariance of `α(0)` — a (trivial) theorem, on the same footing as `α=1/137`.**
-  Obvious within QLF: the substrate has no external scale, so a dimensionless invariant can't drift;
-  manifest from `α(d)=1/(128+d²)` (`no_cosmological_drift_of_alpha`). As an empirical claim about the
-  universe it is a falsifiable *prediction* (the SM is agnostic / permits varying-α; QLF forbids it) — but
-  the "does QLF describe reality?" caveat is universal to *all* QLF results, not special to this one (§5).
+- **Derived (zero free parameters, Lean-verified): the leading value `α_lead = 1/(128+9) = 1/137`** — why
+  the substrate's combinatorics + 3-D rendering give the integer `137` (the `2⁻⁷` bare coupling, the
+  `+d²=9` directional screening), `0.026%` from CODATA's `1/137.036`.
+- **In progress (`alpha_exact_value_in_progress`): the exact `1/137.035999`.** The residual `0.036` is an
+  *internal* target — the convergent tail of higher-order (length-4+) closure census orders, not an
+  external sector (completeness forbids deferring it). Derived honestly, the **next** census order is
+  positive and the right order of magnitude but *brackets* `0.036` (reducible-4 → `137.031`, total-6 →
+  `137.047`) rather than producing it; the coefficient needed (`4.6·α_bare`) is not a census number, and a
+  finite rational term can only approach the irrational Thomson value in the limit. The open piece is the
+  **resummation rule** that fixes the census tail — to be *derived* from the irreducible-closure
+  generating function, never tuned to `0.036`.
+- **Structural (*direction* only):** the QED running ≈ effective-dimension flow `3→2` toward the UV
+  (`QLF_CausalDimension` + the `1/132` counterfactual); not the running *magnitude*.
+- **Scale/time-invariance of the *leading* value:** `α_lead(d)=1/(128+d²)` has no time argument, so the
+  leading value can't drift — a closed-form fact *scoped to the leading value* (`no_cosmological_drift_of_alpha`);
+  the exact value's full scale-dependence is the running (§4) + the in-progress tail. The empirical "does
+  `α(0)` drift in cosmic time?" is a falsifiable check, with the universal "does QLF describe reality?" caveat.
 
-The result stands as a constructive derivation of the fundamental (IR, 3-D-rendered) fine-structure
-constant; the *running* is the departure from that limit, whose magnitude is the open renormalization
-sector QLF already flags.
+The honest headline: QLF **derives why the leading value is `1/137`**; the **exact `1/137.036` is in
+progress** — an internal census-tail target, not an external renormalization deferral.
 
 ---
 

@@ -331,16 +331,18 @@ class ConstantsMapper:
 
     def emerge_alpha(self) -> float:
         """
-        First-principles fine-structure constant from substrate combinatorics
+        LEADING fine-structure value from substrate combinatorics
         (QLF_FineStructureSubstrate / Alpha.md), zero free parameters:
 
             alpha_bare = 1/16 * 1/4 * 1/2 * 1 = 1/128 = 2^-7   (bare combinatorial)
-            alpha      = alpha_bare / (1 + 9 * alpha_bare) = 1/137  (exact rational)
+            alpha_lead = alpha_bare / (1 + 9 * alpha_bare) = 1/137  (exact rational)
 
-        N = 9 = 3^2 is the 3-D directional-coupling tensor; the (1 + 9 alpha)
-        factor is the self-energy / screening resummation, so the value is the
-        q^2 -> 0 (IR / Thomson) coupling of fully-rendered 3-D space. This is a
-        pure derivation — no measured input — hence [DERIVED] in the report.
+        N = 9 = 3^2 is the 3-D directional-coupling tensor; (1 + 9*alpha) is the
+        LEADING screening (a constant-insertion Dyson sum, not the momentum-
+        dependent QED vacuum-polarization loop). So this returns the *leading*
+        value 1/137 (hence [DERIVED]); the exact 1/137.035999 (Thomson q^2->0)
+        is in progress — the residual 0.036 is the convergent higher-order
+        closure-census tail (alpha_exact_value_in_progress, Alpha.md status box).
         """
         alpha_bare = 1.0 / 128.0
         return alpha_bare / (1.0 + 9.0 * alpha_bare)
@@ -545,8 +547,8 @@ class ConstantsMapper:
                 "alpha",
                 alpha_val,
                 self.CODATA["alpha"],
-                "fine-structure constant = (1/128)/(1+9/128) = 1/137 "
-                "(2⁻⁷ bare × N=9=3² screening; the q²→0 / 3-D-rendered IR value; Alpha.md)",
+                "fine-structure constant — LEADING value (1/128)/(1+9/128) = 1/137 "
+                "(2⁻⁷ bare × N=9=3² screening); exact 1/137.036 in progress (census tail); Alpha.md",
                 provenance="DERIVED",
             ),
             self._format_dimensionless_line(
