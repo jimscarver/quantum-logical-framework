@@ -1,9 +1,9 @@
 # QLF Flow Chart — a visual map of the framework
 
-> **This is a navigation map of the [Quantum Logical Framework (QLF)](README.md).** Every **box** links
-> to the doc that derives it; every **connector is labelled** with the relationship it encodes; and each
-> chart's **hub node links back to the master map**, so the ten charts form one navigable web. Diagrams
-> render on GitHub (Mermaid) — click any node.
+> **This is a navigation map of the [Quantum Logical Framework (QLF)](README.md).** Each chart shows a
+> domain as a Mermaid diagram (rendered on GitHub) with every **connector labelled** by the relationship
+> it encodes; the **↳ open:** line under each chart links to the docs that derive those boxes, so the ten
+> charts form one navigable web.
 
 The taxonomy: **one substrate → ten domains → the individual results.**
 
@@ -24,19 +24,9 @@ flowchart TD
   S -->|"meets"| T["⑧ Quantum-gravity / TOE pillars"]
   S -->|"resolves"| M["⑨ The Millennium Prize program"]
   S -->|"predicts"| B["⑩ Beyond the SM"]
-
-  click S "README.md"
-  click SP "#1-space-time-and-the-continuum"
-  click C "#2-the-fundamental-constants"
-  click F "#3-forces"
-  click A "#4-atoms-and-qed"
-  click G "#5-gravity-and-gr"
-  click CO "#6-cosmology-and-the-dark-sector"
-  click P "#7-particles-and-the-standard-model"
-  click T "#8-quantum-gravity--toe-pillars"
-  click M "#9-the-millennium-prize-program"
-  click B "#10-beyond-the-sm"
 ```
+
+**↳ open:** [`README.md`](README.md)
 
 Root reading: **everything derives from the 8-twist substrate under Zero Free Action** —
 [`Philosophy.md`](Philosophy.md) (possibilist ontology), [`WHITE_PAPER.md`](WHITE_PAPER.md).
@@ -54,15 +44,9 @@ flowchart TD
   D -->|"synthesize"| SP["Synthesized spacetime"]
   T -->|"synthesize"| SP
   S -->|"RCA₀ floor"| CN["No continuum / no Choice"]
-
-  click H1 "#master-map--the-substrate-and-its-ten-domains"
-  click S "README.md"
-  click R "SpaceTime.md"
-  click D "SpaceTime.md"
-  click T "SpaceTime.md"
-  click SP "SpaceTime.md"
-  click CN "TheContinuum.md"
 ```
+
+**↳ open:** [`README.md`](README.md) · [`SpaceTime.md`](SpaceTime.md) · [`TheContinuum.md`](TheContinuum.md)
 
 `3` is the minimal dimension that renders any relational structure faithfully — and it reappears
 everywhere below ([`SpaceTime.md`](SpaceTime.md) §3a).
@@ -83,18 +67,9 @@ flowchart TD
   SP -->|"ℓ = 3"| MG["nuclear magic numbers"]
   S2["3-quark Borromean closure"] -->|"6π⁵"| MP["m_p/m_e = 6π⁵"]
   AL -->|"2/α"| MPI["m_π/m_e = 274"]
-
-  click H2 "#master-map--the-substrate-and-its-ten-domains"
-  click SP "SpaceTime.md"
-  click AL "Alpha.md"
-  click WK "Weak_Force.md"
-  click OL "Cosmological_Constant.md"
-  click NW "Gravity_From_Delay.md"
-  click MG "Magic_numbers.md"
-  click MP "Proton_Resonance_R_e.md"
-  click MPI "Pion_QLF.md"
-  click S2 "Proton_Resonance_R_e.md"
 ```
+
+**↳ open:** [`SpaceTime.md`](SpaceTime.md) · [`Alpha.md`](Alpha.md) · [`Weak_Force.md`](Weak_Force.md) · [`Cosmological_Constant.md`](Cosmological_Constant.md) · [`Gravity_From_Delay.md`](Gravity_From_Delay.md) · [`Magic_numbers.md`](Magic_numbers.md) · [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md) · [`Pion_QLF.md`](Pion_QLF.md)
 
 **α's full story** (derivation, IR/3-D scale, the running, the no-drift theorem, 4D/5D
 over-determination): [`Alpha.md`](Alpha.md).
@@ -115,16 +90,9 @@ flowchart TD
   EM -->|"projection"| UNI["one force, three projections"]
   WK -->|"projection"| UNI
   ST -->|"projection"| UNI
-
-  click H3 "#master-map--the-substrate-and-its-ten-domains"
-  click AX "Forces_From_Three_Axes.md"
-  click EM "Electricity.md"
-  click WK "Weak_Force.md"
-  click ST "Forces_From_Three_Axes.md"
-  click AL "Alpha.md"
-  click CPL "Forces_From_Alpha.md"
-  click UNI "Forces_From_Three_Axes.md"
 ```
+
+**↳ open:** [`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md) · [`Electricity.md`](Electricity.md) · [`Weak_Force.md`](Weak_Force.md) · [`Alpha.md`](Alpha.md) · [`Forces_From_Alpha.md`](Forces_From_Alpha.md)
 
 ---
 
@@ -141,16 +109,9 @@ flowchart TD
   AL -->|"α/2π"| GM["g−2"]
   AL -->|"Z₀/2α"| VK["von Klitzing R_K"]
   AL -->|"∝ α⁴"| HF["hyperfine / 21 cm"]
-
-  click H4 "#master-map--the-substrate-and-its-ten-domains"
-  click AL "Alpha.md"
-  click RY "Hydrogen.md"
-  click DI "Dirac_Correction.md"
-  click LA "Lamb_Shift.md"
-  click GM "g_minus_2.md"
-  click VK "Electricity.md"
-  click HF "Magnetism_Spatial_Dynamics.md"
 ```
+
+**↳ open:** [`Alpha.md`](Alpha.md) · [`Hydrogen.md`](Hydrogen.md) · [`Dirac_Correction.md`](Dirac_Correction.md) · [`Lamb_Shift.md`](Lamb_Shift.md) · [`g_minus_2.md`](g_minus_2.md) · [`Electricity.md`](Electricity.md) · [`Magnetism_Spatial_Dynamics.md`](Magnetism_Spatial_Dynamics.md)
 
 ---
 
@@ -164,15 +125,9 @@ flowchart TD
   HO -->|"δQ = T δS"| EE["Einstein equations<br/>(equation of state)"]
   EE -->|"causal order → metric"| CV["Curvature"]
   EE -->|"spin-2, v = c"| GW["Gravitational waves"]
-
-  click H5 "#master-map--the-substrate-and-its-ten-domains"
-  click HO "Gravity_From_Delay.md"
-  click NG "Gravity_From_Delay.md"
-  click ME "Mercury_Perihelion.md"
-  click EE "Einstein_Equations.md"
-  click CV "Curvature.md"
-  click GW "Einstein_Equations.md"
 ```
+
+**↳ open:** [`Gravity_From_Delay.md`](Gravity_From_Delay.md) · [`Mercury_Perihelion.md`](Mercury_Perihelion.md) · [`Einstein_Equations.md`](Einstein_Equations.md) · [`Curvature.md`](Curvature.md)
 
 ---
 
@@ -187,16 +142,9 @@ flowchart TD
   OL -->|"residual w = −1"| DE["Dark energy"]
   EV -->|"event rate"| AGE["Age ≈ 13.8 Gyr"]
   EV -->|"freeze-out n/p"| NS["⁴He fraction Y_p ≈ ¼"]
-
-  click H6 "#master-map--the-substrate-and-its-ten-domains"
-  click EV "Cosmological_Constant.md"
-  click OL "Cosmological_Constant.md"
-  click IN "Curvature.md"
-  click DM "DarkMatter.md"
-  click DE "DarkMatter.md"
-  click AGE "AgeOfUniverse.md"
-  click NS "Fusion.md"
 ```
+
+**↳ open:** [`Cosmological_Constant.md`](Cosmological_Constant.md) · [`Curvature.md`](Curvature.md) · [`DarkMatter.md`](DarkMatter.md) · [`AgeOfUniverse.md`](AgeOfUniverse.md) · [`Fusion.md`](Fusion.md)
 
 ---
 
@@ -212,18 +160,9 @@ flowchart TD
   NU -->|"ΔL = 2"| BD["β-decay / 0νββ"]
   TH -->|"one scale × ratios"| MS["mass spectrum"]
   SP["spin = the twists"] -->|"m = 1/R fold delay"| HG["mass (Higgs mechanism)"]
-
-  click H7 "#master-map--the-substrate-and-its-ten-domains"
-  click TH "Standard_Model.md"
-  click GEN "Standard_Model.md"
-  click KO "Standard_Model.md"
-  click MX "Standard_Model.md"
-  click NU "Beta_Decay_Neutrino_Nature.md"
-  click BD "Beta_Decay_Neutrino_Nature.md"
-  click MS "Per_Qubit_Mass_Quantum.md"
-  click SP "Spin_QLF.md"
-  click HG "Higgs.md"
 ```
+
+**↳ open:** [`Standard_Model.md`](Standard_Model.md) · [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md) · [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md) · [`Spin_QLF.md`](Spin_QLF.md) · [`Higgs.md`](Higgs.md)
 
 ---
 
@@ -238,14 +177,9 @@ flowchart TD
   S -->|"C(2n,n) modes"| ST["String theory"]
   S -->|"Q = half-spin shift"| SU["Supersymmetry"]
   S -->|"closure floor μ²=½"| PL["Planck scale"]
-
-  click H8 "#master-map--the-substrate-and-its-ten-domains"
-  click S "README.md"
-  click LQ "LQG_QLF.md"
-  click ST "StringTheory.md"
-  click SU "SUSY_QLF.md"
-  click PL "Planck_Scale.md"
 ```
+
+**↳ open:** [`README.md`](README.md) · [`LQG_QLF.md`](LQG_QLF.md) · [`StringTheory.md`](StringTheory.md) · [`SUSY_QLF.md`](SUSY_QLF.md) · [`Planck_Scale.md`](Planck_Scale.md)
 
 ---
 
@@ -263,16 +197,9 @@ flowchart TD
   CC -->|"balanced ⟹ algebraic"| HOD["Hodge conjecture"]
   CC -->|"generate ≠ verify"| PN["P vs NP"]
   CC -->|"no blow-up"| NV["Navier–Stokes"]
-
-  click H9 "#master-map--the-substrate-and-its-ten-domains"
-  click CC "Continuum_Choice_Fallacy.md"
-  click RH "Riemann-Conjecture-Proof.md"
-  click YM "YangMills_MassGap_QLF.md"
-  click BS "BSD_QLF.md"
-  click HOD "Hodge_QLF.md"
-  click PN "P_vs_NP_QLF.md"
-  click NV "NavierStokes_QLF.md"
 ```
+
+**↳ open:** [`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md) · [`Riemann-Conjecture-Proof.md`](Riemann-Conjecture-Proof.md) · [`YangMills_MassGap_QLF.md`](YangMills_MassGap_QLF.md) · [`BSD_QLF.md`](BSD_QLF.md) · [`Hodge_QLF.md`](Hodge_QLF.md) · [`P_vs_NP_QLF.md`](P_vs_NP_QLF.md) · [`NavierStokes_QLF.md`](NavierStokes_QLF.md)
 
 Overview: [`Millennium.md`](Millennium.md).
 
@@ -289,14 +216,9 @@ flowchart TD
   B -->|"⚡ test now"| P1["Majorana neutrino → 0νββ"]
   B -->|"⚡ scale-free by construction"| P2["no cosmological drift of α(0)"]
   B -->|"soft"| P3["dark matter is not a particle"]
-
-  click H10 "#master-map--the-substrate-and-its-ten-domains"
-  click B "Beyond_Standard_Model.md"
-  click D1 "Beyond_Standard_Model.md"
-  click P1 "Beta_Decay_Neutrino_Nature.md"
-  click P2 "Alpha.md"
-  click P3 "DarkMatter.md"
 ```
+
+**↳ open:** [`Beyond_Standard_Model.md`](Beyond_Standard_Model.md) · [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md) · [`Alpha.md`](Alpha.md) · [`DarkMatter.md`](DarkMatter.md)
 
 ---
 
