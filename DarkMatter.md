@@ -1,4 +1,4 @@
-# Dark Matter in the Quantum Logical Framework (QLF)
+# Dark Matter in the Quantum Logical Framework ([QLF](README.md))
 
 **Repository:** `quantum-logical-framework`
 **Document:** `DarkMatter.md`

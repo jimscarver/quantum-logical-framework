@@ -8,7 +8,7 @@ See [Maxwell.md](Maxwell.md) for the Coulomb potential origin, [SpectralGap.md](
 
 ## §1 The ZFA Hydrogen Atom
 
-In QLF, the hydrogen atom is not a spatial object. It is a ZFA handshake between two complementary processes:
+In [QLF](README.md), the hydrogen atom is not a spatial object. It is a ZFA handshake between two complementary processes:
 
 - **Proton**: a dense, net-positive gauge accumulation — a RhoProcess with persistent `+` gauge imbalance, requiring environmental conjugation to achieve ZFA closure.
 - **Electron**: the minimal ZFA fermion — a single gauge-fold loop, `action f` in RhoProcess notation, with a single `−` gauge contribution that pairs with the proton's `+`.

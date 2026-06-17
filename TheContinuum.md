@@ -1,4 +1,4 @@
-# The Continuum and the Axiom of Choice in QLF
+# The Continuum and the Axiom of Choice in [QLF](README.md)
 
 Standard physics inherits two foundational assumptions from classical mathematics that QLF explicitly rejects:
 

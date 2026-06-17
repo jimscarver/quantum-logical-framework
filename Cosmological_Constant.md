@@ -1,4 +1,4 @@
-# Cosmological constant Λ from QLF substrate: closing the vacuum catastrophe and predicting Ω_Λ = log 2
+# Cosmological constant Λ from [QLF](README.md) substrate: closing the vacuum catastrophe and predicting Ω_Λ = log 2
 
 **Scoping doc — the famous "vacuum catastrophe" closed by 122 orders of magnitude, with the substrate predicting Ω_Λ = log 2 ≈ 0.693 to 1.2% of the observed 0.685.** The standard quantum field theory estimate of the vacuum energy density gives `ρ_QFT ≈ ρ_Planck ≈ 5 × 10¹¹³ J/m³` (volume-counted Planck-scale zero-point modes). The observed dark-energy density is `ρ_Λ ≈ 5.83 × 10⁻¹⁰ J/m³` (Planck mission 2018). **The discrepancy of 10¹²² is the largest mismatch in physics** (Weinberg 1989, Carroll 2001).
 

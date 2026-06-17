@@ -6,7 +6,7 @@
 
 ## Thesis
 
-Loop Quantum Gravity (Ashtekar, Rovelli, Smolin) and QLF arrive at the same picture from opposite ends.
+Loop Quantum Gravity (Ashtekar, Rovelli, Smolin) and [QLF](README.md) arrive at the same picture from opposite ends.
 LQG **quantizes** general relativity and finds that space is discrete — a **spin network** of SU(2)-labelled
 edges with quantized area and volume, on **no background**. QLF **starts** from discrete logical closures
 and *synthesizes* spacetime. The overlap is not a loose analogy: **QLF's substrate is a spin network of

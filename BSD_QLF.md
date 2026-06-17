@@ -1,4 +1,4 @@
-# Birch–Swinnerton-Dyer in QLF — via the Langlands hook
+# Birch–Swinnerton-Dyer in [QLF](README.md) — via the Langlands hook
 
 > **Status: proof in progress, constructively reframed.** The self-dual central-point
 > structure is machine-verified, and the **elliptic-curve→closure encoding is now built** —

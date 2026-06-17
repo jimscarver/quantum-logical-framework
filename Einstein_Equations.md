@@ -7,7 +7,7 @@
 
 ## §1 The gap this closes
 
-QLF already had Newton's law, `G = L_P²c³/ℏ`, the Mercury perihelion, and the weak-field
+[QLF](README.md) already had Newton's law, `G = L_P²c³/ℏ`, the Mercury perihelion, and the weak-field
 Schwarzschild metric — but the **full** field equations
 
 $$

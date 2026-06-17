@@ -1,4 +1,4 @@
-# Mercury perihelion 43"/century from QLF substrate
+# Mercury perihelion 43"/century from [QLF](README.md) substrate
 
 **Scoping doc — Mercury's anomalous perihelion advance from QLF substrate Schwarzschild.** The 43"/century residue that Le Verrier identified in 1859 (and that Einstein computed from GR in 1915) falls out cleanly from the QLF substrate composition:
 

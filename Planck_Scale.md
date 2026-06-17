@@ -6,7 +6,7 @@
 
 ## The Planck length is the minimal coherent-closure length
 
-QLF's "substrate event quantum" — *one Planck length and one Planck tick, created together, per ZFA
+[QLF](README.md)'s "substrate event quantum" — *one Planck length and one Planck tick, created together, per ZFA
 event* — is not a posited input alongside ZFA. It follows **by construction** from QLF's own structure:
 a foundation does not assume its own granularity; the granularity *is* the smallest coherent closure.
 

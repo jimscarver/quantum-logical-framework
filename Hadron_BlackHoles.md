@@ -4,7 +4,7 @@ Lean: [`lean/QLF_QuantumBlackHole.lean`](lean/QLF_QuantumBlackHole.lean).
 
 ## The question
 
-QLF already says a **gauge-folded particle** (`+`–`−` twists) *is* a primordial quantum
+[QLF](README.md) already says a **gauge-folded particle** (`+`–`−` twists) *is* a primordial quantum
 black hole — a Planck-scale Markov blanket that functions as a horizon and radiates
 ([BLACK-HOLES.md](BLACK-HOLES.md), [Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md)).
 What about the composite hadrons — the pion, the proton, the neutron? Are *they* quantum

@@ -2,7 +2,7 @@
 
 **Scoping doc — decomposes the open `R_e` derivation under the chirality-hiding-resonance reading.**
 
-The open first-principles question — derive the electron Markov-blanket depth `R_e ≈ 2.389 × 10²²` from QLF closure-multiplicity — is restated here as:
+The open first-principles question — derive the electron Markov-blanket depth `R_e ≈ 2.389 × 10²²` from [QLF](README.md) closure-multiplicity — is restated here as:
 
 > **`R_e = R_p · (m_p / m_e)`** where `m_p / m_e = 6π⁵` is the proton's chirality-hiding resonance threshold, and `R_p` is derivable from the 3-quark Borromean closure topology of the proton.
 

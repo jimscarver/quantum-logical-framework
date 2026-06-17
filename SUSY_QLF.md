@@ -12,7 +12,7 @@ content is a spinorial generator `Q` that turns bosons into fermions and back, w
 $$\{Q,\,Q^\dagger\} = 2\,\sigma^\mu P_\mu,$$
 
 so that **two SUSY transformations make a spacetime translation** — SUSY is the *square root of
-translations*. QLF already carries this, because in QLF **statistics is the parity of the half-spin
+translations*. [QLF](README.md) already carries this, because in QLF **statistics is the parity of the half-spin
 count**, and the half-spin is the square root of the spacetime event. SUSY's deepest relation is, in QLF,
 a theorem about closures — not a postulate about new particles.
 

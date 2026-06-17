@@ -1,6 +1,6 @@
 # Schwinger anomaly a_e = α/(2π) from substrate
 
-**Scoping doc — the electron anomalous magnetic moment from QLF substrate.** The bare value `g = 2` is structural in QLF (from the half-spin Pauli-scalar-return face of ZFA closure); the Schwinger one-loop correction `a_e = (g − 2)/2 = α/(2π)` decomposes substrate-wise as **one extra gauge-twist vertex × one loop-phase factor `1/(2π)`** — the same loop-phase primitive that appeared in [`Lamb_Shift.md`](Lamb_Shift.md) §5, applied here without polarization average or shell-density factor.
+**Scoping doc — the electron anomalous magnetic moment from [QLF](README.md) substrate.** The bare value `g = 2` is structural in QLF (from the half-spin Pauli-scalar-return face of ZFA closure); the Schwinger one-loop correction `a_e = (g − 2)/2 = α/(2π)` decomposes substrate-wise as **one extra gauge-twist vertex × one loop-phase factor `1/(2π)`** — the same loop-phase primitive that appeared in [`Lamb_Shift.md`](Lamb_Shift.md) §5, applied here without polarization average or shell-density factor.
 
 **Zero empirical input.** Unlike the hydrogen spectrum (which needs `m_e c²` to pin natural units), `a_e` is **dimensionless** — it depends only on `α`. With substrate α from [`lean/QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean) (canonical doc [**Alpha.md**](Alpha.md)), `a_e` is QLF-derived **with no empirical input at all**, matching the CODATA value `a_e ≈ 1.15965 × 10⁻³` to **0.2%** (the substrate-α 0.026% gap propagated linearly).
 

@@ -1,8 +1,8 @@
-# The Pion in QLF
+# The Pion in [QLF](README.md)
 
 What can QLF say about the pion? Three things, in decreasing solidity — a structural fact,
 a cosmological observation, and a mass-ratio reading (Nambu's coincidence, now anchored on
-QLF's derived `α`). Lean: [`lean/QLF_PionMassRatio.lean`](lean/QLF_PionMassRatio.lean).
+QLF's derived [`α`](Alpha.md)). Lean: [`lean/QLF_PionMassRatio.lean`](lean/QLF_PionMassRatio.lean).
 
 ## 1. The pion is the minimal meson — solid
 

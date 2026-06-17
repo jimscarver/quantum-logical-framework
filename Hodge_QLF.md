@@ -1,4 +1,4 @@
-# The Hodge Conjecture in QLF — the cohomological face of ZFA selection
+# The Hodge Conjecture in [QLF](README.md) — the cohomological face of ZFA selection
 
 > **Status: proof in progress, constructively reframed.** The Hodge conjugation is
 > machine-verified as an involution and its balanced fixed diagonal identified;

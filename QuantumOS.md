@@ -1,6 +1,6 @@
 # QuantumOS: The Native Operating System Kernel for Quantum Simulators (QOS)
 
-**Status:** Architectural proposal grounded in the QLF formal core and established process-calculus results.
+**Status:** Architectural proposal grounded in the [QLF](README.md) formal core and established process-calculus results.
 
 | Claim | Basis |
 |---|---|

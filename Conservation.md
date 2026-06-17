@@ -1,4 +1,4 @@
-# Conservation Laws: Noether's Theorem in QLF
+# Conservation Laws: Noether's Theorem in [QLF](README.md)
 
 **Every ZFA-preserving symmetry of the 8-twist algebra corresponds to a conservation law.** Noether's theorem in standard physics relates continuous symmetries of the action to conserved quantities; in QLF the same structure is discrete and constructive — the algebra's symmetries are the conservation laws.
 

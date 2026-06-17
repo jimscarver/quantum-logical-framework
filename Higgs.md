@@ -1,4 +1,4 @@
-# Mass Generation in QLF: A Constructive Alternative to the Higgs Mechanism
+# Mass Generation in [QLF](README.md): A Constructive Alternative to the Higgs Mechanism
 
 **The Standard Model answer:** masses arise from a single scalar field that breaks electroweak symmetry.  
 **The QLF answer:** masses arise from gauge-fold depth — a property of how deeply a ZFA closure binds spatial action into temporal delay.

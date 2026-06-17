@@ -1,6 +1,6 @@
 # Lamb shift from substrate: α⁵ × log(α⁻²) from vacuum-spectrum coupling
 
-**Scoping doc — Lamb shift as bound-electron self-energy from coupling to the QLF vacuum closure-spectrum.** (The `α` powers here are the *derived* fine-structure constant — the IR / fully-rendered-3D value `1/137`, [**Alpha.md**](Alpha.md).) The three QLF substrate primitives the user named are sufficient to derive the structural form:
+**Scoping doc — Lamb shift as bound-electron self-energy from coupling to the [QLF](README.md) vacuum closure-spectrum.** (The `α` powers here are the *derived* fine-structure constant — the IR / fully-rendered-3D value `1/137`, [**Alpha.md**](Alpha.md).) The three QLF substrate primitives the user named are sufficient to derive the structural form:
 
 1. **Vacuum spectrum from closure count.** Vacuum hosts ZFA closures at every Markov-blanket depth `R` from `R = 1` (one Planck event) to `R = R_cosmic` (cosmic horizon). Each closure at depth `R` is a vacuum mode at frequency `ω = f_vac / R`, energy `E_Planck / R` ([`Frequency_Synchronization.md`](Frequency_Synchronization.md), [`VacuumEnergy.md`](VacuumEnergy.md) §6).
 2. **Frequency redshift to Planck-action limit.** The depth-scaling `ω ∝ 1/R` IS the redshift; modes scale from Planck (`R=1`, `E=E_Planck`) down through all bound-state depths ([`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5.3).

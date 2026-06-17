@@ -3,7 +3,7 @@
 **Author:** Jim Whitescarver  
 **Repository:** [quantum-logical-framework](https://github.com/jimscarver/quantum-logical-framework)
 
-*(Note: This document provides a tutorial on the spatial and gravitational network dynamics of QLF. For the foundational derivation of how the clock ticks via gauge folds and Planck action, start with [`Time.md`](Time.md).)*
+*(Note: This document provides a tutorial on the spatial and gravitational network dynamics of [QLF](README.md). For the foundational derivation of how the clock ticks via gauge folds and Planck action, start with [`Time.md`](Time.md).)*
 
 ## The Exhaust of Computation
 

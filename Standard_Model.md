@@ -1,4 +1,4 @@
-# The Standard Model from QLF (honest synthesis)
+# The Standard Model from [QLF](README.md) (honest synthesis)
 
 **The Standard Model's particles, interactions, and conservation laws are claimed to follow from the 8-twist algebra plus ZFA closure plus Hermitian-pair structure.** This document is the **honest** version of that claim: what QLF actually derives today, what is a partial sketch with structural plausibility, and what is open work without even a clear path forward.
 

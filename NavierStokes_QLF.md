@@ -1,4 +1,4 @@
-# Navier–Stokes Existence and Smoothness in QLF
+# Navier–Stokes Existence and Smoothness in [QLF](README.md)
 
 > **Status: proof in progress, constructively reframed.** Lean-anchored in
 > [`lean/QLF_NavierStokes.lean`](lean/QLF_NavierStokes.lean): realized flows achieve ZFA

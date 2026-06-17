@@ -1,4 +1,4 @@
-# The Weak Force and the W/Z Bosons in QLF
+# The Weak Force and the W/Z Bosons in [QLF](README.md)
 
 **The weak sector, consolidated — what QLF derives, what it sketches, and what is open, with the honest three-tier discipline of the rest of the corpus.** Previously this content was scattered across [`Higgs.md`](Higgs.md) §4, [`Standard_Model.md`](Standard_Model.md), [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md), and [`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) §6.
 

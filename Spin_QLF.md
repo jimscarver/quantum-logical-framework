@@ -1,4 +1,4 @@
-# How QLF Demystifies Spin — spin *is* the twists
+# How [QLF](README.md) Demystifies Spin — spin *is* the twists
 
 > Spin is usually taught as a mystery: an electron must turn **720°** to come back to
 > itself; it has a "magnetic moment" and a "charge" that seem unrelated; bosons and

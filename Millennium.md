@@ -1,4 +1,4 @@
-# QLF and the Millennium Prize Problems
+# [QLF](README.md) and the Millennium Prize Problems
 
 QLF attacks the six open Clay Millennium Prize Problems with a single repeatable
 template, organized by one thesis:

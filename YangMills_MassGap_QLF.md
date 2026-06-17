@@ -1,4 +1,4 @@
-# The Yang–Mills Mass Gap in QLF
+# The Yang–Mills Mass Gap in [QLF](README.md)
 
 > **Status: proven constructively — the continuum step reframed, not apologised for.**
 > The gap is established on the substrate (`gaugeMassGap = log 2 > 0`, machine-verified);

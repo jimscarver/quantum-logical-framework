@@ -1,4 +1,4 @@
-# P vs NP in QLF
+# P vs NP in [QLF](README.md)
 
 > **Status: proof in progress, constructively reframed.** Lean-anchored in
 > [`lean/QLF_PvsNP.lean`](lean/QLF_PvsNP.lean): the generate/verify asymmetry is proven on

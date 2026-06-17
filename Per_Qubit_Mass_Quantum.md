@@ -1,6 +1,6 @@
 # Per-Qubit Mass Quantum: each qubit contributes ℏω to rest energy
 
-**Each qubit contributes `ℏω` of rest energy to the particle or bound-state mass.** This is the QLF per-qubit mass-energy quantum, parallel to the per-event `log 2` information quantum of [`MRE.md`](MRE.md). Combined with the Markov-blanket depth relation `ω = f_vac / R` of [`Frequency_Synchronization.md`](Frequency_Synchronization.md), it gives the explicit formula
+**Each qubit contributes `ℏω` of rest energy to the particle or bound-state mass.** This is the [QLF](README.md) per-qubit mass-energy quantum, parallel to the per-event `log 2` information quantum of [`MRE.md`](MRE.md). Combined with the Markov-blanket depth relation `ω = f_vac / R` of [`Frequency_Synchronization.md`](Frequency_Synchronization.md), it gives the explicit formula
 
 $$m_{\text{qubit}} \, c^2 \;=\; \hbar \omega_{\text{qubit}} \;=\; \frac{\hbar \, f_{\text{vac}}}{R_{\text{qubit}}} \;=\; \frac{E_{\text{Planck}}}{R_{\text{qubit}}}$$
 

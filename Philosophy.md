@@ -11,7 +11,7 @@
 The universe is not a single, fixed story unfolding in one particular way.  
 **Things do not happen one way — they happen in every way possible.**
 
-This is the **possibilist ontology** (neo-Platonic) at the heart of the Quantum Logical Framework (QLF). All logically admissible histories exist *a priori* as pure possibility. Only those histories that achieve **Zero Free Action (ZFA = 0)** are realized as physical events. The framework treats reality as the self-selecting subset of an infinite logical space, not as a deterministic machine or a random quantum lottery.
+This is the **possibilist ontology** (neo-Platonic) at the heart of the Quantum Logical Framework ([QLF](README.md)). All logically admissible histories exist *a priori* as pure possibility. Only those histories that achieve **Zero Free Action (ZFA = 0)** are realized as physical events. The framework treats reality as the self-selecting subset of an infinite logical space, not as a deterministic machine or a random quantum lottery.
 
 **The universe is logical.**  
 It is constructible and constructed in finite time.  

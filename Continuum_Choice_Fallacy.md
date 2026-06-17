@@ -3,7 +3,7 @@
 > *Just as physics had to face the ultraviolet catastrophe, mathematics must face the
 > fallacy of the continuum and choice.*
 
-This is the organizing thesis behind QLF's attacks on the Millennium Prize Problems.
+This is the organizing thesis behind [QLF](README.md)'s attacks on the Millennium Prize Problems.
 It sharpens the [ZFC ultraviolet-catastrophe](CLAUDE.md) commitment already load-bearing
 across the framework. This document is the **negative** half — what classical foundations
 get wrong. Its **positive** companion,
