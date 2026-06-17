@@ -212,9 +212,11 @@ idx = re.sub(r"\n?```mermaid\n.*?```\n", "\n", src, flags=re.S)  # drop diagrams
 banner = (
     "> **The diagrams don't render reliably on GitHub** (a known GitHub Mermaid/dark-theme issue), "
     "so this page is the text index. For the **rendered, clickable diagrams** and a **printable PDF** "
-    "(with internal + external links), open [`FlowChart.html`](FlowChart.html) in a browser — view it "
-    "live via [raw.githack.com](https://raw.githack.com/jimscarver/quantum-logical-framework/main/FlowChart.html), "
-    "or clone/pull and open the local file. Regenerate with `python3 tools/build_flowchart_html.py`.\n"
+    "(with internal + external links), open the live version on GitHub Pages: "
+    "**[jimscarver.github.io/quantum-logical-framework/FlowChart.html]"
+    "(https://jimscarver.github.io/quantum-logical-framework/FlowChart.html)** "
+    "(or clone/pull and open the local `FlowChart.html`). "
+    "Regenerate with `python3 tools/build_flowchart_html.py`.\n"
 )
 # insert the banner right after the leading block-quote intro (before the first '---'/'## ')
 idx = re.sub(r"\n---\n", "\n\n" + banner + "\n---\n", idx, count=1)

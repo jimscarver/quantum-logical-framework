@@ -15,7 +15,7 @@ The **Quantum Logical Framework (QLF)** is a new, constructive **foundation for 
 
 In one line: **the universe is logical, its logic is constructive and complete-for-physics, and we build it from the bottom up — then check it in Lean.**
 
-> **Start here: the [flow chart →](FlowChart.md)** — the whole framework as a linked index (one substrate → four families → ten domains → the individual results). For the rendered, clickable diagrams + a printable PDF, open [`FlowChart.html`](https://raw.githack.com/jimscarver/quantum-logical-framework/main/FlowChart.html).
+> **Start here: the [flow chart →](FlowChart.md)** — the whole framework as a linked index (one substrate → four families → ten domains → the individual results). For the rendered, clickable diagrams + a printable PDF, open the live page on GitHub Pages: [`FlowChart.html`](https://jimscarver.github.io/quantum-logical-framework/FlowChart.html).
 
 ---
 

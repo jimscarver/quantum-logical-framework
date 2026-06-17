@@ -7,7 +7,7 @@
 The taxonomy: **one substrate → four domain families → ten domains → the individual results.**
 
 
-> **The diagrams don't render reliably on GitHub** (a known GitHub Mermaid/dark-theme issue), so this page is the text index. For the **rendered, clickable diagrams** and a **printable PDF** (with internal + external links), open [`FlowChart.html`](FlowChart.html) in a browser — view it live via [raw.githack.com](https://raw.githack.com/jimscarver/quantum-logical-framework/main/FlowChart.html), or clone/pull and open the local file. Regenerate with `python3 tools/build_flowchart_html.py`.
+> **The diagrams don't render reliably on GitHub** (a known GitHub Mermaid/dark-theme issue), so this page is the text index. For the **rendered, clickable diagrams** and a **printable PDF** (with internal + external links), open the live version on GitHub Pages: **[jimscarver.github.io/quantum-logical-framework/FlowChart.html](https://jimscarver.github.io/quantum-logical-framework/FlowChart.html)** (or clone/pull and open the local `FlowChart.html`). Regenerate with `python3 tools/build_flowchart_html.py`.
 
 ---
 
