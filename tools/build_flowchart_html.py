@@ -129,7 +129,7 @@ def add_clicks(idx, diagram):
 
 # ---- assemble HTML ----
 intro = """
-<p>This is a one-page visual map of the <strong>Quantum Logical Framework (QLF)</strong> &mdash; a
+<p>This is a one-page visual map of the <strong><a href="https://github.com/jimscarver/quantum-logical-framework/blob/main/README.md" target="_blank" rel="noopener">Quantum Logical Framework (QLF)</a></strong> &mdash; a
 formal proof system, machine-verified in Lean&nbsp;4 across 89 modules with zero <code>sorry</code>,
 that derives quantum mechanics and spacetime from a single selection principle: <em>Zero Free Action
 (ZFA) balance</em>. Every chart below shows one domain; the <strong>boxes are clickable</strong>
