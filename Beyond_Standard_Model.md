@@ -1,4 +1,4 @@
-# Beyond the Standard Model — what QLF derives, predicts, and leaves open
+# Beyond the Standard Model — what [QLF](README.md) derives, predicts, and leaves open
 
 **The honest accounting of where QLF goes past the Standard Model — and where it doesn't.** Companion to [`Open_Problems.md`](Open_Problems.md). The Standard Model is the most precise theory in science, but it has **~19 free parameters** (≈26 once the neutrino sector is included) and **explains none of them** — α, the fermion masses, the mixing angles are measured and plugged in. "Beyond the SM" therefore means two different things, and QLF does genuinely different things in each:
 
