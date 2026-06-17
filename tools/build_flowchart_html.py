@@ -16,6 +16,9 @@ MD = ROOT / "FlowChart.md"
 OUT = ROOT / "FlowChart.html"
 CLICKMAPS = json.loads((pathlib.Path("/tmp/clickmaps.json")).read_text()) \
     if pathlib.Path("/tmp/clickmaps.json").exists() else [{} for _ in range(11)]
+EDGE_LABELS = json.loads((ROOT / "tools" / "flowchart_edge_labels.json").read_text()) \
+    if (ROOT / "tools" / "flowchart_edge_labels.json").exists() \
+    else {"per_block_edges": [{} for _ in range(11)], "master_domain_verbs": {}}
 
 def gh_anchor(heading: str) -> str:
     a = heading.strip().lower()
@@ -68,7 +71,9 @@ for c in chunks:
     diagram = mm.group(1) if mm else ""
     # body text = everything after the mermaid block (connectors / open / prose), minus "---"
     after = c[mm.end():] if mm else c[mh.end():]
-    body_lines = [ln for ln in after.splitlines() if ln.strip() and ln.strip() != "---"]
+    body_lines = [ln for ln in after.splitlines()
+                  if ln.strip() and ln.strip() != "---"
+                  and not ln.strip().startswith("**Connectors:**")]  # edges carry these now
     sections.append({"title": title, "anchor": anchor, "diagram": diagram, "body": body_lines})
 
 # map a domain section's leading number -> its anchor (for master-map node links)
@@ -77,6 +82,27 @@ for s in sections:
     mnum = re.match(r"(\d+)\.", s["title"])
     if mnum:
         num_anchor[int(mnum.group(1))] = s["anchor"]
+
+def add_edge_labels(idx, diagram):
+    """Restore connector labels onto edges (browser Mermaid handles labelled edges fine)."""
+    em = EDGE_LABELS["per_block_edges"][idx] if idx < len(EDGE_LABELS["per_block_edges"]) else {}
+    mv = EDGE_LABELS["master_domain_verbs"]
+    out = []
+    for line in diagram.splitlines():
+        m = re.match(r'^(\s*)([A-Za-z]\w*)\s*-->\s*([A-Za-z]\w*)(\["[^"]*"\])?\s*$', line)
+        if m:
+            ind, src, tgt, lbl = m.groups()
+            label = None
+            if idx == 0:
+                mn = re.match(r'D(\d+)$', tgt)
+                if mn:
+                    label = mv.get(mn.group(1))
+            else:
+                label = em.get(f"{src}>{tgt}")
+            if label:
+                line = f'{ind}{src} -->|"{label}"| {tgt}{lbl or ""}'
+        out.append(line)
+    return "\n".join(out)
 
 def add_clicks(idx, diagram):
     """Append click directives so nodes are clickable in the browser/PDF."""
@@ -121,7 +147,7 @@ for i, s in enumerate(sections):
     paras = "\n".join(f"<p>{md_links_to_html(ln)}</p>" for ln in s["body"])
     fig = ""
     if s["diagram"].strip():
-        diagram = add_clicks(i, s["diagram"])
+        diagram = add_clicks(i, add_edge_labels(i, s["diagram"]))
         fig = f'<pre class="mermaid">{html.escape(diagram)}</pre>'
     body_html.append(f"""
 <section id="{s['anchor']}">

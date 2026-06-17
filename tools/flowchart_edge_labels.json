@@ -1,0 +1,116 @@
+{
+ "per_block_edges": [
+  {
+   "S>SP": "renders",
+   "S>C": "fixes",
+   "S>F": "projects",
+   "S>A": "binds",
+   "S>G": "weighs",
+   "S>CO": "expands",
+   "S>P": "structures",
+   "S>T": "meets",
+   "S>M": "resolves",
+   "S>B": "predicts"
+  },
+  {
+   "H1>S": "domain 1",
+   "S>R": "causal order",
+   "R>D": "faithful 3-D render",
+   "S>T": "logical latency",
+   "D>SP": "synthesize",
+   "T>SP": "synthesize",
+   "S>CN": "RCA_0 floor"
+  },
+  {
+   "H2>SP": "domain 2",
+   "SP>AL": "N = 3^2",
+   "SP>WK": "spatial 3/8",
+   "SP>OL": "gauge 2/8",
+   "SP>NW": "surface ~ r^2",
+   "SP>MG": "l = 3",
+   "S2>MP": "6pi^5",
+   "AL>MPI": "2/alpha"
+  },
+  {
+   "H3>AX": "domain 3",
+   "AX>EM": "abelian",
+   "AX>WK": "non-abelian, chiral",
+   "AX>ST": "colour, confined",
+   "AL>CPL": "+ one mass = scale",
+   "EM>UNI": "projection",
+   "WK>UNI": "projection",
+   "ST>UNI": "projection"
+  },
+  {
+   "H4>AL": "domain 4",
+   "AL>RY": "1/2alpha^2m_e c^2",
+   "AL>DI": "~ alpha^2",
+   "AL>LA": "loop alpha",
+   "AL>GM": "alpha/2pi",
+   "AL>VK": "Z_0/2alpha",
+   "AL>HF": "~ alpha^4"
+  },
+  {
+   "H5>HO": "domain 5",
+   "HO>NG": "G = L_P^2c^3/hbar",
+   "NG>ME": "43''/century",
+   "HO>EE": "deltaQ = T deltaS",
+   "EE>CV": "causal order -> metric",
+   "EE>GW": "spin-2, v = c"
+  },
+  {
+   "H6>EV": "domain 6",
+   "EV>OL": "gauge 2/8",
+   "EV>IN": "high-V epoch",
+   "EV>DM": "denser logic",
+   "OL>DE": "residual w = -1",
+   "EV>AGE": "event rate",
+   "EV>NS": "freeze-out n/p"
+  },
+  {
+   "H7>TH": "domain 7",
+   "TH>GEN": "axis count",
+   "GEN>KO": "Q = 2/3",
+   "GEN>MX": "3 angles + CP",
+   "TH>NU": "self-conjugate",
+   "NU>BD": "DeltaL = 2",
+   "TH>MS": "one scale x ratios",
+   "SP>HG": "m = 1/R fold delay"
+  },
+  {
+   "H8>S": "domain 8",
+   "S>LQ": "j = 1/2 spin network",
+   "S>ST": "C(2n,n) modes",
+   "S>SU": "Q = half-spin shift",
+   "S>PL": "closure floor mu^2=1/2"
+  },
+  {
+   "H9>CC": "domain 9",
+   "CC>RH": "critical line",
+   "CC>YM": "log 2 gap quantum",
+   "CC>BS": "rank = ord",
+   "CC>HOD": "balanced => algebraic",
+   "CC>PN": "generate != verify",
+   "CC>NV": "no blow-up"
+  },
+  {
+   "H10>B": "domain 10",
+   "B>D1": "not free",
+   "B>P1": "test now",
+   "B>P2": "scale-free by construction",
+   "B>P3": "soft"
+  }
+ ],
+ "master_domain_verbs": {
+  "1": "renders",
+  "2": "fixes",
+  "3": "projects",
+  "4": "binds",
+  "5": "weighs",
+  "6": "expands",
+  "7": "structures",
+  "8": "meets",
+  "9": "resolves",
+  "10": "predicts"
+ }
+}
