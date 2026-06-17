@@ -13,7 +13,7 @@ The bright line: ✅ **derived** (machine-verified the value is *not free* but a
 
 | SM parameter(s) | QLF status | the *derivation* / prediction |
 |---|---|---|
-| **α** (EM coupling) | ✅ **derived** to 0.026% | `alpha_QLF_eq` = 1/137; `only_3d_substrate_gives_137` (2D→1/132, 4D→1/144) — α requires a **3-D** substrate |
+| **α** (EM coupling) | ✅ **derived** to 0.026%; 🔭 **+ a prediction the SM can't make** (no α drift, §3) | `alpha_QLF_eq` = 1/137 — the IR (`q²→0`) coupling of fully-rendered 3-D space; closed form `α(d)=1/(128+d²)` so `only_3d_substrate_gives_137` (2D→1/132, 4D→1/144, 5D→1/153) — α requires a **3-D** substrate. Canonical doc [`Alpha.md`](Alpha.md) |
 | **3 charged-lepton masses** | ✅ 1 relation derived; 🔵 2 inputs left | `koide_two_thirds`: `Q=2/3` follows from 3 generations ∧ 2 transverse axes ⇒ `m_τ` from `m_e,m_μ` (0.006%). Scale + Koide angle remain inputs |
 | **g₂, g₃** (weak, strong couplings) | 🔵 open | the gauge *algebras* are verified (`weak_isospin_su2`, `trace_commutator_zero`); the couplings are not derived |
 | **6 quark masses** | 🔵 open — but *category-corrected* (machine-verified) | quark masses are **non-observable** — a lone quark is not a ZFA closure (`quark_not_closed`, [`lean/QLF_QuarkMass.lean`](lean/QLF_QuarkMass.lean)), so its mass is scheme-dependent; the observable is the **hadron** closure mass and its splittings `m_n−m_p = (m_d−m_u) − EM` (the `d↔u` weak vertex). QLF *predicts* no clean quark-mass relation; the open target is the **hadron splitting spectrum** ([`Weak_Force.md`](Weak_Force.md) §5d) |
@@ -30,7 +30,7 @@ The bright line: ✅ **derived** (machine-verified the value is *not free* but a
 
 The SM cannot even *formulate* "why is α 1/137" or "why is Ω_Λ ≈ 0.69." QLF's beyond-SM theorems are not the values (anyone can fit a value) — they are the **counterfactuals proving the values follow** from substrate structure the SM leaves unexplained:
 
-- **α requires 3 spatial dimensions.** `alpha_QLF_eq : alpha_QLF = 1/137` with `alpha_QLF_2d_counterfactual` (2D → 1/132, +4%), `alpha_QLF_4d_counterfactual` (4D → 1/144, −5%), `only_3d_substrate_gives_137` ([`lean/QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean)). The fine-structure constant *and* the 3-dimensionality of space are the same fact.
+- **α requires 3 spatial dimensions.** `alpha_QLF_eq : alpha_QLF = 1/137` with the closed form `α(d)=1/(128+d²)` (`alpha_at_dim_closed_form`): `alpha_QLF_2d_counterfactual` (2D → 1/132), `alpha_QLF_4d_counterfactual` (4D → 1/144), `alpha_at_dim_five` (5D → 1/153), `only_3d_substrate_gives_137` ([`lean/QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean)). The fine-structure constant *and* the 3-dimensionality of space are the same fact — and 3-D is **over-determined**: the higher-`d` values don't merely miss α, they break stable atoms (by QLF's own `V∝1/r^(d−2)` law, Ehrenfest), the nuclear `ℓ=3` magic numbers, and the 3-axis gauge unification at once ([`Alpha.md`](Alpha.md) §4a).
 - **Koide `Q=2/3` requires 3 generations and 2 transverse axes.** `koide_two_thirds` ([`lean/QLF_Koide.lean`](lean/QLF_Koide.lean)); only `N=3 ∧ A²=2` give 2/3 ([`koide_tau_demo.py`](koide_tau_demo.py) §3b counterfactuals).
 - **Ω_Λ = log 2 requires exactly the 2 gauge axes.** `Omega_Lambda_QLF = Real.log 2` with `only_2_gauge_matches_observed_Omega_Lambda` (4-gauge → 2 log 2, 0-gauge → 0) ([`lean/QLF_CosmologicalConstant.lean`](lean/QLF_CosmologicalConstant.lean)).
 - **m_p/m_e = 6π⁵** (`mass_ratio_QLF_eq`, 0.002%), with counterfactuals tying it to 3-quark permutation symmetry.
@@ -44,11 +44,13 @@ This is the real, provable "beyond SM": **the SM's unexplained constants are der
 
 ## 3. The falsifiable new prediction — beyond-SM physics, awaiting experiment 🔭
 
-You cannot *prove* new physics; you test it. QLF makes **one sharp, clean, currently-tested** commitment:
+You cannot *prove* new physics; you test it. QLF makes **two sharp, clean, currently-testable** commitments the SM cannot.
 
-> **Neutrinos are Majorana** (`ν = ν̄`) → **neutrinoless double-beta decay** (`0νββ`).
+**(i) Neutrinos are Majorana** (`ν = ν̄`) → **neutrinoless double-beta decay** (`0νββ`).
 
 The SM is *agnostic* (Dirac vs Majorana is open); QLF **entails Majorana** and this is **machine-verified**: the antiparticle is the Hermitian conjugate (conjugate-and-reverse), and the neutrino loop `^v` is a *fixed point* of it — `neutrino_majorana` ([`lean/QLF_Majorana.lean`](lean/QLF_Majorana.lean)) — while the electron is **not** (`electron_not_majorana`, so the charged lepton is Dirac). The neutrino is the unique self-conjugate fermion (the only one with neither charge nor chiral/linked structure). So lepton number is violated and **`0νββ` (`ΔL=2`) is the signature** ([`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md) §1, [`Experimental_Consistency.md`](Experimental_Consistency.md) §10). **LEGEND, nEXO, KamLAND-Zen are searching now**; an observation confirms it, a definitive Dirac result would refute it. This is the corpus's clearest empirical commitment distinguishable from the Standard Model.
+
+**(ii) The fundamental fine-structure constant `α(0)` does not drift over cosmological time.** The SM treats `α(0)` as a *free input* that varying-constants models can promote to a slowly-drifting scalar field (dilaton-style) — it is *agnostic*. QLF **forbids** it: α is a function of the rendering dimension alone, `α(d)=1/(128+d²)` (`alpha_at_dim_closed_form`) — **no time argument** — so `α(0)=1/137` is an atemporal structural fact (`no_cosmological_drift_of_alpha`, [`lean/QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean); [`Alpha.md`](Alpha.md) §5). A confirmed cosmological drift of `α(0)` would **falsify the QLF substrate** — it cannot be absorbed by it, unlike in the SM. **Quasar-absorption spectroscopy and atomic-clock comparisons are testing `Δα/α` now**; the mainstream null result is the prediction (the SM-side "running of the *effective* α with energy" is a separate, real effect — [`Alpha.md`](Alpha.md) §4 — not a drift of the fundamental value). A second clean, distinguishable, Lean-anchored commitment.
 
 Softer, also beyond-SM but less sharp:
 - **Dark matter is not a particle** — emergent vacuum time-folding ([`DarkMatter.md`](DarkMatter.md)); prediction: no DM particle is found (consistent with decades of null WIMP searches).
@@ -113,7 +115,7 @@ is the continuum/choice boundary of the Millennium program, and that is **ZFC's*
 |---|---|---|
 | SM parameters QLF **derives** (machine-verified) | 1 coupling (α) + 1 lepton-mass relation (Koide) + `θ̄=0` (strong-CP, no axion) | retrodiction, but the *derivation* is proved |
 | Beyond-SM/GR quantities derived | Ω_Λ, Λ, Mercury perihelion, m_p/m_e | retrodiction; several Lean-anchored |
-| Falsifiable **new** predictions | 1 sharp (Majorana / 0νββ, `neutrino_majorana` Lean-anchored) + 2 soft (dark matter, sterile ν) | untested; physics, not proof |
+| Falsifiable **new** predictions | 2 sharp (Majorana / 0νββ, `neutrino_majorana`; **no cosmological drift of α(0)**, `no_cosmological_drift_of_alpha` — both Lean-anchored) + 2 soft (dark matter, sterile ν) | untested; physics, not proof |
 | SM parameters left **open** | the large majority (quarks, CKM, couplings, Higgs numbers, ν masses) | 🔵 |
 
 **Bottom line.** Two senses of "theory of everything" must be kept apart — but they are **not** in
@@ -148,4 +150,5 @@ So the precise status is **a TOE-scope ontology with a partial, principled-not-f
 - [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md), [`DarkMatter.md`](DarkMatter.md) — the new-physics predictions.
 - [`Cosmological_Constant.md`](Cosmological_Constant.md) — `Ω_Λ = log 2`, the vacuum catastrophe.
 - [`CP-Violation-and-Chirality.md`](CP-Violation-and-Chirality.md) §4a–4b — strong-CP `θ̄=0` without an axion, and the Sakharov baryogenesis conditions.
-- Lean anchors: `alpha_QLF_eq`, `koide_two_thirds`, `Omega_Lambda_QLF`, `mass_ratio_QLF_eq`, `mercury_perihelion_substrate_summary`, `weak_isospin_su2`, `trace_commutator_zero`, `neutrino_majorana`, `theta_zero_on_closure`.
+- [`Alpha.md`](Alpha.md) — the canonical α doc: first-principles derivation, the IR / 3-D-rendered scale, the dimension-flow running, the no-cosmological-drift prediction, and the 4D/5D over-determination.
+- Lean anchors: `alpha_QLF_eq`, `alpha_at_dim_closed_form`, `no_cosmological_drift_of_alpha`, `koide_two_thirds`, `Omega_Lambda_QLF`, `mass_ratio_QLF_eq`, `mercury_perihelion_substrate_summary`, `weak_isospin_su2`, `trace_commutator_zero`, `neutrino_majorana`, `theta_zero_on_closure`.
