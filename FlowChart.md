@@ -14,13 +14,13 @@ The taxonomy: **one substrate → ten domains → the individual results.**
 ```mermaid
 flowchart TD
   S["⬡ The QLF Substrate<br/>8-twist alphabet · ZFA closure · synthesized spacetime"]
-  S -->|"renders"| SP["① Space, time & the continuum"]
+  S -->|"renders"| SP["① Space, time and the continuum"]
   S -->|"fixes"| C["② The fundamental constants"]
   S -->|"projects"| F["③ Forces"]
-  S -->|"binds"| A["④ Atoms & QED"]
-  S -->|"weighs"| G["⑤ Gravity & GR"]
-  S -->|"expands"| CO["⑥ Cosmology & the dark sector"]
-  S -->|"structures"| P["⑦ Particles & the Standard Model"]
+  S -->|"binds"| A["④ Atoms and QED"]
+  S -->|"weighs"| G["⑤ Gravity and GR"]
+  S -->|"expands"| CO["⑥ Cosmology and the dark sector"]
+  S -->|"structures"| P["⑦ Particles and the Standard Model"]
   S -->|"meets"| T["⑧ Quantum-gravity / TOE pillars"]
   S -->|"resolves"| M["⑨ The Millennium Prize program"]
   S -->|"predicts"| B["⑩ Beyond the SM"]
