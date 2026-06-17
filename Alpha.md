@@ -294,7 +294,7 @@ rational arithmetic (`norm_num`), no axioms beyond Lean/Mathlib.
 
 - **Derived (first-principles, zero free parameters, Lean-verified):** the IR / fully-rendered-3-D value
   `α(0) = 1/137` (0.026% vs CODATA).
-- **Structural (new connection, *direction* only):** the QED running ≈ effective-dimension flow `3→2`
+- **Structural (*direction* only):** the QED running ≈ effective-dimension flow `3→2`
   toward the UV (`QLF_CausalDimension` + the `1/132` counterfactual); not the running *magnitude*.
 - **Open (named):** the β-coefficients / matter vacuum polarization setting the running magnitude
   (`running_couplings_structural`); the residual 0.026% at the Schwinger scale `α/2π`; the cross-pathway

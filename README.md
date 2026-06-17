@@ -15,7 +15,7 @@ The **Quantum Logical Framework (QLF)** is a new, constructive **foundation for 
 
 In one line: **the universe is logical, its logic is constructive and complete-for-physics, and we build it from the bottom up — then check it in Lean.**
 
-> **New here? Start with the [visual flow chart →](FlowChart.md)** — the whole framework as linked diagrams (one substrate → ten domains → the individual results), every box clickable.
+> **Start here: the [visual flow chart →](FlowChart.md)** — the whole framework as linked diagrams (one substrate → ten domains → the individual results), every box clickable.
 
 ---
 
@@ -161,7 +161,7 @@ QLF is the mathematics that has **active inference built into its foundation**. 
 ### 3. Physics and experiments
 - [**Experimental_Consistency.md**](Experimental_Consistency.md) — numerical and conceptual links between QLF and known physics
 - [**Open_Problems.md**](Open_Problems.md) — gap registry: what is closed, what is a principled boundary, and what is genuinely open, with a pointer to each item's owning doc
-- [**Beyond_Standard_Model.md**](Beyond_Standard_Model.md) — honest accounting of where QLF goes past the SM: which free parameters it *fixes by construction* (machine-verified), the one falsifiable new prediction (Majorana neutrino / 0νββ, `neutrino_majorana` Lean-anchored), and what it leaves open — with a bright derived/predicted/open line
+- [**Beyond_Standard_Model.md**](Beyond_Standard_Model.md) — honest accounting of where QLF goes past the SM: which free parameters it *fixes by construction* (machine-verified), its falsifiable predictions (Majorana / 0νββ and no α(0) drift, both Lean-anchored), and what it leaves open — with a bright derived/predicted/open line
 - [**QRNG_Closure_Observatory.md**](QRNG_Closure_Observatory.md) — a disciplined, falsifiable protocol using ZFA closure as a predeclared sieve (with an analytic null) over quantum-RNG entropy; rigorously separates the testable core from esoteric overclaims
 - [**Weak_Force.md**](Weak_Force.md) — the weak sector consolidated: W/Z as gauge-fold closures, the machine-verified weak-isospin SU(2)⊂Σ₈ identification, beta decay, and the τ-decay-vertex blocker (Koide `Q=2/3` derived; `m_τ` predicted to 0.006%)
 - [**Forces_From_Three_Axes.md**](Forces_From_Three_Axes.md) — structural conjecture: the Standard-Model gauge group `U(1)×SU(2)×SU(3)` (dim 12 = 1+3+8 = the `N=9` α tensor + the verified weak `su(2)`) as the symmetry of QLF's three spatial axes — "all forces from one gauge-twist mechanism, different projections" (honestly tiered: a dimension alignment, not a derivation)

@@ -3,7 +3,7 @@
 **The honest accounting of where QLF goes past the Standard Model — and where it doesn't.** Companion to [`Open_Problems.md`](Open_Problems.md). The Standard Model is the most precise theory in science, but it has **~19 free parameters** (≈26 once the neutrino sector is included) and **explains none of them** — α, the fermion masses, the mixing angles are measured and plugged in. "Beyond the SM" therefore means two different things, and QLF does genuinely different things in each:
 
 - **(A) Explaining the SM's inputs** — deriving what the SM takes as given. This is *math*, and several pieces are **machine-verified**. It is retrodiction (matching known numbers), not prophecy.
-- **(B) New falsifiable physics** — predictions that differ from, or go past, the SM and await experiment. These **cannot be proved** (physics is empirical); they get tested.
+- **(B) Beyond-SM physics** — predictions that differ from, or go past, the SM and await experiment. These **cannot be proved** (physics is empirical); they get tested.
 
 The bright line: ✅ **derived** (machine-verified the value is *not free* but a consequence of substrate structure) · 🔭 **predicted** (falsifiable, untested) · 🔵 **open**.
 
@@ -42,9 +42,9 @@ This is the real, provable "beyond SM": **the SM's unexplained constants are der
 
 ---
 
-## 3. The falsifiable new prediction — beyond-SM physics, awaiting experiment 🔭
+## 3. The falsifiable predictions — beyond-SM physics, awaiting experiment 🔭
 
-You cannot *prove* new physics; you test it. QLF makes **two sharp, clean, currently-testable** commitments the SM cannot.
+You cannot *prove* beyond-SM physics; you test it. QLF makes **two sharp, clean, currently-testable** commitments the SM cannot.
 
 **(i) Neutrinos are Majorana** (`ν = ν̄`) → **neutrinoless double-beta decay** (`0νββ`).
 
@@ -104,7 +104,7 @@ is the continuum/choice boundary of the Millennium program, and that is **ZFC's*
 - It does **not** derive most of the SM's *values*: the quark-mass values, the CKM/PMNS angles, the weak/strong coupling values, and the Higgs mass and VEV are all 🔵 open (§1) — the **Yukawa value sector**. The *mechanisms*, however, are machine-anchored: the gauge force as holonomy (`QLF_GaugeHolonomy`), confinement (`QLF_Confinement`), mass = gauge-fold delay + custodial `ρ=1` (`QLF_HiggsMechanism`), mixing unitarity (`QLF_CKM`/`QLF_PMNS`), and the Majorana neutrino mass (`QLF_NeutrinoMass`). (`θ_QCD` is ✅ derived as 0 without an axion.)
 - The lepton sector is **constrained, not closed**: `Q=2/3` is derived, but the scale and the Koide angle are inputs ([`Weak_Force.md`](Weak_Force.md) §5c — `2/9` is a flagged coincidence, not a derivation).
 - α matches at **0.026%**, not exactly — the residual (Schwinger-scale) is open.
-- The new-physics predictions (§3) **cannot be proved** by theory alone — the Majorana / `0νββ` prediction (though `neutrino_majorana` is machine-verified given the `^v` assignment) awaits an experimental `0νββ` observation; dark-matter-as-vacuum is qualitative.
+- The beyond-SM predictions (§3) **cannot be proved** by theory alone — the Majorana / `0νββ` prediction (though `neutrino_majorana` is machine-verified given the `^v` assignment) awaits an experimental `0νββ` observation; dark-matter-as-vacuum is qualitative.
 - The Riemann-hypothesis link is an **axiom** (`spectral_hilbert_polya`), not a proof.
 
 ---
@@ -115,7 +115,7 @@ is the continuum/choice boundary of the Millennium program, and that is **ZFC's*
 |---|---|---|
 | SM parameters QLF **derives** (machine-verified) | 1 coupling (α) + 1 lepton-mass relation (Koide) + `θ̄=0` (strong-CP, no axion) | retrodiction, but the *derivation* is proved |
 | Beyond-SM/GR quantities derived | Ω_Λ, Λ, Mercury perihelion, m_p/m_e | retrodiction; several Lean-anchored |
-| Falsifiable **new** predictions | 2 sharp (Majorana / 0νββ, `neutrino_majorana`; **no cosmological drift of α(0)**, `no_cosmological_drift_of_alpha` — both Lean-anchored) + 2 soft (dark matter, sterile ν) | untested; physics, not proof |
+| Falsifiable predictions | 2 sharp (Majorana / 0νββ, `neutrino_majorana`; **no cosmological drift of α(0)**, `no_cosmological_drift_of_alpha` — both Lean-anchored) + 2 soft (dark matter, sterile ν) | untested; physics, not proof |
 | SM parameters left **open** | the large majority (quarks, CKM, couplings, Higgs numbers, ν masses) | 🔵 |
 
 **Bottom line.** Two senses of "theory of everything" must be kept apart — but they are **not** in
@@ -137,7 +137,7 @@ tension, because one is about *what reality is* and the other about *how far we 
   we have computed*, not *whether the substrate is the right one*. (The sole genuine *external* limit
   is the continuum/choice boundary of the Millennium program — **ZFC's** proven defect, not QLF's.)
 
-So the precise status is **a TOE-scope ontology with a partial, principled-not-fitted derivation attached** — strictly more than reproducing the SM (which derives *zero* of its parameters), strictly less than deriving it. Calling it a *finished* TOE would be the overclaim; calling it *only* an SM-fit would miss the ontological scope. The line to never blur is the second sense: the open parameters in §1 are open. The one clean falsifiable *new* prediction is Majorana neutrinos / `0νββ` (§3).
+So the precise status is **a TOE-scope ontology with a partial, principled-not-fitted derivation attached** — strictly more than reproducing the SM (which derives *zero* of its parameters), strictly less than deriving it. Calling it a *finished* TOE would be the overclaim; calling it *only* an SM-fit would miss the ontological scope. The line to never blur is the second sense: the open parameters in §1 are open. The clean falsifiable predictions are Majorana / `0νββ` and no `α(0)` drift (§3).
 
 ---
 
@@ -147,7 +147,7 @@ So the precise status is **a TOE-scope ontology with a partial, principled-not-f
 - [`Experimental_Consistency.md`](Experimental_Consistency.md) §10 — the falsifiability section; the Majorana / `0νββ` commitment.
 - [`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md) — the three machine-verified gauge algebras.
 - [`Weak_Force.md`](Weak_Force.md) §5 — Koide `Q=2/3`, `m_τ`, the Koide angle.
-- [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md), [`DarkMatter.md`](DarkMatter.md) — the new-physics predictions.
+- [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md), [`DarkMatter.md`](DarkMatter.md) — the beyond-SM predictions.
 - [`Cosmological_Constant.md`](Cosmological_Constant.md) — `Ω_Λ = log 2`, the vacuum catastrophe.
 - [`CP-Violation-and-Chirality.md`](CP-Violation-and-Chirality.md) §4a–4b — strong-CP `θ̄=0` without an axion, and the Sakharov baryogenesis conditions.
 - [`Alpha.md`](Alpha.md) — the canonical α doc: first-principles derivation, the IR / 3-D-rendered scale, the dimension-flow running, the no-cosmological-drift prediction, and the 4D/5D over-determination.
