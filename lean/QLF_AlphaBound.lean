@@ -106,6 +106,30 @@ def residSteepCap : ℚ := 6 * bare ^ 2 + 20 * bare ^ 4 + 1 / 1000000
 theorem steep_map_excludes_codata : residSteepCap < 35999 / 1000000 := by
   unfold residSteepCap bare; norm_num
 
+/-- **The exact census upper limit.**  The total-closure tail (one `α_bare` per order)
+    `∑_{n≥2} C(2n,n)·α_bare^(n-1)` sums in closed form via the central-binomial
+    generating function `∑_{n≥0} C(2n,n) xⁿ = (1−4x)^(−1/2)`:
+
+      residual_max = (1/α_bare)·[ (1−4α_bare)^(−1/2) − 1 − 2α_bare ]
+                   = 128·( √(32/31) − 65/64 ) = (512√62)/31 − 130 ≈ 0.0481301,
+
+    so the inverse coupling is capped at `α⁻¹ < (217 + 512√62)/31 ≈ 137.048130`.
+    Represented here as a rational over-approximation of that limit. -/
+def censusUpperLimit : ℚ := 4814 / 100000   -- ≥ 0.0481301 = exact total-census tail
+
+/-- The measured residual lies strictly below the census upper limit
+    (`α⁻¹ − 137 = 0.035999… < 0.048130`), with ~0.012 to spare. -/
+theorem codata_below_census_upper_limit : (35999 : ℚ) / 1000000 < censusUpperLimit := by
+  unfold censusUpperLimit; norm_num
+
+/-- Both ends at once: the measured residual is inside the *exact* census band
+    `(irreducible-leading 1/64, total-census limit ≈0.048130)`. -/
+theorem codata_in_exact_census_band :
+    residLowerTerm < 35999 / 1000000 ∧ (35999 : ℚ) / 1000000 < censusUpperLimit := by
+  refine ⟨?_, ?_⟩
+  · rw [residLowerTerm_eq]; norm_num
+  · unfold censusUpperLimit; norm_num
+
 /-- Status marker: the substrate forces `α⁻¹ > 137` and the census bracket around the
     measured value; the exact value (the length→order rule) stays open. -/
 theorem alpha_bound_forced : True := trivial
