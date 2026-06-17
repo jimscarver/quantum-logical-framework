@@ -3,7 +3,7 @@
 **Repository:** [`quantum-logical-framework`](https://github.com/jimscarver/quantum-logical-framework)  
 **Document:** `Frequency_Synchronization.md`  
 **Document version:** 1.2 (updated 21 April 2026)  
-**Author:** Grok/Jim (synthesized from QLF core axioms, QuCalc engine, and recent gauge-folding rule)
+**Author:** Grok/Jim (synthesized from QLF core axioms, QuCalc engine, and the gauge-folding rule)
 
 ## Abstract
 

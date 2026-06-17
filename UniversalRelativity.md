@@ -63,7 +63,7 @@ In this framework the universe is **possibilist**: all admissible logical histor
 
 Einstein assumed a constant local speed of light and the equivalence principle. Universal Relativity **derives** local `c` and Lorentz invariance from ZFA closure — the uniform-ether mechanism of [`Time.md`](Time.md) §4 / [`SpaceTime.md`](SpaceTime.md) §4 (see §3) — and grounds the equivalence principle in the same dilation mechanism. The program is computable and singularity-free by construction.
 
-The recent `AgeOfUniverse.md` update extends this idea to cosmology. The cosmic age of approximately **13.8 billion years** is interpreted not as the age of possibility itself, nor as proof of an absolute beginning, nor as a free empirical input, but as a **derived count of Planck ticks** — the effective proper time accumulated along the realized ZFA event history of our observable universe (`ℏ` fixes the tick, the substrate fixes the count; §5).
+The `AgeOfUniverse.md` update extends this idea to cosmology. The cosmic age of approximately **13.8 billion years** is interpreted not as the age of possibility itself, nor as proof of an absolute beginning, nor as a free empirical input, but as a **derived count of Planck ticks** — the effective proper time accumulated along the realized ZFA event history of our observable universe (`ℏ` fixes the tick, the substrate fixes the count; §5).
 
 ## 1. Possibilist Ontology
 
@@ -250,7 +250,7 @@ continuum field equations — are the named open rungs ([`Forces_From_Three_Axes
 
 ## 5. Age of the Universe as Event-Synthesis Time
 
-The recent repository update [`AgeOfUniverse.md`](AgeOfUniverse.md) adds a QLF treatment of cosmic age:
+The [`AgeOfUniverse.md`](AgeOfUniverse.md) update adds a QLF treatment of cosmic age:
 
 ```text
 universe_age = "~13.8 Gyr effective cosmic age from ZFA event-synthesis history"
