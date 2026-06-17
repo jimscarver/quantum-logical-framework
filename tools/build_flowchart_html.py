@@ -12,10 +12,13 @@ import re, html, json, pathlib
 
 REPO = "https://github.com/jimscarver/quantum-logical-framework/blob/main"
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-MD = ROOT / "FlowChart.md"
-OUT = ROOT / "FlowChart.html"
-CLICKMAPS = json.loads((pathlib.Path("/tmp/clickmaps.json")).read_text()) \
-    if pathlib.Path("/tmp/clickmaps.json").exists() else [{} for _ in range(11)]
+MD = ROOT / "tools" / "flowchart_source.md"   # full Mermaid source (build input)
+OUT = ROOT / "FlowChart.html"                 # rendered, clickable, print-to-PDF
+INDEX = ROOT / "FlowChart.md"                 # GitHub-rendering text index (no Mermaid)
+_cm = ROOT / "tools" / "flowchart_clickmaps.json"
+CLICKMAPS = json.loads(_cm.read_text()) if _cm.exists() \
+    else (json.loads(pathlib.Path("/tmp/clickmaps.json").read_text())
+          if pathlib.Path("/tmp/clickmaps.json").exists() else [{} for _ in range(11)])
 EDGE_LABELS = json.loads((ROOT / "tools" / "flowchart_edge_labels.json").read_text()) \
     if (ROOT / "tools" / "flowchart_edge_labels.json").exists() \
     else {"per_block_edges": [{} for _ in range(11)], "master_domain_verbs": {}}
@@ -202,3 +205,18 @@ doc = f"""<!DOCTYPE html>
 
 OUT.write_text(doc)
 print(f"wrote {OUT} ({len(doc)} bytes), {len(sections)} sections")
+
+# ---- also emit FlowChart.md: a GitHub-rendering text index (Mermaid stripped) ----
+src = MD.read_text()
+idx = re.sub(r"\n?```mermaid\n.*?```\n", "\n", src, flags=re.S)  # drop diagrams
+banner = (
+    "> **The diagrams don't render reliably on GitHub** (a known GitHub Mermaid/dark-theme issue), "
+    "so this page is the text index. For the **rendered, clickable diagrams** and a **printable PDF** "
+    "(with internal + external links), open [`FlowChart.html`](FlowChart.html) in a browser — view it "
+    "live via [raw.githack.com](https://raw.githack.com/jimscarver/quantum-logical-framework/main/FlowChart.html), "
+    "or clone/pull and open the local file. Regenerate with `python3 tools/build_flowchart_html.py`.\n"
+)
+# insert the banner right after the leading block-quote intro (before the first '---'/'## ')
+idx = re.sub(r"\n---\n", "\n\n" + banner + "\n---\n", idx, count=1)
+INDEX.write_text(idx)
+print(f"wrote {INDEX} ({len(idx)} bytes)")
