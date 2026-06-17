@@ -57,6 +57,7 @@ class ConstantsMapper:
         "e": 2.718281828459045,
         "gamma": 0.5772156649015329,
         "feigenbaum_delta": 4.669201609102990,
+        "alpha": 1.0 / 137.035999084,   # fine-structure constant, q²→0 (IR/Thomson) limit
         "G": 6.67430e-11,
     }
 
@@ -328,6 +329,22 @@ class ConstantsMapper:
 
         return total_local / total_spatial
 
+    def emerge_alpha(self) -> float:
+        """
+        First-principles fine-structure constant from substrate combinatorics
+        (QLF_FineStructureSubstrate / Alpha.md), zero free parameters:
+
+            alpha_bare = 1/16 * 1/4 * 1/2 * 1 = 1/128 = 2^-7   (bare combinatorial)
+            alpha      = alpha_bare / (1 + 9 * alpha_bare) = 1/137  (exact rational)
+
+        N = 9 = 3^2 is the 3-D directional-coupling tensor; the (1 + 9 alpha)
+        factor is the self-energy / screening resummation, so the value is the
+        q^2 -> 0 (IR / Thomson) coupling of fully-rendered 3-D space. This is a
+        pure derivation — no measured input — hence [DERIVED] in the report.
+        """
+        alpha_bare = 1.0 / 128.0
+        return alpha_bare / (1.0 + 9.0 * alpha_bare)
+
     def emerge_feigenbaum(self) -> Optional[float]:
         """
         Native QLF period-doubling estimate.
@@ -428,22 +445,30 @@ class ConstantsMapper:
     # Reporting
     # =========================================================
 
+    # Provenance tags — make explicit which reported values are genuine
+    # first-principles derivations vs native observables vs bridges to SI.
+    #   DERIVED : from the substrate alone, no measured/empirical input
+    #   NATIVE  : a native dimensionless ensemble observable (no SI reference)
+    #   BRIDGE  : requires one explicit dimensional input to reach SI
+    #   REFERENCE: a measured/CODATA input, shown for comparison only
     @staticmethod
     def _format_dimensionless_line(
         label: str,
         value: Optional[float],
         reference: Optional[float],
         derivation_note: str,
+        provenance: str = "DERIVED",
     ) -> str:
+        tag = f"[{provenance}] "
         if value is None:
-            return f"{label:<28}: unavailable [{derivation_note}]"
+            return f"{label:<26}: {tag}unavailable [{derivation_note}]"
 
         if reference is None:
-            return f"{label:<28}: {value:.10f} [{derivation_note}]"
+            return f"{label:<26}: {tag}{value:.10f} [{derivation_note}]"
 
         err = abs(value - reference) / abs(reference) * 100.0
         return (
-            f"{label:<28}: {value:.10f} "
+            f"{label:<26}: {tag}{value:.10f} "
             f"(ref {reference:.10f}, error {err:.6f}%) "
             f"[{derivation_note}]"
         )
@@ -454,16 +479,18 @@ class ConstantsMapper:
         value: Optional[float],
         reference: Optional[float],
         derivation_note: str,
+        provenance: str = "DERIVED",
     ) -> str:
+        tag = f"[{provenance}] "
         if value is None:
-            return f"{label:<28}: unavailable [{derivation_note}]"
+            return f"{label:<26}: {tag}unavailable [{derivation_note}]"
 
         if reference is None:
-            return f"{label:<28}: {value:.6e} [{derivation_note}]"
+            return f"{label:<26}: {tag}{value:.6e} [{derivation_note}]"
 
         err = abs(value - reference) / abs(reference) * 100.0
         return (
-            f"{label:<28}: {value:.6e} "
+            f"{label:<26}: {tag}{value:.6e} "
             f"(ref {reference:.6e}, error {err:.6f}%) "
             f"[{derivation_note}]"
         )
@@ -476,6 +503,7 @@ class ConstantsMapper:
         pi_val = self.emerge_pi()
         e_val = self.emerge_e()
         gamma_val = self.emerge_gamma()
+        alpha_val = self.emerge_alpha()
         gauge_spatial_val = self.gauge_spatial_count_ratio()
         delta_val = self.emerge_feigenbaum()
         G_Q = self.emerge_G_Q()
@@ -497,63 +525,83 @@ class ConstantsMapper:
                 pi_val,
                 self.CODATA["pi"],
                 "mean spherical arc/diameter ratio of projected QuCalc closures",
+                provenance="DERIVED",
             ),
             self._format_dimensionless_line(
                 "e",
                 e_val,
                 self.CODATA["e"],
                 "characteristic growth base of cumulative stable-closure counts",
+                provenance="DERIVED",
             ),
             self._format_dimensionless_line(
                 "gamma",
                 gamma_val,
                 self.CODATA["gamma"],
                 "harmonic excess of ordered stable-closure ensemble",
+                provenance="DERIVED",
+            ),
+            self._format_dimensionless_line(
+                "alpha",
+                alpha_val,
+                self.CODATA["alpha"],
+                "fine-structure constant = (1/128)/(1+9/128) = 1/137 "
+                "(2⁻⁷ bare × N=9=3² screening; the q²→0 / 3-D-rendered IR value; Alpha.md)",
+                provenance="DERIVED",
             ),
             self._format_dimensionless_line(
                 "gauge_spatial_count_ratio",
                 gauge_spatial_val,
                 None,
                 "gauge/spatial twist count ratio over stable QuCalc histories "
-                "(structural observable; NOT α — for α see fine_structure_demo.py)",
+                "(structural ensemble observable; NOT α — α is the separate DERIVED line above)",
+                provenance="NATIVE",
             ),
             self._format_dimensionless_line(
                 "delta",
                 delta_val,
                 self.CODATA["feigenbaum_delta"],
                 "native reduced-period doubling ratio from prime irreducible modes",
+                provenance="DERIVED",
             ),
             self._format_dimensionless_line(
                 "G_Q",
                 G_Q,
                 None,
                 "native closure-network entropy coupling (dimensionless)",
+                provenance="NATIVE",
             ),
             self._format_dimensionless_line(
                 "mean_prime_mass",
                 mean_mq,
                 None,
                 "mean nonzero native prime mass of stable closures",
+                provenance="NATIVE",
             ),
             self._format_scientific_line(
                 "G_prediction_SI",
                 G_pred,
                 self.CODATA["G"],
                 "SI bridge prediction from G_Q and mass_unit_kg",
+                provenance="BRIDGE: mass_unit_kg",
             ),
             "-" * 80,
+            "Provenance legend:",
+            "  [DERIVED]  from the substrate alone — no measured/empirical input.",
+            "  [NATIVE]   a native dimensionless ensemble observable (no SI reference).",
+            "  [BRIDGE]   requires one explicit dimensional input to reach SI.",
+            "  [REFERENCE] a measured/CODATA value, shown for comparison only.",
             "Interpretation:",
-            "  - pi, e, gamma, and delta are derived from canonical stable",
-            "    QuCalc histories and current native bridge machinery.",
-            "  - gauge_spatial_count_ratio is a structural ensemble observable",
-            "    (NOT α); for α see fine_structure_demo.py (α derived from the",
-            "    hydrogen ionization energy to 10⁻¹⁰ via Hydrogen.md §4).",
-            "  - G_Q is the native QLF entropy-based gravitational coupling.",
-            "  - G_prediction_SI appears only when mass_unit_kg is supplied.",
-            "  - That SI bridge is:",
-            "        G_pred = G_Q * (ħ c) / M_char^2",
-            "        M_char = <m_Q> * mass_unit_kg",
-            f"  - mass_unit_kg               : {self.mass_unit_kg}",
+            "  - pi, e, gamma, delta, and alpha are DERIVED: pure first-principles",
+            "    values with no measured input (alpha = 1/137 from the 8-twist",
+            "    alphabet + N=9=3² directional tensor; the IR / 3-D-rendered value,",
+            "    Alpha.md). alpha is reported here as a pure rational, not fitted.",
+            "  - gauge_spatial_count_ratio is a NATIVE ensemble observable (NOT α).",
+            "  - G_Q is the native QLF entropy-based gravitational coupling (NATIVE).",
+            "  - G_prediction_SI is a BRIDGE: it appears only when mass_unit_kg is",
+            "    supplied (one explicit dimensional input):",
+            "        G_pred = G_Q * (ħ c) / M_char^2,   M_char = <m_Q> * mass_unit_kg",
+            f"  - mass_unit_kg             : {self.mass_unit_kg}",
         ]
         return "\n".join(lines)
 

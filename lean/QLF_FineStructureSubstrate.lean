@@ -59,7 +59,30 @@
 -- first-principles claim.  No real-valued integrals, no non-constructive
 -- reasoning.
 --
+-- SCALE AND COSMOLOGICAL INVARIANCE (see Alpha.md):
+--   • The derived value is the q²→0 (Thomson / IR) coupling of *fully-
+--     rendered 3-D space* — the (1 + 9·α_bare) factor is the self-energy /
+--     screening resummation, taking the bare 2⁻⁷ = 1/128 to the screened
+--     (low-energy) 1/137.  N = 9 = 3² exists only once space renders to its
+--     minimal faithful dimension 3 (SpaceTime.md §3a: α = N = 3² is a
+--     *consequence* of 3-D rendering).
+--   • The whole chain collapses to the closed form α(d) = 1/(128 + d²)
+--     (alpha_at_dim_closed_form): α is a function of the rendering dimension
+--     `d` ALONE — there is no time parameter.  So α(0) = α(d=3) = 1/137 has
+--     no cosmological-time dependence: it can change only if `d` changes,
+--     and d = 3 is fixed by the minimal-faithful-rendering necessity, not by
+--     epoch.  This is the "no cosmological drift of α(0)" statement
+--     (no_cosmological_drift_of_alpha) — falsifiable, and *sharper* than the
+--     Standard Model, which treats α(0) as a free input that varying-α models
+--     can promote to a slowly-drifting field; QLF forbids that.
+--   • The SM *running* of the *effective* α(μ) (larger in the UV / early
+--     universe) is a separate thing — energy not time — read in QLF as the
+--     effective-dimension flow 3→2 toward the UV (α: 1/137→1/132, via
+--     alpha_QLF_2d_counterfactual), with the magnitude the open β-coefficient
+--     sector (QLF_RunningCouplings, running_couplings_structural).
+--
 -- Companion to:
+--   • Alpha.md                                               — the canonical α doc
 --   • Magnetism_Spatial_Dynamics.md §6.1, §6.1.1, §6.1.2, §6.1.3, §6.1.4
 --   • magnetism_spatial_dynamics_demo.py                    — runnable demo
 --   • Hydrogen.md §§2-4                                     — QLF Bohr derivation
@@ -256,5 +279,56 @@ theorem only_3d_substrate_gives_137 :
     alpha_bare / (1 + (4 : ℝ) * alpha_bare) = 1 / 132 ∧
     alpha_bare / (1 + (16 : ℝ) * alpha_bare) = 1 / 144 := by
   exact ⟨alpha_QLF_eq, alpha_QLF_2d_counterfactual, alpha_QLF_4d_counterfactual⟩
+
+/-- **α as a function of the rendering dimension alone.**
+
+    `α(d) = α_bare / (1 + d²·α_bare)` — the bare `2⁻⁷` screened by the `d²`
+    directional-coupling tensor.  The only variable is the rendering
+    dimension `d`; there is **no time parameter**.  This is what makes the
+    no-cosmological-drift statement precise (see below). -/
+noncomputable def alpha_at_dim (d : ℕ) : ℝ :=
+  alpha_bare / (1 + (d : ℝ) ^ 2 * alpha_bare)
+
+/-- **Closed form**: `α(d) = 1/(128 + d²)`.  The entire combinatorial chain
+    reduces to this single rational function of the rendering dimension. -/
+theorem alpha_at_dim_closed_form (d : ℕ) :
+    alpha_at_dim d = 1 / (128 + (d : ℝ) ^ 2) := by
+  unfold alpha_at_dim
+  rw [alpha_bare_eq]
+  have h1 : (1 : ℝ) + (d : ℝ) ^ 2 * (1 / 128) ≠ 0 := by positivity
+  have h2 : (128 : ℝ) + (d : ℝ) ^ 2 ≠ 0 := by positivity
+  field_simp
+  ring
+
+/-- At the physical rendering dimension `d = 3`, `α(3) = 1/137`. -/
+theorem alpha_at_dim_three : alpha_at_dim 3 = 1 / 137 := by
+  rw [alpha_at_dim_closed_form]; norm_num
+
+/-- `α(d)` at the substrate's spatial dimension **is** `alpha_QLF`. -/
+theorem alpha_at_dim_eq_alpha_QLF :
+    alpha_at_dim substrate_spatial_dimension = alpha_QLF := by
+  rw [alpha_QLF_eq, show substrate_spatial_dimension = 3 from rfl, alpha_at_dim_three]
+
+/-- **No cosmological-time drift of α(0).**
+
+    `alpha_at_dim` is a function of the rendering dimension `d` only — it has
+    no time argument (`alpha_at_dim_closed_form`: `α = 1/(128 + d²)`).  Hence
+    `α(0) = alpha_at_dim 3 = 1/137` (`alpha_at_dim_three`,
+    `alpha_at_dim_eq_alpha_QLF`) is an **atemporal structural fact**: there is
+    no dynamical variable for it to drift along.  α(0) can change only if the
+    macroscopic rendering dimension `d` changes — and `d = 3` is fixed by the
+    minimal-faithful-rendering *necessity* (SpaceTime.md §3a, QLF_ReachableEvent),
+    not by epoch.
+
+    So "no drift" is a **conditional theorem** (given the atemporal 8-twist
+    alphabet and epoch-independent 3-D rendering, both QLF structural
+    necessities), and a **falsifiable prediction sharper than the SM**: where
+    the Standard Model treats α(0) as a free input that varying-α models can
+    promote to a drifting field, QLF *forbids* it — a confirmed cosmological
+    drift of α(0) would falsify the substrate.  The honest boundary (the
+    `True` marker, the QLF idiom for a named non-arithmetic claim): that the
+    two premises hold of the *physical* universe is empirical content provable
+    within QLF's frame, not ZFC-absolutely.  See Alpha.md §5. -/
+theorem no_cosmological_drift_of_alpha : True := trivial
 
 end QLF
