@@ -2,7 +2,7 @@
 
 **Scoping doc — three substrate origins for the Dirac correction.** The QLF Bohr derivation in [`Hydrogen.md`](Hydrogen.md) §§2–4 reproduces the hydrogen spectrum `E_n = −Ry/n²` to **0.053% relative error** vs NIST. The residual is precisely the Dirac correction — relativistic kinematics + single-electron spin-orbit + Darwin contact term. Each of the three pieces emerges from QLF substrate machinery that already exists; this doc composes them.
 
-**Foundational footprint: h and m_e alone.** The two QLF axioms — **ZFA** (zero free action: count balance + Pauli closure) and **h** (Planck's constant) — are the structural assumptions; the single empirical input that pins natural-units scale is the electron mass **m_e**. Everything else is QLF-derived, *not* measured:
+**Foundational footprint: h and m_e alone.** The two QLF axioms — **ZFA** (zero free action: count balance + Pauli closure) and **h** (Planck's constant) — are the structural assumptions; the single empirical input that pins natural-units scale is the electron mass **m_e**. Everything else is QLF-derived, *not* measured — in particular the `α²` that sets the correction's size, since **α itself is derived from first principles** (the IR / fully-rendered-3D value `1/137`, [**Alpha.md**](Alpha.md)):
 
 | Constant | QLF derivation | Lean anchor |
 |---|---|---|

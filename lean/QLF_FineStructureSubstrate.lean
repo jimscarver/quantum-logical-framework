@@ -298,7 +298,6 @@ theorem alpha_at_dim_closed_form (d : ℕ) :
   have h1 : (1 : ℝ) + (d : ℝ) ^ 2 * (1 / 128) ≠ 0 := by positivity
   have h2 : (128 : ℝ) + (d : ℝ) ^ 2 ≠ 0 := by positivity
   field_simp
-  ring
 
 /-- At the physical rendering dimension `d = 3`, `α(3) = 1/137`. -/
 theorem alpha_at_dim_three : alpha_at_dim 3 = 1 / 137 := by

@@ -137,6 +137,10 @@ The natural Lean module for this work would package the substrate combinatorial 
 
 ### §6.1 Substrate combinatorial derivation of α
 
+> **Canonical α doc:** the consolidated derivation, the scale (the IR / fully-rendered-3D value), the
+> dimension-flow reading of the running, and the no-cosmological-drift proof now live in
+> [**Alpha.md**](Alpha.md). This section is the detailed prose source it draws on.
+
 The substrate-only derivation, with constraints respected:
 
 **Step 1: Naive closure rate** = `1/16` per substrate event. Per pair of substrate events, the probability of forming any of the four base half-spin closures `{^v, <>, /\, +-}` is `1/8` (1 of 8 possible second twists partners the first). Per individual substrate event: `1/16`.

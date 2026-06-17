@@ -79,7 +79,11 @@ This is a derivation of `substrate_spatial_dimension = 3`, not an assumption of 
 ([`Magic_numbers.md`](Magic_numbers.md), [`QLF_FineStructureSubstrate`](lean/QLF_FineStructureSubstrate.lean)) —
 are then *consequences and cross-checks* of the 3D rendering, not independent posits of it; and the
 three fermion generations inherit it (`num_generations = substrate_spatial_dimension = 3`,
-[`QLF_Generations`](lean/QLF_Generations.lean)). **Honest scope:** the embedding theorem is exact; the
+[`QLF_Generations`](lean/QLF_Generations.lean)). Because `α = N = 3²` is a consequence of the 3D
+rendering, the derived `α = 1/137` is the value of **fully-rendered 3D space** (the IR / `q²→0` anchor),
+and its Standard-Model "running" reads as the effective-dimension flow `3→2` toward the UV — see
+[**Alpha.md**](Alpha.md), which also proves `α(0)` carries no cosmological-time drift (it is a function
+of the rendering dimension alone, `α(d) = 1/(128 + d²)`). **Honest scope:** the embedding theorem is exact; the
 premises it rests on — that the substrate *is* a relational graph and space *is* its minimal faithful
 rendering — are QLF's own load-bearing ontology (the synthesis claim + `QLF_ReachableEvent`), not
 extra assumptions, so this derives 3D *within QLF*, not from nothing external.

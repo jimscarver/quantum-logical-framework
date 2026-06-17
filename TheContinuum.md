@@ -102,6 +102,15 @@ running ([`QLF_WeinbergAngle`](lean/QLF_WeinbergAngle.lean)) is *consistent with
 evolution but not derived (`running_couplings_structural`) — the open numbers of the
 renormalization sector.
 
+**The QED-α case.** The fine-structure constant is the abelian (screening) instance: `α(0) = 1/137`
+is the IR (`q²→0`) anchor — the coupling of *fully-rendered 3-D space* — and `α(M_Z) ≈ 1/128` is the
+less-screened high-energy value. QLF reads the running as the **effective-dimension flow** `3→2` toward
+the UV (Myrheim–Meyer dimension, [`QLF_CausalDimension`](lean/QLF_CausalDimension.lean)), which takes
+`α : 1/137 → 1/132` (`alpha_QLF_2d_counterfactual`) — the right direction; the magnitude is the open
+matter-vacuum-polarization sector. Because `α` is a function of the rendering dimension alone
+(`α(d) = 1/(128 + d²)`), the *fundamental* `α(0)` carries no cosmological-time drift (a falsifiable
+prediction). Full account: [**Alpha.md**](Alpha.md).
+
 **Update — the strong β-coefficient *is* substrate-fixed.** The QCD one-loop coefficient
 `b₀ = 11 N_c/3 − 2 n_f/3` is now read off the substrate ([`lean/QLF_BetaFunction.lean`](lean/QLF_BetaFunction.lean)):
 `N_c = 3` is the three spatial axes (the SU(3) of `QLF_StrongAlgebra`) and `n_f = 6` is two

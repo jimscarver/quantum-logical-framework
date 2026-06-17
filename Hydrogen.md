@@ -55,6 +55,8 @@ where **α is the fine-structure constant** — the dimensionless coupling of th
   With CODATA `Ry = 13.6057 eV` and `m_e c² = 511 keV`, this gives `α = 0.0072973526 = 1/137.036` to 10⁻¹⁰ relative error vs CODATA α. The QLF content of this prediction is the Tier-1 identity holding empirically at 10⁻¹⁰ — *not* "α from first principles with no measurement."
 - **First-principles open (Tier 3):** numerical α from QLF closure-multiplicity alone, with no observable input. Reduces (via the Tier-1 identity) to the closure-multiplicity derivation of R_e — equivalently R_p · 6π⁵ under the Lenz-coincidence reading in [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md). When closed, gives α without measurement.
 
+> A *parallel* Tier-3 route already lands the value: the **substrate-combinatorial** derivation gives `α = 1/137` from the 8-twist alphabet + `N=9=3²` directional tensor with **zero observable input** (0.026%), the IR / fully-rendered-3D value — see [**Alpha.md**](Alpha.md). It is the canonical α doc; this Bohr-inversion (Tier-2) and the combinatorial route should converge.
+
 Runnable demo: [`fine_structure_demo.py`](fine_structure_demo.py).
 
 **Three equivalent forms — Planck constants cancel.** The QLF Bohr identity has three numerically-equivalent expressions; all reduce to the same observable ratio Ry/(m_e c²):

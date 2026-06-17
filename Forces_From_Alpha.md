@@ -3,6 +3,9 @@
 **The question (Jim):** *Can the four forces be rooted in just α — or in one empirical input like the
 mass of the electron or proton?*
 
+> **α itself** — the one derived structure everything below roots in — is derived from first principles
+> (the IR / fully-rendered-3D value `1/137`, proven time-invariant) in [**Alpha.md**](Alpha.md).
+
 **The answer:** Both, and they are different halves of the same statement. The **dimensionless force
 strengths** root in **α** (which QLF *derives*, so they need no empirical coupling input at all); the
 **absolute scale** needs **exactly one empirical mass** (`m_e` or `m_p`). So the four forces — couplings
