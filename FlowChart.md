@@ -1,11 +1,12 @@
 # QLF Flow Chart — a visual map of the framework
 
 > **This is a navigation map of the [Quantum Logical Framework (QLF)](README.md).** Each chart shows a
-> domain as a Mermaid diagram (rendered on GitHub) with every **connector labelled** by the relationship
-> it encodes; the **Open:** line under each chart links to the docs that derive those boxes, so the ten
-> charts form one navigable web.
+> domain as a Mermaid diagram (rendered on GitHub); the **Jump to** and **Open** links in the text under
+> each chart are the navigation — they point to the section or the doc that derives each box. (GitHub
+> disables clickable Mermaid nodes for security, so the links live in the text beneath each chart, not on
+> the boxes themselves.)
 
-The taxonomy: **one substrate → ten domains → the individual results.**
+The taxonomy: **one substrate → four domain families → ten domains → the individual results.**
 
 ---
 
@@ -14,19 +15,33 @@ The taxonomy: **one substrate → ten domains → the individual results.**
 ```mermaid
 flowchart TD
   S["The QLF Substrate 8-twist alphabet - ZFA closure - synthesized spacetime"]
-  S --> SP["1 Space, time and the continuum"]
-  S --> C["2 The fundamental constants"]
-  S --> F["3 Forces"]
-  S --> A["4 Atoms and QED"]
-  S --> G["5 Gravity and GR"]
-  S --> CO["6 Cosmology and the dark sector"]
-  S --> P["7 Particles and the Standard Model"]
-  S --> T["8 Quantum-gravity / TOE pillars"]
-  S --> M["9 The Millennium Prize program"]
-  S --> B["10 Beyond the SM"]
+  S --> FND
+  S --> MAT
+  S --> GRV
+  S --> FRN
+  subgraph FND["Foundations"]
+    D1["1 Space, time and the continuum"]
+    D2["2 The fundamental constants"]
+  end
+  subgraph MAT["Matter and forces"]
+    D3["3 Forces"]
+    D4["4 Atoms and QED"]
+    D7["7 Particles and the Standard Model"]
+  end
+  subgraph GRV["Gravity and the cosmos"]
+    D5["5 Gravity and GR"]
+    D6["6 Cosmology and the dark sector"]
+  end
+  subgraph FRN["Frontiers"]
+    D8["8 Quantum-gravity / TOE pillars"]
+    D9["9 The Millennium Prize program"]
+    D10["10 Beyond the SM"]
+  end
 ```
 
-**Connectors:** *renders* &rarr; 1 Space, time and the continuum &middot; *fixes* &rarr; 2 The fundamental constants &middot; *projects* &rarr; 3 Forces &middot; *binds* &rarr; 4 Atoms and QED &middot; *weighs* &rarr; 5 Gravity and GR &middot; *expands* &rarr; 6 Cosmology and the dark sector &middot; *structures* &rarr; 7 Particles and the Standard Model &middot; *meets* &rarr; 8 Quantum-gravity / TOE pillars &middot; *resolves* &rarr; 9 The Millennium Prize program &middot; *predicts* &rarr; 10 Beyond the SM
+**Jump to:** [1 Space, time and the continuum](#1-space-time-and-the-continuum) &middot; [2 The fundamental constants](#2-the-fundamental-constants) &middot; [3 Forces](#3-forces) &middot; [4 Atoms and QED](#4-atoms-and-qed) &middot; [5 Gravity and GR](#5-gravity-and-gr) &middot; [6 Cosmology and the dark sector](#6-cosmology-and-the-dark-sector) &middot; [7 Particles and the Standard Model](#7-particles-and-the-standard-model) &middot; [8 Quantum-gravity / TOE pillars](#8-quantum-gravity--toe-pillars) &middot; [9 The Millennium Prize program](#9-the-millennium-prize-program) &middot; [10 Beyond the SM](#10-beyond-the-sm)
+
+The four families: **Foundations** (1-2) &middot; **Matter and forces** (3, 4, 7) &middot; **Gravity and the cosmos** (5-6) &middot; **Frontiers** (8-10).
 
 **Open:** [`README.md`](README.md)
 
