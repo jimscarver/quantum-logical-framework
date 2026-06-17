@@ -120,9 +120,9 @@ def add_clicks(idx, diagram):
         cm = CLICKMAPS[idx] if idx < len(CLICKMAPS) else {}
         present = set(re.findall(r'\b([A-Za-z]\w*)\["', diagram))
         for nid, tgt in cm.items():
-            if nid.startswith("H") or nid not in present:
+            if nid not in present:        # removed hub nodes (H1..H10) aren't present
                 continue
-            if tgt.startswith("#"):
+            if tgt.startswith("#"):       # hub back-links (to the master anchor) -> skip
                 continue
             lines.append(f'  click {nid} "{REPO}/{tgt}" _blank')
     return diagram.rstrip() + "\n" + "\n".join(lines) + "\n" if lines else diagram
