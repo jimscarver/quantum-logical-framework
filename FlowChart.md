@@ -12,7 +12,7 @@ The taxonomy: **one substrate → ten domains → the individual results.**
 ## Master map — the substrate and its ten domains
 
 ```mermaid
-%%{init: {"theme":"neutral"}}%%
+%%{init: {"theme":"neutral", "flowchart": {"curve": "linear"}}}%%
 flowchart TD
   S["The QLF Substrate 8-twist alphabet - ZFA closure - synthesized spacetime"]
   S -->|"renders"| SP["1 Space, time and the continuum"]
@@ -37,7 +37,7 @@ Root reading: **everything derives from the 8-twist substrate under Zero Free Ac
 ## 1. Space, time, and the continuum
 
 ```mermaid
-%%{init: {"theme":"neutral"}}%%
+%%{init: {"theme":"neutral", "flowchart": {"curve": "linear"}}}%%
 flowchart TD
   H1["^ master map"] -.->|"domain 1"| S["8-twist substrate - ZFA"]
   S -->|"causal order"| R["Closure-reachability (pre-geometric causal set)"]
@@ -60,7 +60,7 @@ everywhere below ([`SpaceTime.md`](SpaceTime.md) §3a).
 The `6 spatial + 2 gauge` split (the `3` axes) fixes a family of constants. **α is the flagship.**
 
 ```mermaid
-%%{init: {"theme":"neutral"}}%%
+%%{init: {"theme":"neutral", "flowchart": {"curve": "linear"}}}%%
 flowchart TD
   H2["^ master map"] -.->|"domain 2"| SP["6+2 split -> 3 spatial axes"]
   SP -->|"N = 3^2"| AL["alpha = 1/137"]
@@ -84,7 +84,7 @@ over-determination): [`Alpha.md`](Alpha.md).
 One gauge-twist mechanism, seen from three projections of the 3-axis structure.
 
 ```mermaid
-%%{init: {"theme":"neutral"}}%%
+%%{init: {"theme":"neutral", "flowchart": {"curve": "linear"}}}%%
 flowchart TD
   H3["^ master map"] -.->|"domain 3"| AX["3 spatial axes + 2 gauge"]
   AX -->|"abelian"| EM["U(1) - electromagnetism"]
@@ -105,7 +105,7 @@ flowchart TD
 Everything here is **downstream of the derived α** ([`Alpha.md`](Alpha.md) §10).
 
 ```mermaid
-%%{init: {"theme":"neutral"}}%%
+%%{init: {"theme":"neutral", "flowchart": {"curve": "linear"}}}%%
 flowchart TD
   H4["^ master map"] -.->|"domain 4"| AL["alpha = 1/137"]
   AL -->|"1/2alpha^2m_e c^2"| RY["Rydberg / Bohr"]
@@ -123,7 +123,7 @@ flowchart TD
 ## 5. Gravity and GR
 
 ```mermaid
-%%{init: {"theme":"neutral"}}%%
+%%{init: {"theme":"neutral", "flowchart": {"curve": "linear"}}}%%
 flowchart TD
   H5["^ master map"] -.->|"domain 5"| HO["Holographic event-counting + log 2"]
   HO -->|"G = L_P^2c^3/hbar"| NG["Newton's law + G"]
@@ -140,7 +140,7 @@ flowchart TD
 ## 6. Cosmology and the dark sector
 
 ```mermaid
-%%{init: {"theme":"neutral"}}%%
+%%{init: {"theme":"neutral", "flowchart": {"curve": "linear"}}}%%
 flowchart TD
   H6["^ master map"] -.->|"domain 6"| EV["ZFA event synthesis (w = -1)"]
   EV -->|"gauge 2/8"| OL["Omega_Lambda = log 2 closes the 10^122 catastrophe"]
@@ -158,7 +158,7 @@ flowchart TD
 ## 7. Particles and the Standard Model
 
 ```mermaid
-%%{init: {"theme":"neutral"}}%%
+%%{init: {"theme":"neutral", "flowchart": {"curve": "linear"}}}%%
 flowchart TD
   H7["^ master map"] -.->|"domain 7"| TH["3 spatial axes (the same 3)"]
   TH -->|"axis count"| GEN["3 fermion generations"]
@@ -179,7 +179,7 @@ flowchart TD
 QLF meets the three TOE-candidate programs — and reproduces their wins from the substrate.
 
 ```mermaid
-%%{init: {"theme":"neutral"}}%%
+%%{init: {"theme":"neutral", "flowchart": {"curve": "linear"}}}%%
 flowchart TD
   H8["^ master map"] -.->|"domain 8"| S["substrate"]
   S -->|"j = 1/2 spin network"| LQ["Loop Quantum Gravity"]
@@ -198,7 +198,7 @@ The thesis: *the continuum and Choice are mathematics' UV catastrophe* — each 
 RCA₀ core + one explicit continuum/Choice boundary axiom.
 
 ```mermaid
-%%{init: {"theme":"neutral"}}%%
+%%{init: {"theme":"neutral", "flowchart": {"curve": "linear"}}}%%
 flowchart TD
   H9["^ master map"] -.->|"domain 9"| CC["Continuum = UV catastrophe (RCA_0 core + boundary axiom)"]
   CC -->|"critical line"| RH["Riemann hypothesis"]
@@ -220,7 +220,7 @@ Overview: [`Millennium.md`](Millennium.md).
 What QLF derives that the SM treats as free input, and the falsifiable predictions it makes.
 
 ```mermaid
-%%{init: {"theme":"neutral"}}%%
+%%{init: {"theme":"neutral", "flowchart": {"curve": "linear"}}}%%
 flowchart TD
   H10["^ master map"] -.->|"domain 10"| B["Beyond the Standard Model"]
   B -->|"not free"| D1["derived: alpha, Koide, theta-bar=0, Omega_Lambda"]
