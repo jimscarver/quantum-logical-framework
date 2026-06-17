@@ -98,5 +98,6 @@ lean_lib QLF where
     `QLF_QuarkMass,
     `QLF_NeutrinoMass,
     `QLF_PMNS,
-    `QLF_Supersymmetry
+    `QLF_Supersymmetry,
+    `QLF_AlphaBound
   ]
