@@ -162,7 +162,7 @@ This composition gives the right structural type for the answer. The numerical m
 
 ## §8 Where this leaves the open problem
 
-The R_e derivation question is now sharper:
+The R_e derivation question is sharper:
 
 - ✓ **Reframed**: R_e is the electron's local clock period (Kitada framework), set by the resonance condition with the proton's chirality-hidden structure (this doc §§3–4).
 - ✓ **Decomposed**: `R_e = R_p · 6π⁵` with explicit structural roles for each factor (§5).
@@ -196,7 +196,7 @@ In rough order of effort:
 
 4. **Lean theorem `proton_chirality_hiding_resonance`** — once §6 is rigorously derived, formalise the structural identity `m_p / m_e = 6π⁵` from the Borromean topology + chirality-screening configuration count.
 
-Each step is concrete research, not session-scope; but each is now a sharper question than "derive R_e from closure-multiplicity."
+Each step is concrete research, not session-scope; but each is a sharper question than "derive R_e from closure-multiplicity."
 
 ---
 

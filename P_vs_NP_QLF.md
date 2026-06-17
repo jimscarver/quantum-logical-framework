@@ -76,7 +76,7 @@ formal separation P ≠ NP is the remaining step, over an infinite computational
 the sector where ZFC is *itself proven to fail* (Gödel/Turing/Busy Beaver). It is ZFC's
 defect, not a gap in this reading.
 
-This is now Lean-anchored in [`lean/QLF_PvsNP.lean`](lean/QLF_PvsNP.lean): the two halves
+This is Lean-anchored in [`lean/QLF_PvsNP.lean`](lean/QLF_PvsNP.lean): the two halves
 that *are* QLF facts are proven by reusing verified theorems — the realized set IS the
 O(n) verify-filter of the generated candidates (`realized_is_verify_filter`, definitional)
 and its cardinality is the genuine `C(2n,n)` (`realized_count_eq_central_binomial`, reusing

@@ -143,7 +143,7 @@ continuum and the Axiom of Choice are mathematics' ultraviolet catastrophe**, re
 ZFA substrate and its computable pruning ([`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md),
 [`Millennium.md`](Millennium.md)).
 
-All six Clay Millennium problems now have a Lean module reducing each to a constructive RCA₀ core plus
+All six Clay Millennium problems have a Lean module reducing each to a constructive RCA₀ core plus
 **one** explicit boundary axiom naming the continuum/choice crossing:
 
 | Problem | QLF module | Boundary |

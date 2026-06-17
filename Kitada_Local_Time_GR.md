@@ -127,12 +127,12 @@ Combined: `8π = 4π · 2`. This is **not** a new mathematical fact (the trivial
 
 **Lean anchor.** [`lean/QLF_EinsteinGeometricFactor.lean`](lean/QLF_EinsteinGeometricFactor.lean) defines `boundary_solid_angle = 4π` and `hermitian_pair_degeneracy = 2`, and proves `einstein_geometric_factor_eight_pi : 8π = boundary_solid_angle · hermitian_pair_degeneracy` by `ring` after unfolding. The theorem is arithmetically trivial; the structural content lives in the named-factor decomposition and its docstring tying each factor to the QLF substrate origin.
 
-**What this closes.** This sub-section closes step 4 of §7 below: the `8π` geometric factor in Einstein's equations is now structurally articulated and Lean-anchored. The remaining open piece for the full Gap-3 derivation is the `G` coefficient itself (step 5: derive `G` as the vacuum's per-event entropy-gradient strength under [`VacuumEnergy.md`](VacuumEnergy.md) §6.2), which is independent of this sub-section and substantially harder.
+**What this closes.** This sub-section closes step 4 of §7 below: the `8π` geometric factor in Einstein's equations is structurally articulated and Lean-anchored. The remaining open piece for the full Gap-3 derivation is the `G` coefficient itself (step 5: derive `G` as the vacuum's per-event entropy-gradient strength under [`VacuumEnergy.md`](VacuumEnergy.md) §6.2), which is independent of this sub-section and substantially harder.
 
 ### 5.2 The Einstein equations as the equation of state of each local clock (Jacobson, Lean-anchored)
 
 §5.1 closes the `8π` geometric factor. The remaining structural step — *why the field equations
-take the form they do at all* — is now Lean-anchored in
+take the form they do at all* — is Lean-anchored in
 [`lean/QLF_EinsteinEquations.lean`](lean/QLF_EinsteinEquations.lean), and the route is precisely
 Kitada's. The full derivation, coefficient, and references live in the dedicated doc
 [`Einstein_Equations.md`](Einstein_Equations.md); here is the local-time content.
@@ -275,7 +275,7 @@ Same tone discipline as [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md): ar
 
 In rough order of effort and value:
 
-1. ✓ **Done** — [`Frequency_Synchronization.md`](Frequency_Synchronization.md) §1.1 now names the foundational identity explicitly, with the table of QLF results that follow as corollaries.
+1. ✓ **Done** — [`Frequency_Synchronization.md`](Frequency_Synchronization.md) §1.1 names the foundational identity explicitly, with the table of QLF results that follow as corollaries.
 
 2. ✓ **Done** — [`AgeOfUniverse.md`](AgeOfUniverse.md) §4.1 reframes the 13.8-Gyr cosmic-age derivation as the proper time of the cosmic-horizon Markov blanket via the Kitada interior/exterior synchronization-rate integration. The cosmic-horizon depth `R_cosmic ≈ f_Planck / f_Hubble ≈ 8 × 10⁶⁰` equals the geometric primordial-blanket depth `v(R_H) ≈ 6.7 × 10⁶⁰` of [`HadronicDepth.md`](HadronicDepth.md) §2.1; the proton-mass cube `(m_P/m_p)³ ≈ 2.2 × 10⁵⁷` matches it only to ~3–4 orders.
 

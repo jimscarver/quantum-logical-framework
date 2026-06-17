@@ -1,6 +1,6 @@
 # Entanglement in the Quantum Logical Framework
 
-**Entanglement in QLF is shared logical structure — two histories that arose from a common Hermitian-pair creation event and are now resolved in different places.** There is no faster-than-light signaling. The correlations Einstein called "spooky" are the **local resolution of a shared past constraint**, not a present interaction.
+**Entanglement in QLF is shared logical structure — two histories that arose from a common Hermitian-pair creation event and are resolved in different places.** There is no faster-than-light signaling. The correlations Einstein called "spooky" are the **local resolution of a shared past constraint**, not a present interaction.
 
 This document synthesizes a thread that already runs through the repository — bit-by-bit possibility halving ([Entanglement.md](Entanglement.md) original content, preserved in §1 below), Einstein-Rosen / EPR identity ([ER_EPR_QLF.md](ER_EPR_QLF.md)), primordial pair-creation ([Primordial_Entanglement.md](Primordial_Entanglement.md)), Hermitian-pair structure ([MRE.md](MRE.md), [Annihilation.md](Annihilation.md)), and Borromean topology at the hadron scale ([Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md)) — into a single statement.
 

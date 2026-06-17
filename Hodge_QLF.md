@@ -2,9 +2,9 @@
 
 > **Status: proof in progress, constructively reframed.** The Hodge conjugation is
 > machine-verified as an involution and its balanced fixed diagonal identified;
-> **`hodge_class_is_algebraic` is now a theorem** ([`lean/QLF_Hodge.lean`](lean/QLF_Hodge.lean)) —
+> **`hodge_class_is_algebraic` is a theorem** ([`lean/QLF_Hodge.lean`](lean/QLF_Hodge.lean)) —
 > a `(p,q)` class encodes to a history count-balanced iff `p=q`, so balanced ⟹ realized
-> follows from the proven `count_balanced_pauli_closed`. The single boundary is now the
+> follows from the proven `count_balanced_pauli_closed`. The single boundary is the
 > faithfulness `substrate_realization_is_algebraic` (substrate closure = algebraic
 > realization) — the crossing into the complex-analytic continuum where ZFC is *itself
 > proven to fail* (Gödel, Turing, Busy Beaver). That crossing is ZFC's defect, not a gap
@@ -63,7 +63,7 @@ twist history. The Hodge conjecture is that theorem read in cohomology.
 | algebraic ⟹ `(p,p)` | the easy half (a cycle's class is type `(p,p)`) | *realized ⟹ balanced* — every closure is count-balanced | structural, holds on the substrate |
 | `(p,p)` ⟹ algebraic | **the Hodge conjecture** | *balanced ⟹ realized* — the `count_balanced_pauli_closed` shape | the one explicit boundary |
 
-This direction is now *discharged into a theorem*. A `(p,q)` bidegree is **encoded** as a
+This direction is *discharged into a theorem*. A `(p,q)` bidegree is **encoded** as a
 twist history (`p` up-twists, `q` down-twists) that is count-balanced exactly when `p = q`
 — the Hodge diagonal — so balance on the substrate mirrors the `(p,p)` condition. Then the
 proven `count_balanced_pauli_closed` realizes it:
@@ -74,10 +74,10 @@ def CohClass.encode (c : CohClass) : List Twist :=               -- (p,q) ↦ p 
 theorem encode_countBalanced (c) (h : c.isHodge) :              -- count-balanced iff p = q
     countBalanced c.encode := …
 
--- the single boundary, now structural (substrate closure = algebraic realization):
+-- the single boundary, structural (substrate closure = algebraic realization):
 axiom substrate_realization_is_algebraic (c) : c.isRealizedOnSubstrate → c.isAlgebraic
 
--- "every Hodge class is algebraic" is now a THEOREM:
+-- "every Hodge class is algebraic" is a THEOREM:
 theorem hodge_class_is_algebraic (c) (h : c.isHodge) : c.isAlgebraic :=
   substrate_realization_is_algebraic c (hodge_realized_on_substrate c h)
 theorem non_algebraic_not_hodge (c) (h : ¬ c.isAlgebraic) : ¬ c.isHodge :=
@@ -86,7 +86,7 @@ theorem non_algebraic_not_hodge (c) (h : ¬ c.isAlgebraic) : ¬ c.isHodge :=
 
 ## 4. Where the boundary sits — and why it is ZFC's, not ours
 
-QLF's constructive floor now delivers the involution, the balanced-diagonal identification,
+QLF's constructive floor delivers the involution, the balanced-diagonal identification,
 the cohomology→closure **encoding** (count-balanced iff `p=q`), and the *balanced ⟹ realized*
 direction **as a theorem** (via the proven `count_balanced_pauli_closed`). What sits on the
 far side is one step deeper: **why** substrate closure faithfully models algebraic-cycle
@@ -105,10 +105,10 @@ QLF has diagnosed.
 
 The conjugation involution, the balanced fixed diagonal, the cohomology→closure encoding,
 and *balanced ⟹ realized* (`hodge_class_is_algebraic`) are all machine-verified — the last
-now a theorem, discharged through the proven `count_balanced_pauli_closed`. The single
+a theorem, discharged through the proven `count_balanced_pauli_closed`. The single
 remaining boundary, `substrate_realization_is_algebraic`, is equivalent in strength to the
 old bare axiom: it asserts that substrate closure *is* algebraic-cycle realization. So this
-is genuine constructive progress — the boundary is now a precise, structurally-motivated
+is genuine constructive progress — the boundary is a precise, structurally-motivated
 faithfulness statement rather than the whole conjecture — not a completed ZFC proof and not
 pretending to be one. The marker `hodge_proof_in_progress` records exactly that stance.
 
@@ -127,7 +127,7 @@ names that boundary as ZFC's proven defect rather than claiming Hodge solved.
 
 ## 7. What would advance it
 
-The encoding and the *balanced ⟹ realized* discharge are done. The frontier is now:
+The encoding and the *balanced ⟹ realized* discharge are done. The frontier is:
 
 - **Discharge `substrate_realization_is_algebraic`.** Show that the substrate closure of a
   Hodge class's encoded history corresponds to an actual algebraic cycle — i.e. that the

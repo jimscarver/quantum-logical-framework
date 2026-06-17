@@ -143,7 +143,7 @@ Bob sees (and Alice receives):
 
 ### Step 3 — Alice checks the joint consistency
 
-The Room Process sidebar now shows both peers composed:
+The Room Process sidebar shows both peers composed:
 
 ```
 parallel(

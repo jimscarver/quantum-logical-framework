@@ -106,7 +106,7 @@ So the per-event `log 2` quantum and the per-bit `ℏω` photon-energy quantum a
 
 ---
 
-## §7 What is now derived and what is open
+## §7 What is derived and what is open
 
 | Item | Status |
 |---|---|

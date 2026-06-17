@@ -154,7 +154,7 @@ The unification is already verified: a static event-synthesis field has equation
 `w = −1` field at two energy scales** — high `V` early, low `V` now
 (`inflation_and_dark_energy_same_field`). **Inflation without an inflaton:** the "inflaton" is
 QLF's event-synthesis field, not a new field — inflation is just its high-energy limit, the same
-field that is dark energy today (the §6 "one signed deformation, two scales", now read across
+field that is dark energy today (the §6 "one signed deformation, two scales", read across
 *time* as well as scale).
 
 **Honest scope.** This anchors the duality, the `√V` monotonicity, and the shared-`w=−1`

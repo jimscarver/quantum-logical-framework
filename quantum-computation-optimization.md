@@ -120,7 +120,7 @@ These gains come directly from replacing Hilbert-space evolution with **construc
 
 **Conclusion**: RhoQuCalc turns the QLF’s existing quantum simulator (`quantum_simulator.py` + `qc_assembler.py`) into a **superior classical engine** for quantum computation. By treating circuits as composable ZFA processes in a possibilist ontology, we eliminate the exponential Hilbert-space bottleneck while preserving exact quantum statistics. This is not an approximation — it is the native execution model of the 8-twist logic from which quantum mechanics itself emerges.
 
-The framework now offers:
+The framework offers:
 - Faster simulation of algorithms that break classical simulators.
 - Executable, step-by-step insight into *why* quantum computation works (via constructive histories).
 - A bridge to real quantum hardware via Rho transpilation.

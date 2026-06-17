@@ -1,6 +1,6 @@
 # Beta Decay and the Nature of the Neutrino
 
-In the Quantum Logical Framework (QLF), nuclear decay is not a random probabilistic event; it is the deterministic restructuring of a topological Markov blanket to relieve logical stress. This document covers β decay as boundary restructuring, and what QLF says about the **nature of the neutrino** — which, on the framework's own principles and now **machine-verified**, is **Majorana** (its own antiparticle), carrying the prediction of **neutrinoless double-beta decay** (`0νββ`).
+In the Quantum Logical Framework (QLF), nuclear decay is not a random probabilistic event; it is the deterministic restructuring of a topological Markov blanket to relieve logical stress. This document covers β decay as boundary restructuring, and what QLF says about the **nature of the neutrino** — which, on the framework's own principles and **machine-verified**, is **Majorana** (its own antiparticle), carrying the prediction of **neutrinoless double-beta decay** (`0νββ`).
 
 ## 1. The neutrino is Majorana — machine-verified
 
@@ -10,7 +10,7 @@ In QLF the **antiparticle** of a configuration is its **Hermitian conjugate** ([
 
 - `neutrino_majorana` — the neutrino loop `^v` **is** a fixed point of conjugate-and-reverse, so the neutrino **is its own antiparticle**.
 - `electron_not_majorana` — the electron loop `^<v>` is **not** a fixed point; its conjugate is a *distinct* history (the positron), so the charged lepton is **Dirac**.
-- `neutrino_neutral` ([`lean/QLF_Spin.lean`](lean/QLF_Spin.lean)) — being self-conjugate requires the neutrino's **charge and perpendicular-spin chirality to vanish** (`x = −x ⟹ x = 0`, via `majorana_is_neutral`). The neutrino is the same viewed from behind, so it has no charge handedness to flip — a pure flat (σ_y) spin, exactly the "neither charge nor chiral structure" reason below, now machine-verified. See [`Spin_QLF.md`](Spin_QLF.md) §6.
+- `neutrino_neutral` ([`lean/QLF_Spin.lean`](lean/QLF_Spin.lean)) — being self-conjugate requires the neutrino's **charge and perpendicular-spin chirality to vanish** (`x = −x ⟹ x = 0`, via `majorana_is_neutral`). The neutrino is the same viewed from behind, so it has no charge handedness to flip — a pure flat (σ_y) spin, exactly the "neither charge nor chiral structure" reason below, machine-verified. See [`Spin_QLF.md`](Spin_QLF.md) §6.
 
 The electron case makes this non-vacuous: the same test that calls the neutrino Majorana correctly calls the electron Dirac. And the neutrino comes out as the **unique** self-conjugate fermion for a structural reason — it is the only fermion with neither charge nor a chiral/linked structure, so its minimal non-chiral loop is the only one symmetric under conjugate-and-reverse (charged or chiral histories pick up an order they cannot match after reversal). QLF therefore reproduces, from structure, the real-physics fact that **only the neutrino can be Majorana** (a charged fermion cannot — it would violate charge conjugation).
 

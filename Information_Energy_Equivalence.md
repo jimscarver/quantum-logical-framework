@@ -101,7 +101,7 @@ $$E_{\text{particle}} \;=\; N \times \hbar \omega_{\text{characteristic}} \;=\; 
 
 for a homogeneous particle. For heterogeneous bound states (e.g., muonium), the sum is over species-specific frequencies.
 
-The user's prior insights are now seen as **special cases** of the ℏω-per-bit unification:
+The user's prior insights are seen as **special cases** of the ℏω-per-bit unification:
 
 - "Each qubit contributes ℏω to the mass" → ℏω per bit for gauge-folded events
 - "Photons have energy based on the number of bits with a mass equivalence" → ℏω per bit for gauge-free joint closures

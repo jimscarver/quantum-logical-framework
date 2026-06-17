@@ -149,7 +149,7 @@ Frequency synchronization is the **clockwork** of QLF. It turns abstract topolog
 
 The structural identity `Δt = R/f` — Markov-blanket depth as local-clock count — is named explicitly as a foundational claim in [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §3, mapping QLF's depth structure onto Kitada's local-time framework ([gr-qc/9612043](https://arxiv.org/abs/gr-qc/9612043)). The Gap-1 reading there grounds the cosmic-age and Einstein-coefficient derivations of [`AgeOfUniverse.md`](AgeOfUniverse.md) and [`Gravity.md`](Gravity.md) in a single Mach-style relational identity. The substrate `c` underlying the per-tick conversion `Δt = R/f` is precisely the cosmic-ratio `R_cosmic / T_cosmic = L_Planck / τ_Planck` derived in [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md) §5.3.
 
-All results are now native to the QuCalc engine and fully reproducible.
+All results are native to the QuCalc engine and fully reproducible.
 
 *Last aligned with repo state 21 April 2026. This document supersedes all prior versions and incorporates the gauge-folding rule from 21 April 2026.*
 ```

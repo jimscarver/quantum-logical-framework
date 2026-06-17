@@ -84,7 +84,7 @@ See full table in [`quantum-computation-optimization.md`](quantum-computation-op
 
 ## 5. Spacetime & Gravity Consistency
 
-- **Role swap** (`SpaceTime.md`): Density-driven transition from pure spatial to gauge-time recovers Lorentz invariance and \( E = mc^2 \) — now numerically verified in the derivation.
+- **Role swap** (`SpaceTime.md`): Density-driven transition from pure spatial to gauge-time recovers Lorentz invariance and \( E = mc^2 \) — numerically verified in the derivation.
 - **Emergent curvature**: `gravitational_tensor.py` produces Newtonian limit and holographic entropy \( S = A/4\ell_P^2 \) from logical-density gradients.
 - **Primordial quantum black holes**: Gauge-folded particles in `particles.py` exhibit exactly the Markov-blanket / Hawking-radiation behavior predicted in `Hadrons_Markov_Blankets.md`.
 
@@ -103,10 +103,10 @@ These will be added to the repository as soon as numerical or lab results become
 ## Summary of April 2026 Updates
 
 - **RhoQuCalc** (Issue #18): Turns exponential quantum simulation into catalog-driven composition → verified polynomial scaling.
-- **Constructive \( E = mc^2 \)** (Issue #19): Full relativistic mechanics now derived and numerically verifiable from existing multiplicity + gauge-fold rules.
-- **Possibilist ontology** ([`possibilist-ontology.md`](possibilist-ontology.md)): All verified phenomena are now understood as real possibilities closing under ZFA.
+- **Constructive \( E = mc^2 \)** (Issue #19): Full relativistic mechanics derived and numerically verifiable from existing multiplicity + gauge-fold rules.
+- **Possibilist ontology** ([`possibilist-ontology.md`](possibilist-ontology.md)): All verified phenomena are understood as real possibilities closing under ZFA.
 
-**Bottom line**: Every major pillar of modern physics — QM phenomenology, special relativity, constants, gravity, and computational scalability — is now **constructively reproduced** inside a single 8-twist logical engine. No external postulates required.
+**Bottom line**: Every major pillar of modern physics — QM phenomenology, special relativity, constants, gravity, and computational scalability — is **constructively reproduced** inside a single 8-twist logical engine. No external postulates required.
 
 The framework is not only consistent with experiment — it *predicts* the next round of precision tests from first logical principles.
 

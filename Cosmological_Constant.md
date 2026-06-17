@@ -228,7 +228,7 @@ Only the substrate with 2 gauge axes (the empirical 6+2 split that gives α and 
 - [`Curvature.md`](Curvature.md) — global geometry as de Sitter: the cosmic Markov blanket's replication-dominant (expanding) phase, AdS as the contraction phase; Ω_Λ = log 2 as residual curvature, with magnetism as the local spin-axis analog.
 - [`VacuumEnergy.md`](VacuumEnergy.md) §6 — vacuum-alignment principle, residual-curvature reading of Λ.
 - [`Gravity_From_Delay.md`](Gravity_From_Delay.md) — holographic event count + substrate G + Verlinde gravity.
-- [`Quantum_Gravity.md`](Quantum_Gravity.md) §8–9 — open Λ magnitude (now closed by this doc).
+- [`Quantum_Gravity.md`](Quantum_Gravity.md) §8–9 — open Λ magnitude (closed by this doc).
 - [`Holographic.md`](Holographic.md) §5 — de Sitter / dark-energy framing.
 - [`HadronicDepth.md`](HadronicDepth.md) — cosmic-horizon depth `n ≈ 6.7 × 10⁶⁰` (geometric primordial-blanket depth).
 - [`AgeOfUniverse.md`](AgeOfUniverse.md) — `T_universe = n × τ_Planck`.

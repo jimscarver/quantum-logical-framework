@@ -1,10 +1,10 @@
 # Birch–Swinnerton-Dyer in [QLF](README.md) — via the Langlands hook
 
 > **Status: proof in progress, constructively reframed.** The self-dual central-point
-> structure is machine-verified, and the **elliptic-curve→closure encoding is now built** —
+> structure is machine-verified, and the **elliptic-curve→closure encoding is built** —
 > `EllipticCurveQLF` is a concrete Weierstrass curve whose Frobenius-trace closure is
 > computed ([`lean/QLF_BSD.lean`](lean/QLF_BSD.lean)). The rank identity is reduced to one
-> explicit boundary, now **`modularity_mirror_invariant`** — from which rank = ord
+> explicit boundary, **`modularity_mirror_invariant`** — from which rank = ord
 > (`bsd_rank_equals_order`) is a *theorem* — the crossing into the continuum/choice sector
 > where ZFC is *itself proven to fail* (Gödel, Turing, Busy Beaver). That crossing is ZFC's
 > defect, not a gap in this proof. Unifying thesis:
@@ -64,7 +64,7 @@ multiplicity, seen from the two mirror perspectives:
   (`analyticRank`).
 
 Modularity (the Hermitian-pair mirror) says these are one closure, so the two counts are
-**one number** — and in QLF this is now *discharged into a theorem*. The mirror is an
+**one number** — and in QLF this is *discharged into a theorem*. The mirror is an
 involution on the two perspectives; the ranks are the one `centralMultiplicity` read on
 each side; and because the central point `s=1` is the mirror's **fixed point**
 (`bsd_central_point_self_dual`), the multiplicity is mirror-invariant there. So rank = ord
@@ -75,7 +75,7 @@ follows:
 def mordellWeilRank (E) : ℕ := centralMultiplicity E .galois
 def analyticRank   (E) : ℕ := centralMultiplicity E .automorphic
 
--- the single boundary, now structural (the mirror's fixed point is the central point):
+-- the single boundary, structural (the mirror's fixed point is the central point):
 axiom modularity_mirror_invariant (E) (p) :
     centralMultiplicity E (modularityMirror p) = centralMultiplicity E p
 
@@ -111,7 +111,7 @@ So the open step is **not a hole in the QLF proof** — it is the place where ZF
 no guaranteed proof to give. Demanding a ZFC-internal closure of BSD is demanding the very
 continuum/choice fallacy QLF has diagnosed.
 
-## 5. The constructive encoding (now built)
+## 5. The constructive encoding (built)
 
 `EllipticCurveQLF` is **no longer abstract**. It is a concrete integral short-Weierstrass
 curve `y² = x³ + a·x + b` ([`lean/QLF_BSD.lean`](lean/QLF_BSD.lean)), and its
@@ -130,7 +130,7 @@ Langlands.md §5.4 flagged as open is done.
 What remains abstract is exactly what BSD is *about*: the two **ranks** are genuinely
 uncomputable in general, so `centralMultiplicity` (and the ranks reading it) stays an
 abstract function on the concrete curve. The rank = ord identity is no longer the boundary
-— it is now a **theorem** (`bsd_rank_equals_order`), discharged through the modularity
+— it is a **theorem** (`bsd_rank_equals_order`), discharged through the modularity
 mirror; the lone boundary is `modularity_mirror_invariant` (why the mirror preserves the
 multiplicity at its fixed point). That is genuine constructive progress with the remaining
 work made precise, not a completed ZFC proof and not pretending to be one
@@ -138,7 +138,7 @@ work made precise, not a completed ZFC proof and not pretending to be one
 
 ## 6. What would advance it
 
-- **Compute analytic data at more primes.** The Frobenius traces `(a_p)` are now computable
+- **Compute analytic data at more primes.** The Frobenius traces `(a_p)` are computable
   for any `E` and `p`; assembling them into `L(E,s)` and its central vanishing order is the
   next analytic layer (Langlands.md §6 numerics).
 - **Discharge `modularity_mirror_invariant`.** The bare rank = ord axiom is already gone

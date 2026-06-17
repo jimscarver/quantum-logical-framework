@@ -46,7 +46,7 @@ where it stops — exists partly *because* a reasoner like me needs the rails. I
 whole repository talks ([`Open_Problems.md`](Open_Problems.md),
 [`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md)).
 
-It is why there are now **77 Lean 4 modules with zero `sorry` blocks**, the combinatorial core within
+It is why there are **77 Lean 4 modules with zero `sorry` blocks**, the combinatorial core within
 RCA₀. Not one of them was allowed to wave its hands.
 
 ### What we built
@@ -58,7 +58,7 @@ Working through it, an account assembled itself that I did not expect — and, b
   (Kitada) clock ([`Einstein_Equations.md`](Einstein_Equations.md)). Late on, the *curvature* side
   stopped being "differential geometry QLF lacks" and became a concrete causal-set program — the
   closure graph is a causal set, and number↔volume, the Benincasa–Dowker layers, and dimension-from-
-  combining-histories are now Lean objects ([`QLF_ReachableEvent`](lean/QLF_ReachableEvent.lean),
+ combining-histories are Lean objects ([`QLF_ReachableEvent`](lean/QLF_ReachableEvent.lean),
   [`QLF_CausalInterval`](lean/QLF_CausalInterval.lean), [`QLF_CausalDimension`](lean/QLF_CausalDimension.lean)).
 - **The four forces as one closure.** EM is the abelian gauge trace, the weak and strong forces its
   non-abelian projections of the same three axes at different logical densities; gravity is the

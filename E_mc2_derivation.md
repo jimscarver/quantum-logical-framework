@@ -220,7 +220,7 @@ No overclaim: the relation follows from existing multiplicity counting + gauge-f
 - **No postulates**: \( E = mc^2 \) is a logical consequence of ZFA + multiplicity + role swap.
 - **Ontological clarity**: Mass = bound gauge delay; energy = unbound history volume; \( c \) = logical causality.
 - **RhoQuCalc speedup**: Cataloged gauge-folded fluxoids enable polynomial relativistic simulations.
-- **Unification**: Same mechanism already derives \( \alpha \), \( G \), and now relativistic mechanics.
+- **Unification**: Same mechanism already derives \( \alpha \), \( G \), and relativistic mechanics.
 
 This closes the QLF loop: every fundamental law is a constructive proof from the 8-twist algebra.
 

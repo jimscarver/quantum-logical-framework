@@ -126,7 +126,7 @@ local-time reading is developed in [`Kitada_Local_Time_GR.md`](Kitada_Local_Time
 
 Jacobson's route fixes the **coefficient** (`8πG = 2π/η`) and the constant (`Λ = log 2`). The *other*
 half of the field equations — the **curvature** side, `G_μν = R_μν − ½ g_μν R` — used to be flagged as
-"needs differential-geometry machinery QLF's Lean core lacks." That framing is now too pessimistic,
+"needs differential-geometry machinery QLF's Lean core lacks." That framing is too pessimistic,
 because QLF supplies the curvature side from the **same substrate** by a second, independent route.
 
 **The substrate is a causal set.** [`QLF_ReachableEvent`](lean/QLF_ReachableEvent.lean) makes QLF's
@@ -196,7 +196,7 @@ substrate results, reproducing Jacobson's "Einstein equation of state," with `Λ
 integration constant = the local-clock tick. Status marker:
 [`einstein_equations_in_progress`](lean/QLF_EinsteinEquations.lean).
 
-It does **not** carry out the full **tensor** derivation. But that open step is now *concrete and
+It does **not** carry out the full **tensor** derivation. But that open step is *concrete and
 named*, not "differential geometry QLF lacks": it is the **causal-set order → metric** program
 (Sorkin / Benincasa–Dowker, §6a) running on QLF's own causal set
 ([`QLF_ReachableEvent`](lean/QLF_ReachableEvent.lean)), of which the **number↔volume / proper-time
@@ -205,7 +205,7 @@ rung is Lean-anchored** ([`QLF_CausalInterval`](lean/QLF_CausalInterval.lean)). 
 **d'Alembertian → Ricci scalar** (Benincasa–Dowker), and the **continuum limit** to
 `G_μν = 8πG T_μν` — the same dynamical-metric step still open for the Schwarzschild metric
 ([`GR_Schwarzschild.md`](GR_Schwarzschild.md)) and gravitational waves
-([`QLF_GravitationalWaves`](lean/QLF_GravitationalWaves.lean)), now a definite causal-set computation
+([`QLF_GravitationalWaves`](lean/QLF_GravitationalWaves.lean)), a definite causal-set computation
 rather than a missing toolbox. What is established: the **identification** (Jacobson's local horizon =
 QLF's Markov-blanket / Kitada local clock = a node of the causal set), so the Einstein equations sit on
 two meeting substrate legs — the equation of state (coefficient) and the causal order (curvature).

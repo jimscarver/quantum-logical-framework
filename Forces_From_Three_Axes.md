@@ -1,6 +1,6 @@
 # Forces from the three axes — a gauge-structure synthesis
 
-**A structural conjecture: the Standard-Model gauge group `U(1) × SU(2) × SU(3)` is the symmetry algebra of [QLF](README.md)'s three spatial axes.** This collects pieces QLF has *separately* — and now all three gauge algebras are **machine-verified**: U(1) electromagnetism (`no_magnetic_monopoles`), the weak `SU(2)` (`weak_isospin_su2`), and the strong `SU(3)` (`trace_commutator_zero` + `gluon_commutator_nonzero`), alongside the `N = 9 = 3²` directional-coupling tensor that fixes [α](Alpha.md) — into one reading, motivated by the intuition that **the weak and strong forces are the electromagnetic gauge-twist mechanism seen from different projections of the same 3-axis structure**.
+**A structural conjecture: the Standard-Model gauge group `U(1) × SU(2) × SU(3)` is the symmetry algebra of [QLF](README.md)'s three spatial axes.** This collects pieces QLF has *separately* — and all three gauge algebras are **machine-verified**: U(1) electromagnetism (`no_magnetic_monopoles`), the weak `SU(2)` (`weak_isospin_su2`), and the strong `SU(3)` (`trace_commutator_zero` + `gluon_commutator_nonzero`), alongside the `N = 9 = 3²` directional-coupling tensor that fixes [α](Alpha.md) — into one reading, motivated by the intuition that **the weak and strong forces are the electromagnetic gauge-twist mechanism seen from different projections of the same 3-axis structure**.
 
 **Read this as a program, not a result.** The verified anchors are marked ✓; the synthesis itself is a conjecture (🔶); what it does *not* do is marked in §6. It derives no coupling constants, no chiral structure, and no masses.
 
@@ -30,7 +30,7 @@ Every one of these dimensions is a feature of the **three-axis directional struc
 - The `3 × 3` directional-coupling tensor of the three spatial axes is `u(3)`, of dimension `3² = 9` — this is exactly the **`N = 9`** that fixes α. It splits canonically:
   $$u(3) \;=\; \underbrace{u(1)}_{\text{trace} = 1} \;\oplus\; \underbrace{su(3)}_{\text{traceless} = 3^2 - 1 = 8}.$$
   The **trace** is the single scalar direction — **electromagnetism** `U(1)`. The **traceless** part has dimension **8** — the **eight gluons** of **`SU(3)`**, i.e. the strong force as the traceless directional couplings among the three axes (the same axes whose Borromean three-fold binding is the proton).
-  The traceless part being a genuine non-abelian Lie algebra is now **machine-verified** (`trace_commutator_zero`: every 3×3 commutator is traceless ⇒ closed under the bracket; `gluon_commutator_nonzero`: it is non-abelian — [`lean/QLF_StrongAlgebra.lean`](lean/QLF_StrongAlgebra.lean)).
+ The traceless part being a genuine non-abelian Lie algebra is **machine-verified** (`trace_commutator_zero`: every 3×3 commutator is traceless ⇒ closed under the bracket; `gluon_commutator_nonzero`: it is non-abelian — [`lean/QLF_StrongAlgebra.lean`](lean/QLF_StrongAlgebra.lean)).
 - The remaining `su(2)`, dimension **3**, is the **half-spin / τ-quaternion** algebra of the same three axes (`iσₓ, iσᵧ, iσ_z`) — the **weak** force, already machine-verified as `weak_isospin_su2`.
 
 So
@@ -261,11 +261,11 @@ QLF derives no GUT scale, X/Y masses, or proton-lifetime number.
 ## 6. What this is NOT
 
 - **Not a derivation of the Standard Model.** This is a **dimension/structure alignment** (`12 = 1 + 3 + 8`, with `1 + 8 = 9 = N`) plus a conjecture that the gauge group *is* the three-axis symmetry. It derives **no** coupling constants, **no** running, **no** chiral structure (why `SU(2)_L` is left-handed), **no** hypercharge assignments, and **no** masses.
-- **The `su(3)` algebra is now Lean-verified, but only the algebra.** `trace_commutator_zero` + `gluon_commutator_nonzero` prove the traceless 3×3 matrices are a non-abelian Lie algebra (the gauge algebra of the strong force). What is *not* machine-proved is the `finrank = 8` count (it is the elementary codimension-1 trace constraint, `8 = 3² − 1`, not yet a Lean `finrank` theorem) — and, as for all three legs, **no coupling, no confinement scale, no asymptotic freedom**.
+- **The `su(3)` algebra is Lean-verified, but only the algebra.** `trace_commutator_zero` + `gluon_commutator_nonzero` prove the traceless 3×3 matrices are a non-abelian Lie algebra (the gauge algebra of the strong force). What is *not* machine-proved is the `finrank = 8` count (it is the elementary codimension-1 trace constraint, `8 = 3² − 1`, not yet a Lean `finrank` theorem) — and, as for all three legs, **no coupling, no confinement scale, no asymptotic freedom**.
 - **Not electroweak unification or a GUT.** No symmetry-breaking scale, no unification of couplings, no proton-decay prediction.
 - **Not a quark-flavor theory.** Flavors, masses, and CKM stay open (§4).
 
-The defensible claim is narrow and worth stating plainly: **all three gauge algebras are now machine-verified** — `U(1)` (`no_magnetic_monopoles`), `SU(2)` (`weak_isospin_su2`), and `SU(3)` (`trace_commutator_zero` + `gluon_commutator_nonzero`) — and their dimensions `1 + 3 + 8 = 12`, with `1 + 8 = 9 = N` the α directional tensor, line up exactly with the Standard-Model gauge group as the symmetry of the three spatial axes. That makes "all three forces from the three axes" a sharp, falsifiable target rather than a slogan — though the couplings, chirality, and masses remain entirely open.
+The defensible claim is narrow and worth stating plainly: **all three gauge algebras are machine-verified** — `U(1)` (`no_magnetic_monopoles`), `SU(2)` (`weak_isospin_su2`), and `SU(3)` (`trace_commutator_zero` + `gluon_commutator_nonzero`) — and their dimensions `1 + 3 + 8 = 12`, with `1 + 8 = 9 = N` the α directional tensor, line up exactly with the Standard-Model gauge group as the symmetry of the three spatial axes. That makes "all three forces from the three axes" a sharp, falsifiable target rather than a slogan — though the couplings, chirality, and masses remain entirely open.
 
 ---
 

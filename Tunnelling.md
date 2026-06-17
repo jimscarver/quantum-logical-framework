@@ -35,7 +35,7 @@ Instead of failing or halting, the QuCalc engine does exactly what the framework
 
 - It **synthesizes an extra orthogonal dimension** using the gauge twists `+` and `-` (the secondary gauge basis).
 - The unresolved spatial action is **pushed into this gauge dimension**.
-- The engine continues its combinatorial expansion, now exploring **both** the original spatial branches **and** the new gauge branches simultaneously.
+- The engine continues its combinatorial expansion, exploring **both** the original spatial branches **and** the new gauge branches simultaneously.
 
 This is the same mechanism that produces superposition (see `Superposition.md`), except now the multiplicity lives temporarily in the hidden gauge dimensions.
 

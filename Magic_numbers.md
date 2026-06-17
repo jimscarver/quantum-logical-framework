@@ -47,7 +47,7 @@ Combined with the dimensional growth of §"Dimensional Growth of Closures", this
 | 5 | 1g₇/₂, 2d₅/₂, 2d₃/₂, 3s₁/₂, ✦1h₁₁/₂ | 16 | +32 | 82 |
 | 6 | 1h₉/₂, 2f₇/₂, 2f₅/₂, 3p₃/₂, 3p₁/₂, ✦1i₁₃/₂ | 22 | +44 | 126 |
 
-The per-frequency resonance counts `1, 3, 6, 4, 11, 16, 22` are now produced by direct enumeration of `(n_HO, ℓ, j)` orbits plus the vacuum-selection rule — no empirical input beyond the j-coupling structure of the 8-twist alphabet's 6+2 split.
+The per-frequency resonance counts `1, 3, 6, 4, 11, 16, 22` are produced by direct enumeration of `(n_HO, ℓ, j)` orbits plus the vacuum-selection rule — no empirical input beyond the j-coupling structure of the 8-twist alphabet's 6+2 split.
 
 Concrete numerical demo: [`magic_numbers_demo.py`](magic_numbers_demo.py) (numpy-only, ASCII output).
 
@@ -86,10 +86,10 @@ The empirical threshold at ℓ = 3 in nuclear physics is therefore a **structura
 
 ## Current Status
 
-- ✓ The full sequence `2, 8, 20, 28, 50, 82, 126` is now reproduced by `magic_numbers_demo.py` from j-coupling enumeration plus the vacuum-selection rule. The dimensional-growth phase (k ≤ 2) gives 2, 8, 20 directly; the vacuum-as-intruder phase (k ≥ 3) gives 28, 50, 82, 126.
+- ✓ The full sequence `2, 8, 20, 28, 50, 82, 126` is reproduced by `magic_numbers_demo.py` from j-coupling enumeration plus the vacuum-selection rule. The dimensional-growth phase (k ≤ 2) gives 2, 8, 20 directly; the vacuum-as-intruder phase (k ≥ 3) gives 28, 50, 82, 126.
 - ✓ The threshold at ℓ_max ≥ 3 is **derived**: the inequality `rest > vacuum-selected` reduces to `k > 2`, and the integer threshold `k = 3` falls out of the 3 in `(k+1)(k+2)` — the d = 3 of the alphabet's 6 spatial twists / 3 spatial dimensions. Counterfactual shifts (d = 4 → threshold at ℓ = 2; d = 2 → no threshold) make this a structural prediction.
 - ⚠ The vacuum's selection rule (vacuum picks `j = ℓ_max + 1/2` at each frequency) remains the framework's structural commitment. Intuitively the vacuum couples to the spin-aligned configuration (orbital and spin angular momenta parallel), which is the most-extended-in-angle and most-degenerate j-multiplet at each ℓ. A rigorous derivation of this choice from the 8-twist alphabet's gauge-twist ↔ spatial-twist coupling structure remains open.
 - ✗ Open: derive why the vacuum specifically selects `j = ℓ_max + 1/2` (rather than `j = ℓ_max − 1/2` or another j-shell) from the alphabet's gauge ↔ spatial coupling.
 
 ## Goal
-Develop a pure logical derivation where all magic numbers emerge strictly from Zero Free Action and half-spin orthogonal fold closures, without reference to traditional nuclear forces. The dimensional-growth (2, 8, 20), vacuum-as-intruder (28, 50, 82, 126), and ℓ = 3 threshold are now derived from the 8-twist alphabet's 6+2 split. The remaining concrete target is to derive the vacuum's `j = ℓ_max + 1/2` selection rule from the gauge-twist ↔ spatial-twist coupling structure of the alphabet.
+Develop a pure logical derivation where all magic numbers emerge strictly from Zero Free Action and half-spin orthogonal fold closures, without reference to traditional nuclear forces. The dimensional-growth (2, 8, 20), vacuum-as-intruder (28, 50, 82, 126), and ℓ = 3 threshold are derived from the 8-twist alphabet's 6+2 split. The remaining concrete target is to derive the vacuum's `j = ℓ_max + 1/2` selection rule from the gauge-twist ↔ spatial-twist coupling structure of the alphabet.

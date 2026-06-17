@@ -34,7 +34,7 @@ Hawking radiation is simply **active-inference interaction across the Markov bla
 
 Every stable entity in QLF is an **irreducible topological fold** (unforgeable name) in the global history string \(H_{\rm global}\) that achieves exact ZFA closure.  
 
-- The **same QuCalc engine** that synthesizes an electron or neutrino now classifies gauge-folded loops as primordial quantum black holes.  
+- The **same QuCalc engine** that synthesizes an electron or neutrino classifies gauge-folded loops as primordial quantum black holes. 
 - A gauge-folded particle is a microscopic, singularity-free attractor: a fixed-point re-entry loop at Planck density.  
 - The “event horizon” is the **Markov blanket** formed by the `+`–`−` twists themselves.  
 
@@ -64,7 +64,7 @@ Hawking radiation is **not** evaporation or pair creation in curved spacetime. I
 
 See `immediate_reentry_unwind` in `particles.py` and the blanket logic in `Hadrons_Markov_Blankets.md`. This mechanism is identical at both particle and macroscopic black-hole scales.
 
-The **temperature** of this radiation is now Lean-anchored: the canonical Hawking temperature `T = ℏc³/(8πGMk_B)` is the **Unruh master relation** `T = ℏa/(2πck_B)` at the horizon surface gravity `κ = c⁴/(4GM)`, with the universal `2π` being QLF's loop phase — the same relation gives the Unruh and de Sitter temperatures at their accelerations (`QLF_HorizonTemperature.lean`; [Gravity_From_Delay.md §5.1](Gravity_From_Delay.md)).
+The **temperature** of this radiation is Lean-anchored: the canonical Hawking temperature `T = ℏc³/(8πGMk_B)` is the **Unruh master relation** `T = ℏa/(2πck_B)` at the horizon surface gravity `κ = c⁴/(4GM)`, with the universal `2π` being QLF's loop phase — the same relation gives the Unruh and de Sitter temperatures at their accelerations (`QLF_HorizonTemperature.lean`; [Gravity_From_Delay.md §5.1](Gravity_From_Delay.md)).
 
 ## 3a. What the Hawking unwind returns — information and charge, but *not* `B−L`
 
@@ -133,10 +133,10 @@ The identical engine proves both the particle spectrum and quantum black-hole be
 
 ## Conclusion
 
-The improved `BLACK-HOLES.md` establishes the complete, computationally verified equivalence: **every gauge-folded particle is a primordial quantum black hole**. The 21 April 2026 gauge-folding rule, now native to `particles.py` and all supporting modules, unifies particle physics, black-hole thermodynamics, Hawking radiation, gravity, and the dark-energy equivalent from a single ZFA topological mechanism.  
+The improved `BLACK-HOLES.md` establishes the complete, computationally verified equivalence: **every gauge-folded particle is a primordial quantum black hole**. The 21 April 2026 gauge-folding rule, native to `particles.py` and all supporting modules, unifies particle physics, black-hole thermodynamics, Hawking radiation, gravity, and the dark-energy equivalent from a single ZFA topological mechanism. 
 
 No singularities, no information loss, and no external spacetime are required. The entire picture emerges from the constructive logic of QuCalc.
 
-This document is now fully aligned with the rest of the framework and ready for simulation, extension, and further refinement.
+This document is fully aligned with the rest of the framework and ready for simulation, extension, and further refinement.
 
 *Last aligned with repo state 21 April 2026. This improved version integrates the gauge-folding rule, computational examples, density-gradient interpretation, and cross-document consistency.*

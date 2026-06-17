@@ -85,7 +85,7 @@ $$T \;=\; \frac{M G \, \hbar}{2 \pi r^2 c \, k_B}.$$
 ### §5.1 The canonical surface-gravity temperature: one relation, three horizons
 
 The equipartition estimate above (`T ∝ M/r²`, a *shell* temperature) is distinct from the
-**canonical** horizon temperature `T ∝ 1/M`, which QLF now Lean-anchors
+**canonical** horizon temperature `T ∝ 1/M`, which QLF Lean-anchors
 ([`QLF_HorizonTemperature.lean`](lean/QLF_HorizonTemperature.lean)). Every horizon temperature
 is the **Unruh master relation** at the appropriate acceleration `a`, with the universal `2π`
 being the **substrate loop phase** — the same `2π` of one full closure that appears in

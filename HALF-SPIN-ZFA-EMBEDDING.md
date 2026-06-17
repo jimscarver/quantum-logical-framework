@@ -68,7 +68,7 @@ The half-spin ZFA embedding is the **central node** that binds every major conce
 |-----------------------------|-----------------------------------------------------------------------|-------------|
 | **8-axis directional alphabet** | Provides physical interpretation of each directional move as spinor operations | Topology becomes quantum mechanics |
 | **Irreducible history strings** | Atoms + directional pairs cannot be compressed without destroying spinor topology | **Irreducibility Theorem** |
-| **QuCalc rewrite rules**     | Rules now act on ZFA-tagged pairs, remaining confluent and local     | Exact discrete simulation of subsystems |
+| **QuCalc rewrite rules** | Rules act on ZFA-tagged pairs, remaining confluent and local | Exact discrete simulation of subsystems |
 | **Perspective-Relativity**   | Each observer only ever sees the atoms it has interacted with        | **Perspective-Relativity Theorem** |
 | **Subset simulation**        | Finite history strings for \( n \lesssim 100 \) particles are tractable on conventional hardware | Laboratory-scale quantum systems simulable today |
 | **Full-universe impossibility** | Global string would require \( \sim 10^{90} \) atoms + relational overhead | Proves classical simulation of reality is impossible |
@@ -96,7 +96,7 @@ The four base 1/2-spin atoms — `^v`, `<>`, `/\`, `+-` — each fold to $-I$ in
 - **Pauli closure** (the algebraic / non-abelian projection — [Experimental_Consistency.md §2.1](Experimental_Consistency.md))
 - **Maximum information gain** (the information-theoretic projection — [MRE.md](MRE.md))
 
-The 720° spinor statistics of fermions are the macroscopic signature of this $-I$ fold: a single 1/2-spin atom contributes the $-1$ phase a fermion picks up under 360° rotation; two atoms in parallel restore $+I$ at 720°. This is now **machine-verified** in [`Spin_QLF.md`](Spin_QLF.md) / [`lean/QLF_Spin.lean`](lean/QLF_Spin.lean): the three twist axes close the su(2) Lie algebra (`su2_comm_xy/yz/zx`), 360°→`−I` / 720°→`+I` (`rotation_360_eq_negI` / `rotation_720_eq_id`), and the SU(2)→SO(3) cover is genuine, `−I ≠ +I` (`spin_double_cover_nontrivial`). **Half-spin is foundational not as the lucky intersection of independent constraints, but as a single principle (half-spin Hermitian closure) decomposed into its set-theoretic, algebraic, and information-theoretic faces.** See §6 below for *why* the algebra carrying this closure must be H ≅ SU(2) (Hurwitz + half-spin uniqueness).
+The 720° spinor statistics of fermions are the macroscopic signature of this $-I$ fold: a single 1/2-spin atom contributes the $-1$ phase a fermion picks up under 360° rotation; two atoms in parallel restore $+I$ at 720°. This is **machine-verified** in [`Spin_QLF.md`](Spin_QLF.md) / [`lean/QLF_Spin.lean`](lean/QLF_Spin.lean): the three twist axes close the su(2) Lie algebra (`su2_comm_xy/yz/zx`), 360°→`−I` / 720°→`+I` (`rotation_360_eq_negI` / `rotation_720_eq_id`), and the SU(2)→SO(3) cover is genuine, `−I ≠ +I` (`spin_double_cover_nontrivial`). **Half-spin is foundational not as the lucky intersection of independent constraints, but as a single principle (half-spin Hermitian closure) decomposed into its set-theoretic, algebraic, and information-theoretic faces.** See §6 below for *why* the algebra carrying this closure must be H ≅ SU(2) (Hurwitz + half-spin uniqueness).
 
 See [MRE.md](MRE.md) for the per-event $\log 2$ derivation and [Hierarchical_Control.md](Hierarchical_Control.md) for the consequences in the bottom-up/top-down architecture (each 1/2-spin atom is one quantum of free-energy minimization).
 
@@ -116,7 +116,7 @@ Loops without `+`–`−` folding are **massless particles**:
 **Density-dependent space/time role swap**:  
 In high logical-density regions (`+`–`−` folds dominate) time becomes the local axis. In low-density regions space dominates. This swap is the microscopic mechanism of relativistic frame transformations.
 
-This classification is now native to the QuCalc engine and directly supports the particle ↔ quantum black hole equivalence.
+This classification is native to the QuCalc engine and directly supports the particle ↔ quantum black hole equivalence.
 
 See companion documents: `Particles.md`, `Frequency_Synchronization.md`, `BLACK-HOLES.md` (to be rewritten after these updates).
 

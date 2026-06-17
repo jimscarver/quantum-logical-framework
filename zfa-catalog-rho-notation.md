@@ -136,7 +136,7 @@ TwoParticleScattering = new p1, p2 in
 NParticleGas(n) = * (new i in ApplyZfa(0, "ZFA_FLUXOID"))   // n identical particles
 ```
 
-**Optimization**: Instead of re-running BFS for every particle, the engine now injects cataloged closures from the current directional prefix of each particle. Net action remains zero globally; local residuals project as 3D trajectories or forces.
+**Optimization**: Instead of re-running BFS for every particle, the engine injects cataloged closures from the current directional prefix of each particle. Net action remains zero globally; local residuals project as 3D trajectories or forces.
 
 This directly maps to QuCalc's `path_integral.py` summation: each parallel `ZFA_…` term contributes one history.
 

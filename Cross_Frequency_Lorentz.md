@@ -142,7 +142,7 @@ In high-density regions (e.g. near a black-hole horizon, or for fast-moving fram
 - **Generalisation to acceleration**: the constant-rapidity case here generalises to time-varying rapidity for accelerated frames. The QLF analog should yield the equivalence principle as a consequence of locally-varying Markov-blanket frequencies — connects to [`Gravity.md`](Gravity.md).
 - **Cosmological-redshift application**: at cosmic scale, frame-pair frequency ratios encode the cosmological redshift $1 + z = \lambda_{\text{obs}} / \lambda_{\text{emit}} = \xi^{-1}$. Connects to [`AgeOfUniverse.md`](AgeOfUniverse.md)'s cosmic-causal-frontier framing.
 - **Quantum-clock instantiation**: a direct experimental match would compare two atomic clocks at different gravitational potentials and verify $\gamma = f_A/f_B$ matches the GR prediction. The standard GR gravitational redshift is already this equation; the QLF reading just reframes it.
-- **Bound-state relativistic kinematic application (closed)**: the small-rapidity expansion `γ − 1 ≈ φ²/2` of this doc's `γ = cosh φ` framework is now applied to the bound electron in [`Dirac_Correction.md`](Dirac_Correction.md) §2, supplying the relativistic-kinetic piece of the Dirac correction to the hydrogen spectrum (orbital velocity `v_1 = αc` gives `φ ≈ α`, hence `γ − 1 ≈ α²/2`).
+- **Bound-state relativistic kinematic application (closed)**: the small-rapidity expansion `γ − 1 ≈ φ²/2` of this doc's `γ = cosh φ` framework is applied to the bound electron in [`Dirac_Correction.md`](Dirac_Correction.md) §2, supplying the relativistic-kinetic piece of the Dirac correction to the hydrogen spectrum (orbital velocity `v_1 = αc` gives `φ ≈ α`, hence `γ − 1 ≈ α²/2`).
 
 ---
 

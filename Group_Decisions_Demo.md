@@ -65,7 +65,7 @@ Dave>  /poll add Taqueria Uno
 Eve>   /poll add Ramen House          ·  (merges — already nominated)
 ```
 
-Each `/poll add` broadcasts a `poll-option` envelope; the card now lists three
+Each `/poll add` broadcasts a `poll-option` envelope; the card lists three
 options: **Ramen House**, **Pizza Forno**, **Taqueria Uno**.
 
 ### Step 3 — everyone ranks their preferences
@@ -117,7 +117,7 @@ Bob> /qucalc @[team dinner is at Ramen House]
 ·   achieves_ZFA: ✓   (the ratified decision, re-checkable by anyone)
 ```
 
-The lemma is now the room's shared, machine-checkable record of what was decided.
+The lemma is the room's shared, machine-checkable record of what was decided.
 
 ---
 

@@ -160,7 +160,7 @@ gaps (`muon_catalysis_in_progress`). Net-energy cold fusion this way needs cheap
 
 ## 4. Computational Demonstration (`fusion_sim.py`)
 
-Fusion is now fully simulatable with the new `fusion_sim.py` module, which reuses the exact `IntuitionisticEngine` from `particles.py` v2.2.
+Fusion is fully simulatable with the new `fusion_sim.py` module, which reuses the exact `IntuitionisticEngine` from `particles.py` v2.2.
 
 Run example:
 ```bash

@@ -26,7 +26,7 @@ A process becomes physically admissible only when its unresolved distinctions ar
 
 This remains the core of the framework.
 
-What has changed is that QuCalc is now supported by a higher layer: **RhoQuCalc**.
+What has changed is that QuCalc is supported by a higher layer: **RhoQuCalc**.
 
 ---
 
@@ -131,7 +131,7 @@ Examples include:
 - `ZFA_FLUXOID = ^>/+v<\-`
 
 These named closures are no longer merely examples in prose.  
-They are now cataloged and callable through the engine.
+They are cataloged and callable through the engine.
 
 This is the key bridge to RhoQuCalc.
 
@@ -194,7 +194,7 @@ In engine terms, replication expands one history into multiple copies for multi-
 
 ## 8. The Engine Structure
 
-The implementation now has three distinct layers:
+The implementation has three distinct layers:
 
 ### 8.1 QuCalc Core
 
@@ -234,7 +234,7 @@ This is the practical RhoQuCalc layer.
 
 ## 9. The RhoQuCalc Syntax Layer
 
-A RhoQuCalc transpiler now provides a simple RhoLang-style executable notation.
+A RhoQuCalc transpiler provides a simple RhoLang-style executable notation.
 
 Supported forms currently include:
 
@@ -267,7 +267,7 @@ ZFA discovery / composition / simulation
 
 ## 10. Path Integrals in RhoQuCalc
 
-The path-integral module is now RhoQuCalc-aware.
+The path-integral module is RhoQuCalc-aware.
 
 It no longer assumes a single prefix only.  
 It can now process:
@@ -279,7 +279,7 @@ It can now process:
 
 This is important because it shifts the framework from single-history reasoning to **structured multiplicity**.
 
-Instead of merely asking whether one prefix closes, the engine can now count closure behavior over a process ensemble.
+Instead of merely asking whether one prefix closes, the engine can count closure behavior over a process ensemble.
 
 ---
 
@@ -351,12 +351,12 @@ This expresses repeated spawning or reuse of a closure process.
 This document replaces the older picture in which QuCalc appeared to be only a discrete twist engine.
 
 That is still true at the core.  
-But the repository now supports a stronger formulation:
+But the repository supports a stronger formulation:
 
 - QuCalc is the base relational twist algebra.
 - RhoQuCalc is the compositional process layer built on top of it.
-- ZFA closures are now reusable named objects, not only discovered endpoints.
-- Multi-process and replicated systems are now first-class citizens of the framework.
+- ZFA closures are reusable named objects, not only discovered endpoints.
+- Multi-process and replicated systems are first-class citizens of the framework.
 
 So QuCalc should now be understood in two tiers:
 
@@ -367,7 +367,7 @@ So QuCalc should now be understood in two tiers:
 
 ## 15. Current Scope
 
-This repository now has real support for RhoQuCalc, but the language is still in an early constructive stage.
+This repository has real support for RhoQuCalc, but the language is still in an early constructive stage.
 
 What exists now is enough to support:
 
@@ -394,6 +394,6 @@ With RhoQuCalc support, it becomes a language for building systems of histories 
 
 That is the decisive change.
 
-The framework now treats a stable closure not only as the end of a search, but as a named constructive unit in a larger possibilist process algebra.
+The framework treats a stable closure not only as the end of a search, but as a named constructive unit in a larger possibilist process algebra.
 
 See also: [zfa-catalog-rho-notation.md](zfa-catalog-rho-notation.md) — pre-verified ZFA closure catalog in RhoLang notation; orders-of-magnitude speedup by reusing named closures instead of re-running BFS.

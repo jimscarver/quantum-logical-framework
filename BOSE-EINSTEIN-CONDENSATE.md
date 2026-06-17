@@ -54,7 +54,7 @@ QuCalc applies the lowest-energy rule preferentially (confluent topological mini
    H_{\text{BEC}} = (d_0, a_1) \circ (d_0, a_2) \circ (d_0, a_3)
    $$
 
-The full combined history string is now **irreducibly shared**. Any further rewrite (measurement or interaction) acts on the *entire condensate* as a single logical object.
+The full combined history string is **irreducibly shared**. Any further rewrite (measurement or interaction) acts on the *entire condensate* as a single logical object.
 
 This process is **exact** — no statistics are approximated. The probability of condensation is 1 in the zero-temperature limit because higher-energy directional moves are forbidden by the rewrite confluence.
 

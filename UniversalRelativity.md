@@ -151,7 +151,7 @@ Emergent Δx = 1.0, Δt = 1.0 → c = 1 (natural units)
 Boosted observer sees same invariant interval
 ```
 
-The mechanism behind this emergent Lorentz invariance is now explicit: the QLF vacuum is a **statistically uniform, stateless ether** (Einstein's 1920 ether — real metric structure, no preferred frame), derived in [`Time.md`](Time.md) §4 and [`SpaceTime.md`](SpaceTime.md) §4. No frame being privileged, time dilation is reciprocal and local `c` is frame-independent — Lorentz invariance is emergent, not postulated. The explicit boost-as-frequency-change-of-basis is in [`Cross_Frequency_Lorentz.md`](Cross_Frequency_Lorentz.md).
+The mechanism behind this emergent Lorentz invariance is explicit: the QLF vacuum is a **statistically uniform, stateless ether** (Einstein's 1920 ether — real metric structure, no preferred frame), derived in [`Time.md`](Time.md) §4 and [`SpaceTime.md`](SpaceTime.md) §4. No frame being privileged, time dilation is reciprocal and local `c` is frame-independent — Lorentz invariance is emergent, not postulated. The explicit boost-as-frequency-change-of-basis is in [`Cross_Frequency_Lorentz.md`](Cross_Frequency_Lorentz.md).
 
 ## 4. Completion of General Relativity
 

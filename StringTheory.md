@@ -60,7 +60,7 @@ String theory becomes a useful effective description at certain energy scales, e
 
 ## 4. Implications for Physics and Philosophy
 
-- **String theorists can now run their models inside QLF** using the RhoQuCalc engine — instantly gaining computability and formal verification.
+- **String theorists can run their models inside QLF** using the RhoQuCalc engine — instantly gaining computability and formal verification.
 - **The information-ecology view** (see [`Philosophy.md`](https://github.com/jimscarver/quantum-logical-framework/blob/main/Philosophy.md)) shows that active inference naturally selects the most stable ZFA closures, explaining why intelligent structures (and perhaps string-like excitations) dominate.
 - **The universe is intelligence explaining intelligence** — string theory was a glimpse of this deeper logical self-organisation.
 

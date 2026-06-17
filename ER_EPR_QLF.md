@@ -2,7 +2,7 @@
 
 ## 🚀 Where this fits in the QLF substrate program (June 2026)
 
-The ER=EPR identity sits in QLF's broader **substrate-derivation program** that now Lean-anchors eight fundamental-physics predictions from ZFA + h alone:
+The ER=EPR identity sits in QLF's broader **substrate-derivation program** that Lean-anchors eight fundamental-physics predictions from ZFA + h alone:
 
 | Domain | Result | Lean module |
 |---|---|---|
@@ -22,7 +22,7 @@ Specifically:
 - **Per-event log 2 entropy** (Lean-anchored in `QLF_FreeEnergy`) gives the Bekenstein-Hawking horizon entropy substrate origin — the same quantum that determines the information capacity of an EPR pair (and hence the bandwidth of the ER bridge).
 - **Cross-frequency Lorentz** in `Cross_Frequency_Lorentz.md` extends to gravitational redshift in `GR_Schwarzschild.md` — the same frequency-ratio Markov-blanket framing that ties wormhole geometry to entanglement structure.
 
-ER=EPR is now not just a conceptual identification — it is the structural prediction whose substrate primitives also derive Newton's law and Mercury's perihelion.
+ER=EPR is not just a conceptual identification — it is the structural prediction whose substrate primitives also derive Newton's law and Mercury's perihelion.
 
 ---
 

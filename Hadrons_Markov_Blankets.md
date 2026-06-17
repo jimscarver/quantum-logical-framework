@@ -86,7 +86,7 @@ Creates local     : space
 (No blanket, no radiation)
 ```
 
-The same `blanket_kinematics.py` module now treats the `+`–`−` gauge fold as a microscopic horizon, confirming the continuum from hadrons to primordial black holes.
+The same `blanket_kinematics.py` module treats the `+`–`−` gauge fold as a microscopic horizon, confirming the continuum from hadrons to primordial black holes.
 
 ## 6. Summary Table
 

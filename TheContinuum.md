@@ -112,7 +112,7 @@ matter-vacuum-polarization sector. Because `α` is a function of the rendering d
 prediction). Full account: [**Alpha.md**](Alpha.md).
 
 **Update — the strong β-coefficient *is* substrate-fixed.** The QCD one-loop coefficient
-`b₀ = 11 N_c/3 − 2 n_f/3` is now read off the substrate ([`lean/QLF_BetaFunction.lean`](lean/QLF_BetaFunction.lean)):
+`b₀ = 11 N_c/3 − 2 n_f/3` is read off the substrate ([`lean/QLF_BetaFunction.lean`](lean/QLF_BetaFunction.lean)):
 `N_c = 3` is the three spatial axes (the SU(3) of `QLF_StrongAlgebra`) and `n_f = 6` is two
 quark flavours per generation times the three generations (`QLF_Generations`), giving
 `b₀ = 11·3/3 − 2·6/3 = 7` (`beta_coefficient_eq_seven`) — antiscreening (`11 > 4`) ⟹

@@ -113,7 +113,7 @@ Histories containing `+` or `-` (gauge) and/or non-zero out-of-phase ticks show 
 ## 6. Relation to Other QLF Phenomena
 
 - **Superposition.md** — supplies the redundant branches for both layers.  
-- **Tunneling.md** — identical gauge-synthesis step, now applied to temporal phase.  
+- **Tunneling.md** — identical gauge-synthesis step, applied to temporal phase. 
 - **Zeno_Effect.md** — frequent clock ticks can freeze the buffer (enhanced suppression).  
 - **Frequency_Synchronization.md** — the broader phenomenon that these two mechanisms implement.  
 - **Primordial_Entanglement.md** — early shared histories reduce initial mismatch.

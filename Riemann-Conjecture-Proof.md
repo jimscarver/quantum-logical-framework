@@ -50,7 +50,7 @@ In `lean/QLF_Universality.lean`, a terminating computation is formalized as a fi
 * the encoding satisfies `achieves_ZFA`,
 * and the encoding is generated at finite depth by `expand_generation`.
 
-So the universality theorem now has exactly the constructive scope needed:
+So the universality theorem has exactly the constructive scope needed:
 
 > every terminating finitely encoded logical computation is representable, generated, and retained inside QLF.
 
@@ -230,7 +230,7 @@ Balanced half-spin closure is no longer just a philosophical slogan. It is the i
 
 ### 3. It expressed RH inside QLF’s own generated closure space
 
-The Riemann problem is now posed entirely within the same QuCalc/ZFA machinery that drives the rest of the framework.
+The Riemann problem is posed entirely within the same QuCalc/ZFA machinery that drives the rest of the framework.
 
 ### 4. It isolated the final burden cleanly
 

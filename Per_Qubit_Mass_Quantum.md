@@ -12,7 +12,7 @@ $$m_{\text{particle}} \, c^2 \;=\; \sum_{\text{qubits } i} \hbar \omega_i \;=\; 
 
 This principle unifies and clarifies several earlier QLF formulations:
 
-- [`Higgs.md`](Higgs.md) §2 wrote `m = α R` with `α` a unit-conversion factor. The per-qubit reading clarifies: `α = ℏ ω_per_qubit / R_per_qubit = E_Planck / R²_per_qubit` in QLF natural units, so the implicit per-qubit structure is now explicit.
+- [`Higgs.md`](Higgs.md) §2 wrote `m = α R` with `α` a unit-conversion factor. The per-qubit reading clarifies: `α = ℏ ω_per_qubit / R_per_qubit = E_Planck / R²_per_qubit` in QLF natural units, so the implicit per-qubit structure is explicit.
 - [`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) §1 wrote `m_bound = α (R_A + R_B)` for joint closures. Under the per-qubit reading this becomes `m_bound = ℏω_A + ℏω_B` — masses add directly, each constituent contributing its own ℏω.
 - [`Frequency_Synchronization.md`](Frequency_Synchronization.md) wrote `Δt = R / f`. The per-qubit reading identifies `ω = 1/Δt = f/R` as the qubit's internal clock frequency, with mass = ℏω.
 
@@ -89,12 +89,12 @@ The photon-side companion is in [`Photon_Energy_Bits.md`](Photon_Energy_Bits.md)
 
 ### 3.3 The first-principles derivation question becomes sharper
 
-The open question "derive `m_e` from QLF closure-multiplicity" is now:
+The open question "derive `m_e` from QLF closure-multiplicity" is:
 
 > **Derive `R_e`** (the electron qubit's Markov-blanket depth, `R_e ≈ 2.389 × 10²²` in Planck units) **from QLF closure-multiplicity counts** — i.e., from the combinatorial structure of the 8-twist alphabet, ZFA closure, and the per-event `log 2` quantum.
 
 This is a cleaner statement of the open problem than "derive `α R_e = m_e`" because:
-- `α` is now `E_Planck` (Planck energy quantum), a defined unit rather than a fitted parameter.
+- `α` is `E_Planck` (Planck energy quantum), a defined unit rather than a fitted parameter.
 - `R_e` is a single integer-valued depth, not a depth-times-conversion product.
 - The target is a specific large number (`≈ 2.4 × 10²²`), constraining what kind of combinatorial argument could produce it.
 
@@ -129,7 +129,7 @@ the combinatorial `R_e` count above (`mass_spectrum_in_progress`).
 
 ### 3.3b The hierarchy from one integer: `b₀ = 7` fixes both inputs
 
-The two inputs above — `b` and `α_s` — are now both read off the substrate, and the result is
+The two inputs above — `b` and `α_s` — are both read off the substrate, and the result is
 striking ([`lean/QLF_BetaFunction.lean`](lean/QLF_BetaFunction.lean), [`lean/QLF_AlphaS.lean`](lean/QLF_AlphaS.lean)).
 
 - **`b₀ = 7`** is the QCD one-loop coefficient `11 N_c/3 − 2 n_f/3` with `N_c = 3` (the three
@@ -178,7 +178,7 @@ Each ZFA closure event reduces free energy by exactly `log 2` nats; each constit
 
 ---
 
-## §5 What is now derived, what is still open
+## §5 What is derived, what is still open
 
 | Item | Status |
 |---|---|
@@ -217,7 +217,7 @@ Each ZFA closure event reduces free energy by exactly `log 2` nats; each constit
 ### Internal
 
 - [`Bound_States_QLF.md`](Bound_States_QLF.md) — free leptons are not QLF observables; atomic systems are.
-- [`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) — joint-closure topologies for positronium, muonium, hydrogen; mass-additivity now made explicit via the per-qubit principle.
+- [`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) — joint-closure topologies for positronium, muonium, hydrogen; mass-additivity made explicit via the per-qubit principle.
 - [`Frequency_Synchronization.md`](Frequency_Synchronization.md) — `Δt = R/f`; the per-qubit reading identifies `ω = 1/Δt` as the qubit's internal frequency.
 - [`Higgs.md`](Higgs.md) — `m = αR` framework; the per-qubit reading clarifies the implicit per-qubit structure.
 - [`MRE.md`](MRE.md) — per-event `log 2` quantum; dual to the per-qubit `ℏω` mass quantum.

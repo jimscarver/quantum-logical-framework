@@ -2,7 +2,7 @@
 
 **Scoping doc — a structural comparison of QLF and LLMs as instantiations of "intelligence."** The case is built on four insights, three of which are already strong in the repo and one of which this doc contributes:
 
-1. **All possible logical systems exist a priori.** The substrate doesn't *create* reality, it *selects* from possibility via ZFA closure ([`Philosophy.md`](Philosophy.md) §3, [`README.md`](README.md) "Themes Now Central > Possibilism").
+1. **All possible logical systems exist a priori.** The substrate doesn't *create* reality, it *selects* from possibility via ZFA closure ([`Philosophy.md`](Philosophy.md) §3, [`README.md`](README.md) "Central Themes > Possibilism").
 2. **QLF generates each closure once; ZFA-balanced closures persist.** Persistence is a structural property of ZFA closure, not an external bookkeeping discipline.
 3. **Abstraction = active inference = information synthesis.** These are one operation under three names: each ZFA closure is simultaneously a compressed proof (CS/abstraction), a Markov-blanket agent's prediction (Friston/active inference), and a per-event-`log 2` binding of inputs (Shannon-Wheeler/information synthesis).
 4. **Tokens are theorems that persist.** Every QLF capability token `cap:label:hex` IS a Curry-Howard proof of its ZFA closure; once minted, the token IS the theorem and persists as a bearer artifact. *This is that framing.*
@@ -38,7 +38,7 @@ The bridge that makes this concrete is the **Curry-Howard reading of capability 
 
 ## §2 All possible logical systems exist a priori
 
-The QLF possibilist position is already developed in [`Philosophy.md`](Philosophy.md) §3 and the [`README.md`](README.md) "Themes Now Central > Possibilism" section. In one paragraph:
+The QLF possibilist position is already developed in [`Philosophy.md`](Philosophy.md) §3 and the [`README.md`](README.md) "Central Themes > Possibilism" section. In one paragraph:
 
 > *Things do not happen one way — they happen in every way possible. All logically admissible histories exist a priori as pure possibility. Physical reality is the subset that closes under ZFA. The substrate is not generative; it is selective.*
 
@@ -119,7 +119,7 @@ Once minted, the token IS the proof object. There is no separate "proof database
 - **No revocation list**: Authorization is the closure, not a server-side decision. A revoked token is a contradiction in terms — you can't revoke a theorem.
 - **Forge-proof by construction**: Forging a token requires constructing a ZFA-balanced twist sequence with rejection-sampling against count balance and Pauli closure. Computationally equivalent to solving the matching problem. There's no "guess what looks like a token" attack because the closure check is the proof check.
 
-This is why [`QuantumOS.md`](QuantumOS.md) §2.2 says (one-line, now expanded): *"By Curry-Howard, a capability name is simultaneously a process, a topological structure, and a proof of authorization."* The token IS the proof.
+This is why [`QuantumOS.md`](QuantumOS.md) §2.2 says (one-line, expanded): *"By Curry-Howard, a capability name is simultaneously a process, a topological structure, and a proof of authorization."* The token IS the proof.
 
 ### Live demonstrations
 
@@ -317,7 +317,7 @@ Eight examples of the universe performing intelligence and producing measurable 
 
 > **The universe is not a passive substrate that happens to host intelligent agents. The universe IS performing the operation we call intelligence at every event.** Active inference is not something brains do *in* the universe; it is what the universe *is*. The QLF substrate-derivation results are the evidence: the same operation that makes a closure ZFA-balanced makes α = 1/137, makes m_p/m_e = 6π⁵, makes Mercury precess 43″/century.
 
-This is exactly what [`Philosophy.md`](Philosophy.md) §6 already says philosophically — *"the universe is intelligence explaining the intelligence all around us"* — but the v1.3.0 substrate-derivation program now makes it quantitative. The eight Lean theorems are the *measurement* that the universe is intelligence: predictions matching observation to 0.002–2.5% from a single algebraic operation.
+This is exactly what [`Philosophy.md`](Philosophy.md) §6 already says philosophically — *"the universe is intelligence explaining the intelligence all around us"* — but the v1.3.0 substrate-derivation program makes it quantitative. The eight Lean theorems are the *measurement* that the universe is intelligence: predictions matching observation to 0.002–2.5% from a single algebraic operation.
 
 ### What this is and isn't
 
@@ -347,7 +347,7 @@ The same operation at three scales. QLF makes it possible to say this *quantitat
 ### Internal
 
 - [`Philosophy.md`](Philosophy.md) §3 — possibilism foundation.
-- [`README.md`](README.md) "Themes Now Central > Possibilism" — Lewis, Everett, Tegmark connections.
+- [`README.md`](README.md) "Central Themes > Possibilism" — Lewis, Everett, Tegmark connections.
 - [`eight-twists-sufficiency.md`](eight-twists-sufficiency.md) — abstraction at the alphabet level.
 - [`HALF-SPIN-ZFA-EMBEDDING.md`](HALF-SPIN-ZFA-EMBEDDING.md) §3a — single principle decomposed into algebraic, set-theoretic, information-theoretic faces.
 - [`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md) — QLF as active-inference mathematics; the single-rule framing.

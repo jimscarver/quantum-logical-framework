@@ -256,7 +256,7 @@ The headline: **E₈ is not an arbitrary mathematical choice — it falls out of
 - [`Gravity_From_Delay.md`](Gravity_From_Delay.md) — holographic event count `4π R²` → Newton's law (now: high-`v` primordial blanket).
 - [`Mercury_Perihelion.md`](Mercury_Perihelion.md) — Schwarzschild as primordial-blanket geometry.
 - [`Cosmological_Constant.md`](Cosmological_Constant.md) — cosmic blanket as `v_cosmic ≈ 6.7×10⁶⁰` primordial blanket.
-- [`QLF_as_Intelligence.md`](QLF_as_Intelligence.md) §8 — Markov blanket is now concrete (icosahedral).
+- [`QLF_as_Intelligence.md`](QLF_as_Intelligence.md) §8 — Markov blanket is concrete (icosahedral).
 - [`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md) — Friston FEP as substrate foundation.
 - [`lean/QLF_FreeEnergy.lean`](lean/QLF_FreeEnergy.lean) — per-event log 2.
 - [`lean/QLF_GravityFromDelay.lean`](lean/QLF_GravityFromDelay.lean) — `holographic_event_count R = 4π R²`.

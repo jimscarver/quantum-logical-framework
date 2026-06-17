@@ -44,7 +44,7 @@ No empirical input needed for bare `g = 2` — it is the substrate's spin-1/2 Pa
 
 The Schwinger anomaly is the one-loop vertex correction: the electron emits a virtual photon, interacts with the external `B` field, then reabsorbs the photon. The bare interaction `σ · B` becomes dressed by a vertex-correction factor `1 + a_e`.
 
-**Substrate decomposition.** This is the same two-vertex emit-reabsorb topology that appears in the Lamb shift ([`Lamb_Shift.md`](Lamb_Shift.md) §4), now applied to the magnetic-moment interaction rather than the Coulomb self-energy. Counting:
+**Substrate decomposition.** This is the same two-vertex emit-reabsorb topology that appears in the Lamb shift ([`Lamb_Shift.md`](Lamb_Shift.md) §4), applied to the magnetic-moment interaction rather than the Coulomb self-energy. Counting:
 
 | Factor | Substrate origin |
 |---|---|

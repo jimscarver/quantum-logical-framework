@@ -80,7 +80,7 @@ realize a finite-time singularity, so the physical flows it synthesizes are smoo
 The remaining step is a regularity theorem for the continuum PDE — the continuum sector
 where ZFC is proven to fail — so this document names that boundary as ZFC's defect and
 claims the substrate no-blow-up result as genuine progress, not as a finished ZFC proof.
-This is now Lean-anchored in [`lean/QLF_NavierStokes.lean`](lean/QLF_NavierStokes.lean):
+This is Lean-anchored in [`lean/QLF_NavierStokes.lean`](lean/QLF_NavierStokes.lean):
 realized flows achieve ZFA (`realized_flow_achieves_zfa`, reusing `encode_is_zfa`) and are
 stable closures (`realized_flow_is_stable`, reusing `qlf_universality`), with the
 continuum-limit step named as the explicit boundary axiom `navier_stokes_continuum_limit`

@@ -2,11 +2,11 @@
 
 **Repository:** [`quantum-logical-framework`](https://github.com/jimscarver/quantum-logical-framework)  
 **Document:** `Gravity.md`  
-**Document version:** 1.4 (updated 7 June 2026 — quantitative substrate program now Lean-anchored)
+**Document version:** 1.4 (updated 7 June 2026 — quantitative substrate program Lean-anchored)
 
 ## 🚀 Quantitative substrate program (June 2026)
 
-The qualitative gravity-from-screening picture below is now backed by a **quantitative Lean-anchored substrate program** that derives Newton's law, Schwarzschild metric, and Mercury's 43"/century perihelion shift from QLF substrate primitives:
+The qualitative gravity-from-screening picture below is backed by a **quantitative Lean-anchored substrate program** that derives Newton's law, Schwarzschild metric, and Mercury's 43"/century perihelion shift from QLF substrate primitives:
 
 | Result | Doc | Lean module | Match to observation |
 |---|---|---|---|
@@ -56,7 +56,7 @@ The density-dependent space/time role swap (high density makes time the dominant
 
 ## 3. Computational Proof in `particles.py`
 
-Every synthesized particle is now automatically classified. Example run:
+Every synthesized particle is automatically classified. Example run:
 ```bash
 python particles.py --seed "^+" --max-depth 6 --enable-gauge --show-density-swap
 ```

@@ -169,13 +169,13 @@ The bridge can then be stated as:
 
 **`MRE_bridge`** (proposed WKL₀-level axiom): under the Mellin-transform encoding (provable WKL₀-side), the MRE-saturation principle (RCA₀-statable) requires the structural singularities of $\mathcal{M}[Z_{\mathrm{QLF}}]$ — and hence of the QLF-encoded $\zeta$ — to lie on $\Re(s) = 1/2$.
 
-This is the same logical strength as the existing `spectral_hilbert_polya`. The change is **content**: the axiom is now justified by an information-theoretic principle internal to QLF (MRE saturation), not by appeal to external Hilbert-Pólya conjectures.
+This is the same logical strength as the existing `spectral_hilbert_polya`. The change is **content**: the axiom is justified by an information-theoretic principle internal to QLF (MRE saturation), not by appeal to external Hilbert-Pólya conjectures.
 
 ### 4.5 Why this is progress
 
 - **Same proof-theoretic strength.** Still a WKL₀ axiom; the Reverse Mathematics classification of §2 is unchanged.
-- **Structurally motivated.** The axiom now expresses a chain `(RCA₀ closed form) → (RCA₀ MRE saturation) → (WKL₀ Mellin compactness) → (WKL₀ critical-line condition)` instead of being a bare placeholder.
-- **Falsifiable.** A specific Mellin-image identity is now the bridge to verify. Future work can attempt to discharge the axiom by either (a) constructing the explicit Mellin identity within WKL₀ + MRE saturation, or (b) finding a counterexample where MRE saturation fails to force the critical-line condition. [`qlf_dirichlet_search.py`](qlf_dirichlet_search.py) Report 7 supplies the numerical demo.
+- **Structurally motivated.** The axiom expresses a chain `(RCA₀ closed form) → (RCA₀ MRE saturation) → (WKL₀ Mellin compactness) → (WKL₀ critical-line condition)` instead of being a bare placeholder.
+- **Falsifiable.** A specific Mellin-image identity is the bridge to verify. Future work can attempt to discharge the axiom by either (a) constructing the explicit Mellin identity within WKL₀ + MRE saturation, or (b) finding a counterexample where MRE saturation fails to force the critical-line condition. [`qlf_dirichlet_search.py`](qlf_dirichlet_search.py) Report 7 supplies the numerical demo.
 - **Connects two of QLF's deepest results.** [MRE.md](MRE.md) (Hermitian-pair max entropy) and [Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md) (RH reduction) become a single argument: the critical line is the locus of maximum information-gain ZFA pruning.
 - **Reinforced by the per-qubit ℏω reading** ([`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md), [`Information_Energy_Equivalence.md`](Information_Energy_Equivalence.md)): under the Wheeler-Fields `ℏω = 1 bit at frequency ω` equivalence, the Mellin variable `s` has a physical energy/frequency reading, and `Re(s) = 1/2` becomes the locus where information and energy saturate jointly (§4.8). Proof-theoretic strength unchanged; the bridge's content gains a third reinforcing layer.
 
@@ -209,7 +209,7 @@ The bridge's **proof-theoretic strength is unchanged**: still a WKL₀-level axi
 
 Two paths to a discharge worth flagging:
 
-- **Mellin-identity path** (already named in §4.6): construct an exact identity within WKL₀ + MRE saturation linking `M[Z_QLF](s)` to a tabulated Dirichlet series, with the energy-weighting now a physical interpretation of `s` rather than an abstract parameter.
+- **Mellin-identity path** (already named in §4.6): construct an exact identity within WKL₀ + MRE saturation linking `M[Z_QLF](s)` to a tabulated Dirichlet series, with the energy-weighting a physical interpretation of `s` rather than an abstract parameter.
 - **Berry-Keating-style spectral path**: the per-qubit reading suggests a natural Hamiltonian `H = ℏω = E_Planck / R̂` where `R̂` is the admissible-Markov-blanket-depth operator. If `R̂`'s spectrum has the symmetry that places its eigenvalues on `Re(s) = 1/2` under the Mellin map, this provides a QLF analog of the Berry-Keating `xp + 1/2` Hamiltonian. Connects to [`QLF_Spectral.lean`](lean/QLF_Spectral.lean) (Hermitian spectral projectors) and would be the Lean-theorem-grade resolution. §4.9 below identifies the Hilbert space on which `R̂` is self-adjoint **by construction**.
 
 **An empirically testable prediction implied by the per-qubit reading**: if the QLF per-qubit accounting is correct, the discrete spectrum of admissible Markov-blanket depths `{R_e, R_μ, R_p, R_τ, …}` should exhibit Wigner-Dyson GUE spacing statistics in the large-depth limit — the same spectral signature §4.7 already identifies for the Montgomery-Odlyzko law. Confirmation would constitute independent evidence for the bridge parallel to the Mellin-image structural argument.
@@ -266,7 +266,7 @@ This is the missing structural piece of the Berry-Keating construction: a define
 
 > `R̂_self_adjoint`: the Markov-blanket depth operator on `ℓ²(Σ_sa)` is self-adjoint.
 
-This is a future-work theorem with a defined Hilbert space and a defined operator. The runtime kernel also now exposes the adjoint as the `/conj <twists>` slash command in QuantumOS, allowing users to construct and probe `Σ_sa` directly.
+This is a future-work theorem with a defined Hilbert space and a defined operator. The runtime kernel also exposes the adjoint as the `/conj <twists>` slash command in QuantumOS, allowing users to construct and probe `Σ_sa` directly.
 
 ---
 
