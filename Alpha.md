@@ -144,19 +144,26 @@ running *magnitude* (`α(M_Z)≈1/128`) is matter vacuum-polarization — the op
 
 ## 5. No cosmological-time drift of α(0)
 
-Because `α(d)=1/(128+d²)` has **no time argument**, `α(0)=α(3)=1/137` is an **atemporal structural
-fact** — there is no dynamical variable for it to drift along. Both inputs are atemporal: the 8-twist
-alphabet is the substrate's *definition* (not a field), and `d=3` is a *logical necessity* (minimal
-faithful rendering, [`SpaceTime.md`](SpaceTime.md) §3a, [`lean/QLF_ReachableEvent.lean`](lean/QLF_ReachableEvent.lean)).
-Lean: `alpha_at_dim_closed_form`, `alpha_at_dim_three`, `alpha_at_dim_eq_alpha_QLF`,
-`no_cosmological_drift_of_alpha`.
+**This is obvious within QLF — not a hard-won prediction.** The substrate is pure combinatorics with
+**no external scale** (the only scale, the Planck floor, is itself by-construction), so the *fundamental*
+dimensionless invariant `α(0)` has nothing to vary against — neither energy nor cosmic time. (The
+*effective* coupling `α(μ)` *does* run with energy — §4 — but that is screening of the same fixed
+`α(0)`, not a change in it.) Concretely,
+`α(d)=1/(128+d²)` has **no scale and no time argument**: `α(0)=α(3)=1/137` is an atemporal, scale-free
+structural fact — manifest from the closed form, recorded as `no_cosmological_drift_of_alpha` (with
+`alpha_at_dim_closed_form`, `alpha_at_dim_three`, `alpha_at_dim_eq_alpha_QLF`). There is no dynamical
+variable for it to drift along; the 8-twist alphabet is the substrate's *definition* (not a field) and
+`d=3` is fixed by necessity ([`SpaceTime.md`](SpaceTime.md) §3a). So within QLF this is a **theorem — a
+trivial one**, on the **same footing as `α=1/137` itself**; we don't need to belabor proving the obvious,
+and the Lean marker simply records it.
 
-This is **sharper than the SM**, which treats `α(0)` as a free input that varying-α models can promote to
-a drifting scalar field; QLF *structurally forbids* it. A confirmed cosmological drift of `α(0)` would
-**falsify the QLF substrate**. Distinct from the §4 energy-running (real); this concerns the
-*fundamental* value over cosmic *time* (the Webb-controversy axis — mainstream measurements consistent
-with null). Honest boundary: "no drift" follows deductively from the two premises; that they hold of the
-*physical* universe is empirical content provable within QLF's frame, not ZFC-absolutely.
+It is **sharper than the SM**, which treats `α(0)` as a free input that varying-α models can promote to a
+drifting scalar field; QLF *structurally forbids* it. As an empirical claim about the *universe* it is a
+falsifiable **prediction** — a confirmed cosmological drift of `α(0)` would falsify the QLF substrate —
+but that "does QLF describe our universe?" caveat is the **universal** one attached to *every* QLF result
+(`α=1/137` included), not a special weakness here. Distinct from the §4 energy-running of the *effective*
+coupling (real, screening); this concerns the *fundamental* value over cosmic *time* (the Webb axis —
+mainstream measurements consistent with null).
 
 ---
 
@@ -292,7 +299,11 @@ rational arithmetic (`norm_num`), no axioms beyond Lean/Mathlib.
 - **Open (named):** the β-coefficients / matter vacuum polarization setting the running magnitude
   (`running_couplings_structural`); the residual 0.026% at the Schwinger scale `α/2π`; the cross-pathway
   consistency with the chirality-hiding route ([`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md)).
-- **Prediction (falsifiable, not a theorem):** no cosmological-*time* drift of `α(0)` (§5).
+- **Scale- and time-invariance of `α(0)` — a (trivial) theorem, on the same footing as `α=1/137`.**
+  Obvious within QLF: the substrate has no external scale, so a dimensionless invariant can't drift;
+  manifest from `α(d)=1/(128+d²)` (`no_cosmological_drift_of_alpha`). As an empirical claim about the
+  universe it is a falsifiable *prediction* (the SM is agnostic / permits varying-α; QLF forbids it) — but
+  the "does QLF describe reality?" caveat is universal to *all* QLF results, not special to this one (§5).
 
 The result stands as a constructive derivation of the fundamental (IR, 3-D-rendered) fine-structure
 constant; the *running* is the departure from that limit, whose magnitude is the open renormalization
