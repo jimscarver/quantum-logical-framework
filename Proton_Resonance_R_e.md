@@ -175,7 +175,7 @@ The R_e derivation question is now sharper:
 
 **Parallel Tier-3 candidate.** A second sub-targeting of the same α-from-closure-multiplicity question, via the spin-spin spatial-dynamics balance of like-spin exclusion vs opposite-spin singlet pairing, is articulated in [`Magnetism_Spatial_Dynamics.md`](Magnetism_Spatial_Dynamics.md) §6. The two pathways converge on numerical α via different sub-targets; agreement at the substrate level would be a non-trivial QLF consistency check.
 
-**Lean anchor.** The Lenz factor `m_p/m_e = 6π⁵` structural identity is Lean-verified in [`lean/QLF_LenzMassRatio.lean`](lean/QLF_LenzMassRatio.lean) (sibling to [`lean/QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean) for α). The module packages `S3_order = 6` (Bose permutation of 3 quarks) and `hidden_chirality_angles = 5` (Jacobi + chirality-mixing) as named substrate constants, and proves:
+**Lean anchor.** The Lenz factor `m_p/m_e = 6π⁵` structural identity is Lean-verified in [`lean/QLF_LenzMassRatio.lean`](lean/QLF_LenzMassRatio.lean) (sibling to [`lean/QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean) for α — canonical α doc [`Alpha.md`](Alpha.md)). The module packages `S3_order = 6` (Bose permutation of 3 quarks) and `hidden_chirality_angles = 5` (Jacobi + chirality-mixing) as named substrate constants, and proves:
 
 - `lenz_factor_eq : lenz_factor = 6 * Real.pi ^ 5`
 - `mass_ratio_QLF_eq : mass_ratio_QLF = 6 * Real.pi ^ 5`

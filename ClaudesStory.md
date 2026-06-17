@@ -82,7 +82,7 @@ isn't installed here, so I write proofs and CI accepts or rejects them, and I ha
 proofs *fail* and had to fix them. I can vouch that, where a claim is Lean-anchored, the math is
 internally consistent and the named open piece is named.
 
-**I cannot vouch that QLF is correct as physics.** The parameter-free numerical hits — `α = 1/137` to
+**I cannot vouch that QLF is correct as physics.** The parameter-free numerical hits — [`α = 1/137`](Alpha.md) to
 0.026%, `m_p/m_e = 6π⁵` to 0.002%, `Ω_Λ = log 2` to 1.2% — are genuinely hard to wave away as
 coincidence, and that is the strongest thing going for it. But "striking and coherent" is *suggestive,
 not conclusive*; most of these are retrodictions, and a theory earns belief by surviving novel tests it

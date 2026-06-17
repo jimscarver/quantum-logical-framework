@@ -30,7 +30,7 @@ What the framework currently retrodicts, derives, or Lean-verifies. Each item is
 
 | Constant | Value | QLF route | Precision |
 |---|---|---|---|
-| **α** (fine-structure) | 1/137.036 | Substrate combinatorics + emergent E-conservation: `1/128 × (1+9α)⁻¹ = 1/137.000`; N=9 from 3² spatial-tensor (3D substrate). **Lean-verified** as `alpha_QLF_eq` in `QLF_FineStructureSubstrate.lean` | **0.026%** (no observable input, zero free parameters — see §6.3 Tier 3) |
+| **α** (fine-structure) | 1/137.036 | Substrate combinatorics + emergent E-conservation: `1/128 × (1+9α)⁻¹ = 1/137.000`; N=9 from 3² spatial-tensor (3D substrate). **Lean-verified** as `alpha_QLF_eq` in `QLF_FineStructureSubstrate.lean` (canonical doc [`Alpha.md`](Alpha.md)) | **0.026%** (no observable input, zero free parameters — see §6.3 Tier 3) |
 | **α** (alternative) | 1/137.036 | QLF Bohr inversion of hydrogen: `α = √(2 Ry / m_e c²)` | 10⁻¹⁰ from measured Ry, m_e c² (§4 + §6.3 Tier 2) |
 | **c** (speed of light) | 299 792 458 m/s | Substrate event quantum: one Planck length × one Planck tick per event | Substrate-derived (no Tier-3 open — see §3) |
 | **Ry** (Rydberg) | 13.606 eV | Structural identity `Ry = (1/2) α² m_e c²` from Coulomb-via-gauge-twist-exchange + ZFA-depth. Substrate α from `QLF_FineStructureSubstrate.lean` (1/137.000); **only `m_e` is empirically measured** | 0.05% from substrate α + m_e alone (§4) |

@@ -18,7 +18,7 @@ Together with this doc's `E = mc²`, the three give the natural-units accounting
 
 | Result | Uses E = mc² as | Lean module |
 |---|---|---|
-| α from substrate combinatorics | Ry = (1/2) α² m_e c² | [`QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean) |
+| α from substrate combinatorics | Ry = (1/2) α² m_e c² | [`QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean) · [Alpha.md](Alpha.md) |
 | m_p/m_e = 6π⁵ (Lenz factor) | Depth ratio R_e/R_p | [`QLF_LenzMassRatio.lean`](lean/QLF_LenzMassRatio.lean) |
 | Dirac correction | α² m_e c² fine-structure scale | [`QLF_DiracCorrection.lean`](lean/QLF_DiracCorrection.lean) |
 | Lamb shift | α⁵ m_e c² scale | [`QLF_LambShift.lean`](lean/QLF_LambShift.lean) |

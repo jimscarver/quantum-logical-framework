@@ -155,7 +155,7 @@ The factor-of-2 difference between positronium and hydrogen/muonium emerges stru
 - **Positronium** is the symmetric case (`R_A = R_B = R_e`); the reduced mass is exactly half.
 - **Hydrogen and muonium** are the asymmetric heavy-light cases (`R_partner ≫ R_e`); the reduced mass is approximately `m_e`.
 
-In QLF terms, the reduced-mass formula `μ = R_A R_B / (R_A + R_B)` is a property of the **joint-closure binding energy**, which itself is determined by the orbital-equilibrium condition of the two coupled half-loops. The full QLF derivation of `13.6 eV = (1/2) m_e α²` from joint-closure multiplicity counts (where `α ≈ 1/137` is the QLF fine-structure constant from [`Hydrogen.md`](Hydrogen.md)) is sketched in [`Hydrogen.md`](Hydrogen.md) and is structurally consistent with the mapping above.
+In QLF terms, the reduced-mass formula `μ = R_A R_B / (R_A + R_B)` is a property of the **joint-closure binding energy**, which itself is determined by the orbital-equilibrium condition of the two coupled half-loops. The full QLF derivation of `13.6 eV = (1/2) m_e α²` from joint-closure multiplicity counts (where `α ≈ 1/137` is the QLF fine-structure constant — canonical doc [`Alpha.md`](Alpha.md), Bohr route [`Hydrogen.md`](Hydrogen.md)) is sketched in [`Hydrogen.md`](Hydrogen.md) and is structurally consistent with the mapping above.
 
 **Empirical ratios** (all reproduced):
 

@@ -116,7 +116,7 @@ We do not merely assert that quantum logic is the correct foundation — we **de
 by building the universe out of it:
 
 - From the 8-twist substrate alone, with zero free parameters, QLF derives the fine-structure
-  constant `α = 1/137`, the proton/electron mass ratio `6π⁵`, the dark-energy fraction
+  constant `α = 1/137` ([Alpha.md](Alpha.md)), the proton/electron mass ratio `6π⁵`, the dark-energy fraction
   `Ω_Λ = log 2`, Newtonian gravity and `G`, the Standard-Model gauge groups SU(2)/SU(3), the
   Koide relation, and spacetime itself — each machine-verified in Lean (see the
   [discoveries table](README.md) and [lean/README.md](lean/README.md)).

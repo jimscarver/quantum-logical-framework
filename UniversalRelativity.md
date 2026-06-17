@@ -237,7 +237,7 @@ the geometry. (The graviton is correspondingly composite spin-2, not a fundament
 > relative views.*
 
 This is the same `6+2` / three-axis substrate that fixes `α` (`N=3²`,
-[`lean/QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean)), `Ω_Λ` (`2/8`,
+[`Alpha.md`](Alpha.md) / [`lean/QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean)), `Ω_Λ` (`2/8`,
 [`lean/QLF_CosmologicalConstant.lean`](lean/QLF_CosmologicalConstant.lean)), the Weinberg angle (`3/8`,
 [`lean/QLF_WeinbergAngle.lean`](lean/QLF_WeinbergAngle.lean)), the `5̄⊕10` generation
 ([`lean/QLF_SU5.lean`](lean/QLF_SU5.lean)), and the 3-dimensionality of space itself

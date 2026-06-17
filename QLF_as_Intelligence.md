@@ -58,7 +58,7 @@ QLF generates each ZFA closure *exactly once*. Once a closure is established:
 - Subsequent operations on the closure see *the same algebraic object* every time — count balance and Pauli closure are properties of the twist sequence, not of when you check them.
 - The closure can be transmitted (as a `cap:` token) without re-generating anything. The proof carries the closure.
 
-Lean theorems make the persistence concrete at the proof-engineering layer. `alpha_QLF_eq : alpha_QLF = 1/137` is checked once. Once checked it persists as a verifiable proof object, importable by every other module ([`QLF_DiracCorrection.lean`](lean/QLF_DiracCorrection.lean), [`QLF_LambShift.lean`](lean/QLF_LambShift.lean), [`QLF_GMinusTwo.lean`](lean/QLF_GMinusTwo.lean) all use it).
+Lean theorems make the persistence concrete at the proof-engineering layer. `alpha_QLF_eq : alpha_QLF = 1/137` (canonical doc [`Alpha.md`](Alpha.md)) is checked once. Once checked it persists as a verifiable proof object, importable by every other module ([`QLF_DiracCorrection.lean`](lean/QLF_DiracCorrection.lean), [`QLF_LambShift.lean`](lean/QLF_LambShift.lean), [`QLF_GMinusTwo.lean`](lean/QLF_GMinusTwo.lean) all use it).
 
 The 77 active Lean modules, zero `sorry`, are 77 persistent theorems. They don't drift, don't re-sample, don't depend on model state. They are the closure of QLF substrate algebra, generated once.
 

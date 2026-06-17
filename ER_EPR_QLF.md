@@ -6,7 +6,7 @@ The ER=EPR identity sits in QLF's broader **substrate-derivation program** that 
 
 | Domain | Result | Lean module |
 |---|---|---|
-| Atomic | α = 1/137 from substrate combinatorics (0.026%) | [`QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean) |
+| Atomic | α = 1/137 from substrate combinatorics (0.026%) | [`QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean) · [Alpha.md](Alpha.md) |
 | Particle | `m_p/m_e = 6π⁵` Lenz factor (0.002%) | [`QLF_LenzMassRatio.lean`](lean/QLF_LenzMassRatio.lean) |
 | QED | Hydrogen Dirac correction (Sommerfeld) | [`QLF_DiracCorrection.lean`](lean/QLF_DiracCorrection.lean) |
 | QED | Lamb shift α⁵ from substrate Bethe-log range | [`QLF_LambShift.lean`](lean/QLF_LambShift.lean) |

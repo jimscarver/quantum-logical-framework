@@ -16,7 +16,7 @@ This document catalogs **verified quantitative matches** between QLF predictions
 |----------|----------------|----------------|--------|-------------|
 | \( \pi \) | Counted from orthogonal twist permutations at depth 4 | \( 3.14159\ldots \) | Exact (analytic) | `constants_mapper.py` |
 | \( e \) | Base of natural multiplicity growth under ZFA | \( 2.71828\ldots \) | Exact (analytic) | `constants_mapper.py` |
-| Fine-structure constant \( \alpha \) | \( 1/137.035999\ldots \) from gauge-fold resonance | \( 1/137.035999084 \) (CODATA 2018) | Matches to 9 digits | `constants_mapper.py --alpha` |
+| Fine-structure constant \( \alpha \) | \( 1/137 \) from substrate combinatorics (zero input) | \( 1/137.035999084 \) (CODATA 2018) | 0.026% | `python3 constants_mapper.py` → α `[DERIVED]`; [Alpha.md](Alpha.md) |
 | Newtonian \( G \) | Emergent from logical-density curvature in `gravitational_tensor.py` | \( 6.67430 \times 10^{-11} \) m³ kg⁻¹ s⁻² | Matches within current precision | `constants_mapper.py --G` |
 
 **New (April 2026)**: All constants now derive from the identical RhoQuCalc cataloged closures used for particles and circuits.
