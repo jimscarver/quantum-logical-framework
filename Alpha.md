@@ -1,5 +1,15 @@
 # α — The Fine-Structure Constant from First Principles
 
+> **This is a result of the [Quantum Logical Framework (QLF)](README.md)** — read it in that context.
+> QLF derives physics from one substrate (the 8-twist phase-string alphabet, ZFA closure, synthesized
+> spacetime), machine-verified in Lean 4 across the [89-module tree](lean/README.md). α is not a
+> standalone numerology here; it is a **consequence of QLF's derived 3-D rendering** of the closure
+> graph. And that 3-D is **the human/cosmic perspective**: the only dimension in which a relational
+> world renders faithfully and comprehensibly, supports stable atoms and chemistry (hence observers),
+> and supports stable cosmic structure (Newton's `1/r²`, bound orbits). So `α = 1/137` is *our* α — the
+> coupling of the world **as we, and the cosmos we observe, are rendered** — and the framework derives 3
+> rather than assuming it ([`SpaceTime.md`](SpaceTime.md) §3a; the over-determination is §4a below).
+
 **The canonical QLF document for the fine-structure constant `α ≈ 1/137`.** It consolidates the
 substrate derivation (previously spread across [`Magnetism_Spatial_Dynamics.md`](Magnetism_Spatial_Dynamics.md) §6.1,
 [`Electricity.md`](Electricity.md), [`Hydrogen.md`](Hydrogen.md)), states **which scale** the derived
@@ -127,6 +137,21 @@ macroscopic/low-energy value. Two facts pin this:
 So `1/137` is a **privileged, physically-defined** reference point (the IR anchor), not an arbitrary
 one — which is exactly what makes it a meaningful target to derive. This is the value CODATA quotes as
 "the fine-structure constant."
+
+### Why 3-D — the human/cosmic perspective
+
+There is a deeper reason the relevant dimension is `3`, and it is *perspectival*. In QLF spacetime is
+**synthesized**, and an observer's world is the **rendering** of the closure graph at the observer's
+scale ([`SpaceTime.md`](SpaceTime.md) §3a: 3 is the *minimal* dimension in which any relational
+structure renders faithfully *and comprehensibly* — "that there is anything, any rendered world, at all
+entails three spatial dimensions"). The **fully-rendered 3-D limit is exactly the human and cosmic
+perspective**: the macroscopic, low-energy scale at which atoms hold together, chemistry and therefore
+observers exist (§4a), and large-scale structure is stable under Newton's `1/r²`. The effective
+dimension *does* differ elsewhere — it flows toward `2` in the deep UV (§4) — but that is a regime no
+observer-as-such inhabits. So `α = 1/137` is **our** α: the coupling of the world *as rendered for
+observers like us, and for the cosmos we look out on*. The value is not anthropically *selected* from a
+landscape — QLF *derives* `3` — but it is anthropically *located*: `1/137` is the α of the only
+perspective in which there is anyone, or any comprehensible cosmos, to read it off.
 
 ---
 
