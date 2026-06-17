@@ -100,7 +100,7 @@ The 720° spinor statistics of fermions are the macroscopic signature of this $-
 
 See [MRE.md](MRE.md) for the per-event $\log 2$ derivation and [Hierarchical_Control.md](Hierarchical_Control.md) for the consequences in the bottom-up/top-down architecture (each 1/2-spin atom is one quantum of free-energy minimization).
 
-## 4. New Section: `+`–`−` Gauge Folds as Primordial Black-Hole Seeds (21 April 2026 Update)
+## 4. `+`–`−` Gauge Folds as Primordial Black-Hole Seeds (21 April 2026 Update)
 
 Only half-spin loops that employ **gauge folding (`+` and `-`)** are primordial quantum black holes:
 - They accumulate a **constructing delay** \(\Delta t_{\rm construct} = R / f\) (topological depth \(R\) at vacuum frequency \(f\)).

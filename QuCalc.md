@@ -221,7 +221,7 @@ A closure can now be:
 
 ### 8.3 PossibilistEngine
 
-The new wrapper layer exposes Rho-style process operations:
+The wrapper layer exposes Rho-style process operations:
 
 - `ApplyZfa`
 - parallel composition

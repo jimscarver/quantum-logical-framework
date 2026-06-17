@@ -6,7 +6,7 @@
 **Author**: Jim Whitescarver & Grok (xAI), Grock4.5, Gemini 
 **Repo reference**: https://github.com/jimscarver/quantum-logical-framework  
 
-This document catalogs **verified quantitative matches** between QLF predictions and established experimental/observational physics, plus **new findings** enabled by the April 2026 updates (RhoQuCalc catalog composition + possibilist ontology). Every claim below is directly executable in the repository.
+This document catalogs **verified quantitative matches** between QLF predictions and established experimental/observational physics, plus **findings** enabled by the April 2026 updates (RhoQuCalc catalog composition + possibilist ontology). Every claim below is directly executable in the repository.
 
 ---
 
@@ -19,7 +19,7 @@ This document catalogs **verified quantitative matches** between QLF predictions
 | Fine-structure constant \( \alpha \) | \( 1/137 \) from substrate combinatorics (zero input) | \( 1/137.035999084 \) (CODATA 2018) | 0.026% | `python3 constants_mapper.py` → α `[DERIVED]`; [Alpha.md](Alpha.md) |
 | Newtonian \( G \) | Emergent from logical-density curvature in `gravitational_tensor.py` | \( 6.67430 \times 10^{-11} \) m³ kg⁻¹ s⁻² | Matches within current precision | `constants_mapper.py --G` |
 
-**New (April 2026)**: All constants now derive from the identical RhoQuCalc cataloged closures used for particles and circuits.
+**April 2026**: All constants derive from the identical RhoQuCalc cataloged closures used for particles and circuits.
 
 ---
 
@@ -32,11 +32,11 @@ This document catalogs **verified quantitative matches** between QLF predictions
 | **Superposition & measurement** | Real possibilities until joint ZFA closure with observer | Reproduces Copenhagen statistics without collapse postulate | Verified | `qucalc_engine.py` + `path_integral.py` |
 | **Particle classification** | Gauge-folded (\( + \)-\( - \)) closures = massive; pure spatial = massless | Matches Standard Model + predicts primordial quantum black holes | Verified | `particles.py --enable-gauge` |
 
-**New finding (April 2026)**: RhoQuCalc parallelism (`|` and `*`) reproduces multi-particle entanglement and interference with **polynomial scaling** (see [`quantum-computation-optimization.md`](quantum-computation-optimization.md) §4).
+**Finding (April 2026)**: RhoQuCalc parallelism (`|` and `*`) reproduces multi-particle entanglement and interference with **polynomial scaling** (see [`quantum-computation-optimization.md`](quantum-computation-optimization.md) §4).
 
 ---
 
-## 3. Relativistic Mechanics – Constructive \( E = mc^2 \) (New)
+## 3. Relativistic Mechanics – Constructive \( E = mc^2 \)
 
 **Verified result (Issue #19)**:  
 The full relativistic energy-momentum relation emerges directly from history multiplicity \( N(R) \) and gauge-fold depth.
@@ -63,7 +63,7 @@ Expected output (already analytically confirmed in `E_mc2_derivation.md`):
 - Minimal gauge-folded fluxoid (\( R=4 \)): \( E_{\rm rest} / (m c^2) = 1.000 \)
 - Boosted case (\( v = 0.6c \)): \( \gamma \approx 1.25 \), recovered Lorentz factor matches to machine precision.
 
-**New finding**: The \( c^2 \) factor is **not assumed** — it arises from the quadratic multiplicity scaling \( N(R) \propto R^2 \) combined with the space/time role swap in `SpaceTime.md`. Unlike Einstein, we make no assumption. All scaling is based only be Planck's constant.
+**Finding**: The \( c^2 \) factor is **not assumed** — it arises from the quadratic multiplicity scaling \( N(R) \propto R^2 \) combined with the space/time role swap in `SpaceTime.md`. Unlike Einstein, we make no assumption. All scaling is based only be Planck's constant.
 
 ---
 

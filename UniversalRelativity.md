@@ -386,7 +386,7 @@ Key targets include:
 - emergent constants from ensemble averages;
 - possible small deviations in the dark-energy equation-of-state parameter `w`.
 
-The theory must reproduce existing observations before any new prediction can be considered successful.
+The theory must reproduce existing observations before any prediction can be considered successful.
 
 ## 9. Implementation in QLF
 

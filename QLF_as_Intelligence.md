@@ -1,11 +1,11 @@
 # QLF as Intelligence: synthesis, persistence, and the case against LLMs as the model of mind
 
-**Scoping doc — a structural comparison of QLF and LLMs as instantiations of "intelligence."** The case is built on four insights, three of which are already strong in the repo and one of which is genuinely new:
+**Scoping doc — a structural comparison of QLF and LLMs as instantiations of "intelligence."** The case is built on four insights, three of which are already strong in the repo and one of which this doc contributes:
 
 1. **All possible logical systems exist a priori.** The substrate doesn't *create* reality, it *selects* from possibility via ZFA closure ([`Philosophy.md`](Philosophy.md) §3, [`README.md`](README.md) "Themes Now Central > Possibilism").
 2. **QLF generates each closure once; ZFA-balanced closures persist.** Persistence is a structural property of ZFA closure, not an external bookkeeping discipline.
 3. **Abstraction = active inference = information synthesis.** These are one operation under three names: each ZFA closure is simultaneously a compressed proof (CS/abstraction), a Markov-blanket agent's prediction (Friston/active inference), and a per-event-`log 2` binding of inputs (Shannon-Wheeler/information synthesis).
-4. **Tokens are theorems that persist.** Every QLF capability token `cap:label:hex` IS a Curry-Howard proof of its ZFA closure; once minted, the token IS the theorem and persists as a bearer artifact. *This is the genuinely new framing.*
+4. **Tokens are theorems that persist.** Every QLF capability token `cap:label:hex` IS a Curry-Howard proof of its ZFA closure; once minted, the token IS the theorem and persists as a bearer artifact. *This is that framing.*
 
 Together: **QLF synthesises, rejects, and persists; LLMs only generate.** That's the structural case.
 
@@ -96,7 +96,7 @@ Capability tokens make this concrete: a `cap:label:hex` token is *abstraction* (
 
 ## §5 Tokens are theorems that persist — Curry-Howard for capability tokens
 
-This is the genuinely new framing. The Curry-Howard correspondence says:
+This is the framing. The Curry-Howard correspondence says:
 
 | Type-theory term | Logical interpretation |
 |---|---|

@@ -109,7 +109,7 @@ These gains come directly from replacing Hilbert-space evolution with **construc
 3. **Enhance `path_integral.py`**  
    Add Rho-style history multiplicity counter that respects `|` and `*`.
 
-4. **New Tutorial**  
+4. **Tutorial**  
    `tutorial_02_grover.py` and `tutorial_03_qft.py` demonstrating catalog-accelerated runs.
 
 5. **Benchmark Suite**  
