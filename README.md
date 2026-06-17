@@ -15,6 +15,8 @@ The **Quantum Logical Framework (QLF)** is a new, constructive **foundation for 
 
 In one line: **the universe is logical, its logic is constructive and complete-for-physics, and we build it from the bottom up — then check it in Lean.**
 
+> **New here? Start with the [visual flow chart →](FlowChart.md)** — the whole framework as linked diagrams (one substrate → ten domains → the individual results), every box clickable.
+
 ---
 
 ## 🚀 Major substrate-derivation discoveries (June 2026)
