@@ -25,6 +25,7 @@ everything QLF says about α and links every related proof:
 
 1. [What α is](#1-what-α-is) · 2. [The first-principles derivation](#2-the-first-principles-derivation)
 · 3. [Which scale — the 3-D-rendered IR anchor](#3-which-scale--the-3-d-rendered-ir-anchor) ·
+[Bounds on α](#bounds-on-α-machine-checked) ·
 4. [The running](#4-the-running--why-α-was-higher-in-the-early-universe) ·
 5. [No cosmological-time drift](#5-no-cosmological-time-drift-of-α0) ·
 6. [4-D / 5-D and the over-determination of 3-D](#6-4-d--5-d-and-the-over-determination-of-3-d) ·
@@ -130,6 +131,37 @@ the **human and cosmic perspective** — the scale at which atoms hold, chemistr
 (§6), and structure is stable under Newton's `1/r²`. So `α = 1/137` is **our** α: the coupling of the
 world *as rendered for observers like us, and for the cosmos we look out on*. The value is not
 anthropically *selected* from a landscape — QLF *derives* `3` — but it is anthropically *located*.
+
+---
+
+## Bounds on α (machine-checked)
+
+`α = 1/137` is the **derived leading value** (§2): substrate structure fixes it parameter-free,
+`α⁻¹ = 1/α_bare + d² = 2⁷ + 3² = 128 + 9 = 137`. The measured `α⁻¹ = 137.035999` differs by the
+higher-order residual `+0.036` (status box) — and that residual is now **bounded**, machine-checked in
+[`lean/QLF_AlphaBound.lean`](lean/QLF_AlphaBound.lean):
+
+| Claim | Statement | Assumptions | Theorem |
+|---|---|---|---|
+| Leading value | `α⁻¹ = 128 + 9 = 137` | substrate structure, parameter-free | `leadInv_eq` / `alpha_QLF_eq` |
+| Residual sign | `α⁻¹ > 137` | EM abelian ⟹ screening | `alpha_inv_gt_137` |
+| Census cap | `α⁻¹ < (217 + 512√62)/31 ≈ 137.04813` | one `α_bare`/order + GF axiom `censusTail_eq` | `alphaInvCap_eq`, `codata_below_alphaInvCap` |
+
+So the substrate pins α to a window — **`137 < α⁻¹ < 137.0481`**, i.e. **`0.0072967 < α < 0.0072993`**
+(~0.035% wide). The measured `α⁻¹ = 137.035999` (`α = 0.00729735`) lies inside, `0.036` above the leading
+value and `0.012` below the cap.
+
+The genuinely *construction-independent* prediction is the residual's **sign**: EM is abelian
+(`em_gauge_abelian`, U(1), no self-interaction), so higher closures only *screen* (add positively) and the
+dressed coupling is weaker than the leading value — `α⁻¹ > 137`. It is falsifiable both ways: a measured
+`α⁻¹ ≤ 137` refutes the screening picture, and a steeper counting rule caps the residual *below* the
+measured value (`steep_map_excludes_codata`), so the data *selects* the shallow one-power-per-order map.
+
+**Settled vs open.** The leading value `137` is derived and the band is proved. Open: the residual *within*
+the window — the exact `137.036` (the length→order / curvature rule,
+[`QLF_AlphaBound`](lean/QLF_AlphaBound.lean)) — and discharging the generating-function axiom `censusTail_eq`
+(the central-binomial self-convolution). Leading value derived; residual open and bounded — stated plainly,
+no weaker and no stronger.
 
 ---
 

@@ -25,7 +25,7 @@ QLF spans **90 machine-verified Lean modules** (zero `sorry`) covering the Stand
 
 | # | Result | Match | Empirical input | Lean module |
 |---|---|---|---|---|
-| 1 | **α = 1/137** from substrate combinatorics (8-twist alphabet × 3D directional tensor); the IR / fully-rendered-3D value, proven time-invariant — [**Alpha.md**](Alpha.md) | 0.026% | none | [`QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean) |
+| 1 | **α = 1/137** from substrate combinatorics (8-twist alphabet × 3D directional tensor) — the **leading value** at the IR / 3-D-rendered scale; bounds Lean-verified `137 < α⁻¹ < 137.048` (`QLF_AlphaBound`), residual to 137.036 open — [**Alpha.md**](Alpha.md) | 0.026% | none | [`QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean) |
 | 2 | **`m_p/m_e = 6π⁵`** Lenz factor (3-quark Borromean closure × 5-angle integration) | 0.002% | none | [`QLF_LenzMassRatio.lean`](lean/QLF_LenzMassRatio.lean) |
 | 3 | **γ = 0.5772** Euler-Mascheroni (harmonic-excess identity, bridges to Riemann ζ) | 0.017% | none | [`QLF_EulerMascheroni.lean`](lean/QLF_EulerMascheroni.lean) |
 | 4 | **Dirac correction** on hydrogen (Sommerfeld formula composed from substrate) | 0.05% | m_e | [`QLF_DiracCorrection.lean`](lean/QLF_DiracCorrection.lean) |

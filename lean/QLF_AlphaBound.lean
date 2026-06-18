@@ -1,15 +1,17 @@
 /-
-# QLF_AlphaBound — what the substrate FORCES about α, short of deriving the value
+# QLF_AlphaBound — α's derived leading value, and bounds on the open residual
 
-The leading combinatorial coupling (`QLF_FineStructureSubstrate`) is
+The leading coupling (`QLF_FineStructureSubstrate`) is *derived by construction* from substrate
+structure (the 8-twist alphabet → `2⁷`, the 3-D directional tensor → `3²`), parameter-free:
 
   α⁻¹_lead = 1/α_bare + d² = 128 + 9 = 137   (exact rational, no observable input)
 
-while the measured value (CODATA, q²→0 / Thomson) is α⁻¹ = 137.035999….  Deriving the
-residual `+0.036` — i.e. the *exact* value — is the open problem
+The measured value (CODATA, q²→0 / Thomson) is α⁻¹ = 137.035999….  The construction lands on the
+*integer* 137; the residual `+0.036` to the exact value is the open higher-order piece
 (`alpha_exact_value_in_progress`, `Alpha.md` status box; memory `alpha-residual-036`).
 
-This module records, machine-checked, only what is *forced* — bounds, not the value:
+This module records, machine-checked, the **bounds on that residual** (the leading value is derived;
+the residual within the band is the open piece):
 
 * **Unconditional `α⁻¹ > 137`.**  EM is abelian (`QLF_GaugeUnification.em_gauge_abelian`,
   U(1), no self-interaction) ⟹ every higher-order closure correction *screens* (is
@@ -171,8 +173,9 @@ theorem codata_below_alphaInvCap : (137035999 : ℝ) / 1000000 < alphaInvCap := 
     unfold alphaInvCap; gcongr; exact sqrt62_gt.le
   linarith
 
-/-- Status marker: the substrate forces `α⁻¹ > 137` and the (now closed-form `√62`) census
-    cap around the measured value; the exact value (the length→order rule) stays open. -/
+/-- Status marker: the leading value `137` is derived by construction; the dressed value is
+    bounded — `α⁻¹ > 137` (screening) and the closed-form `√62` census cap above — with the
+    measured value inside; the exact value (the length→order rule) stays open. -/
 theorem alpha_bound_forced : True := trivial
 
 end QLF.AlphaBound
