@@ -77,4 +77,32 @@ theorem hierarchy_log_eq_fourteen_pi :
     ~3% value-level Planck-mass/SI calibration (`alpha_s_substrate_in_progress`). -/
 theorem alpha_s_substrate_in_progress : True := trivial
 
+/-! ### Bounds on the hierarchy — the `α_s` sensitivity made explicit
+
+`ln R_p = 2π·(1/α_s)/b₀` is *exponentially* sensitive to `α_s`: the value `R_p` is pinned only as
+tightly as `α_s`.  `α_s` is fixed to a running-consistent window — `1/α_s ∈ [49, 52]` (the posit
+`b₀² = 49` vs the one-loop extrapolation `≈ 52`) — so with `b₀ = 7` the *log*-hierarchy lies in a band
+and the measured value sits inside, near the `14π`/posit edge.  (In fact the measured value implies
+`1/α_s ≈ 49.0`, so the posit `b₀² = 49` is the data-favoured end.)  The tight `0.07%` is the agreement
+*at the posit*, not the width of the prediction. -/
+
+/-- **Hierarchy band.**  With `b₀ = 7`, for `1/α_s = x ∈ [49, 52]` the log-hierarchy `2π·x/7` lies in
+    `[14π, 104π/7] ≈ [43.98, 46.67]`. -/
+theorem hierarchy_log_band {x : ℝ} (hlo : 49 ≤ x) (hhi : x ≤ 52) :
+    14 * Real.pi ≤ 2 * Real.pi * x / 7 ∧ 2 * Real.pi * x / 7 ≤ 104 * Real.pi / 7 := by
+  refine ⟨?_, ?_⟩ <;> nlinarith [Real.pi_pos]
+
+/-- **The measured hierarchy lies inside the band** (near the `14π` edge):
+    `14π < ln(M_Planck/m_p) ≈ 44.01 < 104π/7`. -/
+theorem measured_hierarchy_in_band :
+    14 * Real.pi < (4401 : ℝ) / 100 ∧ (4401 : ℝ) / 100 < 104 * Real.pi / 7 := by
+  refine ⟨?_, ?_⟩
+  · nlinarith [Real.pi_lt_3141593]
+  · nlinarith [Real.pi_gt_3141592]
+
+/-- **The band is wide in the value** (exponential sensitivity): the `α_s` window spans `6π/7 ≈ 2.69`
+    in the log, i.e. a factor `e^{6π/7} ≈ 15` in `R_p`.  So the hierarchy is reduced to one integer at
+    the *log* level, but the absolute value is not tightly bounded — it is exp-sensitive to `α_s`. -/
+theorem hierarchy_band_width : 104 * Real.pi / 7 - 14 * Real.pi = 6 * Real.pi / 7 := by ring
+
 end QLF
