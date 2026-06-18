@@ -155,8 +155,7 @@ mass spectrum follows from the single integer `b₀ = 7`** (itself `N_c=3`, `n_f
 `α_s`, so the tight `0.07%` is the agreement *at the posit* `α_s = 1/b₀²`, not the width of the
 prediction. Over the running-consistent window `1/α_s ∈ [49, 52]` (posit `b₀² = 49` vs the one-loop
 extrapolation `≈ 52`), the log-hierarchy lies in the band `[14π, 104π/7] ≈ [43.98, 46.67]`
-(`hierarchy_log_band`), and the measured `44.01` sits inside near the `14π` edge
-(`measured_hierarchy_in_band`) — the data implies `1/α_s ≈ 49.0`, so `b₀² = 49` is the data-favoured end.
+(`hierarchy_log_band`), and the measured `44.01` sits inside near the `14π` edge (`14π ≈ 43.98 < 44.01`) — the data implies `1/α_s ≈ 49.0`, so `b₀² = 49` is the data-favoured end.
 The band spans `6π/7 ≈ 2.69` in the log (`hierarchy_band_width`) = a factor `e^{6π/7} ≈ 15` in the
 *value*: the integer-`7` result is a clean *log*-level structural reduction, **not** a tight value
 prediction.

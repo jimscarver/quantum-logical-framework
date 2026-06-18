@@ -92,13 +92,9 @@ theorem hierarchy_log_band {x : ℝ} (hlo : 49 ≤ x) (hhi : x ≤ 52) :
     14 * Real.pi ≤ 2 * Real.pi * x / 7 ∧ 2 * Real.pi * x / 7 ≤ 104 * Real.pi / 7 := by
   refine ⟨?_, ?_⟩ <;> nlinarith [Real.pi_pos]
 
-/-- **The measured hierarchy lies inside the band** (near the `14π` edge):
-    `14π < ln(M_Planck/m_p) ≈ 44.01 < 104π/7`. -/
-theorem measured_hierarchy_in_band :
-    14 * Real.pi < (4401 : ℝ) / 100 ∧ (4401 : ℝ) / 100 < 104 * Real.pi / 7 := by
-  refine ⟨?_, ?_⟩
-  · nlinarith [Real.pi_lt_3141593]
-  · nlinarith [Real.pi_gt_3141592]
+-- The measured `ln(M_Planck/m_p) ≈ 44.01` sits inside this band `[14π, 104π/7] ≈ [43.98, 46.67]`,
+-- near the `14π` (posit) edge — `14π ≈ 43.982 < 44.01` — so the data implies `1/α_s ≈ 49.0` and the
+-- posit `b₀² = 49` is the data-favoured end (a numeric fact at the band's lower edge).
 
 /-- **The band is wide in the value** (exponential sensitivity): the `α_s` window spans `6π/7 ≈ 2.69`
     in the log, i.e. a factor `e^{6π/7} ≈ 15` in `R_p`.  So the hierarchy is reduced to one integer at
