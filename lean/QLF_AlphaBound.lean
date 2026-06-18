@@ -130,8 +130,49 @@ theorem codata_in_exact_census_band :
   · rw [residLowerTerm_eq]; norm_num
   · unfold censusUpperLimit; norm_num
 
-/-- Status marker: the substrate forces `α⁻¹ > 137` and the census bracket around the
-    measured value; the exact value (the length→order rule) stays open. -/
+/-! ### The exact `√62` upper limit, via the central-binomial generating function
+
+The total-closure tail is summed in closed form, formalizing the `√62` cap.  The one analytic
+input — the central-binomial generating function `∑ C(2n,n) xⁿ = (1−4x)^(−1/2)`, a classical
+theorem living above the substrate's RCA₀ floor — is named explicitly as an axiom, per the QLF
+analysis-boundary convention (cf. `spectral_hilbert_polya`, `yang_mills_continuum_gap`).  The
+tail is *defined constructively* from the census counts, and everything around the boundary is
+proved. -/
+
+/-- The total-closure screening tail at `α_bare = 1/128`, one `α_bare` per closure order:
+    `∑_{n≥2} C(2n,n)·α_bare^(n−1)` — a convergent real series built from the census counts. -/
+noncomputable def censusTail : ℝ :=
+  ∑' n : ℕ, (if 2 ≤ n then (Nat.centralBinom n : ℝ) * (1 / 128 : ℝ) ^ (n - 1) else 0)
+
+/-- **Central-binomial generating function** — the analysis-boundary input.  Classically
+    `∑_{n} C(2n,n) xⁿ = (1−4x)^(−1/2)` for `|x| < 1/4`; specialized and reindexed at `x = 1/128`
+    the tail above evaluates to `128·(√(32/31) − 65/64) = 512·√62/31 − 130`.  A known theorem,
+    not yet in this Mathlib; named per the QLF boundary-axiom convention. -/
+axiom censusTail_eq : censusTail = 512 * Real.sqrt 62 / 31 - 130
+
+/-- **The exact census upper limit on the inverse coupling** (total closures, per-order map):
+    `α⁻¹ ≤ 137 + censusTail = (217 + 512·√62)/31 ≈ 137.048130`. -/
+noncomputable def alphaInvCap : ℝ := (217 + 512 * Real.sqrt 62) / 31
+
+/-- Leading value plus the exact census tail is the closed-form cap `(217 + 512·√62)/31`. -/
+theorem alphaInvCap_eq : (137 : ℝ) + censusTail = alphaInvCap := by
+  unfold alphaInvCap; rw [censusTail_eq]; ring
+
+/-- `7.874 < √62`  (since `7.874² = 61.999876 < 62`). -/
+theorem sqrt62_gt : (7874 : ℝ) / 1000 < Real.sqrt 62 := by
+  nlinarith [Real.sq_sqrt (show (0 : ℝ) ≤ 62 by norm_num), Real.sqrt_nonneg 62]
+
+/-- **The measured inverse coupling lies strictly below the exact `√62` cap**:
+    `137.035999 < (217 + 512·√62)/31 ≈ 137.048130` — fully machine-checked given the
+    generating-function boundary. -/
+theorem codata_below_alphaInvCap : (137035999 : ℝ) / 1000000 < alphaInvCap := by
+  have hlt : (137035999 : ℝ) / 1000000 < (217 + 512 * ((7874 : ℝ) / 1000)) / 31 := by norm_num
+  have mono : (217 + 512 * ((7874 : ℝ) / 1000)) / 31 ≤ alphaInvCap := by
+    unfold alphaInvCap; gcongr; exact sqrt62_gt.le
+  linarith
+
+/-- Status marker: the substrate forces `α⁻¹ > 137` and the (now closed-form `√62`) census
+    cap around the measured value; the exact value (the length→order rule) stays open. -/
 theorem alpha_bound_forced : True := trivial
 
 end QLF.AlphaBound
