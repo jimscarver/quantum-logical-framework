@@ -145,7 +145,7 @@ higher-order residual `+0.036` (status box) — and that residual is now **bound
 |---|---|---|---|
 | Leading value | `α⁻¹ = 128 + 9 = 137` | substrate structure, parameter-free | `leadInv_eq` / `alpha_QLF_eq` |
 | Residual sign | `α⁻¹ > 137` | EM abelian ⟹ screening | `alpha_inv_gt_137` |
-| Census cap | `α⁻¹ < (217 + 512√62)/31 ≈ 137.04813` | one `α_bare`/order + GF axiom `censusTail_eq` | `alphaInvCap_eq`, `codata_below_alphaInvCap` |
+| Census cap | `α⁻¹ < (217 + 512√62)/31 ≈ 137.04813` | one `α_bare`/order; GF now a **theorem** (`central_binom_genfun`, `censusTail_eq` — no axiom) | `alphaInvCap_eq`, `codata_below_alphaInvCap` |
 
 So the substrate pins α to a window — **`137 < α⁻¹ < 137.0481`**, i.e. **`0.0072967 < α < 0.0072993`**
 (~0.035% wide). The measured `α⁻¹ = 137.035999` (`α = 0.00729735`) lies inside, `0.036` above the leading
@@ -157,11 +157,11 @@ dressed coupling is weaker than the leading value — `α⁻¹ > 137`. It is fal
 `α⁻¹ ≤ 137` refutes the screening picture, and a steeper counting rule caps the residual *below* the
 measured value (`steep_map_excludes_codata`), so the data *selects* the shallow one-power-per-order map.
 
-**Settled vs open.** The leading value `137` is derived and the band is proved. Open: the residual *within*
-the window — the exact `137.036` (the length→order / curvature rule,
-[`QLF_AlphaBound`](lean/QLF_AlphaBound.lean)) — and discharging the generating-function axiom `censusTail_eq`
-(the central-binomial self-convolution). Leading value derived; residual open and bounded — stated plainly,
-no weaker and no stronger.
+**Settled vs open.** The leading value `137` is derived, the band is proved, and the generating-function
+input is now a **theorem** (`central_binom_genfun`/`censusTail_eq`, from Mathlib's `(1+x)^a` binomial series —
+`QLF_AlphaBound` carries no axiom). The one open piece is the residual *within* the window — the exact
+`137.036` (the length→order / curvature rule, [`QLF_AlphaBound`](lean/QLF_AlphaBound.lean)). Leading value
+derived; residual open and bounded — stated plainly, no weaker and no stronger.
 
 ---
 
