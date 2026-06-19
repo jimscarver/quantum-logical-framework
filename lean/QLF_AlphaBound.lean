@@ -146,13 +146,88 @@ proved. -/
 noncomputable def censusTail : ℝ :=
   ∑' n : ℕ, (if 2 ≤ n then (Nat.centralBinom n : ℝ) * (1 / 128 : ℝ) ^ (n - 1) else 0)
 
-/-- **Central-binomial generating function**, specialized at `x = 1/128` — the one analysis input.
-    Classically `∑_{n} C(2n,n) xⁿ = (1−4x)^(−1/2)` for `|x| < 1/4`; at `x = 1/128`,
-    `(31/32)^(−1/2) = √(32/31) = 4·√62/31`.  A known theorem (Newton's `−1/2` binomial series),
-    above the substrate's RCA₀ floor; named per the QLF boundary-axiom convention.  `censusTail_eq`
-    below is now a **theorem** derived from it — the closed-form `512√62/31 − 130` is not axiomatic. -/
-axiom central_binom_genfun :
-    HasSum (fun n : ℕ => (Nat.centralBinom n : ℝ) * (1 / 128 : ℝ) ^ n) (4 * Real.sqrt 62 / 31)
+/-- Multiplicative recurrence for the binomial-ring coefficient `Ring.choose`, over `ℝ`:
+    `(n+1)·choose r (n+1) = choose r n · (r − n)`.  Derived from the descending-Pochhammer
+    factorial relation (`Ring.descPochhammer_eq_factorial_smul_choose`). -/
+private lemma qlf_ring_choose_succ (r : ℝ) (n : ℕ) :
+    ((n : ℝ) + 1) * Ring.choose r (n + 1) = Ring.choose r n * (r - n) := by
+  have h1 := Ring.descPochhammer_eq_factorial_smul_choose r (n + 1)
+  rw [descPochhammer_succ_right, Polynomial.smeval_mul,
+      Ring.descPochhammer_eq_factorial_smul_choose r n,
+      Polynomial.smeval_sub, Polynomial.smeval_X, Polynomial.smeval_natCast] at h1
+  simp only [pow_one, pow_zero, nsmul_eq_mul, mul_one] at h1
+  have hfac : (n.factorial : ℝ) ≠ 0 := by exact_mod_cast Nat.factorial_ne_zero n
+  have hf : ((n + 1).factorial : ℝ) = ((n : ℝ) + 1) * (n.factorial : ℝ) := by
+    rw [Nat.factorial_succ]; push_cast; ring
+  rw [hf] at h1
+  have h3 : (n.factorial : ℝ) * (((n : ℝ) + 1) * Ring.choose r (n + 1))
+          = (n.factorial : ℝ) * (Ring.choose r n * (r - ↑n)) := by linear_combination -h1
+  exact mul_left_cancel₀ hfac h3
+
+/-- The `−1/2` central-binomial coefficient identity: `4ⁿ·choose(−1/2) n = (−1)ⁿ·C(2n,n)`.
+    Proved by induction using `qlf_ring_choose_succ` and `Nat.succ_mul_centralBinom_succ`. -/
+private lemma qlf_choose_neg_half (n : ℕ) :
+    (4 : ℝ) ^ n * Ring.choose (-1 / 2 : ℝ) n = (-1) ^ n * (Nat.centralBinom n : ℝ) := by
+  induction n with
+  | zero => simp [Ring.choose_zero_right, Nat.centralBinom_zero]
+  | succ k ih =>
+    have hr := qlf_ring_choose_succ (-1 / 2 : ℝ) k
+    have hcbR : ((k : ℝ) + 1) * (Nat.centralBinom (k + 1) : ℝ)
+              = 2 * (2 * (k : ℝ) + 1) * (Nat.centralBinom k : ℝ) := by
+      exact_mod_cast Nat.succ_mul_centralBinom_succ k
+    have hk1 : ((k : ℝ) + 1) ≠ 0 := by positivity
+    apply mul_left_cancel₀ hk1
+    rw [pow_succ (4 : ℝ) k, pow_succ (-1 : ℝ) k]
+    linear_combination (4 * (4 : ℝ) ^ k) * hr + (4 * (-1 / 2 - (k : ℝ))) * ih
+      + ((-1 : ℝ) ^ k) * hcbR
+
+/-- **Central-binomial generating function**, specialized at `x = 1/128` — now a *theorem*.
+    `∑ C(2n,n)·(1/128)ⁿ = (31/32)^(−1/2) = 4·√62/31`, via Mathlib's binomial series for
+    `(1+x)^(−1/2)` (`Real.one_add_rpow_hasFPowerSeriesOnBall_zero`) evaluated at `x = −1/32`,
+    with the coefficient identity `qlf_choose_neg_half`.  No longer an axiom — the last analysis
+    assumption under the α-residual is discharged from Mathlib's generalized binomial theorem. -/
+theorem central_binom_genfun :
+    HasSum (fun n : ℕ => (Nat.centralBinom n : ℝ) * (1 / 128 : ℝ) ^ n) (4 * Real.sqrt 62 / 31) := by
+  -- per-term identity: choose(−1/2) n · (−1/32)ⁿ = C(2n,n) · (1/128)ⁿ
+  have hterm_core : ∀ n : ℕ,
+      Ring.choose (-1 / 2 : ℝ) n * (-1 / 32 : ℝ) ^ n
+        = (Nat.centralBinom n : ℝ) * (1 / 128 : ℝ) ^ n := by
+    intro n
+    have hc := qlf_choose_neg_half n
+    have hS : (-1 : ℝ) ^ n * (-1) ^ n = 1 := by rw [← mul_pow]; norm_num
+    have hpow : (-1 / 32 : ℝ) ^ n = (-1) ^ n * ((4 : ℝ) ^ n * (1 / 128 : ℝ) ^ n) := by
+      rw [← mul_pow, ← mul_pow]; norm_num
+    rw [hpow]
+    linear_combination ((-1 : ℝ) ^ n * (1 / 128 : ℝ) ^ n) * hc
+      + ((1 / 128 : ℝ) ^ n * (Nat.centralBinom n : ℝ)) * hS
+  -- the closed-form value of the function at the evaluation point
+  have hval : (31 / 32 : ℝ) ^ (-1 / 2 : ℝ) = 4 * Real.sqrt 62 / 31 := by
+    rw [show (-1 / 2 : ℝ) = -(1 / 2) by norm_num,
+        Real.rpow_neg (by norm_num : (0 : ℝ) ≤ 31 / 32), ← Real.sqrt_eq_rpow, ← Real.sqrt_inv]
+    rw [show (31 / 32 : ℝ)⁻¹ = (4 * Real.sqrt 62 / 31) ^ 2 by
+          have h62 : Real.sqrt 62 ^ 2 = 62 := Real.sq_sqrt (by norm_num)
+          rw [div_pow, mul_pow, h62]; norm_num]
+    exact Real.sqrt_sq (by positivity)
+  -- Mathlib's binomial series for (1+x)^(−1/2) on the unit ball, at x = −1/32
+  have hF := Real.one_add_rpow_hasFPowerSeriesOnBall_zero (a := (-1 / 2 : ℝ))
+  have hy : (-1 / 32 : ℝ) ∈ EMetric.ball (0 : ℝ) 1 := by
+    simp only [EMetric.mem_ball, edist_dist, Real.dist_eq, sub_zero]
+    rw [show |(-1 / 32 : ℝ)| = 1 / 32 by rw [abs_of_neg (by norm_num)]; norm_num]
+    norm_num [ENNReal.ofReal_lt_one]
+  have hsum := hF.hasSum hy
+  simp only [zero_add] at hsum
+  rw [show (1 + (-1 / 32) : ℝ) = 31 / 32 by norm_num, hval] at hsum
+  -- rewrite each series term into the central-binomial form
+  have hfun : (fun n : ℕ => binomialSeries ℝ (-1 / 2 : ℝ) n (fun _ => (-1 / 32 : ℝ)))
+            = (fun n : ℕ => (Nat.centralBinom n : ℝ) * (1 / 128 : ℝ) ^ n) := by
+    funext n
+    rw [binomialSeries_apply,
+        show (List.ofFn (fun _ : Fin n => (-1 / 32 : ℝ))).prod = (-1 / 32 : ℝ) ^ n by
+          simp [List.prod_ofFn],
+        smul_eq_mul]
+    exact hterm_core n
+  rw [hfun] at hsum
+  exact hsum
 
 /-- The exact total-census screening tail in closed form — **derived** from `central_binom_genfun`
     by peeling the `n = 0, 1` terms and reindexing (factor `128`). -/
@@ -194,16 +269,13 @@ theorem censusTail_eq : censusTail = 512 * Real.sqrt 62 / 31 - 130 := by
     _ = 128 * (4 * Real.sqrt 62 / 31 - (1 + (1 : ℝ) / 64)) := hfsum.tsum_eq
     _ = 512 * Real.sqrt 62 / 31 - 130 := by ring
 
-/- NOTE — `censusTail_eq` is now a theorem (above): the magic `512√62/31 − 130` is derived by the
-   elementary peel-and-reindex from `central_binom_genfun`. The ONE remaining analysis boundary is
-   that named axiom — the central-binomial generating function at `x = 1/128`,
-   `∑ C(2n,n)·(1/128)ⁿ = (31/32)^(−1/2) = 4·√62/31`. Routes to discharge IT next (the genuinely
-   classical step, the general `(1−4x)^(−1/2)` then specialize):
-     • Newton's generalized binomial series (exponent −1/2, via  C(2n,n) = (−4)ⁿ·(−1/2 choose n));
-     • the Catalan generating function (catalan n = C(2n,n)/(n+1));
-     • the ODE  (1−4x)·G' = 2·G,  G 0 = 1,  unique on [0, 1/4).
-   The √-specialization `(31/32)^(−1/2) = 4√62/31` is then `Real.sqrt_eq_iff` + `norm_num`. Closing
-   the GF removes the last assumption under the α-residual (group target, #57). -/
+/- NOTE — both `central_binom_genfun` and `censusTail_eq` are now theorems (above), so the
+   census-tail screening factor `512√62/31 − 130` carries **no axiom**: it is derived end-to-end
+   from Mathlib's generalized binomial theorem (`Real.one_add_rpow_hasFPowerSeriesOnBall_zero`,
+   the `(1+x)^a` binomial series) specialized to `a = −1/2`, `x = −1/32`, via the coefficient
+   identity `4ⁿ·choose(−1/2) n = (−1)ⁿ·C(2n,n)` (`qlf_choose_neg_half`).  What remains genuinely
+   open under the α-residual is the *physics* — deriving the `+0.036` higher-order piece from the
+   substrate census/curvature — not any analysis input (group target, #57). -/
 
 /-- **The exact census upper limit on the inverse coupling** (total closures, per-order map):
     `α⁻¹ ≤ 137 + censusTail = (217 + 512·√62)/31 ≈ 137.048130`. -/
