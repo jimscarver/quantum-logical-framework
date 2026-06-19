@@ -210,10 +210,11 @@ theorem central_binom_genfun :
     exact Real.sqrt_sq (by positivity)
   -- Mathlib's binomial series for (1+x)^(−1/2) on the unit ball, at x = −1/32
   have hF := Real.one_add_rpow_hasFPowerSeriesOnBall_zero (a := (-1 / 2 : ℝ))
-  have hy : (-1 / 32 : ℝ) ∈ EMetric.ball (0 : ℝ) 1 := by
-    simp only [EMetric.mem_ball, edist_dist, Real.dist_eq, sub_zero]
-    rw [show |(-1 / 32 : ℝ)| = 1 / 32 by rw [abs_of_neg (by norm_num)]; norm_num]
-    norm_num [ENNReal.ofReal_lt_one]
+  have hy : (-1 / 32 : ℝ) ∈ Metric.eball (0 : ℝ) 1 := by
+    rw [Metric.mem_eball, edist_dist, Real.dist_eq, sub_zero,
+        abs_of_neg (show (-1 / 32 : ℝ) < 0 by norm_num),
+        show -(-1 / 32 : ℝ) = 1 / 32 by norm_num]
+    exact (ENNReal.ofReal_lt_one).mpr (by norm_num)
   have hsum := hF.hasSum hy
   simp only [zero_add] at hsum
   rw [show (1 + (-1 / 32) : ℝ) = 31 / 32 by norm_num, hval] at hsum
