@@ -146,39 +146,64 @@ proved. -/
 noncomputable def censusTail : ℝ :=
   ∑' n : ℕ, (if 2 ≤ n then (Nat.centralBinom n : ℝ) * (1 / 128 : ℝ) ^ (n - 1) else 0)
 
-/-- **Central-binomial generating function** — the analysis-boundary input.  Classically
-    `∑_{n} C(2n,n) xⁿ = (1−4x)^(−1/2)` for `|x| < 1/4`; specialized and reindexed at `x = 1/128`
-    the tail above evaluates to `128·(√(32/31) − 65/64) = 512·√62/31 − 130`.  A known theorem,
-    not yet in this Mathlib; named per the QLF boundary-axiom convention. -/
-axiom censusTail_eq : censusTail = 512 * Real.sqrt 62 / 31 - 130
+/-- **Central-binomial generating function**, specialized at `x = 1/128` — the one analysis input.
+    Classically `∑_{n} C(2n,n) xⁿ = (1−4x)^(−1/2)` for `|x| < 1/4`; at `x = 1/128`,
+    `(31/32)^(−1/2) = √(32/31) = 4·√62/31`.  A known theorem (Newton's `−1/2` binomial series),
+    above the substrate's RCA₀ floor; named per the QLF boundary-axiom convention.  `censusTail_eq`
+    below is now a **theorem** derived from it — the closed-form `512√62/31 − 130` is not axiomatic. -/
+axiom central_binom_genfun :
+    HasSum (fun n : ℕ => (Nat.centralBinom n : ℝ) * (1 / 128 : ℝ) ^ n) (4 * Real.sqrt 62 / 31)
 
-/- SKETCH — discharging `censusTail_eq` (turning this one analysis axiom into a theorem).
-   Proposed plan; not yet proved (Lean here is push-to-CI). The reduction to a single classical
-   input is fully elementary:
+/-- The exact total-census screening tail in closed form — **derived** from `central_binom_genfun`
+    by peeling the `n = 0, 1` terms and reindexing (factor `128`). -/
+theorem censusTail_eq : censusTail = 512 * Real.sqrt 62 / 31 - 130 := by
+  set f : ℕ → ℝ := fun n => if 2 ≤ n then (Nat.centralBinom n : ℝ) * (1 / 128 : ℝ) ^ (n - 1) else 0
+    with hf
+  -- on the `+2` shift the census term is `128·(centralBinom (n+2)·(1/128)^(n+2))`
+  have key : ∀ n : ℕ,
+      f (n + 2) = 128 * ((Nat.centralBinom (n + 2) : ℝ) * (1 / 128 : ℝ) ^ (n + 2)) := by
+    intro n
+    show (if 2 ≤ n + 2 then (Nat.centralBinom (n + 2) : ℝ) * (1 / 128 : ℝ) ^ (n + 2 - 1) else 0)
+        = 128 * ((Nat.centralBinom (n + 2) : ℝ) * (1 / 128 : ℝ) ^ (n + 2))
+    rw [if_pos (by omega : 2 ≤ n + 2), show n + 2 - 1 = n + 1 by omega, pow_add, pow_add]
+    ring
+  -- shifted central-binomial sum
+  have hbs : HasSum (fun n : ℕ => (Nat.centralBinom (n + 2) : ℝ) * (1 / 128 : ℝ) ^ (n + 2))
+      (4 * Real.sqrt 62 / 31 - (1 + (1 : ℝ) / 64)) := by
+    rw [hasSum_nat_add_iff (f := fun n : ℕ => (Nat.centralBinom n : ℝ) * (1 / 128 : ℝ) ^ n) 2]
+    have hs : (∑ i ∈ Finset.range 2, (Nat.centralBinom i : ℝ) * (1 / 128 : ℝ) ^ i) = 1 + (1 : ℝ) / 64 := by
+      rw [Finset.sum_range_succ, Finset.sum_range_one]
+      norm_num [Nat.centralBinom_zero, show Nat.centralBinom 1 = 2 from by decide]
+    rw [hs, show (4 * Real.sqrt 62 / 31 - (1 + (1 : ℝ) / 64)) + (1 + (1 : ℝ) / 64)
+          = 4 * Real.sqrt 62 / 31 by ring]
+    exact central_binom_genfun
+  -- shifted census sum (rewrite the summand via `key`)
+  have hfs : HasSum (fun n : ℕ => f (n + 2)) (128 * (4 * Real.sqrt 62 / 31 - (1 + (1 : ℝ) / 64))) := by
+    rw [show (fun n : ℕ => f (n + 2))
+          = (fun n : ℕ => 128 * ((Nat.centralBinom (n + 2) : ℝ) * (1 / 128 : ℝ) ^ (n + 2)))
+        from funext key]
+    exact hbs.mul_left 128
+  -- unshift
+  have hfsum : HasSum f (128 * (4 * Real.sqrt 62 / 31 - (1 + (1 : ℝ) / 64))) := by
+    rw [hasSum_nat_add_iff (f := f) 2] at hfs
+    have hz : (∑ i ∈ Finset.range 2, f i) = 0 := by
+      rw [Finset.sum_range_succ, Finset.sum_range_one]; simp [hf]
+    rw [hz, add_zero] at hfs
+    exact hfs
+  calc censusTail = ∑' n, f n := rfl
+    _ = 128 * (4 * Real.sqrt 62 / 31 - (1 + (1 : ℝ) / 64)) := hfsum.tsum_eq
+    _ = 512 * Real.sqrt 62 / 31 - 130 := by ring
 
-     censusTail = ∑_{n≥2} C(2n,n)·(1/128)^(n−1)
-                = 128 · ∑_{n≥2} C(2n,n)·(1/128)^n              [ (1/128)^(n−1) = 128·(1/128)^n ]
-                = 128 · ( G(1/128) − C(0,0) − C(2,1)·(1/128) ) [ peel the n = 0, 1 terms ]
-                = 128 · ( G(1/128) − 1 − 1/64 ),
-       where  G(x) := ∑_{n≥0} C(2n,n)·xⁿ = (1−4x)^(−1/2)   for |x| < 1/4   (the ONE classical input).
-     G(1/128) = (1 − 4/128)^(−1/2) = (31/32)^(−1/2) = √(32/31) = 4·√62/31, so
-     censusTail = 128·(4·√62/31 − 65/64) = 512·√62/31 − 130   (matches the axiom).
-
-   So the whole axiom collapses to the central-binomial generating function. To discharge:
-     1. Establish the GF as a HasSum (the genuinely-classical step):
-          central_binom_genfun : ∀ x : ℝ, 0 ≤ x → x < 1/4 →
-            HasSum (fun n => (Nat.centralBinom n : ℝ) * x ^ n) ((Real.sqrt (1 - 4*x))⁻¹)
-        Candidate routes in this Mathlib: Newton's generalized binomial series (exponent −1/2,
-        via  centralBinom n = (−4)ⁿ · (−1/2 choose n)); or the Catalan generating function
-        (catalan n = centralBinom n/(n+1)); or the ODE (1−4x)·G' = 2·G, G 0 = 1 with uniqueness
-        on [0, 1/4). If none is directly available, THIS named lemma becomes the (smaller, cleaner)
-        boundary — a classical identity, not a magic number — already progress over `censusTail_eq`.
-     2. Specialize at x = 1/128 (< 1/4 ✓):  (Real.sqrt (31/32))⁻¹ = 4·Real.sqrt 62/31
-        (square both sides; `Real.sqrt_eq_iff` + `norm_num`).
-     3. Reindex `censusTail`: factor the constant 128, then `HasSum.tsum_eq` minus the n = 0,1
-        terms (`tsum_eq_add_tsum_ite` / `Finset.range 2`), then `field_simp`/`ring` → 512·√62/31 − 130.
-   Then `axiom censusTail_eq` becomes a theorem, leaving at most the GF lemma (step 1) as the
-   analysis boundary — directly closing the α-residual's biggest assumption (group target, #57). -/
+/- NOTE — `censusTail_eq` is now a theorem (above): the magic `512√62/31 − 130` is derived by the
+   elementary peel-and-reindex from `central_binom_genfun`. The ONE remaining analysis boundary is
+   that named axiom — the central-binomial generating function at `x = 1/128`,
+   `∑ C(2n,n)·(1/128)ⁿ = (31/32)^(−1/2) = 4·√62/31`. Routes to discharge IT next (the genuinely
+   classical step, the general `(1−4x)^(−1/2)` then specialize):
+     • Newton's generalized binomial series (exponent −1/2, via  C(2n,n) = (−4)ⁿ·(−1/2 choose n));
+     • the Catalan generating function (catalan n = C(2n,n)/(n+1));
+     • the ODE  (1−4x)·G' = 2·G,  G 0 = 1,  unique on [0, 1/4).
+   The √-specialization `(31/32)^(−1/2) = 4√62/31` is then `Real.sqrt_eq_iff` + `norm_num`. Closing
+   the GF removes the last assumption under the α-residual (group target, #57). -/
 
 /-- **The exact census upper limit on the inverse coupling** (total closures, per-order map):
     `α⁻¹ ≤ 137 + censusTail = (217 + 512·√62)/31 ≈ 137.048130`. -/
