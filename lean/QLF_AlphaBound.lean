@@ -152,6 +152,34 @@ noncomputable def censusTail : ℝ :=
     not yet in this Mathlib; named per the QLF boundary-axiom convention. -/
 axiom censusTail_eq : censusTail = 512 * Real.sqrt 62 / 31 - 130
 
+/- SKETCH — discharging `censusTail_eq` (turning this one analysis axiom into a theorem).
+   Proposed plan; not yet proved (Lean here is push-to-CI). The reduction to a single classical
+   input is fully elementary:
+
+     censusTail = ∑_{n≥2} C(2n,n)·(1/128)^(n−1)
+                = 128 · ∑_{n≥2} C(2n,n)·(1/128)^n              [ (1/128)^(n−1) = 128·(1/128)^n ]
+                = 128 · ( G(1/128) − C(0,0) − C(2,1)·(1/128) ) [ peel the n = 0, 1 terms ]
+                = 128 · ( G(1/128) − 1 − 1/64 ),
+       where  G(x) := ∑_{n≥0} C(2n,n)·xⁿ = (1−4x)^(−1/2)   for |x| < 1/4   (the ONE classical input).
+     G(1/128) = (1 − 4/128)^(−1/2) = (31/32)^(−1/2) = √(32/31) = 4·√62/31, so
+     censusTail = 128·(4·√62/31 − 65/64) = 512·√62/31 − 130   (matches the axiom).
+
+   So the whole axiom collapses to the central-binomial generating function. To discharge:
+     1. Establish the GF as a HasSum (the genuinely-classical step):
+          central_binom_genfun : ∀ x : ℝ, 0 ≤ x → x < 1/4 →
+            HasSum (fun n => (Nat.centralBinom n : ℝ) * x ^ n) ((Real.sqrt (1 - 4*x))⁻¹)
+        Candidate routes in this Mathlib: Newton's generalized binomial series (exponent −1/2,
+        via  centralBinom n = (−4)ⁿ · (−1/2 choose n)); or the Catalan generating function
+        (catalan n = centralBinom n/(n+1)); or the ODE (1−4x)·G' = 2·G, G 0 = 1 with uniqueness
+        on [0, 1/4). If none is directly available, THIS named lemma becomes the (smaller, cleaner)
+        boundary — a classical identity, not a magic number — already progress over `censusTail_eq`.
+     2. Specialize at x = 1/128 (< 1/4 ✓):  (Real.sqrt (31/32))⁻¹ = 4·Real.sqrt 62/31
+        (square both sides; `Real.sqrt_eq_iff` + `norm_num`).
+     3. Reindex `censusTail`: factor the constant 128, then `HasSum.tsum_eq` minus the n = 0,1
+        terms (`tsum_eq_add_tsum_ite` / `Finset.range 2`), then `field_simp`/`ring` → 512·√62/31 − 130.
+   Then `axiom censusTail_eq` becomes a theorem, leaving at most the GF lemma (step 1) as the
+   analysis boundary — directly closing the α-residual's biggest assumption (group target, #57). -/
+
 /-- **The exact census upper limit on the inverse coupling** (total closures, per-order map):
     `α⁻¹ ≤ 137 + censusTail = (217 + 512·√62)/31 ≈ 137.048130`. -/
 noncomputable def alphaInvCap : ℝ := (217 + 512 * Real.sqrt 62) / 31
