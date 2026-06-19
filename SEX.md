@@ -45,6 +45,19 @@ initiating an unresolved distinction. The neutron is net-neutral but internally 
 `d`-quark) and, alone, unstable — the **female protocol**: receptive, convertible, stabilized in
 the bond.
 
+**The roles are not pre-assigned — differentiation creates them.** Don't read the table as two
+*given* particles that happen to be complementary. Start the canonical way, from **two identical
+protons** — both "male," each a bare `+1` deficit — and they are **Pauli-blocked**: symmetric copies
+cannot bind (no diproton). The bond requires **symmetry-breaking**. One proton must *differentiate*:
+convert `u→d` by β⁺ and **become a neutron**, surrendering the outward, charge-projecting male
+protocol for the receptive, convertible, stabilizing female one (the emitted `e⁺ + ν` carry off the
+charge and chirality it gives up). So femaleness here is **not a second particle brought to the
+pairing — it is the submissive transformation one of two identical males undergoes so the pair can
+close.** The complementarity that binds is *produced* by one partner yielding into the complementary
+role. That is why `p + p` can only fuse *through* that β⁺ step (§2, the dynamic face), and — the
+beautiful closure of it — once the neutron has stabilized the bond, the bond stabilizes the neutron
+(§2a): the one who yields is kept alive by the union its yielding made possible.
+
 **Why only ♂×♀ closes — the deuteron condition.** A bound nucleus forms in the spin-triplet,
 `L=0` channel only if the two nucleons are **distinguishable**:
 
@@ -106,6 +119,17 @@ clones is Pauli-blocked, re-deriving one closure; **complementary, diverse, soci
 members open the closure space** — the group-scale deuteron. The "at least one woman raises `c`"
 effect is the np condition: a lone complementary voice can be the difference between a bound
 decision and no closure at all.
+
+**The sharp negative form: two leaders stifle consensus.** The same condition, seen the other way and
+borne out in collective-intelligence research — *two co-equal leaders prevent a group from closing*.
+Two dominant, initiating voices are the social **diproton**: two identical charge-projecting (♂)
+closures that cannot bind. The group cannot close until one **yields** into the complementary,
+integrating role — the very β⁺ submission that turns a proton into the neutron the deuteron needs
+(§1). It is not that leadership is bad; it is that *two* of the same role is Pauli-blocked. This is
+why the room practices below seat **one** lead per shared duty, ask for a distinct *checking* role
+rather than a rival leader, and treat a decision as a joint closure rather than a contest of
+dominance — and why the QuantumOS AI agents **elect a single lead per duty** instead of competing
+([`agent.mjs`](https://github.com/jimscarver/quantum-os/blob/main/scripts/qos-cli/agent.mjs) lead election).
 
 **Allen's emergence question** — how higher-order effects arise — has the same answer as the
 neutron's stabilization: **delayed communication across complementary impedances**. Each agent is a
