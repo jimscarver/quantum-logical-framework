@@ -1,10 +1,25 @@
 # Optimizing Quantum Computation Simulation with RhoQuCalc ZFA Catalog and Possibilist Ontology
 
-**Document Status**: Proposed extension for the Quantum Logical Framework (QLF) repository  
+**Document Status**: Design doc / roadmap — the Rho mappings are conceptual, the §4 figures are *projected, not measured*, and the §5 integration items beyond `tutorial_01_bell_state.py` are not yet built  
 **Target file**: `quantum-computation-optimization.md`  
-**Version**: 0.1 (April 2026)  
+**Version**: 0.2 (June 2026)  
+**Live implementation**: the ZFA evaluation engine runs in **[quantum-os](https://github.com/jimscarver/quantum-os)** — [open a room](https://jimscarver.github.io/quantum-os/) and try `/qucalc`, `/rhoqu`, `/braket`.  
 **Author**: Grok, Jim Whitescarver – directly builds on the RhoQuCalc ZFA catalog (`zfa-catalog-rho-notation.md`), performance comparison, possibilist ontology (`possibilist-ontology.md`), and existing repo modules (`qc_assembler.py`, `quantum_simulator.py`, `qucalc_engine.py`, `path_integral.py`, `tutorial_01_bell_state.py`)  
 **Repo reference**: https://github.com/jimscarver/quantum-logical-framework
+
+> **Honest scope.** This is **not** a claim to simulate arbitrary quantum computation classically in
+> polynomial time (that would be `BQP ⊆ P`). ZFA/RhoQuCalc gives an **exact, constructive** simulation
+> that is efficient **only for the class of circuits whose realized (ZFA-closed) history space stays
+> bounded** — low-entanglement or structured circuits with heavy sub-circuit reuse — much as
+> tensor-network / MPS methods are efficient for low-entanglement states. A maximally-entangling circuit
+> still has an exponential history space, consistent with QLF's own generate-vs-verify result
+> ([`P_vs_NP_QLF.md`](P_vs_NP_QLF.md): *generation* stays exponential; only *verification* is cheap). The
+> §4 figures are for that structured class and are projected, not benchmarked.
+>
+> *Not to be confused with the room as a metaheuristic optimizer:* using a QuantumOS room to **optimize
+> real-world problems** by collective annealing is a different thing — see
+> [`Collective_Optimization.md`](https://github.com/jimscarver/quantum-os/blob/main/Collective_Optimization.md)
+> in quantum-os.
 
 ## 1. Why RhoQuCalc Optimizes Quantum Computation Simulation
 
@@ -17,7 +32,7 @@ The QLF’s **RhoQuCalc** (Rho calculus + ZFA catalog + possibilist ontology) fl
 - The possibilist core (all histories real until ZFA = 0) lets `qucalc_engine.py` track *only* the open directional prefixes and close them via memoized catalog lookups — no full state vector needed.
 - Probabilities come from **history counts** in `path_integral.py` (exact, not sampled).
 
-Result: **Polynomial or near-constant scaling** for many circuits, with full fidelity to quantum phenomenology (Bell states, interference, entanglement already demonstrated in `tutorial_01_bell_state.py`).
+Result: **polynomial or near-constant scaling for the structured / low-entanglement class** (circuits whose ZFA history space stays bounded), with full fidelity to quantum phenomenology (Bell states, interference, entanglement already demonstrated in `tutorial_01_bell_state.py`).
 
 This is the natural evolution of the repo’s existing `quantum_simulator.py` and `qc_assembler.py`.
 
@@ -86,7 +101,9 @@ The catalog makes every gate/sub-circuit a single O(1) lookup instead of re-comp
    - Run the logical engine on classical hardware for *n* ≤ 100+ (impossible with state-vector methods).
    - When real quantum hardware is available, the same Rho process can be transpiled to gate pulses.
 
-## 4. Expected Performance Gains (Benchmarks Aligned with Existing Repo)
+## 4. Projected performance — structured circuits only (projected, not yet benchmarked)
+
+These are *projected* gains for the **bounded-history (low-entanglement / structured) class**, not measured numbers, and not a general speedup. A `benchmarks/` suite (§5) against QuTiP/Qiskit is the open work that would test them.
 
 | Circuit / Algorithm          | Traditional Simulator (QuTiP / Qiskit state-vector) | RhoQuCalc (with Catalog)          | Speedup / Scaling |
 |------------------------------|------------------------------------------------------|-----------------------------------|-------------------|
@@ -94,11 +111,13 @@ The catalog makes every gate/sub-circuit a single O(1) lookup instead of re-comp
 | **10-qubit random circuit** | ~2¹⁰ = 1k states → seconds                          | Catalog lookups + prefixes        | 10–100×          |
 | **Grover (n=20)**           | 2²⁰ states → minutes–hours                          | History counting via `*`          | 10³–10⁴×         |
 | **QFT (n=30)**              | Memory wall (2³⁰)                                   | Sub-circuit catalog reuse         | Feasible on laptop |
-| **Full Shor (factoring)**   | Intractable classically                             | Possibilist history pruning       | Dramatic (orders of magnitude) |
+| **Full Shor (factoring)**   | Intractable classically                             | Entangling core stays exponential | *No general classical speedup* |
 
 These gains come directly from replacing Hilbert-space evolution with **constructive ZFA composition** — exactly what the repo’s possibilist ontology enables.
 
 ## 5. Integration Plan for the QLF Repo
+
+*Status:* `qc_assembler.py`, `quantum_simulator.py`, `qucalc_engine.py`, `path_integral.py`, and `tutorial_01_bell_state.py` exist. The items below (the catalog wrappers, `tutorial_02_grover.py` / `tutorial_03_qft.py`, and the `benchmarks/` suite) are **roadmap — not yet built**; this doc is the design, not a finished feature.
 
 1. **Extend `qc_assembler.py`**  
    Add `to_rhoqucalc()` method that outputs the Rho notation above and registers gates as catalog entries.
@@ -118,7 +137,7 @@ These gains come directly from replacing Hilbert-space evolution with **construc
 6. **Documentation**  
    Cross-link this file from `README.md` under “Quantum Computation Applications”.
 
-**Conclusion**: RhoQuCalc turns the QLF’s existing quantum simulator (`quantum_simulator.py` + `qc_assembler.py`) into a **superior classical engine** for quantum computation. By treating circuits as composable ZFA processes in a possibilist ontology, we eliminate the exponential Hilbert-space bottleneck while preserving exact quantum statistics. This is not an approximation — it is the native execution model of the 8-twist logic from which quantum mechanics itself emerges.
+**Conclusion**: RhoQuCalc turns the QLF’s existing quantum simulator (`quantum_simulator.py` + `qc_assembler.py`) into an **exact, constructive simulation engine** for quantum computation. By treating circuits as composable ZFA processes in a possibilist ontology, it sidesteps the Hilbert-space bottleneck **for circuits in the bounded-history (low-entanglement / structured) class** while preserving exact quantum statistics. This is not an approximation — it is the native execution model of the 8-twist logic from which quantum mechanics itself emerges.
 
 The framework offers:
 - Faster simulation of algorithms that break classical simulators.
@@ -127,7 +146,7 @@ The framework offers:
 
 This positions the QLF as not just a physics simulator, but a **next-generation quantum computing development environment**.
 
-Pull request ready — implements the full “quantum-logical synthesis” vision for practical quantum algorithm design and verification.
+This doc is the *design* for that constructive simulation / development environment; the §5 integration (catalog wrappers, Grover/QFT tutorials, the benchmark suite) is the open work.
 
 **References** (within repo):
 - `qc_assembler.py`, `quantum_simulator.py`, `tutorial_01_bell_state.py`
