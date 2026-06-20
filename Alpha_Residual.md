@@ -323,3 +323,44 @@ and the link "closure-irreducible ↔ integer-prime" is a suggestive structural 
 *spectrum* (irreducible counts `2·Catalan(n−1) = 2,2,4,10,28,…`) is itself monotonic, so it adds no
 resonance peak; the prime tail (`0.0159`) still undershoots the residual. So primes help explain *why 137 /
 why d=3*, not the `+0.036`.
+
+---
+
+## 8. The 4D projection — sourcing the `d_eff` excess (leading mechanism candidate, per Jim)
+
+The directional count was treated as purely 3-D (`3² = 9`). But QLF's ontology is **4-D**: 3 rendered
+spatial axes **+ 1 synthesized time** (`f = 1/t`). So the directional coupling tensor is `4×4` in
+spacetime, and only the spatial block renders as the leading screening:
+
+```
+ 3D spatial block:  3² = 9     → renders → α⁻¹ = 137  (leading)
+ full 4D tensor:    4² = 16    → α⁻¹(d=4) = 144   (only_3d_substrate_gives_137 counterfactual)
+ time components:   16 − 9 = 7  (4th row + column)
+ measured d_eff = √(137.036 − 128) = 3.006   →  time pushes d just above 3
+ residual = 0.036 = a 0.5% leakage of the 7 time-components
+```
+
+**Why this is the strongest candidate (three things fall in place, none fitted):**
+
+1. **It *sources* `d_eff > 3`.** The curvature route (§5) needed `d_eff = 3.006` but had no reason for the
+   excess (pure geometry is O(1), wrong scale). The 4-D projection supplies it: **the 4th dimension (time)
+   leaks into the spatial directional count**, pushing `d_eff` just above 3. The bare posit becomes a
+   mechanism.
+2. **It explains why the residual is *small*** — the one thing every other candidate had to assume. Time
+   is *suppressed*: emergent (`f = 1/t`), not a spatial axis, Lorentzian. So its contribution to the
+   spatial screening is naturally a fraction of a percent, not O(1). That is *why* `0.036`, not `7`.
+3. **The sign is forced and correct.** Time *adds* to the count ⟹ `d_eff > 3` ⟹ `α⁻¹ > 137` ⟹ screening
+   (consistent with `alpha_inv_gt_137`).
+
+The recurring **`5`** gets a 4-D home: a spin-2 (directional / graviton) mode in 4-D has `2J+1 = 5`
+polarizations, so `residual ~ 5α = 0.0365` (a 4-D reading of the `5α` that kept recurring; `9/250 = 0.0360`
+is still the closer numeric lead, `5α` 1.3% high). Note `9 = 4-D traceless-symmetric tensor` count too
+(`4·5/2 − 1 = 9`), so the `9` itself has a spacetime reading.
+
+**Honest boundary — same address, better character.** The underived piece is now a single, *physical*
+quantity: the **time-suppression factor** (`0.5%`, i.e. `δd = 0.006`). It is a lead, not a derivation. But
+instead of "the residual is some unforced number," the open problem is "the residual is the suppressed
+leakage of the synthesized time dimension; derive the suppression from `f = 1/t` / the Lorentzian
+signature (`QLF_GravityFromDelay`) **before** comparing." That is a concrete, well-posed next swing — and
+the best-motivated one in this file, because it gets the sign, the smallness, *and* the `d_eff` excess from
+one mechanism (emergent time) rather than three separate posits.
