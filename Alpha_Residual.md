@@ -1,4 +1,9 @@
-# The α residual `+0.036` — forced bracket, and the one open weighting
+# The α residual `+0.036` — is 137 the exact EM value, with the residual a weak-sector effect?
+
+> **Leading hypothesis (§0):** `α⁻¹ = 128 + 9 = 137` is the *exact* pure-electromagnetic value
+> (`128 = 2⁷ = α⁻¹(M_Z)`, `+9 = 3²` = EM running to the IR), and the `+0.036` is a separate
+> **electroweak** contribution — not an EM higher-order tail. The EM-closure bracket analysis (§1–§5) is
+> valid mathematics but a demoted interpretation.
 
 Companion to [`Alpha.md`](Alpha.md) and [`lean/QLF_AlphaBound.lean`](lean/QLF_AlphaBound.lean).
 [Quantum Logical Framework (QLF)](README.md) derives the **leading** inverse coupling
@@ -10,13 +15,47 @@ Companion to [`Alpha.md`](Alpha.md) and [`lean/QLF_AlphaBound.lean`](lean/QLF_Al
 substrate, **never tuned** to CODATA. QLF is rich in meaningful constants (`3/8`, `5`, `2/3`, `π`, …),
 so a coefficient that hits `0.036` within a percent can always be found by dividing the answer by a
 substrate number — that is numerology, not physics. A weighting forced by the closure structure that
-*then* gives `0.036` is physics; a weighting chosen to give `0.036` is not. This file separates what is
-**forced** (a two-sided bracket, exact) from what is **open** (a single weighting rule), and is explicit
-about which candidates are leads versus derivations.
+*then* gives `0.036` is physics; a weighting chosen to give `0.036` is not.
 
 ---
 
-## 1. The forced bracket (two exact closed forms)
+## 0. Reframe (leading hypothesis, per Jim): 137 is the *exact* EM value; the residual is a different sector
+
+`α⁻¹` is not one number — it **runs** with energy. Measured: `α⁻¹(q²→0) = 137.036` (IR / Thomson) and
+**`α⁻¹(q² = M_Z²) ≈ 128`** (the weak scale, precisely ~127.95). So QLF's `α⁻¹ = 2⁷ + 3² = 128 + 9` reads
+as a *running*, with each integer pinned to a scale:
+
+| QLF term | value | physical reading |
+|---|---|---|
+| `2⁷` | `128` | the coupling **at the weak scale** `M_Z` — the UV/bare value (`α⁻¹(M_Z) ≈ 128`) |
+| `3²` | `+9` | the **electromagnetic** screening running `M_Z → q²→0` (3 spatial axes squared, charged-fermion EM) |
+| sum | **`137`** | the **pure-EM** `α⁻¹` in the IR — **exact** |
+| residual | `+0.036` | a **sub-leading, weak-scale** effect — the weak gauge bosons (W loops) in the photon vacuum polarization, where the bulk `+9` does not reach |
+
+So **137 is the right EM number**, and `+0.036` is a *different sector* (electroweak) bleeding into the
+measured coupling — not an electromagnetic higher-order tail. This is consistent with everything proven:
+`alpha_inv_gt_137` only says the residual `δ > 0` (it never claimed `δ` was electromagnetic), so it
+survives with `δ` reinterpreted as weak and `137` exact. It also explains why the EM census-tail program
+(§1–§4) never *forced* `0.036` — wrong sector. **Structural support:** the weak `SU(2)` lives *on the 3
+spatial axes* in QLF (`weak_isospin_su2`) — the same axes whose square is the `+9` — so the weak sector is
+positioned to add a small correction to the *same* directional count.
+
+**Honest status.** (1) At exactly `q²=0` the `Z` decouples (`∝ q²/M_Z²`), so the weak piece enters via the
+`W`-**loop** in the running, not tree-level `Z`-mixing. (2) `0.036` has **not** been shown to equal a
+specific weak quantity — this is a hypothesis with a clean test: derive it in **weak** parameters
+(`sin²θ_W`, `M_W/M_Z`, `α_w`) *before* comparing. (3) This **demotes** §1–§5 below: that machinery
+(`central_binom_genfun`, the caps, the resummation) is valid mathematics, but its *interpretation* — that
+`0.036` is an EM closure tail bracketed in `[137.016, 137.048]` — is now the *minority* reading. The
+bracket "containing" `137.036` is a coincidence of the EM closure counts, not the mechanism.
+
+**Open (reframed) target:** derive `+0.036` from the **weak/electroweak** sector (the `W`-loop running, or
+the weak-on-the-axes correction), keeping `137` exact — *not* as an EM census tail.
+
+The sections below record the (now-demoted) EM-closure analysis, kept because the theorems are real.
+
+---
+
+## 1. The forced bracket (two exact closed forms) *(EM-closure reading — demoted; see §0)*
 
 The residual is the sum of higher closure-order corrections, one bare coupling `α_bare = 1/128` per
 order. Two extremal countings bound it, both exact and parameter-free:
