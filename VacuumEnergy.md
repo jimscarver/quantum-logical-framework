@@ -43,6 +43,8 @@ $$
 
 On cosmological scales this behaves like dark energy (`w ≈ -1`). Locally it produces a **finite vacuum energy density** whose spectrum is determined by the distribution of ZFA event sizes.
 
+This vacuum energy is **created, not borrowed** — it is the forward half of each ZFA event. Energy conservation is not a fundamental global law in QLF but an emergent *present-local* balance: each closure synthesizes a tick of time and lends half its energy to the future, and that forward half *is* `T_{\mu\nu}^{(\text{synth})}` / the `w=-1` field above. So the cosmological constant does not need to be put in by hand or fine-tuned against a fixed total energy — it is the running tally of created energy. This is why a TOE that *axiomatizes* global energy conservation (e.g. an S-matrix theory built on asymptotic in/out states, which presupposes it) has no comfortable home for dark energy — the de Sitter / swampland problem. See [`Conservation.md`](Conservation.md) §2b (energy is created, half lent to the future) and [`Reversibility.md`](Reversibility.md) (the same forward closure is the arrow of time).
+
 ---
 
 ## 2. The ZPE Spectrum in QLF

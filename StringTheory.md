@@ -48,7 +48,11 @@ M-theory extends the picture naturally. M2-branes and M5-branes become higher-di
 | Computability           | Non-computable landscape                 | Fully executable (Python + Lean4)                | QLF |
 | Unification             | Gravity + QM via strings                 | Gravity + QM + strings + M-theory from one rule  | QLF |
 | Testability             | Few direct predictions                   | Predicts tiny w-deviations and emergent constants| QLF |
+| Arrow of time           | T-symmetric S-matrix; no intrinsic arrow | Arrow = forward ZFA closure in synthesized time; reversal *is* the Hermitian conjugate | QLF |
+| Energy & expansion      | Asymptotic energy conservation; **no de Sitter S-matrix** (the swampland/no-dS problem) | Each event *creates* energy, half lent to the future = dark energy; global conservation is emergent-local | QLF |
 | Philosophical clarity   | “Strings are fundamental”                | Universe is logical, constructed in finite time  | QLF |
+
+> **The last two rows are the structural flaws of any *reversible*, *energy-conserving* TOE** — see [`Reversibility.md`](Reversibility.md) (reversibility is a symmetry of the *laws*, not the *universe* — a TOE that axiomatizes it omits the irreversible closure) and [`Conservation.md`](Conservation.md) §2b (energy is *created* one ZFA closure at a time, half lent to the future; global energy conservation is an emergent present-local balance, not a foundation). String theory's de Sitter / **swampland** difficulty is exactly this: an S-matrix theory defined between asymptotic in/out states *presupposes* global energy conservation and a time-translation-symmetric background, so a universe that creates energy as it expands (dark energy) has no comfortable home in it — which is why dS vacua are so hard to build there. QLF derives that expansion as the future half of each event, with no S-matrix and no fixed background.
 
 **QLF does not contradict string theory — it subsumes it.**  
 String theory becomes a useful effective description at certain energy scales, exactly as Newtonian gravity is useful at low speeds. But the fundamental ontology is ZFA events in a possibilist universe.

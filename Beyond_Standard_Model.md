@@ -139,6 +139,13 @@ tension, because one is about *what reality is* and the other about *how far we 
 
 So the precise status is **a TOE-scope ontology with a partial, principled-not-fitted derivation attached** — strictly more than reproducing the SM (which derives *zero* of its parameters), strictly less than deriving it. Calling it a *finished* TOE would be the overclaim; calling it *only* an SM-fit would miss the ontological scope. The line to never blur is the second sense: the open parameters in §1 are open. The clean falsifiable predictions are Majorana / `0νββ` and no `α(0)` drift (§3).
 
+**Two flaws that disqualify competing TOE *ontologies* — and that QLF avoids by construction.** A foundational TOE must not install, as a *fundamental* law, anything that is in fact an emergent present-local accounting identity. Two such mistakes are common:
+
+- **Axiomatizing reversibility.** Reversibility is a real symmetry of the *laws* (the dagger involution; every closure `H = H†`) but not of the *universe* — a TOE that takes it as fundamental omits the irreversible closure, where time, definiteness, and information come from, and must then bolt on a Past Hypothesis, a collapse postulate, or coarse-graining-by-ignorance. Purely-unitary "no collapse" (Everett), the block universe, and deterministic reversible-CA underpinnings ('t Hooft) are the casualties. See [`Reversibility.md`](Reversibility.md) §6.
+- **Axiomatizing global energy conservation.** Energy conservation is a real *present-local* balance (Noether's time-translation symmetry, exact only for the signed-count currents) but not a fundamental global law — each closure *creates* energy and lends half to the future (the cosmic expansion / dark energy). A TOE built on a fixed total energy cannot produce a genuinely expanding universe without adding dark energy by hand — string theory's de Sitter / **swampland** difficulty is exactly this. See [`Conservation.md`](Conservation.md) §2b, [`StringTheory.md`](StringTheory.md) §3.
+
+QLF takes neither as an axiom: reversibility and energy conservation are *outputs* of the ZFA closure (its present-local balance), and the arrow of time, the second law, and dark energy are the *same* forward, energy-creating, bit-synthesizing direction of that closure. The fundamental thing is the closure; a TOE that foundationalizes one of its emergent faces has mistaken a consequence for a cause.
+
 ---
 
 ## 7. References
