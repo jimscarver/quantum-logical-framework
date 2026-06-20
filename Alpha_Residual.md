@@ -230,3 +230,52 @@ are now machine-verified, §1; what is open is *which* partial resummation the p
 See [`Alpha.md`](Alpha.md), [`QLF_AlphaBound`](lean/QLF_AlphaBound.lean),
 [`QLF_WeinbergAngle`](lean/QLF_WeinbergAngle.lean), [`QLF_CausalDimension`](lean/QLF_CausalDimension.lean),
 [`QLF_PrimordialMarkovBlanket`](lean/QLF_PrimordialMarkovBlanket.lean).
+
+---
+
+## 7. The resonance spectrum (binary / octave reading) — the Pauli–Heisenberg lineage
+
+A bit-native reframe (per Jim; "Shannon does not lie" — the QLF substrate *is* information, "it from
+bit"). Write `α⁻¹` in binary: each set bit at octave `2ᵏ` = an **active resonance** (a stable ZFA
+closure mode). This continues the **Eddington–Pauli–Heisenberg** program — deriving `137` as an
+eigenvalue/resonance of the fundamental structure — but on a *discrete, computable* substrate (closures)
+rather than Eddington's fit or Heisenberg's continuum nonlinear spinor field. Literally: QLF's `137` is
+built from **Pauli's own matrices** (the 8 twists → σ-matrices, `QLF_TwistAlphabet`; closure *is* Pauli
+closure, `count_balanced_pauli_closed`; `3² = (σx,σy,σz)²`).
+
+**The spectrum.** `137 = 2⁷ + 2³ + 2⁰ = 10001001₂` — three resonances at octaves **{7, 3, 0}**:
+
+- **octave 7** (`2⁷ = 128 = 1/α_bare`) is a *cascade* of substrate selectivity resonances at octaves
+  {4, 2, 1, 0}: `1/16` (alphabet) · `1/4` (gauge) · `1/2` (phase) · `1` (space) `= 2⁻⁷`
+  (`QLF_FineStructureSubstrate`); `7 = 4+2+1`.
+- **octaves 3, 0** (`8 + 1 = 9 = 3²`): the directional / Pauli-σ tensor.
+
+The leading resonances {7, 3, 0} are **grounded in the substrate** (the cascade + the three axes) and
+produce 137. The sub-octave **tail** (first bits at −5, −8, −11, *spaced by 3 = d*) is the higher-order
+region.
+
+**Three-order structure** (each term a clean alphabet/axis count):
+
+| order | term | value | reading |
+|---|---|---|---|
+| 1st | `2⁷` | `128` | 8-twist alphabet selectivity cascade |
+| 2nd | `3²` | `+9` | three Pauli axes, directional tensor |
+| 3rd | `9/250 = d²/250` (Jim's `0.036`) | `+0.036000` | a clean third-order term; `250 = 2·5³`? (angle-DOF, unforced) |
+| 4th | the measured detuning | `−0.00000092` | the genuine higher-order shift |
+
+`2⁷ + 3² + 9/250 = 137.036` matches CODATA `137.035999084(21)` to `9×10⁻⁷` — but **not** exactly:
+`137.036` is **44σ above** the measurement. So `0.036` is the (excellent) third-order resonance peak and
+the measured `…999` is the **real fourth-order detuning** (a resonance sits slightly off its ideal
+centre). `9/250` beats the binary-comb `1/28` (off `0.8%`) by 300×, and keeps the `d² = 9` motif — but
+`250` is not yet forced, so it is an improved *lead*, not a derivation.
+
+**Why the precision is a gift, not a threat.** Because `α⁻¹` is measured to ~44σ on this digit, the
+substrate resonance spectrum has a *sharp falsifiable target* (`137.035999084`, clean 3rd order `9/250`, a
+genuine 4th-order detuning). The measurement — not our taste — decides. That is exactly the line between
+this program and Eddington's "+1": the **leading {7,3,0} is derived**; the 3rd/4th orders are
+structurally-backed *leads* held to the measurement.
+
+**The real test (next):** does an *independent* substrate spectral density (the closure-operator
+eigenvalue spectrum, the Hilbert–Pólya side) **peak at octaves {7, 3, 0}** and tail at spacing-3 — *before*
+comparing to α? If so, the binary expansion *is* the resonance spectrum, and `9/250` (with `250` derived)
+becomes a prediction. See also [`QLF_Spectral`](lean/QLF_Spectral.lean), `QLF_TwistAlphabet`.
