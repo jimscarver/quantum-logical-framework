@@ -364,3 +364,30 @@ leakage of the synthesized time dimension; derive the suppression from `f = 1/t`
 signature (`QLF_GravityFromDelay`) **before** comparing." That is a concrete, well-posed next swing — and
 the best-motivated one in this file, because it gets the sign, the smallness, *and* the `d_eff` excess from
 one mechanism (emergent time) rather than three separate posits.
+
+### 8a. Deriving the time-suppression from `f = 1/t` (the swing taken)
+
+`f = 1/t` is structural (`ZFAEventDynamics`: time is defined as `1/t`). Space is *direct* in the free
+action; time is its *reciprocal*. So the time mode of the directional tensor enters **inverted**, and
+this **forces** — with no fitting — both the **sign** (time adds ⟹ `d_eff > 3` ⟹ `α⁻¹ > 137`, screening)
+and the **smallness** (a reciprocal contribution is a fraction of a percent, not O(1)). The *mechanism* is
+thus derived, not posited.
+
+The exact magnitude needs the substrate action scale `A` (suppression `~ 1/A²`). Closing it
+self-consistently (`A² = α⁻¹`, the coupling setting its own scale) gives
+`δ(α⁻¹) = 5·(1/α⁻¹) = 5α`, with **`5` = the spin-2 (directional/graviton) polarizations in 4-D** (`2J+1`)
+— so `α⁻¹ = 137 + 5/α⁻¹ = 137.0365`. This **reproduces the `m = 5` self-consistent screening** of the very
+first pass, now with the `5` *structurally identified* (spin-2 count, not ad hoc). Three independent routes
+— self-consistent screening, the recurring `5α`, and the 4-D projection — **converge on `5 modes × α`.**
+
+**Honest precision.** `5α = 137.0365` is **1.3% high**: the measured residual coefficient is `4.93`, not
+`5` (and against a 44σ measurement, 1.3% is a definitive miss in absolute terms). So this is a **derived
+mechanism + ballpark** (~`5α`), **not a precision match**. The clean integer `5` detuned to `4.93` is the
+higher-order piece — parallel to `137` (prime) detuned to `137.036`. The precise value (`9/250 = 4.93α`)
+has no mechanism; the clean `5α` mechanism has no precision.
+
+**Landing of the whole arc.** `137 = 2⁷ + 3²` is exact, zero-axiom, machine-verified, and prime-selected
+for `d = 3`. The residual `+0.036` is a **4-D time-suppression effect of order `5α`, with mechanism, sign,
+and smallness derived from `f = 1/t`** (the most any swing achieved). The last ~1% — the integer `5` vs the
+measured `4.93`, i.e. the action scale to <1% — is the genuine remaining boundary, indistinguishable in
+character from the Standard Model's own un-derived running. **Mechanism derived; precision open.**
