@@ -55,8 +55,16 @@ running. (Only the bracket *coincidentally* spanning `137.036` was never the mec
 
 **Net of the reframe + swing #1:** `137 = exact leading EM`, anchored to `α̂⁻¹(M_Z) = 2⁷` — **validated**.
 `+0.036 = higher-order EM running ≡ the closure-resummation tail` — one object, EM sector, scale `~5α`.
-The weak attribution is **closed** (W too heavy, `α(0)` clean). **Open target:** the partial-resummation /
-higher-order-running rule for `+0.036` (§4) — now known to be sub-leading EM, derived not fitted.
+The weak attribution is **closed** (W too heavy, `α(0)` clean).
+
+**Swing #2 (the higher-order running rule).** Further pinned down: the leading `+9` matches the one-loop
+QED β-coefficient `(4/3)·Σ_{charged f < M_Z} Q² N_c = 8.89` (1.2% from `d² = 9`) — QLF reads the one-loop
+running *as* the directional count. The residual localizes to the dominant `n = 2` (length-4) closures:
+of the `C(4,2) = 6`, the physical weight is `0.036/α_bare = 4.61` (irreducible `2`, total `6`), at the
+2-loop scale `~5α`. **The exact coefficient is the 2-loop EM running** — well-defined physics, but the
+*same boundary the Standard Model has*: the running is **computed**, not derived from a deeper principle.
+QLF's equal-weight closure census gets the structure (Dyson `G = 1/(1−I)`), sector (EM), and scale (`~5α`)
+right, but the kinematic weight that fixes `4.61`-of-`6` is the 2-loop log structure, not pure counting.
 
 The sections below record the closure-census analysis — the combinatorial form of this sub-leading EM
 running.
