@@ -24,17 +24,19 @@ order. Two extremal countings bound it, both exact and parameter-free:
 | Counting | Closures summed | Exact tail | α⁻¹ cap | Status |
 |---|---|---|---|---|
 | **Total census** | every ZFA closure, `C(2n,n) = 2,6,20,70,…` | `512√62/31 − 130 ≈ 0.048130` | `137.048130` | **proven** (`censusTail_eq`, via `central_binom_genfun`) |
-| **Irreducible** | prime closures only, `2·Catalan(n−1) = 2,2,4,10,…` | `126 − 16√62 ≈ 0.015874` | `137.015874` | closed form (GF `1−√(1−4x)`); formalization is a follow-on |
+| **Irreducible** | prime closures only, `2·Catalan(n−1) = 2,2,4,10,…` | `126 − 16√62 ≈ 0.015874` | `137.015874` | **proven** (`irreducibleTail_eq` / `irreducibleCap_eq`) |
 
 So, with each closure contributing positively (abelian-EM screening, `em_gauge_abelian`):
 
 > **`263 − 16√62  <  α⁻¹  <  (217 + 512√62)/31`**, i.e. **`137.015874 < α⁻¹ < 137.048130`.**
 
-CODATA `137.035999` sits strictly inside. The **upper** end is machine-verified
-([`QLF_AlphaBound`](lean/QLF_AlphaBound.lean), `codata_below_alphaInvCap`); the **lower** exact form
-`263 − 16√62` follows from the same binomial-series machinery — the value `√(31/32) = √62/8` already
-falls out of `central_binom_genfun` (`(31/32)·(4√62/31) = √62/8`), so formalizing the irreducible cap is
-a tractable next step.
+CODATA `137.035999` sits strictly inside. **Both ends are now machine-verified**
+([`QLF_AlphaBound`](lean/QLF_AlphaBound.lean)): the upper via `codata_below_alphaInvCap`/`alphaInvCap_eq`,
+the lower via `irreducibleCap_eq` (`137 + irreducibleTail = 263 − 16√62`), with the irreducible count
+`2·Catalan(n−1) = 4·C(2n−2,n−1) − C(2n,n)` (`irrCoeff_matches`) making the irreducible tail a linear
+combination of `central_binom_genfun` and `censusTail` — **no new axiom**. The resummation
+`G·(1 − I) = 1` (`census_irreducible_resummation`) is verified too: the total census is the geometric
+resummation of the prime closures.
 
 The total counting **overshoots** (`0.0481`); the irreducible counting **undershoots** (`0.0159`). The
 true residual lies between — it is neither "every closure once" nor "primes only".
@@ -152,10 +154,9 @@ So both routes converge on one open problem: the **partial-resummation rule** of
 
 ## 6. Status (corrected)
 
-- **Forced and exact:** the bracket `137.015874 < α⁻¹ < 137.048130` (upper end proven; lower end the
-  closed form `263 − 16√62`, formalization pending) — and the resummation identity `G = 1/(1−I)`
-  (closures = ordered sequences of primes; the value `√(31/32)=√62/8` already falls out of
-  `central_binom_genfun`, so this is a tractable formalization).
+- **Forced, exact, and machine-verified (both ends):** the bracket `137.015874 < α⁻¹ < 137.048130` —
+  upper `alphaInvCap_eq`/`codata_below_alphaInvCap`, lower `irreducibleCap_eq` (`263 − 16√62`) — plus the
+  resummation `G·(1−I) = 1` (`census_irreducible_resummation`), all from `central_binom_genfun`, no axiom.
 - **Right sign, forced:** positive directional-sphere curvature ⟹ `d_eff > 3` ⟹ `α⁻¹ > 137` (§5),
   consistent with `alpha_inv_gt_137`.
 - **Open — the value:** both candidate mechanisms tested. **Gauge projection fails** (natural
@@ -167,10 +168,9 @@ So both routes converge on one open problem: the **partial-resummation rule** of
   problem is *localized* to one object — the resummation truncation rule. Honest progress is the
   eliminations plus the localization, not a number.
 
-Remaining derivation targets: (1) the partial-resummation / truncation rule from the closure-order
-structure — the single open object both routes reduce to; (2) formalize `irreducibleTail = 126 − 16√62`
-and the resummation `G = 1/(1−I)` in Lean (the value `√(31/32)=√62/8` already falls out of
-`central_binom_genfun`).
+Remaining derivation target: the partial-resummation / truncation rule from the closure-order structure
+— the single open object both routes reduce to. (The forced bracket and the resummation `G = 1/(1−I)`
+are now machine-verified, §1; what is open is *which* partial resummation the physical residual is.)
 
 See [`Alpha.md`](Alpha.md), [`QLF_AlphaBound`](lean/QLF_AlphaBound.lean),
 [`QLF_WeinbergAngle`](lean/QLF_WeinbergAngle.lean), [`QLF_CausalDimension`](lean/QLF_CausalDimension.lean),
