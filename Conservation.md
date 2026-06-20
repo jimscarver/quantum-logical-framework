@@ -66,6 +66,29 @@ machine-verified as exactly $1/137$ in [`QLF_FineStructureSubstrate.lean`](lean/
 
 **Consequence for the §2 Noether statement.** The time-translation argument in §2 establishes that energy is *time-homogeneous in expectation*: the admissible-extension multiplicity of a history is independent of absolute time. That delivers conservation of the **ensemble-averaged** energy — the continuum / bound-state limit — not a per-closure guarantee. Read every "energy in = energy out" in this document in that averaged sense. Exact, per-event conservation is the special property of the *balance* currents, which energy alone among the §1 entries does not share.
 
+### 2b. Energy is *created* — half of each event is lent to the future
+
+§2a says energy is not pinned per closure. The residual is **not random — it is directional**: each ZFA event **creates energy**, and conservation is the *local* book-balancing of an inherently expanding ledger. This is the energy analog of [`Reversibility.md`](Reversibility.md): the *same* forward closure that makes a tick of time also makes the energy, and conservation — like reversibility — is **emergent and local, not fundamental**.
+
+**Noether, run the other way.** Energy conservation ⟺ time-translation symmetry. But QLF time is *synthesized* — each event makes its own tick (`f = 1/t`, `ZFAEventDynamics`), and the universe **grows by one closure per event**. A growing universe is *not* time-translation symmetric: the substrate at the next tick is strictly larger than at this one. So by Noether's own logic there is **no exact global energy conservation** — and this is not a QLF peculiarity, it is standard GR cosmology: in an expanding spacetime energy is not globally conserved (the dark-energy density stays fixed while the volume grows, so total vacuum energy *increases*). QLF supplies the constructive mechanism the continuum theory lacks: the creation happens **one ZFA closure at a time**.
+
+**Where the other half goes.** Each event is a balanced *duality* — `future_expansion + local_contraction = 0` (`event_duality_balanced`, `QLF_CosmicInflation`): it expands the future exactly as much as it contracts locally. Read as energy bookkeeping:
+
+- the **local / present half** balances — this *is* the emergent local conservation (the covariant `∇_μ T^{μν} = 0` of GR, the "energy in = energy out" of §2 read in the now);
+- the **future half** is lent forward — it is the cosmic expansion itself: the `w = −1` event-synthesis field that is inflation early and dark energy late (`inflation_and_dark_energy_same_field`, reusing the verified `zfa_dynamics_drive_acceleration`), accumulating as `Ω_Λ = log 2` per the substrate's closure quantum (`QLF_CosmologicalConstant`).
+
+So "half the energy is lost to the future" is precise: the books balance *at the present node* (local conservation), while the forward half is never returned — it becomes the expanding vacuum. The arrow of time and the creation of energy are **the same event-duality**: the closure that discards the which-history (`ΔF = −log 2`, §2a of [`Reversibility.md`](Reversibility.md)) and synthesizes the next tick is the closure that lends its forward half to the future.
+
+**TOEs that *axiomatize* energy conservation are wrong** — in exactly the way, and for exactly the reason, that TOEs axiomatizing reversibility are wrong ([`Reversibility.md`](Reversibility.md) §6). A theory of everything built on global energy conservation as a *fundamental* law has installed an emergent, local accounting identity as a foundation. It then cannot produce a genuinely expanding universe without bolting on a separate dark-energy term by hand — the very term QLF *derives* as the future half of each event. Energy conservation is real where it is real (the present-local ledger, exact for the signed-count currents), and it is an output, not an input. The fundamental thing is the ZFA closure; conservation, reversibility, and a fixed total energy are three faces of mistaking the *present-local balance* of that closure for the whole of it.
+
+| Statement | Lean |
+|---|---|
+| each event's duality balances (`expand future = contract local`) | `event_duality_balanced` (`QLF_CosmicInflation`) |
+| the forward half = inflation early / dark energy late, one `w=−1` field | `inflation_and_dark_energy_same_field` (`QLF_CosmicInflation`) |
+| ZFA events drive the expansion (cosmic acceleration) | `zfa_dynamics_drive_acceleration` (`ZFAEventDynamics`) |
+| the accumulated future energy = `Ω_Λ = log 2` | `QLF_CosmologicalConstant` |
+| time is synthesized, the universe grows by one closure per tick | `ZFAEventDynamics` (`f = 1/t`), `AgeOfUniverse` (`age_is_finite_and_positive`) |
+
 ## 3. Momentum and angular momentum
 
 **Momentum** follows from spatial translation symmetry: cyclic shifts of an axis-orbit history don't change its ZFA-closure status. The conserved current is the net axis-orbit count along each spatial axis — the per-axis B-field component in [Maxwell.md §1](Maxwell.md): $B_x = \text{count}(>) - \text{count}(<)$, etc. A free particle's momentum is the net spatial-axis bias of its history string.

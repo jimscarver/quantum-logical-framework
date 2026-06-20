@@ -133,6 +133,14 @@ forward-only** (the synthesis), and *constructively* so — `full_zeno_prune` + 
 fine-tuned initial condition: the arrow is the embedding, and reversal is an algebra operation with no
 time to run in.
 
+**Energy conservation is the same lesson.** Just as reversibility is a real symmetry of the *laws* but
+not of the *universe*, energy conservation is a real *present-local* balance but not a fundamental global
+law: each closure that synthesizes a tick of time also *creates* energy, lending half forward (the cosmic
+expansion / dark energy) while the present half balances. The arrow of time and the creation of energy are
+the **same** forward event-duality — a TOE that axiomatizes either reversibility *or* global energy
+conservation has mistaken the present-local balance of the closure for the whole of it. See
+[`Conservation.md`](Conservation.md) §2b.
+
 ## Lean anchors
 
 | Statement | Lean |
