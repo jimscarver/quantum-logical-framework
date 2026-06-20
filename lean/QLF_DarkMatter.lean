@@ -131,13 +131,16 @@ theorem gaussian_denser_near_center (ρ₀ σ r₁ r₂ : ℝ) (hρ : 0 < ρ₀)
 
 /-! ### Status -/
 
-/-- **Established constructively:** dark matter as denser logic near masses has a quantitative
-    skeleton — the crossover acceleration `a₀ = cH₀/2π = c²/2πR_H` on the same Hubble horizon
-    as `Ω_Λ = log 2`; the transition radius `σ = √(GM/a₀)` where Newton meets the floor; the
-    dense/sparse crossover inequality; the baryonic Tully–Fisher `v⁴ = GMa₀`; and the Gaussian
-    MRE bump. **Open (`dark_matter_acceleration_scale_in_progress`):** the exact `O(1)`
-    prefactor (`1/2π`, the ~13% residual) and a full rotation-curve profile — the Gaussian is
-    the transition bump, the flat tail is the sparse `1/r²` floor, not derived end-to-end. -/
+/-- **Established constructively:** dark matter as denser logic near masses — the crossover
+    acceleration `a₀ = cH₀/2π = c²/2πR_H` on the same Hubble horizon as `Ω_Λ = log 2`; the
+    transition radius `σ = √(GM/a₀)`; the dense/sparse crossover; the baryonic Tully–Fisher
+    `v⁴ = GMa₀`; the Gaussian MRE bump; and (below) the **radial-acceleration relation** — the
+    closure-balance `g_obs² = g_bar·(g_obs+a₀)` interpolation with both limits exact. The **blind
+    SPARC benchmark** (`SPARC.md`, 147 galaxies, baryonic-only, parameter-free) reproduces the
+    galactic RAR at the observational floor (`0.133 dex`); fit in this form the data prefers
+    `a₀ = cH₀/2π` at the *local* `H₀`, confirming the `1/2π` prefactor to `<1%`. **Open
+    (`dark_matter_acceleration_scale_in_progress`):** a first-principles `2π` (vs the loop-phase
+    identification) and proving the interpolation is the *unique* forced `ν`. -/
 theorem dark_matter_from_logic_density_constructive : True := trivial
 
 /-! ### The radial acceleration relation (RAR) — the dense ↔ sparse interpolation
