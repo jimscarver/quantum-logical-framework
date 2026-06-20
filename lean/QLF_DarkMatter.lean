@@ -140,4 +140,58 @@ theorem gaussian_denser_near_center (ρ₀ σ r₁ r₂ : ℝ) (hρ : 0 < ρ₀)
     the transition bump, the flat tail is the sparse `1/r²` floor, not derived end-to-end. -/
 theorem dark_matter_from_logic_density_constructive : True := trivial
 
+/-! ### The radial acceleration relation (RAR) — the dense ↔ sparse interpolation
+
+The §6 limits (Newton inside `σ`, deep-MOND floor outside) are stitched by a single
+**closure-balance**: the observed acceleration `g_obs` is sourced by the baryonic `g_bar`
+against the *total* closure environment `g_obs + a₀`, where `a₀ = cH₀/2π` is the irreducible
+de Sitter background ZFA closure rate. Requiring closure to satisfy **both** the local and the
+cosmological condition (a ZFA conjunction) is the self-consistency `g_obs² = g_bar·(g_obs + a₀)`,
+whose positive root is the radial-acceleration relation. It has the two §6 limits *exactly*
+(Newton for `g_bar ≫ a₀`, geometric-mean/Tully–Fisher for `g_bar ≪ a₀`) and — with the derived
+scale `a₀ = cH₀/2π` — reproduces the measured SPARC RAR to within its own ~10–13 % `a₀` residual,
+**parameter-free** (no per-galaxy fit). See `DarkMatter.md`; benchmark issue #77. -/
+
+/-- **The QLF closure-balance acceleration** — the positive root of `g² = g_bar·(g + a₀)`. -/
+noncomputable def radialAccel (g_bar a_0 : ℝ) : ℝ :=
+  (g_bar + Real.sqrt (g_bar ^ 2 + 4 * g_bar * a_0)) / 2
+
+/-- **Closure-balance self-consistency** `g_obs² = g_bar·(g_obs + a₀)` — the defining property of
+    the RAR (closure sourced by `g_bar` against the total environment `g_obs + a₀`). -/
+theorem radialAccel_self_consistent (g_bar a_0 : ℝ) (hg : 0 ≤ g_bar) (ha : 0 ≤ a_0) :
+    radialAccel g_bar a_0 ^ 2 = g_bar * (radialAccel g_bar a_0 + a_0) := by
+  unfold radialAccel
+  have hsq : Real.sqrt (g_bar ^ 2 + 4 * g_bar * a_0) ^ 2 = g_bar ^ 2 + 4 * g_bar * a_0 :=
+    Real.sq_sqrt (by positivity)
+  linear_combination hsq / 4
+
+/-- **Newtonian (dense) limit**: with no cosmological floor (`a₀ = 0`) the RAR is pure Newton,
+    `g_obs = g_bar` — the dense interior (Mercury, hadrons). -/
+theorem radialAccel_newtonian (g_bar : ℝ) (hg : 0 ≤ g_bar) :
+    radialAccel g_bar 0 = g_bar := by
+  unfold radialAccel
+  rw [show g_bar ^ 2 + 4 * g_bar * 0 = g_bar ^ 2 by ring, Real.sqrt_sq hg]; ring
+
+/-- **The dark-matter effect is non-negative**: `g_obs ≥ g_bar`, so the apparent extra
+    acceleration `a_cl = g_obs − g_bar ≥ 0` — what the sparse cosmological floor adds. -/
+theorem radialAccel_ge_baryonic (g_bar a_0 : ℝ) (hg : 0 ≤ g_bar) (ha : 0 ≤ a_0) :
+    g_bar ≤ radialAccel g_bar a_0 := by
+  unfold radialAccel
+  have hmono : Real.sqrt (g_bar ^ 2) ≤ Real.sqrt (g_bar ^ 2 + 4 * g_bar * a_0) :=
+    Real.sqrt_le_sqrt (by nlinarith [mul_nonneg hg ha])
+  rw [Real.sqrt_sq hg] at hmono
+  linarith
+
+/-- **Deep (sparse) limit — the geometric-mean / Tully–Fisher floor**: `g_obs ≥ √(g_bar·a₀)`,
+    saturated in the deep regime to give `v⁴ = G M a₀` (`tully_fisher_flat`). -/
+theorem radialAccel_ge_geometric_mean (g_bar a_0 : ℝ) (hg : 0 ≤ g_bar) (ha : 0 ≤ a_0) :
+    Real.sqrt (g_bar * a_0) ≤ radialAccel g_bar a_0 := by
+  have hR : 0 ≤ radialAccel g_bar a_0 := by
+    unfold radialAccel
+    have := Real.sqrt_nonneg (g_bar ^ 2 + 4 * g_bar * a_0); linarith
+  have hsc := radialAccel_self_consistent g_bar a_0 hg ha
+  have hge : g_bar * a_0 ≤ radialAccel g_bar a_0 ^ 2 := by nlinarith [mul_nonneg hg hR, hsc]
+  calc Real.sqrt (g_bar * a_0) ≤ Real.sqrt (radialAccel g_bar a_0 ^ 2) := Real.sqrt_le_sqrt hge
+    _ = radialAccel g_bar a_0 := Real.sqrt_sq hR
+
 end QLF
