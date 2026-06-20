@@ -416,3 +416,35 @@ The remaining ~1% — the detuning of the clean `5` to `4.93` — is the higher-
 Standard Model's own un-derived precision frontier**, bracketed by the two forced substrate scales. Going
 further would be either fitting (forbidden) or full multi-loop SM physics (not a substrate derivation).
 **Mechanism and structure derived; the last percent is the running — the honest boundary.**
+
+---
+
+## 9. Obstacles to continuing (the honest agenda — *not* a surrender)
+
+The leading structure is derived; crossing the last ~1% (the `5 → 4.93` detuning) is blocked by specific,
+nameable obstacles. Stated so the work can resume against a concrete target:
+
+1. **It is an infinite series, not a number.** The detuning is the higher-order running tail
+   (`5α − 10α² − …`, all orders). Forcing it means deriving the *whole* series, not one more term.
+2. **QLF has counting, not kinematics.** The substrate yields combinatorial multiplicities (`C(2n,n)`,
+   Catalan, the Dyson `G = 1/(1−I)`) — *equal weight per order*. The running's higher-order coefficients
+   come from loop kinematics (logs, phase space, 2-loop integrals) that pure counting does not produce.
+   This is the "which partial resummation" gap in another guise (shared with the RG / Yang–Mills program).
+3. **A 44σ irrational needs the continuum.** The substrate emits clean integers/rationals (`2⁷, 3², 5`);
+   the measured value is irrational to 10 digits. Reproducing it = summing infinitely many continuum
+   corrections = the QED running.
+4. **That sector is the one QLF brackets *by design*.** QLF's thesis is that the continuum is the
+   UV-catastrophe sector (Gödel/Turing/Busy-Beaver). The last ~1% lives precisely there: the discrete
+   substrate gives the clean *leading* structure; the continuum running gives the *precision tail*. The
+   boundary is philosophically coherent, not accidental — discrete ⟹ leading, continuum ⟹ tail.
+
+**What would unblock it (a real program, not a tweak):**
+- **(a) Derive the kinematic weighting from the substrate** — show how the closure census acquires the
+  running's higher-order coefficients (the logs / phase space *from counting*). Shared open frontier with
+  the RG sector (`QLF_RunningCouplings`, `QLF_BetaFunction`).
+- **(b) Or find an *exact* (non-perturbative) substrate self-consistency** — a closure/eigenvalue condition
+  giving the value exactly, not leading-order. The self-consistent `A = α⁻¹` is the *leading* term of such
+  a condition; an exact version (if it exists) bypasses the series.
+
+Until (a) or (b) lands, the honest status holds: **leading structure derived; precision tail = the
+continuum running QLF brackets.** The obstacle is not a missing number — it is the continuum sector itself.
