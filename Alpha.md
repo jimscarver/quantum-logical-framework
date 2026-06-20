@@ -163,6 +163,14 @@ input is now a **theorem** (`central_binom_genfun`/`censusTail_eq`, from Mathlib
 `137.036` (the length→order / curvature rule, [`QLF_AlphaBound`](lean/QLF_AlphaBound.lean)). Leading value
 derived; residual open and bounded — stated plainly, no weaker and no stronger.
 
+The residual is dissected in [`Alpha_Residual.md`](Alpha_Residual.md): it is **bracketed by two forced
+exact closed forms** — irreducible `263 − 16√62 ≈ 137.0159` below, total census `(217+512√62)/31 ≈
+137.0481` above — leaving a *single* open rule, the irreducible↔total weighting `w ≈ 0.624`. The leading
+candidate is `w = 5/8` (composite closures screened by the gauge fraction `3/8 = sin²θ_W`, α's own
+`3+2`-of-`8` split), which lands at `137.036034` — a structurally-motivated lead, **matched not derived**
+(the binding anti-numerology discipline). Deriving that weighting from the gauge projection
+(`QLF_WeinbergAngle`) or substrate curvature (`QLF_CausalDimension`) is the open work.
+
 ---
 
 ## 4. The running — why α was higher in the early universe
