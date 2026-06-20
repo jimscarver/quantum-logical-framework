@@ -104,7 +104,7 @@ is the continuum/choice boundary of the Millennium program, and that is **ZFC's*
 - It does **not** derive most of the SM's *values*: the quark-mass values, the CKM/PMNS angles, the weak/strong coupling values, and the Higgs mass and VEV are all 🔵 open (§1) — the **Yukawa value sector**. The *mechanisms*, however, are machine-anchored: the gauge force as holonomy (`QLF_GaugeHolonomy`), confinement (`QLF_Confinement`), mass = gauge-fold delay + custodial `ρ=1` (`QLF_HiggsMechanism`), mixing unitarity (`QLF_CKM`/`QLF_PMNS`), and the Majorana neutrino mass (`QLF_NeutrinoMass`). (`θ_QCD` is ✅ derived as 0 without an axion.)
 - The lepton sector is **constrained, not closed**: `Q=2/3` is derived, but the scale and the Koide angle are inputs ([`Weak_Force.md`](Weak_Force.md) §5c — `2/9` is a flagged coincidence, not a derivation).
 - α matches at **0.026%**, not exactly — the residual (Schwinger-scale) is open.
-- The beyond-SM predictions (§3) **cannot be proved** by theory alone — the Majorana / `0νββ` prediction (though `neutrino_majorana` is machine-verified given the `^v` assignment) awaits an experimental `0νββ` observation; dark-matter-as-vacuum is qualitative.
+- The beyond-SM predictions (§3) **cannot be proved** by theory alone — the Majorana / `0νββ` prediction (though `neutrino_majorana` is machine-verified given the `^v` assignment) awaits an experimental `0νββ` observation; dark-matter-as-denser-logic now makes a **sharp, blind, parameter-free** prediction — the SPARC Radial Acceleration Relation reproduced at the observational floor with `a₀ = cH₀/2π` derived ([`SPARC.md`](SPARC.md)).
 - The Riemann-hypothesis link is an **axiom** (`spectral_hilbert_polya`), not a proof.
 
 ---
@@ -115,7 +115,7 @@ is the continuum/choice boundary of the Millennium program, and that is **ZFC's*
 |---|---|---|
 | SM parameters QLF **derives** (machine-verified) | 1 coupling (α) + 1 lepton-mass relation (Koide) + `θ̄=0` (strong-CP, no axion) | retrodiction, but the *derivation* is proved |
 | Beyond-SM/GR quantities derived | Ω_Λ, Λ, Mercury perihelion, m_p/m_e | retrodiction; several Lean-anchored |
-| Falsifiable predictions | 2 sharp (Majorana / 0νββ, `neutrino_majorana`; **no cosmological drift of α(0)**, `no_cosmological_drift_of_alpha` — both Lean-anchored) + 2 soft (dark matter, sterile ν) | untested; physics, not proof |
+| Falsifiable predictions | 3 sharp (Majorana / 0νββ, `neutrino_majorana`; **no cosmological drift of α(0)**, `no_cosmological_drift_of_alpha`; **the dark-matter RAR** — blind, parameter-free on 147 SPARC galaxies, [`SPARC.md`](SPARC.md)) + 1 soft (sterile ν) | untested; physics, not proof |
 | SM parameters left **open** | the large majority (quarks, CKM, couplings, Higgs numbers, ν masses) | 🔵 |
 
 **Bottom line.** Two senses of "theory of everything" must be kept apart — but they are **not** in
