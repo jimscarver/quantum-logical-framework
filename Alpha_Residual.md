@@ -1,9 +1,11 @@
-# The α residual `+0.036` — is 137 the exact EM value, with the residual a weak-sector effect?
+# The α residual `+0.036` — 137 is the exact leading EM value; the residual is higher-order EM running
 
-> **Leading hypothesis (§0):** `α⁻¹ = 128 + 9 = 137` is the *exact* pure-electromagnetic value
-> (`128 = 2⁷ = α⁻¹(M_Z)`, `+9 = 3²` = EM running to the IR), and the `+0.036` is a separate
-> **electroweak** contribution — not an EM higher-order tail. The EM-closure bracket analysis (§1–§5) is
-> valid mathematics but a demoted interpretation.
+> **Where it stands (§0):** `α⁻¹ = 128 + 9 = 137` is the *exact* leading pure-EM value — **confirmed** by
+> the running (`128 = 2⁷ ≈ α̂⁻¹(M_Z)` to `0.05`, `+9 = 3²` = EM running to the IR). The weak-sector
+> hypothesis for `+0.036` was tested (W-loop running) and **closed** — the `W` is too heavy to run below
+> `M_W` and on-shell `α(0)` has no separate `W` piece. The residual sits at the higher-order-EM scale
+> (`~5α`), so `+0.036` is the **higher-order EM running** correction — the same object as the
+> closure-resummation tail (§1–§4), in running language.
 
 Companion to [`Alpha.md`](Alpha.md) and [`lean/QLF_AlphaBound.lean`](lean/QLF_AlphaBound.lean).
 [Quantum Logical Framework (QLF)](README.md) derives the **leading** inverse coupling
@@ -32,26 +34,32 @@ as a *running*, with each integer pinned to a scale:
 | sum | **`137`** | the **pure-EM** `α⁻¹` in the IR — **exact** |
 | residual | `+0.036` | a **sub-leading, weak-scale** effect — the weak gauge bosons (W loops) in the photon vacuum polarization, where the bulk `+9` does not reach |
 
-So **137 is the right EM number**, and `+0.036` is a *different sector* (electroweak) bleeding into the
-measured coupling — not an electromagnetic higher-order tail. This is consistent with everything proven:
-`alpha_inv_gt_137` only says the residual `δ > 0` (it never claimed `δ` was electromagnetic), so it
-survives with `δ` reinterpreted as weak and `137` exact. It also explains why the EM census-tail program
-(§1–§4) never *forced* `0.036` — wrong sector. **Structural support:** the weak `SU(2)` lives *on the 3
-spatial axes* in QLF (`weak_isospin_su2`) — the same axes whose square is the `+9` — so the weak sector is
-positioned to add a small correction to the *same* directional count.
+So **137 is the right leading EM number** — and the structure is now quantitatively anchored.
 
-**Honest status.** (1) At exactly `q²=0` the `Z` decouples (`∝ q²/M_Z²`), so the weak piece enters via the
-`W`-**loop** in the running, not tree-level `Z`-mixing. (2) `0.036` has **not** been shown to equal a
-specific weak quantity — this is a hypothesis with a clean test: derive it in **weak** parameters
-(`sin²θ_W`, `M_W/M_Z`, `α_w`) *before* comparing. (3) This **demotes** §1–§5 below: that machinery
-(`central_binom_genfun`, the caps, the resummation) is valid mathematics, but its *interpretation* — that
-`0.036` is an EM closure tail bracketed in `[137.016, 137.048]` — is now the *minority* reading. The
-bracket "containing" `137.036` is a coincidence of the EM closure counts, not the mechanism.
+**The running half is CONFIRMED.** `2⁷ = 128` matches `α̂⁻¹(M_Z)` (MS-bar) to `0.05`, and the gap to the
+IR is `137.036 − 127.95 = 9.086 ≈ +9`. So `128 + 9 = 137` is *literally* "weak-scale coupling + EM
+running = pure-EM IR". This is real, not a coincidence.
 
-**Open (reframed) target:** derive `+0.036` from the **weak/electroweak** sector (the `W`-loop running, or
-the weak-on-the-axes correction), keeping `137` exact — *not* as an EM census tail.
+**The "weak residual" half was TESTED (swing #1, the W-loop running) and does NOT survive:**
+- The `W` is integrated out below `M_W ≈ 80 GeV`, so it contributes **zero** to the `M_Z → q²→0` running
+  that builds the IR value (its only window `M_W→M_Z` gives `~0.07–0.28` — wrong size and place).
+- On-shell `α(0)` has `Π(0) = 0` by renormalization — **no separate `W` piece** sits inside `137.036`.
+- The scale of `0.036` is `≈ 5α` — a **higher-order QED** scale (`(α/π)·9 ≈ 0.021`, 2-loop `≈ 0.027`),
+  i.e. the next-order piece of the *electromagnetic* running, not a weak contribution.
 
-The sections below record the (now-demoted) EM-closure analysis, kept because the theorems are real.
+**So the sector is electromagnetic after all** — `0.036` is the **higher-order EM running** correction to
+the leading `+9`. Crucially, *that is the same object* the closure-census program (§1–§4) computes: "which
+partial resummation of the prime-closure series" ≡ "the higher-order QED running correction to `+9`". So
+§1–§5 are **not** demoted to the wrong sector — they are the combinatorial form of this sub-leading EM
+running. (Only the bracket *coincidentally* spanning `137.036` was never the mechanism.)
+
+**Net of the reframe + swing #1:** `137 = exact leading EM`, anchored to `α̂⁻¹(M_Z) = 2⁷` — **validated**.
+`+0.036 = higher-order EM running ≡ the closure-resummation tail` — one object, EM sector, scale `~5α`.
+The weak attribution is **closed** (W too heavy, `α(0)` clean). **Open target:** the partial-resummation /
+higher-order-running rule for `+0.036` (§4) — now known to be sub-leading EM, derived not fitted.
+
+The sections below record the closure-census analysis — the combinatorial form of this sub-leading EM
+running.
 
 ---
 

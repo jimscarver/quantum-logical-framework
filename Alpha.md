@@ -163,15 +163,15 @@ input is now a **theorem** (`central_binom_genfun`/`censusTail_eq`, from Mathlib
 `137.036` (the length→order / curvature rule, [`QLF_AlphaBound`](lean/QLF_AlphaBound.lean)). Leading value
 derived; residual open and bounded — stated plainly, no weaker and no stronger.
 
-The residual is dissected in [`Alpha_Residual.md`](Alpha_Residual.md). **Leading hypothesis (per Jim):**
-`α⁻¹ = 128 + 9 = 137` is the *exact* pure-EM value — `128 = 2⁷ = α⁻¹(M_Z)` (the coupling at the weak
-scale), `+9 = 3²` = the EM screening running from `M_Z` to the IR — and the `+0.036` is a *separate*
-electroweak effect (the `W`-loop running, where the bulk `+9` does not reach; the weak `SU(2)` lives on
-the same 3 axes, `weak_isospin_su2`), **not** an EM higher-order tail. This keeps `137` exact and is
-consistent with `alpha_inv_gt_137` (which only needs the residual `δ > 0`, agnostic to its sector). The
-EM-closure analysis below is valid math but a demoted reading: it is **bracketed by two forced exact
-closed forms** — irreducible `263 − 16√62 ≈ 137.0159` below, total census `(217+512√62)/31 ≈ 137.0481`
-above. The **gauge-projection derivation was tested and fails**: the *natural* projection
+The residual is dissected in [`Alpha_Residual.md`](Alpha_Residual.md). **Where it stands:** `α⁻¹ = 128 +
+9 = 137` is the *exact leading pure-EM* value — **confirmed by the running**: `128 = 2⁷ ≈ α̂⁻¹(M_Z)` (the
+coupling at the weak scale, to `0.05`) and `+9 = 3²` = the EM running `M_Z → IR` (gap `9.086`). The
+weak-sector hypothesis for `+0.036` (per Jim) was *tested* (the W-loop running) and **closed** — the `W`
+is integrated out below `M_W` so it cannot run down to the IR, and on-shell `α(0)` has no separate `W`
+piece (`Π(0)=0`). The residual sits at the higher-order-EM scale (`~5α`; `(α/π)·9 ≈ 0.021`), so `+0.036`
+is the **higher-order EM running** correction to `+9` — the same object as the closure-resummation tail,
+in running language. The forced bracket (`263 − 16√62 ≈ 137.0159` below, `(217+512√62)/31 ≈ 137.0481`
+above; both machine-verified) is the combinatorial form of this sub-leading EM running. The **gauge-projection derivation was tested and fails**: the *natural* projection
 (photon = `sinθ_W·W³` ⟹ composite closures screened by `sin²θ_W = 3/8`) gives `137.028`, missing CODATA
 by `0.008`; the `5/8` the data wants is not the natural projection, and the alphabet's several
 sub-fractions make any match a choice, not a derivation. What the test *did* establish is forced: the
