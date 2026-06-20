@@ -1,0 +1,53 @@
+{
+  "benchmark": "QLF blind SPARC rotation-curve prediction",
+  "issue": 77,
+  "protocol": "baryonic-only prediction, SHA-256 sealed before Vobs revealed; no per-galaxy tuning",
+  "sample": "SPARC curated: Q<=2 & Inc>=30deg & e_Vobs<0.1*Vobs  (galaxies=147, points=2696)",
+  "qlf_params": {
+    "a0_m_s2": 1.129e-10,
+    "a0_formula": "cH0/(2pi)",
+    "H0_km_s_Mpc": 73.0,
+    "Mass_to_Light": {
+      "disk": 0.5,
+      "bulge": 0.7
+    },
+    "fit_to_curves": "none"
+  },
+  "data": {
+    "source": "Lelli, McGaugh & Schombert 2016 (SPARC)",
+    "file": "MassModels_Lelli2016c.mrt",
+    "sha256_16": "9108994b12cc401b"
+  },
+  "sealed_predictions_sha256": "5f06582c8058c6c14f3ef2805b872574afcfe63773624c9b10aaa2fdedabfb90",
+  "results_dex": {
+    "newton": {
+      "name": "Newton (g_bar, no DM)",
+      "free_params": 0,
+      "mean_dex": 0.4309,
+      "scatter_dex": 0.2809,
+      "N": 2696
+    },
+    "nfw": {
+      "name": "NFW (2 params/galaxy fit)",
+      "free_params": 294,
+      "mean_dex": -0.005,
+      "scatter_dex": 0.0593,
+      "N": 2696
+    },
+    "rarfit": {
+      "name": "QLF form, a0 FITTED (g_dag)",
+      "free_params": 1,
+      "mean_dex": -0.0094,
+      "scatter_dex": 0.1326,
+      "N": 2696
+    },
+    "qlf": {
+      "name": "QLF, a0=cH0/2pi DERIVED",
+      "free_params": 0,
+      "mean_dex": -0.0002,
+      "scatter_dex": 0.1327,
+      "N": 2696
+    }
+  },
+  "verdict": "QLF (0 free params) reproduces the SPARC rotation curves at the observational-floor scatter (~0.13 dex), statistically identical to best-fit MOND, and far better than Newton (no dark matter). NFW fits tighter (~0.06 dex) but only with 294 free parameters (2/galaxy) \u2014 absorbing the per-galaxy scatter that the RAR's observed tightness shows is not physical halo diversity. Parameter economy: QLF 0, NFW 294, for the same data."
+}

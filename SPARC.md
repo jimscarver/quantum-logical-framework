@@ -23,29 +23,32 @@ revealed and scored. No per-galaxy tuning of any kind (per-galaxy tuning is disq
 So the prediction has **no free parameter fit to the rotation curves** — `a₀` is derived, `Υ` is from
 stellar populations.
 
-## Result (164 galaxies, 2803 points after quality cuts `e_Vobs < 0.1·Vobs`)
+## Result — curated sample (147 galaxies, 2696 points; `Q ≤ 2`, `Inc ≥ 30°`, `e_Vobs < 0.1·Vobs`)
 
 Residual = `log₁₀ g_obs − log₁₀ g_pred` (dex). `scatter` is RMS about the model's own mean; `mean` is the
-systematic offset.
+systematic offset. Machine-readable [`sparc/receipt.json`](sparc/receipt.json).
 
-| model | mean (dex) | scatter (dex) |
-|---|---|---|
-| **Newton** (`g_bar`, no dark matter) | **+0.432** | 0.285 |
-| QLF form, `a₀` **fitted** to SPARC (`g† = 1.2×10⁻¹⁰`) | −0.014 | 0.144 |
-| **QLF, `a₀ = cH₀/2π` DERIVED** (`H₀ = 73`) | **−0.004** | **0.144** |
+| model | free params | mean (dex) | scatter (dex) |
+|---|---|---|---|
+| **Newton** (`g_bar`, no dark matter) | 0 | **+0.431** | 0.281 |
+| **NFW** halo, fit **per galaxy** | **294** | −0.005 | 0.059 |
+| QLF form, `a₀` **fitted** to SPARC | 1 | −0.009 | 0.133 |
+| **QLF, `a₀ = cH₀/2π` DERIVED** (`H₀ = 73`) | **0** | **−0.000** | **0.133** |
 
-- **Newton fails**: a `+0.432 dex` offset is a factor **2.7×** of "missing gravity" — the dark-matter
+- **Newton fails**: a `+0.431 dex` offset is a factor **2.7×** of "missing gravity" — the dark-matter
   signal itself.
-- **QLF, parameter-free, is statistically identical to the best fit**: derived-`a₀` gives the *same*
-  `0.144 dex` scatter as fitting `a₀`, with a negligible `−0.004 dex` offset. The scatter is near the
-  observational floor (McGaugh+2016 report ~0.13 dex total, ~0.11 intrinsic; our slightly higher value
-  is the cruder quality cut — no inclination/quality flags vs the curated common122).
-- **Insensitive to `H₀`**: scatter stays `0.144 dex` for `H₀ = 67–73`; the mean offset runs `+0.007 →
-  −0.004 dex` (per-galaxy: `0.163 dex` scatter). QLF's derived `a₀` lands right on the data across the
-  whole `H₀` range — the local `H₀ = 73` is essentially exact.
+- **QLF, parameter-free, hits the observational floor**: `0.133 dex` scatter (= McGaugh+2016's measured
+  RAR scatter ~0.13 dex), with a **zero** mean offset, and *identical* to the same form with `a₀` fitted —
+  the derived `a₀ = cH₀/2π` is essentially exact. Insensitive to `H₀` (0.13–0.14 dex for `H₀ = 67–73`).
+- **vs NFW — the parameter economy.** NFW fits *tighter* (`0.059 dex`), but only by giving **2 free halo
+  parameters to every galaxy** (294 total): it absorbs the per-galaxy scatter. The RAR's *observed*
+  tightness (`0.13 dex`, mostly observational error) shows there is **no room** for that halo-to-halo
+  diversity — so NFW's lower scatter is over-fitting noise, not better prediction. **QLF matches the data
+  with `0` free parameters; NFW needs `294`.**
 
-**So QLF predicts the SPARC rotation curves blind, parameter-free, as well as best-fit MOND and far
-better than Newton** — the galactic Radial Acceleration Relation reproduced with `a₀` *derived*, not fit.
+**So QLF predicts the SPARC rotation curves blind, parameter-free, at the observational floor — as well as
+best-fit MOND, far better than Newton, and with `294×` fewer parameters than NFW for the same data** — the
+galactic Radial Acceleration Relation reproduced with `a₀` *derived*, not fit.
 
 ## Honest scope
 
@@ -53,10 +56,10 @@ better than Newton** — the galactic Radial Acceleration Relation reproduced wi
   §7.5) and the two limits are forced (Newton; geometric-mean/Tully–Fisher), but the exact `ν`-function
   is not yet proven the *unique* one — other interpolations fit at this level. The scatter cannot
   distinguish them; the *parameter-free a₀* is the real win.
-- Quality cuts are cruder than the curated SPARC common122 (slightly inflates the scatter); an explicit
-  NFW per-galaxy comparison and a PFEM-style verification receipt are the remaining refinements (#77).
 - The `~13 %` `a₀` residual (the `1/2π` prefactor, the open `dark_matter_acceleration_scale_in_progress`)
   is absorbed at the local `H₀`; it is the one principled, named uncertainty.
+- Curation, NFW, and the receipt are now done: the **standard SPARC RAR cuts** (`Q ≤ 2`, `Inc ≥ 30°`) from
+  Table 1, an explicit per-galaxy **NFW** fit, and a SHA-256 **verification receipt** (`sparc/receipt.json`).
 
 ## Reproduce
 
