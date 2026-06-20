@@ -391,3 +391,28 @@ for `d = 3`. The residual `+0.036` is a **4-D time-suppression effect of order `
 and smallness derived from `f = 1/t`** (the most any swing achieved). The last ~1% — the integer `5` vs the
 measured `4.93`, i.e. the action scale to <1% — is the genuine remaining boundary, indistinguishable in
 character from the Standard Model's own un-derived running. **Mechanism derived; precision open.**
+
+### 8b. Deriving the action scale `A` — the boundary located (the close)
+
+`A` *is* derivable to its natural value: **self-consistency** (the closure defining α has action `~α⁻¹`),
+so `A² = α⁻¹` — fit-free. This gives `δ = 5/A² = 5α = 0.03649` ⟹ `α⁻¹ = 137.0365` (+1.4%). The *other*
+clean forced scale, one more selectivity-cascade octave `A² = 2⁸ = 256` (with the full `N = 9`), gives
+`9/256 = 0.0352` (−2.3%). **The two forced scales bracket the measurement** (`137.036`); the value the data
+wants, `A² = 138.9`, sits between them and is **not a forced substrate number**.
+
+So the last ~1% is **not a missing scale** — it is the **higher-order running tail**: the clean integer
+`5` (spin-2 polarizations, the self-consistent leading term) detuned by the running to `4.93`
+(`5α − 10α² − … = 0.035954 − …`), an *infinite series*. The measured coefficient is `4.93` (α-units) /
+`4.61` (bare-units) — non-integer in both, the signature of a detuned integer, not an unfound count.
+Crossing it means *summing the running series* — computed-not-principle-derived even in the SM. There is no
+further substrate scale to find; the forced scales bracket it and the gap *is* the running.
+
+**Close of the α-residual investigation.** Everything QLF can force is forced:
+`137 = 2⁷ + 3²` (cascade + Pauli dimension), prime-selected for `d = 3`, exact / zero-axiom /
+machine-verified; `central_binom_genfun` discharged, the two-sided `√62` bracket and `G = 1/(1−I)`
+formalized; and the residual `+0.036` a **4-D time-suppression effect with mechanism, sign, smallness, and
+leading magnitude `5α` derived from `f = 1/t`** (self-consistent `A = α⁻¹`, `5` = spin-2 polarizations).
+The remaining ~1% — the detuning of the clean `5` to `4.93` — is the higher-order running tail, **the
+Standard Model's own un-derived precision frontier**, bracketed by the two forced substrate scales. Going
+further would be either fitting (forbidden) or full multi-loop SM physics (not a substrate derivation).
+**Mechanism and structure derived; the last percent is the running — the honest boundary.**
