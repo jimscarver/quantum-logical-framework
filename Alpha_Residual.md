@@ -108,23 +108,70 @@ partial resummation whose rule is the genuine open problem.
 
 ---
 
-## 5. Status (corrected)
+## 5. The curvature route — adjudicated by scale
+
+The other candidate mechanism: the flat directional count `N = d² = 9` (the `3×3` directional tensor on
+flat 3-space) acquires a curvature correction `N → 9 + κ` on the curved closure graph, with
+`α⁻¹ = 128 + (9 + κ)`. This must be a **static** curvature, not a running effect — running vanishes at
+`q²→0`, but CODATA is the IR (Thomson) value, so the correction survives at the IR. The natural source is
+the **intrinsic positive curvature** of the directional 2-sphere `S²` (directions in 3-space *are* points
+on `S²`).
+
+**The sign is forced and correct.** Positive curvature raises the effective directional count above the
+flat `d² = 9`, so `d_eff > 3` and `α⁻¹ > 137` — screening. This matches the proven bound
+(`alpha_inv_gt_137`) by construction: a flat or negatively-curved directional space would give the wrong
+sign. So far the curvature route is consistent where the gauge route was not.
+
+**The magnitude is the wrong scale.** Matching requires `d_eff = 3.006` (a `0.2%` dimension shift) or
+equivalently `κ/N = 0.4%`. But every dimensionless geometric curvature invariant is **O(1)**:
+
+| invariant | value |
+|---|---|
+| heat-kernel Euler term `χ/6` (S²) | `0.333` |
+| icosahedral deficit/vertex `4π/12` (the QLF primordial blanket, `QLF_PrimordialMarkovBlanket`) | `1.047` |
+| octahedral deficit/vertex `4π/6` (the 6 axis endpoints `±x,±y,±z`) | `2.094` |
+| Gauss–Bonnet total `2πχ` (S²) | `12.57` |
+
+The residual `κ = 0.036` is **10–40× smaller** than any of these. It does *not* sit at the geometric
+scale — it sits at the **closure-order scale**: `κ ≈ 4.6·α_bare` (the leading census term is
+`6·α_bare = 0.047`). A standalone pure-geometry curvature correction to `d²` would overshoot by one to
+two orders of magnitude.
+
+> **Verdict.** Curvature can contribute to the residual **only if it is `α_bare`-suppressed** — i.e. only
+> as a *per-closure-order* effect, not as a separate O(1) geometric correction. That is precisely the
+> framework's own anticipation that *"the census tail and the discrete curvature may be the same
+> object."* The scale test makes it sharp: **curvature is not an independent mechanism; it must be
+> identified with the closure-order resummation** of §4. It contributes the right *sign* (positive
+> directional curvature ⟹ screening), but the *magnitude* lives in the closure-order sum, not in a
+> standalone geometric invariant.
+
+So both routes converge on one open problem: the **partial-resummation rule** of the prime-closure series
+(§4) — which, by §5, *is* the discrete curvature of the closure graph, just at the closure-order scale.
+
+---
+
+## 6. Status (corrected)
 
 - **Forced and exact:** the bracket `137.015874 < α⁻¹ < 137.048130` (upper end proven; lower end the
   closed form `263 − 16√62`, formalization pending) — and the resummation identity `G = 1/(1−I)`
   (closures = ordered sequences of primes; the value `√(31/32)=√62/8` already falls out of
   `central_binom_genfun`, so this is a tractable formalization).
-- **Open:** the value. The gauge-projection derivation was **tested and fails** (natural `sin²θ_W=3/8`
-  ⟹ `137.028`); the `5/8` the data wants is not forced by any gauge mechanism. The residual is a partial
-  Dyson resummation whose truncation rule is underived.
-- **Discipline:** no weighting is claimed. This pass *removes* a candidate (gauge projection) and
-  *replaces* the loose "weighting" framing with the forced resummation structure. Honest progress is the
-  reversal plus the structural fact, not a number.
+- **Right sign, forced:** positive directional-sphere curvature ⟹ `d_eff > 3` ⟹ `α⁻¹ > 137` (§5),
+  consistent with `alpha_inv_gt_137`.
+- **Open — the value:** both candidate mechanisms tested. **Gauge projection fails** (natural
+  `sin²θ_W = 3/8` ⟹ `137.028`, §3). **Standalone curvature is the wrong scale** (geometric invariants are
+  O(1), the residual is O(`α_bare`), §5). Both reduce to the **partial Dyson resummation** of the
+  prime-closure series, whose truncation rule is underived — and that rule *is* the discrete closure-graph
+  curvature at the closure-order scale.
+- **Discipline:** no value is claimed. Two pure-geometry/gauge shortcuts are *eliminated*; the open
+  problem is *localized* to one object — the resummation truncation rule. Honest progress is the
+  eliminations plus the localization, not a number.
 
 Remaining derivation targets: (1) the partial-resummation / truncation rule from the closure-order
-structure; (2) the curvature correction `N = d² → d² + κ` from the discrete closure-graph curvature
-([`QLF_CausalDimension`](lean/QLF_CausalDimension.lean), the effective-dimension flow `3→2`), `κ` fixed by
-geometry *before* comparison; (3) formalize `irreducibleTail = 126 − 16√62` and `G = 1/(1−I)` in Lean.
+structure — the single open object both routes reduce to; (2) formalize `irreducibleTail = 126 − 16√62`
+and the resummation `G = 1/(1−I)` in Lean (the value `√(31/32)=√62/8` already falls out of
+`central_binom_genfun`).
 
 See [`Alpha.md`](Alpha.md), [`QLF_AlphaBound`](lean/QLF_AlphaBound.lean),
-[`QLF_WeinbergAngle`](lean/QLF_WeinbergAngle.lean), [`QLF_CausalDimension`](lean/QLF_CausalDimension.lean).
+[`QLF_WeinbergAngle`](lean/QLF_WeinbergAngle.lean), [`QLF_CausalDimension`](lean/QLF_CausalDimension.lean),
+[`QLF_PrimordialMarkovBlanket`](lean/QLF_PrimordialMarkovBlanket.lean).

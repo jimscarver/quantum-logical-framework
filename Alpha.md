@@ -170,8 +170,12 @@ exact closed forms** — irreducible `263 − 16√62 ≈ 137.0159` below, total
 by `0.008`; the `5/8` the data wants is not the natural projection, and the alphabet's several
 sub-fractions make any match a choice, not a derivation. What the test *did* establish is forced: the
 two census generating functions satisfy the **Dyson/1PI resummation `G = 1/(1−I)`** — every closure is an
-ordered sequence of prime (irreducible) closures — so the residual is a *partial resummation* whose
-truncation rule (or a substrate-curvature `κ`) is the genuine open problem.
+ordered sequence of prime (irreducible) closures. The **curvature route is also adjudicated**: positive
+directional-sphere curvature gives the right *sign* (`d_eff > 3 ⟹ α⁻¹ > 137`), but the *magnitude* is the
+wrong scale — `κ = 0.036` is a `0.4%` correction while geometric curvature invariants are O(1) (10–40×
+too big); the residual sits at the closure-order scale (`κ ≈ 4.6·α_bare`), so curvature is not a
+standalone mechanism but must *be* the closure-order resummation. Both routes localize the open problem to
+one object: the **partial-resummation truncation rule** of the prime-closure series.
 
 ---
 
