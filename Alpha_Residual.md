@@ -57,49 +57,74 @@ That is the whole problem, reduced to one number: **why `w ≈ 0.624`?**
 
 ---
 
-## 3. Candidate rules (leads, not derivations)
+## 3. The gauge-projection test — and why it does *not* derive the residual
 
-| Candidate weighting | mechanism | α⁻¹ | err vs CODATA | honest status |
-|---|---|---|---|---|
-| **gauge fraction** `w = 5/8` (reducibles screened by `3/8`) | composite closures enter at the alphabet/gauge fraction `3/8 = sin²θ_W` — **α's own `3+2`-of-`8` split** | `137.036034` | `+3.5×10⁻⁵` | **lead**: the coefficient is not arbitrary — it is the same `3/8` behind `α`, `Ω_Λ`, `sin²θ_W`; but `3/8`-screens-reducibles is *matched*, not derived |
-| self-consistent `α⁻¹ = 137 + m/α⁻¹`, `m = 5` | screening multiplicity = angular DOF (`total_angular_DOF_eq_five`) | `137.036487` | `+4.9×10⁻⁴` | weaker: `m=5` is the nearest integer to `4.93`; the link to the angle count is suggestive only |
-| flat midpoint `w = 1/2` | none | `137.032002` | `−4.0×10⁻³` | rejected: no mechanism, and outside data |
+The natural mechanism: irreducible closures are abelian (pure photon — EM is the abelian sector,
+`em_gauge_abelian`) and contribute fully; composite closures carry the non-abelian electroweak structure
+and project onto the physical photon. The photon is the `sinθ_W` projection of the neutral SU(2) boson
+(`A = cosθ_W·B + sinθ_W·W³`, so `α_em = sin²θ_W·α₂`). So the **forced** prediction of this mechanism is
+composite closures screened by `sin²θ_W = 3/8`:
 
-The **gauge-fraction** rule is the lead worth pursuing: `3/8` is α's structural constant, so "composite
-closures contribute at the gauge fraction" is *of a piece* with the rest of the framework, not a free
-parameter — and it lands within `3.5×10⁻⁵` of CODATA. **But it is a lead, not a result.** The bracket
-(§1) is forced; the `3/8` weighting is read off the data. The residual-of-the-residual `+3.5×10⁻⁵` is
-itself unexplained (a further order). Stated plainly: the value is **not yet derived**.
+| composite screening | mechanism | α⁻¹ | err vs CODATA |
+|---|---|---|---|
+| `sin²θ_W = 3/8` | photon = `sinθ_W·W³` projection — **the natural one** | `137.027970` | **`−0.0080` (misses)** |
+| `cos²θ_W = 5/8` | hypercharge/`B` projection | `137.036034` | `+0.0000` |
+| gauge `2/8` | `Ω_Λ` fraction | `137.023938` | `−0.0121` |
+| spatial `6/8` | 6+2 alphabet | `137.040066` | `+0.0041` |
 
----
+**The natural projection (`3/8`) misses by `0.008`.** The fraction the data wants is the *complementary*
+`5/8 = cos²θ_W` — which is **not** the natural photon projection (it would require composites to be
+hypercharge-like, contradicting "composite = non-abelian"). And the 8-twist alphabet admits several
+sub-fractions (`2/8, 3/8, 5/8, 6/8`), each giving a different answer. Without an independent rule
+selecting *which* fraction and *why* it screens composite (vs irreducible) closures, the `5/8` match is a
+**choice, not a derivation**.
 
-## 4. What turns a lead into physics
-
-A candidate counts only once its weighting is **forced** from the closure-order structure, before
-comparison to CODATA. Concrete derivation targets:
-
-1. **Gauge projection.** Derive that reducible (composite) closures are screened by `3/8` directly from
-   [`QLF_GaugeUnification`](lean/QLF_GaugeUnification.lean) / [`QLF_WeinbergAngle`](lean/QLF_WeinbergAngle.lean)
-   — the same `3+2`-of-`8` projection that fixes `sin²θ_W`. If the composite-closure screening *is* the
-   gauge projection, `w = 5/8` is forced and the lead becomes a derivation.
-2. **Curvature.** The flat directional count `N = d² = 9` acquires a curvature correction on the closure
-   graph ([`QLF_CausalDimension`](lean/QLF_CausalDimension.lean), the effective-dimension flow `3→2`).
-   Derive the correction `9 → 9 + κ` from the discrete curvature and read off `κ` — no comparison to the
-   target until `κ` is fixed by geometry.
-3. **Irreducible-cap formalization.** Prove `irreducibleTail = 126 − 16√62` (the GF `1−√(1−4x)` at
-   `x = 1/128`) in Lean, making the **lower** bracket end rigorous and the forced bracket fully
-   machine-verified end-to-end.
+> **Honest reversal.** The `3/8` "lead" of the previous draft does not survive. The gauge fractions do
+> appear, but the gauge *projection* — taken at its natural value `sin²θ_W = 3/8` — gives `137.028`, not
+> `137.036`. The earlier framing also mislabeled the data weight: the data wants composites at `5/8`, not
+> `3/8`. **The gauge projection does not derive the residual.**
 
 ---
 
-## 5. Status
+## 4. What the test *did* establish (a forced structural fact)
 
-- **Forced and exact:** the bracket `137.015874 < α⁻¹ < 137.048130` (upper end proven; lower end a
-  closed form, formalization pending). The residual is bracketed by two parameter-free √62 expressions.
-- **Open:** the value — equivalently the one weighting `w ≈ 0.624`. The leading candidate (`w = 5/8`,
-  composite closures at the gauge fraction `3/8`) lands at `137.036034`, but is matched, not derived.
-- **Discipline:** no weighting is claimed as the answer. The deliverable here is the *reduction* —
-  `+0.036` is now one forced bracket plus one open rule, and that rule points at α's own gauge fraction.
+Working out the test surfaced an exact, parameter-free relation between the two census generating
+functions:
+
+> **`G(x) = 1 / (1 − I(x))`**, where `G(x) = ∑ C(2n,n) xⁿ = (1−4x)^(−1/2)` (total) and
+> `I(x) = ∑ 2·Catalan(n−1) xⁿ = 1 − √(1−4x)` (irreducible).
+
+This is exact (`1/√(1−4x) = 1/(1−(1−√(1−4x)))`) and it is the **Dyson / 1PI structure**: the total set of
+closures is the *geometric resummation* of the prime (irreducible) closures, exactly as the full
+propagator is `1/(1−Π)` of the 1PI self-energy. Combinatorially it says **every ZFA closure is uniquely
+an ordered sequence of irreducible (prime) closures** — closure prime-factorization, and a *sequence*
+(order matters, as twist histories are ordered) hence geometric, not exponential.
+
+So the open rule is **not** a free "weighting between `I` and `G`" (that framing was itself
+numerology-prone). It is sharper: the residual is a **partial Dyson resummation** of the prime-closure
+series, and the physical truncation/regularization is what must be derived. The full resummation (`G`,
+one `α_bare` per order) overshoots; one prime term (`I`) undershoots; the physical value is a specific
+partial resummation whose rule is the genuine open problem.
+
+---
+
+## 5. Status (corrected)
+
+- **Forced and exact:** the bracket `137.015874 < α⁻¹ < 137.048130` (upper end proven; lower end the
+  closed form `263 − 16√62`, formalization pending) — and the resummation identity `G = 1/(1−I)`
+  (closures = ordered sequences of primes; the value `√(31/32)=√62/8` already falls out of
+  `central_binom_genfun`, so this is a tractable formalization).
+- **Open:** the value. The gauge-projection derivation was **tested and fails** (natural `sin²θ_W=3/8`
+  ⟹ `137.028`); the `5/8` the data wants is not forced by any gauge mechanism. The residual is a partial
+  Dyson resummation whose truncation rule is underived.
+- **Discipline:** no weighting is claimed. This pass *removes* a candidate (gauge projection) and
+  *replaces* the loose "weighting" framing with the forced resummation structure. Honest progress is the
+  reversal plus the structural fact, not a number.
+
+Remaining derivation targets: (1) the partial-resummation / truncation rule from the closure-order
+structure; (2) the curvature correction `N = d² → d² + κ` from the discrete closure-graph curvature
+([`QLF_CausalDimension`](lean/QLF_CausalDimension.lean), the effective-dimension flow `3→2`), `κ` fixed by
+geometry *before* comparison; (3) formalize `irreducibleTail = 126 − 16√62` and `G = 1/(1−I)` in Lean.
 
 See [`Alpha.md`](Alpha.md), [`QLF_AlphaBound`](lean/QLF_AlphaBound.lean),
 [`QLF_WeinbergAngle`](lean/QLF_WeinbergAngle.lean), [`QLF_CausalDimension`](lean/QLF_CausalDimension.lean).
