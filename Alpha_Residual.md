@@ -275,7 +275,51 @@ genuine 4th-order detuning). The measurement — not our taste — decides. That
 this program and Eddington's "+1": the **leading {7,3,0} is derived**; the 3rd/4th orders are
 structurally-backed *leads* held to the measurement.
 
-**The real test (next):** does an *independent* substrate spectral density (the closure-operator
-eigenvalue spectrum, the Hilbert–Pólya side) **peak at octaves {7, 3, 0}** and tail at spacing-3 — *before*
-comparing to α? If so, the binary expansion *is* the resonance spectrum, and `9/250` (with `250` derived)
-becomes a prediction. See also [`QLF_Spectral`](lean/QLF_Spectral.lean), `QLF_TwistAlphabet`.
+**The real test — TAKEN, and NEGATIVE.** Does an *independent* substrate spectral density peak at octaves
+{7, 3, 0}? The genuine Hilbert–Pólya object is `toSpectralMode s = diag(count_pos, count_neg)`
+([`QLF_Spectral`](lean/QLF_Spectral.lean)): a balanced closure of length `2n` has eigenvalue `n` with
+multiplicity `C(2n,n)`. That density is **monotonic** — multiplicity `2, 6, 20, 70, …` (increasing), Born
+weight `C/4ⁿ` (decreasing) — with **no peaks** anywhere; at eigenvalues {7,3,0} the multiplicities are just
+`3432, 20, 1`. And more fundamentally, **the test conflates two axes**: {7,3,0} are positions in the
+binary *value* `137`, while the spectrum is indexed by *eigenvalue* `n` — there is no reason the eigenvalue
+density would encode the binary digits of its own coupling value.
+
+**Conclusion:** α⁻¹'s binary octaves {7,3,0} are the digits of the derived `2⁷ + 3²` — a *representation*,
+not an independent eigenvalue spectrum. The strong "resonance spectrum" claim is **not supported**. What
+survives is real but weaker: `2⁷` is a genuine selectivity *cascade* (octaves {4,2,1,0}) and `3²` the
+three Pauli axes — *resonance conditions* (multiplicative selectivity filters), **not** an eigenvalue
+density. So the leading `137 = 2⁷ + 3²` stays derived/verified; only the eigenvalue-spectrum reading fails.
+
+**Honest landing of the whole arc.** Across gauge (§3), curvature (§5), weak/W-running (§0), the binary
+comb, and the eigenvalue spectrum (here), the pattern held without exception: **`137 = 2⁷ + 3²` is
+derived** (cascade + Pauli dimension), exact, zero-axiom, machine-verified; **the residual `+0.036` is a
+sub-leading EM effect at `~5α`** (best clean form `9/250 = d²/250`, an improved lead; measured `−9×10⁻⁷` a
+real 4th-order detuning, 44σ from `0.036`); and **every *deeper mechanism* for the residual is rejected or
+stays a lead.** Like the SM's own running, the residual is — at the current state — *computed, not
+principle-derived*. That is the honest boundary.
+
+**Prime-closure stability — a new `d = 3` selection signature (per Jim).** QLF's stable closures are the
+*irreducible* (prime) ones (`G = 1/(1−I)`: every closure is an ordered sequence of primes; the
+stable=prime↔Riemann program, `QLF_Riemann`). Push that to the coupling itself: require the leading
+inverse coupling `α⁻¹ = 128 + d²` to be *irreducible* (a prime integer — a closure that cannot factor into
+sub-closures). Then **only `d = 3` qualifies**:
+
+| `d` | `128 + d²` | |
+|---|---|---|
+| 1 | 129 = 3·43 | composite |
+| 2 | 132 = 2²·3·11 | composite |
+| **3** | **137** | **PRIME** |
+| 4 | 144 = 12² | composite |
+| 5 | 153 = 3²·17 | composite |
+| 6 | 164 = 2²·41 | composite |
+| 7 | 177 = 3·59 | composite |
+
+`137` is the **unique prime** among `128 + d²` for `d = 1..7` — so "the stable coupling is an irreducible
+(prime) closure" *selects the physical dimension* `d = 3`, an independent cross-check alongside the
+graph-embedding / magic-number arguments (`QLF_Generations`). (Octave `7` and the `3` of `3²` are also
+prime; `137` prime.) **Honest scope:** this bears on the *leading value / dimension*, not the residual —
+and the link "closure-irreducible ↔ integer-prime" is a suggestive structural reading, not yet derived
+(it would need the coupling's integer to literally count an un-factorable closure). The prime-closure
+*spectrum* (irreducible counts `2·Catalan(n−1) = 2,2,4,10,28,…`) is itself monotonic, so it adds no
+resonance peak; the prime tail (`0.0159`) still undershoots the residual. So primes help explain *why 137 /
+why d=3*, not the `+0.036`.
