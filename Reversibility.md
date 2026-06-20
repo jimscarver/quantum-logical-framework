@@ -155,13 +155,17 @@ conservation has mistaken the present-local balance of the closure for the whole
 | each closure synthesizes one bit `ΔF = −log 2` | `zfa_closure_minimizes_free_energy` (`QLF_FreeEnergy`) |
 | time is synthesized, `f = 1/t` | `ZFAEventDynamics` |
 | `H = H†` fixed points = the critical line | `spectral_hilbert_polya` (`QLF_Riemann`), `functional_equation_fixed_real` |
+| **capstone:** reverse is involutive **but** forward closure is many-to-one | `time_reverse_involutive_but_closure_degenerate` (`QLF_Reversibility`) |
 
 ## Honest scope
 
 The pieces are each machine-verified; this document is the **synthesis** that names how they fit —
 *reverse = dagger*, *balanced = `H = H†` = self-time-reverse*, *arrow = forward sequencing in synthesized
-time*, *`H ↔ H†` = critical line*. A single packaging theorem contrasting the **involutive** time-reverse
-(`antiparticle_involutive`, a bijection) with the **non-injective** forward closure (`disjunct_count ≥ 2`)
-is the natural Lean capstone, not yet written. See [`Decoherence.md`](Decoherence.md),
+time*, *`H ↔ H†` = critical line*. The packaging theorem contrasting the **involutive** time-reverse
+(`antiparticle_involutive`, a bijection) with the **non-injective** forward closure (`C(2n,n) ≥ 2`
+histories per closure) is verified as **`time_reverse_involutive_but_closure_degenerate`**
+(`QLF_Reversibility`, no new axioms — both halves reuse existing theorems). The remaining
+synthesized-time framing (there is no meta-axis in which to *run* the reverse) is prose grounded in
+`ZFAEventDynamics` (`f = 1/t`), not a further Lean obligation. See [`Decoherence.md`](Decoherence.md),
 [`Entropy.md`](Entropy.md), [`Conservation.md`](Conservation.md), [`Philosophy.md`](Philosophy.md), and the
 synthesized-spacetime account in [`ZFAEventDynamics.lean`](lean/ZFAEventDynamics.lean).
