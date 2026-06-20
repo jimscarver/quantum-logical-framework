@@ -286,6 +286,101 @@ noncomputable def alphaInvCap : ℝ := (217 + 512 * Real.sqrt 62) / 31
 theorem alphaInvCap_eq : (137 : ℝ) + censusTail = alphaInvCap := by
   unfold alphaInvCap; rw [censusTail_eq]; ring
 
+/-! ### Irreducible (prime-closure) lower bracket, and the Dyson resummation `G = 1/(1−I)`
+
+The total census `G(x) = ∑ C(2n,n) xⁿ = (1−4x)^(−1/2)` is the geometric resummation of the
+irreducible (prime) closures `I(x) = ∑ 2·Catalan(n−1) xⁿ = 1 − √(1−4x)`: `G = 1/(1−I)` (every
+closure is an ordered sequence of primes — the Dyson/1PI structure). The irreducible closure count
+is `2·Catalan(n−1) = 4·C(2n−2,n−1) − C(2n,n)` (central-binomial recurrence), so the irreducible tail
+is a linear combination of `central_binom_genfun` and the census tail — **no new analysis input**.
+This gives the *lower* end of the forced residual bracket as an exact `√62` closed form. See
+`Alpha_Residual.md`. -/
+
+/-- The irreducible closure count `2·Catalan(n−1)` agrees with `4·C(2n−2,n−1) − C(2n,n)` for the
+    first orders: `2, 4, 10` at `n = 2, 3, 4` (cf. `irrClosures`). -/
+theorem irrCoeff_matches :
+    4 * (Nat.centralBinom 1 : ℝ) - Nat.centralBinom 2 = 2 ∧
+    4 * (Nat.centralBinom 2 : ℝ) - Nat.centralBinom 3 = 4 ∧
+    4 * (Nat.centralBinom 3 : ℝ) - Nat.centralBinom 4 = 10 := by
+  norm_num [show Nat.centralBinom 1 = 2 from by decide, show Nat.centralBinom 2 = 6 from by decide,
+            show Nat.centralBinom 3 = 20 from by decide, show Nat.centralBinom 4 = 70 from by decide]
+
+/-- The irreducible (prime-closure) screening tail, one `α_bare` per order, with closure count
+    `2·Catalan(n−1) = 4·C(2n−2,n−1) − C(2n,n)`. -/
+noncomputable def irreducibleTail : ℝ :=
+  ∑' n : ℕ, (if 2 ≤ n then (4 * (Nat.centralBinom (n - 1) : ℝ) - (Nat.centralBinom n : ℝ))
+    * (1 / 128 : ℝ) ^ (n - 1) else 0)
+
+/-- **Irreducible tail closed form** `126 − 16√62 ≈ 0.015874`, derived from `central_binom_genfun`
+    (no new axiom): `irreducibleTail = 4·(G(1/128) − 1) − censusTail`. -/
+theorem irreducibleTail_eq : irreducibleTail = 126 - 16 * Real.sqrt 62 := by
+  -- ∑_{k≥0} C(2(k+1),k+1)·(1/128)^(k+1) = G − 1
+  have h1 : HasSum (fun k => (Nat.centralBinom (k + 1) : ℝ) * (1 / 128 : ℝ) ^ (k + 1))
+      (4 * Real.sqrt 62 / 31 - 1) := by
+    rw [hasSum_nat_add_iff (f := fun n => (Nat.centralBinom n : ℝ) * (1 / 128 : ℝ) ^ n) 1]
+    have hs : (∑ i ∈ Finset.range 1, (Nat.centralBinom i : ℝ) * (1 / 128 : ℝ) ^ i) = 1 := by
+      rw [Finset.sum_range_one]; norm_num [Nat.centralBinom_zero]
+    rw [hs, show (4 * Real.sqrt 62 / 31 - 1) + 1 = 4 * Real.sqrt 62 / 31 by ring]
+    exact central_binom_genfun
+  -- ∑_{k≥0} C(2(k+2),k+2)·(1/128)^(k+2) = G − 1 − 1/64
+  have h2 : HasSum (fun k => (Nat.centralBinom (k + 2) : ℝ) * (1 / 128 : ℝ) ^ (k + 2))
+      (4 * Real.sqrt 62 / 31 - (1 + 1 / 64)) := by
+    rw [hasSum_nat_add_iff (f := fun n => (Nat.centralBinom n : ℝ) * (1 / 128 : ℝ) ^ n) 2]
+    have hs : (∑ i ∈ Finset.range 2, (Nat.centralBinom i : ℝ) * (1 / 128 : ℝ) ^ i) = 1 + 1 / 64 := by
+      rw [Finset.sum_range_succ, Finset.sum_range_one]
+      norm_num [Nat.centralBinom_zero, show Nat.centralBinom 1 = 2 from by decide]
+    rw [hs, show (4 * Real.sqrt 62 / 31 - (1 + 1 / 64)) + (1 + 1 / 64) = 4 * Real.sqrt 62 / 31 by ring]
+    exact central_binom_genfun
+  -- the shifted irreducible term = 4·cB(k+1)x^{k+1} − 128·cB(k+2)x^{k+2}
+  have hfun : (fun k => (4 * (Nat.centralBinom (k + 1) : ℝ) - (Nat.centralBinom (k + 2) : ℝ))
+        * (1 / 128 : ℝ) ^ (k + 1))
+      = (fun k => 4 * ((Nat.centralBinom (k + 1) : ℝ) * (1 / 128 : ℝ) ^ (k + 1))
+        - 128 * ((Nat.centralBinom (k + 2) : ℝ) * (1 / 128 : ℝ) ^ (k + 2))) := by
+    funext k
+    have hp : (128 : ℝ) * (1 / 128 : ℝ) ^ (k + 2) = (1 / 128 : ℝ) ^ (k + 1) := by
+      rw [pow_add, pow_add]; ring
+    rw [← hp]; ring
+  have hirrShift : HasSum (fun k => (4 * (Nat.centralBinom (k + 1) : ℝ)
+        - (Nat.centralBinom (k + 2) : ℝ)) * (1 / 128 : ℝ) ^ (k + 1)) (126 - 16 * Real.sqrt 62) := by
+    rw [hfun, show (126 : ℝ) - 16 * Real.sqrt 62
+        = 4 * (4 * Real.sqrt 62 / 31 - 1) - 128 * (4 * Real.sqrt 62 / 31 - (1 + 1 / 64)) by ring]
+    exact (h1.mul_left 4).sub (h2.mul_left 128)
+  -- relate the guarded tail to the shifted HasSum (mirror of `censusTail_eq`)
+  set firr : ℕ → ℝ := fun n => if 2 ≤ n then
+    (4 * (Nat.centralBinom (n - 1) : ℝ) - (Nat.centralBinom n : ℝ)) * (1 / 128 : ℝ) ^ (n - 1) else 0
+    with hfirr
+  have hkey : ∀ k, firr (k + 2)
+      = (4 * (Nat.centralBinom (k + 1) : ℝ) - (Nat.centralBinom (k + 2) : ℝ)) * (1 / 128 : ℝ) ^ (k + 1) := by
+    intro k
+    show (if 2 ≤ k + 2 then
+        (4 * (Nat.centralBinom (k + 2 - 1) : ℝ) - (Nat.centralBinom (k + 2) : ℝ))
+          * (1 / 128 : ℝ) ^ (k + 2 - 1) else 0) = _
+    rw [if_pos (by omega), show k + 2 - 1 = k + 1 by omega]
+  have hshift : HasSum (fun k => firr (k + 2)) (126 - 16 * Real.sqrt 62) := by
+    have h := hirrShift; rwa [← funext hkey] at h
+  have hsum : HasSum firr (126 - 16 * Real.sqrt 62) := by
+    rw [hasSum_nat_add_iff (f := firr) 2] at hshift
+    have hz : (∑ i ∈ Finset.range 2, firr i) = 0 := by
+      rw [Finset.sum_range_succ, Finset.sum_range_one]; simp [hfirr]
+    rw [hz, add_zero] at hshift
+    exact hshift
+  calc irreducibleTail = ∑' n, firr n := rfl
+    _ = 126 - 16 * Real.sqrt 62 := hsum.tsum_eq
+
+/-- **Irreducible (lower) cap** on the inverse coupling: `137 + irreducibleTail = 263 − 16√62
+    ≈ 137.01587` — the *lower* end of the forced residual bracket, exact closed form. -/
+theorem irreducibleCap_eq : (137 : ℝ) + irreducibleTail = 263 - 16 * Real.sqrt 62 := by
+  rw [irreducibleTail_eq]; ring
+
+/-- **Dyson / 1PI resummation `G = 1/(1 − I)`** at `x = 1/128`, value level: `G·(1 − I) = 1`,
+    with `G = 4√62/31` (`central_binom_genfun`) and `1 − I(1/128) = √(31/32) = √62/8`. So the total
+    census is the geometric resummation of the irreducible (prime) closures. -/
+theorem census_irreducible_resummation :
+    (4 * Real.sqrt 62 / 31) * (Real.sqrt 62 / 8) = 1 := by
+  have h62 : Real.sqrt 62 * Real.sqrt 62 = 62 := Real.mul_self_sqrt (by norm_num)
+  field_simp
+  linear_combination 4 * h62
+
 /-- `7.874 < √62`  (since `7.874² = 61.999876 < 62`). -/
 theorem sqrt62_gt : (7874 : ℝ) / 1000 < Real.sqrt 62 := by
   nlinarith [Real.sq_sqrt (show (0 : ℝ) ≤ 62 by norm_num), Real.sqrt_nonneg 62]
