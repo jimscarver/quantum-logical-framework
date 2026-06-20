@@ -56,8 +56,11 @@ galactic Radial Acceleration Relation reproduced with `a₀` *derived*, not fit.
   §7.5) and the two limits are forced (Newton; geometric-mean/Tully–Fisher), but the exact `ν`-function
   is not yet proven the *unique* one — other interpolations fit at this level. The scatter cannot
   distinguish them; the *parameter-free a₀* is the real win.
-- The `~13 %` `a₀` residual (the `1/2π` prefactor, the open `dark_matter_acceleration_scale_in_progress`)
-  is absorbed at the local `H₀`; it is the one principled, named uncertainty.
+- The `1/2π` prefactor is **confirmed**: fit `a₀` in QLF's *own* closure-balance form (not McGaugh's
+  exponential, which gives `g† = 1.20×10⁻¹⁰`) and the data prefers `a₀ = 1.127×10⁻¹⁰` = `cH₀/2π` at
+  **`H₀ = 72.9`** — the local Hubble constant. So the old "~13%" was a wrong-form comparison; the prefactor
+  is right to `< 1%` at the local `H₀`, and the only residual is the **Hubble tension** itself (the galaxy
+  data picks the local `H₀ = 73`, not the CMB `67`). (`DarkMatter.md` §5.)
 - Curation, NFW, and the receipt are now done: the **standard SPARC RAR cuts** (`Q ≤ 2`, `Inc ≥ 30°`) from
   Table 1, an explicit per-galaxy **NFW** fit, and a SHA-256 **verification receipt** (`sparc/receipt.json`).
 

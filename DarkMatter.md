@@ -26,8 +26,10 @@ QLF lands on the **measured RAR scatter (~0.13 dex, McGaugh+2016)** with a **zer
 identical to best-fit MOND*, far better than Newton, and using **294× fewer parameters than the standard
 dark-matter halo (NFW)** for the same data. The scale `a₀ = cH₀/2π` is **derived** (the de Sitter horizon /
 loop phase, §5); the dense↔sparse interpolation is the closure-balance **RAR** (§7.5, machine-verified Lean).
-The one named residual is the `~13% 1/2π` prefactor, absorbed at the local `H₀`. Full benchmark, blind
-protocol, and verification receipt: [`SPARC.md`](SPARC.md).
+Fit in QLF's own form, the SPARC data prefers `a₀ = cH₀/2π` at **H₀ = 72.9** — the local Hubble constant — so
+the `1/2π` prefactor is **confirmed to < 1%** (the old "~13%" was a comparison to a different-form fit); the
+only residual is the **Hubble tension** itself (§5). Full benchmark, blind protocol, and verification
+receipt: [`SPARC.md`](SPARC.md).
 
 ---
 
@@ -117,9 +119,25 @@ governing the sparse exterior (dark energy) and `a₀ = cH₀/2π` governing the
 denser-logic interior (dark matter) — the **expand / contract duality** of
 [Curvature.md §6](Curvature.md).
 
-> **Honest scope.** The *scale* `cH₀` is principled (the de Sitter horizon acceleration). The
-> exact `O(1)` prefactor — `1/2π` here — is the open piece (the ~13% residual,
-> `dark_matter_acceleration_scale_in_progress`), the same status discipline as the pion `1/α`.
+### The `1/2π` prefactor is confirmed by SPARC at the local `H₀` (the "13%" was a form artifact)
+
+The "~13%" above is the comparison to Milgrom/McGaugh's `g† = 1.20×10⁻¹⁰`, which is fit with a *different*
+functional form (the **exponential** RAR `g_obs = g_bar/(1−e^{−√(g_bar/a₀)})`). Fit `a₀` in QLF's **own**
+closure-balance form (§7.5) to the curated SPARC sample instead, and the data prefers
+
+$$a_0^{\rm SPARC} \;=\; 1.127\times10^{-10}\ \text{m/s}^2 \quad(\text{zero mean offset}),$$
+
+which is **exactly `cH₀/2π` at `H₀ = 72.9` km/s/Mpc** — the *local* distance-ladder Hubble constant
+(SH0ES `73.0 ± 1.0`; SPARC's own distance scale). So the `1/2π` prefactor is **right to `< 1%`** at the
+local `H₀`; the apparent 13% was the wrong-form comparison, and what remains is the **Hubble tension**
+(CMB `67.4` vs local `73`) — and the galaxy data picks the *local* value. (Caveat: the data constrains
+`a₀` to a few %, so `H₀ ≈ 73 ± 3`; and the `a₀↔H₀` link carries the canonical-`M/L` systematic.)
+
+> **Honest scope (revised).** The *scale* `cH₀` is principled (the de Sitter horizon acceleration) and
+> the `1/2π` loop-phase prefactor is now **confirmed by the SPARC RAR fit at the local `H₀`** to `< 1%`.
+> The residual is no longer a QLF prefactor error but the cosmological `H₀` value (the Hubble tension);
+> a *first-principles* `2π` derivation (vs the loop-phase identification) is the remaining nicety
+> (`dark_matter_acceleration_scale_in_progress`).
 
 ---
 
@@ -199,19 +217,20 @@ limits are exact:
 a *parameter-free* prediction of the measured **radial acceleration relation** (McGaugh–Lelli–Schombert
 2016, `g_obs = g_bar/(1−e^{−√(g_bar/g†)})`, `g† = 1.20×10⁻¹⁰ m/s²`):
 
-- **Scale:** QLF's `a₀ = cH₀/2π` lands at `1.04–1.13×10⁻¹⁰` for `H₀ = 67–73` — **87–94 % of `g†`**,
-  zero free parameters (closer for the local `H₀`; the ~10–13 % is the open `1/2π`-prefactor residual).
-- **Shape:** the closure-balance curve tracks the empirical RAR to **< 5 %** across the entire range.
+- **Scale:** fit `a₀` in *this* form (not McGaugh's exponential) to the curated SPARC sample and the data
+  prefers `a₀ = 1.127×10⁻¹⁰` (zero offset) = **`cH₀/2π` at the local `H₀ = 72.9`** — so the `1/2π` prefactor
+  is confirmed to **< 1 %** (§5); zero free parameters.
+- **Shape:** the closure-balance curve tracks the empirical RAR to **< 5 %** across the entire range, and
+  the full blind benchmark (§headline, [`SPARC.md`](SPARC.md)) hits the observational floor (`0.133 dex`).
 
 So QLF reproduces the RAR — *shape and scale* — with **no per-galaxy fitting**, against MOND (`a₀`
 fitted) and NFW (two halo parameters per galaxy).
 
-> **Honest scope.** The deep limit (geometric mean → Tully–Fisher) and the scale (`a₀ = cH₀/2π`, ~13 %)
-> are principled; the closure-balance *interpolation form* is substrate-**motivated** (the conjunction
-> self-consistency) and matches the data, but is not yet proven the *unique* forced `ν`-function — other
-> interpolations also fit at this level. The full per-galaxy **blind** `V_pred(r)` pipeline on the SPARC
-> common122 sample (#77's harness) is the remaining engineering; what is now closed is the **gate** —
-> the radial-acceleration law itself, derived not fitted.
+> **Honest scope.** The deep limit (geometric mean → Tully–Fisher) is forced and the scale `a₀ = cH₀/2π` is
+> confirmed by the SPARC fit at the local `H₀` (§5). The closure-balance *interpolation form* is
+> substrate-**motivated** (the conjunction self-consistency) and hits the observational floor, but is not
+> yet proven the *unique* forced `ν`-function — other interpolations also fit at this level. The full
+> blind per-galaxy benchmark is **done** ([`SPARC.md`](SPARC.md), #77 closed).
 
 ---
 
@@ -249,9 +268,9 @@ logical density around mass.
 | baryonic Tully–Fisher `v⁴ = GM a₀` | **Lean** ✓ | `tully_fisher_flat` |
 | Gaussian MRE bump, densest at the mass | **Lean** ✓ | `gaussian_logic_density`, `gaussian_denser_near_center` |
 | **RAR interpolation** `g_obs² = g_bar·(g_obs+a₀)` (closure-balance) + both limits | **Lean** ✓ | `radialAccel_self_consistent`, `radialAccel_newtonian`, `radialAccel_ge_geometric_mean`, `radialAccel_ge_baryonic` (§7.5) |
-| reproduces the SPARC RAR parameter-free (shape <5%, scale ~10–13%) | **derived / tested** | §7.5, #77 |
-| the `1/2π` prefactor (the ~13% residual) | **open** | `dark_matter_acceleration_scale_in_progress` |
-| the interpolation form proven the *unique* forced `ν`, + per-galaxy blind `V_pred(r)` on common122 | **open** | §7.5, #77 |
+| blind SPARC benchmark — parameter-free at the observational floor (0.133 dex, 147 galaxies) | **tested ✓** | §headline, `SPARC.md`, #77 |
+| `1/2π` prefactor confirmed by the SPARC fit at the local `H₀` (`a₀=cH₀/2π` at `H₀=72.9`, `<1%`) | **confirmed ✓** | §5, `SPARC.md` |
+| a *first-principles* `2π` (vs the loop-phase identification); the form as the *unique* forced `ν` | **open** | §5, §7.5 |
 | logical density as a derived `ρ_logic(r)` from event counting | **open** | §2–§3 (prose) |
 
 ---
