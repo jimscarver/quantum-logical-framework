@@ -228,3 +228,27 @@ thread bottoms out at the conjecture proper, cleanly stated on a representation 
 with the cycle-ring structure proven. The one remaining foundational piece is the class map into a *real*
 cohomology theory (the substrate has none yet) — the genuine, multi-step build, not a swing. This is the
 honest floor: the gap is the Hodge conjecture, located on the right object, everything around it proven.
+
+**Starting the cohomology build (`QLF_GradedCohomology`).** The foundational piece named above — the class
+map `cl : CycleClass → cohomology` into a real graded ℚ-cohomology — is now under construction. The first
+brick proves the **structural** facts of `cl` and makes spanning concrete on real ℚ-vector spaces, while
+keeping the genuinely open input abstract:
+
+- **`cl` respects the grading.** A codim-`p` cycle class lands in cohomological degree `2p` (`cohDegree`),
+  and the cup/intersection product *adds* degrees (`cohDegree_cup`) — the ring-homomorphism / subalgebra
+  property. Divisors land in degree 2 (`divisor_cohDegree`, the `(1,1)` range); codim-`p` primes in degree
+  `2p` (`primeOf_cohDegree`); the algebraic classes are closed under cup product (`algebraic_closed_under_cup`),
+  i.e. a subalgebra (with `decomposes_into_primes`, the image subalgebra of `cl`).
+- **Spanning on real ℚ-spaces.** A `HodgeDatum V` packages, in a degree slot `V` (a ℚ-vector space), the
+  `algebraic` subspace (the span of `cl`'s image) and the `hodge` subspace, with the **easy direction
+  `algebraic ≤ hodge` proven by construction** (every algebraic cycle class is a Hodge class). **Spanning**
+  is the reverse `hodge ≤ algebraic` (`isSpanned`), and with the easy direction it is exactly equality
+  (`spanned_iff_eq`). The settled Lefschetz shape `hodge = algebraic` is realized (`trivialDatum_spanned`),
+  so spanning is a nonvacuous property on the correct structure.
+- **The open input, never faked.** Which subspace is the *Hodge* subspace — and which data are *geometric*
+  (arise from a smooth projective variety) — is what a real cohomology theory must supply; the substrate
+  does not yet pin it down. So `isSpanned` is a per-datum property, deliberately **not** quantified into a
+  global `Prop` over arbitrary submodule pairs (which would be the wrong, refutable statement). Codim 1 is
+  Lefschetz; codim `p ≥ 2` is the open Hodge conjecture, now stated on the right object with the cycle class
+  map's grading and subalgebra structure proven. Honest status: a genuine rung of the build, not a proof of
+  the conjecture (`cohomology_build_in_progress`).
