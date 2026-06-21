@@ -38,11 +38,11 @@ open QLF.CycleEncoding QLF.SpanningMap QLF.CohomologyRing
 abbrev CohQ : Type := Coh →₀ ℚ
 
 /-- The **ℚ-linear cycle class map**: a cycle class to its cohomology monomial (coefficient 1). -/
-def clQ (c : CycleClass) : CohQ := Finsupp.single (cl c) 1
+noncomputable def clQ (c : CycleClass) : CohQ := Finsupp.single (cl c) 1
 
 /-- **The algebraic classes** — the ℚ-subspace spanned by the cycle classes (the image of the cycle
     class map). A genuine `Submodule ℚ CohQ`: exactly the object the Hodge conjecture concerns. -/
-def algebraic : Submodule ℚ CohQ := Submodule.span ℚ (Set.range clQ)
+noncomputable def algebraic : Submodule ℚ CohQ := Submodule.span ℚ (Set.range clQ)
 
 /-- Every cycle class is algebraic. -/
 theorem clQ_mem_algebraic (c : CycleClass) : clQ c ∈ algebraic :=
