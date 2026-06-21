@@ -252,3 +252,28 @@ keeping the genuinely open input abstract:
   Lefschetz; codim `p ≥ 2` is the open Hodge conjecture, now stated on the right object with the cycle class
   map's grading and subalgebra structure proven. Honest status: a genuine rung of the build, not a proof of
   the conjecture (`cohomology_build_in_progress`).
+
+**The cohomology ring (`QLF_CohomologyRing`).** The first brick had only a degree function; this builds the
+ring itself — the **free graded-commutative algebra on the prime cycle classes**, `Coh = Multiset ℕ` with
+cup product = union and `degree = 2·(sum of codims)`. The ring laws hold (`cup_comm`, `cup_assoc`,
+`cup_zero`), the grading is a ring grading (`degree_cup`), and the cycle class map `cl : CycleClass → Coh`
+is a **genuine graded homomorphism**: `cl_tensor` (intersection product ↦ cup product), `cl_unit` (unit
+cycle ↦ ring unit `0`), `cl_graded` (respects degree), with divisors and codim-`n` primes mapping to single
+degree-`2n` generators (`cl_divisor`, `cl_primeOf`). So the algebraic classes are *literally* the image
+submonoid of a graded ring homomorphism into a concrete ring — the subalgebra claim realized.
+
+**The ℚ-linear layer (`QLF_CohomologyLinear`).** Hodge is about ℚ-linear structure, so this lifts the ring
+to the **free ℚ-vector space on cohomology monomials**, `CohQ = Coh →₀ ℚ` (the monoid algebra
+`AddMonoidAlgebra ℚ Coh`), with the ℚ-linear class map `clQ c = ⟨cl c, 1⟩`. The **algebraic classes**
+`algebraic = span_ℚ (range clQ)` are then a genuine `Submodule ℚ CohQ` — *exactly* the object the Hodge
+conjecture concerns. Every cycle class, the divisor (Lefschetz `(1,1)`), and the primes land in it
+(`clQ_mem_algebraic`, `divisor_algebraic`, `primeOf_algebraic`), and it is closed under ℚ-scaling and
+addition (`smul_algebraic`, `add_algebraic`). So the **algebraic half** of the Hodge picture is now fully
+concrete — a real ℚ-subspace of a real cohomology, built from the substrate's cycle ring.
+
+What remains open is precisely the **Hodge** subspace `Hdg^p` — defined by the *transcendental* Hodge
+decomposition `H^k = ⊕ H^{p,q}` (rational `(p,p)` classes), the analytic structure the substrate does not
+yet synthesize. The conjecture is `hodge ≤ algebraic` (the easy `algebraic ≤ hodge` automatic), codim 1 =
+Lefschetz, codim `p ≥ 2` the open content. The build now has the entire algebraic side concrete and the
+open input isolated to one transcendental object — not a proof, the located frontier of the cohomology
+build.
