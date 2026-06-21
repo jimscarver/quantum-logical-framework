@@ -104,10 +104,24 @@ convergence facts QLF *reads*):
   central-binomial ratio as §1 (the Mathlib Wallis product underlying §1's asymptotic).
 - **Inverse-square sum (Basel / ζ).** `π² = 6·∑_{n≥1} 1/n² = 6·ζ(2)` — `π` from a sum over the integers,
   no circle. The honest bridge to §4.
+- **Allen's `Z0_AsBinary`** ([#98](https://github.com/jimscarver/quantum-logical-framework/issues/98), his
+  [`fundamentalPi.md`](https://github.com/lightrock/CharacteristicImpedancePython/blob/main/docs/references/fundamentalPi.md)
+  — the characteristic-impedance / binary machine) is **another machine of this kind** — a finite,
+  computable "go around and test closure" generator, not a circle-sampler. Recorded here so it is not lost
+  (the point of #98); it sits with QLF's gauge-sector families (§3, `Forces_From_Three_Axes.md` §3a).
 
 Each is RCA₀ and converges to `π`; none assumes a circle. That `π` has *many* discrete generators and
 *no* canonical circle behind them is exactly the QLF reading: `π` is what these machines converge to, not
 a continuum object they sample.
+
+**One machine, *two* periods (and counting).** The decisive evidence that the closure census is the
+*fundamental* generator — not a `π`-specific coincidence — is that the **same** census `C(2n,n)` also
+yields a *second* period: **`ζ(3)` (Apéry's constant)**, `ζ(3) = (5/2)·∑_{n≥1}(-1)^{n-1}/(n³·C(2n,n))`,
+now Lean-anchored in [`QLF_AperyPeriod`](lean/QLF_AperyPeriod.lean) (the finite `Real.pi`-free rational
+partial sum, with each term's central binomial *proven* to be the substrate closure count). So Allen's
+"find the machine" lands on a single substrate machine — the ZFA closure census — that renders `π`, `ζ(3)`,
+the Born statistics, and the P-vs-NP verify-filter alike. A period carries no information its census does
+not already contain.
 
 ## §3 Phase increments per sector — 2π, 4π, 2π/3 (with the group-theory caveats)
 
