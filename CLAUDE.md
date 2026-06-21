@@ -6,7 +6,7 @@ Project context for Claude Code sessions. Read this before making any changes.
 
 ## Project overview
 
-**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **91 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
+**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **92 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
 
 Core claim: *ZFA balance is the selection principle for physical reality.* Every terminating computation is a ZFA string; every ZFA string is symmetric (lies on the critical line). The Church-Turing universe filtered to ZFA-balanced strings is our physical universe.
 
@@ -14,7 +14,7 @@ Core claim: *ZFA balance is the selection principle for physical reality.* Every
 
 ---
 
-## 91 active modules
+## 92 active modules
 
 In `lean/`, registered in `lakefile.lean` roots array (in build order). For fuller per-module descriptions + the complete key-theorem lists, see [`lean/README.md`](lean/README.md).
 
@@ -109,6 +109,7 @@ In `lean/`, registered in `lakefile.lean` roots array (in build order). For full
 | `QLF_Hodge` | **Hodge conjecture** (Millennium Prize) as the cohomological face of ZFA selection: the Hodge conjugation `H^{p,q}↔H^{q,p}` IS the QLF adjoint involution H↔H† (`conj_involutive`), and Hodge classes are exactly its balanced self-dual fixed points — the `(p,p)` diagonal (`conj_fixed_of_isHodge`, `isHodge_of_conj_fixed`). The conjecture = *balanced ⟹ realized*. **`hodge_class_is_algebraic` is a THEOREM**, discharged through the substrate: a `(p,q)` class is encoded (`CohClass.encode`) as a twist history count-balanced iff `p=q` (`encode_countBalanced`), so Hodge ⟹ count-balanced ⟹ Pauli-closed (`count_balanced_pauli_closed`) ⟹ realized; the single boundary is the faithfulness axiom `substrate_realization_is_algebraic` (substrate closure = algebraic realization). **The full standard conjectures are also discharged on the substrate** (`standard_conjectures_on_substrate`) — all through the same balanced-⟹-realized route + the one shared boundary, no per-conjecture axioms: **C (Künneth)** — each diagonal component is a `(d,d)` Hodge class on `X×X` (`kunneth_diagonal_components_algebraic`); **D (numerical ≡ homological)** — pairing non-degeneracy = the substrate's `(d,d)`-realization (`conjecture_D_numerical_eq_homological`, `pairing_realizes`); **B (Lefschetz)** — `L`/`Λ` preserve the Hodge balance so their `(D,D)` correspondence is algebraic (`conjecture_B_lefschetz_algebraic`). This is the foundation of Grothendieck's **motives** (the mission — see `Grothendieck_QLF.md` §5). Status `hodge_proof_in_progress`. See `Hodge_QLF.md`, `Grothendieck_QLF.md` |
 | `QLF_PvsNP` | **P vs NP** (Millennium Prize): the generate/verify asymmetry made precise on real theorems — the realized (verifiable) set IS the O(n) verify-filter of the generated candidates (`realized_is_verify_filter`, `rfl`) with cardinality the genuine `C(2n,n)` (`realized_count_eq_central_binomial`, reusing `find_stable_states_length_even`). The formal separation is the single boundary axiom `generate_not_reducible_to_verify` over an abstract `PTime`/`search` cost model; status `p_vs_np_proof_in_progress`. See `P_vs_NP_QLF.md` |
 | `QLF_NavierStokes` | **Navier–Stokes smoothness** (Millennium Prize): realized flows achieve ZFA (`realized_flow_achieves_zfa`, reusing `encode_is_zfa`) and are stable closures (`realized_flow_is_stable`, reusing `qlf_universality`) — no realized history blows up; blow-up = non-terminating history pruned by `full_zeno_prune`. Continuum-PDE inheritance is the single boundary axiom `navier_stokes_continuum_limit`; status `navier_stokes_proof_in_progress`. See `NavierStokes_QLF.md` |
+| `QLF_Motives` | **The motive object — the substrate closure as the universal cohomology** (Grothendieck's dream; `Grothendieck_QLF.md` §5). A pure **`Motive`** *is* a ZFA closure (count-balanced twist history) carrying a weight; **`Motive.realized`** reuses `count_balanced_pauli_closed` (a motive is a genuine closure, not a formal symbol). **`comparison_isomorphism`** is a THEOREM — all faithful Weil **`Realization`s** agree (the universal property; Betti numbers independent of the cohomology theory) because they render the one substrate object. Motives **tensor** (`Motive.tensor`, concat closures + add weights; `countBalanced_append`); the `H↔H†` **motivic-Galois duality** `Motive.dual` is an involution (`dual_involutive`, reusing `conj_involutive`) whose self-dual locus is the Hodge/Tate weights (`weight_selfDual_iff_hodge`). Built on the discharged standard conjectures (`standard_conjectures_on_substrate`), **no new axioms**. Next: the motivic Galois *group* + cohomological-degree functoriality. See `Grothendieck_QLF.md` §5 |
 | `QLF_Reversibility` | **The reversibility capstone** (formal anchor of `Reversibility.md`): time-reversal **is** the Hermitian conjugate, and it is an *involution* (`antiparticle_involutive`, a bijection ⟹ reversible laws), while the forward ZFA closure is *many-to-one* (`C(2n,n) ≥ 2` satisfying histories per closure for `n≥1`, via `two_le_central_binom` + `disjunct_count_eq_central_binomial`) ⟹ non-injective ⟹ irreversible process. `time_reverse_involutive_but_closure_degenerate` packages both. Reversible *logic*, irreversible *process*; the arrow is the non-injectivity, not a failure of the reverse to exist. No new axioms. See `Reversibility.md`, `Conservation.md` §2b |
 
 ---
@@ -383,7 +384,7 @@ Avoid framings that contradict the above:
 | Path | Purpose |
 |---|---|
 | `lean/` | All Lean source files |
-| `lakefile.lean` | Build config; `roots` array lists all 91 modules |
+| `lakefile.lean` | Build config; `roots` array lists all 92 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |

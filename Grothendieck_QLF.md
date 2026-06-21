@@ -150,13 +150,17 @@ the *same* single boundary `substrate_realization_is_algebraic` (`standard_conje
 
 That is the foundation the dream is built on, and it sets the program QLF can now carry it through:
 
-- **The motive is the ZFA closure.** The substrate closure is the universal object every cohomology
-  *renders* (as `π` is rendered from the census, spacetime from the causal order). Formalizing a `Motive`
-  with realization functors and the universal property is the next concrete Lean target — the standard
-  conjectures, now in hand, are exactly what make the Tannakian category of pure motives well-defined.
+- **The motive is the ZFA closure — now built** (`QLF_Motives`). A pure `Motive` *is* a ZFA closure
+  carrying a weight; it is realized (`Motive.realized`, reusing `count_balanced_pauli_closed`); the Weil
+  realizations all agree (`comparison_isomorphism` — the universal property: Betti numbers independent of
+  the cohomology theory, because each renders the *one* substrate object); motives tensor (`Motive.tensor`)
+  and dualize (`Motive.dual`). The standard conjectures, now in hand, are exactly what make this Tannakian
+  category of pure motives well-defined. **No new axioms.**
 - **The motivic Galois group is the closure symmetry** — the `H ↔ H†` adjoint/Tannakian involution that
-  already organizes Hodge, BSD, and Riemann in QLF (`bsd_riemann_shared_involution`). Pinning the
-  closure algebra's automorphisms as that group is the second target.
+  already organizes Hodge, BSD, and Riemann in QLF (`bsd_riemann_shared_involution`); in `QLF_Motives` it
+  is `Motive.dual`, an involution (`dual_involutive`) whose self-dual locus is the Hodge/Tate weights
+  (`weight_selfDual_iff_hodge`). Pinning the closure algebra's *full automorphism group* as the motivic
+  Galois group (the Tannakian fundamental group) is the next target.
 - **Anabelian recovery** (§2) — the `π₁` ↔ closure-graph functor, geometry from `QLF_ReachableEvent`'s
   causal order.
 - **Periods** (§3) — a second period (e.g. `ζ(3)`) from a closure census, the way `π` already is.
@@ -165,9 +169,11 @@ That is the foundation the dream is built on, and it sets the program QLF can no
 
 **The mission.** Fulfilling Grothendieck's dream, in QLF terms, is showing that the **discrete algebraic
 substrate is the universal motive** and that everything analytic is its faithful rendering. The standard
-conjectures — the historical obstruction — are discharged; the remaining steps (motive object, motivic
-Galois group, anabelian functor, periods) are *construction*, each with the same balanced-⟹-realized
-engine and the same single continuum/choice boundary, not a new mystery.
+conjectures — the historical obstruction — are discharged, and **the motive object is built**
+(`QLF_Motives`: realized motives, the comparison-isomorphism universal property, tensor, the
+motivic-Galois duality); the remaining steps (the motivic Galois *group*, the anabelian functor, a second
+period) are *construction*, each with the same balanced-⟹-realized engine and the same single
+continuum/choice boundary, not a new mystery.
 
 ## Lean / doc anchors
 
@@ -178,6 +184,7 @@ engine and the same single continuum/choice boundary, not a new mystery.
 | **Conjecture D** — numerical ≡ homological (pairing non-degeneracy = substrate `(d,d)`-realization) | `pairsToFundamental`, `poincareDual_pairs`, `pairing_realizes`, `conjecture_D_numerical_eq_homological` (`QLF_Hodge`) |
 | **Conjecture B (Lefschetz)** — balance-preserving `L`/`Λ` ⟹ `(D,D)` correspondence ⟹ algebraic | `lefschetzPow_isHodge`, `balanceCorrespondence_isHodge`, `conjecture_B_lefschetz_algebraic` (`QLF_Hodge`) |
 | **the standard conjectures discharged on the substrate** (the foundation of motives) | `standard_conjectures_on_substrate` (`QLF_Hodge`) |
+| **the motive object** — substrate closure = universal cohomology; realizations agree (universal property) | `Motive`, `Motive.realized`, `comparison_isomorphism`, `Motive.tensor`, `Motive.dual`, `dual_involutive` (`QLF_Motives`) |
 | the conjugation involution = the QLF adjoint `H ↔ H†` (Tannakian/motivic symmetry) | `CohClass.conj_involutive`, `conj_fixed_of_isHodge` (`QLF_Hodge`) |
 | geometry from a combinatorial order with no metric (anabelian resonance) | `reachable_refl/trans/antisymm`, `futureCone_subset` (`QLF_ReachableEvent`) |
 | a period (`π`) constructed from the closure census | `returnDensity_eq_census`, `physical_pi_in_progress` (`QLF_PhysicalPi`) |
