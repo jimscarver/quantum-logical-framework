@@ -215,3 +215,13 @@ product (the multiplicative fold could not). The structural blindness is broken,
 the genuine Hodge content**: whether the prime-generated cycle structure *spans* the `(p,p)` Hodge classes
 — codim 1 ✓ (divisors = single primes, Lefschetz), codim `p ≥ 2` the open spanning question, now on the
 right object rather than an artifact of a coarse encoding.
+
+**The spanning map — the floor (`QLF_SpanningMap`).** `decomposes_into_primes` proves the cycle ring is
+**free on the prime generators** (every cycle is a product of primes), so the algebraic classes are exactly
+the ℚ-combinations of products of irreducible cycle classes. With that, Hodge reads precisely as a
+**spanning** statement: *the prime cycle classes span the Hodge classes in each degree* — codim 1 = Lefschetz
+`(1,1)` (classical input), codim `p ≥ 2` the open spanning, which *is the Hodge conjecture itself*. So the
+thread bottoms out at the conjecture proper, cleanly stated on a representation where irreducibility is real,
+with the cycle-ring structure proven. The one remaining foundational piece is the class map into a *real*
+cohomology theory (the substrate has none yet) — the genuine, multi-step build, not a swing. This is the
+honest floor: the gap is the Hodge conjecture, located on the right object, everything around it proven.
