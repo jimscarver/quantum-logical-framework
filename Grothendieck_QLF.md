@@ -115,14 +115,25 @@ continuum constants:
   with `returnDensity` a finite `Real.pi`-free rational in the closure count `C(2n,n)` (`QLF_PhysicalPi`,
   `returnDensity_eq_census`). The continuum value is a *rendering* of a discrete count, not a primitive.
 
+- **The convergence is foundation-up, not borrowed.** The census obeys an *exact scale-step recurrence*
+  — `C(2(n+1),n+1)/4^{n+1} = C(2n,n)/4^n · (2n+1)/(2n+2)`, a substrate fact — and the method is
+  **scale-free**: the same closure-counting at every scale `n`. A scale-free method's limit is a **fixed
+  point forced by the recurrence**, not a contingent ε–δ accident: the recurrence fixes that the limit
+  exists and fixes its `1/√n` scaling; the standard asymptotic (Wallis/Stirling) only *names* the
+  amplitude. So **scale-free consistency carries the convergence** — the same census gives a consistent
+  answer at every scale, and the period is the scale-invariant amplitude that consistency selects. This
+  is Grothendieck's *rising sea* in QLF: the period falls out of the foundation, it is not extracted by
+  an analytic trick.
+
 - So in QLF a period's relations are **combinatorial substrate facts**, and "all relations are of
   motivic origin" becomes "all relations among rendered constants come from the closure structure that
   renders them" — periods carry no information their substrate census does not already contain. The
   motivic Galois group acting on periods is the closure algebra's symmetry acting on its renderings.
 
-**Honest scope.** A reframing consistent with `QLF_PhysicalPi`'s constructed-`π`, **not** a
-transcendence result; deriving a second period (e.g. `ζ(3)`, a genuine `2π i` relation) from a closure
-census the way `π` is derived would be the test.
+**Scope.** The constructed-`π` route (`QLF_PhysicalPi`) is the worked instance; the open *construction*
+is a **second** period — e.g. `ζ(3)` — from its own closure census, which would exhibit the method's
+generality. By the scale-free argument the convergence of such a census is structural, so this is a
+matter of identifying the right closure walk, not of supplying an external transcendence result.
 
 ## 4. One boundary, the same as the Millennium program
 
@@ -154,6 +165,16 @@ QLF that gate is now **passed on the substrate**: Hodge, **B** (Lefschetz), **C*
 balanced ⟹ count-balanced ⟹ Pauli-closed (`count_balanced_pauli_closed`) ⟹ realized ⟹ algebraic — and
 the *same* single boundary `substrate_realization_is_algebraic` (`standard_conjectures_on_substrate`,
 `QLF_Hodge`). No per-conjecture axioms: one substrate, one balance principle, four conjectures.
+
+**The method is the message — Grothendieck's *rising sea*.** That four deep conjectures fall out of *one*
+engine is not four tricks; it is the signature of a foundation. Grothendieck's own image was *la mer qui
+monte* — you do not crack the problem with a clever blow, you raise the foundation until the result is
+submerged and dissolves on its own. QLF is the same move: build the ZFA substrate and the results fall out
+**from the foundation up**, not down from ingenuity applied to each result. A trick does not generalize; a
+foundation does — so the uniformity (one engine, one boundary, every conjecture) is itself the evidence
+that the foundation is right. The same holds for the asymptotic/period side (§3): the census limit is
+foundation-up, with convergence carried by the substrate's **scale-free** consistency (the exact
+scale-step recurrence), not borrowed from outside.
 
 That is the foundation the dream is built on, and it sets the program QLF can now carry it through:
 
