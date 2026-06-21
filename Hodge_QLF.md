@@ -175,9 +175,20 @@ recorded in Lean as **`realization_blind_to_codimension`**: substrate realizatio
 `p`-blindness is therefore the **tell** that `isRealizedOnSubstrate` reads the *bidegree* (the easy,
 computable side), not *cycle existence* (algebraicity).
 
-**Where the sea must rise.** Faithfulness needs a substrate construction that makes codim-1 *forced* and
-higher codim genuinely open — a substrate analog of the exponential sequence `0 → ℤ → 𝒪 → 𝒪* → 0` whose role
-in Lefschetz `(1,1)` is to pin integral `(1,1)` classes to line bundles (= divisors = algebraic). Until the
-substrate encodes *cycles* (not bidegrees) and recovers that codim-1 specialness, `(1,1)` is realized only in
-the bidegree sense. That is the precise, attackable open problem — Grothendieck's "now make it look
+**The exponential-sequence swing (`QLF_HodgeExpSequence`).** We built the substrate analog of
+`0 → ℤ → 𝒪 → 𝒪* → 0` and it returned a sharper finding. *What transfers (real):* the substrate's own phase
+wrap `% N` (`QLF_LoopClosure`) **is** that sequence — `ℤ ↠ ZMod N` with kernel the integer **winding** `Nℤ`
+(`substrate_exp_kernel`), and a single winding is an elementary closure (`codim_one_closes` =
+`hermitian_pair_is_pauli_scalar`), the substrate's `Pic = H¹(𝒪*) =` line bundles. *Where it breaks (the
+wall, one level finer):* substrate realization is **multiplicative** — a concatenation of windings also
+closes (`codim_p_also_closes` = `concat_pairs_is_pauli_scalar`) — so it cannot tell an *irreducible single
+cycle* from a *product of cycles*. That multiplicativity *is* the `p`-uniformity. The classical sequence
+cracks `(1,1)` precisely because `H¹(𝒪*) = Pic` is line bundles — **irreducible** codim-1 objects with no
+multiplicative collapse.
+
+**Where the sea must rise (named precisely now).** Faithfulness needs a **non-multiplicative irreducibility
+invariant** on closures — the analog of "comes from a *single* line bundle, not a product" — separating a
+codim-1 cycle from a product. That is the next thing to build; until it exists, codim-1 and codim-p close
+alike and `substrate_realization_is_algebraic` stays an axiom. Each swing locates the wall finer
+(codim-blind → multiplicatively-blind → needs an irreducibility invariant) — Grothendieck's "make it
 inevitable," not assumed.
