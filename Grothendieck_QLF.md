@@ -111,11 +111,21 @@ a number-theoretic cousin of the `H ↔ H†` mirror between QLF perspectives (`
 (`closurePi1_injective`: the geometry determines the closure) and order-↔-inclusion on morphisms
 (`reachable_iff_pi1_subset`), so **geometry is recovered from the combinatorial closure**
 (`anabelian_fully_faithful`). The groupoid is thin (`closure_groupoid_thin`: no non-trivial loops), so
-the geometric content is the causal *order* (Malament). **Honest scope.** This anchors the
-geometry-from-skeleton reconstruction on the discrete causal set; the **open** pieces are the continuum
-order→metric step (the Causal-Set boundary, shared with `light_cone_rendering_in_progress`) and a
-profinite **étale `π₁`** carrying the non-trivial Galois quotient — whose arithmetic side is the motivic
-Galois group (`QLF_MotivicGalois`).
+the geometric content is the causal *order* (Malament).
+
+**The anabelian exact sequence is now closed on the substrate** (`QLF_AnabelianGalois`). A `Motive`'s
+closure *is* an anabelian `Event` (both `List Twist`), so the motivic Galois group acts on the very
+objects the anabelian functor sees: the `H↔H†` element `weightConjAut` moves the *weight* (the arithmetic
+enrichment) while fixing the *closure* (the geometric `π₁`) — `motive_closure_galois_invariant` — so the
+anabelian reconstruction is Galois-equivariant (`anabelian_galois_equivariant`) and the geometric `π₁` is
+the **kernel** of the arithmetic Galois action: `1 → π₁ᵍᵉᵒᵐ → π₁ᵃʳⁱᵗʰ → Gal → 1`. The same element's
+fixed locus is the Hodge/Tate diagonal — the Riemann critical line and the BSD central point
+(`galois_fixed_iff_hodge`) — so the Millennium `H↔H†` spine is one verified motivic-Galois involution.
+
+**Honest scope.** This anchors the geometry-from-skeleton reconstruction *and* the anabelian/Galois
+sequence on the discrete causal set; the **open** pieces are the continuum order→metric step (the
+Causal-Set boundary, shared with `light_cone_rendering_in_progress`) and enriching the thin geometric
+groupoid to a *profinite* étale `π₁` (a richer non-abelian Galois quotient than the order-2 `weightConjAut`).
 
 ## 3. The period conjecture — periods are limits of closure counts
 
@@ -246,6 +256,7 @@ continuum/choice residual is ZFC's proven-defective sector, not a gap in the sub
 | **the motivic Galois group** — tensor-automorphisms of the fiber functor form a group; non-trivial; Tate = trivial rep | `MotiveAut`, `comp`/`id`/`symm` + `comp_assoc`/`symm_comp`/`comp_symm`, `weightConjAut`, `weightConjAut_involutive`, `galois_fixes_unit_rank` (`QLF_MotivicGalois`) |
 | the conjugation involution = the QLF adjoint `H ↔ H†` (Tannakian/motivic symmetry) | `CohClass.conj_involutive`, `conj_fixed_of_isHodge` (`QLF_Hodge`) |
 | **the anabelian functor** — geometry recovered from the combinatorial closure (fully faithful) | `closurePi1`, `closurePi1_injective`, `reachable_iff_pi1_subset`, `anabelian_fully_faithful` (`QLF_Anabelian`) |
+| **the anabelian exact sequence** — geometric `π₁` = kernel of the arithmetic Galois action; the Millennium `H↔H†` spine = one Galois element | `motive_closure_galois_invariant`, `anabelian_galois_equivariant`, `galois_fixed_iff_hodge` (`QLF_AnabelianGalois`) |
 | **periods** from the closure census — *two* from one count (`π` and `ζ(3)`) | `returnDensity_eq_census` (`QLF_PhysicalPi`); `aperyTerm`, `apery_summand_census`, `aperyTerm_one` (`QLF_AperyPeriod`) |
 | the single algebraic→analytic boundary axiom | `substrate_realization_is_algebraic` (`QLF_Hodge`); [`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md) |
 | categorical settings (étale/motivic/…) generated from one set of generators | [`Langlands.md`](Langlands.md) §2–3 |

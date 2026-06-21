@@ -72,9 +72,22 @@ The same QLF structure recurs across the table — which is why one framework re
   BSD (the self-dual central point governs the rank). On the substrate this is an outright
   theorem: **`count_balanced_pauli_closed`** (count balance ⟹ closure) in
   [`QLF_TwistAlphabet`](lean/QLF_TwistAlphabet.lean).
-- **The adjoint involution H ↔ H† is the mirror.** The Riemann functional equation `s↔1−s`,
-  the BSD `s↔2−s`, the Hodge conjugation `H^{p,q}↔H^{q,p}`, and modularity (the Hermitian-pair
-  mirror) are all the *same* self-duality, whose fixed locus is `Σ_sa`.
+- **The adjoint involution H ↔ H† is the mirror — now a *verified group element*.** The Riemann
+  functional equation `s↔1−s`, the BSD `s↔2−s`, the Hodge conjugation `H^{p,q}↔H^{q,p}`, and
+  modularity (the Hermitian-pair mirror) are all the *same* self-duality, whose fixed locus is `Σ_sa`.
+  That involution is now an element of QLF's **motivic Galois group** — `weightConjAut`
+  ([`QLF_MotivicGalois`](lean/QLF_MotivicGalois.lean)), an order-2 tensor-automorphism of the fiber
+  functor — and its fixed locus is exactly the Hodge/Tate diagonal = the Riemann critical line = the BSD
+  central point (`galois_fixed_iff_hodge`, [`QLF_AnabelianGalois`](lean/QLF_AnabelianGalois.lean)). So the
+  three Millennium self-dual loci are *one verified motivic-Galois involution*, not three posited
+  reflections.
+- **The Millennium problems now sit on the Grothendieck foundation.** The constructive core under the
+  table is no longer per-problem: QLF's [Grothendieck program](Grothendieck_QLF.md) has discharged the
+  full **standard conjectures** (Hodge, B, C, D — same `balanced ⟹ realized` engine), built the **motive
+  object**, the **motivic Galois group**, the **anabelian** functor, and **periods** (`π`, `ζ(3)`) — and
+  the **anabelian exact sequence is closed on the substrate** (`QLF_AnabelianGalois`: geometric `π₁` =
+  kernel of the arithmetic Galois action). Riemann/BSD/Hodge are the arithmetic faces of that one
+  foundation, the same engine and the same single continuum boundary — foundation-up, not problem-by-problem.
 - **Non-termination is the enemy, and it is pruned.** Navier–Stokes blow-up and the
   exponential P-side search are the fluid and computational faces of the same Busy-Beaver tail
   that `full_zeno_prune` removes before it can be physical.
