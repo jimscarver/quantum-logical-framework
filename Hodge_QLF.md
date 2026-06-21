@@ -206,3 +206,12 @@ swing series — codim-blind → multiplicatively-blind → invariant-in-hand-bu
 here: the bet `substrate_realization_is_algebraic` stays an axiom until that encoding exists, and the swings
 have shown it is the *only* missing piece, precisely located. Grothendieck's "make it inevitable," named to
 the floor.
+
+**First step on the encoding (`QLF_CycleEncoding`).** A `CycleClass` *retains* the prime decomposition (a
+cycle = its list of irreducible components, each a codim), instead of collapsing it like the toy `encode`.
+On it the irreducibility invariant **bites** — a product of two irreducibles is *not* irreducible
+(`irreducible_not_preserved_under_product`), so the representation distinguishes a single cycle from a
+product (the multiplicative fold could not). The structural blindness is broken, and **the gap has moved to
+the genuine Hodge content**: whether the prime-generated cycle structure *spans* the `(p,p)` Hodge classes
+— codim 1 ✓ (divisors = single primes, Lefschetz), codim `p ≥ 2` the open spanning question, now on the
+right object rather than an artifact of a coarse encoding.
