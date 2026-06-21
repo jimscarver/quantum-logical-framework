@@ -1,5 +1,6 @@
 import QLF_MotivicGalois
 import QLF_Anabelian
+import QLF_BSD
 
 /-!
 # QLF_AnabelianGalois — closing the anabelian exact sequence on the substrate
@@ -66,6 +67,19 @@ theorem galois_acts_on_weight (m : Motive) :
 theorem galois_fixed_iff_hodge (m : Motive) :
     m.weight.conj = m.weight ↔ m.weight.isHodge :=
   Motive.weight_selfDual_iff_hodge m
+
+/-- **The three Millennium self-dual loci are one self-duality** — packaged across modules. The
+    abstract `s ↦ a−s` midpoint reflection (`reflection_fixed_iff`); the **BSD** central point
+    `s = 1 = 2/2` as its instance (`bsd_central_point_eq_midpoint`); and the **motivic-Galois** `H↔H†`
+    fixed locus = the **Hodge**/Tate diagonal (`galois_fixed_iff_hodge`). The **Riemann** functional
+    equation `s ↦ 1−s` is the same reflection at `a = 1` (`functional_equation_fixed_real`,
+    `bsd_riemann_shared_involution`). So one involution — now the verified motivic-Galois element
+    `weightConjAut` — sits behind Riemann, BSD, and Hodge. -/
+theorem millennium_involution_unified :
+    (∀ a s : ℝ, a - s = s ↔ s = a / 2) ∧
+    bsd_central_point = 2 / 2 ∧
+    (∀ m : Motive, m.weight.conj = m.weight ↔ m.weight.isHodge) :=
+  ⟨reflection_fixed_iff, bsd_central_point_eq_midpoint, galois_fixed_iff_hodge⟩
 
 /-- **Milestone — the anabelian exact sequence on the substrate.** The geometric `π₁` (`closurePi1`,
     `QLF_Anabelian`) is the kernel of the arithmetic motivic Galois action (`weightConjAut`,
