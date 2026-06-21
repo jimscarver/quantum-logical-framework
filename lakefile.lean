@@ -104,5 +104,6 @@ lean_lib QLF where
     `QLF_Motives,
     `QLF_MotivicGalois,
     `QLF_Anabelian,
-    `QLF_AperyPeriod
+    `QLF_AperyPeriod,
+    `QLF_AnabelianGalois
   ]
