@@ -186,9 +186,23 @@ cycle* from a *product of cycles*. That multiplicativity *is* the `p`-uniformity
 cracks `(1,1)` precisely because `H¹(𝒪*) = Pic` is line bundles — **irreducible** codim-1 objects with no
 multiplicative collapse.
 
-**Where the sea must rise (named precisely now).** Faithfulness needs a **non-multiplicative irreducibility
-invariant** on closures — the analog of "comes from a *single* line bundle, not a product" — separating a
-codim-1 cycle from a product. That is the next thing to build; until it exists, codim-1 and codim-p close
-alike and `substrate_realization_is_algebraic` stays an axiom. Each swing locates the wall finer
-(codim-blind → multiplicatively-blind → needs an irreducibility invariant) — Grothendieck's "make it
-inevitable," not assumed.
+**The invariant already exists — and the series converges (`QLF_HodgeIrreducible`).** The
+non-multiplicative irreducibility invariant the last swing named was already in the codebase, from the α
+census: the **prime/irreducible closures** `2·Catalan(n−1)` and the **Dyson resummation** `G·(1−I) = 1`
+(`irreducibility_invariant_is_dyson` = `census_irreducible_resummation`) — the total *multiplicative*
+census `G` is the geometric resummation of the irreducible primitives `I`, so a product of primes is
+composite: genuinely non-multiplicative. *But it doesn't yet help*, because the cohomology↔closure map is
+the toy `encode ⟨p,q⟩ = upᵖ downᵠ`; for `⟨p,p⟩` that is the single nested staircase `upᵖ downᵖ` — prime for
+every `p` — so through the toy encoding the invariant is again `p`-uniform. **The blindness is in the
+encoding, not the invariant.**
+
+**The floor.** The substrate has *all* the structural pieces of the Hodge machinery — exponential sequence
++ Chern/winding (`QLF_HodgeExpSequence`), balance / `(p,p)` (`QLF_Hodge`), irreducibility / primes (the α
+census). The entire remaining faithfulness gap reduces to **one** named foundational object: a
+**cycle-faithful encoding** of cohomology classes as closures (`codim-p ↦` real cycle complexity, not the
+bidegree-coarse toy). That is "build algebraic geometry in the substrate" — the genuinely foundational task
+(the same reason classical Hodge is hard, and Mathlib's algebraic geometry is still under construction). The
+swing series — codim-blind → multiplicatively-blind → invariant-in-hand-but-encoding-coarse — converges
+here: the bet `substrate_realization_is_algebraic` stays an axiom until that encoding exists, and the swings
+have shown it is the *only* missing piece, precisely located. Grothendieck's "make it inevitable," named to
+the floor.
