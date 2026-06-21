@@ -10,24 +10,35 @@ applied to arithmetic geometry. In QLF's reading the **ZFA closure substrate is 
 the object all cohomology theories render, and the conjectures are the assertion that the rendering
 loses nothing.
 
+> **Read this first — what this document does and does not claim.** This is a **conjectural
+> synthesis**, not a set of proofs. QLF does **not** prove Grothendieck's conjectures. What it builds, on
+> the substrate, is a **reformulation**: each rung pairs a *verified discrete core* (real Lean theorems
+> about twist strings / closures, and the π/ζ(3) census) with **one explicit bridge axiom** — and for the
+> Standard Conjectures that bridge, `substrate_realization_is_algebraic`, is **of full conjecture
+> strength** (it asserts "substrate closure = algebraic cycle," which on Hodge classes *is* the Hodge
+> conjecture). Deriving the classical conjecture from it is question-begging if read as a proof; it is a
+> clean *reformulation* if read as one. The honest, defensible claim here is the **ontology** (the
+> substrate-first picture, the rising-sea analogy, periods-from-the-census), offered as a lens — not "QLF
+> machine-verified the Standard Conjectures." Note too: Hodge and the standard conjectures are **finite
+> ℚ-linear-algebra** statements (is a vector in the ℚ-span of cycle classes?), *not* continuum or
+> independence phenomena — so "ZFC's defect" does **not** apply to them.
+
 This began as the Lean program for the **Hodge conjecture** ([`Hodge_QLF.md`](Hodge_QLF.md) / `QLF_Hodge`)
-and is now **built out across all five rungs of the dream** — the full **standard conjectures** (Hodge,
-B, C, D), the **motive object**, the **motivic Galois group**, **anabelian** recovery, and **periods** —
-each machine-verified on the substrate through the *same* engine (`balanced ⟹ realized` / the scale-free
-census) and the *same* single continuum/choice boundary. It sits alongside the bottom-up **Langlands**
-scaffolding ([`Langlands.md`](Langlands.md)). What remains open is **not** any rung but the shared
-continuum-rendering boundary (ZFC's proven-defective sector) and the *deepening* threads named below;
-scope is marked throughout.
+and now spans all five rungs of the dream — the **standard conjectures** (Hodge, B, C, D), the **motive
+object**, the **motivic Galois group**, **anabelian** recovery, and **periods** — each a substrate
+*reformulation* through the *same* engine (`balanced ⟹ realized` / the scale-free census) and the *same*
+single bridge axiom. It sits alongside the bottom-up **Langlands** scaffolding
+([`Langlands.md`](Langlands.md)).
 
-**Map of the five rungs** (all on the substrate, no per-rung axioms):
+**Map of the five rungs** (each = verified discrete core + one conjectural bridge):
 
-| Rung | Where | Module |
-|---|---|---|
-| **Standard conjectures** (Hodge, B, C, D) | §1 | `QLF_Hodge` |
-| **The motive object** (universal cohomology) | §5 | `QLF_Motives` |
-| **The motivic Galois group** (Tannakian) | §5 | `QLF_MotivicGalois` |
-| **Anabelian** — geometry from the skeleton | §2 | `QLF_Anabelian` |
-| **Periods** from the census (`π`, `ζ(3)`) | §3 | `QLF_PhysicalPi`, `QLF_AperyPeriod` |
+| Rung | Where | Module | Status |
+|---|---|---|---|
+| **Standard conjectures** (Hodge, B, C, D) | §1 | `QLF_Hodge` | reformulation; bridge of full strength |
+| **The motive object** (universal cohomology) | §5 | `QLF_Motives` | structure built; rests on the bridge |
+| **The motivic Galois group** (Tannakian) | §5 | `QLF_MotivicGalois` | structure built (a real group) |
+| **Anabelian** — geometry from the skeleton | §2 | `QLF_Anabelian` | a genuine theorem on the causal set |
+| **Periods** from the census (`π`, `ζ(3)`) | §3 | `QLF_PhysicalPi`, `QLF_AperyPeriod` | genuine (Wallis/Apéry, classical) |
 
 ---
 
@@ -50,36 +61,31 @@ In QLF this is structural, not aspirational:
   object — is the symmetry of the closure algebra (the same `H ↔ H†` adjoint/Tannakian involution that
   organizes Hodge, BSD, and Riemann in QLF).
 
-- **Algebraicity *is* balanced ⟹ realized — and that half is proven.** The standard conjectures are all
-  *algebraicity* statements: a class built the right way is realized by an actual algebraic cycle.
-  QLF's machine-verified engine for exactly this is `count_balanced_pauli_closed` →
-  `hodge_class_is_algebraic` (`QLF_Hodge`): a count-balanced twist history folds to a Pauli scalar
-  (closes), and a closed = balanced self-dual class is realized on the substrate
-  (`hodge_realized_on_substrate`), hence algebraic. The **Hodge standard conjecture** is the worked
-  case (the `(p,p)` diagonal = the fixed locus of the conjugation involution `CohClass.conj`,
-  `conj_fixed_of_isHodge`). The **Künneth standard conjecture (C)** is now
-  **machine-verified for the diagonal**: each Künneth component, viewed on the product `X × X`, has
-  bidegree `(a + (d−a), b + (d−b)) = (d, d)` — a Hodge class on the product (`diagonalComponent_isHodge`)
-  — so it is count-balanced, Pauli-closes via the `nf_decomp` keystone (`count_balanced_pauli_closed`),
-  and is algebraic; Conjecture C is discharged **component by component through the same substrate route
-  as Hodge, no new axiom** (`kunneth_component_algebraic`, `kunneth_diagonal_components_algebraic`,
-  `QLF_Hodge`). **Conjecture D** (numerical = homological equivalence) is **machine-verified** the same
-  way: the intersection pairing reaches the fundamental class exactly at Poincaré-complementary
-  bidegrees, and that fundamental `(d,d)` class realizes on the substrate (`pairing_realizes`,
-  `count_balanced_pauli_closed`), so every in-range class pairs realizably with its Poincaré dual — the
-  substrate *is* the non-degeneracy — and numerical ≡ homological triviality, both reducing to "out of
-  range = the zero class" (`conjecture_D_numerical_eq_homological`). And **Conjecture B (Lefschetz)** is
-  verified likewise: `L`/`Λ` preserve the Hodge balance `p − q` (`lefschetzPow_isHodge`), so their
-  correspondence on `X × X` is a `(D,D)` Hodge class, hence algebraic (`conjecture_B_lefschetz_algebraic`).
+- **What is actually proven (the discrete core), and what is assumed (the bridge).** The standard
+  conjectures are *algebraicity* statements: a class built the right way is realized by an actual
+  algebraic cycle. QLF's **verified** part is the discrete engine `count_balanced_pauli_closed`: a
+  count-balanced twist history folds to a Pauli scalar (closes) — a real theorem *about twist strings*.
+  Then `hodge_class_is_algebraic` (`QLF_Hodge`) is **derived from the bridge axiom**
+  `substrate_realization_is_algebraic` ("substrate closure = algebraic cycle"), which on Hodge classes
+  *is* the Hodge conjecture (and `isAlgebraic` is itself abstract). So the algebraicity step is **assumed,
+  not proven** — the Lean confirms the reformulation, not the conjecture. With that read in place: the
+  **Hodge** case is the worked one (the `(p,p)` diagonal = fixed locus of `CohClass.conj`); **Künneth (C)**
+  reduces each diagonal component to a `(d,d)` Hodge class on `X × X` (`diagonalComponent_isHodge`,
+  `kunneth_diagonal_components_algebraic`); **D** reads numerical ≡ homological off the same `(d,d)`
+  realization (`conjecture_D_numerical_eq_homological`); **B** uses that `L`/`Λ` preserve the Hodge balance
+  (`lefschetzPow_isHodge`, `conjecture_B_lefschetz_algebraic`). All four route through the *one* bridge —
+  which mirrors the real mathematics (B, C, D, Hodge are one coupled package), and is the honest content:
+  **a single substrate-faithfulness principle equivalent in strength to the standard-conjectures package.**
 
-**Honest scope.** The Hodge case **and Standard Conjectures B, C, and D are now machine-verified in
-Lean** — each reduced to the single balanced-⟹-realized substrate route (`count_balanced_pauli_closed`)
-through the one shared boundary (`standard_conjectures_on_substrate`). The lone boundary is identical to
-Hodge's:
-`substrate_realization_is_algebraic` — that substrate closure = algebraic realization over the
-complex-analytic continuum. That boundary is the algebraic→analytic crossing where ZFC is itself
-proven defective, **not** a QLF gap (the binding Millennium framing,
-[`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md)).
+**Honest scope (binding).** This is a **reformulation, not a proof.** What is machine-verified is the
+*discrete core* (`count_balanced_pauli_closed` and the encodings — theorems about twist strings). The step
+that reaches the *classical* conjecture is the bridge axiom `substrate_realization_is_algebraic`, **of full
+conjecture strength** (it carries the content of Hodge; `isAlgebraic` is abstract). And — crucially — the
+standard conjectures are **finite ℚ-linear-algebra** statements (is a vector in the ℚ-span of cycle
+classes?), **not** continuum or independence phenomena, so the "ZFC's proven defect" framing does **not**
+apply here. The defensible claim is the *reformulation* and the *ontology behind it*, offered as a
+conjectural synthesis — not "QLF proved the Standard Conjectures." See
+[`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md) for where the continuum framing *does* apply.
 
 ## 2. The anabelian "Grothendieck conjecture" — geometry from the combinatorial skeleton
 
@@ -178,40 +184,43 @@ cohomology, `π₁` → geometry, periods → transcendence. That is precisely t
 crossing** at which QLF's Millennium modules each place a single explicit boundary axiom (Riemann
 `spectral_hilbert_polya`, Hodge `substrate_realization_is_algebraic`, …). QLF's claim is uniform:
 
-> The conjectures are **true on the substrate** — the discrete algebraic closure *is* the universal
-> object (the motive, the `π₁`, the period census) — and the only open step is the **faithfulness of
-> the continuum rendering**, which lives in the continuum/choice sector where ZFC is *itself* proven to
-> fail. That residual is ZFC's defect, not a QLF gap.
+> Each conjecture is **reformulated** on the substrate — a verified discrete core plus one explicit bridge
+> asserting that the continuum rendering is *faithful* to the substrate. The discrete core is genuine; the
+> faithfulness bridge is **assumed**.
 
-This is the same posture, and the same constructive-core-plus-one-boundary shape, that discharged
-`hodge_class_is_algebraic` and `bsd_rank_equals_order` into *theorems* through their boundary axioms.
-Grothendieck built the machinery (cycles, motives, anabelian recovery, periods) that says *the finite
-algebraic skeleton suffices*; QLF says the skeleton is the **ZFA substrate**, and provides the
-selection rule (closure / ZFA balance) and the worked Lean instance (Hodge) that the broader standard
-conjectures generalize.
+**Two caveats keep this honest.** First, the bridge is **not** weaker than the conjecture: for the standard
+conjectures it *is* the conjecture (of full strength), so "reformulated through one bridge" is a clean
+restatement, not a proof. Second — and this is where the earlier framing erred — the **"ZFC's proven
+defect"** label belongs only to genuine **uncomputability / independence** boundaries (halting, Busy
+Beaver, the analytic residue). It does **not** belong to the finitary conjectures (Hodge, B, C, D, BSD, P
+vs NP): those are ordinary hard statements, not known independent of ZFC, so relabeling their assumed
+bridge as "ZFC's defect" is a category error. Grothendieck built the machinery (cycles, motives, anabelian
+recovery, periods) that says *the finite algebraic skeleton suffices*; QLF conjectures that the skeleton is
+the **ZFA substrate** and exhibits the reformulation — a synthesis to be argued, not a proof to be cited.
 
 ## 5. The dream — motives on the substrate
 
 Grothendieck's dream was the theory of **motives**: a single universal cohomology underlying every
 realization (Betti, de Rham, étale, crystalline), founded on the **standard conjectures**, with a
-**motivic Galois group** unifying arithmetic and geometry. The standard conjectures are the gate — and in
-QLF that gate is now **passed on the substrate**: Hodge, **B** (Lefschetz), **C** (Künneth), and **D**
-(numerical ≡ homological) are each machine-verified, every one discharged through the *same* route —
-balanced ⟹ count-balanced ⟹ Pauli-closed (`count_balanced_pauli_closed`) ⟹ realized ⟹ algebraic — and
-the *same* single boundary `substrate_realization_is_algebraic` (`standard_conjectures_on_substrate`,
-`QLF_Hodge`). No per-conjecture axioms: one substrate, one balance principle, four conjectures.
+**motivic Galois group** unifying arithmetic and geometry. The standard conjectures are the gate — and QLF
+**reformulates** that gate on the substrate: Hodge, **B** (Lefschetz), **C** (Künneth), and **D**
+(numerical ≡ homological) all reduce, through the *same* discrete route (balanced ⟹ count-balanced ⟹
+Pauli-closed, `count_balanced_pauli_closed`), to the *same* single bridge axiom
+`substrate_realization_is_algebraic` (`standard_conjectures_on_substrate`, `QLF_Hodge`). That bridge is
+**of full conjecture strength** — so this is one substrate-faithfulness principle *equivalent to* the
+standard-conjectures package, not a proof of it. No per-conjecture axioms: one substrate, one balance
+principle, one bridge.
 
-**The method is the message — Grothendieck's *rising sea*.** That four deep conjectures fall out of *one*
-engine is not four tricks; it is the signature of a foundation. Grothendieck's own image was *la mer qui
-monte* — you do not crack the problem with a clever blow, you raise the foundation until the result is
-submerged and dissolves on its own. QLF is the same move: build the ZFA substrate and the results fall out
-**from the foundation up**, not down from ingenuity applied to each result. A trick does not generalize; a
-foundation does — so the uniformity (one engine, one boundary, every conjecture) is itself the evidence
-that the foundation is right. The same holds for the asymptotic/period side (§3): the census limit is
-foundation-up, with convergence carried by the substrate's **scale-free** consistency (the exact
-scale-step recurrence), not borrowed from outside.
+**The method — Grothendieck's *rising sea*.** That four deep conjectures reduce to *one* principle is not
+four tricks; it mirrors that they genuinely *are* one coupled package (Kleiman). Grothendieck's own image
+was *la mer qui monte* — you do not crack the problem with a clever blow, you raise the foundation until
+the result is submerged. QLF's bet is the same move read ontologically: build the ZFA substrate and the
+*reformulations* fall out from the foundation up. The uniformity (one bridge, every conjecture) is
+suggestive evidence *for the ontology* — it is **not** a proof of the conjectures, since the one bridge is
+as strong as all of them together. (The period side, §3, is different: there the convergence is genuine,
+carried by the substrate's **scale-free** scale-step recurrence — Wallis/Apéry, classical and true.)
 
-That is the foundation the dream is built on — and the five rungs that stand on it are now built:
+That foundation supports five rungs; here is what each actually is (verified core vs. conjectural bridge):
 
 - **The motive is the ZFA closure — now built** (`QLF_Motives`). A pure `Motive` *is* a ZFA closure
   carrying a weight; it is realized (`Motive.realized`, reusing `count_balanced_pauli_closed`); the Weil
@@ -232,34 +241,35 @@ That is the foundation the dream is built on — and the five rungs that stand o
   yields **two** periods — `π` and `ζ(3)` (Apéry) — as finite `Real.pi`-free rational sequences; the
   convergence is scale-free / foundation-up.
 
-The dream's skeleton is complete; what remains is **deepening**, not obstruction-clearing — e.g. a
+The structures (motive, Galois group, anabelian, periods) are genuinely built; the standard-conjecture
+*algebraicity* remains the assumed bridge. What's beyond that is **deepening** — e.g. a
 profinite étale `π₁` carrying a non-trivial Galois quotient, wiring the (settled) Wallis / Apéry limits
 in-module, and **unifying number-theoretic and geometric Langlands** ([`Langlands.md`](Langlands.md) §5.6)
 from the same generators.
 
 **The mission.** Fulfilling Grothendieck's dream, in QLF terms, is showing that the **discrete algebraic
-substrate is the universal motive** and that everything analytic is its faithful rendering. The standard
-conjectures — the historical obstruction — are discharged, **the motive object is built** (`QLF_Motives`:
-realized motives, the comparison-isomorphism universal property, tensor, the motivic-Galois duality), and
-**the motivic Galois group is built** (`QLF_MotivicGalois`: the tensor-automorphism group of the fiber
-functor, with the group axioms machine-checked, a non-trivial `H↔H†` element, and the Tate motive as its
-trivial representation), and **the anabelian `π₁`↔closure functor is built** (`QLF_Anabelian`: the
-future-cone functor is fully faithful, so geometry is recovered from the combinatorial closure), and **a
-second period is built** (`QLF_AperyPeriod`: `ζ(3)` from the same closure census as `π`). **All five rungs
-of the dream are now on the substrate** — standard conjectures, motives, motivic Galois group, anabelian
-recovery, and periods — every one through the same balanced-⟹-realized engine / scale-free census and the
-same single continuum/choice boundary. What was the historical obstruction is constructively in hand; the
-continuum/choice residual is ZFC's proven-defective sector, not a gap in the substrate construction.
+substrate is the universal motive** and that everything analytic is its faithful rendering — offered as a
+*lens*, a conjectural synthesis. The standard conjectures are **reformulated** (not discharged) as a
+verified discrete core plus one full-strength bridge; **the motive object is built** as a Lean structure
+(`QLF_Motives`) resting on that bridge; **the motivic Galois group is a genuine group** (`QLF_MotivicGalois`,
+group axioms machine-checked); **the anabelian `π₁`↔closure functor is a genuine theorem** on the causal
+set (`QLF_Anabelian`); and **`π` and `ζ(3)` genuinely fall out of the closure census** (`QLF_PhysicalPi`,
+`QLF_AperyPeriod` — Wallis/Apéry, classical and true). So the *structures* and the *period results* are
+real; the *standard-conjecture algebraicity* is the assumed bridge. None of this proves the conjectures —
+they are finitary statements the substrate ontology does not resolve — and "ZFC's defect" is **not** the
+right label for them (it is for genuine continuum/uncomputability boundaries, not these). The claim worth
+making is the ontology and the reformulation, as a bet; the proof claim is conceded as the open bridge.
 
 ## Lean / doc anchors
 
 | Claim | Anchor |
 |---|---|
-| balanced self-dual class ⟹ algebraic (the Hodge standard conjecture) | `hodge_class_is_algebraic`, `count_balanced_pauli_closed` (`QLF_Hodge`, [`Hodge_QLF.md`](Hodge_QLF.md)) |
+| **verified discrete core**: count-balanced ⟹ Pauli-closed (a theorem about twist strings) | `count_balanced_pauli_closed` (`QLF_Hodge`/`QLF_TwistAlphabet`) |
+| **conjectural bridge** (full strength): substrate-realized ⟹ algebraic ⟹ `hodge_class_is_algebraic` *derived* | `substrate_realization_is_algebraic`, `hodge_class_is_algebraic` (`QLF_Hodge`, [`Hodge_QLF.md`](Hodge_QLF.md)) |
 | **Künneth standard conjecture (C)** — each diagonal component is `(d,d)` on the product ⟹ algebraic | `diagonalComponent_isHodge`, `kunneth_component_algebraic`, `kunneth_diagonal_components_algebraic` (`QLF_Hodge`) |
 | **Conjecture D** — numerical ≡ homological (pairing non-degeneracy = substrate `(d,d)`-realization) | `pairsToFundamental`, `poincareDual_pairs`, `pairing_realizes`, `conjecture_D_numerical_eq_homological` (`QLF_Hodge`) |
 | **Conjecture B (Lefschetz)** — balance-preserving `L`/`Λ` ⟹ `(D,D)` correspondence ⟹ algebraic | `lefschetzPow_isHodge`, `balanceCorrespondence_isHodge`, `conjecture_B_lefschetz_algebraic` (`QLF_Hodge`) |
-| **the standard conjectures discharged on the substrate** (the foundation of motives) | `standard_conjectures_on_substrate` (`QLF_Hodge`) |
+| **the standard conjectures reformulated** (one full-strength bridge; a package, not a proof) | `standard_conjectures_on_substrate` (`QLF_Hodge`) |
 | **the motive object** — substrate closure = universal cohomology; realizations agree (universal property) | `Motive`, `Motive.realized`, `comparison_isomorphism`, `Motive.tensor`, `Motive.dual`, `dual_involutive` (`QLF_Motives`) |
 | **the motivic Galois group** — tensor-automorphisms of the fiber functor form a group; non-trivial; Tate = trivial rep | `MotiveAut`, `comp`/`id`/`symm` + `comp_assoc`/`symm_comp`/`comp_symm`, `weightConjAut`, `weightConjAut_involutive`, `galois_fixes_unit_rank` (`QLF_MotivicGalois`) |
 | the conjugation involution = the QLF adjoint `H ↔ H†` (Tannakian/motivic symmetry) | `CohClass.conj_involutive`, `conj_fixed_of_isHodge` (`QLF_Hodge`) |
@@ -271,28 +281,36 @@ continuum/choice residual is ZFC's proven-defective sector, not a gap in the sub
 
 ## Honest scope (binding)
 
-**Built on the substrate (machine-verified, no per-rung axioms).** All five rungs:
+**What is genuinely verified** (real Lean theorems, no hidden assumption):
 
-1. the **standard conjectures** — Hodge, B (Lefschetz), C (Künneth, for the diagonal), D (numerical ≡
-   homological) — through the one balanced-⟹-realized route (`standard_conjectures_on_substrate`,
-   `QLF_Hodge`);
-2. the **motive object** — realized motives, the comparison-isomorphism universal property, tensor, the
-   `H↔H†` duality (`QLF_Motives`);
-3. the **motivic Galois group** — the tensor-automorphism group of the fiber functor, group axioms
-   checked, a non-trivial element, the Tate trivial representation (`QLF_MotivicGalois`);
-4. **anabelian** recovery — the future-cone functor is fully faithful, so geometry is recovered from the
-   combinatorial closure (`QLF_Anabelian`);
-5. **periods** — `π` and `ζ(3)` from the *same* closure census, scale-free / foundation-up
-   (`QLF_PhysicalPi`, `QLF_AperyPeriod`).
+- the **discrete engine** `count_balanced_pauli_closed` — count balance ⟹ Pauli closure, a theorem about
+  twist strings (`QLF_TwistAlphabet`);
+- the **motive / Galois / anabelian structures** as Lean objects — `Motive` and its tensor/dual, the
+  motivic Galois **group** (group axioms checked, `QLF_MotivicGalois`), and the **anabelian** full-faithful
+  reconstruction on the causal set (`QLF_Anabelian`, a genuine theorem);
+- the **periods**: `π` and `ζ(3)` *do* fall out of the central-binomial closure census
+  (`QLF_PhysicalPi`, `QLF_AperyPeriod`) — Wallis and Apéry, classical and true.
 
-All five share the **one boundary** `substrate_realization_is_algebraic` (and, for the period limits, the
-settled Wallis/Apéry asymptotics) — the algebraic→analytic / continuum-rendering crossing, **ZFC's
-proven-defective sector**, the same boundary the QLF Millennium program isolates. That is the residual in
-every case; it is ZFC's defect, **not** a gap in the substrate construction.
+**What is assumed** (and must be stated as such): the step from a *substrate closure* to a *classical
+algebraic cycle* — the bridge axiom `substrate_realization_is_algebraic`. On Hodge classes that axiom **is**
+the Hodge conjecture; it is **of full conjecture strength**; `isAlgebraic` is itself abstract. So
+`hodge_class_is_algebraic`, the Künneth/D/B reductions, and `standard_conjectures_on_substrate` are
+**derivations from the conjecture-as-axiom — a reformulation, not a proof.**
 
-**Open — deepening, not obstruction** (state plainly; do not claim settled): a profinite **étale `π₁`**
-carrying a non-trivial Galois quotient (the §2 arithmetic enrichment); wiring the (settled) period limits
-in-module (`physical_pi_in_progress`, `apery_period_in_progress`); the continuum **order→metric** step
-(`light_cone_rendering_in_progress`); and **unifying number-theoretic and geometric Langlands**
-([`Langlands.md`](Langlands.md) §5.6). The obstruction — the standard conjectures — is behind us; what is
-left is construction on a finished foundation.
+**What QLF does *not* claim, and why the distinction is load-bearing.** QLF does **not** prove the Standard
+Conjectures. They are *finite ℚ-linear-algebra* statements (is a vector in the ℚ-span of cycle classes?),
+hard but **not** continuum or independence phenomena — so the "ZFC's proven defect" framing **does not
+apply** to them (it applies to genuine uncomputability/independence boundaries — halting, Busy Beaver, the
+analytic residue — not these). The substrate ontology (the continuum is a rendering of the computable
+substrate; Brouwer/Bishop/Weyl/Gisin) is the real, defensible bet, and the reformulation is its worked
+example. **Assert that; do not assert a proof.** A "QLF machine-verified the Standard Conjectures" claim is
+false on inspection (open the file, see `axiom substrate_realization_is_algebraic`) and would discredit the
+genuinely-earned work — so this document deliberately keeps the line bright between *reformulated* and
+*proved*. See [`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md) for where the continuum framing
+*does* hold.
+
+**Open threads** (deepening): a profinite **étale `π₁`** with a non-trivial non-abelian Galois quotient
+(first layer in `QLF_EtalePi1`); a substrate encoding that actually carries *cohomological* content (so the
+bridge stops carrying everything); wiring the period limits in-module (`physical_pi_in_progress`,
+`apery_period_in_progress`); the continuum **order→metric** step; and **Langlands** unification
+([`Langlands.md`](Langlands.md) §5.6).
