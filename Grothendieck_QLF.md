@@ -122,10 +122,18 @@ the **kernel** of the arithmetic Galois action: `1 → π₁ᵍᵉᵒᵐ → π�
 fixed locus is the Hodge/Tate diagonal — the Riemann critical line and the BSD central point
 (`galois_fixed_iff_hodge`) — so the Millennium `H↔H†` spine is one verified motivic-Galois involution.
 
-**Honest scope.** This anchors the geometry-from-skeleton reconstruction *and* the anabelian/Galois
-sequence on the discrete causal set; the **open** pieces are the continuum order→metric step (the
-Causal-Set boundary, shared with `light_cone_rendering_in_progress`) and enriching the thin geometric
-groupoid to a *profinite* étale `π₁` (a richer non-abelian Galois quotient than the order-2 `weightConjAut`).
+**The profinite étale `π₁` now has its first non-abelian layer** (`QLF_EtalePi1`). The substrate is
+finite/RCA₀, so its étale `π₁` is profinite *by construction* (an inverse limit of finite covers); and
+its first non-abelian layer is the permutation group of the three spatial axes, **`S₃`** (the same `S₃`
+of `m_p/m_e = 6π⁵`, colour SU(3), the three generations) — non-abelian (`etale_pi1_nonabelian`), strictly
+richer than the order-2 mirror, with `weightConjAut`'s `Z/2` recovered as its **sign quotient**
+(`etale_pi1_mirror_quotient`). So the anabelian sequence's arithmetic side now carries a genuine
+non-abelian Galois quotient.
+
+**Honest scope.** This anchors the geometry-from-skeleton reconstruction, the anabelian/Galois sequence,
+and the first non-abelian étale-`π₁` layer on the discrete causal set; the **open** pieces are the
+continuum order→metric step (the Causal-Set boundary, `light_cone_rendering_in_progress`) and the full
+inverse-limit `Profinite` object over all cover depths (`etale_pi1_profinite_in_progress`).
 
 ## 3. The period conjecture — periods are limits of closure counts
 
