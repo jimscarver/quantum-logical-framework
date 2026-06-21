@@ -93,9 +93,16 @@ symmetries *between* model universes — is naturally at home in QLF's **possibi
 ruliad of all admissible closures, [`Philosophy.md`](Philosophy.md)), with the inter-universal "links"
 a number-theoretic cousin of the `H ↔ H†` mirror between QLF perspectives (`bsd_riemann_shared_involution`).
 
-**Honest scope.** A conceptual alignment grounded in the existing causal-set object, **not** a proof or
-a `π₁`↔closure-graph functor; building that functor (étale fundamental group as a closure invariant)
-is the open research step.
+**Now a theorem** (`QLF_Anabelian`). The `π₁`↔closure functor is built on the causal set: `closurePi1`
+(the future-cone / thin causal groupoid) is **fully faithful** — injective on objects
+(`closurePi1_injective`: the geometry determines the closure) and order-↔-inclusion on morphisms
+(`reachable_iff_pi1_subset`), so **geometry is recovered from the combinatorial closure**
+(`anabelian_fully_faithful`). The groupoid is thin (`closure_groupoid_thin`: no non-trivial loops), so
+the geometric content is the causal *order* (Malament). **Honest scope.** This anchors the
+geometry-from-skeleton reconstruction on the discrete causal set; the **open** pieces are the continuum
+order→metric step (the Causal-Set boundary, shared with `light_cone_rendering_in_progress`) and a
+profinite **étale `π₁`** carrying the non-trivial Galois quotient — whose arithmetic side is the motivic
+Galois group (`QLF_MotivicGalois`).
 
 ## 3. The period conjecture — periods are limits of closure counts
 
@@ -162,8 +169,9 @@ That is the foundation the dream is built on, and it sets the program QLF can no
   it is non-trivial (`weightConjAut`, the order-2 `H ↔ H†` weight conjugation), and the unit/Tate motive
   is its trivial representation (`galois_fixes_unit_rank`). The substrate's closure symmetries *are* the
   motivic Galois group — **no new axioms.**
-- **Anabelian recovery** (§2) — the `π₁` ↔ closure-graph functor, geometry from `QLF_ReachableEvent`'s
-  causal order.
+- **Anabelian recovery — now built** (§2, `QLF_Anabelian`). The `π₁`↔closure functor `closurePi1` is
+  fully faithful (`anabelian_fully_faithful`): geometry is recovered from the combinatorial closure on
+  `QLF_ReachableEvent`'s causal order. (Open: the continuum order→metric step and a profinite étale `π₁`.)
 - **Periods** (§3) — a second period (e.g. `ζ(3)`) from a closure census, the way `π` already is.
 - **Unifying number-theoretic and geometric Langlands** ([`Langlands.md`](Langlands.md) §5.6) — the same
   generators producing both sides.
@@ -174,9 +182,10 @@ conjectures — the historical obstruction — are discharged, **the motive obje
 realized motives, the comparison-isomorphism universal property, tensor, the motivic-Galois duality), and
 **the motivic Galois group is built** (`QLF_MotivicGalois`: the tensor-automorphism group of the fiber
 functor, with the group axioms machine-checked, a non-trivial `H↔H†` element, and the Tate motive as its
-trivial representation). The remaining steps (the anabelian `π₁`↔closure functor, a second period from a
-census) are *construction*, each with the same balanced-⟹-realized engine and the same single
-continuum/choice boundary, not a new mystery.
+trivial representation), and **the anabelian `π₁`↔closure functor is built** (`QLF_Anabelian`: the
+future-cone functor is fully faithful, so geometry is recovered from the combinatorial closure). The one
+remaining rung — a **second period** (`ζ(3)`) from a closure census — is *construction* with the same
+engine and the same single continuum/choice boundary, not a new mystery.
 
 ## Lean / doc anchors
 
@@ -190,7 +199,7 @@ continuum/choice boundary, not a new mystery.
 | **the motive object** — substrate closure = universal cohomology; realizations agree (universal property) | `Motive`, `Motive.realized`, `comparison_isomorphism`, `Motive.tensor`, `Motive.dual`, `dual_involutive` (`QLF_Motives`) |
 | **the motivic Galois group** — tensor-automorphisms of the fiber functor form a group; non-trivial; Tate = trivial rep | `MotiveAut`, `comp`/`id`/`symm` + `comp_assoc`/`symm_comp`/`comp_symm`, `weightConjAut`, `weightConjAut_involutive`, `galois_fixes_unit_rank` (`QLF_MotivicGalois`) |
 | the conjugation involution = the QLF adjoint `H ↔ H†` (Tannakian/motivic symmetry) | `CohClass.conj_involutive`, `conj_fixed_of_isHodge` (`QLF_Hodge`) |
-| geometry from a combinatorial order with no metric (anabelian resonance) | `reachable_refl/trans/antisymm`, `futureCone_subset` (`QLF_ReachableEvent`) |
+| **the anabelian functor** — geometry recovered from the combinatorial closure (fully faithful) | `closurePi1`, `closurePi1_injective`, `reachable_iff_pi1_subset`, `anabelian_fully_faithful` (`QLF_Anabelian`) |
 | a period (`π`) constructed from the closure census | `returnDensity_eq_census`, `physical_pi_in_progress` (`QLF_PhysicalPi`) |
 | the single algebraic→analytic boundary axiom | `substrate_realization_is_algebraic` (`QLF_Hodge`); [`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md) |
 | categorical settings (étale/motivic/…) generated from one set of generators | [`Langlands.md`](Langlands.md) §2–3 |
