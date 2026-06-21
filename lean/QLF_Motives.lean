@@ -53,7 +53,7 @@ theorem countBalanced_append {a b : List Twist}
 theorem countBalanced_reverse {ts : List Twist} (h : countBalanced ts) :
     countBalanced ts.reverse := by
   obtain ⟨h1, h2, h3, h4⟩ := h
-  have hp : ts.reverse ~ ts := List.reverse_perm ts
+  have hp : List.Perm ts.reverse ts := List.reverse_perm ts
   exact ⟨(hp.count_eq _).trans (h1.trans (hp.count_eq _).symm),
          (hp.count_eq _).trans (h2.trans (hp.count_eq _).symm),
          (hp.count_eq _).trans (h3.trans (hp.count_eq _).symm),
