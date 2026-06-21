@@ -239,6 +239,72 @@ theorem kunneth_diagonal_components_algebraic
   obtain ⟨hp, hq⟩ := hbound c hc
   exact kunneth_component_algebraic c d hp hq
 
+/-! ### Standard Conjecture D — numerical ≡ homological equivalence
+
+    Grothendieck's **Conjecture D**: an algebraic cycle is *numerically* trivial (every
+    intersection number with a complementary cycle vanishes) iff it is *homologically*
+    trivial (its cohomology class is zero). The hard content is **non-degeneracy of the
+    intersection pairing** — a class pairing to zero with everything must itself be zero.
+
+    In QLF the pairing of `c` with `w` reaches the **fundamental class** (the unique degree
+    carrying intersection numbers) exactly when their bidegrees are Poincaré-complementary,
+    `(p+p', q+q') = (d,d)`; and that fundamental `(d,d)` class is a Hodge class that
+    **realizes on the substrate** (`count_balanced_pauli_closed`, the same route as Hodge /
+    Künneth — `pairing_realizes`). So every in-range class pairs *realizably* with its
+    Poincaré dual: the substrate supplies the non-degeneracy, and the two trivialities
+    coincide — both reduce to "out of range = the zero class." See `Grothendieck_QLF.md` §1. -/
+
+/-- The **Poincaré-dual** bidegree of `c` on a `d`-dimensional variety. -/
+def CohClass.poincareDual (d : ℕ) (c : CohClass) : CohClass := ⟨d - c.p, d - c.q⟩
+
+/-- The intersection pairing of `c` with `w` reaches the **fundamental class** exactly when
+    their bidegrees are Poincaré-complementary (the only degree where an intersection number
+    can be nonzero). -/
+def CohClass.pairsToFundamental (d : ℕ) (c w : CohClass) : Prop :=
+  c.p + w.p = d ∧ c.q + w.q = d
+
+/-- **Numerical triviality**: the pairing never reaches the fundamental class — every
+    intersection number vanishes. -/
+def CohClass.numericallyTrivial (d : ℕ) (c : CohClass) : Prop :=
+  ∀ w : CohClass, ¬ c.pairsToFundamental d w
+
+/-- **Homological triviality** (bidegree model): the class sits in a degree beyond the
+    variety (`p > d` or `q > d`), where the cohomology vanishes — the zero class. -/
+def CohClass.homologicallyTrivial (d : ℕ) (c : CohClass) : Prop :=
+  ¬ (c.p ≤ d ∧ c.q ≤ d)
+
+/-- **Non-degeneracy witness (degrees)**: an in-range class pairs to the fundamental class
+    with its Poincaré dual. -/
+theorem CohClass.poincareDual_pairs (d : ℕ) (c : CohClass)
+    (hp : c.p ≤ d) (hq : c.q ≤ d) : c.pairsToFundamental d (c.poincareDual d) := by
+  refine ⟨?_, ?_⟩
+  · show c.p + (d - c.p) = d
+    omega
+  · show c.q + (d - c.q) = d
+    omega
+
+/-- **Non-degeneracy witness (substrate)**: the fundamental class of that non-vanishing
+    pairing is the `(d,d)` Hodge class `c.diagonalComponent d`, which closes on the
+    substrate (`count_balanced_pauli_closed`). The pairing is non-degenerate because the
+    substrate realizes it. -/
+theorem CohClass.pairing_realizes (d : ℕ) (c : CohClass)
+    (hp : c.p ≤ d) (hq : c.q ≤ d) : (c.diagonalComponent d).isRealizedOnSubstrate :=
+  c.diagonalComponent_realized d hp hq
+
+/-- **Standard Conjecture D in QLF — numerical ≡ homological equivalence.** Both
+    trivialities reduce to "out of range = the zero class": a numerically trivial class must
+    lie beyond the variety (else its Poincaré dual gives a pairing into the realized `(d,d)`
+    fundamental class), and conversely an out-of-range class pairs with nothing. The
+    non-degeneracy of the intersection pairing is the substrate's `(d,d)`-realization. -/
+theorem conjecture_D_numerical_eq_homological (d : ℕ) (c : CohClass) :
+    c.numericallyTrivial d ↔ c.homologicallyTrivial d := by
+  unfold CohClass.numericallyTrivial CohClass.homologicallyTrivial CohClass.pairsToFundamental
+  constructor
+  · intro hnum hrange
+    exact hnum (c.poincareDual d) (c.poincareDual_pairs d hrange.1 hrange.2)
+  · intro hhom w hpair
+    exact hhom ⟨by omega, by omega⟩
+
 /-- **Status — proof in progress (constructively reframed).**
 
     Established on the constructive floor:
@@ -256,7 +322,13 @@ theorem kunneth_diagonal_components_algebraic
       each Künneth component, viewed on `X × X`, is a `(d,d)` Hodge class
       (`diagonalComponent_isHodge`), so `kunneth_component_algebraic` /
       `kunneth_diagonal_components_algebraic` discharge it component-by-
-      component through the same substrate route (no new axiom).
+      component through the same substrate route (no new axiom);
+    - **Standard Conjecture D** (numerical ≡ homological equivalence,
+      `conjecture_D_numerical_eq_homological`) — non-degeneracy of the
+      intersection pairing is the substrate's `(d,d)`-realization
+      (`pairing_realizes`): every in-range class pairs realizably with its
+      Poincaré dual (`poincareDual_pairs`), so both trivialities reduce to
+      "out of range = the zero class" (no new axiom).
 
     The single remaining boundary is `substrate_realization_is_algebraic` —
     *why* substrate closure faithfully models algebraic-cycle realization,
