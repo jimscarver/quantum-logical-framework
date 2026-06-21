@@ -322,6 +322,7 @@ def CohClass.lefschetzPow (i : ℕ) (c : CohClass) : CohClass := ⟨c.p + i, c.q
     same holds for `Λ`; the Lefschetz operators are balance-preserving). -/
 theorem CohClass.lefschetzPow_isHodge (i : ℕ) (c : CohClass) (h : c.isHodge) :
     (c.lefschetzPow i).isHodge := by
+  have hpq : c.p = c.q := h
   show c.p + i = c.q + i
   omega
 
