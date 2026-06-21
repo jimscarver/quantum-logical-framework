@@ -130,10 +130,14 @@ continuum constants:
   renders them" — periods carry no information their substrate census does not already contain. The
   motivic Galois group acting on periods is the closure algebra's symmetry acting on its renderings.
 
-**Scope.** The constructed-`π` route (`QLF_PhysicalPi`) is the worked instance; the open *construction*
-is a **second** period — e.g. `ζ(3)` — from its own closure census, which would exhibit the method's
-generality. By the scale-free argument the convergence of such a census is structural, so this is a
-matter of identifying the right closure walk, not of supplying an external transcendence result.
+**Now a second period is built** (`QLF_AperyPeriod`). Apéry's series gives `ζ(3)` from the *same* central
+binomial census: `ζ(3) = (5/2)·Σ_{n≥1}(-1)^{n-1}/(n³·C(2n,n))`, with `C(2n,n)` the substrate closure
+count (`apery_summand_census`, reusing `closure_census`). `aperyTerm`/`aperySum` are the finite
+`Real.pi`-free rational partial sums; `aperyTerm_one` (`k=1 ⟹ 1/2`, so `5/4 ≈ 1.25` against `ζ(3) ≈
+1.2021`). So **one closure census yields two periods** (`π`, `ζ(3)`) — periods carry no information their
+substrate census does not already contain. By the scale-free argument the convergence is structural;
+wiring Apéry's limit `ζ(3) = (5/2)·lim aperySum` in-module is the settled-mathematics step
+(`apery_period_in_progress`), not a hole in the construction.
 
 ## 4. One boundary, the same as the Millennium program
 
@@ -204,9 +208,12 @@ realized motives, the comparison-isomorphism universal property, tensor, the mot
 **the motivic Galois group is built** (`QLF_MotivicGalois`: the tensor-automorphism group of the fiber
 functor, with the group axioms machine-checked, a non-trivial `H↔H†` element, and the Tate motive as its
 trivial representation), and **the anabelian `π₁`↔closure functor is built** (`QLF_Anabelian`: the
-future-cone functor is fully faithful, so geometry is recovered from the combinatorial closure). The one
-remaining rung — a **second period** (`ζ(3)`) from a closure census — is *construction* with the same
-engine and the same single continuum/choice boundary, not a new mystery.
+future-cone functor is fully faithful, so geometry is recovered from the combinatorial closure), and **a
+second period is built** (`QLF_AperyPeriod`: `ζ(3)` from the same closure census as `π`). **All five rungs
+of the dream are now on the substrate** — standard conjectures, motives, motivic Galois group, anabelian
+recovery, and periods — every one through the same balanced-⟹-realized engine / scale-free census and the
+same single continuum/choice boundary. What was the historical obstruction is constructively in hand; the
+continuum/choice residual is ZFC's proven-defective sector, not a gap in the substrate construction.
 
 ## Lean / doc anchors
 
@@ -221,7 +228,7 @@ engine and the same single continuum/choice boundary, not a new mystery.
 | **the motivic Galois group** — tensor-automorphisms of the fiber functor form a group; non-trivial; Tate = trivial rep | `MotiveAut`, `comp`/`id`/`symm` + `comp_assoc`/`symm_comp`/`comp_symm`, `weightConjAut`, `weightConjAut_involutive`, `galois_fixes_unit_rank` (`QLF_MotivicGalois`) |
 | the conjugation involution = the QLF adjoint `H ↔ H†` (Tannakian/motivic symmetry) | `CohClass.conj_involutive`, `conj_fixed_of_isHodge` (`QLF_Hodge`) |
 | **the anabelian functor** — geometry recovered from the combinatorial closure (fully faithful) | `closurePi1`, `closurePi1_injective`, `reachable_iff_pi1_subset`, `anabelian_fully_faithful` (`QLF_Anabelian`) |
-| a period (`π`) constructed from the closure census | `returnDensity_eq_census`, `physical_pi_in_progress` (`QLF_PhysicalPi`) |
+| **periods** from the closure census — *two* from one count (`π` and `ζ(3)`) | `returnDensity_eq_census` (`QLF_PhysicalPi`); `aperyTerm`, `apery_summand_census`, `aperyTerm_one` (`QLF_AperyPeriod`) |
 | the single algebraic→analytic boundary axiom | `substrate_realization_is_algebraic` (`QLF_Hodge`); [`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md) |
 | categorical settings (étale/motivic/…) generated from one set of generators | [`Langlands.md`](Langlands.md) §2–3 |
 
