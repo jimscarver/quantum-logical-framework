@@ -39,6 +39,7 @@ abbrev AxisDeck := Equiv.Perm (Fin 3)
 /-- The axis deck group has order `6 = 3! = |S₃|`. -/
 theorem axisDeck_card : Fintype.card AxisDeck = 6 := by
   rw [Fintype.card_perm, Fintype.card_fin]
+  decide
 
 /-- **The étale `π₁` is non-abelian** — two axis transpositions fail to commute, so the substrate's
     fundamental group is strictly richer than the abelian `Z/2` `H↔H†` mirror. -/
