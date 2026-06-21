@@ -1,15 +1,17 @@
 # Birch–Swinnerton-Dyer in [QLF](README.md) — via the Langlands hook
 
-> **Status: proof in progress, constructively reframed.** The self-dual central-point
+> **Status: `bsd_proof_in_progress` — a reformulation.** *Contrast (once):* the **classical** BSD
+> conjecture is not proved here. *What is proven (the reformulation):* the self-dual central-point
 > structure is machine-verified, and the **elliptic-curve→closure encoding is built** —
-> `EllipticCurveQLF` is a concrete Weierstrass curve whose Frobenius-trace closure is
-> computed ([`lean/QLF_BSD.lean`](lean/QLF_BSD.lean)). The rank identity is reduced to one
-> explicit boundary, **`modularity_mirror_invariant`** — from which rank = ord
-> (`bsd_rank_equals_order`) is a *theorem* — the crossing into the continuum/choice sector
-> where ZFC is *itself proven to fail* (Gödel, Turing, Busy Beaver). That crossing is ZFC's
-> defect, not a gap in this proof. Unifying thesis:
-> [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md); Langlands scaffolding:
-> [Langlands.md §5.4](Langlands.md).
+> `EllipticCurveQLF` is a concrete Weierstrass curve whose Frobenius-trace closure is *computed*
+> ([`lean/QLF_BSD.lean`](lean/QLF_BSD.lean)). *The gap (faithfulness):* `rank = ord`
+> (`bsd_rank_equals_order`) follows from the one bridge axiom **`modularity_mirror_invariant`** —
+> the mirror-invariance of the central multiplicity, which on BSD has the conjecture's full
+> strength. **BSD is a *finitary* arithmetic statement, not a continuum or independence
+> phenomenon**, so the "ZFC's defect" framing does **not** apply to it (it applies to genuine
+> uncomputability — halting, Busy Beaver). So: contrast (classical, not here) → the proven
+> reformulation → the named bridge. Unifying thesis:
+> [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md); Langlands: [Langlands.md §5.4](Langlands.md).
 
 ## 1. The classical problem
 
@@ -93,23 +95,29 @@ theorem bsd_in_qlf (E) :                                -- qualitative BSD, deri
 `L(E,1) = 0`** — infinitely many rational solutions exactly when the L-function vanishes at
 the symmetric point.
 
-## 4. Where the boundary sits — and why it is ZFC's, not ours
+## 4. Where the boundary sits — the faithfulness bridge
 
-QLF's constructive floor delivers the self-dual structure, the **computed closure
-encoding** (§5: concrete `EllipticCurveQLF` with its Frobenius traces), and now the rank =
-ord identity *as a theorem* — discharged through the modularity mirror (the two ranks are
-one multiplicity, equal by mirror-invariance at the self-dual fixed point). What sits on
-the far side is one step deeper: **why** the Hermitian-pair mirror preserves the central
-multiplicity at its fixed point (`modularity_mirror_invariant`) — i.e. why the two ranks
-(the *uncomputable* invariants BSD is about) are genuinely the same closure datum.
+QLF's constructive floor delivers the self-dual structure and the **computed closure
+encoding** (§5: concrete `EllipticCurveQLF` with its Frobenius traces). Within the
+reformulation, rank = ord (`bsd_rank_equals_order`) is a *theorem* — it follows from the
+two ranks being one `centralMultiplicity` read on the two mirror sides, equal by
+mirror-invariance at the self-dual fixed point. **The whole weight rests on one bridge
+axiom**, `modularity_mirror_invariant`: that the Hermitian-pair mirror genuinely preserves
+the central multiplicity at its fixed point — i.e. that the QLF closure datum on the two
+sides really *is* the Mordell–Weil rank on one and the analytic order on the other. **That
+bridge carries the classical conjecture's full strength.** It is the faithfulness gap, the
+exact BSD analog of Hodge's `substrate_realization_is_algebraic`: the substrate side is
+proven; the identification with the classical arithmetic invariants is the posited bridge.
 
-That step lives in the **continuum/choice sector** — analytic continuation of `L(E,s)`, the
-transcendental L-value machinery, the non-constructive reals. That is precisely the sector
-where classical foundations are *proven* pathological: Gödel incompleteness, Turing
-undecidability, the Busy-Beaver/Chaitin horizon ([Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md)).
-So the open step is **not a hole in the QLF proof** — it is the place where ZFC itself has
-no guaranteed proof to give. Demanding a ZFC-internal closure of BSD is demanding the very
-continuum/choice fallacy QLF has diagnosed.
+**Be precise about the nature of the gap.** BSD is a *finitary* arithmetic statement about a
+finitely generated group — it is **not** a known independence or uncomputability phenomenon,
+so the "ZFC is proven to fail here" framing (which belongs to halting, Busy Beaver, Chaitin's
+Ω) does **not** apply to BSD. The analytic L-value machinery is genuinely hard, but the open
+step is an honest mathematical gap — the faithfulness of the modularity mirror — stated as
+such, not deflected onto ZFC. (The continuum/choice thesis,
+[Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md), governs the genuinely
+*non-constructive* problems; BSD is filed here for the shared Hermitian-mirror structure, not
+because its residual is an independence result.)
 
 ## 5. The constructive encoding (built)
 

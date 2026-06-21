@@ -155,9 +155,14 @@ All six Clay Millennium problems have a Lean module reducing each to a construct
 | P vs NP | `QLF_PvsNP` | `generate_not_reducible_to_verify` |
 | Navier–Stokes | `QLF_NavierStokes` | `navier_stokes_continuum_limit` |
 
-The constructive result is stated plainly — it *is* a proof within the constructive frame. The
-residual step crosses into the continuum/choice sector where ZFC is *itself* proven to fail; that
-boundary is ZFC's defect, not a QLF gap.
+Read each as **contrast-then-focus**: the classical Clay conjecture is a different statement (not
+proved here); the reformulation's substrate content is proven plainly — *it is a proof within the
+constructive frame*; the one bridge axiom is the named, located gap. Scope the "ZFC's defect"
+framing honestly: it names genuine uncomputability/independence (halting, Busy Beaver). The
+*finitary* problems (BSD, P vs NP, Hodge) are not independence phenomena, so the bridge there simply
+carries the conjecture's full strength; for the *continuum-analytic* problems (Riemann, Yang–Mills,
+Navier–Stokes) the continuum/choice diagnosis is QLF's thesis, with the bridge stated as the honest
+open step.
 
 ---
 
@@ -199,7 +204,7 @@ they coincide.
 
 ## 10. Implementation and verification status
 
-- **77 Lean 4 modules, zero `sorry` blocks**; the combinatorial core within RCA₀. The full module
+- **101 Lean 4 modules, zero `sorry` blocks**; the combinatorial core within RCA₀. The full module
   table and key theorems are in [`lean/README.md`](lean/README.md).
 - The explicit axioms are confined to the six Millennium boundaries (above) plus speculative,
   unused-elsewhere axioms in `ER_EPR_QLF`.

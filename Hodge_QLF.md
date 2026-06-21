@@ -1,14 +1,17 @@
 # The Hodge Conjecture in [QLF](README.md) — the cohomological face of ZFA selection
 
-> **Status: proof in progress, constructively reframed.** The Hodge conjugation is
-> machine-verified as an involution and its balanced fixed diagonal identified;
-> **`hodge_class_is_algebraic` is a theorem** ([`lean/QLF_Hodge.lean`](lean/QLF_Hodge.lean)) —
-> a `(p,q)` class encodes to a history count-balanced iff `p=q`, so balanced ⟹ realized
-> follows from the proven `count_balanced_pauli_closed`. The single boundary is the
-> faithfulness `substrate_realization_is_algebraic` (substrate closure = algebraic
-> realization) — the crossing into the complex-analytic continuum where ZFC is *itself
-> proven to fail* (Gödel, Turing, Busy Beaver). That crossing is ZFC's defect, not a gap
-> in this proof. Unifying thesis: [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md).
+> **Status: `hodge_proof_in_progress` — a reformulation.** *Contrast (once):* the **classical**
+> Hodge conjecture is not proved here. *What is proven (the reformulation, no axiom):* the Hodge
+> conjugation is machine-verified as an involution with its balanced fixed diagonal, and
+> **`hodge_realized_on_substrate` is a theorem** ([`lean/QLF_Hodge.lean`](lean/QLF_Hodge.lean)) —
+> a `(p,q)` class encodes to a history count-balanced iff `p=q`, so *every Hodge class is exactly a
+> substrate-realized closure* (via the proven `count_balanced_pauli_closed`). *The gap (faithfulness):*
+> the bridge to a **classical algebraic cycle**, the one axiom `substrate_realization_is_algebraic`,
+> which on Hodge classes has the conjecture's full strength. **Hodge is finite ℚ-linear algebra — not
+> a continuum or independence phenomenon — so "ZFC's defect" does *not* apply here** (that framing is
+> for genuine uncomputability: halting, Busy Beaver). The faithfulness swing series (§ below) drives
+> the gap down to its real content: the prime cycle classes span the Hodge classes (codim p≥2 *is* the
+> conjecture). Unifying thesis: [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md).
 
 ## 1. The classical problem
 

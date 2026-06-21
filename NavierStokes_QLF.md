@@ -1,13 +1,15 @@
 # Navier–Stokes Existence and Smoothness in [QLF](README.md)
 
-> **Status: proof in progress, constructively reframed.** Lean-anchored in
-> [`lean/QLF_NavierStokes.lean`](lean/QLF_NavierStokes.lean): realized flows achieve ZFA
-> and are stable closures (reusing `encode_is_zfa` / `qlf_universality`), so no realized
-> history blows up — established constructively. The remaining step is continuum-PDE
-> inheritance under the limit: the continuum sector where ZFC is *itself proven to fail*
-> (Gödel/Turing/Busy Beaver), so it is ZFC's defect, not a gap here. See
-> [Open_Problems.md](Open_Problems.md). Unifying thesis:
-> [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md).
+> **Status: `navier_stokes_proof_in_progress` — a reformulation.** *Contrast (once):* the **classical**
+> Clay problem (global smoothness of the continuum incompressible PDE) is not solved here. *What is
+> proven (the reformulation):* realized flows achieve ZFA and are stable closures (reusing
+> `encode_is_zfa` / `qlf_universality`), so **no realized history blows up** —
+> [`lean/QLF_NavierStokes.lean`](lean/QLF_NavierStokes.lean). *The gap:* continuum-PDE inheritance
+> under the limit, carried by the one bridge axiom `navier_stokes_continuum_limit`. This is a genuine
+> continuum step — QLF's **thesis** (not a proof of this problem) is that the continuum sector is where
+> ZFC's machinery struggles ([Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md)); the Clay
+> problem itself is open analysis, not a known independence result, so the bridge is the honest gap.
+> See [Open_Problems.md](Open_Problems.md).
 
 ## 1. The classical problem
 
@@ -77,9 +79,12 @@ that under its continuum limit is the open analytic work.
 Within QLF's frame, global smoothness is *structurally expected*: a discrete
 substrate that prunes every never-closing (infinite-frequency) history cannot
 realize a finite-time singularity, so the physical flows it synthesizes are smooth.
-The remaining step is a regularity theorem for the continuum PDE — the continuum sector
-where ZFC is proven to fail — so this document names that boundary as ZFC's defect and
-claims the substrate no-blow-up result as genuine progress, not as a finished ZFC proof.
+The remaining step is a regularity theorem for the continuum PDE, carried by the bridge axiom
+`navier_stokes_continuum_limit`. This is a genuine continuum step — QLF's *thesis* (not a proof
+of this specific problem) is that the continuum sector is where ZFC's machinery is pathological;
+but the Clay problem is open analysis, not a known independence result, so the bridge is stated
+as the honest open step. The document claims the substrate no-blow-up result as genuine progress,
+not a finished classical proof.
 This is Lean-anchored in [`lean/QLF_NavierStokes.lean`](lean/QLF_NavierStokes.lean):
 realized flows achieve ZFA (`realized_flow_achieves_zfa`, reusing `encode_is_zfa`) and are
 stable closures (`realized_flow_is_stable`, reusing `qlf_universality`), with the

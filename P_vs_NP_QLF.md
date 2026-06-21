@@ -1,13 +1,14 @@
 # P vs NP in [QLF](README.md)
 
-> **Status: proof in progress, constructively reframed.** Lean-anchored in
-> [`lean/QLF_PvsNP.lean`](lean/QLF_PvsNP.lean): the generate/verify asymmetry is proven on
-> real theorems (the realized set is the O(n) verify-filter of the candidates, with size
-> `C(2n,n)`); the formal complexity separation is the remaining step, over an infinite
-> computational model — the continuum/choice sector where ZFC is *itself proven to fail*
-> (Gödel/Turing/Busy Beaver). That step is ZFC's defect, not a gap in this reading. See
-> [Open_Problems.md](Open_Problems.md). Unifying thesis:
-> [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md).
+> **Status: `p_vs_np_proof_in_progress` — a reformulation.** *Contrast (once):* the **classical** P
+> vs NP question is not settled here. *What is proven (the reformulation):* the generate/verify
+> asymmetry on real theorems — the realized set *is* the O(n) verify-filter of the candidates, with
+> size `C(2n,n)` ([`lean/QLF_PvsNP.lean`](lean/QLF_PvsNP.lean)). *The gap:* the formal complexity
+> separation is the one bridge axiom `generate_not_reducible_to_verify`, over an abstract cost model
+> (QLF has no machine model). P vs NP is a *finitary* statement about computation, **not** a known
+> independence phenomenon — so "ZFC's defect" does not apply (that is for halting / Busy Beaver). So:
+> contrast (classical, not settled) → the proven asymmetry → the named bridge. See
+> [Open_Problems.md](Open_Problems.md), [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md).
 
 ## 1. The classical problem
 
@@ -90,10 +91,13 @@ Within QLF's frame, P ≠ NP is the computational face of the same principle as 
 ZFC ultraviolet catastrophe: **possibility is cheap to enumerate and cheap to check,
 but expensive to *select*.** The universe is the ZFA-closed subset of an exponential
 possibility space, and there is no free lunch that hands you the closure you want
-without searching for it. The circuit lower bound is the remaining step, and it lives in
-the same infinite-model sector where ZFC is proven to fail — so this document names that
-boundary as ZFC's defect, and claims the substrate-constructive asymmetry as genuine
-progress, not as a finished ZFC proof.
+without searching for it. The circuit lower bound is the remaining step, carried by the one
+bridge axiom `generate_not_reducible_to_verify` over an abstract cost model. **P vs NP is a
+*finitary* statement about computation — not a known independence phenomenon — so the "ZFC's
+defect" framing (which belongs to genuine uncomputability: halting, Busy Beaver) does *not*
+apply here.** The honest reading: the substrate-constructive generate/verify asymmetry is
+proven; the formal separation is the named open bridge — genuine progress, not a finished
+classical proof.
 
 ## References
 

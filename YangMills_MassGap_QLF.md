@@ -1,15 +1,15 @@
 # The Yang–Mills Mass Gap in [QLF](README.md)
 
-> **Status: proven constructively — the continuum step reframed, not apologised for.**
-> The gap is established on the substrate (`gaugeMassGap = log 2 > 0`, machine-verified);
-> the only remaining step is the continuum-QFT reconstruction, carried by one explicit
-> boundary axiom — `yang_mills_continuum_gap` in
-> [`lean/QLF_MassGap.lean`](lean/QLF_MassGap.lean), exactly the
-> [`spectral_hilbert_polya`](lean/QLF_Riemann.lean) precedent. That step lives in the
-> continuum sector where ZFC is *itself proven to fail* (Gödel/Turing/Busy Beaver), so it
-> is ZFC's defect, not a gap in this proof. See [Open_Problems.md](Open_Problems.md). The
-> unifying thesis — *the continuum and choice are mathematics' ultraviolet catastrophe* —
-> is in [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md).
+> **Status: `mass_gap_proven_constructively` (substrate) — a reformulation.** *Contrast (once):* the **classical**
+> Clay problem (constructing the continuum Yang–Mills QFT and proving a gap) is not solved here.
+> *What is proven (the reformulation):* the gap on the substrate, `gaugeMassGap = log 2 > 0`
+> (machine-verified, [`lean/QLF_MassGap.lean`](lean/QLF_MassGap.lean)). *The gap:* the continuum-QFT
+> reconstruction, carried by the one bridge axiom `yang_mills_continuum_gap` (the
+> [`spectral_hilbert_polya`](lean/QLF_Riemann.lean) precedent). This *is* a genuine continuum step —
+> QLF's **thesis** (not a proof) is that this sector is where ZFC's continuum/choice machinery
+> struggles ([Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md)); but note the Clay problem
+> itself is **not** a known ZFC-independence result, so the bridge is the open gap, stated as such.
+> See [Open_Problems.md](Open_Problems.md).
 
 ## 1. The classical problem
 

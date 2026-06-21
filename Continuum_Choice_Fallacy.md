@@ -194,14 +194,34 @@ claim is **not** that it proves these problems inside ZFC. It is that:
    Beaver/Gödel, ZFC cannot always provide such a proof anyway.
 
 So QLF reduces each Millennium problem to *(structural theorem on the discrete floor) +
-(one explicit axiom naming the continuum/choice crossing)*, and **claims the structural
-content as proof within the constructive frame** — not apologetically, but because the
-constructive floor is the part of mathematics with a real referent and the boundary is a
-*proven* defect of ZFC, not a gap in the QLF proof. A mathematician who accepts only
-ZFC-internal proofs is asking the framework to validate the very fallacy it diagnoses.
-The status markers (`mass_gap_proven_constructively`, `rh_proof_in_progress`,
-`bsd_proof_in_progress`, …) keep the boundary visible in every module while stating the
-constructive result plainly.
+(one explicit axiom naming the crossing)*, and **claims the structural content as proof
+within the constructive frame** — not apologetically, because the constructive floor is the
+part of mathematics with a real referent. State it as **contrast-then-focus**: the classical
+conjecture is a different statement (say so once); the reformulation's substrate content is
+proven (state it boldly); the bridge axiom is the named gap (and on several problems it
+carries the classical conjecture's full strength — own that).
+
+**Scope the "ZFC's defect" claim honestly — it is not a blanket discharge.** ZFC is
+*provably* defective only for genuine **uncomputability / independence**: the halting
+problem, the Busy Beaver function, Chaitin's Ω, Gödel sentences. That is a *theorem*. The six
+Millennium problems are **not** themselves known to be independent of ZFC — so "the boundary
+is ZFC's proven defect" must **not** be used as if it closes the gap:
+
+- **Finitary problems** (BSD, P vs NP, Hodge — finitely generated groups, finite cost models,
+  finite ℚ-linear algebra) are **not** continuum/independence phenomena at all. Their bridge
+  axioms are honest mathematical gaps with the conjecture's full strength; invoking "ZFC's
+  defect" for them is a *category error*. Do not.
+- **Continuum-analytic problems** (Riemann, Yang–Mills, Navier–Stokes) genuinely cross into
+  the non-constructive continuum, and QLF's *thesis* is that this sector is where ZFC's
+  machinery is pathological. But that is a **diagnosis / bet**, not a proof that *these
+  specific* problems are ZFC-independent — none has been shown so. The bridge is still the
+  honest open step.
+
+A mathematician who accepts only ZFC-internal proofs is owed exactly this map: which part is
+proven (the substrate floor), which is the named bridge, and which residual is QLF's
+*ontological wager* (the continuum is not fundamental) rather than a discharged theorem. The
+status markers (`mass_gap_proven_constructively`, `rh_proof_in_progress`, `bsd_proof_in_progress`,
+…) keep the boundary visible in every module while stating the constructive result plainly.
 
 ## 6. The program
 
