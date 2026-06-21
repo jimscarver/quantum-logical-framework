@@ -144,3 +144,5 @@ The encoding and the *balanced ⟹ realized* discharge are done. The frontier is
 - S. Lefschetz, *L'Analysis Situs et la Géométrie Algébrique* (1924) — the `(1,1)` theorem (the easy direction).
 - G. Birkhoff & J. von Neumann, *The logic of quantum mechanics*, Ann. Math. **37** (1936) 823–843 — quantum logic (the `H↔H†` framing).
 - P. Deligne, *The Hodge Conjecture* — Clay Mathematics Institute (official problem description). <https://www.claymath.org/millennium-problems/>
+
+**See also:** [`Grothendieck_QLF.md`](Grothendieck_QLF.md) — Hodge is one of Grothendieck's *standard conjectures*; the same balanced-⟹-algebraic engine extends (as a research lens) to the Künneth/Lefschetz/numerical-equivalence conjectures, the anabelian "geometry from `π₁`," and the period conjecture.

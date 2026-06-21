@@ -208,3 +208,4 @@ Specific Lean theorems and numerical demos that would convert paths to proofs:
 ### See also
 
 - [ReverseMathematics.md §4](ReverseMathematics.md) — refines §5.1's bridge axiom for RH with an MRE-saturation motivation; the same pattern is the natural starting point for refining the bridge axioms in this document's §5.2–§5.6 (functoriality, modularity, geometric Langlands, Kapustin-Witten). Numerical evidence in [`qlf_dirichlet_search.py`](qlf_dirichlet_search.py) Report 7.
+- [`Grothendieck_QLF.md`](Grothendieck_QLF.md) — QLF's lens on Grothendieck's standard/anabelian/period conjectures: the ZFA closure substrate as the *universal motive*, motives/`π₁`/periods as renderings of the discrete algebraic skeleton, extending the proven Hodge instance.
