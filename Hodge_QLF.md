@@ -271,9 +271,21 @@ conjecture concerns. Every cycle class, the divisor (Lefschetz `(1,1)`), and the
 addition (`smul_algebraic`, `add_algebraic`). So the **algebraic half** of the Hodge picture is now fully
 concrete — a real ℚ-subspace of a real cohomology, built from the substrate's cycle ring.
 
+**The algebraic side completed (`QLF_CohomologyAlgebra`).** Cohomology is a *ring*, and the algebraic
+classes are closed under the cup product too — they form a **subalgebra**. The capstone proves it by
+upgrading `cl` to a **ℚ-algebra homomorphism** on the monoid algebra `CohA = AddMonoidAlgebra ℚ Coh` (cup
+product = convolution): `clA_mul` (intersection product ↦ cup product, now honest *ring* multiplication via
+`AddMonoidAlgebra.single_mul_single`) and `clA_one` (unit cycle ↦ ring unit `1`). So `cl` respects *all* the
+structure — addition, the grading, and multiplication. The algebraic classes `algebraicA = Algebra.adjoin ℚ
+(range clA)` are then a genuine **`Subalgebra ℚ`** of cohomology, closed under cup product
+(`mul_mem_algebraicA`, `tensor_mem_algebraicA`) *because it is a subalgebra*, not by fiat. The algebraic
+classes are now the image ℚ-subalgebra of a ℚ-algebra homomorphism from the substrate's cycle ring — graded,
+cup-closed, every structural property the conjecture asks of "the algebraic cycle classes."
+
 What remains open is precisely the **Hodge** subspace `Hdg^p` — defined by the *transcendental* Hodge
 decomposition `H^k = ⊕ H^{p,q}` (rational `(p,p)` classes), the analytic structure the substrate does not
 yet synthesize. The conjecture is `hodge ≤ algebraic` (the easy `algebraic ≤ hodge` automatic), codim 1 =
-Lefschetz, codim `p ≥ 2` the open content. The build now has the entire algebraic side concrete and the
-open input isolated to one transcendental object — not a proof, the located frontier of the cohomology
-build.
+Lefschetz, codim `p ≥ 2` the open content. The build now has the **entire algebraic side complete** — a
+graded ℚ-subalgebra, the image of a ℚ-algebra homomorphism from the cycle ring — and the open input isolated
+to one transcendental object. Not a proof; the located frontier of the cohomology build, with the algebraic
+half finished and the gap reduced to the single piece a real cohomology theory of a variety must supply.
