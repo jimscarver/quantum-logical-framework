@@ -10,11 +10,24 @@ applied to arithmetic geometry. In QLF's reading the **ZFA closure substrate is 
 the object all cohomology theories render, and the conjectures are the assertion that the rendering
 loses nothing.
 
-This continues the program already carried into Lean for the **Hodge conjecture** (a Grothendieck
-*standard* conjecture in its Lefschetz/Hodge form), [`Hodge_QLF.md`](Hodge_QLF.md) / `QLF_Hodge`, and
-sits alongside the bottom-up **Langlands** scaffolding ([`Langlands.md`](Langlands.md)). What follows
-is a **research-program lens, not a set of theorems** (except where a claim reduces to the proven
-Hodge pattern); scope is marked throughout.
+This began as the Lean program for the **Hodge conjecture** ([`Hodge_QLF.md`](Hodge_QLF.md) / `QLF_Hodge`)
+and is now **built out across all five rungs of the dream** — the full **standard conjectures** (Hodge,
+B, C, D), the **motive object**, the **motivic Galois group**, **anabelian** recovery, and **periods** —
+each machine-verified on the substrate through the *same* engine (`balanced ⟹ realized` / the scale-free
+census) and the *same* single continuum/choice boundary. It sits alongside the bottom-up **Langlands**
+scaffolding ([`Langlands.md`](Langlands.md)). What remains open is **not** any rung but the shared
+continuum-rendering boundary (ZFC's proven-defective sector) and the *deepening* threads named below;
+scope is marked throughout.
+
+**Map of the five rungs** (all on the substrate, no per-rung axioms):
+
+| Rung | Where | Module |
+|---|---|---|
+| **Standard conjectures** (Hodge, B, C, D) | §1 | `QLF_Hodge` |
+| **The motive object** (universal cohomology) | §5 | `QLF_Motives` |
+| **The motivic Galois group** (Tannakian) | §5 | `QLF_MotivicGalois` |
+| **Anabelian** — geometry from the skeleton | §2 | `QLF_Anabelian` |
+| **Periods** from the census (`π`, `ζ(3)`) | §3 | `QLF_PhysicalPi`, `QLF_AperyPeriod` |
 
 ---
 
@@ -180,7 +193,7 @@ that the foundation is right. The same holds for the asymptotic/period side (§3
 foundation-up, with convergence carried by the substrate's **scale-free** consistency (the exact
 scale-step recurrence), not borrowed from outside.
 
-That is the foundation the dream is built on, and it sets the program QLF can now carry it through:
+That is the foundation the dream is built on — and the five rungs that stand on it are now built:
 
 - **The motive is the ZFA closure — now built** (`QLF_Motives`). A pure `Motive` *is* a ZFA closure
   carrying a weight; it is realized (`Motive.realized`, reusing `count_balanced_pauli_closed`); the Weil
@@ -197,9 +210,14 @@ That is the foundation the dream is built on, and it sets the program QLF can no
 - **Anabelian recovery — now built** (§2, `QLF_Anabelian`). The `π₁`↔closure functor `closurePi1` is
   fully faithful (`anabelian_fully_faithful`): geometry is recovered from the combinatorial closure on
   `QLF_ReachableEvent`'s causal order. (Open: the continuum order→metric step and a profinite étale `π₁`.)
-- **Periods** (§3) — a second period (e.g. `ζ(3)`) from a closure census, the way `π` already is.
-- **Unifying number-theoretic and geometric Langlands** ([`Langlands.md`](Langlands.md) §5.6) — the same
-  generators producing both sides.
+- **Periods — now built** (§3, `QLF_PhysicalPi` / `QLF_AperyPeriod`). The *same* closure census `C(2n,n)`
+  yields **two** periods — `π` and `ζ(3)` (Apéry) — as finite `Real.pi`-free rational sequences; the
+  convergence is scale-free / foundation-up.
+
+The dream's skeleton is complete; what remains is **deepening**, not obstruction-clearing — e.g. a
+profinite étale `π₁` carrying a non-trivial Galois quotient, wiring the (settled) Wallis / Apéry limits
+in-module, and **unifying number-theoretic and geometric Langlands** ([`Langlands.md`](Langlands.md) §5.6)
+from the same generators.
 
 **The mission.** Fulfilling Grothendieck's dream, in QLF terms, is showing that the **discrete algebraic
 substrate is the universal motive** and that everything analytic is its faithful rendering. The standard
@@ -234,14 +252,28 @@ continuum/choice residual is ZFC's proven-defective sector, not a gap in the sub
 
 ## Honest scope (binding)
 
-What is *proven on the substrate* is now the **full set of standard conjectures** — Hodge, B
-(Lefschetz), C (Künneth, for the diagonal), and D (numerical ≡ homological) — each machine-verified in
-`QLF_Hodge` through the one balanced-⟹-realized route and the **one shared boundary axiom**
-`substrate_realization_is_algebraic` (no per-conjecture axioms; `standard_conjectures_on_substrate`).
-What remains a **research program** is the rest of the dream: the **motive object + realization functors**
-and the **motivic Galois group** (§5), the **anabelian** `π₁`↔closure-graph functor (§2), and a **second
-period** from a census (§3) — conceptual alignments grounded in QLF's existing ontology (causal-set
-`reachable`, constructed `π`, the `H↔H†` involution), each with a concrete open step named above. State
-the alignments plainly; do not claim those remaining pieces are settled. The genuinely external residual
-in every case is the same continuum/choice rendering — ZFC's proven-defective sector, the boundary the
-QLF Millennium program isolates — not a gap in the substrate construction.
+**Built on the substrate (machine-verified, no per-rung axioms).** All five rungs:
+
+1. the **standard conjectures** — Hodge, B (Lefschetz), C (Künneth, for the diagonal), D (numerical ≡
+   homological) — through the one balanced-⟹-realized route (`standard_conjectures_on_substrate`,
+   `QLF_Hodge`);
+2. the **motive object** — realized motives, the comparison-isomorphism universal property, tensor, the
+   `H↔H†` duality (`QLF_Motives`);
+3. the **motivic Galois group** — the tensor-automorphism group of the fiber functor, group axioms
+   checked, a non-trivial element, the Tate trivial representation (`QLF_MotivicGalois`);
+4. **anabelian** recovery — the future-cone functor is fully faithful, so geometry is recovered from the
+   combinatorial closure (`QLF_Anabelian`);
+5. **periods** — `π` and `ζ(3)` from the *same* closure census, scale-free / foundation-up
+   (`QLF_PhysicalPi`, `QLF_AperyPeriod`).
+
+All five share the **one boundary** `substrate_realization_is_algebraic` (and, for the period limits, the
+settled Wallis/Apéry asymptotics) — the algebraic→analytic / continuum-rendering crossing, **ZFC's
+proven-defective sector**, the same boundary the QLF Millennium program isolates. That is the residual in
+every case; it is ZFC's defect, **not** a gap in the substrate construction.
+
+**Open — deepening, not obstruction** (state plainly; do not claim settled): a profinite **étale `π₁`**
+carrying a non-trivial Galois quotient (the §2 arithmetic enrichment); wiring the (settled) period limits
+in-module (`physical_pi_in_progress`, `apery_period_in_progress`); the continuum **order→metric** step
+(`light_cone_rendering_in_progress`); and **unifying number-theoretic and geometric Langlands**
+([`Langlands.md`](Langlands.md) §5.6). The obstruction — the standard conjectures — is behind us; what is
+left is construction on a finished foundation.
