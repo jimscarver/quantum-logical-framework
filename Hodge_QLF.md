@@ -146,3 +146,38 @@ The encoding and the *balanced ⟹ realized* discharge are done. The frontier is
 - P. Deligne, *The Hodge Conjecture* — Clay Mathematics Institute (official problem description). <https://www.claymath.org/millennium-problems/>
 
 **See also:** [`Grothendieck_QLF.md`](Grothendieck_QLF.md) — Hodge is one of Grothendieck's *standard conjectures*; the same balanced-⟹-algebraic engine extends (as a research lens) to the Künneth/Lefschetz/numerical-equivalence conjectures, the anabelian "geometry from `π₁`," and the period conjecture.
+
+---
+
+## Faithfulness — reformulation vs. proof, and the `(1,1)` swing
+
+**Honest status.** This module is a **reformulation, not a proof** of the Hodge conjecture. What is
+genuinely proven is the *discrete core* — `count_balanced_pauli_closed` (count balance ⟹ Pauli closure), a
+theorem *about twist strings*. The step that reaches the **classical** statement — substrate closure ⟹
+actual algebraic cycle — is the axiom `substrate_realization_is_algebraic`, and on Hodge classes that axiom
+**is** the Hodge conjecture (full strength; `isAlgebraic` is itself abstract). The substrate makes "every
+Hodge class is ZFA-realized" true *by the encoding* — that part is free; the only remaining content is
+"ZFA-realized = classically-algebraic," which is exactly Hodge. So the bet worth stating plainly is: **ZFA
+realization is the right notion of algebraic.** Stating it is bold and Grothendieckian (he named the
+*Standard Conjectures* conjectures and built motives explicitly on them); *calling it proved* is the one
+sentence an algebraic geometer falsifies on sight.
+
+**Why it isn't an independence phenomenon.** Hodge is *finite ℚ-linear algebra*: the Hodge classes `Hdg^p`
+are a computable ℚ-subspace; the algebraic classes `Z^p` are the (only c.e.-from-below) span of subvariety
+classes; Hodge asks whether `Z^p = Hdg^p`. Hard, but ordinary — **not** known independent of ZFC — so the
+"ZFC's defect" framing does *not* apply here (it applies to genuine uncomputability boundaries).
+
+**The swing at `(1,1)` (the case Grothendieck would test first).** For `p = 1` Hodge is a *theorem*
+(Lefschetz: every `(1,1)` class is a divisor class). Attacking faithfulness there returns a sharp finding,
+recorded in Lean as **`realization_blind_to_codimension`**: substrate realization is *uniform in `p`* — a
+`(1,1)` class and a `(p,p)` class are realized by the identical route. But `(1,1)` is classically proven and
+`(p,p)` for `p ≥ 2` is open, and *that distinction is the whole difficulty of Hodge*. The substrate's
+`p`-blindness is therefore the **tell** that `isRealizedOnSubstrate` reads the *bidegree* (the easy,
+computable side), not *cycle existence* (algebraicity).
+
+**Where the sea must rise.** Faithfulness needs a substrate construction that makes codim-1 *forced* and
+higher codim genuinely open — a substrate analog of the exponential sequence `0 → ℤ → 𝒪 → 𝒪* → 0` whose role
+in Lefschetz `(1,1)` is to pin integral `(1,1)` classes to line bundles (= divisors = algebraic). Until the
+substrate encodes *cycles* (not bidegrees) and recovers that codim-1 specialness, `(1,1)` is realized only in
+the bidegree sense. That is the precise, attackable open problem — Grothendieck's "now make it look
+inevitable," not assumed.

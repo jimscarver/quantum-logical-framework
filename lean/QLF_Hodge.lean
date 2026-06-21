@@ -182,6 +182,42 @@ theorem non_algebraic_not_hodge (c : CohClass) (h : ¬ c.isAlgebraic) :
     ¬ c.isHodge :=
   fun hh => h (hodge_class_is_algebraic c hh)
 
+/-! ### Faithfulness — the swing at Lefschetz `(1,1)`, and where the sea must rise
+
+    To EARN the classical Hodge conjecture (not just `QLF-Hodge`), the substrate's notion of
+    realization must coincide with classical algebraicity (cycle existence).  The first place to
+    test this — the case Grothendieck would demand first — is `(1,1)`: divisors, where Hodge is a
+    *theorem* (Lefschetz).  The swing returns a sharp, honest finding, recorded below as
+    `realization_blind_to_codimension`.
+
+    **The finding (the tell).** Substrate realization is *uniform in `p`*: the `(1,1)` class and a
+    `(p,p)` class are realized by the **identical** route (count balance ⟹ closure).  But
+    classically `(1,1)` is PROVEN (divisors) while `(p,p)` for `p ≥ 2` is OPEN — and *that
+    distinction is the entire difficulty of Hodge*.  A notion that genuinely captured
+    algebraicity would have to SEE why divisors are special; the substrate's `p`-uniformity shows
+    `isRealizedOnSubstrate` is reading the **bidegree** (the easy, computable Hodge side), not
+    **cycle existence**.  So the current frame is *not yet faithful* — it relabels the Hodge side
+    for free and leaves algebraicity as the axiom, equally strong at every `p`.
+
+    **Where the sea must rise (the program).** Faithfulness needs a substrate construction that
+    makes codim-1 forced and higher codim genuinely open — a substrate analog of the exponential
+    sequence `0 → ℤ → 𝒪 → 𝒪* → 0` whose role in Lefschetz `(1,1)` is exactly to pin the integral
+    `(1,1)` classes to line bundles (= divisors = algebraic).  Until the substrate encodes
+    *cycles* (not just bidegrees) and recovers that codim-1 specialness, `(1,1)` is realized only
+    in the bidegree sense, not proven algebraic on the substrate.  This is the precise, attackable
+    open problem — Grothendieck's "now make it look inevitable."  See `Hodge_QLF.md`. -/
+
+/-- **Faithfulness diagnostic — the substrate is blind to codimension.** For *every* `p`, the
+    `(p,p)` class is realized on the substrate by the one route (`hodge_realized_on_substrate`),
+    so the substrate cannot distinguish `(1,1)` (classically PROVEN — Lefschetz, divisors) from
+    `(p,p)`, `p ≥ 2` (classically OPEN).  That difficulty-distinction is the heart of Hodge — so
+    this `p`-uniformity is the tell that `isRealizedOnSubstrate` captures the *bidegree*, not
+    *algebraicity*.  An honest *true* statement that *diagnoses* the faithfulness gap (it is not a
+    proof of anything classical): closing the gap requires a substrate reason divisors are special. -/
+theorem realization_blind_to_codimension (p : ℕ) :
+    (CohClass.mk p p).isRealizedOnSubstrate :=
+  hodge_realized_on_substrate (CohClass.mk p p) rfl
+
 /-! ### The Künneth standard conjecture (Conjecture C) — the diagonal's components
 
     Grothendieck's **Künneth standard conjecture**: the Künneth components of the diagonal
