@@ -111,5 +111,6 @@ lean_lib QLF where
     `QLF_HodgeIrreducible,
     `QLF_CycleEncoding,
     `QLF_SpanningMap,
-    `QLF_GradedCohomology
+    `QLF_GradedCohomology,
+    `QLF_CohomologyRing
   ]
