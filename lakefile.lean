@@ -110,5 +110,6 @@ lean_lib QLF where
     `QLF_HodgeExpSequence,
     `QLF_HodgeIrreducible,
     `QLF_CycleEncoding,
-    `QLF_SpanningMap
+    `QLF_SpanningMap,
+    `QLF_GradedCohomology
   ]
