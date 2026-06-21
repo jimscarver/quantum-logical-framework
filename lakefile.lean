@@ -113,5 +113,6 @@ lean_lib QLF where
     `QLF_SpanningMap,
     `QLF_GradedCohomology,
     `QLF_CohomologyRing,
-    `QLF_CohomologyLinear
+    `QLF_CohomologyLinear,
+    `QLF_CohomologyAlgebra
   ]
