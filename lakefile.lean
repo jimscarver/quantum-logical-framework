@@ -103,5 +103,6 @@ lean_lib QLF where
     `QLF_Reversibility,
     `QLF_Motives,
     `QLF_MotivicGalois,
-    `QLF_Anabelian
+    `QLF_Anabelian,
+    `QLF_AperyPeriod
   ]
