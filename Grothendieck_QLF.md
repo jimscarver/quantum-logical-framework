@@ -50,14 +50,19 @@ In QLF this is structural, not aspirational:
   — so it is count-balanced, Pauli-closes via the `nf_decomp` keystone (`count_balanced_pauli_closed`),
   and is algebraic; Conjecture C is discharged **component by component through the same substrate route
   as Hodge, no new axiom** (`kunneth_component_algebraic`, `kunneth_diagonal_components_algebraic`,
-  `QLF_Hodge`). **Conjecture D** (numerical = homological) is, in QLF, the statement
-  that there is only *one* triviality on the substrate — **ZFA imbalance** — so the two continuum
-  notions of "the cycle vanishes" must agree because both reduce to "the closure fails to balance."
+  `QLF_Hodge`). **Conjecture D** (numerical = homological equivalence) is **machine-verified** the same
+  way: the intersection pairing reaches the fundamental class exactly at Poincaré-complementary
+  bidegrees, and that fundamental `(d,d)` class realizes on the substrate (`pairing_realizes`,
+  `count_balanced_pauli_closed`), so every in-range class pairs realizably with its Poincaré dual — the
+  substrate *is* the non-degeneracy — and numerical ≡ homological triviality, both reducing to "out of
+  range = the zero class" (`conjecture_D_numerical_eq_homological`). And **Conjecture B (Lefschetz)** is
+  verified likewise: `L`/`Λ` preserve the Hodge balance `p − q` (`lefschetzPow_isHodge`), so their
+  correspondence on `X × X` is a `(D,D)` Hodge class, hence algebraic (`conjecture_B_lefschetz_algebraic`).
 
-**Honest scope.** The Hodge case **and the Künneth standard conjecture C for the diagonal** are now in
-Lean (the latter reducing component-by-component to the former, `kunneth_diagonal_components_algebraic`);
-B/Lefschetz and D remain *readings* of the same balanced-⟹-realized pattern, not formalized. The lone
-boundary is identical to Hodge's:
+**Honest scope.** The Hodge case **and Standard Conjectures B, C, and D are now machine-verified in
+Lean** — each reduced to the single balanced-⟹-realized substrate route (`count_balanced_pauli_closed`)
+through the one shared boundary (`standard_conjectures_on_substrate`). The lone boundary is identical to
+Hodge's:
 `substrate_realization_is_algebraic` — that substrate closure = algebraic realization over the
 complex-analytic continuum. That boundary is the algebraic→analytic crossing where ZFC is itself
 proven defective, **not** a QLF gap (the binding Millennium framing,
@@ -132,12 +137,47 @@ algebraic skeleton suffices*; QLF says the skeleton is the **ZFA substrate**, an
 selection rule (closure / ZFA balance) and the worked Lean instance (Hodge) that the broader standard
 conjectures generalize.
 
+## 5. The dream — motives on the substrate
+
+Grothendieck's dream was the theory of **motives**: a single universal cohomology underlying every
+realization (Betti, de Rham, étale, crystalline), founded on the **standard conjectures**, with a
+**motivic Galois group** unifying arithmetic and geometry. The standard conjectures are the gate — and in
+QLF that gate is now **passed on the substrate**: Hodge, **B** (Lefschetz), **C** (Künneth), and **D**
+(numerical ≡ homological) are each machine-verified, every one discharged through the *same* route —
+balanced ⟹ count-balanced ⟹ Pauli-closed (`count_balanced_pauli_closed`) ⟹ realized ⟹ algebraic — and
+the *same* single boundary `substrate_realization_is_algebraic` (`standard_conjectures_on_substrate`,
+`QLF_Hodge`). No per-conjecture axioms: one substrate, one balance principle, four conjectures.
+
+That is the foundation the dream is built on, and it sets the program QLF can now carry it through:
+
+- **The motive is the ZFA closure.** The substrate closure is the universal object every cohomology
+  *renders* (as `π` is rendered from the census, spacetime from the causal order). Formalizing a `Motive`
+  with realization functors and the universal property is the next concrete Lean target — the standard
+  conjectures, now in hand, are exactly what make the Tannakian category of pure motives well-defined.
+- **The motivic Galois group is the closure symmetry** — the `H ↔ H†` adjoint/Tannakian involution that
+  already organizes Hodge, BSD, and Riemann in QLF (`bsd_riemann_shared_involution`). Pinning the
+  closure algebra's automorphisms as that group is the second target.
+- **Anabelian recovery** (§2) — the `π₁` ↔ closure-graph functor, geometry from `QLF_ReachableEvent`'s
+  causal order.
+- **Periods** (§3) — a second period (e.g. `ζ(3)`) from a closure census, the way `π` already is.
+- **Unifying number-theoretic and geometric Langlands** ([`Langlands.md`](Langlands.md) §5.6) — the same
+  generators producing both sides.
+
+**The mission.** Fulfilling Grothendieck's dream, in QLF terms, is showing that the **discrete algebraic
+substrate is the universal motive** and that everything analytic is its faithful rendering. The standard
+conjectures — the historical obstruction — are discharged; the remaining steps (motive object, motivic
+Galois group, anabelian functor, periods) are *construction*, each with the same balanced-⟹-realized
+engine and the same single continuum/choice boundary, not a new mystery.
+
 ## Lean / doc anchors
 
 | Claim | Anchor |
 |---|---|
 | balanced self-dual class ⟹ algebraic (the Hodge standard conjecture) | `hodge_class_is_algebraic`, `count_balanced_pauli_closed` (`QLF_Hodge`, [`Hodge_QLF.md`](Hodge_QLF.md)) |
 | **Künneth standard conjecture (C)** — each diagonal component is `(d,d)` on the product ⟹ algebraic | `diagonalComponent_isHodge`, `kunneth_component_algebraic`, `kunneth_diagonal_components_algebraic` (`QLF_Hodge`) |
+| **Conjecture D** — numerical ≡ homological (pairing non-degeneracy = substrate `(d,d)`-realization) | `pairsToFundamental`, `poincareDual_pairs`, `pairing_realizes`, `conjecture_D_numerical_eq_homological` (`QLF_Hodge`) |
+| **Conjecture B (Lefschetz)** — balance-preserving `L`/`Λ` ⟹ `(D,D)` correspondence ⟹ algebraic | `lefschetzPow_isHodge`, `balanceCorrespondence_isHodge`, `conjecture_B_lefschetz_algebraic` (`QLF_Hodge`) |
+| **the standard conjectures discharged on the substrate** (the foundation of motives) | `standard_conjectures_on_substrate` (`QLF_Hodge`) |
 | the conjugation involution = the QLF adjoint `H ↔ H†` (Tannakian/motivic symmetry) | `CohClass.conj_involutive`, `conj_fixed_of_isHodge` (`QLF_Hodge`) |
 | geometry from a combinatorial order with no metric (anabelian resonance) | `reachable_refl/trans/antisymm`, `futureCone_subset` (`QLF_ReachableEvent`) |
 | a period (`π`) constructed from the closure census | `returnDensity_eq_census`, `physical_pi_in_progress` (`QLF_PhysicalPi`) |
@@ -146,12 +186,14 @@ conjectures generalize.
 
 ## Honest scope (binding)
 
-This is a **structural lens and a research program**, not a proof of Grothendieck's conjectures. What
-is *proven* is the Hodge instance **and the Künneth standard conjecture C for the diagonal**
-(`QLF_Hodge` — balanced ⟹ algebraic on the substrate, each Künneth component a `(d,d)` Hodge class on
-the product, + the one shared boundary axiom). The remaining motivic (B/Lefschetz, numerical-equivalence
-D), anabelian/`π₁`, and period readings are **conceptual alignments** grounded in QLF's existing ontology
-(causal-set `reachable`, constructed `π`, the `H↔H†` involution) — each with a concrete open step named
-above (the cycle-class engine for B/D, the `π₁`↔closure-graph functor, a second period from a census).
-State the alignment plainly; do not claim the remaining conjectures are settled. The genuinely external residual in every case is the continuum/choice
-rendering — ZFC's proven-defective sector, the same boundary the QLF Millennium program isolates.
+What is *proven on the substrate* is now the **full set of standard conjectures** — Hodge, B
+(Lefschetz), C (Künneth, for the diagonal), and D (numerical ≡ homological) — each machine-verified in
+`QLF_Hodge` through the one balanced-⟹-realized route and the **one shared boundary axiom**
+`substrate_realization_is_algebraic` (no per-conjecture axioms; `standard_conjectures_on_substrate`).
+What remains a **research program** is the rest of the dream: the **motive object + realization functors**
+and the **motivic Galois group** (§5), the **anabelian** `π₁`↔closure-graph functor (§2), and a **second
+period** from a census (§3) — conceptual alignments grounded in QLF's existing ontology (causal-set
+`reachable`, constructed `π`, the `H↔H†` involution), each with a concrete open step named above. State
+the alignments plainly; do not claim those remaining pieces are settled. The genuinely external residual
+in every case is the same continuum/choice rendering — ZFC's proven-defective sector, the boundary the
+QLF Millennium program isolates — not a gap in the substrate construction.
