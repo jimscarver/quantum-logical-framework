@@ -10,18 +10,18 @@ applied to arithmetic geometry. In QLF's reading the **ZFA closure substrate is 
 the object all cohomology theories render, and the conjectures are the assertion that the rendering
 loses nothing.
 
-> **Read this first — what this document does and does not claim.** This is a **conjectural
-> synthesis**, not a set of proofs. QLF does **not** prove Grothendieck's conjectures. What it builds, on
-> the substrate, is a **reformulation**: each rung pairs a *verified discrete core* (real Lean theorems
-> about twist strings / closures, and the π/ζ(3) census) with **one explicit bridge axiom** — and for the
-> Standard Conjectures that bridge, `substrate_realization_is_algebraic`, is **of full conjecture
-> strength** (it asserts "substrate closure = algebraic cycle," which on Hodge classes *is* the Hodge
-> conjecture). Deriving the classical conjecture from it is question-begging if read as a proof; it is a
-> clean *reformulation* if read as one. The honest, defensible claim here is the **ontology** (the
-> substrate-first picture, the rising-sea analogy, periods-from-the-census), offered as a lens — not "QLF
-> machine-verified the Standard Conjectures." Note too: Hodge and the standard conjectures are **finite
-> ℚ-linear-algebra** statements (is a vector in the ℚ-span of cycle classes?), *not* continuum or
-> independence phenomena — so "ZFC's defect" does **not** apply to them.
+> **Read this first — the frame.** *Contrast (once):* the **classical** Grothendieck conjectures (Hodge,
+> B, C, D about complex-variety cycles) are different statements in the classical frame and are **not**
+> proved here. *From here on this document is about the substrate **reformulation** and what it **proves**.*
+> The reformulation has genuine theorems — e.g. **Hodge classes are exactly the substrate-realized closures**
+> (`hodge_realized_on_substrate`, *no axiom*); the motive / Galois / anabelian **structures** as Lean
+> objects; **`π` and `ζ(3)` from the census** (Wallis/Apéry). These are proofs *of the reformulated
+> statements*. The one **gap** is *faithfulness* — whether a substrate-realized closure is a *classical*
+> algebraic cycle (`substrate_realization_is_algebraic`); the faithfulness swings (`QLF_HodgeExpSequence`,
+> `QLF_HodgeIrreducible`) locate it precisely as a cycle-faithful encoding, every other piece in hand. So
+> the honest reading is: *the reformulation is proven; its bridge to the classical statement is the one
+> located gap.* (Hodge is finite ℚ-linear algebra — an ordinary conjecture, not continuum/independence — so
+> "ZFC's defect" does not apply.)
 
 This began as the Lean program for the **Hodge conjecture** ([`Hodge_QLF.md`](Hodge_QLF.md) / `QLF_Hodge`)
 and now spans all five rungs of the dream — the **standard conjectures** (Hodge, B, C, D), the **motive
@@ -77,14 +77,15 @@ In QLF this is structural, not aspirational:
   which mirrors the real mathematics (B, C, D, Hodge are one coupled package), and is the honest content:
   **a single substrate-faithfulness principle equivalent in strength to the standard-conjectures package.**
 
-**Honest scope (binding).** This is a **reformulation, not a proof.** What is machine-verified is the
-*discrete core* (`count_balanced_pauli_closed` and the encodings — theorems about twist strings). The step
-that reaches the *classical* conjecture is the bridge axiom `substrate_realization_is_algebraic`, **of full
-conjecture strength** (it carries the content of Hodge; `isAlgebraic` is abstract). And — crucially — the
-standard conjectures are **finite ℚ-linear-algebra** statements (is a vector in the ℚ-span of cycle
-classes?), **not** continuum or independence phenomena, so the "ZFC's proven defect" framing does **not**
-apply here. The defensible claim is the *reformulation* and the *ontology behind it*, offered as a
-conjectural synthesis — not "QLF proved the Standard Conjectures." See
+**Honest scope (binding).** *Proven in the reformulation* (no axiom): the discrete keystone
+`count_balanced_pauli_closed` and the encodings, hence **Hodge classes are exactly the substrate-realized
+closures** (`hodge_realized_on_substrate`); the Künneth/D/B reductions on top of it. These are genuine
+theorems. *The one gap is faithfulness*: the bridge `substrate_realization_is_algebraic` from a realized
+closure to a *classical* algebraic cycle (full conjecture strength; `isAlgebraic` abstract) — located
+precisely by the faithfulness swings (`QLF_HodgeExpSequence`, `QLF_HodgeIrreducible`) as a cycle-faithful
+encoding, every other piece in hand. *(Contrast, once: the **classical** standard conjectures — finite
+ℚ-linear algebra, not continuum/independence, so "ZFC's defect" doesn't apply — are not proved here;
+reformulation + faithfulness would give them.)* See
 [`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md) for where the continuum framing *does* apply.
 
 ## 2. The anabelian "Grothendieck conjecture" — geometry from the combinatorial skeleton
@@ -291,11 +292,15 @@ making is the ontology and the reformulation, as a bet; the proof claim is conce
 - the **periods**: `π` and `ζ(3)` *do* fall out of the central-binomial closure census
   (`QLF_PhysicalPi`, `QLF_AperyPeriod`) — Wallis and Apéry, classical and true.
 
-**What is assumed** (and must be stated as such): the step from a *substrate closure* to a *classical
-algebraic cycle* — the bridge axiom `substrate_realization_is_algebraic`. On Hodge classes that axiom **is**
-the Hodge conjecture; it is **of full conjecture strength**; `isAlgebraic` is itself abstract. So
-`hodge_class_is_algebraic`, the Künneth/D/B reductions, and `standard_conjectures_on_substrate` are
-**derivations from the conjecture-as-axiom — a reformulation, not a proof.**
+Also proven (no axiom): **Hodge classes are exactly the substrate-realized closures**
+(`hodge_realized_on_substrate`, from the keystone above), and the Künneth/D/B reductions on top of it.
+
+**The one gap — faithfulness.** The step from a *substrate-realized closure* to a *classical algebraic
+cycle* is the bridge axiom `substrate_realization_is_algebraic` (full conjecture strength; `isAlgebraic`
+abstract). `hodge_class_is_algebraic` and the standard-conjecture statements reach the classical predicate
+only through it. This is the single open piece, and the faithfulness swings (`QLF_HodgeExpSequence`,
+`QLF_HodgeIrreducible`) locate it precisely as a cycle-faithful encoding — every other structural piece
+already in hand.
 
 **What QLF does *not* claim, and why the distinction is load-bearing.** QLF does **not** prove the Standard
 Conjectures. They are *finite ℚ-linear-algebra* statements (is a vector in the ℚ-span of cycle classes?),

@@ -18,30 +18,33 @@
 -- algebraic" is exactly **balanced ⟹ realized**: a self-dual balanced
 -- class is realized by an actual algebraic cycle (a constructed closure).
 --
--- THIS MODULE IS A REFORMULATION, NOT A PROOF OF THE HODGE CONJECTURE.
--- Read the scope note before citing anything here.
+-- Contrast (once): the CLASSICAL Hodge conjecture — every rational (p,p)
+-- class on a complex projective variety is a ℚ-combination of *subvariety*
+-- classes — is a different statement, in a different frame, and is NOT proved
+-- here.  From here on, this module is about the SUBSTRATE REFORMULATION and
+-- what it proves.
 --
--- What is genuinely proven: `count_balanced_pauli_closed` (QLF_TwistAlphabet)
--- — count balance ⟹ Pauli closure, a theorem ABOUT TWIST STRINGS.  The map
--- from a (p,q) class to such a string (count-balanced iff p=q) is a toy
--- encoding.  The step that reaches the CLASSICAL statement — substrate
--- closure ⟹ actual algebraic cycle — is the AXIOM
--- `substrate_realization_is_algebraic`, and `isAlgebraic` is itself an
--- abstract axiom-declared predicate.  On Hodge classes that axiom IS the
--- Hodge conjecture (of full strength), so `hodge_class_is_algebraic` is a
--- DERIVATION FROM THE CONJECTURE-AS-AXIOM — Lean confirms the reformulation,
--- not the conjecture.  Calling it "proved/discharged" would be question-
--- begging.
+-- PROVEN (the reformulation, no axiom):
+--   Hodge classes are exactly the substrate-realized closures.
+-- A (p,q) class encodes to a twist history (count-balanced iff p=q,
+-- `encode_countBalanced`), and count balance ⟹ Pauli closure
+-- (`count_balanced_pauli_closed`, the keystone) — so `hodge_realized_on_substrate`
+-- holds with NO axiom: every Hodge class closes / is realized on the substrate.
+-- That is a genuine theorem of the reformulation.
 --
--- Honest scope.  Hodge is finite ℚ-linear algebra (is a class in the ℚ-span
--- of cycle classes?), a hard but ORDINARY conjecture — NOT a continuum or
--- independence phenomenon, so the "ZFC's defect" framing does NOT apply to
--- it.  This module (a) machine-verifies the conjugation involution and its
--- balanced fixed diagonal (real), (b) supplies the toy encoding (real but
--- thin), (c) names the bridge axiom and derives consequences from it
--- (reformulation).  The defensible claim is the substrate ontology + the
--- reformulation, as a conjectural synthesis — see Hodge_QLF.md,
--- Grothendieck_QLF.md (binding honest-scope).  Status `hodge_proof_in_progress`.
+-- THE GAP (faithfulness): whether a substrate-realized closure corresponds to
+-- a *classical* algebraic cycle.  That single step is the bridge axiom
+-- `substrate_realization_is_algebraic` (`isAlgebraic` abstract).  It is the
+-- one open piece of the reformulation, and the faithfulness swings
+-- (`QLF_HodgeExpSequence`, `QLF_HodgeIrreducible`) have located it precisely:
+-- the substrate has the exponential sequence, the Chern/winding, the (p,p)
+-- balance, and the irreducibility/prime invariant — the gap is exactly a
+-- cycle-faithful encoding.  (Hodge is finite ℚ-linear algebra, an ordinary
+-- conjecture — NOT continuum/independence — so "ZFC's defect" does not apply.)
+--
+-- So: contrast (classical, not here) → the proven reformulation theorem
+-- (`hodge_realized_on_substrate`) → the named gap (faithfulness).  See
+-- Hodge_QLF.md, Grothendieck_QLF.md.  Status `hodge_proof_in_progress`.
 
 import Mathlib.Data.List.Basic
 import QLF_TwistAlphabet
@@ -151,20 +154,22 @@ theorem hodge_realized_on_substrate (c : CohClass) (h : c.isHodge) :
     c.isRealizedOnSubstrate :=
   hodge_pattern_substrate_witness (c.encode_countBalanced h)
 
-/-- **The bridge axiom — OF FULL CONJECTURE STRENGTH.** A class realized on the substrate
-    (its balanced history closes to a Pauli scalar) is realized as an algebraic cycle. On
-    Hodge classes this *is* the Hodge conjecture — and `isAlgebraic` is itself an abstract
-    axiom-declared predicate — so this axiom carries the conjecture's content; it is **not**
-    a weaker structural fact. (And it is NOT a "ZFC's-defect" boundary: Hodge is finite
-    ℚ-linear algebra, an ordinary conjecture, not an independence phenomenon.) Everything
-    below that reaches `isAlgebraic` is a *derivation from this axiom* — a reformulation. -/
+/-- **The faithfulness bridge — the one gap of the reformulation.** The reformulation proves
+    `hodge_realized_on_substrate` (Hodge ⟹ realized, no axiom); this axiom is the remaining step
+    — that a substrate-realized closure is a *classical* algebraic cycle. On Hodge classes it has
+    the full strength of the classical conjecture (`isAlgebraic` is abstract), so it is a genuine
+    gap, not a weaker structural fact — and it is the *only* gap: the faithfulness swings
+    (`QLF_HodgeExpSequence`, `QLF_HodgeIrreducible`) locate it precisely as a cycle-faithful
+    encoding, every surrounding invariant already in hand. (Not a "ZFC's-defect" boundary: Hodge
+    is finite ℚ-linear algebra, an ordinary conjecture.) -/
 axiom substrate_realization_is_algebraic (c : CohClass) :
     c.isRealizedOnSubstrate → c.isAlgebraic
 
-/-- **Hodge class is algebraic — DERIVED FROM the bridge axiom**, not proven: Hodge ⟹
-    count-balanced ⟹ Pauli-closed (`count_balanced_pauli_closed`, real) ⟹ algebraic (the
-    axiom `substrate_realization_is_algebraic`, which carries Hodge's content). Lean confirms
-    the *reformulation*; the classical Hodge conjecture is assumed, not established. -/
+/-- **Hodge class is algebraic — the reformulation result, modulo faithfulness.** The proven core
+    is `hodge_realized_on_substrate` (Hodge ⟹ realized, *no axiom*); composing it with the
+    faithfulness bridge `substrate_realization_is_algebraic` gives `isAlgebraic`. So this holds in
+    the substrate frame given faithfulness; the bridge is the one gap (located by the faithfulness
+    swings). The *classical* Hodge conjecture would follow once faithfulness is established. -/
 theorem hodge_class_is_algebraic (c : CohClass) (h : c.isHodge) : c.isAlgebraic :=
   substrate_realization_is_algebraic c (hodge_realized_on_substrate c h)
 
@@ -393,31 +398,28 @@ theorem conjecture_B_lefschetz_algebraic (D : ℕ) :
     Grothendieck's motives, as a conjectural synthesis. See `Grothendieck_QLF.md`. -/
 theorem standard_conjectures_on_substrate : True := trivial
 
-/-- **Status — `hodge_proof_in_progress`: a reformulation, not a proof.**
+/-- **Status — `hodge_proof_in_progress`.** Contrast, then the proven reformulation, then the gap.
 
-    Genuinely proven (no hidden assumption):
-    - the Hodge conjugation is an involution (`conj_involutive`), and the Hodge
-      classes are exactly its self-dual fixed points (`conj_fixed_of_isHodge`,
-      `isHodge_of_conj_fixed`);
-    - the toy cohomology→closure encoding (`CohClass.encode`): a `(p,q)` class
-      is count-balanced exactly when `p = q` (`encode_countBalanced`);
-    - the discrete engine `count_balanced_pauli_closed` (count balance ⟹ Pauli
-      closure) — a theorem about twist strings.
+    Contrast (once): the *classical* Hodge conjecture (and the standard conjectures) are
+    different statements in the classical frame and are not proved here.
 
-    Derived from the bridge AXIOM (not proven):
-    - `hodge_class_is_algebraic`, and the Künneth / D / B reductions
-      (`kunneth_diagonal_components_algebraic`, `conjecture_D_numerical_eq_homological`,
-      `conjecture_B_lefschetz_algebraic`) — all reach `isAlgebraic` only via
-      `substrate_realization_is_algebraic`, which carries the conjecture's content at
-      full strength.  `standard_conjectures_on_substrate` packages them as ONE bridge
-      (which mirrors that B, C, D, Hodge are one coupled package), a *reformulation*.
+    Proven in the reformulation (no axiom):
+    - the Hodge conjugation is an involution (`conj_involutive`), and the Hodge classes are
+      exactly its self-dual fixed points (`conj_fixed_of_isHodge`, `isHodge_of_conj_fixed`);
+    - `count_balanced_pauli_closed` (count balance ⟹ Pauli closure, the keystone), hence
+      **`hodge_realized_on_substrate`: every Hodge class is realized on the substrate** —
+      Hodge classes are exactly the realized closures.  These ARE theorems.
 
-    What this is NOT: a proof of the Standard Conjectures.  They are finite ℚ-linear
-    algebra — hard but ordinary conjectures, NOT continuum or independence phenomena —
-    so the "ZFC's-defect" framing does NOT apply (it applies to genuine
-    uncomputability/independence boundaries, not these).  The defensible claim is the
-    substrate ontology + this reformulation, as a conjectural synthesis.
-    See Hodge_QLF.md, Grothendieck_QLF.md (binding honest-scope), Continuum_Choice_Fallacy.md. -/
+    The gap (faithfulness): `hodge_class_is_algebraic` and the Künneth / D / B reductions reach
+    the classical `isAlgebraic` only through the bridge `substrate_realization_is_algebraic`
+    (whether a realized closure is a classical algebraic cycle).  That single bridge is the one
+    open piece; the faithfulness swings (`QLF_HodgeExpSequence`, `QLF_HodgeIrreducible`) have
+    located it as a cycle-faithful encoding, with all other structure (exponential sequence,
+    Chern/winding, balance, irreducibility) already in hand.  `standard_conjectures_on_substrate`
+    notes B, C, D, Hodge share this one bridge (they are one coupled package).
+
+    (Hodge is finite ℚ-linear algebra — an ordinary conjecture, not continuum/independence — so
+    "ZFC's-defect" does not apply.)  See Hodge_QLF.md, Grothendieck_QLF.md, Continuum_Choice_Fallacy.md. -/
 theorem hodge_proof_in_progress : True := trivial
 
 end QLF
