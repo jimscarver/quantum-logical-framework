@@ -101,5 +101,6 @@ lean_lib QLF where
     `QLF_Supersymmetry,
     `QLF_AlphaBound,
     `QLF_Reversibility,
-    `QLF_Motives
+    `QLF_Motives,
+    `QLF_MotivicGalois
   ]
