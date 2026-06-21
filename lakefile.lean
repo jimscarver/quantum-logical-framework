@@ -106,5 +106,6 @@ lean_lib QLF where
     `QLF_Anabelian,
     `QLF_AperyPeriod,
     `QLF_AnabelianGalois,
-    `QLF_EtalePi1
+    `QLF_EtalePi1,
+    `QLF_HodgeExpSequence
   ]
