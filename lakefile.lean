@@ -102,5 +102,6 @@ lean_lib QLF where
     `QLF_AlphaBound,
     `QLF_Reversibility,
     `QLF_Motives,
-    `QLF_MotivicGalois
+    `QLF_MotivicGalois,
+    `QLF_Anabelian
   ]
