@@ -114,5 +114,6 @@ lean_lib QLF where
     `QLF_GradedCohomology,
     `QLF_CohomologyRing,
     `QLF_CohomologyLinear,
-    `QLF_CohomologyAlgebra
+    `QLF_CohomologyAlgebra,
+    `QLF_HodgeStructure
   ]
