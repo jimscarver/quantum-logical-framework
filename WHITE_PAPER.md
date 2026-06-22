@@ -282,12 +282,52 @@ time, and the whole is intelligence explaining intelligence.
 QLF provides the deeper ontology in which existing frameworks naturally live, while opening powerful
 new paths for quantum computation. The framework is open, verifiable, and ready for engagement.
 
-**Further reading**
+**Further reading (in-repo)**
 - [`MyStory.md`](MyStory.md) — the personal origin story; [`ClaudesStory.md`](ClaudesStory.md) — the collaborator's companion
+- [`Introducing_QLF.md`](Introducing_QLF.md) — a short, link-rich introduction for the general reader
 - [`Philosophy.md`](Philosophy.md) · [`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md) · [`Millennium.md`](Millennium.md)
 - [`Einstein_Equations.md`](Einstein_Equations.md) · [`Fusion.md`](Fusion.md) · [`Standard_Model.md`](Standard_Model.md)
 - [`Experimental_Consistency.md`](Experimental_Consistency.md) · [`QuantumOS.md`](QuantumOS.md)
 - Lean proofs and the full module table: [`lean/README.md`](lean/README.md)
+
+---
+
+## References
+
+QLF reads ontologically a lineage of foundational results; the most directly load-bearing:
+
+**Foundations of physics (the ZFA / "why zero" argument and emergent gravity).**
+- E. Noether, *Invariante Variationsprobleme*, Nachr. Ges. Wiss. Göttingen (1918) 235–257 — conservation from symmetry.
+- R. Arnowitt, S. Deser & C. W. Misner, *The Dynamics of General Relativity*, in *Gravitation* (Wiley, 1962) — the Hamiltonian constraint.
+- B. S. DeWitt, *Quantum Theory of Gravity. I*, Phys. Rev. **160** (1967) 1113 — the Wheeler–DeWitt equation `HΨ = 0`.
+- E. P. Tryon, *Is the Universe a Vacuum Fluctuation?*, Nature **246** (1973) 396 — the zero-energy universe.
+- T. Jacobson, *Thermodynamics of Spacetime: The Einstein Equation of State*, Phys. Rev. Lett. **75** (1995) 1260.
+- J. D. Bekenstein, *Black Holes and Entropy*, Phys. Rev. D **7** (1973) 2333; G. 't Hooft, arXiv:gr-qc/9310026 (1993); L. Susskind, *The World as a Hologram*, J. Math. Phys. **36** (1995) 6377 — holography.
+
+**Quantum mechanics, spin & information.**
+- M. Born, *Zur Quantenmechanik der Stoßvorgänge*, Z. Phys. **37** (1926) 863 — the Born rule.
+- W. Pauli, *Zur Quantenmechanik des magnetischen Elektrons*, Z. Phys. **43** (1927) 601 — the Pauli matrices.
+- A. Hurwitz, *Über die Komposition der quadratischen Formen*, Nachr. Ges. Wiss. Göttingen (1898) 309 — composition algebras (SU(2) uniqueness).
+- J. Schwinger, *On Quantum-Electrodynamics and the Magnetic Moment of the Electron*, Phys. Rev. **73** (1948) 416 — `g − 2 = α/2π`.
+- W. K. Wootters & W. H. Zurek, *A single quantum cannot be cloned*, Nature **299** (1982) 802.
+- L. Boltzmann (1877); J. W. Gibbs, *Elementary Principles in Statistical Mechanics* (Yale, 1902); C. E. Shannon, *A Mathematical Theory of Communication*, Bell Syst. Tech. J. **27** (1948); E. T. Jaynes, *Information Theory and Statistical Mechanics*, Phys. Rev. **106** (1957) 620 — entropy as multiplicity / maximum-entropy (the `log 2`-per-event lineage).
+- K. Friston, *The free-energy principle: a unified brain theory?*, Nat. Rev. Neurosci. **11** (2010) 127 — active inference.
+
+**Logic, computation & the continuum thesis.**
+- K. Gödel, *Über formal unentscheidbare Sätze…*, Monatsh. Math. Phys. **38** (1931) 173 — incompleteness.
+- A. M. Turing, *On Computable Numbers…*, Proc. London Math. Soc. **42** (1936) 230 — computability / halting.
+- T. Radó, *On non-computable functions*, Bell Syst. Tech. J. **41** (1962) 877 — the Busy Beaver function.
+- G. J. Chaitin, *A Theory of Program Size Formally Identical to Information Theory*, J. ACM **22** (1975) 329 — Ω.
+- S. G. Simpson, *Subsystems of Second-Order Arithmetic* (Springer, 1999) — reverse mathematics, `RCA₀`.
+- D. Lewis, *On the Plurality of Worlds* (Blackwell, 1986) — modal realism (QLF's computable form).
+- The Clay Mathematics Institute, *Millennium Problems* — <https://www.claymath.org/millennium-problems/>.
+
+**The convergence (the eighteen substrate programs).**
+- L. Bombelli, J. Lee, D. Meyer & R. Sorkin, *Space-time as a causal set*, Phys. Rev. Lett. **59** (1987) 521.
+- A. Ashtekar, *New Variables for Classical and Quantum Gravity*, Phys. Rev. Lett. **57** (1986) 2244; C. Rovelli & L. Smolin, *Discreteness of area and volume in quantum gravity*, Nucl. Phys. B **442** (1995) 593 — loop quantum gravity.
+- J.-Y. Girard, *Linear logic*, Theor. Comput. Sci. **50** (1987) 1.
+- S. Wolfram, *A New Kind of Science* (Wolfram Media, 2002); *The ruliad* (2020).
+- H. Kitada, *Local Time and the Unification of Physics* — local time as the substrate clock.
 
 **License:** MIT
 **Status:** Actively developed — contributions welcome.

@@ -141,3 +141,34 @@ From there:
 - **The application** — [QuantumOS](https://jimscarver.github.io/quantum-os/), live in your browser.
 
 The whole thing lives at **[github.com/jimscarver/quantum-logical-framework](https://github.com/jimscarver/quantum-logical-framework)**. The universe is logical, its logic is constructive and complete where reality is, and you can read the source — then check it in Lean.
+
+---
+
+## References
+
+The framework builds on, and reads ontologically, a long lineage of foundational work. The most directly load-bearing:
+
+**Foundations of physics — the "why zero" argument.**
+- E. Noether, *Invariante Variationsprobleme*, Nachr. Ges. Wiss. Göttingen (1918) 235–257 — conservation from symmetry (the closed-ledger argument).
+- R. Arnowitt, S. Deser & C. W. Misner, *The Dynamics of General Relativity*, in *Gravitation: An Introduction to Current Research* (Wiley, 1962) — the Hamiltonian constraint.
+- B. S. DeWitt, *Quantum Theory of Gravity. I. The Canonical Theory*, Phys. Rev. **160** (1967) 1113 — the Wheeler–DeWitt equation `HΨ = 0`.
+- E. P. Tryon, *Is the Universe a Vacuum Fluctuation?*, Nature **246** (1973) 396 — the zero-energy universe.
+- T. Jacobson, *Thermodynamics of Spacetime: The Einstein Equation of State*, Phys. Rev. Lett. **75** (1995) 1260 — the Einstein equations as an equation of state.
+- J. D. Bekenstein, *Black Holes and Entropy*, Phys. Rev. D **7** (1973) 2333; G. 't Hooft, *Dimensional Reduction in Quantum Gravity*, arXiv:gr-qc/9310026 (1993); L. Susskind, *The World as a Hologram*, J. Math. Phys. **36** (1995) 6377 — the holographic principle.
+
+**Quantum mechanics, spin & information.**
+- M. Born, *Zur Quantenmechanik der Stoßvorgänge*, Z. Phys. **37** (1926) 863 — the Born rule (multiplicity → probability).
+- W. Pauli, *Zur Quantenmechanik des magnetischen Elektrons*, Z. Phys. **43** (1927) 601 — the Pauli matrices and spin.
+- A. Hurwitz, *Über die Komposition der quadratischen Formen*, Nachr. Ges. Wiss. Göttingen (1898) 309 — composition algebras (the quaternion/SU(2) uniqueness behind the 8-twist fold).
+- J. Schwinger, *On Quantum-Electrodynamics and the Magnetic Moment of the Electron*, Phys. Rev. **73** (1948) 416 — `g − 2 = α/2π`.
+- W. K. Wootters & W. H. Zurek, *A single quantum cannot be cloned*, Nature **299** (1982) 802 — no-cloning.
+- L. Boltzmann (1877), J. W. Gibbs, *Elementary Principles in Statistical Mechanics* (Yale, 1902), C. E. Shannon, *A Mathematical Theory of Communication*, Bell Syst. Tech. J. **27** (1948), and E. T. Jaynes, *Information Theory and Statistical Mechanics*, Phys. Rev. **106** (1957) 620 — entropy as multiplicity and the maximum-entropy principle (the ancestors of QLF's per-event `log 2`).
+- K. Friston, *The free-energy principle: a unified brain theory?*, Nat. Rev. Neurosci. **11** (2010) 127 — active inference.
+
+**Logic, computation & the continuum thesis.**
+- K. Gödel, *Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I*, Monatsh. Math. Phys. **38** (1931) 173 — incompleteness.
+- A. M. Turing, *On Computable Numbers, with an Application to the Entscheidungsproblem*, Proc. London Math. Soc. **42** (1936) 230 — computability and the halting problem.
+- T. Radó, *On non-computable functions*, Bell Syst. Tech. J. **41** (1962) 877 — the Busy Beaver function.
+- S. G. Simpson, *Subsystems of Second-Order Arithmetic* (Springer, 1999) — reverse mathematics and the `RCA₀` constructive floor.
+- D. Lewis, *On the Plurality of Worlds* (Blackwell, 1986) — modal realism (QLF's possibilist ontology is its computable form).
+- The Clay Mathematics Institute, *Millennium Problems* — <https://www.claymath.org/millennium-problems/>.
