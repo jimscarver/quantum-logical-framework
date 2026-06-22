@@ -67,7 +67,7 @@ theorem hodge_number_symmetric (H : PureHodgeStructure) (p q : ℤ) :
 theorem bidegree_conj_involutive (p q : ℤ) : (Prod.swap (Prod.swap (p, q))) = (p, q) := rfl
 
 /-- **Tate twist** `H(n)`: weight `w − 2n`, bidegrees shifted by `(n,n)`. -/
-def tate (H : PureHodgeStructure) (n : ℤ) : PureHodgeStructure where
+def PureHodgeStructure.tate (H : PureHodgeStructure) (n : ℤ) : PureHodgeStructure where
   weight := H.weight - 2 * n
   hodgeNumber p q := H.hodgeNumber (p + n) (q + n)
   conj_symm p q := H.conj_symm (p + n) (q + n)
@@ -104,19 +104,19 @@ theorem tateObject_weight (n : ℤ) : (tateObject n).weight = 2 * n := rfl
 
 /-- The **dimension of the Hodge classes** of `H` — the rational `(p,p)` part where `2p = weight`. In odd
     weight there is no such `p`, so it is `0`. -/
-def hodgeClassDim (H : PureHodgeStructure) : ℕ :=
+def PureHodgeStructure.hodgeClassDim (H : PureHodgeStructure) : ℕ :=
   if _ : Even H.weight then H.hodgeNumber (H.weight / 2) (H.weight / 2) else 0
 
 /-- **Odd weight has no Hodge classes** — the classical fact that odd cohomology carries none. -/
 theorem oddWeight_no_hodge_classes (H : PureHodgeStructure) (hodd : ¬ Even H.weight) :
     H.hodgeClassDim = 0 := by
-  unfold hodgeClassDim
+  unfold PureHodgeStructure.hodgeClassDim
   rw [dif_neg hodd]
 
 /-- The Tate object has exactly **one** Hodge class (its `(n,n)` generator). -/
 theorem tateObject_hodgeClassDim (n : ℤ) : (tateObject n).hodgeClassDim = 1 := by
   have hev : Even (tateObject n).weight := ⟨n, by rw [tateObject_weight]; ring⟩
-  unfold hodgeClassDim
+  unfold PureHodgeStructure.hodgeClassDim
   rw [dif_pos hev]
   have hhalf : (tateObject n).weight / 2 = n := by
     rw [tateObject_weight]
