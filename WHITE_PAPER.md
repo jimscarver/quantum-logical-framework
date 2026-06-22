@@ -3,7 +3,7 @@
 *Quantum Genesis: Constructive Possibilist Quantum Logical Synthesis*
 
 **Repository:** [`jimscarver/quantum-logical-framework`](https://github.com/jimscarver/quantum-logical-framework)
-**Version:** 2.0 (14 June 2026)
+**Version:** 2.1 (22 June 2026)
 **Authors:** Jim Whitescarver, with Grok (xAI) and Claude (Anthropic)
 
 ---
@@ -151,7 +151,7 @@ All six Clay Millennium problems have a Lean module reducing each to a construct
 | Riemann Hypothesis | `QLF_Riemann`, `QLF_RiemannMRE` | `spectral_hilbert_polya` / `MRE_bridge` |
 | Yang–Mills mass gap | `QLF_MassGap` | `yang_mills_continuum_gap` |
 | Birch–Swinnerton-Dyer | `QLF_BSD` | `modularity_mirror_invariant` (rank = ord is a theorem) |
-| Hodge conjecture | `QLF_Hodge` | `substrate_realization_is_algebraic` (Hodge ⟹ algebraic is a theorem) |
+| Hodge conjecture | `QLF_Hodge`, `QLF_CohomologyAlgebra`, `QLF_HodgeStructure` | `substrate_realization_is_algebraic` (both sides built; gap = geometric realization — see below) |
 | P vs NP | `QLF_PvsNP` | `generate_not_reducible_to_verify` |
 | Navier–Stokes | `QLF_NavierStokes` | `navier_stokes_continuum_limit` |
 
@@ -163,6 +163,21 @@ framing honestly: it names genuine uncomputability/independence (halting, Busy B
 carries the conjecture's full strength; for the *continuum-analytic* problems (Riemann, Yang–Mills,
 Navier–Stokes) the continuum/choice diagnosis is QLF's thesis, with the bridge stated as the honest
 open step.
+
+**Hodge — built out on both sides, the thread closed at its honest floor.** The Hodge reformulation is
+now built as a concrete cohomology object on the substrate. The **algebraic** side is a graded
+ℚ-**subalgebra** — the cohomology build `QLF_GradedCohomology` → `QLF_CohomologyRing` →
+`QLF_CohomologyLinear` → `QLF_CohomologyAlgebra`, the image of a ℚ-algebra homomorphism `cl` from the
+substrate's cycle ring (graded, cup-closed). The **transcendental** `(p,q)` side is a genuine pure Hodge
+structure (`QLF_HodgeStructure` — weight, the bigraded Hodge numbers, Tate/Lefschetz objects, odd-weight
+vanishing), whose real-structure conjugation `H^{p,q} ↔ H^{q,p}` *is* the substrate's own `H↔H†` adjoint.
+With both sides concrete, the bridge `substrate_realization_is_algebraic` is reduced to a single named
+input — **geometric realization / polarization** (which Hodge structure a closure's cohomology carries) —
+exactly where the classical difficulty lives. No further substrate scaffolding can close it (even codim-1
+Lefschetz needs a genuine cohomology theory of varieties); the one non-scaffolding path is QLF's thesis
+as a long research bet (emergent Kähler geometry + a period map). So the Hodge thread is **closed at its
+honest floor**: the reformulation proven, both sides built, the gap identified with the genuine open
+problem ([`Hodge_QLF.md`](Hodge_QLF.md), [`Grothendieck_QLF.md`](Grothendieck_QLF.md)).
 
 ---
 
@@ -193,12 +208,13 @@ model, the ρ-calculus, session types, and no-cloning: a capability name *is* a 
 
 ## 9. Convergence
 
-Seventeen independent research programs — digital physics (Zuse), it-from-bit (Wheeler), the
-holographic principle (Bekenstein–'t Hooft–Susskind), causal sets (Sorkin), linear logic (Girard),
-reverse mathematics (Friedman), the free-energy principle (Friston), the ruliad (Wolfram), no-cloning
-(Wootters–Zurek), and others — independently arrive at one picture: **reality is informational,
-computable, and bounded by a logical closure condition.** QLF is the constructive substrate in which
-they coincide.
+Eighteen independent research programs — digital physics (Zuse), it-from-bit (Wheeler), the
+holographic principle (Bekenstein–'t Hooft–Susskind), causal sets (Sorkin), loop quantum gravity
+(Ashtekar–Rovelli–Smolin — space as a spin network of SU(2) quanta, the substrate here being a spin
+network of half-spin ZFA closures), linear logic (Girard), reverse mathematics (Friedman), the
+free-energy principle (Friston), the ruliad (Wolfram), no-cloning (Wootters–Zurek), and others —
+independently arrive at one picture: **reality is informational, computable, and bounded by a logical
+closure condition.** QLF is the constructive substrate in which they coincide.
 
 ---
 
