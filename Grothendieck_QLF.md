@@ -17,11 +17,18 @@ loses nothing.
 > (`hodge_realized_on_substrate`, *no axiom*); the motive / Galois / anabelian **structures** as Lean
 > objects; **`π` and `ζ(3)` from the census** (Wallis/Apéry). These are proofs *of the reformulated
 > statements*. The one **gap** is *faithfulness* — whether a substrate-realized closure is a *classical*
-> algebraic cycle (`substrate_realization_is_algebraic`); the faithfulness swings (`QLF_HodgeExpSequence`,
-> `QLF_HodgeIrreducible`) locate it precisely as a cycle-faithful encoding, every other piece in hand. So
-> the honest reading is: *the reformulation is proven; its bridge to the classical statement is the one
-> located gap.* (Hodge is finite ℚ-linear algebra — an ordinary conjecture, not continuum/independence — so
-> "ZFC's defect" does not apply.)
+> algebraic cycle (`substrate_realization_is_algebraic`). For Hodge that gap is now **built out to its honest
+> floor**: the cohomology object is constructed on both sides — the **algebraic** side a graded ℚ-**subalgebra**
+> (`QLF_GradedCohomology`→`QLF_CohomologyRing`→`QLF_CohomologyLinear`→`QLF_CohomologyAlgebra`, the image of a
+> ℚ-algebra hom `cl` from the cycle ring) and the **transcendental** `(p,q)` side a genuine pure Hodge
+> structure (`QLF_HodgeStructure`, whose conjugation *is* the substrate `H↔H†`) — so the gap is reduced to the
+> single input of **geometric realization / polarization** (which Hodge structure a closure's cohomology
+> carries). No further substrate scaffolding closes it (the swings `QLF_HodgeExpSequence`/`QLF_HodgeIrreducible`
+> showed even codim-1 Lefschetz needs a real cohomology theory of varieties = the open program). So the honest
+> reading is: *the reformulation is proven; both sides of the Hodge picture are built; its bridge to the
+> classical statement is the one located gap, identified with geometric realization — the **thread closed at
+> its honest floor**.* (Hodge is finite ℚ-linear algebra — an ordinary conjecture, not continuum/independence —
+> so "ZFC's defect" does not apply.)
 
 This began as the Lean program for the **Hodge conjecture** ([`Hodge_QLF.md`](Hodge_QLF.md) / `QLF_Hodge`)
 and now spans all five rungs of the dream — the **standard conjectures** (Hodge, B, C, D), the **motive
@@ -34,7 +41,7 @@ single bridge axiom. It sits alongside the bottom-up **Langlands** scaffolding
 
 | Rung | Where | Module | Status |
 |---|---|---|---|
-| **Standard conjectures** (Hodge, B, C, D) | §1 | `QLF_Hodge` | reformulation; bridge of full strength |
+| **Standard conjectures** (Hodge, B, C, D) | §1 | `QLF_Hodge`, `QLF_CohomologyAlgebra`, `QLF_HodgeStructure` | reformulation; both sides built; **Hodge thread closed at its honest floor** (gap = geometric realization) |
 | **The motive object** (universal cohomology) | §5 | `QLF_Motives` | structure built; rests on the bridge |
 | **The motivic Galois group** (Tannakian) | §5 | `QLF_MotivicGalois` | structure built (a real group) |
 | **Anabelian** — geometry from the skeleton | §2 | `QLF_Anabelian` | a genuine theorem on the causal set |
@@ -81,11 +88,19 @@ In QLF this is structural, not aspirational:
 `count_balanced_pauli_closed` and the encodings, hence **Hodge classes are exactly the substrate-realized
 closures** (`hodge_realized_on_substrate`); the Künneth/D/B reductions on top of it. These are genuine
 theorems. *The one gap is faithfulness*: the bridge `substrate_realization_is_algebraic` from a realized
-closure to a *classical* algebraic cycle (full conjecture strength; `isAlgebraic` abstract) — located
-precisely by the faithfulness swings (`QLF_HodgeExpSequence`, `QLF_HodgeIrreducible`) as a cycle-faithful
-encoding, every other piece in hand. *(Contrast, once: the **classical** standard conjectures — finite
-ℚ-linear algebra, not continuum/independence, so "ZFC's defect" doesn't apply — are not proved here;
-reformulation + faithfulness would give them.)* See
+closure to a *classical* algebraic cycle (full conjecture strength; `isAlgebraic` abstract). For Hodge this
+gap is now **built out to its honest floor and the thread closed**: both sides of the Hodge picture are
+concrete substrate objects — the **algebraic** side a graded ℚ-**subalgebra** (the cohomology build
+`QLF_GradedCohomology`→`QLF_CohomologyRing`→`QLF_CohomologyLinear`→`QLF_CohomologyAlgebra`, the image of a
+ℚ-algebra hom `cl` from the cycle ring) and the **transcendental** `(p,q)` side a genuine pure Hodge
+structure (`QLF_HodgeStructure`, conjugation = the substrate `H↔H†`) — so the gap is reduced to one input,
+**geometric realization / polarization**. The earlier faithfulness swings (`QLF_HodgeExpSequence`,
+`QLF_HodgeIrreducible`) showed why no further substrate scaffolding closes it (even codim-1 Lefschetz needs a
+real cohomology theory of varieties = the open program); the one non-scaffolding path is QLF's thesis as a
+long research bet (emergent Kähler geometry + period map). *(Contrast, once: the **classical** standard
+conjectures — finite ℚ-linear algebra, not continuum/independence, so "ZFC's defect" doesn't apply — are not
+proved here; reformulation + faithfulness would give them.)* See
+[`Hodge_QLF.md`](Hodge_QLF.md) for the full cohomology build and closure, and
 [`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md) for where the continuum framing *does* apply.
 
 ## 2. The anabelian "Grothendieck conjecture" — geometry from the combinatorial skeleton
@@ -295,12 +310,19 @@ making is the ontology and the reformulation, as a bet; the proof claim is conce
 Also proven (no axiom): **Hodge classes are exactly the substrate-realized closures**
 (`hodge_realized_on_substrate`, from the keystone above), and the Künneth/D/B reductions on top of it.
 
-**The one gap — faithfulness.** The step from a *substrate-realized closure* to a *classical algebraic
-cycle* is the bridge axiom `substrate_realization_is_algebraic` (full conjecture strength; `isAlgebraic`
-abstract). `hodge_class_is_algebraic` and the standard-conjecture statements reach the classical predicate
-only through it. This is the single open piece, and the faithfulness swings (`QLF_HodgeExpSequence`,
-`QLF_HodgeIrreducible`) locate it precisely as a cycle-faithful encoding — every other structural piece
-already in hand.
+**The one gap — faithfulness — now built out to its honest floor (Hodge thread closed).** The step from a
+*substrate-realized closure* to a *classical algebraic cycle* is the bridge axiom
+`substrate_realization_is_algebraic` (full conjecture strength; `isAlgebraic` abstract).
+`hodge_class_is_algebraic` and the standard-conjecture statements reach the classical predicate only through
+it. For Hodge, the cohomology object that the faithfulness swings (`QLF_HodgeExpSequence`,
+`QLF_HodgeIrreducible`) named as the missing piece is now **built on both sides**: the **algebraic** side a
+graded ℚ-**subalgebra** (`QLF_GradedCohomology`→`QLF_CohomologyRing`→`QLF_CohomologyLinear`→`QLF_CohomologyAlgebra`,
+the image of a ℚ-algebra hom `cl` from the cycle ring) and the **transcendental** `(p,q)` side a genuine pure
+Hodge structure (`QLF_HodgeStructure`, conjugation = the substrate `H↔H†`). So the single open piece is now
+reduced to one input — **geometric realization / polarization** (which Hodge structure a closure's cohomology
+carries) — and no further substrate scaffolding closes it (even codim-1 Lefschetz needs a real cohomology
+theory of varieties = the open program). The Hodge thread is thus **closed at its honest floor**: both sides
+built, gap identified with the genuine open problem (see [`Hodge_QLF.md`](Hodge_QLF.md)).
 
 **What QLF does *not* claim, and why the distinction is load-bearing.** QLF does **not** prove the Standard
 Conjectures. They are *finite ℚ-linear-algebra* statements (is a vector in the ℚ-span of cycle classes?),
@@ -315,7 +337,9 @@ genuinely-earned work — so this document deliberately keeps the line bright be
 *does* hold.
 
 **Open threads** (deepening): a profinite **étale `π₁`** with a non-trivial non-abelian Galois quotient
-(first layer in `QLF_EtalePi1`); a substrate encoding that actually carries *cohomological* content (so the
-bridge stops carrying everything); wiring the period limits in-module (`physical_pi_in_progress`,
-`apery_period_in_progress`); the continuum **order→metric** step; and **Langlands** unification
-([`Langlands.md`](Langlands.md) §5.6).
+(first layer in `QLF_EtalePi1`); for Hodge, the cohomology object is now **built** (algebraic ℚ-subalgebra +
+the `(p,q)` Hodge structure — `QLF_CohomologyAlgebra`, `QLF_HodgeStructure`), so the bridge no longer carries
+everything and the remaining open input is **geometric realization / polarization** (a long research bet:
+emergent Kähler geometry + period map, QLF's continuum-as-rendering thesis on the hardest case); wiring the
+period limits in-module (`physical_pi_in_progress`, `apery_period_in_progress`); the continuum
+**order→metric** step; and **Langlands** unification ([`Langlands.md`](Langlands.md) §5.6).
