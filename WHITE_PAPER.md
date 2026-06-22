@@ -3,7 +3,7 @@
 *Quantum Genesis: Constructive Possibilist Quantum Logical Synthesis*
 
 **Repository:** [`jimscarver/quantum-logical-framework`](https://github.com/jimscarver/quantum-logical-framework)
-**Version:** 2.1 (22 June 2026)
+**Version:** 2.2 (22 June 2026)
 **Authors:** Jim Whitescarver, with Grok (xAI) and Claude (Anthropic)
 
 ---
@@ -47,22 +47,57 @@ The universe is an **active-inference information ecology**: ZFA events minimize
 energy, so the universe is **intelligence explaining the intelligence all around us**. Each closure
 synthesizes exactly one bit, `ΔF = −log 2` ([`MRE.md`](MRE.md)).
 
+**Why *zero* — ZFA is over-determined, not stipulated.** That a realized history closes with `δS = 0`
+is forced by several independent lines of standard physics, which QLF only reads ontologically
+([`Philosophy.md`](Philosophy.md) §4): (i) it is *already* the law of all physics — Newton, Maxwell,
+GR, QM, and the Standard Model each derive their dynamics from the *same* stationary-action condition
+`δS = 0`, and QLF adds no new law, only the claim that the stationary histories are the *realized* ones;
+(ii) a **closed totality has no outside reservoir** — net "free action" would be an effect with no cause,
+so the universe's ledger must balance (Noether on a closed system); (iii) it is **GR's own constraint** —
+a spatially closed universe has identically vanishing total Hamiltonian (the Wheeler–DeWitt `HΨ = 0`,
+the "zero-energy universe"), and QLF applies that same `H = 0` to every Markov blanket; (iv) **to be a
+distinct thing is to close** — an unbalanced history is an open thread that leaks across its boundary and
+is not yet a definite existent, so existence and ZFA-balance are the same predicate (the holographic
+principle read on the boundary); (v) **free-action-from-nowhere is an unsourced (undecidable) computation**
+— exactly the non-terminating tail `full_zeno_prune` removes. So `δS = 0` is not imposed from outside; it
+is the statement that the ledger of change is closed.
+
 ---
 
 ## 2. The substrate: 8-twist algebra, spacetime, particles, spin
 
-- **8-twist alphabet** — six spatial twists (`^ v < > / \`) and two gauge twists (`+ −`); ZFA balance
-  is count balance, which (machine-verified, `count_balanced_pauli_closed`) entails Pauli closure to a
-  scalar `{±I, ±iI}` for *every* history.
+- **8-twist alphabet, and why it is the Pauli algebra.** Six spatial twists (`^ v < > / \`) and two
+  gauge twists (`+ −`); each twist *is* a Pauli generator (`Twist.toMatrix`: up/down → `±σ_y`,
+  left/right → `∓σ_x`, the diagonals → `±σ_z`, gauge → `±I`), and a history's physics is what its matrix
+  product (its **fold**) does. The non-trivial fact is that **count balance collapses the fold to a pure
+  phase**: if each axis occurs equally often as `+`/`−`, each Pauli axis appears an *even* number of
+  times, so the axis-parity sum in `(ℤ/2)²` vanishes and the product collapses to a scalar in
+  `{±I, ±iI}` — exactly the kernel of `SU(2) → SO(3)`. This is `count_balanced_pauli_closed`
+  ([`QLF_TwistAlphabet.lean`](lean/QLF_TwistAlphabet.lean)), proven for *every* history including
+  cross-axis interleavings (via `nf_decomp` + the `(ℤ/2)²` axis-parity bridge). So "ZFA-balanced" and
+  "closes to a spin scalar" are the *same* condition, and the substrate's algebra **is** SU(2) quantum
+  mechanics because that is the unique algebra its balanced folds generate.
+- **Why spin-½ is the minimal closure.** Balance pairs each twist with its conjugate, so the minimal
+  closure is a single twist + partner — a **binary partition** carrying at most `log 2` (one bit),
+  saturated only at the 50/50 split that balance enforces (`binary_kl_uniform_lt_log_two`,
+  [`QLF_FreeEnergy.lean`](lean/QLF_FreeEnergy.lean)). It is therefore the unique event-shape that both
+  closes and maximizes information per fold — anything coarser is composite, anything finer forbidden.
+  Its signature is the genuine double cover: 360° = one pair → `−I`, 720° = two pairs → `+I`, with
+  `−I ≠ +I` (`rotation_360_eq_negI`, `rotation_720_eq_id`, `spin_double_cover_nontrivial`); integer spin
+  is provably composite (`½ + ½ = 1`, `photon_integer_spin`) ([`Spin_QLF.md`](Spin_QLF.md), [`MRE.md`](MRE.md)).
+- **Why the Hermitian conjugate is central.** The dagger is complex-conjugate-and-order-reverse — exactly
+  QM's antiunitary time-reversal, stated at the twist level (`eval_dagger`); the *same* map is the
+  antiparticle (an involution, `antiparticle_involutive`), so C and T are one operation. A balanced
+  closure is **self-adjoint** `H = H†` — its own time-reverse (`spectral_symmetric_eq_scalar_id`) — which
+  is why no arrow lives inside one event and why measurement needs no extra postulate. The fixed locus of
+  this `H ↔ H†` involution (self-adjoint, real-spectrum) is the **Riemann critical line**, the spine
+  shared by BSD and Hodge ([`Reversibility.md`](Reversibility.md)).
 - **Spacetime is synthesized, not background.** Every ZFA event synthesizes its own local space and
   time; there is no universal clock. The cosmic age (~13.8 Gyr) is the proper time of the cosmic
   Markov-blanket clock ([`SpaceTime.md`](SpaceTime.md), [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md)).
 - **Particles emerge** from ZFA event structure: fermions from odd-parity histories (Pauli exclusion,
   `pauli_exclusion`), bosons from even-parity histories; photons and gauge bosons as gauge-twist
   closures.
-- **Spin *is* the twists** — the 720° double cover, su(2) closure, charge conjugation as
-  view-from-behind, and the Majorana neutrino all fall out of worked twist folds
-  ([`Spin_QLF.md`](Spin_QLF.md)).
 
 ---
 
