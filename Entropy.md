@@ -26,6 +26,8 @@ where \(\rho\) is the reduced density matrix after tracing out distinctions beyo
 
 Entropy therefore equals the number of irreducible ZFA loops hidden behind that blanket.
 
+**Lineage — Boltzmann's $S = k_B \ln W$.** This count-of-hidden-distinctions reading is the direct descendant of Boltzmann's microstate entropy $S = k_B \ln W$ (1877), where $W$ is the number of microstates consistent with a macrostate. QLF makes $W$ concrete and observer-relative: $W$ is the number of Pauli-closed ZFA histories consistent with the boundary an observer resolves — so a Pauli-closed history of length $2k$ carries $\ln W = \ln \binom{2k}{k}$ nats (the §1a multiplicity), recovering $\log 2$ for $k=1$. Boltzmann's $W$ is the multiplicity of microstates; QLF's is the multiplicity of admissible histories behind the Markov blanket — the same state-counting, with the ensemble made relational ([Relative_Entropy.md](Relative_Entropy.md)) and $k_B$ a unit convention (QLF counts in nats/bits). The non-uniform / weighted ensemble is Gibbs' $S = -k_B \sum_i p_i \ln p_i$ (1902), the statistical-mechanics counterpart of the von Neumann form above and the Shannon form used throughout this document.
+
 ## 1a. The Per-Event Quantum of Entropy Production
 
 Every 1/2-spin ZFA atom contributes exactly $\log 2$ nats to the entropy budget. This is the **per-event quantum**: each closure resolves one Hermitian-pair partition of the local possibility tree, and the binary-partition information bound $D_{\mathrm{KL}} \leq \log 2$ is saturated only by 50/50 binary closures — exactly the shape ZFA enforces ([MRE.md §2.1](MRE.md)).
