@@ -289,3 +289,25 @@ Lefschetz, codim `p ≥ 2` the open content. The build now has the **entire alge
 graded ℚ-subalgebra, the image of a ℚ-algebra homomorphism from the cycle ring — and the open input isolated
 to one transcendental object. Not a proof; the located frontier of the cohomology build, with the algebraic
 half finished and the gap reduced to the single piece a real cohomology theory of a variety must supply.
+
+**The transcendental `(p,q)` structure (`QLF_HodgeStructure`).** That "single piece" — the Hodge structure
+itself — is now built. The honest split is sharp: **a pure Hodge structure is *definable* mathematics**
+(Deligne), and that part is proven here; only its *geometric origin* (which structure a given closure's
+cohomology carries) is the open input. A `PureHodgeStructure` carries the weight `w`, the bigraded Hodge
+numbers `h^{p,q}`, the **real-structure symmetry** `h^{p,q} = h^{q,p}` — and this conjugation `H^{p,q} ↔
+H^{q,p}` **is QLF's adjoint `H ↔ H†`** (the same involution as `conj_involutive`), so the substrate already
+carries exactly the symmetry the structure needs — and purity (`h^{p,q} ≠ 0 ⟹ p+q = w`). On it the genuine
+Hodge-theory facts are proven: **Tate twists** `H(n)` (weight `w − 2n`, functorial), the **Tate / Lefschetz
+objects** (`tateObject n` = the 1-dimensional `(n,n)` class of weight `2n`; `lefschetzObject` = the weight-2
+`(1,1)` divisor class), each carrying exactly one Hodge class; and the **Hodge classes** `hodgeClassDim`
+(the rational `(p,p)` part) with **odd-weight vanishing** (`oddWeight_no_hodge_classes` — the classical fact
+that odd cohomology has no Hodge classes).
+
+So both sides are now concrete: the **algebraic** side is a graded ℚ-subalgebra (the image of `cl`), and the
+**transcendental** side is the Hodge structure with its `(p,p)` Hodge classes. The lone remaining open input
+is **geometricity / polarization** — *which* Hodge structure the substrate's cohomology of a given closure
+carries (its periods, its polarizing form), the analytic datum the substrate does not yet synthesize. The
+Hodge conjecture is that, for a *geometric* weight-`2p` structure, its `hodgeClassDim` is spanned by the
+algebraic subalgebra — codim 1 = `lefschetzObject` (Lefschetz, settled), codim `p ≥ 2` open. The full Hodge
+picture is built on the substrate, with the gap reduced to that one geometric-realization input — a genuine,
+located frontier, **not** a proof of the conjecture.
