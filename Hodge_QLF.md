@@ -311,3 +311,36 @@ Hodge conjecture is that, for a *geometric* weight-`2p` structure, its `hodgeCla
 algebraic subalgebra — codim 1 = `lefschetzObject` (Lefschetz, settled), codim `p ≥ 2` open. The full Hodge
 picture is built on the substrate, with the gap reduced to that one geometric-realization input — a genuine,
 located frontier, **not** a proof of the conjecture.
+
+## Status — the thread is closed as far as the substrate reaches
+
+This is the honest endpoint of the Hodge thread, and it is a *clean closure*, not a defeat. Two things are
+true at once, and both should be stated plainly:
+
+**The reformulation is complete.** Both sides of the Hodge picture are now concrete substrate objects: the
+**algebraic** side is a graded ℚ-subalgebra (the image of the ℚ-algebra homomorphism `cl` from the cycle
+ring); the **transcendental** side is a genuine pure Hodge structure (weight, Hodge numbers, the real
+structure = the substrate's own `H↔H†` adjoint, Tate twists, Hodge classes). The gap is located at exactly
+one named input — **geometric realization / polarization** — which is *precisely* where the classical
+difficulty lives. The clean reformulation, both sides built, and that exact localization are the real
+contribution here.
+
+**No further substrate scaffolding can close it — and that is not a QLF-specific failure.** The bridge
+`substrate_realization_is_algebraic` carries the conjecture's *full strength*; you cannot discharge it with
+more Lean unless you actually prove Hodge. The faithfulness swing series proved this from the inside: the
+substrate's exponential-sequence analog (`QLF_HodgeExpSequence`) is *multiplicative / p-uniform*, so the
+substrate cannot even reproduce the **classical codim-1 Lefschetz `(1,1)` argument** (which runs through
+`H¹(𝒪*) = Pic`, genuine sheaf cohomology). Building a real cohomology theory of varieties in the substrate
+*is* algebraic geometry / Hodge theory — the open program, not a module. So the residual is the genuine open
+mathematics, sitting exactly where the reformulation put it.
+
+**The one non-scaffolding path forward** is QLF's own thesis, as a research bet rather than a commit: if the
+continuum is a rendering, then "geometric realization" is itself a substrate construction — one would build
+the substrate's **emergent Kähler / complex geometry and a real period map**, then test whether the substrate
+*forces* Hodge → algebraic. Success there would be the substrate vindicating its continuum-as-rendering claim
+on the hardest possible case; it is a long program whose outcome is exactly the open bet, and it is named here
+rather than pretended to be in hand.
+
+So the Hodge thread closes at its natural floor: **reformulation complete, both sides built, gap identified
+with the genuine open conjecture (geometric realization).** Further Hodge modules would have to either fake
+the gap or prove a Clay problem; neither is on offer, and stopping here is the honest call.
