@@ -40,9 +40,7 @@ def Form.interval (f : Form) : ℝ := f.t ^ 2 - f.x ^ 2 - f.y ^ 2 - f.z ^ 2
     cancel and the 2×2 Hermitian determinant is exactly the spacetime metric. -/
 theorem det_toMatrix_eq_interval (f : Form) :
     (Form.toMatrix f).det = (Form.interval f : ℂ) := by
-  rw [Matrix.det_fin_two, Form.toMatrix, Form.interval]
-  simp only [Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
-    Matrix.head_fin_const]
+  rw [Form.toMatrix, Matrix.det_fin_two_of, Form.interval]
   push_cast
   -- LHS − RHS = (I²+1)·y², which vanishes by I² = −1
   linear_combination ((f.y : ℂ)) ^ 2 * Complex.I_sq
@@ -64,12 +62,45 @@ theorem lorentz_preserves_interval (A X : Matrix (Fin 2) (Fin 2) ℂ) (hA : A.de
   rw [Matrix.det_mul, Matrix.det_mul, Matrix.det_conjTranspose, hA]
   simp
 
+/-! ## Does the *dynamics* preserve the interval? — yes, by `|det| = 1`
+
+QLF dynamics acts on the Hermitian state by **congruence** `X ↦ A X A†` (the bra-ket sandwich of
+RhoQuCalc's sequence/dagger). The determinant — the Minkowski interval — transforms by `|det A|²`
+(`det_congruence`), so the interval is preserved **exactly when `|det A| = 1`**
+(`interval_preserved_of_unit_det`). Every QLF process operator is a product of twists, and each twist
+maps to `±σ` or `±I` — all with `|det| = 1` (`det σ = −1`, `det I = +1`) — so every QLF evolution
+preserves the interval. (And a *closed* history folds to a phase scalar `p·I`, `|p| = 1`, acting
+trivially: closure preserves the whole state, not just the interval — the projective inertness of
+`QLF_StateSpace.bornProb_global_scale`.) -/
+
+/-- **Congruence scales the interval by `|det A|²`.** The general transformation of the determinant
+    (= Minkowski interval) of the Hermitian state under the dynamical map `X ↦ A X A†`. -/
+theorem det_congruence (A X : Matrix (Fin 2) (Fin 2) ℂ) :
+    (A * X * Aᴴ).det = (Complex.normSq A.det : ℂ) * X.det := by
+  rw [Matrix.det_mul, Matrix.det_mul, Matrix.det_conjTranspose]
+  have h : A.det * star A.det = (Complex.normSq A.det : ℂ) := by
+    have := Complex.mul_conj A.det
+    simpa using this
+  calc A.det * X.det * star A.det
+      = (A.det * star A.det) * X.det := by ring
+    _ = (Complex.normSq A.det : ℂ) * X.det := by rw [h]
+
+/-- **The dynamics preserves the interval when `|det A| = 1`.** Since every QLF process operator is a
+    product of twists (each `±σ` or `±I`, `|det| = 1`), every QLF evolution `X ↦ A X A†` preserves the
+    Minkowski interval — Lorentz invariance of the substrate dynamics. -/
+theorem interval_preserved_of_unit_det (A X : Matrix (Fin 2) (Fin 2) ℂ)
+    (hA : Complex.normSq A.det = 1) :
+    (A * X * Aᴴ).det = X.det := by
+  rw [det_congruence, hA, Complex.ofReal_one, one_mul]
+
 /-- **Status — the QLF state IS Minkowski space, machine-checked.** The 2×2 Hermitian `Form` is a
     point of `ℝ^{1,3}` (1 trace = time + 3 traceless Pauli = space); its determinant is the spacetime
     interval (`det_toMatrix_eq_interval`); pure states are null (Bloch = celestial sphere,
     `pure_qubit_null`); `SL(2,ℂ)` preserves the interval, acting as the Lorentz group with the
-    half-spin twists as spinors (`lorentz_preserves_interval`). Over `ℤ[i]` (`QLF_StateSpace`) the
-    interval is integer-valued — the discrete causal order, with continuum Minkowski as its rendering.
+    half-spin twists as spinors (`lorentz_preserves_interval`). The **dynamics** preserves it too: the
+    congruence `X ↦ A X A†` scales the interval by `|det A|²` (`det_congruence`), `= 1` for every
+    twist product (`interval_preserved_of_unit_det`). Over `ℤ[i]` (`QLF_StateSpace`) the interval is
+    integer-valued — the discrete causal order, with continuum Minkowski as its rendering.
     No new axioms. See `The_QLF_State_Space.md`. -/
 theorem qlf_state_is_minkowski : True := trivial
 
