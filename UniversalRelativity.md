@@ -153,6 +153,16 @@ Boosted observer sees same invariant interval
 
 The mechanism behind this emergent Lorentz invariance is explicit: the QLF vacuum is a **statistically uniform, stateless ether** (Einstein's 1920 ether — real metric structure, no preferred frame), derived in [`Time.md`](Time.md) §4 and [`SpaceTime.md`](SpaceTime.md) §4. No frame being privileged, time dilation is reciprocal and local `c` is frame-independent — Lorentz invariance is emergent, not postulated. The explicit boost-as-frequency-change-of-basis is in [`Cross_Frequency_Lorentz.md`](Cross_Frequency_Lorentz.md).
 
+### 3a. The Minkowski metric and the Lorentz group, machine-checked
+
+What was prose above is now formal. The basic QLF state is a 2×2 **Hermitian** matrix — the `Form` of [`lean/SpacetimeDynamics.lean`](lean/SpacetimeDynamics.lean), the spectral mode every closure folds to — and that is *exactly* a point of Minkowski space `ℝ^{1,3}` via the standard `Herm₂(ℂ) ≅ ℝ^{1,3}` isomorphism (the **1** trace direction = time, the **3** traceless Pauli directions = space). The spacetime metric is its **determinant**, machine-checked in [`lean/QLF_Minkowski.lean`](lean/QLF_Minkowski.lean):
+
+$$\det\!\begin{pmatrix} t+z & x-iy \\ x+iy & t-z \end{pmatrix} = t^2 - x^2 - y^2 - z^2 \;=\; \text{the Minkowski interval}$$
+
+(`det_toMatrix_eq_interval`). Pure qubits are **null** (`pure_qubit_null` — the Bloch sphere is the celestial sphere), and the dynamical congruence `X ↦ A X A†` scales the interval by `|det A|²` (`det_congruence`), `= 1` for every twist product (`interval_preserved_of_unit_det`) — so **every QLF evolution preserves the interval**.
+
+The full **`SL(2,ℂ) → SO⁺(1,3)` double cover** is then machine-checked in [`lean/QLF_LorentzCover.lean`](lean/QLF_LorentzCover.lean): a group homomorphism (`spinor_hom`) with **kernel exactly `{±I}`** (`spinor_kernel`, the genuine 2-to-1), whose generators are realized explicitly — a diagonal `diag(a,b)` (`a·b=1`) acts as a **Lorentz boost**, rescaling the null coordinates `u=t+z↦a²u`, `v=t−z↦b²v` (`boostZ_action`), and a unitary `diag(w,w̄)` acts as a **spatial rotation** `x−iy↦w²(x−iy)` (`rotZ_action`) — and which is **surjective** onto every proper orthochronous Lorentz transformation (`spinor_surjective`). So special relativity's symmetry group, and the spinor double cover with the half-spin twists as 2-spinors, are theorems of the substrate, not assumptions. (The one bridge axiom is the standard Lie-theory generation fact; the generators it composes are themselves proven in the image.)
+
 ## 4. Completion of General Relativity
 
 Einstein’s equation with a bare cosmological constant is:
