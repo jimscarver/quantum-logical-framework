@@ -3,7 +3,7 @@
 *Quantum Genesis: Constructive Possibilist Quantum Logical Synthesis*
 
 **Repository:** [`jimscarver/quantum-logical-framework`](https://github.com/jimscarver/quantum-logical-framework)
-**Version:** 2.3 (23 June 2026)
+**Version:** 2.4 (23 June 2026)
 **Authors:** Jim Whitescarver, with Grok (xAI) and Claude (Anthropic)
 
 ---
