@@ -10,6 +10,14 @@ get wrong. Its **positive** companion,
 [Quantum_Logic_Foundations.md](Quantum_Logic_Foundations.md), states what replaces them:
 quantum logic as the correct, complete-for-physics, bottom-up foundation.
 
+> **The empirical case** — that continuum *physics* gives specific, demonstrably **wrong answers**
+> (the ultraviolet catastrophe, the 10¹²² vacuum catastrophe, singularities, the QFT divergences),
+> while discreteness gives the measured value — is collected in
+> [**Continuum_Gets_Wrong_Answers.md**](Continuum_Gets_Wrong_Answers.md). It is the sharper, harder-to-dodge
+> form of this thesis: not "the continuum is false" (`ℝ` is consistent — that target is a trap), but
+> "the continuum is *wrong as a description of reality*, and every time it is right it has quietly become
+> discrete."
+
 ## 1. The two catastrophes
 
 **Physics, 1900.** Classical statistical mechanics, applied to the continuum of
