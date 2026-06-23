@@ -15,9 +15,12 @@ Chaitin horizon. These are not separate accidents; they are the shadows of one f
 logic that can name objects with no finite construction. QLF's core lives **below** that
 horizon, at the **RCA₀** floor of reverse mathematics, and replaces the Axiom of Choice
 with `full_zeno_prune` — a decidable, computable selection. The deeper charge is
-**unsoundness**: continuum and choice are *false* (objects with no finite construction),
-and by *ex falso quodlibet* one false axiom makes everything provable — ZFC's
-Banach–Tarski paradox is the visible symptom. See
+**unsoundness**: continuum and choice are *false in the intended (physical, constructive) model* —
+objects with no finite construction, not a claim that ZFC is *inconsistent* (it is consistent) — and
+by *ex falso quodlibet* an axiom false-in-the-model makes everything provable; ZFC's Banach–Tarski
+paradox is the visible symptom. (The empirical companion is **realizability**: the continuum is
+consistent but *physically unrealizable* and gives wrong answers wherever forced onto reality —
+[TheContinuum.md](TheContinuum.md).) See
 [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md) for the full thesis (the
 negative half), [Quantum_Logic_Foundations.md](Quantum_Logic_Foundations.md) for the
 positive foundation, and [Philosophy.md §25](Philosophy.md) for the philosophical statement.

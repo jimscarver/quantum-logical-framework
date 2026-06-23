@@ -102,6 +102,16 @@ explosion** is unforgiving: admit a single false statement and *every* propositi
 becomes provable; "provable" decouples from "true" and the system certifies nothing. A
 proof is only worth the soundness of the axioms behind it.
 
+**Read "false" precisely throughout this section.** It is the *model-theoretic /
+unsoundness* sense — **false in the intended (physical, constructive) model**, i.e. asserting
+objects that do not exist there — *not* the syntactic claim that ZFC is inconsistent (it is
+consistent; claiming otherwise is a category error). This is the soundness prong; its empirical
+companion is **realizability** — the continuum is consistent but physically unrealizable and
+gives demonstrably wrong answers wherever forced onto reality
+([TheContinuum.md](TheContinuum.md), machine-checked in
+[`lean/QLF_Realizability.lean`](lean/QLF_Realizability.lean)). Consistency, soundness, and
+realizability are three distinct tests; ZFC passes the first and fails the latter two.
+
 QLF's claim is that the two extra commitments of classical set theory are not harmless
 idealizations — they are **false statements**:
 

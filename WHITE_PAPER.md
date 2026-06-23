@@ -3,7 +3,7 @@
 *Quantum Genesis: Constructive Possibilist Quantum Logical Synthesis*
 
 **Repository:** [`jimscarver/quantum-logical-framework`](https://github.com/jimscarver/quantum-logical-framework)
-**Version:** 2.2 (22 June 2026)
+**Version:** 2.3 (23 June 2026)
 **Authors:** Jim Whitescarver, with Grok (xAI) and Claude (Anthropic)
 
 ---
@@ -20,7 +20,7 @@ ZFA is not a restriction on computation — it is a *selection principle*. Every
 full computational possibility space that achieves ZFA closure. What is pruned is not physics but the
 non-terminating, Turing-undecidable, Busy-Beaver-class tail.
 
-The framework is formally verified in **Lean 4 across 108 modules with zero `sorry` blocks**, its
+The framework is formally verified in **Lean 4 across 109 modules with zero `sorry` blocks**, its
 combinatorial core operating strictly within **RCA₀** — below the Axiom of Choice, below the
 continuum, below the Busy Beaver horizon. From the one postulate follow: spacetime synthesized
 event-by-event; particles and spin from twist parity; the Standard Model gauge groups and mass
@@ -267,7 +267,7 @@ closure condition.** QLF is the constructive substrate in which they coincide.
 
 ## 10. Implementation and verification status
 
-- **108 Lean 4 modules, zero `sorry` blocks**; the combinatorial core within RCA₀. The full module
+- **109 Lean 4 modules, zero `sorry` blocks**; the combinatorial core within RCA₀. The full module
   table and key theorems are in [`lean/README.md`](lean/README.md).
 - The explicit axioms are confined to the six Millennium boundaries (above) plus speculative,
   unused-elsewhere axioms in `ER_EPR_QLF`.
