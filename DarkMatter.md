@@ -133,11 +133,34 @@ local `H₀`; the apparent 13% was the wrong-form comparison, and what remains i
 (CMB `67.4` vs local `73`) — and the galaxy data picks the *local* value. (Caveat: the data constrains
 `a₀` to a few %, so `H₀ ≈ 73 ± 3`; and the `a₀↔H₀` link carries the canonical-`M/L` systematic.)
 
-> **Honest scope (revised).** The *scale* `cH₀` is principled (the de Sitter horizon acceleration) and
-> the `1/2π` loop-phase prefactor is now **confirmed by the SPARC RAR fit at the local `H₀`** to `< 1%`.
-> The residual is no longer a QLF prefactor error but the cosmological `H₀` value (the Hubble tension);
-> a *first-principles* `2π` derivation (vs the loop-phase identification) is the remaining nicety
-> (`dark_matter_acceleration_scale_in_progress`).
+### The `2π`, from first principles: the ZFA closure-loop period
+
+The `1/2π` is not a fitted prefactor — it is the **period of one ZFA closure loop**, derived
+([`QLF_MondScale`](lean/QLF_MondScale.lean)). The argument:
+
+1. **`H₀` is the cosmic horizon's *angular* rate.** The Hubble horizon is a thermal de Sitter horizon,
+   and its temperature `T_dS = ℏH₀/(2πk_B)` ([`QLF_HorizonTemperature.desitter_temperature_eq`](lean/QLF_HorizonTemperature.lean))
+   is *literally* the canonical `T = ℏω/(2πk_B)` with `ω = H₀`. So `H₀` is the angular frequency of the
+   horizon's thermal/closure cycle, and the `2π` there is the **Euclidean period** that makes one loop
+   smooth — the same `2π` as the Unruh temperature.
+2. **One closure = one full loop = `τ_ZFA = 2π` radians** ([`QLF_LoopClosure`](lean/QLF_LoopClosure.lean),
+   `render_one_cycle`, `tau_is_two_pi_QLF`).
+3. **So the cosmic *cyclic* closure rate is `f_H = H₀/τ_ZFA = H₀/(2π)`** (closures per unit time = the
+   angular rate ÷ radians per loop), and the crossover acceleration is `c` times that cyclic rate:
+   `a₀ = c·f_H = cH₀/τ_ZFA = cH₀/(2π)` (`a0_is_hubble_per_closure_loop`, `a0_eq_c_times_cyclic_rate`).
+
+`a₀` is therefore the **Hubble acceleration delivered per closure loop** — the angular Hubble rate `cH₀`
+converted to its per-cycle (cyclic) value by the loop period `2π`. And that `2π` is `τ_ZFA = 2·π_QLF`,
+where `π_QLF` is itself derived from the substrate closure census ([`QLF_PhysicalPi`](lean/QLF_PhysicalPi.lean):
+`π = lim 1/(n·returnDensity n)`, no circle). So the `2π` is the substrate closure-loop period, grounded
+in counting — the *same* loop behind `g−2 = α/2π`, the horizon temperatures, and `Ω_Λ` — not a MOND fit.
+
+> **Honest scope (revised).** The *scale* `cH₀` is the de Sitter horizon acceleration; the `1/2π` is the
+> **ZFA closure-loop period `τ_ZFA`**, derived (`QLF_MondScale`) — `a₀` is the Hubble acceleration per
+> closure loop, with `H₀` the horizon's angular rate (the de Sitter temperature form is the evidence) and
+> `τ_ZFA = 2·π_QLF` census-grounded. The `1/2π` prefactor is **confirmed by the SPARC RAR fit at the local
+> `H₀`** to `< 1%`; the residual is the cosmological `H₀` value (the Hubble tension), not a QLF prefactor.
+> The one physical premise the algebra rests on is identifying `H₀` as the cosmic closure's *angular* rate.
 
 ---
 

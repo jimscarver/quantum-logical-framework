@@ -6,7 +6,7 @@ Project context for Claude Code sessions. Read this before making any changes.
 
 ## Project overview
 
-**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **112 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
+**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **113 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
 
 Core claim: *ZFA balance is the selection principle for physical reality.* Every terminating computation is a ZFA string; every ZFA string is symmetric (lies on the critical line). The Church-Turing universe filtered to ZFA-balanced strings is our physical universe.
 
@@ -14,7 +14,7 @@ Core claim: *ZFA balance is the selection principle for physical reality.* Every
 
 ---
 
-## 112 active modules
+## 113 active modules
 
 In `lean/`, registered in `lakefile.lean` roots array (in build order). For fuller per-module descriptions + the complete key-theorem lists, see [`lean/README.md`](lean/README.md).
 
@@ -50,6 +50,7 @@ In `lean/`, registered in `lakefile.lean` roots array (in build order). For full
 | `QLF_QuantumBlackHole` | Every hadron (meson + baryon) is a Markov-blanket quantum black hole. The **Compton–Schwarzschild crossing** `1/μ = 2μ ⟺ μ²=1/2` (`compton_eq_schwarzschild_iff`) — a sub-Planck hadron lives on the Compton side (`sub_planck_compton_gt_schwarzschild`), so its horizon is the Planck blanket, not a Schwarzschild horizon. Horizon area law `S=4πR²log2` (`hadron_horizon_entropy_eq`, reuses `holographic_entropy_eq`); mass `m=1/R` (`lighter_is_deeper` ⟹ pion = deepest hadronic horizon); meson `B=0` vs baryon `B≠0` (`pion_meson_horizon`/`proton_baryon_horizon`, reuses `baryonNumber`). Coherence: hidden-vs-exposed chirality fixes mass factor (`π⁵` vs `1/α`) AND horizon fate (stable vs decay = Hawking evaporation). **Honest scope:** unification + thermodynamic reading, NOT a mass derivation (`R` is an input; `pion_mass_ratio_in_progress`). See `Hadron_BlackHoles.md` |
 | `QLF_DarkMatter` | **Dark matter = denser logic near masses** (quantifies `DarkMatter.md`). Crossover acceleration `a₀ = cH₀/(2π) = c²/(2π R_H)` on the **same Hubble horizon `R_H` as `Ω_Λ = log 2`** (`mond_acceleration_horizon_form`), ≈1.05e-10 vs measured 1.2e-10 (~13%). Transition radius `σ=√(GM/a₀)` where Newton meets the floor (`mond_radius_accel`); dense/sparse crossover `a₀<GM/r² ⟺ r²<GM/a₀` (`newtonian_dominates_iff`) — dense interior = Newton/GR (Mercury, quantum black holes), sparse exterior = apparent dark matter; baryonic Tully–Fisher `v⁴=GMa₀` (`tully_fisher_flat`); Gaussian **MRE** congestion bump (`gaussian_logic_density`). DM↔DE = expand/contract on one horizon. **Rotation curves — derived + blind-tested (#77 CLOSED):** the dense↔sparse interpolation is the **closure-balance RAR** `g_obs²=g_bar·(g_obs+a₀)` (closure needs both the local AND cosmological condition — a ZFA conjunction; `radialAccel_self_consistent`, with the Newtonian `radialAccel_newtonian` and geometric-mean/Tully–Fisher `radialAccel_ge_geometric_mean` limits exact). The **blind SPARC benchmark** (`SPARC.md`, 147 curated galaxies, baryonic-only, SHA-256-sealed, zero per-galaxy tuning) reproduces the galactic **Radial Acceleration Relation parameter-free** at the observational floor — `0.133 dex` scatter, **zero** offset, with the *derived* `a₀=cH₀/2π` (= best-fit MOND; vs Newton failing ×2.7; vs NFW needing **294** halo params for the same data). **Honest scope:** the `1/2π` prefactor is **confirmed** by the SPARC fit at the local `H₀` (`a₀=cH₀/2π` at `H₀=72.9`, <1%; the old ~13% was a wrong-form comparison) — residual = the Hubble tension; open: a *first-principles* `2π` + the form as the *unique* ν. See `DarkMatter.md`, `SPARC.md` |
 | `QLF_HorizonTemperature` | **Unruh/Hawking/de Sitter from one substrate relation.** Every horizon temperature is the Unruh master `T = ℏa/(2πck_B)` (`unruh_temperature`) at the right acceleration, the `2π` being QLF's loop phase (same as `g−2 = α/2π`). Hawking = at surface gravity `κ=c⁴/(4GM)` ⟹ `T=ℏc³/(8πGMk_B)` (`hawking_temperature_eq`; the `8π` = loop `2π`×the `4` in `κ`, the same `8π` as Einstein `8π=4π·2`); de Sitter = at `cH₀` ⟹ `T=ℏH₀/(2πk_B)` (`desitter_temperature_eq`); both literally the master relation (`hawking_is_unruh`/`desitter_is_unruh`). Dark-sector tie: `a₀ = cH₀/(2π) = hubble_acceleration/(2π)` (`mond_accel_is_hubble_over_loop`) — one Hubble horizon + one `2π` behind `Ω_Λ`, the horizon T, and dark matter. **Honest scope:** algebraic unification + loop-phase identification, not a from-scratch QFT-in-curved-spacetime derivation. See `Gravity_From_Delay.md` §5.1 |
+| `QLF_MondScale` | **The `2π` in `a₀ = cH₀/(2π)` derived — the ZFA closure-loop period** (`DarkMatter.md` §5). Closes the open dark-sector thread: the `1/2π` is not a fitted MOND prefactor but the period of **one ZFA closure loop**. `a₀ = cH₀/τ_ZFA` is the **Hubble acceleration delivered per closure loop** (`a0_is_hubble_per_closure_loop`); `H₀` is the cosmic horizon's *angular* rate (the de Sitter temperature `T=ℏH₀/(2πk_B)` exhibits exactly `T=ℏω/(2πk_B)` with `ω=H₀`), so `a₀ = c·` the *cyclic* closure rate `H₀/τ_ZFA = H₀/(2π)` (`a0_eq_c_times_cyclic_rate`, `cyclicClosureRate`). And `τ_ZFA = 2·π_QLF` (`loop_period_is_two_pi_QLF`, reusing `QLF_LoopClosure.tau_is_two_pi_QLF`) with `π_QLF` census-derived (`QLF_PhysicalPi`, no circle) — so the `2π` is the substrate closure-loop period grounded in counting, the *same* loop behind `g−2=α/2π` and the horizon temperatures. **Honest scope:** the one physical premise is identifying `H₀` as the cosmic closure's *angular* rate (the de Sitter temperature form is its evidence); the SPARC fit confirms `1/2π` at the local `H₀`. No new axioms. See `DarkMatter.md`, `Gravity_From_Delay.md` §5 |
 | `QLF_BorromeanAngles` | The 5-angle count `5 = 3 + 2` (Jacobi internal + chirality-mixing); `total_angular_DOF_eq_five`, `matches_lenz_hidden_chirality_angles` |
 | `QLF_EulerMascheroni` | γ as the harmonic excess `H_N − ln N` of the ZFA ensemble; `gamma_QLF_structural` (structural form; convergence proof deferred) |
 | `QLF_RiemannZeta` | Substrate ↔ ζ bridge: `γ_QLF` = ζ's Laurent constant at `s=1`; `zeta_laurent_constant_eq_gamma_QLF`, `rh_proof_in_progress` |
@@ -416,7 +417,7 @@ Avoid framings that contradict the above:
 | Path | Purpose |
 |---|---|
 | `lean/` | All Lean source files |
-| `lakefile.lean` | Build config; `roots` array lists all 112 modules |
+| `lakefile.lean` | Build config; `roots` array lists all 113 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |
