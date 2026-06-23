@@ -69,7 +69,8 @@ theorem boostZ_action (a b : ℝ) (hab : a * b = 1) (f : Form) :
   ext i j
   fin_cases i <;> fin_cases j <;>
     (simp only [Fin.mk_zero, Fin.mk_one, boostZ, Form.toMatrix, Matrix.mul_apply, Fin.sum_univ_two,
-      Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.head_fin_const,
+      Matrix.of_apply, Matrix.cons_val', Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
+      Matrix.head_fin_const, Matrix.empty_val', Matrix.cons_val_fin_one,
       mul_zero, zero_mul, add_zero, zero_add] ;
      first
        | ring
@@ -100,7 +101,8 @@ theorem rotZ_action (w : ℂ) (hw : w * star w = 1) (f : Form) :
   ext i j
   fin_cases i <;> fin_cases j <;>
     (simp only [Fin.mk_zero, Fin.mk_one, rotZ, Form.toMatrix, Matrix.mul_apply, Fin.sum_univ_two,
-      Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.head_fin_const,
+      Matrix.of_apply, Matrix.cons_val', Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
+      Matrix.head_fin_const, Matrix.empty_val', Matrix.cons_val_fin_one,
       mul_zero, zero_mul, add_zero, zero_add] ;
      first
        | ring
