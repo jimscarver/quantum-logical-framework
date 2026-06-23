@@ -245,6 +245,26 @@ $$\nu(y) \;=\; \tfrac12\!\left(1 + \sqrt{1 + 4/y}\right)$$
 `y → ∞`) and `ν → 1/√y` (deep-MOND / Tully–Fisher, `y → 0`). So QLF's closure principle selects *one*
 interpolation function — no per-fit freedom in the shape, just as there is none in the scale `a₀`.
 
+**Why *this* conjunction — the structural reading is derived** ([`QLF_RarBalance`](lean/QLF_RarBalance.lean)).
+The squared/multiplicative form is not posited; it is forced by the **logarithmic free energy**. In QLF
+each closure synthesizes one bit, `ΔF = −log 2` ([`QLF_FreeEnergy`](lean/QLF_FreeEnergy.lean)), so a
+closure rate `g` (an acceleration = closures-per-time) carries free energy `F(g) = −log g`. ZFA balance
+places the observed closure at the **average** of the free energies of its two conjoined conditions — the
+local source `g_bar` **and** the total environment `g_obs + a₀`:
+
+$$F(g_{\rm obs}) \;=\; \tfrac12\bigl(F(g_{\rm bar}) + F(g_{\rm obs}+a_0)\bigr).$$
+
+Because `F = −log`, **an average of log free energies is a geometric mean of rates** — which is exactly
+the squared form `g_obs² = g_bar·(g_obs + a₀)` (`log_geometric_mean_balance`,
+`closure_balance_iff_free_energy_balance`, and `rar_is_free_energy_balance`: the RAR *is* the free-energy
+midpoint). So the three structural features are consequences, not choices: **squared** = the geometric
+mean / log-balance (the `½` is the geometric mean of *two* conditions, the binary `log 2` closure);
+**multiplicative** = the conjunction (the two conditions' log free energies *add*); **additive floor**
+`g_obs + a₀` = accelerations adding (the de Sitter horizon delivers the constant background `a₀` to every
+closure, by the equivalence principle). The reading reduces to the logarithmic free energy (proven) plus
+two premises — acceleration is a closure rate with `F = −log g`, and ZFA balance is the free-energy
+average of the conjoined conditions.
+
 The two limits are exact:
 
 | regime | `radialAccel` | Lean |
