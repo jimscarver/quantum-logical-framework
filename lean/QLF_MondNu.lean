@@ -60,13 +60,15 @@ noncomputable def nu (y : ℝ) : ℝ := (1 + Real.sqrt (1 + 4 / y)) / 2
 /-- **`g_obs = ν(g_bar/a₀)·g_bar`** — the RAR written via the dimensionless interpolation function. -/
 theorem radialAccel_eq_nu (g_bar a_0 : ℝ) (hgb : 0 < g_bar) (ha : 0 < a_0) :
     radialAccel g_bar a_0 = nu (g_bar / a_0) * g_bar := by
+  have hg0 : g_bar ≠ 0 := hgb.ne'
+  have ha0 : a_0 ≠ 0 := ha.ne'
+  have h2 : g_bar ^ 2 + 4 * g_bar * a_0 = g_bar ^ 2 * (1 + 4 * a_0 / g_bar) := by
+    field_simp
   have hkey : g_bar * Real.sqrt (1 + 4 * a_0 / g_bar)
       = Real.sqrt (g_bar ^ 2 + 4 * g_bar * a_0) := by
-    have h2 : g_bar ^ 2 + 4 * g_bar * a_0 = g_bar ^ 2 * (1 + 4 * a_0 / g_bar) := by
-      field_simp; ring
     rw [h2, Real.sqrt_mul (by positivity), Real.sqrt_sq hgb.le]
   have hy : (4 : ℝ) / (g_bar / a_0) = 4 * a_0 / g_bar := by
-    field_simp
+    rw [div_div_eq_mul_div]
   unfold radialAccel nu
   rw [hy, ← hkey]
 
