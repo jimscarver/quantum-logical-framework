@@ -73,6 +73,7 @@ So the **count** gives the bit and the energy budget; the **phase/frequency** gi
 ## References & links
 
 - The proof: [`lean/QLF_PhaseInformation.lean`](lean/QLF_PhaseInformation.lean) — `count_does_not_determine_phase`, `fold_udlr`, `fold_uldr`.
+- Applications: [`Double_Slit.md`](Double_Slit.md) (the experiment that shows count isn't enough — phase is the fringe), [`UncertaintyPrinciple.md`](UncertaintyPrinciple.md) §3a (uncertainty *is* the count↔phase conjugacy; the entropic uncertainty relation), [`QFT_QLF.md`](QFT_QLF.md) (QFT as the continuum limit of discrete phase-weighted path-counting; UV-finiteness by the discrete floor).
 - The count face: [`MRE.md`](MRE.md) (the per-event `log 2`), [`Entropy.md`](Entropy.md) (entropy as multiplicity; the Boltzmann/Gibbs/Shannon lineage), [`Energy_Combinatorics.md`](Energy_Combinatorics.md) (energy as topological volume).
 - The phase face: [`Spin_QLF.md`](Spin_QLF.md) (spin IS the twists), [`HALF-SPIN-ZFA-EMBEDDING.md`](HALF-SPIN-ZFA-EMBEDDING.md) (the abelian/multiset vs. order-sensitive faces), [`lean/QLF_TwistAlphabet.lean`](lean/QLF_TwistAlphabet.lean) (`count_balanced_pauli_closed`, `nf_decomp`).
 - The frequency face: [`Frequency_Synchronization.md`](Frequency_Synchronization.md), [`Cross_Frequency_Lorentz.md`](Cross_Frequency_Lorentz.md), [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md), [`Time.md`](Time.md), [`Reversibility.md`](Reversibility.md), [`lean/QLF_Spectral.lean`](lean/QLF_Spectral.lean).

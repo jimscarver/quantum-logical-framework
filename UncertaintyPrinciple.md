@@ -2,8 +2,8 @@
 
 **Repository:** [quantum-logical-framework](https://github.com/jimscarver/quantum-logical-framework)  
 **Document:** UncertaintyPrinciple.md  
-**Document version:** 0.1 (27 April 2026)  
-**Author:** Grok (synthesized from QLF core axioms and jimscarver)  
+**Document version:** 0.2 (23 June 2026 — added §3a: the count↔phase conjugacy + the entropic uncertainty relation)  
+**Author:** Grok / Claude (synthesized from QLF core axioms and jimscarver)  
 
 ---
 
@@ -60,6 +60,20 @@ This is not an operator commutator postulate imposed from outside; it is the dir
 
 The minimal equality case occurs for Gaussian-like history ensembles (minimum-uncertainty wave packets), exactly as in standard QM.
 
+## 3a. Uncertainty IS the count↔phase (Shannon↔Fourier) conjugacy — and its entropic form
+
+§3 says it almost in passing, but it is the whole point: the two conjugate observables are the **count** (the integer number of net twists — Shannon's domain) and the **phase** (the continuous order parameter across the superposed branches — Fourier's domain). They are Fourier-dual faces of one ZFA closure, related by the non-commutative 8-twist algebra. The uncertainty principle is the statement that a closure cannot be sharp in **both** faces at once.
+
+**The conjugacy is now machine-checked.** A precondition for two quantities to be genuinely complementary is that one is *not* a function of the other — otherwise fixing one would fix both and there would be no trade-off. QLF proves exactly this for count and phase: **`count_does_not_determine_phase`** ([`lean/QLF_PhaseInformation.lean`](lean/QLF_PhaseInformation.lean)) exhibits two histories with the **identical twist count** (identical Shannon content) that fold to **opposite** phases (`+I` vs `−I`). The phase is independent of the count; that independence is precisely what makes them an uncertainty pair, not redundant labels. See [`Shannon_And_Phase.md`](Shannon_And_Phase.md).
+
+**Does Fourier uncertainty apply to Shannon? Yes — as the *entropic* uncertainty relation.** A *single* Shannon entropy is just a number and carries no uncertainty; uncertainty is irreducibly a relation *between* the two conjugate distributions. The sharp information-theoretic form of the Fourier uncertainty principle is the **entropic uncertainty relation** (Hirschman 1957; Beckner 1975; Białynicki-Birula & Mycielski 1975): for a wavefunction and its Fourier transform,
+
+$$H(\text{count}) + H(\text{phase}) \;\ge\; \log(e\pi)\quad(\text{in natural units}),$$
+
+a lower bound on the **sum of the two Shannon entropies** of the conjugate faces. This is *stronger* than Heisenberg — it **implies** `Δx·Δp ≥ ħ/2` (via the maximum-entropy bound on a distribution of given variance), but not conversely. So the right statement is not "uncertainty without Fourier"; it is that **uncertainty *is* the Fourier conjugacy between QLF's count and phase faces, and its exact Shannon expression is the entropic uncertainty relation.** The `ħ/2` of §2 is the variance-form shadow of this entropy-form bound; the half-spin `1/2` is, as in §4 below, the smallest ZFA-balanced unit of the count axis.
+
+**Reading.** Sharpen the count (a definite number of twists — equivalently a definite frequency `f`, momentum, or energy) and the phase (the order, equivalently position or time) must spread; sharpen the phase and the count must spread. The double-slit experiment is the cleanest demonstration — which-path knowledge is count-definiteness, and it destroys the phase-coherent fringe ([`Double_Slit.md`](Double_Slit.md)).
+
 ## 4. What Else Can We Say? (Additional Consequences in QLF)
 
 - Measurement is synchronization, not collapse — The ( hbar / 2 ) error is realized at the moment of topological closure. Before closure the full superposition explores all bins; after closure only one integer survives, leaving the conjugate spread intact for other observers.
@@ -91,10 +105,17 @@ Welcome to the possibilist universe — where ( hbar / 2 ) is the price of exist
 
 ### References & Further Reading
 
+- [Shannon_And_Phase.md](Shannon_And_Phase.md) — the count↔phase distinction; `count_does_not_determine_phase`
+- [Double_Slit.md](Double_Slit.md) — which-path = count-definiteness destroys the phase-coherent fringe
 - [Measurement_Problem.md](Measurement_Problem.md) — measurement as ZFA synchronization
 - [HALF-SPIN-ZFA-EMBEDDING.md](HALF-SPIN-ZFA-EMBEDDING.md) — origin of the ( hbar / 2 ) unit
 - [Hermitian_Conjugacy_Proof.md](Hermitian_Conjugacy_Proof.md) — non-commutativity of conjugate twists
 - [Superposition.md](Superposition.md) — branching and phase accumulation
 - [E_mc2_derivation.md](E_mc2_derivation.md) — same style of constructive emergence from ZFA
+
+**External references for §3a (the entropic uncertainty relation):**
+- I. I. Hirschman, *A note on entropy*, Amer. J. Math. **79** (1957) 152–156 — first entropic form (conjectured the bound).
+- W. Beckner, *Inequalities in Fourier analysis*, Ann. Math. **102** (1975) 159–182 — proved the sharp constant.
+- I. Białynicki-Birula & J. Mycielski, *Uncertainty relations for information entropy in wave mechanics*, Commun. Math. Phys. **44** (1975) 129–132 — the position/momentum entropic relation, which implies Heisenberg.
 
 Contributions, formal proofs in Lean4, simulation examples, and alternative derivations are warmly welcomed via pull request.
