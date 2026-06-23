@@ -64,13 +64,12 @@ theorem boostZ_action (a b : ℝ) (hab : a * b = 1) (f : Form) :
       !![(a : ℂ) ^ 2 * ((f.t : ℂ) + (f.z : ℂ)), (f.x : ℂ) - I * (f.y : ℂ);
          (f.x : ℂ) + I * (f.y : ℂ), (b : ℂ) ^ 2 * ((f.t : ℂ) - (f.z : ℂ))] := by
   have hab' : (a : ℂ) * (b : ℂ) = 1 := by rw [← Complex.ofReal_mul, hab, Complex.ofReal_one]
-  rw [spinorAct, boostZ_self_adj]
+  rw [spinorAct, boostZ_self_adj, boostZ, Form.toMatrix, Matrix.mul_fin_two, Matrix.mul_fin_two]
   ext i j
   fin_cases i <;> fin_cases j <;>
-    (simp only [boostZ, Form.toMatrix, Matrix.mul_apply, Fin.sum_univ_two,
-      Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
+    (simp only [Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
       Matrix.of_apply, Matrix.cons_val', Matrix.empty_val', Matrix.cons_val_fin_one,
-      Matrix.head_fin_const, mul_zero, zero_mul, add_zero, zero_add] ;
+      Matrix.head_fin_const] ;
      first
        | ring
        | linear_combination ((f.x : ℂ) - I * (f.y : ℂ)) * hab'
@@ -95,13 +94,12 @@ theorem rotZ_action (w : ℂ) (hw : w * star w = 1) (f : Form) :
     spinorAct (rotZ w) f.toMatrix =
       !![((f.t : ℂ) + (f.z : ℂ)), w ^ 2 * ((f.x : ℂ) - I * (f.y : ℂ));
          star w ^ 2 * ((f.x : ℂ) + I * (f.y : ℂ)), ((f.t : ℂ) - (f.z : ℂ))] := by
-  rw [spinorAct, rotZ_conjTranspose]
+  rw [spinorAct, rotZ_conjTranspose, rotZ, Form.toMatrix, Matrix.mul_fin_two, Matrix.mul_fin_two]
   ext i j
   fin_cases i <;> fin_cases j <;>
-    (simp only [rotZ, Form.toMatrix, Matrix.mul_apply, Fin.sum_univ_two,
-      Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
+    (simp only [Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
       Matrix.of_apply, Matrix.cons_val', Matrix.empty_val', Matrix.cons_val_fin_one,
-      Matrix.head_fin_const, mul_zero, zero_mul, add_zero, zero_add] ;
+      Matrix.head_fin_const] ;
      first
        | ring
        | linear_combination ((f.t : ℂ) + (f.z : ℂ)) * hw
