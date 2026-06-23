@@ -3,7 +3,7 @@
 *Quantum Genesis: Constructive Possibilist Quantum Logical Synthesis*
 
 **Repository:** [`jimscarver/quantum-logical-framework`](https://github.com/jimscarver/quantum-logical-framework)
-**Version:** 2.4 (23 June 2026)
+**Version:** 2.5 (23 June 2026)
 **Authors:** Jim Whitescarver, with Grok (xAI) and Claude (Anthropic)
 
 ---
@@ -20,7 +20,7 @@ ZFA is not a restriction on computation — it is a *selection principle*. Every
 full computational possibility space that achieves ZFA closure. What is pruned is not physics but the
 non-terminating, Turing-undecidable, Busy-Beaver-class tail.
 
-The framework is formally verified in **Lean 4 across 110 modules with zero `sorry` blocks**, its
+The framework is formally verified in **Lean 4 across 111 modules with zero `sorry` blocks**, its
 combinatorial core operating strictly within **RCA₀** — below the Axiom of Choice, below the
 continuum, below the Busy Beaver horizon. From the one postulate follow: spacetime synthesized
 event-by-event; particles and spin from twist parity; the Standard Model gauge groups and mass
@@ -105,6 +105,17 @@ is the statement that the ledger of change is closed.
   **stabilizer/Clifford fragment** that the Gottesman–Knill theorem makes efficiently classically
   simulable, i.e. computable. Hilbert space is the continuum *limit* as the `ℤ[i]`-lattices densify
   ([`The_QLF_State_Space.md`](The_QLF_State_Space.md), [`TheContinuum.md`](TheContinuum.md)).
+- **That state space IS Minkowski space — and Lorentz invariance is a theorem, not a postulate.** The
+  Hermitian `Form` is the standard `Herm₂(ℂ) ≅ ℝ^{1,3}` model: `1` trace direction = time, `3` traceless
+  Pauli directions = space, and its **determinant is the spacetime interval** `t²−x²−y²−z²`
+  (`det_toMatrix_eq_interval`, [`QLF_Minkowski.lean`](lean/QLF_Minkowski.lean)). Pure qubits are *null*
+  (the Bloch sphere is the celestial sphere, `pure_qubit_null`); `SL(2,ℂ)` congruence `X↦AXA†` preserves
+  the interval (`lorentz_preserves_interval`), so it acts as the Lorentz group `SO⁺(1,3)` with the
+  half-spin twists as 2-spinors. The **dynamics preserves it too**: congruence scales the interval by
+  `|det A|²` (`det_congruence`), `=1` for every twist product (`interval_preserved_of_unit_det`), so every
+  QLF evolution is interval-preserving. The state space is manifestly Lorentzian *by construction*;
+  macroscopic frame-independence is the emergent uniform-ether result
+  ([`QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean)).
 - **Spacetime is synthesized, not background.** Every ZFA event synthesizes its own local space and
   time; there is no universal clock. The cosmic age (~13.8 Gyr) is the proper time of the cosmic
   Markov-blanket clock ([`SpaceTime.md`](SpaceTime.md), [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md)).
@@ -280,7 +291,7 @@ closure condition.** QLF is the constructive substrate in which they coincide.
 
 ## 10. Implementation and verification status
 
-- **110 Lean 4 modules, zero `sorry` blocks**; the combinatorial core within RCA₀. The full module
+- **111 Lean 4 modules, zero `sorry` blocks**; the combinatorial core within RCA₀. The full module
   table and key theorems are in [`lean/README.md`](lean/README.md).
 - The explicit axioms are confined to the six Millennium boundaries (above) plus speculative,
   unused-elsewhere axioms in `ER_EPR_QLF`.

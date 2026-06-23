@@ -66,14 +66,52 @@ The substrate's spectral operators are `M₂(ℤ[i])`-valued (`toSpectralMode`, 
 
 ---
 
-## 7. Honest scope, and the one open refinement
+## 7. The state *is* Minkowski space — the determinant is the spacetime interval
 
-- **Settled (grounded in proven theorems):** the phase group is `μ₄ = (ℤ[i])ˣ` (`QLF_StateSpace.lean`, `count_balanced_pauli_closed`); the `σ`-generators and folds are `ℤ[i]`-valued; Born probabilities are rational; the state space is finite-dimensional per horizon (`QLF_Realizability`). The *discreteness* of the state ring — a cyclotomic integer ring, **not `ℂ`** — is the firm claim, and it is what makes "Hilbert space is too general" precise.
+The state space is not only discrete and `ℤ[i]`-valued; its *geometry* is **Minkowski space**, by construction. A QLF state is a 2×2 **Hermitian** matrix — the `Form` of [`SpacetimeDynamics.lean`](lean/SpacetimeDynamics.lean), the spectral mode every closure folds to (`toSpectralMode_hermitian`):
+
+$$X = t\,I + x\,\sigma_x + y\,\sigma_y + z\,\sigma_z = \begin{pmatrix} t+z & x-iy \\ x+iy & t-z \end{pmatrix}.$$
+
+This is the classical isomorphism **Herm₂(ℂ) ≅ Minkowski `ℝ^{1,3}`**: the **1 trace direction is time**, the **3 traceless Pauli directions are space** (the same 3 spatial axes as [`QLF_Generations`](lean/QLF_Generations.lean)). And the metric is the **determinant** — machine-checked in [`lean/QLF_Minkowski.lean`](lean/QLF_Minkowski.lean):
+
+$$\det X = (t+z)(t-z) - (x-iy)(x+iy) = t^2 - x^2 - y^2 - z^2 \;=\; \text{the Minkowski interval}$$
+
+(`det_toMatrix_eq_interval`; the `i`-terms cancel because the form is Hermitian). Three consequences are anchored:
+
+- **Pure states are null — the Bloch sphere is the celestial sphere.** A pure qubit (`t=½`, `x²+y²+z²=¼`) has interval `0` (`pure_qubit_null`): it sits on the **light cone**, so the qubit Bloch sphere *is* the projective null cone — the sphere of null directions, Penrose's celestial sphere / "the sky."
+- **The Lorentz group is the state's symmetry.** The action `X ↦ A X A†` with `det A = 1` (i.e. `A ∈ SL(2,ℂ)`) preserves the determinant, hence the interval (`lorentz_preserves_interval`). So `SL(2,ℂ)` acts as the Lorentz group `SO⁺(1,3)`; the unitary subgroup `SU(2)` (preserving the trace = time too) is spatial rotation `SO(3)`. The substrate's half-spin **twists are the 2-spinors**, and `QLF_Spin`'s `SU(2)→SO(3)` double cover (`rotation_360_eq_negI`) is the spatial restriction of the `SL(2,ℂ)→SO⁺(1,3)` spinor double cover.
+- **Lorentzian signature `(1,3)` from `1 + 3`.** The `+,−,−,−` signature is the trace/traceless split of the 2×2 Hermitian state: time is the scalar/identity (`±I`, the gauge/closure direction), space is the traceless `σ`-part (the twists). Time being special = time being the *closure* axis (synthesized as `f=1/t`); space = the twist axes.
+
+Over the substrate the entries are Gaussian integers (§2), so the substrate Minkowski space is the **discrete integer-Hermitian lattice**: `det X ∈ ℤ`, so the causal sign (timelike `>0` / null `=0` / spacelike `<0`) is **integer-valued and discrete** — the causal-set order of [`QLF_ReachableEvent`](lean/QLF_ReachableEvent.lean) / [`QLF_CausalInterval`](lean/QLF_CausalInterval.lean). Continuum Minkowski `ℝ^{1,3}` is the *rendering* of this `ℤ[i]`-Hermitian lattice — the same continuum-as-completion move as everywhere else. So the answer to "what space does QLF live in" has both faces: **algebraically** a Gaussian-integer lattice with `μ₄` phases; **geometrically** the discrete integer-Hermitian model of Minkowski space, with its determinant the spacetime interval.
+
+### Does this prove Lorentz invariance?
+
+Partly — and it is worth being exact about which part. What is **proven** is the *kinematic / representation-theoretic core*:
+
+1. the QLF state space **carries the Minkowski metric** — the interval is literally the determinant (`det_toMatrix_eq_interval`), not an added structure; and
+2. the `SL(2,ℂ)` congruence action `X ↦ A X A†` **preserves that interval** (`lorentz_preserves_interval`). Since the interval-preserving linear maps of `ℝ^{1,3}` *are*, by definition, the Lorentz group, this exhibits the homomorphism `SL(2,ℂ) → SO⁺(1,3)` — the state space is a genuine **Lorentz (spinor) representation**, with the half-spin twists as the 2-spinors. (Congruence also keeps the form Hermitian, `(A X A†)† = A X A†`, so the action stays inside Minkowski space.)
+
+That is the foundation of Lorentz invariance: there is no preferred frame *baked into the state space* — its only invariant is the interval. What these theorems **do not** by themselves establish: (a) the full double-cover surjectivity onto `SO⁺(1,3)` with kernel `{±I}` (we have the homomorphism *into* the Lorentz group, not yet the completeness theorem); and (b) **dynamical** Lorentz invariance — that QLF's *laws* (ZFA closure, event synthesis) are frame-independent. That last, physical claim is carried separately by [`QLF_SubstrateLightSpeed`](lean/QLF_SubstrateLightSpeed.lean) (`local_light_speed_invariant`: the `ρ`-depth cancels so the local light speed is the substrate `c` in every Markov blanket) under the **statistically uniform, stateless-ether** reading of the substrate — Lorentz invariance as an emergent symmetry of a frameless medium, not a postulated metric. So: the state space is *manifestly Lorentzian by construction* (proven here); the *dynamics* respecting that symmetry is the substrate-light-speed / uniform-ether result.
+
+## 8. `ℤ[i]` vs `ℤ[ζ₈]` — resolved: the ring is `ℤ[i]`, the `√2` is a global normalization
+
+Superposition / the Hadamard gate introduce a `1/√2`, which *could* enlarge the Clifford ring to the 8th cyclotomic `ℤ[ζ₈] = ℤ[1/\sqrt2,\,i]` — and QLF's alphabet is, suggestively, 8-twist. The question is whether QLF's exact state ring is `ℤ[i]` or `ℤ[ζ₈]`. **It resolves to `ℤ[i]`**, and the resolution is itself illuminating.
+
+Within the Clifford/stabilizer fragment the substrate lives in, **every *relative* phase is in `μ₄`** (§1), and the only `√2` is the **global** normalization `2^{-k/2}` of the Hadamard. A global factor is **physically inert** — it cancels in the Born ratio, because the Born rule sees only the *projective ray*. This is machine-checked in [`lean/QLF_StateSpace.lean`](lean/QLF_StateSpace.lean): Born probabilities are projective invariants of a Gaussian-integer amplitude vector (`bornProb_global_scale` — scaling all amplitudes by any common Gaussian integer leaves the probability unchanged, via norm-multiplicativity), and the Hadamard split is `1/(1+1) = 1/2` computed over `ℤ[i]` from the unnormalized integer vector `(1,1)` with no `√2` (`hadamard_born_half`). So amplitudes never need leave `ℤ[i]`.
+
+A *relative* `ζ₈ = e^{iπ/4}` phase — one that does **not** cancel — requires the **non-Clifford `T`-gate**, which is exactly the **magic-state / non-Gottesman–Knill resource**: the part of quantum mechanics that is *not* classically simulable. So:
+
+> The `ℤ[i]` ↔ `ζ₈` boundary **is** the Clifford ↔ `T` boundary — the Gottesman–Knill *computable* ↔ *universal* boundary, i.e. the **substrate ↔ continuum** boundary itself.
+
+`ζ₈` lives on the continuum-limit side, with the `T`-gate / magic states — precisely where the irrational amplitudes of universal QM live. This *tightens* the picture rather than complicating it: the discreteness of the state ring (`ℤ[i]`) and the Gottesman–Knill computability boundary are the same line.
+
+## 9. Honest scope
+
+- **Settled (grounded in proven theorems):** the phase group is `μ₄ = (ℤ[i])ˣ` (`QLF_StateSpace.lean`, `count_balanced_pauli_closed`); the `σ`-generators and folds are `ℤ[i]`-valued; Born probabilities are rational projective invariants (`bornProb_global_scale`, `hadamard_born_half`); the `√2` is the inert global normalization, so the state ring is `ℤ[i]` (the `ℤ[ζ₈]` refinement is resolved); the state space is finite-dimensional per horizon (`QLF_Realizability`).
 - **The Hilbert-space-as-completion** statement is the continuum-as-limit thesis of [`TheContinuum.md`](TheContinuum.md) applied to the state space — structural, not a new theorem.
-- **Open refinement.** Superposition / the Hadamard gate introduce `1/√2`, which would enlarge the *Clifford* ring to `ℤ[ζ₈] = ℤ[1/\sqrt2,\,i]` (the 8th cyclotomic ring) — and QLF's alphabet is, suggestively, **8-twist**. So the precise open question is whether QLF's exact state ring is `ℤ[i]` (the gauge/closure core) or `ℤ[ζ₈]` (with `√2` from superposition). Either way the answer is a **cyclotomic integer ring, not the complex continuum** — that is the part that is settled.
-- **Not claimed:** that QLF *is only* stabilizer QM. QLF derives *universal* quantum mechanics — but through the continuum *limit* of the discrete substrate, not by making the continuum fundamental.
+- **Not claimed:** that QLF *is only* stabilizer QM. QLF derives *universal* quantum mechanics — but through the continuum *limit* (the `T`-gate / `ζ₈` / magic-state side) of the discrete substrate, not by making the continuum fundamental.
 
-**The one-line answer:** QLF lives in a Gaussian-integer lattice with `μ₄` phases — the computable, finite-dimensional Pauli/Clifford world over `ℤ[i]` — and Hilbert space is the continuum it completes to.
+**The one-line answer:** QLF lives in a Gaussian-integer lattice with `μ₄` phases — the computable, finite-dimensional Pauli/Clifford world over `ℤ[i]` — and Hilbert space is the continuum it completes to, the `√2`/`ζ₈` entering exactly at the Clifford↔`T` (computable↔universal) boundary.
 
 ## See also
 
