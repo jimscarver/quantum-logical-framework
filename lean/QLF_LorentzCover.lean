@@ -56,10 +56,10 @@ theorem boostZ_det (a b : ℝ) (hab : a * b = 1) : (boostZ a b).det = 1 := by
 theorem boostZ_self_adj (a b : ℝ) : (boostZ a b)ᴴ = boostZ a b := by
   ext i j; fin_cases i <;> fin_cases j <;> simp [boostZ, Matrix.conjTranspose_apply]
 
+set_option maxHeartbeats 1000000 in
 /-- **The boost acts as a Lorentz boost in null coordinates.** `diag(a, b)` with `a·b = 1` sends the
     QLF state to the state with null coordinates rescaled `u = t+z ↦ a²·u`, `v = t−z ↦ b²·v` and
     transverse `x, y` fixed — exactly the `z`-boost of rapidity `φ` for `a = e^{φ/2}, b = e^{−φ/2}`. -/
-set_option maxHeartbeats 1000000 in
 theorem boostZ_action (a b : ℝ) (hab : a * b = 1) (f : Form) :
     spinorAct (boostZ a b) f.toMatrix =
       !![(a : ℂ) ^ 2 * ((f.t : ℂ) + (f.z : ℂ)), (f.x : ℂ) - I * (f.y : ℂ);
@@ -88,10 +88,10 @@ theorem rotZ_det (w : ℂ) (hw : w * star w = 1) : (rotZ w).det = 1 := by
 theorem rotZ_conjTranspose (w : ℂ) : (rotZ w)ᴴ = !![star w, 0; 0, w] := by
   ext i j; fin_cases i <;> fin_cases j <;> simp [rotZ, Matrix.conjTranspose_apply]
 
+set_option maxHeartbeats 1000000 in
 /-- **The rotation acts as a spatial rotation.** For a unit `w` (`|w| = 1`), `diag(w, w̄)` fixes
     `t` and `z` and sends the transverse combination `x − iy ↦ w²(x − iy)` — a rotation in the `x`–`y`
     plane (by `2·arg w`), with the time and longitudinal axes untouched. -/
-set_option maxHeartbeats 1000000 in
 theorem rotZ_action (w : ℂ) (hw : w * star w = 1) (f : Form) :
     spinorAct (rotZ w) f.toMatrix =
       !![((f.t : ℂ) + (f.z : ℂ)), w ^ 2 * ((f.x : ℂ) - I * (f.y : ℂ));
