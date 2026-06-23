@@ -1,6 +1,8 @@
 # The Continuum Gets Wrong Answers
 
-There is a tempting overclaim — *"the continuum is false"* — and it is a trap. The real numbers `ℝ` are a **consistent** structure; you cannot derive a contradiction from a consistent object, so "false" is unprovable and reads as crank. The defensible claim is sharper and *stronger*: **the continuum, applied to nature, gives specific, demonstrably wrong answers — and discreteness gives the right ones.** This is not philosophy. It is the historical pattern that *created* quantum mechanics, and it is quantitative.
+There is a tempting overclaim — *"the continuum is false"* — and it is a category error, not merely an unprovable one. `ℝ` is a **consistent** structure, but consistency was never the question: a consistent theory is guaranteed only an *abstract* model, never a physical one (§3). The real question is **realizability** — is the continuum instantiated in nature? — and there the answer is a demonstrable **no**: a finite-information universe cannot hold an actual infinity of distinguishable states (Bekenstein). The continuum is *consistent but physically unrealizable*, and consistency is no defense against that.
+
+The **symptom** of forcing an unrealizable structure onto reality is the headline of this document: **the continuum, applied to nature, gives specific, demonstrably wrong answers — and discreteness gives the right ones.** This is not philosophy. It is the historical pattern that *created* quantum mechanics, and it is quantitative.
 
 This document is the [QLF](README.md) case against the continuum, led by the empirical indictment (the wrong answers), and backed by the structural one (why the continuum is gratuitous). It consolidates and sharpens [`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md), [`TheContinuum.md`](TheContinuum.md), and [`QFT_QLF.md`](QFT_QLF.md) §4–6.
 
@@ -34,9 +36,22 @@ The triumphs of "continuum physics" are exactly the calculations in which the co
 
 ---
 
-## 3. The honest boundary
+## 3. Consistency is not realizability — and that was always the question
 
-State the claim precisely so it survives a hostile reading: this is an argument that **continuum *physics* makes wrong *predictions***, not that `ℝ` is mathematically *inconsistent* (it is not, and asserting so forfeits the argument). The indictment is: *the continuum is wrong as a description of reality — demonstrably, in the divergence cases — and its successes are the regularized, secretly-discrete calculations.* That is sufficient. Wrong predictions are exactly how Planck retired classical continuum statistical mechanics in 1900; QLF retires the rest of the continuum the same way, with the same evidence, finished.
+State the epistemics precisely, because the usual defense of the continuum — *"it is consistent, you cannot disprove it"* — is true and **irrelevant**, and the trap is to argue on its terms.
+
+**Consistency buys nothing.** By Gödel's completeness theorem a consistent theory is guaranteed a model — but an **abstract, set-theoretic** model, never a physical one. One can write endless consistent theories that describe nothing realizable: non-standard arithmetic (consistent, with actually-infinite integers — by Löwenheim–Skolem there are models of every infinite cardinality), a theory positing a halting oracle, infinitesimals, Banach–Tarski decompositions. All consistent; none realized. *Consistency ⟺ "has an abstract model" — it says exactly nothing about whether nature instantiates the structure.*
+
+**"Can't be disproven in the reals" is circular.** Asking whether `ℝ` is false *within* `ℝ`-based mathematics assumes the thing being judged; a consistent system self-certifies, which is not evidence in its favor but the definition of consistency. The verdict on realization comes from **outside** the continuum's own deductive closure — from physics and computability — not from within it.
+
+So the real question was never *consistency* (which the continuum shares with every consistent fiction) but **realizability** — and the continuum is consistent but **physically unrealizable**, demonstrably, from accepted physics:
+
+- **Bekenstein bound** — a finite region holds **finite** information; a continuum needs uncountably many distinguishable states (an actual infinity of information) in a bounded region. Finite-information physics **cannot instantiate** it. Not "unrealized as it happens" — *forbidden*.
+- **Gisin** — a single real carries infinite information; no physical quantity can.
+
+The burden therefore sits entirely on the continuum's defender to **exhibit a physical realization** — which finiteness forbids. We are not disproving `ℝ`; we are observing it has **no physical model**, and that consistency is no substitute for one.
+
+**This is why §1 reads as it does.** The wrong answers are the *symptom* of forcing an unrealizable structure onto reality: sum over a continuum of modes — content a finite universe cannot hold — and you get an infinity exactly where the unrealizable part was invoked. The UV and vacuum catastrophes are not bad luck; they are reality reporting that it was asked to instantiate something it cannot. (And note the careful scope: the claim is that the continuum is *unrealizable in nature*, not that `ℝ` is mathematically *inconsistent* — that target is the category error this section exists to retire.) Wrong predictions are exactly how Planck retired classical continuum statistical mechanics in 1900; QLF retires the rest of the continuum the same way.
 
 ---
 
@@ -69,7 +84,7 @@ So each Millennium problem's single bridge axiom ([`Open_Problems.md`](Open_Prob
 
 ## Conclusion
 
-We do not need to prove the continuum *false* — we cannot, and we should not try. We prove something more useful: **the continuum gets wrong answers** — infinite where reality is finite, undetermined where reality is definite, silent where the substrate speaks — and every time it is right, it has quietly become discrete. The continuum is mathematics' ultraviolet catastrophe; the discrete, computable ZFA substrate is the quantum that resolves it. Planck began the argument in 1900. QLF finishes it.
+We do not try to prove the continuum *false* — that is the wrong category. Consistency is not realizability, and the continuum is consistent but physically unrealizable (a finite-information universe cannot hold it). We prove something more useful and harder to dodge: **the continuum gets wrong answers** — infinite where reality is finite, undetermined where reality is definite, silent where the substrate speaks — because that is what forcing an unrealizable structure onto reality produces; and every time it is *right*, it has quietly become discrete. The continuum is mathematics' ultraviolet catastrophe; the discrete, computable ZFA substrate is the quantum that resolves it. Planck began the argument in 1900. QLF finishes it.
 
 ## References & links
 
