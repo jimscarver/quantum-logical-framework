@@ -11,9 +11,9 @@ that action, the genuine `SL(2,ℂ) → SO⁺(1,3)` correspondence.
 * **Homomorphism** — `spinor_hom`: congruence is functorial (`(AB)X(AB)† = A(BXB†)A†`), so
   `A ↦ (X ↦ A X A†)` is a group homomorphism into the interval-preserving maps.
 * **Generators realized** — every `SO⁺(1,3)` generator is in the image, exhibited explicitly:
-  * `boostZ_action` — the diagonal `diag(s, s⁻¹)` acts as a **Lorentz boost**, rescaling the null
-    coordinates `u = t+z ↦ s²·u`, `v = t−z ↦ s⁻²·v` (transverse `x,y` fixed): the boost of rapidity
-    `φ` with `s = e^{φ/2}`.
+  * `boostZ_action` — the diagonal `diag(a, b)` (`a·b = 1`) acts as a **Lorentz boost**, rescaling the
+    null coordinates `u = t+z ↦ a²·u`, `v = t−z ↦ b²·v` (transverse `x,y` fixed): the boost of rapidity
+    `φ` with `a = e^{φ/2}, b = e^{−φ/2}`.
   * `rotZ_action` — the unitary diagonal `diag(w, w̄)` (`|w| = 1`) acts as a **spatial rotation**,
     sending the transverse `x − iy ↦ w²(x − iy)` (`t, z` fixed).
 * **Kernel = {±I}** — `spinor_kernel`: the *only* `A ∈ SL(2,ℂ)` acting as the identity on every state
@@ -44,26 +44,26 @@ theorem spinor_hom (A B X : Matrix (Fin 2) (Fin 2) ℂ) :
 
 /-! ## Boost — the diagonal real `SL(2,ℂ)` element is a Lorentz boost -/
 
-/-- The boost spinor `diag(s, s⁻¹)` (real `s`), an element of `SL(2,ℂ)` for `s ≠ 0`. -/
-noncomputable def boostZ (s : ℝ) : Matrix (Fin 2) (Fin 2) ℂ := !![(s : ℂ), 0; 0, ((s⁻¹ : ℝ) : ℂ)]
+/-- The boost spinor `diag(a, b)` (real `a, b`), an element of `SL(2,ℂ)` when `a·b = 1`
+    (`a = e^{φ/2}, b = e^{−φ/2}`). -/
+def boostZ (a b : ℝ) : Matrix (Fin 2) (Fin 2) ℂ := !![(a : ℂ), 0; 0, (b : ℂ)]
 
-theorem boostZ_det (s : ℝ) (hs : s ≠ 0) : (boostZ s).det = 1 := by
-  rw [boostZ, Matrix.det_fin_two_of, mul_zero, sub_zero, ← Complex.ofReal_mul,
-    mul_inv_cancel₀ hs, Complex.ofReal_one]
+theorem boostZ_det (a b : ℝ) (hab : a * b = 1) : (boostZ a b).det = 1 := by
+  rw [boostZ, Matrix.det_fin_two_of, mul_zero, sub_zero, ← Complex.ofReal_mul, hab,
+    Complex.ofReal_one]
 
 /-- The boost spinor is self-adjoint (real diagonal). -/
-theorem boostZ_self_adj (s : ℝ) : (boostZ s)ᴴ = boostZ s := by
+theorem boostZ_self_adj (a b : ℝ) : (boostZ a b)ᴴ = boostZ a b := by
   ext i j; fin_cases i <;> fin_cases j <;> simp [boostZ, Matrix.conjTranspose_apply]
 
-/-- **The boost acts as a Lorentz boost in null coordinates.** `diag(s, s⁻¹)` sends the QLF state to
-    the state with null coordinates rescaled `u = t+z ↦ s²·u`, `v = t−z ↦ s⁻²·v` and transverse
-    `x, y` fixed — exactly the `z`-boost of rapidity `φ` for `s = e^{φ/2}`. -/
-theorem boostZ_action (s : ℝ) (hs : s ≠ 0) (f : Form) :
-    spinorAct (boostZ s) f.toMatrix =
-      !![(s : ℂ) ^ 2 * (↑f.t + ↑f.z), ↑f.x - I * ↑f.y;
-         ↑f.x + I * ↑f.y, ((s⁻¹ : ℝ) : ℂ) ^ 2 * (↑f.t - ↑f.z)] := by
-  have hss : (s : ℂ) * ((s⁻¹ : ℝ) : ℂ) = 1 := by
-    rw [← Complex.ofReal_mul, mul_inv_cancel₀ hs, Complex.ofReal_one]
+/-- **The boost acts as a Lorentz boost in null coordinates.** `diag(a, b)` with `a·b = 1` sends the
+    QLF state to the state with null coordinates rescaled `u = t+z ↦ a²·u`, `v = t−z ↦ b²·v` and
+    transverse `x, y` fixed — exactly the `z`-boost of rapidity `φ` for `a = e^{φ/2}, b = e^{−φ/2}`. -/
+theorem boostZ_action (a b : ℝ) (hab : a * b = 1) (f : Form) :
+    spinorAct (boostZ a b) f.toMatrix =
+      !![(a : ℂ) ^ 2 * ((f.t : ℂ) + (f.z : ℂ)), (f.x : ℂ) - I * (f.y : ℂ);
+         (f.x : ℂ) + I * (f.y : ℂ), (b : ℂ) ^ 2 * ((f.t : ℂ) - (f.z : ℂ))] := by
+  have hab' : (a : ℂ) * (b : ℂ) = 1 := by rw [← Complex.ofReal_mul, hab, Complex.ofReal_one]
   rw [spinorAct, boostZ_self_adj]
   ext i j
   fin_cases i <;> fin_cases j <;>
@@ -73,8 +73,8 @@ theorem boostZ_action (s : ℝ) (hs : s ≠ 0) (f : Form) :
       Matrix.head_fin_const, mul_zero, zero_mul, add_zero, zero_add] ;
      first
        | ring
-       | linear_combination (↑f.x - I * ↑f.y) * hss
-       | linear_combination (↑f.x + I * ↑f.y) * hss)
+       | linear_combination ((f.x : ℂ) - I * (f.y : ℂ)) * hab'
+       | linear_combination ((f.x : ℂ) + I * (f.y : ℂ)) * hab')
 
 /-! ## Rotation — the unitary diagonal `SL(2,ℂ)` element is a spatial rotation -/
 
@@ -93,8 +93,8 @@ theorem rotZ_conjTranspose (w : ℂ) : (rotZ w)ᴴ = !![star w, 0; 0, w] := by
     plane (by `2·arg w`), with the time and longitudinal axes untouched. -/
 theorem rotZ_action (w : ℂ) (hw : w * star w = 1) (f : Form) :
     spinorAct (rotZ w) f.toMatrix =
-      !![(↑f.t + ↑f.z), w ^ 2 * (↑f.x - I * ↑f.y);
-         star w ^ 2 * (↑f.x + I * ↑f.y), (↑f.t - ↑f.z)] := by
+      !![((f.t : ℂ) + (f.z : ℂ)), w ^ 2 * ((f.x : ℂ) - I * (f.y : ℂ));
+         star w ^ 2 * ((f.x : ℂ) + I * (f.y : ℂ)), ((f.t : ℂ) - (f.z : ℂ))] := by
   rw [spinorAct, rotZ_conjTranspose]
   ext i j
   fin_cases i <;> fin_cases j <;>
@@ -104,8 +104,8 @@ theorem rotZ_action (w : ℂ) (hw : w * star w = 1) (f : Form) :
       Matrix.head_fin_const, mul_zero, zero_mul, add_zero, zero_add] ;
      first
        | ring
-       | linear_combination (↑f.t + ↑f.z) * hw
-       | linear_combination (↑f.t - ↑f.z) * hw)
+       | linear_combination ((f.t : ℂ) + (f.z : ℂ)) * hw
+       | linear_combination ((f.t : ℂ) - (f.z : ℂ)) * hw)
 
 /-! ## Kernel — the only spinor acting trivially is `±I` (the "2-to-1") -/
 
