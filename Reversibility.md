@@ -166,6 +166,8 @@ time*, *`H ↔ H†` = critical line*. The packaging theorem contrasting the **i
 histories per closure) is verified as **`time_reverse_involutive_but_closure_degenerate`**
 (`QLF_Reversibility`, no new axioms — both halves reuse existing theorems). The remaining
 synthesized-time framing (there is no meta-axis in which to *run* the reverse) is prose grounded in
-`ZFAEventDynamics` (`f = 1/t`), not a further Lean obligation. See [`Decoherence.md`](Decoherence.md),
+`ZFAEventDynamics` (`f = 1/t`), not a further Lean obligation. The `†` here is the `*`-involution of
+the substrate's state ring — a finite-rank `ℤ[i]`-lattice, not Hilbert space; see
+[`The_QLF_State_Space.md`](The_QLF_State_Space.md). See [`Decoherence.md`](Decoherence.md),
 [`Entropy.md`](Entropy.md), [`Conservation.md`](Conservation.md), [`Philosophy.md`](Philosophy.md), and the
 synthesized-spacetime account in [`ZFAEventDynamics.lean`](lean/ZFAEventDynamics.lean).

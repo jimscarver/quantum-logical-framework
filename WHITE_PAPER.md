@@ -20,7 +20,7 @@ ZFA is not a restriction on computation — it is a *selection principle*. Every
 full computational possibility space that achieves ZFA closure. What is pruned is not physics but the
 non-terminating, Turing-undecidable, Busy-Beaver-class tail.
 
-The framework is formally verified in **Lean 4 across 109 modules with zero `sorry` blocks**, its
+The framework is formally verified in **Lean 4 across 110 modules with zero `sorry` blocks**, its
 combinatorial core operating strictly within **RCA₀** — below the Axiom of Choice, below the
 continuum, below the Busy Beaver horizon. From the one postulate follow: spacetime synthesized
 event-by-event; particles and spin from twist parity; the Standard Model gauge groups and mass
@@ -92,6 +92,19 @@ is the statement that the ledger of change is closed.
   is why no arrow lives inside one event and why measurement needs no extra postulate. The fixed locus of
   this `H ↔ H†` involution (self-adjoint, real-spectrum) is the **Riemann critical line**, the spine
   shared by BSD and Hodge ([`Reversibility.md`](Reversibility.md)).
+- **The state space is a Gaussian-integer lattice, not Hilbert space.** Hilbert space `ℂ^∞` is *too
+  general* for QLF — by exactly the continuum it adds: continuum cardinality, continuous `U(1)` phases,
+  infinite dimension, none of which a finite-information region realizes (`no_continuum_in_finite_region`,
+  [`QLF_Realizability.lean`](lean/QLF_Realizability.lean)). QLF lives in the discrete computable
+  substructure Hilbert space is the *completion* of: a **finite-rank free module over the Gaussian
+  integers `ℤ[i]`**, with phases in **`μ₄ = {±1, ±i}`** and rational Born probabilities. The phase group
+  is exactly `μ₄ = (ℤ[i])ˣ` (the 4th roots of unity, the units of `ℤ[i]`) — machine-checked in
+  [`QLF_StateSpace.lean`](lean/QLF_StateSpace.lean) (`pauliScalar_pow_four_eq_one`, `toComplex_pow_four`)
+  on the same `PauliScalar` every balanced closure folds to. Since `σx,σy,σz` have entries in
+  `{0,±1,±i}=ℤ[i]`, amplitudes are Gaussian integers and probabilities `(a²+b²)/Z` are rational — the
+  **stabilizer/Clifford fragment** that the Gottesman–Knill theorem makes efficiently classically
+  simulable, i.e. computable. Hilbert space is the continuum *limit* as the `ℤ[i]`-lattices densify
+  ([`The_QLF_State_Space.md`](The_QLF_State_Space.md), [`TheContinuum.md`](TheContinuum.md)).
 - **Spacetime is synthesized, not background.** Every ZFA event synthesizes its own local space and
   time; there is no universal clock. The cosmic age (~13.8 Gyr) is the proper time of the cosmic
   Markov-blanket clock ([`SpaceTime.md`](SpaceTime.md), [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md)).
@@ -267,7 +280,7 @@ closure condition.** QLF is the constructive substrate in which they coincide.
 
 ## 10. Implementation and verification status
 
-- **109 Lean 4 modules, zero `sorry` blocks**; the combinatorial core within RCA₀. The full module
+- **110 Lean 4 modules, zero `sorry` blocks**; the combinatorial core within RCA₀. The full module
   table and key theorems are in [`lean/README.md`](lean/README.md).
 - The explicit axioms are confined to the six Millennium boundaries (above) plus speculative,
   unused-elsewhere axioms in `ER_EPR_QLF`.
