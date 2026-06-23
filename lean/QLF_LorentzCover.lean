@@ -67,9 +67,9 @@ theorem boostZ_action (a b : ℝ) (hab : a * b = 1) (f : Form) :
   rw [spinorAct, boostZ_self_adj, boostZ, Form.toMatrix, Matrix.mul_fin_two, Matrix.mul_fin_two]
   ext i j
   fin_cases i <;> fin_cases j <;>
-    (simp only [Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
+    (simp only [Fin.isValue, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
       Matrix.of_apply, Matrix.cons_val', Matrix.empty_val', Matrix.cons_val_fin_one,
-      Matrix.head_fin_const] ;
+      Matrix.head_fin_const, Matrix.cons_val] ;
      first
        | ring
        | linear_combination ((f.x : ℂ) - I * (f.y : ℂ)) * hab'
@@ -97,9 +97,9 @@ theorem rotZ_action (w : ℂ) (hw : w * star w = 1) (f : Form) :
   rw [spinorAct, rotZ_conjTranspose, rotZ, Form.toMatrix, Matrix.mul_fin_two, Matrix.mul_fin_two]
   ext i j
   fin_cases i <;> fin_cases j <;>
-    (simp only [Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
+    (simp only [Fin.isValue, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
       Matrix.of_apply, Matrix.cons_val', Matrix.empty_val', Matrix.cons_val_fin_one,
-      Matrix.head_fin_const] ;
+      Matrix.head_fin_const, Matrix.cons_val] ;
      first
        | ring
        | linear_combination ((f.t : ℂ) + (f.z : ℂ)) * hw
