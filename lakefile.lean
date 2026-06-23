@@ -119,5 +119,6 @@ lean_lib QLF where
     `QLF_PhaseInformation,
     `QLF_Realizability,
     `QLF_Uncertainty,
-    `QLF_StateSpace
+    `QLF_StateSpace,
+    `QLF_Minkowski
   ]
