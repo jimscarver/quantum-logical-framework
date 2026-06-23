@@ -227,8 +227,25 @@ g_{\rm obs} \;=\; \tfrac12\!\left(g_{\rm bar} + \sqrt{g_{\rm bar}^2 + 4\,g_{\rm 
 
 (Lean: `radialAccel`, `radialAccel_self_consistent`.) The conjunction — closure needs the product of
 the two conditions — is *why* the deep limit is the **geometric mean** `√(g_bar·a₀)` (Lean:
-`radialAccel_ge_geometric_mean`), which integrates to the Tully–Fisher `v⁴ = GM a₀` of §6. The two
-limits are exact:
+`radialAccel_ge_geometric_mean`), which integrates to the Tully–Fisher `v⁴ = GM a₀` of §6.
+
+**The interpolation function is *unique*** ([`QLF_MondNu`](lean/QLF_MondNu.lean)). The closure-balance
+equation is not one choice among the MOND interpolation family — it is forced by the ZFA conjunction,
+read structurally as: the **squared** (round-trip, Born-like `|·|²`) observed closure `g_obs²` balances
+the **product** of the local source `g_bar` and the *total* environment `g_obs + a₀` (the observed
+acceleration plus the **additive** de Sitter floor — additive because the cosmological horizon delivers
+a constant background to every closure). Given that condition, the observed acceleration is **uniquely
+determined**: for `g_bar, a₀ > 0` the equation `g_obs² = g_bar·(g_obs + a₀)` has a *unique* non-negative
+root (`radialAccel_unique` — the quadratic's other root is negative). Written dimensionlessly with
+`y = g_bar/a₀`, the law is `g_obs = ν(y)·g_bar` with the explicit interpolation function
+
+$$\nu(y) \;=\; \tfrac12\!\left(1 + \sqrt{1 + 4/y}\right)$$
+
+(`radialAccel_eq_nu`), the unique positive root of `ν² = ν + 1/y`, with exact limits `ν → 1` (Newton,
+`y → ∞`) and `ν → 1/√y` (deep-MOND / Tully–Fisher, `y → 0`). So QLF's closure principle selects *one*
+interpolation function — no per-fit freedom in the shape, just as there is none in the scale `a₀`.
+
+The two limits are exact:
 
 | regime | `radialAccel` | Lean |
 |---|---|---|
