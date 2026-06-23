@@ -40,15 +40,12 @@ def Form.interval (f : Form) : ℝ := f.t ^ 2 - f.x ^ 2 - f.y ^ 2 - f.z ^ 2
     cancel and the 2×2 Hermitian determinant is exactly the spacetime metric. -/
 theorem det_toMatrix_eq_interval (f : Form) :
     (Form.toMatrix f).det = (Form.interval f : ℂ) := by
-  rw [Matrix.det_fin_two, Form.toMatrix]
+  rw [Matrix.det_fin_two, Form.toMatrix, Form.interval]
   simp only [Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
-    Matrix.cons_val', Matrix.empty_val', Matrix.cons_val_fin_one, Matrix.head_fin_const]
-  rw [Form.interval]
+    Matrix.head_fin_const]
   push_cast
-  apply Complex.ext <;>
-    simp [Complex.add_re, Complex.add_im, Complex.sub_re, Complex.sub_im,
-      Complex.mul_re, Complex.mul_im, Complex.I_re, Complex.I_im,
-      Complex.ofReal_re, Complex.ofReal_im] <;> ring
+  -- LHS − RHS = (I²+1)·y², which vanishes by I² = −1
+  linear_combination ((f.y : ℂ)) ^ 2 * Complex.I_sq
 
 /-- **Pure states are null — the Bloch sphere is the celestial sphere.** A pure qubit
     (`t = ½`, `x²+y²+z² = ¼`) has Minkowski interval `0`: it lies on the light cone, so the qubit
