@@ -117,5 +117,6 @@ lean_lib QLF where
     `QLF_CohomologyAlgebra,
     `QLF_HodgeStructure,
     `QLF_PhaseInformation,
-    `QLF_Realizability
+    `QLF_Realizability,
+    `QLF_Uncertainty
   ]

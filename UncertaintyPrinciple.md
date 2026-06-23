@@ -81,7 +81,7 @@ a lower bound on the **sum of the two Shannon entropies** of the conjugate faces
 - No hidden variables, no non-locality issue — The error is purely logical-topological. Entanglement is shared history-string structure; the ( hbar / 2 ) bound is preserved locally for each observer.
 - Emergent in the continuum limit — In macroscopic limits the relative error ( hbar / 2 ) becomes negligible, recovering classical determinism (consistent with SpaceTime.md synthesis).
 - Testable via simulation — Run quantum_simulator.py --example minimum-uncertainty or path_integral.py on a Gaussian history packet; the product ( Delta x Delta p ) saturates ( hbar / 2 ) exactly.
-- Formal verification path — The binning argument and conjugate-pair algebra can be encoded in Lean4 alongside the existing Pauli-exclusion and Hermitian proofs.
+- Formal verification path — **done (the `ħ/2` quantum):** the binning half-width is machine-checked in [`lean/QLF_Uncertainty.lean`](lean/QLF_Uncertainty.lean) — `binning_halfwidth_le` (`|x − round x| ≤ 1/2`) and `binning_halfwidth_tight` (`= 1/2` is attained), so the discretization spread is *exactly* `ħ/2`. The conjugate-pair *product* rests on the non-commuting Fourier-dual axes (`QLF_Spin.su2_comm_xy`), and the sharp Shannon form is the entropic uncertainty relation (§3a).
 - Philosophical payoff — The universe never “knows” a continuum value more precisely than ( hbar / 2 ); reality is the distorted view of nothingness expressed in integer logical counts. Uncertainty is not a limitation of knowledge — it is the price of existence under Zero Free Action.
 
 ## 5. Verification Plan
@@ -89,7 +89,7 @@ a lower bound on the **sum of the two Shannon entropies** of the conjugate faces
 1. Execute qucalc_engine.py on a minimal position-localized history string and measure the emergent ( Delta p ).
 2. Cross-check with path_integral.py phase-space cell counting: each cell has area ( hbar ); the minimal rectangular cell gives ( hbar ), while the optimal Gaussian gives exactly ( hbar / 2 ).
 3. Restore physical units via constants_mapper.py and confirm numerical agreement with standard QM.
-4. Add Lean4 lemma: uncertainty_bound : forall (hist : History), DeltaX * DeltaP >= hbar / 2.
+4. ~~Add Lean4 lemma~~ **Done:** the `ħ/2` quantum is anchored in [`lean/QLF_Uncertainty.lean`](lean/QLF_Uncertainty.lean) (`uncertainty_quantum_eq_half`: the binning spread `|x − round x|` is `≤ 1/2` and attains `1/2`). The substrate side of `uncertainty_bound` is machine-checked; the product form's conjugate-pair factor is `QLF_Spin.su2_comm_xy`.
 
 ## Conclusion
 
