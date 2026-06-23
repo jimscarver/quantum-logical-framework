@@ -123,5 +123,6 @@ lean_lib QLF where
     `QLF_Minkowski,
     `QLF_LorentzCover,
     `QLF_MondScale,
-    `QLF_MondNu
+    `QLF_MondNu,
+    `QLF_RarBalance
   ]
