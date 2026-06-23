@@ -71,6 +71,7 @@ theorem radialAccel_eq_nu (g_bar a_0 : ℝ) (hgb : 0 < g_bar) (ha : 0 < a_0) :
     rw [div_div_eq_mul_div]
   unfold radialAccel nu
   rw [hy, ← hkey]
+  ring
 
 /-- **Status — the interpolation function `ν` is unique, fixed by the ZFA closure condition.** The
     closure-balance equation `g_obs² = g_bar·(g_obs + a₀)` — squared round-trip closure × local source
