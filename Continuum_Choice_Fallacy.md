@@ -13,7 +13,7 @@ quantum logic as the correct, complete-for-physics, bottom-up foundation.
 > **The empirical case** — that continuum *physics* gives specific, demonstrably **wrong answers**
 > (the ultraviolet catastrophe, the 10¹²² vacuum catastrophe, singularities, the QFT divergences),
 > while discreteness gives the measured value — is collected in
-> [**Continuum_Gets_Wrong_Answers.md**](Continuum_Gets_Wrong_Answers.md). It is the sharper, harder-to-dodge
+> [**TheContinuum.md**](TheContinuum.md). It is the sharper, harder-to-dodge
 > form of this thesis: not "the continuum is false" (`ℝ` is consistent — that target is a trap), but
 > "the continuum is *wrong as a description of reality*, and every time it is right it has quietly become
 > discrete."
@@ -112,10 +112,16 @@ idealizations — they are **false statements**:
   (Formally, choice is *independent* of ZF — consistent with it and with its negation; the
   QLF point is ontological, not a claim that ZFC is syntactically inconsistent. The defect
   is **unsoundness**, not contradiction.)
-- **The unrestricted continuum is false.** It posits uncountably many reals, almost all of
-  which have no finite description — names with no referent. The continuum is real only as
-  the *limit* of finitely-closing events ([TheContinuum.md](TheContinuum.md)), never as a
-  completed totality of non-constructive points.
+- **The unrestricted continuum is consistent but physically unrealizable.** "False" is the
+  wrong category — `ℝ` is consistent, and consistency was never the question. It posits
+  uncountably many reals, almost all with no finite description (names with no referent), and
+  a **finite-information universe cannot instantiate uncountably many distinguishable states**
+  (Bekenstein) — machine-checked: no injection from an infinite state space into a finite one
+  ([`lean/QLF_Realizability.lean`](lean/QLF_Realizability.lean) `no_continuum_in_finite_region`).
+  So the continuum has **no physical model**, and gives demonstrably **wrong answers** wherever
+  it is forced onto reality ([TheContinuum.md](TheContinuum.md)).
+  It is real only as the *limit* of finitely-closing events ([TheContinuum.md](TheContinuum.md)),
+  never as a completed totality of non-constructive points.
 
 **The fallacy is the *non-computable* reals — not constants like `π`.** A common confusion:
 `π`, `e`, and `γ` are **computable** reals — a *finite algorithm* produces any number of digits,
@@ -227,9 +233,16 @@ is ZFC's proven defect" must **not** be used as if it closes the gap:
 
 A mathematician who accepts only ZFC-internal proofs is owed exactly this map: which part is
 proven (the substrate floor), which is the named bridge, and which residual is QLF's
-*ontological wager* (the continuum is not fundamental) rather than a discharged theorem. The
-status markers (`mass_gap_proven_constructively`, `rh_proof_in_progress`, `bsd_proof_in_progress`,
-…) keep the boundary visible in every module while stating the constructive result plainly.
+*ontological wager* rather than a discharged theorem. And note the wager is *smaller* than it
+looks: the **physical unrealizability** of the continuum is not a bet — it is demonstrable
+(continuum physics gives wrong answers, [TheContinuum.md](TheContinuum.md))
+and machine-checked given the Bekenstein premise (no infinite state space fits a finite-information
+region, [`lean/QLF_Realizability.lean`](lean/QLF_Realizability.lean)). What remains a wager is only
+the strongest form — that the substrate is *the* fundamental description and the specific
+continuum-analytic Millennium problems are ZFC-pathological — not the claim that the continuum is
+unrealized in nature. The status markers (`mass_gap_proven_constructively`, `rh_proof_in_progress`,
+`bsd_proof_in_progress`, …) keep the boundary visible in every module while stating the constructive
+result plainly.
 
 ## 6. The program
 
@@ -241,11 +254,16 @@ status markers (`mass_gap_proven_constructively`, `rh_proof_in_progress`, `bsd_p
 - [BSD_QLF.md](BSD_QLF.md) · [`lean/QLF_BSD.lean`](lean/QLF_BSD.lean) · [Langlands.md §5.4](Langlands.md)
 - [Hodge_QLF.md](Hodge_QLF.md) · [`lean/QLF_Hodge.lean`](lean/QLF_Hodge.lean)
 - Boundary registry: [Open_Problems.md](Open_Problems.md) · foundations: [ReverseMathematics.md](ReverseMathematics.md), [Active_Inference_Mathematics.md](Active_Inference_Mathematics.md), [TheContinuum.md](TheContinuum.md)
+- The empirical + realizability case: [**TheContinuum.md**](TheContinuum.md) (continuum physics gives demonstrably wrong answers; *consistency ≠ realizability*) · [`lean/QLF_Realizability.lean`](lean/QLF_Realizability.lean) (the Bekenstein obstruction, machine-checked) · [QFT_QLF.md](QFT_QLF.md) (QFT's UV divergences as a continuum artifact removed by the discrete floor)
 
 The unifying claim: **the continuum and choice are mathematics' ultraviolet catastrophe,
 and the discrete ZFA substrate with its computable pruning is the quantum that resolves
 it** — turning each Millennium problem into a constructive core plus one honestly-named
-boundary.
+boundary. The sharpest form is not "the continuum is false" (`ℝ` is consistent) but **the
+continuum is consistent yet physically unrealizable** (no injection of an infinite state
+space into a finite-information region — machine-checked), so it *gives wrong answers*
+wherever forced onto reality, and is right only where a cutoff (= discreteness) is quietly
+restored ([TheContinuum.md](TheContinuum.md)).
 
 ## References
 

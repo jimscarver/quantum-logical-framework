@@ -5,7 +5,49 @@ Standard physics inherits two foundational assumptions from classical mathematic
 1. **The continuum** — that space, time, and fields are modelled by the real numbers ℝ, a completed infinite totality
 2. **The Axiom of Choice** — that for any collection of non-empty sets, a simultaneous choice function exists, even when no rule for constructing it is given
 
-Both assumptions are pragmatically useful for classical mechanics and general relativity. Both become physically and logically problematic at the quantum scale. QLF provides a constructive alternative to each.
+Both assumptions are pragmatically useful for classical mechanics and general relativity. Both become physically and logically problematic at the quantum scale. QLF provides a constructive alternative to each — but first, the indictment.
+
+**The point is not that the continuum is "false."** `ℝ` is a *consistent* structure, and consistency was never the question — you cannot derive a contradiction from a consistent object, and trying to is a category error (and reads as crank). The sharper, harder-to-dodge claim is two-pronged: the continuum is **consistent but physically unrealizable**, and it **gives demonstrably wrong answers** wherever it is forced onto reality. This section makes that case; §1–§6 then give the constructive alternative.
+
+---
+
+## The continuum gives wrong answers
+
+In every case below the continuum produces an answer that is **flatly wrong** — almost always **infinite or absurd** — and the discrete substrate produces the measured value. The wrongness is not random: it appears precisely where the continuum's distinctive content (a *continuum* of degrees of freedom, an actual infinity) is invoked.
+
+| Phenomenon | Continuum answer | Discrete (QLF) answer | Verdict |
+|---|---|---|---|
+| **Blackbody radiation** (the original *ultraviolet catastrophe*) | **infinite** energy — a continuum of modes each `½kT`, Rayleigh–Jeans diverges | Planck's law — energy **quantized**; finite | Continuum wrong; **discreteness founded QM** |
+| **Vacuum energy** (the *cosmological-constant catastrophe*) | **~10¹²²×** the observed value — `½ℏω` over a continuum of modes | `Ω_Λ = log 2`, **1.2%** ([`QLF_CosmologicalConstant`](lean/QLF_CosmologicalConstant.lean), [`VacuumEnergy.md`](VacuumEnergy.md)) | Worst prediction in physics; discrete is right |
+| **Spacetime singularities** (black-hole centre, Big Bang) | **infinite** curvature/density | singularity-free by construction — discrete events + Pauli-bounded density ([`Curvature.md`](Curvature.md), [`BLACK-HOLES.md`](BLACK-HOLES.md)) | Continuum → ∞; discrete → finite |
+| **QED/QFT loop self-energies** | **infinite** (UV divergences) | finite — the discrete Planck floor cuts the running off (§3.1; [`QLF_PlanckScale`](lean/QLF_PlanckScale.lean)) | Bare continuum answer is wrong (∞) |
+
+The pattern is exact: **integrate over a continuum and you get a divergence — a wrong, infinite answer.** Quantize (discretize) and you get the finite measured value. Planck's 1900 fix was the first instance; the vacuum catastrophe is the same disease at cosmological scale; GR singularities are the same disease in geometry. The continuum is not occasionally wrong — it is *systematically* wrong wherever it is taken literally.
+
+### The kicker: every continuum *success* is smuggled-in discreteness
+
+The standard rebuttal is immediate: *"but renormalized QED gives `g−2` to twelve digits, and GR nails Mercury's perihelion — the continuum works."* True, and here is the decisive answer: **the continuum gets the right answer only after it is regularized — only after a cutoff is put back in.** A cutoff is a smallest length / largest frequency — it *is* the discrete floor, reintroduced by hand. Renormalization is the continuum **borrowing discreteness to repair its own infinite answers**, then declaring victory. The triumphs of "continuum physics" are exactly the calculations in which the continuum is *not actually being a continuum*. QLF makes the borrowed cutoff explicit and intrinsic (the Planck closure floor, §3.1), so the divergences never arise. The QFT face of this is [QFT_QLF.md](QFT_QLF.md) §4–6.
+
+---
+
+## Consistency is not realizability — and that was always the question
+
+The usual defense of the continuum — *"it is consistent, you cannot disprove it"* — is true and **irrelevant**, and the trap is to argue on its terms.
+
+**Consistency buys nothing.** By Gödel's completeness theorem a consistent theory is guaranteed a model — but an **abstract, set-theoretic** model, never a physical one. One can write endless consistent theories that describe nothing realizable: non-standard arithmetic (consistent, with actually-infinite integers — by Löwenheim–Skolem there are models of every infinite cardinality), a theory positing a halting oracle, infinitesimals, Banach–Tarski decompositions. All consistent; none realized. *Consistency ⟺ "has an abstract model" — it says exactly nothing about whether nature instantiates the structure.*
+
+**"Can't be disproven in the reals" is circular.** Asking whether `ℝ` is false *within* `ℝ`-based mathematics assumes the thing being judged; a consistent system self-certifies, which is the *definition* of consistency, not evidence for it. The verdict on realization comes from **outside** the continuum's own deductive closure — from physics and computability.
+
+So the real question was never *consistency* (which the continuum shares with every consistent fiction) but **realizability** — and the continuum is consistent but **physically unrealizable**, demonstrably, from accepted physics:
+
+- **Bekenstein bound** — a finite region holds **finite** information; a continuum needs uncountably many distinguishable states (an actual infinity of information) in a bounded region. Finite-information physics **cannot instantiate** it. Not "unrealized as it happens" — *forbidden*.
+- **Gisin** — a single real carries infinite information; no physical quantity can.
+
+This obstruction is **machine-checked** ([`lean/QLF_Realizability.lean`](lean/QLF_Realizability.lean)): with the Bekenstein bound as the physical premise (a region's distinguishable states form a *finite* type) and a faithful realization modeled as an injection, `no_continuum_in_finite_region` proves there is **no injection from an infinite state space into a finite one** — so a continuum cannot be realized in a finite-information region. The proof uses only the continuum's *infinitude*, never any claim that `ℝ` is inconsistent.
+
+The burden therefore sits entirely on the continuum's defender to **exhibit a physical realization** — which finiteness forbids. We are not disproving `ℝ`; we are observing it has **no physical model**, and that consistency is no substitute. **The wrong answers above are the *symptom*:** force an unrealizable structure onto reality and it returns an infinity exactly where the unrealizable content (a continuum of modes) is summed.
+
+**Backed by the structural counts.** Beyond unrealizability, the continuum-as-completed-actual-infinity is *gratuitous*: its cardinality is **underdetermined** (the Continuum Hypothesis is independent of ZFC — Cohen 1963), almost all of its members are **unnameable** (the computable and definable reals are countable; almost every real is uncomputable — Turing, Chaitin's `Ω`), it is **unneeded** (reverse mathematics: applicable analysis lives in `RCA₀`/`WKL₀`/`ACA₀`, §below), and it is **pathological** (Banach–Tarski, §2). Every distinctive thing it adds is unnameable, unmeasurable, or pathological.
 
 ---
 
@@ -181,6 +223,12 @@ The Axiom of Choice is not needed because the physically real is the constructiv
 
 ---
 
+## 7. The Millennium face: where the continuum stops answering
+
+The continuum does not give a *wrong* answer on the six Clay Millennium problems — it gives **no** answer. Each becomes intractable or undefined precisely in its **continuum-analytic** limit, while the discrete substrate returns a clean result: the Yang–Mills gap *is* `log 2 > 0` on the substrate ([`YangMills_MassGap_QLF.md`](YangMills_MassGap_QLF.md)); Navier–Stokes blow-up *is* the non-terminating tail the substrate prunes ([`NavierStokes_QLF.md`](NavierStokes_QLF.md)); Riemann's critical line *is* the `H ↔ H†` self-adjoint locus; and P vs NP, BSD, Hodge are *finitary*, not continuum problems at all. So each problem's single bridge axiom ([`Open_Problems.md`](Open_Problems.md), [`Millennium.md`](Millennium.md)) is exactly the step crossing from the discrete substrate (where QLF answers) into the continuum rendering (where the question loses its footing). The catalogue of Clay problems is, read this way, the catalogue of *where the continuum stops being able to answer* — and where the discrete substrate begins.
+
+---
+
 ## Summary
 
 | Classical assumption | QLF replacement |
@@ -193,4 +241,16 @@ The Axiom of Choice is not needed because the physically real is the constructiv
 
 The continuum is not rejected. It is derived — as the macroscale limit of a dense, constructive, ZFA-filtered combinatorial process. The Axiom of Choice is not needed because every physical object that exists can be explicitly constructed by the QuCalc engine.
 
-See also: [ReverseMathematics.md](ReverseMathematics.md) for the formal subsystem analysis, [SpaceTime.md](SpaceTime.md) for the event-synthesis picture, and [Philosophy.md](Philosophy.md) for the possibilist ontological grounding.
+See also: [ReverseMathematics.md](ReverseMathematics.md) for the formal subsystem analysis, [SpaceTime.md](SpaceTime.md) for the event-synthesis picture, [Philosophy.md](Philosophy.md) for the possibilist ontological grounding, [QFT_QLF.md](QFT_QLF.md) for the QFT/UV-finiteness face, and [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md) for the Millennium-program thesis.
+
+## References
+
+- M. Planck, *Zur Theorie des Gesetzes der Energieverteilung im Normalspectrum* (1900) — quantization resolves the ultraviolet catastrophe.
+- P. J. Cohen, *The Independence of the Continuum Hypothesis*, PNAS **50** (1963) 1143–1148; **51** (1964) 105–110 — CH independent of ZFC.
+- A. M. Turing, *On Computable Numbers* (1936); G. J. Chaitin, *A Theory of Program Size…*, J. ACM **22** (1975) 329 — almost all reals uncomputable; `Ω`.
+- S. G. Simpson, *Subsystems of Second-Order Arithmetic* (Springer, 1999) — reverse mathematics; the `RCA₀` floor.
+- J. D. Bekenstein, *Universal upper bound on the entropy-to-energy ratio for bounded systems*, Phys. Rev. D **23** (1981) 287 — finite information in a finite region.
+- N. Gisin, *Indeterminism in physics… are real numbers really real?*, Erkenntnis (2019/2021) — real numbers carry unphysical infinite information.
+- S. Banach & A. Tarski, *Sur la décomposition des ensembles de points…*, Fund. Math. **6** (1924) 244–277 — the paradoxical decomposition (Choice's visible unsoundness).
+- L. Bombelli, J. Lee, D. Meyer & R. Sorkin, *Space-time as a causal set*, Phys. Rev. Lett. **59** (1987) 521 — Lorentz invariance from the statistics of a causal order.
+- H. Weyl, *Das Kontinuum* (1918); E. Bishop, *Foundations of Constructive Analysis* (1967) — the predicative / constructive tradition.

@@ -3,7 +3,7 @@ import Mathlib
 /-!
 # QLF_Realizability — consistency ≠ realizability: the Bekenstein obstruction, anchored
 
-The case against the continuum ([`Continuum_Gets_Wrong_Answers.md`](Continuum_Gets_Wrong_Answers.md))
+The case against the continuum ([`TheContinuum.md`](TheContinuum.md))
 turns on a distinction that is easy to state and easy to blur: a structure can be perfectly
 **consistent** (an abstract model exists) yet **physically unrealizable** (no model in nature). The
 continuum is exactly such a structure. This module pins the load-bearing step as a theorem.
@@ -51,7 +51,7 @@ theorem real_continuum_not_realizable (bits : ℕ) (realize : ℝ → Fin (2 ^ b
     *abstract* structure (an `Infinite` state space). Bekenstein finiteness (the `Finite` region,
     taken as the physical premise) makes it physically *unrealizable*: `no_continuum_in_finite_region`.
     The theorem uses only the continuum's infinitude, never a claim that `ℝ` is inconsistent — exactly
-    the honest scope of [`Continuum_Gets_Wrong_Answers.md`](Continuum_Gets_Wrong_Answers.md) §3:
+    the honest scope of [`TheContinuum.md`](TheContinuum.md) ("Consistency is not realizability"):
     *the question was never consistency; it was realizability, and finite-information physics forbids
     a physical continuum.* -/
 theorem continuum_consistent_but_unrealizable : True := trivial

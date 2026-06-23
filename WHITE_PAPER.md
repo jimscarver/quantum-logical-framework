@@ -178,6 +178,18 @@ continuum and the Axiom of Choice are mathematics' ultraviolet catastrophe**, re
 ZFA substrate and its computable pruning ([`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md),
 [`Millennium.md`](Millennium.md)).
 
+The case against the continuum is sharper than a preference. The point is *not* that the continuum is
+"false" — `ℝ` is consistent, and consistency was never the question. It is that the continuum is
+**consistent but physically unrealizable**: a finite-information universe cannot hold an actual infinity
+of distinguishable states (the Bekenstein bound), so there is **no injection from an infinite state
+space into a finite-information region** — machine-checked ([`lean/QLF_Realizability.lean`](lean/QLF_Realizability.lean),
+`no_continuum_in_finite_region`). Forced onto reality it therefore gives **demonstrably wrong answers** —
+the ultraviolet catastrophe (continuum → *infinite* blackbody energy; Planck's quantization founded QM),
+the `~10¹²²` vacuum catastrophe (continuum QFT vs the substrate's `Ω_Λ = log 2`), singularities
+(*infinite* curvature vs singularity-free by construction) — and is right only where a cutoff (=
+discreteness) is quietly restored (renormalization). The full ledger + the constructive alternative are
+in [`TheContinuum.md`](TheContinuum.md). *Consistency ≠ realizability* is the spine.
+
 All six Clay Millennium problems have a Lean module reducing each to a constructive RCA₀ core plus
 **one** explicit boundary axiom naming the continuum/choice crossing:
 
