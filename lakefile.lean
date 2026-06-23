@@ -118,5 +118,6 @@ lean_lib QLF where
     `QLF_HodgeStructure,
     `QLF_PhaseInformation,
     `QLF_Realizability,
-    `QLF_Uncertainty
+    `QLF_Uncertainty,
+    `QLF_StateSpace
   ]
