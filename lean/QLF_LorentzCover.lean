@@ -51,6 +51,10 @@ theorem boostZ_det (s : ℝ) (hs : s ≠ 0) : (boostZ s).det = 1 := by
   rw [boostZ, Matrix.det_fin_two_of, mul_zero, sub_zero, ← Complex.ofReal_mul,
     mul_inv_cancel₀ hs, Complex.ofReal_one]
 
+/-- The boost spinor is self-adjoint (real diagonal). -/
+theorem boostZ_self_adj (s : ℝ) : (boostZ s)ᴴ = boostZ s := by
+  ext i j; fin_cases i <;> fin_cases j <;> simp [boostZ, Matrix.conjTranspose_apply]
+
 /-- **The boost acts as a Lorentz boost in null coordinates.** `diag(s, s⁻¹)` sends the QLF state to
     the state with null coordinates rescaled `u = t+z ↦ s²·u`, `v = t−z ↦ s⁻²·v` and transverse
     `x, y` fixed — exactly the `z`-boost of rapidity `φ` for `s = e^{φ/2}`. -/
@@ -60,14 +64,13 @@ theorem boostZ_action (s : ℝ) (hs : s ≠ 0) (f : Form) :
          ↑f.x + I * ↑f.y, ((s⁻¹ : ℝ) : ℂ) ^ 2 * (↑f.t - ↑f.z)] := by
   have hss : (s : ℂ) * ((s⁻¹ : ℝ) : ℂ) = 1 := by
     rw [← Complex.ofReal_mul, mul_inv_cancel₀ hs, Complex.ofReal_one]
-  have hstars : star (s : ℂ) = (s : ℂ) := Complex.conj_ofReal s
-  have hstari : star ((s⁻¹ : ℝ) : ℂ) = ((s⁻¹ : ℝ) : ℂ) := Complex.conj_ofReal _
-  apply Matrix.ext; intro i j
+  rw [spinorAct, boostZ_self_adj]
+  ext i j
   fin_cases i <;> fin_cases j <;>
-    (simp only [spinorAct, boostZ, Form.toMatrix, Matrix.mul_apply, Fin.sum_univ_two,
-      Matrix.conjTranspose_apply, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
+    (simp only [boostZ, Form.toMatrix, Matrix.mul_apply, Fin.sum_univ_two,
+      Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
       Matrix.of_apply, Matrix.cons_val', Matrix.empty_val', Matrix.cons_val_fin_one,
-      Matrix.head_fin_const, hstars, hstari, star_zero, mul_zero, zero_mul, add_zero, zero_add] ;
+      Matrix.head_fin_const, mul_zero, zero_mul, add_zero, zero_add] ;
      first
        | ring
        | linear_combination (↑f.x - I * ↑f.y) * hss
@@ -81,6 +84,10 @@ def rotZ (w : ℂ) : Matrix (Fin 2) (Fin 2) ℂ := !![w, 0; 0, star w]
 theorem rotZ_det (w : ℂ) (hw : w * star w = 1) : (rotZ w).det = 1 := by
   rw [rotZ, Matrix.det_fin_two_of, mul_zero, sub_zero, hw]
 
+/-- The conjugate transpose of the rotation spinor is `diag(w̄, w)`. -/
+theorem rotZ_conjTranspose (w : ℂ) : (rotZ w)ᴴ = !![star w, 0; 0, w] := by
+  ext i j; fin_cases i <;> fin_cases j <;> simp [rotZ, Matrix.conjTranspose_apply]
+
 /-- **The rotation acts as a spatial rotation.** For a unit `w` (`|w| = 1`), `diag(w, w̄)` fixes
     `t` and `z` and sends the transverse combination `x − iy ↦ w²(x − iy)` — a rotation in the `x`–`y`
     plane (by `2·arg w`), with the time and longitudinal axes untouched. -/
@@ -88,12 +95,13 @@ theorem rotZ_action (w : ℂ) (hw : w * star w = 1) (f : Form) :
     spinorAct (rotZ w) f.toMatrix =
       !![(↑f.t + ↑f.z), w ^ 2 * (↑f.x - I * ↑f.y);
          star w ^ 2 * (↑f.x + I * ↑f.y), (↑f.t - ↑f.z)] := by
-  apply Matrix.ext; intro i j
+  rw [spinorAct, rotZ_conjTranspose]
+  ext i j
   fin_cases i <;> fin_cases j <;>
-    (simp only [spinorAct, rotZ, Form.toMatrix, Matrix.mul_apply, Fin.sum_univ_two,
-      Matrix.conjTranspose_apply, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
+    (simp only [rotZ, Form.toMatrix, Matrix.mul_apply, Fin.sum_univ_two,
+      Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
       Matrix.of_apply, Matrix.cons_val', Matrix.empty_val', Matrix.cons_val_fin_one,
-      Matrix.head_fin_const, star_zero, star_star, mul_zero, zero_mul, add_zero, zero_add] ;
+      Matrix.head_fin_const, mul_zero, zero_mul, add_zero, zero_add] ;
      first
        | ring
        | linear_combination (↑f.t + ↑f.z) * hw
@@ -119,7 +127,7 @@ theorem spinor_kernel (A : Matrix (Fin 2) (Fin 2) ℂ) (hdet : A.det = 1)
   have hU : A * Aᴴ = 1 := by
     have e := h ⟨1, 0, 0, 0⟩
     rw [spinorAct, hI0, Matrix.mul_one] at e; exact e
-  have hUc : Aᴴ * A = 1 := Matrix.mul_eq_one_comm.mp hU
+  have hUc : Aᴴ * A = 1 := mul_eq_one_comm.mp hU
   -- commutation with σz and σx
   have hCz : A * (!![1, 0; 0, -1] : Matrix (Fin 2) (Fin 2) ℂ) = !![1, 0; 0, -1] * A := by
     have e := h ⟨0, 0, 0, 1⟩
