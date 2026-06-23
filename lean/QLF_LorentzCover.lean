@@ -68,14 +68,14 @@ theorem boostZ_action (a b : ℝ) (hab : a * b = 1) (f : Form) :
   rw [spinorAct, boostZ_self_adj]
   ext i j
   fin_cases i <;> fin_cases j <;>
-    (simp only [Fin.mk_zero, Fin.mk_one, boostZ, Form.toMatrix, Matrix.mul_apply, Fin.sum_univ_two,
+    simp only [Fin.mk_zero, Fin.mk_one, boostZ, Form.toMatrix, Matrix.mul_apply, Fin.sum_univ_two,
       Matrix.of_apply, Matrix.cons_val', Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
       Matrix.head_fin_const, Matrix.empty_val', Matrix.cons_val_fin_one,
-      mul_zero, zero_mul, add_zero, zero_add] ;
-     first
-       | ring
-       | linear_combination ((f.x : ℂ) - I * (f.y : ℂ)) * hab'
-       | linear_combination ((f.x : ℂ) + I * (f.y : ℂ)) * hab')
+      mul_zero, zero_mul, add_zero, zero_add]
+  all_goals first
+    | ring
+    | linear_combination ((f.x : ℂ) - I * (f.y : ℂ)) * hab'
+    | linear_combination ((f.x : ℂ) + I * (f.y : ℂ)) * hab'
 
 /-! ## Rotation — the unitary diagonal `SL(2,ℂ)` element is a spatial rotation -/
 
@@ -100,14 +100,14 @@ theorem rotZ_action (w : ℂ) (hw : w * star w = 1) (f : Form) :
   rw [spinorAct, rotZ_conjTranspose]
   ext i j
   fin_cases i <;> fin_cases j <;>
-    (simp only [Fin.mk_zero, Fin.mk_one, rotZ, Form.toMatrix, Matrix.mul_apply, Fin.sum_univ_two,
+    simp only [Fin.mk_zero, Fin.mk_one, rotZ, Form.toMatrix, Matrix.mul_apply, Fin.sum_univ_two,
       Matrix.of_apply, Matrix.cons_val', Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
       Matrix.head_fin_const, Matrix.empty_val', Matrix.cons_val_fin_one,
-      mul_zero, zero_mul, add_zero, zero_add] ;
-     first
-       | ring
-       | linear_combination ((f.t : ℂ) + (f.z : ℂ)) * hw
-       | linear_combination ((f.t : ℂ) - (f.z : ℂ)) * hw)
+      mul_zero, zero_mul, add_zero, zero_add]
+  all_goals first
+    | ring
+    | linear_combination ((f.t : ℂ) + (f.z : ℂ)) * hw
+    | linear_combination ((f.t : ℂ) - (f.z : ℂ)) * hw
 
 /-! ## Kernel — the only spinor acting trivially is `±I` (the "2-to-1") -/
 
