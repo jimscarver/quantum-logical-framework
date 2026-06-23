@@ -122,5 +122,6 @@ lean_lib QLF where
     `QLF_StateSpace,
     `QLF_Minkowski,
     `QLF_LorentzCover,
-    `QLF_MondScale
+    `QLF_MondScale,
+    `QLF_MondNu
   ]
