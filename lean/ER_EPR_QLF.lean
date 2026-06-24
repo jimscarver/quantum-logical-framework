@@ -5,9 +5,8 @@ import QLF_ReachableEvent
 /-!
 # ER = EPR from the QLF core — entanglement is a shared primordial closure
 
-Earlier this module *posited* the wormhole / shared-constraint relation as seven standalone axioms,
-which made the conclusion conditional on those posits (the "speculative" reading). Here the same
-conclusion is **derived from the verified core, with no new axioms**:
+This module **derives** the ER=EPR identity **from the verified core, with no axioms** — it does not
+posit the wormhole / shared-constraint relation:
 
 * **EPR (entanglement) = a shared ZFA closure.** Two histories are entangled iff they *close
   together* — their joint history achieves Zero Free Action (`achieves_ZFA`, `QLF_Axioms`). One
@@ -89,9 +88,9 @@ theorem primordial_wormhole :
 /-- **Status — ER=EPR from the core, zero axioms.** The wormhole↔entanglement identity
     (`er_equals_epr`, `entanglement_is_logical_wormhole`) and no-FTL (`no_ftl_in_epr`) are derived
     from `achieves_ZFA` (the ZFA filter) and `reachable` (the substrate causal set), with a verified
-    witness (`primordial_wormhole`). The seven posited axioms are gone. Non-locality dissolves: the
-    two ends are one closure; distance is perspectival (zero through the closure, large through
-    synthesized space). See `ER_EPR_QLF.md`, `Primordial_Entanglement.md`. -/
+    witness (`primordial_wormhole`) — no axioms. Non-locality dissolves: the two ends are one
+    closure; distance is perspectival (zero through the closure, large through synthesized space).
+    See `ER_EPR_QLF.md`, `Primordial_Entanglement.md`. -/
 theorem er_epr_derived_from_core : True := trivial
 
 end QLF

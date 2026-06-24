@@ -1,6 +1,6 @@
 # ER = EPR in the Quantum Logical Framework
 
-## 🚀 Where this fits in the QLF substrate program (June 2026)
+## 🚀 Where this fits in the QLF substrate program
 
 The ER=EPR identity sits in QLF's broader **substrate-derivation program** that Lean-anchors eight fundamental-physics predictions from ZFA + h alone:
 
@@ -55,7 +55,7 @@ Geometry — hence distance — is **synthesized per observer** ([SpaceTime.md](
 "How far apart are entangled particles?" therefore has *no observer-independent answer* — zero through the closure, large through synthesized space, the same relation read from two frames. This is exactly the ER picture: a short throat connecting distant mouths. And it is *why* there is no spooky action at a distance — there is **no fundamental distance** for an influence to cross. The distance is the rendering; the closure is the thing, and the thing has no internal distance. (It generalizes ordinary relativity-of-distance — Lorentz contraction, no absolute length — with entanglement as the limiting case where the closure-distance is zero.)
 
 ## Formal Proof — derived from the substrate core, **zero axioms**
-See the Lean file: [`lean/ER_EPR_QLF.lean`](lean/ER_EPR_QLF.lean). The module no longer *posits* the wormhole relation (it earlier carried 7 standalone axioms); the ER=EPR identity is now **grounded in the verified core**:
+See the Lean file: [`lean/ER_EPR_QLF.lean`](lean/ER_EPR_QLF.lean). The module does not *posit* the wormhole relation; the ER=EPR identity is **grounded in the verified core**, with no axioms:
 
 - **EPR (entanglement) = a shared ZFA closure.** `SharedClosure A B := achieves_ZFA (A ++ B)` — two histories are entangled iff their joint history *closes* (the verified ZFA filter, `QLF_Axioms`). One balanced closure spans both; they are two readings of one closure.
 - **Spacelike** = neither in the other's causal past, in the substrate causal set `reachable` (prefix order, `QLF_ReachableEvent`).
