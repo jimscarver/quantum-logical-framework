@@ -190,9 +190,23 @@ directions being two QLF histories. Its volume is the **product** of the two cha
 (`diamondVolume_collision`: `1×1`, `0×3`, `3×0` all have volume `4`), whereas the 1-D chain volume is
 **injective** (`chainVolume_injective`: one interval per volume, singleton layers). *Multiplicity of
 intervals at a fixed volume is the layer growth*, so combining histories literally raises the
-Myrheim–Meyer dimension. The open rung is thus fully pinned: **compute `|L_k|` on the general branching
-closure graph and feed the Benincasa–Dowker sum** — a definite combinatorial computation on QLF's own
-substrate, with the 1-D flat baseline (singleton layers) and the 2-D product case both Lean-anchored.
+Myrheim–Meyer dimension.
+
+**The layer growth is computed directly** ([`prodLayerCard`](lean/QLF_CausalDimension.lean)). On the
+actual 2-D product order the Benincasa–Dowker layer cardinality grows past the single-history
+singletons: the volume-2 (link) layer below the apex has cardinality `1` for one history
+([`prodLayerCard_chain_link`](lean/QLF_CausalDimension.lean)) and `2` once two histories combine
+([`prodLayerCard_diamond_link`](lean/QLF_CausalDimension.lean)) — the apex `(1,1)`'s two immediate
+predecessors `(0,1)`, `(1,0)`, the two null directions — a size-independent dimension fingerprint
+([`prodLayerCard_link_stable`](lean/QLF_CausalDimension.lean)), packaged as
+[`layer_growth_from_branching`](lean/QLF_CausalDimension.lean). So `|L_k|` growth past the
+`bdCurvature_chain_zero` flat baseline is a verified fact, not just a gesture.
+
+The open rung is the **continuum limit**: the Ricci scalar is this layer-growth read in the
+**statistical sprinkling average** over the substrate's branchings (where flat space reads `R = 0` in
+the mean and curvature is the residual), not the finite count of any one small diamond — that, with the
+Benincasa–Dowker sum to `∫R` and `G_μν = 8πG T_μν`, is the remaining computation on QLF's own causal
+graph.
 
 ---
 
