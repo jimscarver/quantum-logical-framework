@@ -1,4 +1,5 @@
 import QLF_ReachableEvent
+import Mathlib.Data.Set.Card
 
 set_option linter.unusedVariables false
 
@@ -26,11 +27,13 @@ Einstein–Hilbert action are built in the continuum limit.
 ## Honest scope
 
 This anchors the **causal interval and its number↔volume (proper-time) structure** on QLF's causal
-set — the first rung of order→metric, reusing `QLF_ReachableEvent` with no new axioms. It does **not**
-formalize the literal interval *cardinality* equals `intervalVolume` (the natural next rung), the
-**discrete d'Alembertian → Ricci scalar** (Benincasa–Dowker), or the **continuum limit** to
-`G_μν = 8πG T_μν` — those remain the named open step (`einstein_curvature_in_progress`), now a concrete
-CST/Benincasa–Dowker program on QLF's substrate rather than generic differential geometry. See
+set, plus the **Benincasa–Dowker curvature operator at its flat baseline** — the balanced layer
+stencil (`bdCoeff_sum_zero`) reads `R = 0` on a single-history chain (`bdCurvature_chain_zero`, via the
+singleton layers of `layerCard_chain`), so curvature is the *growth* of the layer cardinalities once
+the closure graph branches. Reuses `QLF_ReachableEvent` with no new axioms. The named open step
+(`einstein_curvature_in_progress`) is the rest of that concrete CST/Benincasa–Dowker program: `|L_k|`
+on the **branching** graph through the BD sum → the Ricci scalar, and the **continuum limit** to
+`G_μν = 8πG T_μν`. See
 [`Einstein_Equations.md`](../Einstein_Equations.md), [`TheContinuum.md`](../TheContinuum.md) §on
 causal-path statistics.
 -/
@@ -130,18 +133,70 @@ theorem layer_unique (x : Event α) {k : ℕ} (hk : 1 ≤ k) (hk2 : k ≤ x.leng
       List.prefix_of_prefix_length_le hw hyx (by omega)
     exact reachable_antisymm h1 h2
 
+/-- The cardinality of the `k`-th causal layer below `x` — the **Benincasa–Dowker input**. -/
+noncomputable def layerCard (x : Event α) (k : ℕ) : ℕ := (layer x k).ncard
+
+/-- **Each in-range causal layer of a chain is a singleton, so its cardinality is `1`** (`layer_unique`):
+    on the flat single-history substrate exactly one event sits at each interval-depth
+    `1 ≤ k ≤ |x|+1` below `x`. -/
+theorem layerCard_chain (x : Event α) {k : ℕ} (hk : 1 ≤ k) (hk2 : k ≤ x.length + 1) :
+    layerCard x k = 1 := by
+  obtain ⟨y, hy, huniq⟩ := layer_unique x hk hk2
+  have hs : layer x k = {y} := Set.eq_singleton_iff_unique_mem.mpr ⟨hy, huniq⟩
+  show (layer x k).ncard = 1
+  rw [hs, Set.ncard_singleton]
+
+/-- **Benincasa–Dowker layer coefficients** — the 1+1-dimensional / second-difference stencil: the
+    curvature reading weights the nearest three causal layers by `+1, −2, +1`. -/
+def bdCoeff : ℕ → ℤ
+  | 1 => 1
+  | 2 => -2
+  | 3 => 1
+  | _ => 0
+
+/-- **The BD coefficients are balanced — they sum to zero.** This is the defining property of a
+    *curvature* stencil: it reads the *second difference* of the layer occupations, not their bare
+    count, so a uniform layer profile reads zero (`+1 − 2 + 1 = 0`, the discrete d'Alembertian of a
+    constant). -/
+theorem bdCoeff_sum_zero : bdCoeff 1 + bdCoeff 2 + bdCoeff 3 = 0 := by decide
+
+/-- **The Benincasa–Dowker curvature reading at `x`** — the balanced alternating sum of the first three
+    causal-layer cardinalities. CST's central result is that, averaged over a sprinkling, this returns
+    `−½ R` (the discrete d'Alembertian of a constant field); here it is evaluated on the bare order. -/
+noncomputable def bdCurvature (x : Event α) : ℤ :=
+  bdCoeff 1 * (layerCard x 1 : ℤ) + bdCoeff 2 * (layerCard x 2 : ℤ) + bdCoeff 3 * (layerCard x 3 : ℤ)
+
+/-- **The flat baseline, in the curvature operator: a chain reads zero.** On a single QLF history of
+    depth `≥ 2` the first three causal layers are singletons (`layerCard_chain`), so the
+    Benincasa–Dowker reading collapses to the bare coefficient sum `+1 − 2 + 1 = 0`
+    (`bdCoeff_sum_zero`): one history line is **flat**, `R = 0`. Equivalently the chain's BD operator is
+    the 1-D discrete second difference, which annihilates a constant. This anchors the `R = 0` baseline
+    in the *actual* curvature operator (not only in the singleton-layer structure) — the point past
+    which curvature is the *growth* of `|L_k|` once the closure graph branches. -/
+theorem bdCurvature_chain_zero (x : Event α) (hx : 2 ≤ x.length) : bdCurvature x = 0 := by
+  have h1 : layerCard x 1 = 1 := layerCard_chain x (by omega) (by omega)
+  have h2 : layerCard x 2 = 1 := layerCard_chain x (by omega) (by omega)
+  have h3 : layerCard x 3 = 1 := layerCard_chain x (by omega) (by omega)
+  have hsum : bdCurvature x = bdCoeff 1 + bdCoeff 2 + bdCoeff 3 := by
+    unfold bdCurvature; rw [h1, h2, h3]; push_cast; ring
+  rw [hsum]; exact bdCoeff_sum_zero
+
 /-- **Established constructively:** the causal (Alexandrov) interval and its **number↔volume**
     proper-time structure on QLF's causal set — endpoints lie in the interval
     (`left_mem_interval`/`right_mem_interval`), self-volume is one tick (`intervalVolume_self`),
     **proper time is additive along the causal order** (`intervalVolume_additive`), the interval is
     exactly the prefixes of `B` no shorter than `A` (`causalInterval_eq`), and it is a **chain**
-    (`interval_isChain`) — a single history line, which is flat. **Where curvature lives (the sharpened
-    next rung):** because each prefix interval is flat, the Ricci curvature must come from the
-    *branching* of the full closure graph — incomparable histories / antichains, the
-    `expand_generation` QuCalc tree — which is where the **Benincasa–Dowker** discrete d'Alembertian
-    samples it. **Open (`einstein_curvature_in_progress`):** the discrete d'Alembertian → Ricci scalar
-    on the branching graph and the continuum limit to `G_μν = 8πG T_μν` — a concrete CST program on the
-    substrate, not generic differential geometry. -/
+    (`interval_isChain`) — a single history line, which is flat. **The Benincasa–Dowker curvature
+    operator is anchored at its flat baseline:** the BD layer coefficients are balanced
+    (`bdCoeff_sum_zero`, `+1 − 2 + 1 = 0`), each in-range layer of a chain is a singleton
+    (`layerCard_chain`, from `layer_unique`), and so the BD curvature reading on a single history of
+    depth `≥ 2` is exactly zero (`bdCurvature_chain_zero`): `R = 0` in the actual operator, the chain's
+    BD reading being the 1-D discrete second difference annihilating a constant. **Where curvature
+    lives:** past this baseline, the Ricci scalar is the *growth* of the layer cardinalities `|L_k|`
+    once the closure graph **branches** — incomparable histories / antichains, the `expand_generation`
+    QuCalc tree. **Open (`einstein_curvature_in_progress`):** `|L_k|` on the branching graph fed through
+    the Benincasa–Dowker sum → Ricci scalar, and the continuum limit to `G_μν = 8πG T_μν` — a concrete
+    CST program on the substrate's own closure graph. -/
 theorem einstein_curvature_in_progress : True := trivial
 
 end QLF.CausalInterval
