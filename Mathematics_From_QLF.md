@@ -106,6 +106,23 @@ QLF *uses* reverse mathematics (RM) as its measuring instrument: it locates the 
 
 ---
 
+## 4. Why mathematics is so effective in physics — Wigner dissolved
+
+Wigner's puzzle (1960): mathematics, apparently a free creation of the mind, is *uncannily* effective at describing nature — a "miracle" with "no rational explanation." QLF's answer follows immediately from §1: **the realizable part of mathematics and physics are the same substrate.** The emergence ladder shows numbers, rings, groups *emerging* from counting closures and the two folds; the rest of QLF shows spacetime, particles, forces, and the constants *emerging* from the same ZFA closures. Mathematics and physics are not two domains that mysteriously align — they are **two readings of one closure process.** Effectiveness is then a thing describing itself; the surprise dissolves.
+
+But QLF's version is sharper than the bare "reality is mathematical" move (Tegmark's Mathematical Universe), and the sharpening is what earns it:
+
+- **Selective, not a plenitude.** Tegmark makes *all* mathematical structures physical — including the continuum, the uncomputable, the Banach–Tarski pathologies (the *gratuitous* tail, [`TheContinuum.md`](TheContinuum.md)). QLF makes only the **realizable** math physical — the `RCA₀`, ZFA-closed, active-inference-selected subset — and *that is exactly the math that is effective.* The "unreasonable" effectiveness becomes reasonable: effective math = realizable math = physical math, because all three are the substrate.
+- **It explains the *failures*, which a "miracle" cannot.** Wigner's blanket wonder and Tegmark's blanket plenitude both predict mathematics should *always* work. QLF predicts *where it fails*: force the non-realizable continuum onto reality and you get the ultraviolet catastrophe, the 10¹²² vacuum catastrophe, singularities — the wrong-answer ledger ([`TheContinuum.md`](TheContinuum.md)). **Effectiveness tracks realizability** — a falsifiable edge, not a sigh of awe.
+- **One filter for both.** ZFA is the selection principle for physical reality *and* for realizable mathematics — the same `full_zeno_prune`. With one filter, mathematics and physics cannot diverge: whatever closes mathematically is what is instantiated physically.
+- **Discovery vs invention, reconciled.** All admissible closures exist *a priori* as possibility (QLF's possibilism, [`Philosophy.md`](Philosophy.md)). The mathematician — a Markov blanket doing active inference — *freely explores* that closure-possibility space (felt as *invention*) and finds the structures that close (which are the physically realized ones — felt as *discovery*). Mathematics is the observer's self-model of the very process it is embedded in ([`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md)); it fits because the model and the modeled share substrate.
+
+So QLF does not merely say "mathematics is effective because reality is mathematical." It says: **the effective mathematics is precisely the realizable mathematics — both selected by ZFA, both the substrate — while the ineffective mathematics is the gratuitous continuum, which fails exactly where it is forced onto reality.** Wigner's miracle is the shadow of the substrate; its boundary (where math stops working) is the boundary of realizability.
+
+*Honest scope:* this is QLF's **dissolution** of the puzzle, resting on the substrate ontology plus the worked, verified emergence of mathematics' core (§1) and the equally verified emergence of the physics elsewhere in the framework — a philosophical payoff, not a single Lean theorem. Lineage: Wigner (1960), Hamming (1980), Tegmark (Mathematical Universe). QLF's distinctive contribution is the *selective* realizability — and the matching account of where mathematics *fails*.
+
+---
+
 ## See also
 
 - [`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md) — mathematical objects as admissible Markov-blanket trajectories; QLF as a constructive ZFC replacement with active inference built in.
