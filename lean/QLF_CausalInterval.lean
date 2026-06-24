@@ -179,7 +179,8 @@ theorem bdCurvature_chain_zero (x : Event α) (hx : 2 ≤ x.length) : bdCurvatur
   have h3 : layerCard x 3 = 1 := layerCard_chain x (k := 3) (by omega) (by omega)
   unfold bdCurvature
   rw [h1, h2, h3]
-  norm_num [bdCoeff]
+  simp only [Nat.cast_one, mul_one]
+  exact bdCoeff_sum_zero
 
 /-- **Established constructively:** the causal (Alexandrov) interval and its **number↔volume**
     proper-time structure on QLF's causal set — endpoints lie in the interval
