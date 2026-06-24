@@ -4,6 +4,8 @@
 
 When you examine the Quantum Logical Framework through this lens, a precise alignment emerges: **QLF is a physical realization of Reverse Mathematics.** It treats physical laws as theorems and uses computational closure as the minimal axiomatic base.
 
+But QLF *uses* Reverse Mathematics as a measuring instrument; it is not Reverse Mathematics. RM is *descriptive* (it measures the axiom strength existing theorems cost) and ontologically neutral; QLF is *generative* (a substrate builds the objects — numbers, the ring operations, the unit group), adds an *active-inference selection* (only ZFA-closed histories are admitted), and makes the *ontological commitment* RM declines (the `RCA₀` floor **is** physical reality). How mathematics emerges forward from the substrate — and how that differs from RM — is [`Mathematics_From_QLF.md`](Mathematics_From_QLF.md).
+
 ---
 
 ## 1. Locating QLF on the Subsystem Hierarchy

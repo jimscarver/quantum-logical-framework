@@ -428,6 +428,7 @@ Avoid framings that contradict the above:
 | `BraKetRhoQuCalc.md` | Reference doc for bra-ket ↔ RhoQuCalc correspondence |
 | `Lagrangian_Formulation.md` | Variational formulation: ℒ=0 as origin, Σ₈ algebra, Zeno stationarity, decoherence impossibility; Lean theorem anchors for all claims |
 | `Philosophy.md` | Possibilist ontology; ZFA as sole fundamental axiom |
+| `Mathematics_From_QLF.md` | How mathematics emerges from the substrate — the emergence ladder (ℕ from counting closures; `+`/`×` = parallel/sequence composition; the unit group `μ₄=(ℤ[i])ˣ`; su(2)/su(3); the continuum as completion), the bootstrapping resolution (substrate generates, Mathlib renders, conservativity ⟹ not circular), and how QLF is distinct from reverse mathematics (generative + active-inference selection + ontological commitment, vs RM's descriptive/neutral stratification) |
 | `Reversibility.md` | Time-reversal = the Hermitian conjugate (`eval_dagger`); a balanced closure is `H=H†` (self-time-reverse, no per-event arrow); the arrow is forward *sequencing* in synthesized time (`f=1/t`), reversal = "go back in time" with no meta-axis; the `H↔H†` involution = the critical line (Hilbert–Pólya). Reversible *logic*, irreversible *process* |
 | `Open_Problems.md` | Gap registry: closed / principled-boundary / open items, each with its owning doc. Update here + owning doc when a status changes |
 | `QuantumOS.md` | QLF as capability-secure OS kernel for QPUs |

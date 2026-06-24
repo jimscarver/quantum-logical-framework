@@ -64,6 +64,8 @@ A mathematical object in active-inference mathematics is **a sequence of admissi
 - An **equation** is the assertion that two closure trajectories yield the same Markov-blanket record.
 - A **proof** is the explicit trajectory the agent traverses; in Lean this becomes a mechanically checkable term in RCA₀ (or higher if the bridge axiom is invoked).
 
+The concrete *emergence ladder* — how the integers, the ring operations (`+` = parallel, `×` = sequence), the unit group `μ₄ = (ℤ[i])ˣ`, and the gauge Lie algebras fall out of counting closures and the two ways they compose (every rung already machine-checked), plus the resolution of the bootstrapping worry (the substrate generates; Mathlib renders; conservativity makes it non-circular) — is [`Mathematics_From_QLF.md`](Mathematics_From_QLF.md).
+
 Continuum mathematics, set theory, and standard analytic objects appear as **statistical shadows** of admissible trajectory ensembles in the large-N limit. The real line is the limit of discrete admissible closure densities; ζ is the analytic image of the QLF generating function under the Mellin transform ([ReverseMathematics.md §4](ReverseMathematics.md)).
 
 ## 5. Scoreboard — what has been done
