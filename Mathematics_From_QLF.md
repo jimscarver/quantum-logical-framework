@@ -78,6 +78,18 @@ The fair worry: the Lean proofs *use* Mathlib's `Ring`, `Group`, `ℂ`. If QLF m
 
 **Honest scope.** QLF does *not* re-derive all of Mathlib's algebra from ZFA inside Lean — that would be re-founding mathematics in a proof assistant, which is not the project. It machine-checks the substrate's *core* structures (rungs 1–6) and frames the rest as the *conservative rendering*. The defensible claim is the substrate **ontology** (the computable substrate is what realizable mathematics is; Brouwer, Bishop, Weyl, Gisin) plus the worked, verified emergence of its core. We assert that; we do not assert that QLF has re-founded all mathematics.
 
+### Does the resolution apply to the metalanguage itself?
+
+The proofs are checked in Lean + Mathlib — the *metalanguage*. Does the same resolution apply to *it*, or is the metalanguage an unexamined foundation QLF still presupposes? The honest answer is **reflexively yes, partway, and the residue is the universal one nobody escapes** — in three layers.
+
+1. **The *realizable* metalanguage is substrate-native.** The actual act of verification — Lean's kernel checking a QLF proof — is a *finite, terminating, decidable* computation. By `qlf_universality` ([`lean/QLF_Universality.lean`](lean/QLF_Universality.lean): every terminating computation **is** a ZFA string) that verification is *itself a closure in the substrate*; the verifier (a physical, finite-information computer) is a Markov blanket doing active inference — a QLF **observer**, not something outside QLF's ontology. So the metalanguage's real work — finite proof-checking — is the substrate's own currency, and the continuum superstructure Mathlib nominally carries (ℝ, choice) is *rendering* exactly as before, conservative for the finitary content actually checked (the QLF core uses no `Classical.choice`; Lean flags it). The "substrate generates, continuum renders" move **self-applies**.
+
+2. **The irreducible residue.** What the resolution *cannot* do is prove the metalanguage **sound** from within QLF: by **Gödel's second incompleteness theorem**, no consistent system strong enough proves its own consistency, so trusting that the kernel (and the logic Mathlib assumes) is consistent is a faith QLF cannot discharge. Crucially this is **not a QLF defect** — it is the universal foundational predicament (ZFC has it, type theory has it, *every* foundation has it). There is no view from nowhere.
+
+3. **A self-consistent fixed point, not a vicious circle.** QLF does not *escape* the metatheoretic regress; it **relocates its floor to the most defensible place — finite computation.** The substrate (finite computation) is *both* what is described *and* what does the describing and verifying — the same currency on both sides — so the regress terminates in the *physically realizable*, and the residual trust shrinks to its minimum: *"finite computation is sound."* That is far smaller than "trust ZFC + the continuum + choice," and it is a genuine fixed point (the verifier is an instance of what it verifies), the way physics must ultimately be self-describing.
+
+So the resolution **extends** to the metalanguage's realizable core (elegantly — verification is a ZFA closure) and **honestly stops** at the one trust no foundation can eliminate, relocated to where it costs the least.
+
 ---
 
 ## 3. How this is distinct from reverse mathematics
