@@ -174,12 +174,12 @@ noncomputable def bdCurvature (x : Event α) : ℤ :=
     in the *actual* curvature operator (not only in the singleton-layer structure) — the point past
     which curvature is the *growth* of `|L_k|` once the closure graph branches. -/
 theorem bdCurvature_chain_zero (x : Event α) (hx : 2 ≤ x.length) : bdCurvature x = 0 := by
-  have h1 : layerCard x 1 = 1 := layerCard_chain x (by omega) (by omega)
-  have h2 : layerCard x 2 = 1 := layerCard_chain x (by omega) (by omega)
-  have h3 : layerCard x 3 = 1 := layerCard_chain x (by omega) (by omega)
-  have hsum : bdCurvature x = bdCoeff 1 + bdCoeff 2 + bdCoeff 3 := by
-    unfold bdCurvature; rw [h1, h2, h3]; push_cast; ring
-  rw [hsum]; exact bdCoeff_sum_zero
+  have h1 : layerCard x 1 = 1 := layerCard_chain x (k := 1) (by omega) (by omega)
+  have h2 : layerCard x 2 = 1 := layerCard_chain x (k := 2) (by omega) (by omega)
+  have h3 : layerCard x 3 = 1 := layerCard_chain x (k := 3) (by omega) (by omega)
+  unfold bdCurvature
+  rw [h1, h2, h3]
+  norm_num [bdCoeff]
 
 /-- **Established constructively:** the causal (Alexandrov) interval and its **number↔volume**
     proper-time structure on QLF's causal set — endpoints lie in the interval
