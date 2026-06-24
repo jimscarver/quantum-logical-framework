@@ -202,11 +202,25 @@ predecessors `(0,1)`, `(1,0)`, the two null directions — a size-independent di
 [`layer_growth_from_branching`](lean/QLF_CausalDimension.lean). So `|L_k|` growth past the
 `bdCurvature_chain_zero` flat baseline is a verified fact, not just a gesture.
 
-The open rung is the **continuum limit**: the Ricci scalar is this layer-growth read in the
-**statistical sprinkling average** over the substrate's branchings (where flat space reads `R = 0` in
-the mean and curvature is the residual), not the finite count of any one small diamond — that, with the
-Benincasa–Dowker sum to `∫R` and `G_μν = 8πG T_μν`, is the remaining computation on QLF's own causal
-graph.
+The **continuum limit** is the **statistical sprinkling average** over the substrate's branchings: the
+Ricci scalar is this layer-growth read in the mean of a Poisson sprinkling (where flat space reads
+`R = 0` in the mean and curvature is the residual), not the finite count of any one small diamond. This
+is anchored in [`QLF_CausalContinuum`](lean/QLF_CausalContinuum.lean) in QLF's Millennium pattern — a
+verified discrete core plus one named continuum bridge. The **statistical kernel is proven**: under a
+Poisson sprinkling of (intensity × volume) `lam` the expected Benincasa–Dowker layer occupation is the
+Poisson value `e^{−lam} lam^k / k!` ([`poissonOccupation`](lean/QLF_CausalContinuum.lean)), and the
+verified discrete `|L_k|` counts pass to those expectations through the Poisson layer recurrence
+([`poissonOccupation_succ`](lean/QLF_CausalContinuum.lean): `⟨N_{k+1}⟩(k+1) = ⟨N_k⟩ lam`). The full
+`ρ → ∞` Benincasa–Dowker convergence of the mean to `−½R` is the explicit **bridge axiom**
+[`benincasa_dowker_limit`](lean/QLF_CausalContinuum.lean) — the settled Poisson-process + curved-
+interval-volume machinery of CST, the `RCA₀ → Lorentzian-analytic` boundary parallel to
+`yang_mills_continuum_gap` ([`QLF_MassGap`](lean/QLF_MassGap.lean)) and `navier_stokes_continuum_limit`
+([`QLF_NavierStokes`](lean/QLF_NavierStokes.lean)). From it, **flat space reads `R = 0` in the mean**
+([`flat_curvature_zero_in_mean`](lean/QLF_CausalContinuum.lean)) — the statistical survival of the
+discrete flat baseline. So the curvature side now stands on the same footing as Riemann / Yang–Mills /
+Navier–Stokes: a machine-verified discrete core (the flat reading, the branching layer-growth, the
+Poisson kernel) and one explicit continuum bridge. The remaining substrate computation is assembling
+the full tensor `G_μν = 8πG T_μν` from the Benincasa–Dowker action and general `d ≥ 3`.
 
 ---
 
