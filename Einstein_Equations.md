@@ -165,14 +165,22 @@ distinguishable futures.
 
 That is exactly where the **Benincasa–Dowker** discrete d'Alembertian reads curvature. Its input is the
 sequence of **causal layers** `L_k(x) = {y ≤ x : volume[y,x] = k}` ([`layer`](lean/QLF_CausalInterval.lean));
-the operator is an alternating sum of their cardinalities `|L_k|`, and applied to a constant it returns
-`−½ R` in the continuum. On QLF's single-history substrate the layers are **singletons** —
-`layer_unique` proves exactly one event sits at each interval-depth below `x` — the BD signature of a
-**1-dimensional, flat** order (pure time, no space, `R = 0`). So both **the spatial dimensions and the
-curvature are the same thing**: they are the *growth of* `|L_k|` once the closure graph branches. This
-dovetails with the graph-rendering result that space is 3D ([`SpaceTime.md`](SpaceTime.md) §3a) — the
-branching that renders into three spatial dimensions is the same branching whose layer-growth the BD
-operator turns into `R`.
+the operator is an alternating sum of their cardinalities `|L_k|` weighted by a balanced stencil
+([`bdCoeff`](lean/QLF_CausalInterval.lean): `+1, −2, +1`, with [`bdCoeff_sum_zero`](lean/QLF_CausalInterval.lean)
+proving the weights sum to zero — the property that makes it read the *second difference* of the layer
+occupations, i.e. curvature, not a bare count), and applied to a constant it returns `−½ R` in the
+continuum.
+
+**The operator is Lean-anchored at its flat baseline.** On QLF's single-history substrate the layers are
+**singletons** — `layer_unique` proves exactly one event sits at each interval-depth below `x`, so
+[`layerCard_chain`](lean/QLF_CausalInterval.lean) gives every in-range layer cardinality `= 1`, and the
+BD reading [`bdCurvature`](lean/QLF_CausalInterval.lean) on a history of depth `≥ 2` collapses to the
+bare weight sum `+1 − 2 + 1 = 0` ([`bdCurvature_chain_zero`](lean/QLF_CausalInterval.lean)): `R = 0` in
+the actual operator, the chain's BD reading being the 1-D discrete second difference annihilating a
+constant. So both **the spatial dimensions and the curvature are the same thing**: they are the *growth
+of* `|L_k|` once the closure graph branches. This dovetails with the graph-rendering result that space
+is 3D ([`SpaceTime.md`](SpaceTime.md) §3a) — the branching that renders into three spatial dimensions is
+the same branching whose layer-growth the BD operator turns into `R`.
 
 That layer-growth is anchored in the one case that is exactly a product of chains:
 [`QLF_CausalDimension`](lean/QLF_CausalDimension.lean) builds the **2-D causal diamond as the product
