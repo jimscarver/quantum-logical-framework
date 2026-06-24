@@ -70,7 +70,6 @@ theorem poissonOccupation_succ (lam : ℝ) (k : ℕ) :
   rw [Nat.factorial_succ, pow_succ]
   push_cast
   field_simp
-  ring
 
 /-- The expected value of the Benincasa–Dowker operator applied to the **constant field**, over a
     Poisson sprinkling of intensity `rho` of a Lorentzian region of (constant) Ricci scalar `R`.
