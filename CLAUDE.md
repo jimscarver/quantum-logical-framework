@@ -6,7 +6,7 @@ Project context for Claude Code sessions. Read this before making any changes.
 
 ## Project overview
 
-**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **115 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
+**Quantum Logical Framework (QLF)** is a formal proof system machine-verified in Lean 4 across **116 modules with zero `sorry` blocks**. It encodes quantum mechanics and spacetime dynamics using phase-string combinatorics (ZFA — Zero-phase Flux Algebra).
 
 Core claim: *ZFA balance is the selection principle for physical reality.* Every terminating computation is a ZFA string; every ZFA string is symmetric (lies on the critical line). The Church-Turing universe filtered to ZFA-balanced strings is our physical universe.
 
@@ -14,7 +14,7 @@ Core claim: *ZFA balance is the selection principle for physical reality.* Every
 
 ---
 
-## 115 active modules
+## 116 active modules
 
 In `lean/`, registered in `lakefile.lean` roots array (in build order). For fuller per-module descriptions + the complete key-theorem lists, see [`lean/README.md`](lean/README.md).
 
@@ -53,6 +53,7 @@ In `lean/`, registered in `lakefile.lean` roots array (in build order). For full
 | `QLF_MondScale` | **The `2π` in `a₀ = cH₀/(2π)` derived — the ZFA closure-loop period** (`DarkMatter.md` §5). Closes the open dark-sector thread: the `1/2π` is not a fitted MOND prefactor but the period of **one ZFA closure loop**. `a₀ = cH₀/τ_ZFA` is the **Hubble acceleration delivered per closure loop** (`a0_is_hubble_per_closure_loop`); `H₀` is the cosmic horizon's *angular* rate (the de Sitter temperature `T=ℏH₀/(2πk_B)` exhibits exactly `T=ℏω/(2πk_B)` with `ω=H₀`), so `a₀ = c·` the *cyclic* closure rate `H₀/τ_ZFA = H₀/(2π)` (`a0_eq_c_times_cyclic_rate`, `cyclicClosureRate`). And `τ_ZFA = 2·π_QLF` (`loop_period_is_two_pi_QLF`, reusing `QLF_LoopClosure.tau_is_two_pi_QLF`) with `π_QLF` census-derived (`QLF_PhysicalPi`, no circle) — so the `2π` is the substrate closure-loop period grounded in counting, the *same* loop behind `g−2=α/2π` and the horizon temperatures. **Honest scope:** the one physical premise is identifying `H₀` as the cosmic closure's *angular* rate (the de Sitter temperature form is its evidence); the SPARC fit confirms `1/2π` at the local `H₀`. No new axioms. See `DarkMatter.md`, `Gravity_From_Delay.md` §5 |
 | `QLF_MondNu` | **The MOND interpolation function `ν` is the *unique* closure-balance form** (`DarkMatter.md` §7.5) — closes the last open dark-sector piece. The rotation-curve law is the closure-balance RAR `g_obs² = g_bar·(g_obs + a₀)`, a **ZFA conjunction**: the squared (round-trip, Born-like) observed closure balances the *product* of the local source `g_bar` and the total environment `g_obs + a₀` (observed + the **additive** de Sitter floor). **`radialAccel_unique`** — for `g_bar,a₀>0` that equation has a **unique** non-negative solution (the other quadratic root is negative), so the interpolation function is **determined by the closure principle with no freedom** — not one choice among the MOND family. **`radialAccel_eq_nu`** — explicitly `g_obs = ν(g_bar/a₀)·g_bar` with `ν(y) = (1+√(1+4/y))/2` (the unique positive root of `ν²=ν+1/y`), interpolating exactly between Newton (`radialAccel_newtonian`) and Tully–Fisher (`radialAccel_ge_geometric_mean`). **Honest scope:** the uniqueness given the conjunction is proven; the *structural reading* of the conjunction itself is **derived** in `QLF_RarBalance`. No new axioms. See `DarkMatter.md` §7.5 |
 | `QLF_RarBalance` | **The structural reading of the closure-balance conjunction, derived** (`DarkMatter.md` §7.5) — the last interpretive premise of the dark sector. The squared/multiplicative form of `g_obs² = g_bar·(g_obs + a₀)` is **forced by the logarithmic free energy** (`QLF_FreeEnergy`, `ΔF = −log 2`): a closure rate `g` carries free energy `F(g) = −log g`, and ZFA balance places the observed closure at the **average** of its two conjoined conditions' free energies, `F(g_obs) = ½(F(g_bar) + F(g_obs+a₀))`. Since `F = −log`, an **average of log free energies is a geometric mean of rates** — exactly the squared form: **`log_geometric_mean_balance`** (`2·log g = log A + log B ⟺ g²=A·B`), **`closure_balance_iff_free_energy_balance`**, **`rar_is_free_energy_balance`** (the RAR *is* the free-energy midpoint). So **squared** = geometric mean / log-balance; **multiplicative** = the conjunction (log free energies add); **additive floor** `g_obs+a₀` = accelerations adding (de Sitter background). **Honest scope:** the geometric-mean consequence + the log free energy are proven; identifying acceleration as a closure rate with `F=−log g` and ZFA balance as the free-energy average are the QLF reading (now the only premises, reduced from the ad-hoc form). No new axioms. See `DarkMatter.md` §7.5, `QLF_FreeEnergy` |
+| `QLF_AlgebraEmergence` | **A group emerges from the substrate as a genuine Mathlib structure** (`Mathematics_From_QLF.md`). Anchors the bootstrapping resolution: the closure-fold group (`PauliScalar`, reached by every balanced closure via `count_balanced_pauli_closed`) is exhibited concretely as the **cyclic group `ℤ/4`** = `μ₄ = (ℤ[i])ˣ`, *derived from the substrate, not imported*. **`toZMod_hom`** — the closure-fold **multiplication IS `ℤ/4` addition** (`toZMod (a·b) = toZMod a + toZMod b`); **`toZMod_injective`** — faithful, so (with the matching 4-element count) `PauliScalar ≅ ℤ/4`. So using Mathlib's algebra to *verify* QLF is not circular — the structure is *generated* by the substrate (counting + the two folds), Mathlib's continuum algebra being its conservative rendering. No new axioms. See `Mathematics_From_QLF.md` |
 | `QLF_BorromeanAngles` | The 5-angle count `5 = 3 + 2` (Jacobi internal + chirality-mixing); `total_angular_DOF_eq_five`, `matches_lenz_hidden_chirality_angles` |
 | `QLF_EulerMascheroni` | γ as the harmonic excess `H_N − ln N` of the ZFA ensemble; `gamma_QLF_structural` (structural form; convergence proof deferred) |
 | `QLF_RiemannZeta` | Substrate ↔ ζ bridge: `γ_QLF` = ζ's Laurent constant at `s=1`; `zeta_laurent_constant_eq_gamma_QLF`, `rh_proof_in_progress` |
@@ -419,7 +420,7 @@ Avoid framings that contradict the above:
 | Path | Purpose |
 |---|---|
 | `lean/` | All Lean source files |
-| `lakefile.lean` | Build config; `roots` array lists all 115 modules |
+| `lakefile.lean` | Build config; `roots` array lists all 116 modules |
 | `lean/README.md` | Module table and proof chain documentation |
 | `README.md` | Project overview with citations and convergence themes |
 | `CLAUDE.md` | This file — project context for new Claude sessions |
