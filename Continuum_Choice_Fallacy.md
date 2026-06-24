@@ -183,6 +183,19 @@ QLF's ontology is the change of foundations the catastrophe demands:
   ([ReverseMathematics.md](ReverseMathematics.md), [Active_Inference_Mathematics.md](Active_Inference_Mathematics.md) §6).
   Gödel cannot bite where unprovability has been physically excised.
 
+**This was not new with QLF — three classical results had already taken the continuum apart by
+the 1970s.** (i) **Löwenheim–Skolem** (1915–1920): any first-order theory, even one "about" the
+uncountable reals, has a *countable* model — the transfinite has a countable handle (the Skolem
+paradox). (ii) **Gödel (1940) + Cohen's forcing (1963)**, built over Löwenheim–Skolem countable
+models: the *cardinality of the continuum is independent of ZFC* — it is **not a determinate
+object**. (iii) **Reverse-mathematics conservativity** (Friedman/Harrington, 1970s; Simpson,
+*SOSOA*): the infinitary subsystem `WKL₀` is **conservative over the finitary base for finitary
+(`Π⁰₂`) statements** — it proves *no new finitary theorem*. Capturable countably, undetermined,
+and finitarily conservative: the continuum was already *gratuitous*. QLF adds the physics — it is
+**unrealizable** (Bekenstein, `no_continuum_in_finite_region`, machine-checked) and **unneeded**
+(the finite closure census `C(2n,n)` recovers `π` and `ζ(3)` over the `RCA₀` floor) — and supplies
+the replacement. None of this says `ℝ` is *false* (it is consistent); it says `ℝ` is *gratuitous*.
+
 > ZFC is flawed logic, suitable only where there are no exploding infinities. ZFA is
 > correct logic.
 
@@ -280,7 +293,8 @@ restored ([TheContinuum.md](TheContinuum.md)).
 - K. Gödel, *Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I*, Monatsh. Math. Phys. **38** (1931) 173–198 — incompleteness; *The consistency of the axiom of choice...* (1940).
 - A. M. Turing, *On computable numbers, with an application to the Entscheidungsproblem*, Proc. London Math. Soc. **42** (1936) 230–265 — undecidability.
 - S. Banach & A. Tarski, *Sur la décomposition des ensembles de points en parties respectivement congruentes*, Fund. Math. **6** (1924) 244–277 — the paradoxical decomposition (Choice's visible unsoundness).
-- P. J. Cohen, *The independence of the continuum hypothesis*, Proc. Nat. Acad. Sci. **50** (1963) 1143–1148 & **51** (1964) 105–110.
+- P. J. Cohen, *The independence of the continuum hypothesis*, Proc. Nat. Acad. Sci. **50** (1963) 1143–1148 & **51** (1964) 105–110 — with Gödel (1940), the cardinality of the continuum is undecidable in ZFC.
+- L. Löwenheim, *Über Möglichkeiten im Relativkalkül*, Math. Ann. **76** (1915) 447–470; Th. Skolem (1920) — every first-order theory has a countable model (the Skolem paradox).
 - T. Radó, *On non-computable functions*, Bell System Tech. J. **41** (1962) 877–884 — the Busy Beaver function.
 - S. G. Simpson, *Subsystems of Second Order Arithmetic*, Springer (1999) — reverse mathematics / RCA₀.
 - C. E. Shannon, *A Mathematical Theory of Communication*, Bell System Tech. J. **27** (1948) 379–423, 623–656 — the sampling and channel-capacity theorems: finite information in any physical signal (the empirical falsification of the physical continuum).

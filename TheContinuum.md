@@ -49,6 +49,24 @@ The burden therefore sits entirely on the continuum's defender to **exhibit a ph
 
 **Backed by the structural counts.** Beyond unrealizability, the continuum-as-completed-actual-infinity is *gratuitous*: its cardinality is **underdetermined** (the Continuum Hypothesis is independent of ZFC — Cohen 1963), almost all of its members are **unnameable** (the computable and definable reals are countable; almost every real is uncomputable — Turing, Chaitin's `Ω`), it is **unneeded** (reverse mathematics: applicable analysis lives in `RCA₀`/`WKL₀`/`ACA₀`, §below), and it is **pathological** (Banach–Tarski, §2). Every distinctive thing it adds is unnameable, unmeasurable, or pathological.
 
+### The continuum is gratuitous — five converging strikes
+
+The case is not one argument but five independent ones, each striking from a different side. **Three are classical results of mathematical logic** — the ones that, by the 1970s, had already taken the continuum-as-determinate-object apart:
+
+1. **The transfinite has a countable handle (Löwenheim–Skolem, 1915–1920).** Any first-order theory — even ZFC, even "the theory of the uncountable reals" — has a **countable model** (the Skolem paradox). The whole transfinite continuum can be carried inside a countable, effectively finite-description model. *There is a finite/countable solution to the infinite and transfinite.*
+
+2. **Its size is undecidable (Gödel 1940 + Cohen's forcing 1963).** Gödel showed `CH` consistent with ZFC; Cohen, building forcing extensions over Löwenheim–Skolem **countable transitive models**, showed `¬CH` consistent — so the **cardinality of the continuum is independent of ZFC**: `2^ℵ₀` can be forced to almost any value our axioms permit. The continuum is **not a determinate object** — the nail in the coffin.
+
+3. **It proves no new finitary theorem (reverse-mathematics conservativity, Friedman/Harrington, 1970s).** The infinitary "continuum" subsystem **`WKL₀`** — strong enough for a large swath of classical analysis (compactness, Heine–Borel, the standard existence theorems) — is **conservative over the finitary base for finitary (`Π⁰₂`) statements**: it proves *nothing* finitary that the finite/computable base does not already prove (see Simpson, *SOSOA*). Hilbert's program, vindicated for that fragment: the continuum apparatus is **gratuitous** for the content that has finitary meaning.
+
+**QLF adds two more — machine-checked — and supplies the replacement:**
+
+4. **It is physically unrealizable** (`no_continuum_in_finite_region`, `real_continuum_not_realizable`, [`lean/QLF_Realizability.lean`](lean/QLF_Realizability.lean)): no injection of an infinite state space into a finite-information region (Bekenstein). *Consistency ≠ realizability.*
+
+5. **It is constructively unneeded** (`closure_census`/`returnDensity` in [`lean/QLF_PhysicalPi.lean`](lean/QLF_PhysicalPi.lean); `aperySum` in [`lean/QLF_AperyPeriod.lean`](lean/QLF_AperyPeriod.lean); `phase = · % N` in [`lean/QLF_LoopClosure.lean`](lean/QLF_LoopClosure.lean)): the **finite closure census `C(2n,n)`** recovers `π` and `ζ(3)`, the substrate core lives in `RCA₀`, and `2π` is a *rendering* of `% N`, not an import. A finite, computable construction stands in for every continuum constant physics actually uses.
+
+So the continuum is **capturable countably** (1), **not determinate** (2), **finitarily conservative** (3), **physically unrealizable** (4), and **constructively unneeded** (5) — three classical strikes, two machine-checked QLF strikes. The classical results put the continuum-as-determinate-object in the coffin; QLF supplies the finite, computable substrate that recovers what it was invoked for. None of this says `ℝ` is *false* (it is consistent); it says `ℝ` is *gratuitous* — not a determinate object, and not needed.
+
 ---
 
 ## 1. The Standard Continuum and Its Problems
@@ -246,7 +264,9 @@ See also: [ReverseMathematics.md](ReverseMathematics.md) for the formal subsyste
 ## References
 
 - M. Planck, *Zur Theorie des Gesetzes der Energieverteilung im Normalspectrum* (1900) — quantization resolves the ultraviolet catastrophe.
-- P. J. Cohen, *The Independence of the Continuum Hypothesis*, PNAS **50** (1963) 1143–1148; **51** (1964) 105–110 — CH independent of ZFC.
+- K. Gödel, *The Consistency of the Axiom of Choice and of the Generalized Continuum-Hypothesis*, PNAS **24** (1938) 556; monograph (1940) — `CH` consistent with ZFC.
+- P. J. Cohen, *The Independence of the Continuum Hypothesis*, PNAS **50** (1963) 1143–1148; **51** (1964) 105–110 — `¬CH` consistent ⟹ CH independent of ZFC (the continuum's cardinality undecidable).
+- L. Löwenheim (1915); Th. Skolem (1920) — the Löwenheim–Skolem theorem: any first-order theory has a countable model (the Skolem paradox — the transfinite has a countable handle).
 - A. M. Turing, *On Computable Numbers* (1936); G. J. Chaitin, *A Theory of Program Size…*, J. ACM **22** (1975) 329 — almost all reals uncomputable; `Ω`.
 - S. G. Simpson, *Subsystems of Second-Order Arithmetic* (Springer, 1999) — reverse mathematics; the `RCA₀` floor.
 - J. D. Bekenstein, *Universal upper bound on the entropy-to-energy ratio for bounded systems*, Phys. Rev. D **23** (1981) 287 — finite information in a finite region.
