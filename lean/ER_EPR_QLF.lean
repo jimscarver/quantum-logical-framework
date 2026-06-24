@@ -70,17 +70,7 @@ theorem no_ftl_in_epr {A B : TopoString} (h : ERBridge A B) :
     `opposite_spin_singlet_closes`, `QLF_Spin`: the spin-world version, the `+I` fold). -/
 theorem conjugate_pair_closes :
     achieves_ZFA [TopoElement.phase LogicPhase.pos, TopoElement.phase LogicPhase.neg] := by
-  have hfzp :
-      full_zeno_prune [TopoElement.phase LogicPhase.pos, TopoElement.phase LogicPhase.neg] = [] := by
-    have hzp :
-        zeno_prune [TopoElement.phase LogicPhase.pos, TopoElement.phase LogicPhase.neg] = [] := rfl
-    have hlt :
-        (zeno_prune [TopoElement.phase LogicPhase.pos, TopoElement.phase LogicPhase.neg]).length
-          < [TopoElement.phase LogicPhase.pos, TopoElement.phase LogicPhase.neg].length := by
-      rw [hzp]; decide
-    rw [full_zeno_prune, dif_pos hlt, hzp, full_zeno_prune, dif_neg (by decide)]
-  unfold achieves_ZFA
-  rw [hfzp]
+  native_decide
 
 /-- The conjugate pair is **spacelike** — neither single-twist history is the other's prefix. -/
 theorem conjugate_pair_spacelike :
