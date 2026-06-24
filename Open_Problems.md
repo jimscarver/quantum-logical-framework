@@ -4,6 +4,9 @@ A single map of what is **closed**, what is a **principled boundary**, and what 
 genuinely **open**, with a pointer to the document that owns each item. This is an
 *index*, not a re-derivation: the substance lives in the linked docs. Its mirror is
 [`Beyond_Standard_Model.md`](Beyond_Standard_Model.md) (what QLF *derives / predicts* past the SM).
+For a **physics-facing** view of the same picture — the canonical mysteries of physics organized by
+the question a physicist would name (addressed / value-open / boundary / predicted-absent / open) —
+see [`Mysteries_Of_Physics.md`](Mysteries_Of_Physics.md).
 It complements
 [`Experimental_Consistency.md`](Experimental_Consistency.md) (which tracks per-result
 precision) by collecting the *forward* work in one place.
