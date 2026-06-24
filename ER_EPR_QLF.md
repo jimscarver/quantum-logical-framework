@@ -46,13 +46,23 @@ It is not a tunnel through ordinary spacetime. It is a direct logical connection
 
 The wormhole and the entanglement are the same object — viewed through different lenses.
 
-## Formal Proof
-See the Lean file: `lean/ER_EPR_QLF.lean`
+## Distance is a matter of perspective
+Geometry — hence distance — is **synthesized per observer** ([SpaceTime.md](SpaceTime.md)); it is the *rendering* of closures, not a fundamental backdrop. So an entangled pair has **two distances**, and which one is "the" distance is a matter of frame:
 
-This proof formally shows that:
-- Shared logical constraint ⇔ Logical wormhole
-- The connection is maintained through ZFA = 0 and gauge folds
-- No faster-than-light signaling is involved
+- **Through the closure: zero.** The two ends are *one* closure — there is no internal separation between them. The bridge has zero closure-distance.
+- **Through synthesized space: large.** A given observer's rendered geometry assigns a big spatial separation ("across the lab," "across the galaxy").
+
+"How far apart are entangled particles?" therefore has *no observer-independent answer* — zero through the closure, large through synthesized space, the same relation read from two frames. This is exactly the ER picture: a short throat connecting distant mouths. And it is *why* there is no spooky action at a distance — there is **no fundamental distance** for an influence to cross. The distance is the rendering; the closure is the thing, and the thing has no internal distance. (It generalizes ordinary relativity-of-distance — Lorentz contraction, no absolute length — with entanglement as the limiting case where the closure-distance is zero.)
+
+## Formal Proof — derived from the substrate core, **zero axioms**
+See the Lean file: [`lean/ER_EPR_QLF.lean`](lean/ER_EPR_QLF.lean). The module no longer *posits* the wormhole relation (it earlier carried 7 standalone axioms); the ER=EPR identity is now **grounded in the verified core**:
+
+- **EPR (entanglement) = a shared ZFA closure.** `SharedClosure A B := achieves_ZFA (A ++ B)` — two histories are entangled iff their joint history *closes* (the verified ZFA filter, `QLF_Axioms`). One balanced closure spans both; they are two readings of one closure.
+- **Spacelike** = neither in the other's causal past, in the substrate causal set `reachable` (prefix order, `QLF_ReachableEvent`).
+- **ER (the wormhole)** = `ERBridge A B := SharedClosure A B ∧ Spacelike A B` — a shared closure with no causal path.
+- **`er_equals_epr`** — given spacelike separation, the bridge exists *exactly* when the histories are entangled: the bridge **is** the shared closure. An identity, not a duality.
+- **`no_ftl_in_epr`** — a bridge is spacelike, so neither end reaches the other; nothing is transmitted *through* the geometry.
+- **`primordial_wormhole`** — a **verified witness**: the conjugate pair `[+, −]` closes (`conjugate_pair_closes`, `native_decide`) and is spacelike (`conjugate_pair_spacelike`) — the simplest ER=EPR instance, entirely from the core.
 
 ## Implications
 This unification suggests that spacetime connectivity itself emerges from entanglement. The logical lattice, not spacetime, is fundamental.
