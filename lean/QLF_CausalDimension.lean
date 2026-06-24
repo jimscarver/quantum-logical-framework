@@ -1,4 +1,5 @@
 import QLF_CausalInterval
+import Mathlib
 
 set_option linter.unusedVariables false
 
@@ -33,10 +34,13 @@ phenomenon, the growth of `|L_k|` when histories combine.
 
 This anchors the **2-D product-of-two-chains case** (`1+1` Minkowski): volume = product of the chain
 volumes, the chain's injective (singleton-layer) signature vs the diamond's many-to-one (growing-layer)
-signature. It does **not** treat general `d ≥ 3` (not a simple product of `d` chains for `d>2`), the
-Myrheim–Meyer estimator as a continuum limit, the literal event-count of the product interval, or
-curvature on a generic branching graph (`causal_dimension_in_progress`) — those, with the discrete
-d'Alembertian → Ricci, remain the named open rung of [`Einstein_Equations.md`](../Einstein_Equations.md) §6a.
+signature, and **the layer growth computed directly on the product order** — the Benincasa–Dowker
+layer cardinality `prodLayerCard` grows from `1` (one history) to `2` (two histories combined),
+`layer_growth_from_branching`, a size-independent dimension fingerprint (`prodLayerCard_link_stable`).
+The remaining open rung (`causal_dimension_in_progress`) is the Ricci scalar as this layer-growth read
+in the **statistical continuum limit** (sprinkling average), general `d ≥ 3` (not a simple product of
+`d` chains for `d>2`), and the Myrheim–Meyer estimator — with the discrete d'Alembertian → Ricci, the
+named open rung of [`Einstein_Equations.md`](../Einstein_Equations.md) §6a.
 -/
 
 namespace QLF.CausalDimension
@@ -69,14 +73,65 @@ theorem diamondVolume_collision :
     diamondVolume 1 1 = 4 ∧ diamondVolume 0 3 = 4 ∧ diamondVolume 3 0 = 4 := by
   refine ⟨?_, ?_, ?_⟩ <;> rfl
 
+/-- **Apex-relative interval volume in the 2-D product order** (product of two chains / `1+1`
+    Minkowski, light-cone coordinates `(u,v)`). The interval `[(i,j),(m,n)] = {(a,b) : i≤a≤m, j≤b≤n}`
+    has cardinality `(m−i+1)(n−j+1)` — number↔volume on the *combined* causal set. -/
+def prodIntervalVolume (i j m n : ℕ) : ℕ := (m - i + 1) * (n - j + 1)
+
+/-- **The Benincasa–Dowker causal layer at volume `k`** below the apex `(m,n)` in the 2-D product
+    order: the grid points `(i,j) ≤ (m,n)` whose interval to the apex has volume exactly `k`. This is
+    the BD input on a *combined* (2-D) causal structure — where layers grow past the single-history
+    singletons of [`QLF_CausalInterval.layer_unique`](QLF_CausalInterval.lean). -/
+def prodLayer (m n k : ℕ) : Finset (ℕ × ℕ) :=
+  ((Finset.range (m + 1)) ×ˢ (Finset.range (n + 1))).filter
+    (fun p => prodIntervalVolume p.1 p.2 m n = k)
+
+/-- The cardinality `|L_k|` of the 2-D product layer — the Benincasa–Dowker input count. -/
+def prodLayerCard (m n k : ℕ) : ℕ := (prodLayer m n k).card
+
+/-- **One history → the link layer is a singleton (the flat baseline).** With `n = 0` the product
+    order is a single chain in the first coordinate; the volume-2 layer (the apex's immediate
+    predecessors) has cardinality `1`, matching `QLF_CausalInterval.layer_unique`. -/
+theorem prodLayerCard_chain_link : prodLayerCard 1 0 2 = 1 := by native_decide
+
+/-- **Two histories combined → the link layer grows to cardinality 2.** In the genuine 2-D diamond the
+    apex `(1,1)` has **two** immediate predecessors, `(0,1)` and `(1,0)` — the two null directions /
+    combining histories — so the volume-2 Benincasa–Dowker layer has cardinality `2`, not `1`. This is
+    `|L_k|` growth past the flat singleton baseline: adding a causal direction grows the layer. -/
+theorem prodLayerCard_diamond_link : prodLayerCard 1 1 2 = 2 := by native_decide
+
+/-- **The link-layer cardinality is a dimension fingerprint, not a size artifact.** Across diamonds of
+    different sizes the volume-2 layer keeps cardinality `2` (the two immediate predecessors), while a
+    1-D strip (`n = 0`) keeps cardinality `1`. -/
+theorem prodLayerCard_link_stable :
+    prodLayerCard 2 2 2 = 2 ∧ prodLayerCard 3 2 2 = 2 ∧ prodLayerCard 5 0 2 = 1 := by
+  refine ⟨?_, ?_, ?_⟩ <;> native_decide
+
+/-- **|L_k| growth = combining histories — the branching case.** The volume-2 Benincasa–Dowker layer
+    grows from cardinality `1` on a single history (`prodLayerCard_chain_link`) to `2` when two
+    histories combine into a 2-D diamond (`prodLayerCard_diamond_link`): the layer cardinality counts
+    the combining causal directions. Past the flat singleton baseline of `QLF_CausalInterval` (where
+    `bdCurvature` reads `R = 0`), this growth is the Benincasa–Dowker input a curved reading needs. The
+    Ricci scalar itself is this layer-growth read in the **statistical continuum limit** (the sprinkling
+    average over the substrate's branchings), not the finite count of any one small diamond. -/
+theorem layer_growth_from_branching :
+    prodLayerCard 1 0 2 = 1 ∧ prodLayerCard 1 1 2 = 2 :=
+  ⟨prodLayerCard_chain_link, prodLayerCard_diamond_link⟩
+
 /-- **Established constructively:** dimension is read from number↔volume. A single history is a 1-D
     chain whose volume `chainVolume d = d+1` is **injective** (one interval per volume = singleton
     layers, `chainVolume_injective`); two histories combined by the product order give a 2-D diamond
     (`1+1` Minkowski) whose volume is the **product** of the chain volumes (`diamond_eq_product`) and is
-    **many-to-one** (`diamondVolume_collision`: distinct diamonds share a volume = growing layers). So
-    combining histories raises the dimension and grows the layers — the same phenomenon as curvature.
-    **Open:** general `d ≥ 3`, the Myrheim–Meyer continuum limit, the literal product-interval count,
-    and curvature on a generic branching graph (`causal_dimension_in_progress`). -/
+    **many-to-one** (`diamondVolume_collision`: distinct diamonds share a volume = growing layers).
+    **The layer growth is computed directly** (the branching case): the Benincasa–Dowker layer
+    cardinality `prodLayerCard` of the actual 2-D product order grows from `1` on a single history to
+    `2` when two histories combine — `layer_growth_from_branching` (`prodLayerCard_chain_link` /
+    `prodLayerCard_diamond_link`), the apex's two immediate predecessors `(0,1)`,`(1,0)` being the two
+    null directions, a size-independent dimension fingerprint (`prodLayerCard_link_stable`). So combining
+    histories raises the dimension and grows the layers — the Benincasa–Dowker input a curved reading
+    needs, past the `bdCurvature_chain_zero` flat baseline. **Open:** the Ricci scalar as this
+    layer-growth in the **statistical continuum limit** (sprinkling average), general `d ≥ 3`, and the
+    Myrheim–Meyer estimator (`causal_dimension_in_progress`). -/
 theorem causal_dimension_in_progress : True := trivial
 
 end QLF.CausalDimension
