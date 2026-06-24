@@ -18,7 +18,7 @@ were flagged open: only the `8π = 4π·2` factor ([`QLF_EinsteinGeometricFactor
 and the weak-field limit ([`GR_Schwarzschild.md`](GR_Schwarzschild.md)) were anchored. The curvature
 side — *why the field equations take the form they do at all* — was missing.
 
-The honest route does not require differential geometry. It is **Jacobson (1995)**.
+The honest route is **Jacobson (1995)**: the field equations as an equation of state.
 
 ---
 
@@ -124,18 +124,17 @@ local-time reading is developed in [`Kitada_Local_Time_GR.md`](Kitada_Local_Time
 
 ## §6a The curvature side: from the causal order (Sorkin / Benincasa–Dowker)
 
-Jacobson's route fixes the **coefficient** (`8πG = 2π/η`) and the constant (`Λ = log 2`). The *other*
-half of the field equations — the **curvature** side, `G_μν = R_μν − ½ g_μν R` — used to be flagged as
-"needs differential-geometry machinery QLF's Lean core lacks." That framing is too pessimistic,
-because QLF supplies the curvature side from the **same substrate** by a second, independent route.
+Jacobson's route fixes the **coefficient** (`8πG = 2π/η`) and the constant (`Λ = log 2`). QLF supplies
+the *other* half of the field equations — the **curvature** side, `G_μν = R_μν − ½ g_μν R` — from the
+**same substrate** by a second, independent route: the causal-set order → metric program.
 
 **The substrate is a causal set.** [`QLF_ReachableEvent`](lean/QLF_ReachableEvent.lean) makes QLF's
 reachability order a Lean object — a partial order of events with no metric: exactly a **causal set**
 (Bombelli–Sorkin). And Causal Set Theory's central result is that **geometry is recovered from order +
 number**: the **Benincasa–Dowker** discrete d'Alembertian applied to the causal order returns the
 **Ricci scalar** `R`, and the causal-set action limits to the **Einstein–Hilbert action** `∫R` in the
-continuum. So the curvature side of the Einstein equations is not an arbitrary differential-geometry
-gap — it is the concrete **order → metric** program running *on QLF's own closure graph*.
+continuum. So the curvature side of the Einstein equations is the concrete **order → metric** program
+running *on QLF's own closure graph*.
 
 **The first rung is Lean-anchored.** The basic object is the **causal (Alexandrov) interval**
 `[A,B] = {C : A ≤ C ≤ B}`, and CST's foundational principle is **number ↔ volume**: counting events
