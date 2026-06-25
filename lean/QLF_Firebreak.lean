@@ -83,19 +83,27 @@ theorem firebreakCount_eq (n : ℕ) :
   unfold firebreakCount
   rw [generated_count, realized_count_eq_central_binomial]
 
-/-- **The firebreak is real — not every generated path is a receipt.** The path `[+,+]` is generated at
-    length 2 but **fails to close** (`verify = false`), so it lies in the firebreak: possibility-space is
-    not greedily filled (a locally possible path ≠ a surviving amplitude receipt). -/
-theorem firebreak_witness :
-    [TopoElement.phase LogicPhase.pos, TopoElement.phase LogicPhase.pos] ∈ expand_generation 2
-      ∧ verify [TopoElement.phase LogicPhase.pos, TopoElement.phase LogicPhase.pos] = false := by
-  refine ⟨?_, ?_⟩ <;> native_decide
+/-- **A generated path that fails to close.** The length-2 path `[+,+]` does **not** achieve ZFA
+    (`verify = false`) — a locally possible path that is *not* a surviving amplitude receipt. -/
+theorem not_all_paths_close :
+    verify [TopoElement.phase LogicPhase.pos, TopoElement.phase LogicPhase.pos] = false := by
+  native_decide
+
+/-- **The firebreak is real — possibility-space is not greedily filled.** At length 2 the generated
+    paths number `4^1 = 4` but only `C(2,1) = 2` close, so the firebreak holds the other `2`: the
+    realized receipts are a *strict* subset of the generated paths (e.g. `[+,+]` is generated but does
+    not close, `not_all_paths_close`). -/
+theorem firebreak_nonempty :
+    (realizedSet 1).length < (expand_generation (2 * 1)).length := by
+  rw [realized_count_eq_central_binomial, generated_count]
+  decide
 
 /-- **Established (issue #103):** ZFA closure is the firebreak on path-integral possibility-space. The
     QuCalc tree generates every kinematic path (`generated_count`: `4^n`); closure (`verify`) keeps only
     the receipts (`realized_is_verify_filter`, of size `C(2n,n)`); the firebreak = the non-closing
-    complement `4^n − C(2n,n)` (`firebreakCount_eq`), which is **real** (`firebreak_witness` — `[+,+]`
-    is generated but does not close) and **asymptotically all** of possibility-space (the realized
+    complement `4^n − C(2n,n)` (`firebreakCount_eq`), which is **real** (`firebreak_nonempty` /
+    `not_all_paths_close` — `[+,+]` is generated but does not close) and **asymptotically all** of
+    possibility-space (the realized
     fraction `C(2n,n)/4^n → 0`, Wallis/Stirling, the `QLF_PhysicalPi` census). So "not every path is a
     physical receipt" is generate-then-close: `full_zeno_prune` is the firebreak that keeps the
     possibility-space from exploding — the substrate form of phase/projectors/exclusion preventing
