@@ -117,7 +117,10 @@ is the statement that the ledger of change is closed.
   `|det A|²` (`det_congruence`), `=1` for every twist product (`interval_preserved_of_unit_det`), so every
   QLF evolution is interval-preserving. The state space is manifestly Lorentzian *by construction*;
   macroscopic frame-independence is the emergent uniform-ether result
-  ([`QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean)).
+  ([`QLF_SubstrateLightSpeed.lean`](lean/QLF_SubstrateLightSpeed.lean)). Read the *same* `Form` as a
+  **4-momentum** `(E, p)` and its interval is the invariant mass², so the relativistic **`E² = p² + m²`**
+  — with `E = mc²` at rest, and massless ⟹ null (`E = |p|`) — falls out of the one determinant, the
+  invariant mass a Lorentz scalar ([`QLF_EnergyMomentum.lean`](lean/QLF_EnergyMomentum.lean)).
 - **Spacetime is synthesized, not background.** Every ZFA event synthesizes its own local space and
   time; there is no universal clock. The cosmic age (~13.8 Gyr) is the proper time of the cosmic
   Markov-blanket clock ([`SpaceTime.md`](SpaceTime.md), [`Kitada_Local_Time_GR.md`](Kitada_Local_Time_GR.md)).
@@ -226,7 +229,7 @@ All six Clay Millennium problems have a Lean module reducing each to a construct
 | Birch–Swinnerton-Dyer | `QLF_BSD` | `modularity_mirror_invariant` (rank = ord is a theorem) |
 | Hodge conjecture | `QLF_Hodge`, `QLF_CohomologyAlgebra`, `QLF_HodgeStructure` | `substrate_realization_is_algebraic` (both sides built; gap = geometric realization — see below) |
 | P vs NP | `QLF_PvsNP` | `generate_not_reducible_to_verify` |
-| Navier–Stokes | `QLF_NavierStokes` | `navier_stokes_continuum_limit` |
+| Navier–Stokes | `QLF_NavierStokes`, `QLF_AngularMomentum` | `navier_stokes_continuum_limit` (no-blow-up *mechanism* now anchored — see below) |
 
 Read each as **contrast-then-focus**: the classical Clay conjecture is a different statement (not
 proved here); the reformulation's substrate content is proven plainly — *it is a proof within the
@@ -252,6 +255,28 @@ as a long research bet (emergent Kähler geometry + a period map). So the Hodge 
 honest floor**: the reformulation proven, both sides built, the gap identified with the genuine open
 problem ([`Hodge_QLF.md`](Hodge_QLF.md), [`Grothendieck_QLF.md`](Grothendieck_QLF.md)).
 
+**Navier–Stokes — the no-blow-up now has a geometric mechanism.** The original module showed that no
+*realized* (terminating, ZFA-closed) flow is singular; recent work supplies *why*, at the level of the
+geometry. The substrate vorticity is concrete: `baryonNumber` is a sliding-window sum of `signTriple`,
+the discrete Levi-Civita curl, so the local vorticity `ω` **is** `signTriple` — and it is **quantized to
+`±1` per cell** (`vorticity_quantized`, [`QLF_AngularMomentum.lean`](lean/QLF_AngularMomentum.lean)). The
+sharp blow-up criterion (Beale–Kato–Majda) is that a finite-time singularity forms *iff* the vorticity
+becomes unbounded; on the discrete substrate vorticity *cannot* diverge, so the criterion is
+**unsatisfiable**. The discreteness is the correction — the same cutoff that removes the UV and `10¹²²`
+catastrophes, here removing the would-be Navier–Stokes singularity. The continuum-PDE inheritance under
+the limit stays the one named boundary ([`Navier_Stokes_Geometry.md`](Navier_Stokes_Geometry.md)).
+
+**Riemann and P vs NP — the substrate side strengthened.** Recent work tightens these constructive
+cores. The generate-then-verify firebreak of P vs NP is now explicit: the QuCalc tree generates `4^n`
+kinematic paths and only `C(2n,n)` close, so the realized receipts are a **sparse firebreak**
+`4^n − C(2n,n)` that is asymptotically all of possibility-space — `full_zeno_prune` is what keeps the
+path sum from exploding ([`QLF_Firebreak.lean`](lean/QLF_Firebreak.lean)). And the prime side of Riemann
+gains its first Lean anchor: a prime-period closure is **irreducible** (`prime_freq_irreducible`,
+[`QLF_PrimeResonance.lean`](lean/QLF_PrimeResonance.lean)), tying the primes to the *same* census
+`C(2n,n)` that is the Riemann gap-zero density `~1/√(πn)` and the resonant-generation / zeta-zero
+structure (`is_resonant_generation`). One census threads **primes ↔ π ↔ ζ ↔ the verify-filter** — the
+shared combinatorial spine under both the continuum-analytic and the finitary Millennium problems.
+
 ---
 
 ## 7. Information synthesis and harmonic logic
@@ -265,6 +290,18 @@ From **Pythagoras's** *all is number* to **Boole's** laws of thought made the la
 picture is one **harmonic logic**: physical reality is the subset of logical possibility that closes
 in harmonic balance, and to think and to exist are the same disjunctive closure on the possible
 ([`GodCreatedTheIntegers.md`](GodCreatedTheIntegers.md)).
+
+The same frequency-resonance picture organizes **the geometry of space and consciousness**. Inner space
+(particle, atom, mind) and outer space (the cosmos) are one closure-resonance substrate — the *same*
+icosahedral geodesic-blanket geometry (12 scale-invariant pentamons, `2I → E₈`) rendered at different
+frequencies, with **higher frequencies dominating** the rendering, and **prime frequencies** the
+irreducible (vacuum-proof) modes — the lock that stabilizes the proton, and, read as 3 forward + 3 back
+at 120°, the *balanced-and-prime* half-spin itself ([`Geometry_Of_Space.md`](Geometry_Of_Space.md),
+[`QLF_PrimeResonance.lean`](lean/QLF_PrimeResonance.lean)). A mind is a hierarchy of such closures:
+conscious thought is whichever closure one is resonantly tuned to — fast internal binding by default, a
+slow external *joint* closure in the cosmic/meditative regime ([`Consciousness.md`](Consciousness.md)).
+The hard problem is held as an explicit, falsifiable **stance** (qualia = self-awareness coupled to the
+shared cosmic closure), not a proof.
 
 ---
 
@@ -325,6 +362,7 @@ new paths for quantum computation. The framework is open, verifiable, and ready 
 - [`Introducing_QLF.md`](Introducing_QLF.md) — a short, link-rich introduction for the general reader
 - [`Philosophy.md`](Philosophy.md) · [`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md) · [`Millennium.md`](Millennium.md)
 - [`Einstein_Equations.md`](Einstein_Equations.md) · [`Fusion.md`](Fusion.md) · [`Standard_Model.md`](Standard_Model.md)
+- [`Geometry_Of_Space.md`](Geometry_Of_Space.md) · [`Navier_Stokes_Geometry.md`](Navier_Stokes_Geometry.md) · [`The_QLF_State_Space.md`](The_QLF_State_Space.md) · [`Consciousness.md`](Consciousness.md)
 - [`Experimental_Consistency.md`](Experimental_Consistency.md) · [`QuantumOS.md`](QuantumOS.md)
 - Lean proofs and the full module table: [`lean/README.md`](lean/README.md)
 
