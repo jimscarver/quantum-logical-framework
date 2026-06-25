@@ -125,6 +125,7 @@ lean_lib QLF where
     `QLF_PhaseInformation,
     `QLF_Realizability,
     `QLF_AngularMomentum,
+    `QLF_NavierStokesBKM,
     `QLF_Uncertainty,
     `QLF_StateSpace,
     `QLF_Minkowski,
