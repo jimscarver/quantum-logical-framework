@@ -1,5 +1,7 @@
 # Navier–Stokes Existence and Smoothness in [QLF](README.md)
 
+> **The geometric mechanism** — *why* no realized flow blows up — is now machine-verified in [`Navier_Stokes_Geometry.md`](Navier_Stokes_Geometry.md) / [`lean/QLF_AngularMomentum.lean`](lean/QLF_AngularMomentum.lean): vorticity is the discrete curl `signTriple`, **quantized to `±1` per cell** (`vorticity_quantized`), so the Beale–Kato–Majda vorticity-blow-up criterion is unsatisfiable on the substrate. The correction is the quantization/discreteness; the continuum-PDE limit remains the boundary below.
+
 > **Status: `navier_stokes_proof_in_progress` — a reformulation.** *Contrast (once):* the **classical**
 > Clay problem (global smoothness of the continuum incompressible PDE) is not solved here. *What is
 > proven (the reformulation):* realized flows achieve ZFA and are stable closures (reusing

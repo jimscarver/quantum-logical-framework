@@ -8,7 +8,8 @@ resonant closure dominates the rendering** — and the irreducible dominants are
 
 Most of the geometry below is machine-verified; the new Lean anchor is
 [`lean/QLF_PrimeResonance.lean`](lean/QLF_PrimeResonance.lean) (prime topology stability + the half-spin
-keystone).
+keystone). The *dynamics* of this geometry — angular momentum as circulation, vorticity, and the
+Navier–Stokes no-blow-up — are [`Navier_Stokes_Geometry.md`](Navier_Stokes_Geometry.md).
 
 ---
 
