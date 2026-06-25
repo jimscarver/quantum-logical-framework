@@ -2,6 +2,8 @@
 **Author:** Jim Whitescarver
 **Framework:** Quantum Logical Framework (QLF)
 
+> **Now Lean-anchored** — the irreducibility at the heart of this doc is machine-verified in [`lean/QLF_PrimeResonance.lean`](lean/QLF_PrimeResonance.lean) (`prime_freq_irreducible`: a prime-period closure has no nontrivial sub-closure repeat), together with the **half-spin prime-3 keystone** ("balanced and prime"). The wider synthesis — prime frequencies, polygons, crystals, the geometry of inner and outer space — is [`Geometry_Of_Space.md`](Geometry_Of_Space.md).
+
 In standard physics, the decay of a particle or the breaking of a chemical bond is treated as a statistical probability—a half-life governed by seemingly random quantum fluctuations. 
 
 In the Quantum Logical Framework (QLF), there is no randomness. Reality is the geometric exhaust of the QuCalc engine constantly resolving open logic into Zero Free Action (ZFA). Therefore, "decay" is an algorithmic process. Specifically, decay is **Mathematical Factorization**. 

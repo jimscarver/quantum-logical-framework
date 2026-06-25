@@ -1,5 +1,7 @@
 # Primordial Markov Blankets: discrete geodesic spheres as the substrate's localized-agent units
 
+> **Synthesis:** how these geodesic blankets, prime frequencies, crystals, and the dominance of high frequencies fit together as the geometry of inner and outer space — [`Geometry_Of_Space.md`](Geometry_Of_Space.md).
+
 **Scoping doc — the substrate operation makes Markov blankets concrete as icosahedrally-symmetric closed surfaces of ZFA-balanced 1/2-spin closures.** What v1.3.0–v1.5.0's substrate-derivation program has been *using* — the holographic event count `4π R² / L_Planck²` in Newton's law ([`Gravity_From_Delay.md`](Gravity_From_Delay.md)), Mercury's perihelion ([`Mercury_Perihelion.md`](Mercury_Perihelion.md)), and the cosmological constant ([`Cosmological_Constant.md`](Cosmological_Constant.md)) — IS this object: a discrete geodesic-sphere Markov blanket built from `1/2`-spin ZFA atoms.
 
 The structural facts:
