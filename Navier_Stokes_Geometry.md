@@ -69,18 +69,47 @@ wherever the continuum produces an infinity by allowing unbounded fineness, the 
 it. The Navier–Stokes would-be singularity is one more instance — and the cap is *angular-momentum
 quantization*.
 
-## 5. Honest scope
+## 5. Deriving the bridge — the Planck cap + Beale–Kato–Majda
+
+The original module posited `navier_stokes_continuum_limit` as one opaque axiom ("the continuum inherits
+the substrate's no-blow-up"). With the vorticity quantization in hand, [`QLF_NavierStokesBKM`](lean/QLF_NavierStokesBKM.lean)
+**unbundles it into three transparent pieces** — *deriving* the no-blow-up rather than positing it:
+
+1. **Proven (substrate arithmetic, no axiom).** Physical vorticity = circulation quantum / cell area.
+   The quantum is `≤ 1` (`vorticity_quantized`) and the cell area is `≥ L_P²` (the Planck floor — no
+   coherent sub-Planck cell, [`QLF_PlanckScale`](lean/QLF_PlanckScale.lean)), so physical vorticity is
+   **`≤ 1/L_P²`** (`planck_caps_vorticity`): a fixed, *uniform-in-time* cap. The per-cell bound *with a
+   smallest cell* is a uniform cap — there is no `ω → ∞`.
+2. **Cited (a real theorem, not a QLF posit).** **Beale–Kato–Majda (1984):** a uniform-in-time vorticity
+   bound ⟹ the BKM integral `∫₀ᵀ ‖ω‖_∞ dt ≤ M·T` is finite on every `[0,T]` ⟹ no finite-time
+   singularity (`beale_kato_majda`). QLF carries no PDE machinery in Lean, so BKM is *cited* — exactly as
+   Wallis/Stirling are cited for `π`.
+3. **The sharp bridge (the residual gap).** The continuum solution's vorticity *is* the Planck-capped
+   substrate vorticity (`continuum_vorticity_planck_capped`) — QLF's continuum-as-rendering thesis applied
+   to the vorticity field. Small and precise, it **replaces** the opaque axiom.
+
+From these, **`navier_stokes_no_blowup` is a theorem.** This directly answers *"is the semi-fractal
+geometry sufficient?"*: **yes at the fixed Planck floor** — the cap *is* the floor, and there the
+no-blow-up follows. The Clay statement lives in the unfloored `v → ∞` limit, which is precisely the
+singular limit where a per-cell bound degenerates — and that is exactly the rendering step (3). So the
+bridge is not eliminated but **localized**: from "the whole continuum inherits no-blow-up" down to "the
+continuum vorticity is the Planck-capped substrate vorticity," with the mechanism explicit and BKM cited.
+
+## 6. Honest scope
 
 - **Proven on the substrate:** angular momentum = circulation, its pseudovector law, vorticity =
   quantized discrete curl, `|ω| ≤ 1`, `|L| ≤ n`, and the unrealizability of continuum vorticity in a
   finite cell — all machine-verified, no new axioms.
-- **The one boundary:** carrying this no-blow-up to the **continuum incompressible PDE** under the
-  continuum limit is the named axiom `navier_stokes_continuum_limit` ([`QLF_NavierStokes`](lean/QLF_NavierStokes.lean)) —
-  the analytic continuum-sector crossing, the same `RCA₀ → analytic` boundary as the other Millennium
-  problems. QLF supplies the *discrete mechanism* (vorticity quantization); the continuum inheritance is
-  the boundary, not a QLF theorem.
-- **Beale–Kato–Majda** is cited as the standard continuum criterion that *names* what the substrate
-  rules out; QLF does not re-derive BKM.
+- **The boundary, now reduced — not eliminated.** The opaque `navier_stokes_continuum_limit`
+  ([`QLF_NavierStokes`](lean/QLF_NavierStokes.lean)) is replaced (§5) by the *proven* Planck vorticity cap
+  + the *cited* BKM theorem + a *sharp* faithfulness bridge `continuum_vorticity_planck_capped`, from
+  which `navier_stokes_no_blowup` is a theorem. The residual gap is just the vorticity-rendering
+  faithfulness — small, precise, and exactly QLF's continuum-as-rendering thesis. This is a **reduction**,
+  **not a Clay proof**: BKM and the faithfulness bridge remain inputs, and the Clay statement is in the
+  unfloored `v → ∞` limit (the rendering step), not at the Planck-floored substrate where the result is
+  proven.
+- **Beale–Kato–Majda** is *cited* as a real 1984 theorem (the standard continuum criterion that names
+  what the substrate rules out), not re-derived — QLF has no PDE machinery in Lean.
 
 See also: [`NavierStokes_QLF.md`](NavierStokes_QLF.md) (the existence/smoothness reformulation),
 [`Geometry_Of_Space.md`](Geometry_Of_Space.md) (the geometry these dynamics live on),
