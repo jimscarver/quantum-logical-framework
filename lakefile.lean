@@ -128,6 +128,7 @@ lean_lib QLF where
     `QLF_Uncertainty,
     `QLF_StateSpace,
     `QLF_Minkowski,
+    `QLF_EnergyMomentum,
     `QLF_LorentzCover,
     `QLF_MondScale,
     `QLF_MondNu,
