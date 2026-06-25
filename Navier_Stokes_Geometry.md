@@ -95,7 +95,37 @@ singular limit where a per-cell bound degenerates — and that is exactly the re
 bridge is not eliminated but **localized**: from "the whole continuum inherits no-blow-up" down to "the
 continuum vorticity is the Planck-capped substrate vorticity," with the mechanism explicit and BKM cited.
 
-## 6. Honest scope
+## 6. Turbulence — the quantized-vortex tangle and the frequency cascade
+
+The same vorticity quantum reframes **turbulence** ([`QLF_Turbulence`](lean/QLF_Turbulence.lean)). First,
+the crucial distinction: **it is all Navier–Stokes — but two different questions.** Both turbulence and
+the Clay problem are the *same equations*; they split into
+
+- the **regularity** question — global existence & smoothness / no finite-time blow-up. *This* is the
+  Clay Millennium problem, and §5 reduces it (vorticity cap + BKM); and
+- the **statistics** question — the `−5/3` Kolmogorov spectrum, intermittency, anomalous dissipation.
+  *This* is "the turbulence problem," a **distinct and also-open** question, **not** the Clay one.
+
+The vorticity quantum is the one lever under both:
+
+- **Turbulence is a tangle of quantized vortices.** A vortex line is one circulation quantum
+  (`vortex_quantum`, `|ω| ≤ 1`); total circulation is an *integer* count of net quanta
+  (`circulation_integer_quantized`, `baryonNumber ∈ ℤ`). So the vorticity field is a discrete line-tangle,
+  not a continuum — **Onsager–Feynman quantization** (verified in superfluid `He`/BECs) derived from the
+  substrate. This makes **classical turbulence the coarse-grained limit of quantum turbulence**, which is
+  why superfluid turbulence reproduces the classical Kolmogorov cascade.
+- **The cascade is a frequency hierarchy.** An eddy of scale `R` is a closure of frequency `f = 1/R`;
+  down the cascade (smaller eddies) the frequency increases (`cascade_frequency_increases`), bounded above
+  by the dissipation floor (`cascade_capped` — the Kolmogorov scale, ultimately Planck). Dissipation is
+  vortex **reconnection** (a ZFA closure) at the floor, radiating Kelvin waves — the superfluid-turbulence
+  mechanism, and the same cap that removes the blow-up.
+
+So the regularity side is *reduced* (§5); the statistics side is only *structurally reframed* here
+(quantized tangle, frequency cascade, classical = coarse-grained quantum) — the `−5/3` spectrum and
+intermittency exponents are **not** derived, and remain open as the distinct turbulence-statistics
+problem.
+
+## 7. Honest scope
 
 - **Proven on the substrate:** angular momentum = circulation, its pseudovector law, vorticity =
   quantized discrete curl, `|ω| ≤ 1`, `|L| ≤ n`, and the unrealizability of continuum vorticity in a

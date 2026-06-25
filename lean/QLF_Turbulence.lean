@@ -30,13 +30,22 @@ substrate picture is sharp:
   superfluid-turbulence dissipation mechanism, and the same vorticity cap that removes the Navier–Stokes
   blow-up ([`QLF_NavierStokesBKM`](lean/QLF_NavierStokesBKM.lean)).
 
-**Honest scope:** this is the *structural / foundational* reading — vorticity quantized, turbulence a
-quantized-vortex tangle, the cascade a frequency hierarchy with a floor, classical = coarse-grained
-quantum. It does **not** derive the `−5/3` Kolmogorov spectrum, the intermittency exponents, or the
-turbulence statistics — those are even harder than the Clay Navier–Stokes problem and stay open. The
-falsifiable lean: classical turbulence should inherit quantum turbulence's reconnection / Kelvin-wave
-dissipation structure at fine scales. Reuses `QLF_AngularMomentum` + `QLF_Consciousness`; no new axioms.
-See `Navier_Stokes_Geometry.md`, `Geometry_Of_Space.md`.
+**It is all Navier–Stokes — but two distinct questions.** Both turbulence and the Clay problem are the
+*same equations*; they split into the **regularity** question (global existence & smoothness / no
+finite-time blow-up — *the* Clay Millennium problem, which `QLF_NavierStokesBKM` reduces) and the
+**statistics** question (the `−5/3` Kolmogorov spectrum, intermittency, anomalous dissipation — *the
+turbulence problem*, a distinct and also-open question, not the Clay one). The vorticity quantum is the
+one lever under both: it caps the sup-norm (regularity) *and* makes the field a quantized-vortex tangle
+(statistics).
+
+**Honest scope:** this module is the *structural / foundational* reading — vorticity quantized,
+turbulence a quantized-vortex tangle, the cascade a frequency hierarchy with a floor, classical =
+coarse-grained quantum. It does **not** derive the `−5/3` Kolmogorov spectrum, the intermittency
+exponents, or the turbulence statistics — that statistical-turbulence problem is **distinct from the
+Clay regularity question and likewise open**. The falsifiable lean: classical turbulence should inherit
+quantum turbulence's reconnection / Kelvin-wave dissipation structure at fine scales. Reuses
+`QLF_AngularMomentum` + `QLF_Consciousness`; no new axioms. See `Navier_Stokes_Geometry.md`,
+`Geometry_Of_Space.md`.
 -/
 
 namespace QLF.Turbulence
@@ -81,9 +90,11 @@ theorem cascade_capped {R_min R : ℕ} (h0 : 0 < R_min) (h : R_min ≤ R) :
     *classical turbulence is the coarse-grained limit of quantum turbulence*. The cascade is a **frequency
     hierarchy** (`cascade_frequency_increases`) bounded above by the dissipation floor (`cascade_capped`),
     where quantized vortices reconnect (a ZFA closure) — the same vorticity cap that removes the
-    Navier–Stokes blow-up. **Honest scope:** structural/foundational, *not* the Kolmogorov `−5/3` spectrum
-    or the intermittency statistics (open, harder than the Clay problem). Reuses `QLF_AngularMomentum` +
-    `QLF_Consciousness`; no new axioms. See `Navier_Stokes_Geometry.md`. -/
+    Navier–Stokes blow-up. **It is all Navier–Stokes, two questions:** the Clay *regularity* question
+    (no blow-up — reduced in `QLF_NavierStokesBKM`) and the *statistics* question (the Kolmogorov spectrum
+    / intermittency — distinct and also open). **Honest scope:** structural/foundational, *not* the
+    `−5/3` spectrum or the intermittency statistics. Reuses `QLF_AngularMomentum` + `QLF_Consciousness`;
+    no new axioms. See `Navier_Stokes_Geometry.md`. -/
 theorem turbulence_summary : True := trivial
 
 end QLF.Turbulence
