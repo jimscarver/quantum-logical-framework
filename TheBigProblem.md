@@ -34,7 +34,7 @@ As explained in **Time.md**, logical synthesis is an irreversible process. Each 
 
 Observers emerge naturally as stable Markov blankets capable of maintaining three interlocking models: a model of the self, a model of the environment, and a model of their interaction. Human consciousness arises precisely when these self-referential logical structures become sophisticated enough to model themselves.
 
-In this framework, consciousness is not fundamental nor mystical — it is an inevitable outcome of sufficiently complex logical synthesis.
+In this framework, consciousness is not fundamental nor mystical — it is an inevitable outcome of sufficiently complex logical synthesis. The mechanism is developed in [`Consciousness.md`](Consciousness.md): the three interlocking models are closures at a **hierarchy of frequencies**, and conscious thought is whichever closure the agent is resonantly tuned to — fast internal binding by default, a low-frequency external joint closure when the internal is quieted.
 
 ## Conclusion
 

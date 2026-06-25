@@ -159,6 +159,7 @@ What remains genuinely open is a matter of *specification*, not of doubt about t
 
 ### See also
 
+- [Consciousness.md](Consciousness.md) — the frequency-hierarchy of resonant closures: conscious thought as the highest-frequency bound closure, cosmic consciousness as the low-frequency external-joint receiver regime, with the structural skeleton machine-verified ([`lean/QLF_Consciousness.lean`](lean/QLF_Consciousness.lean))
 - [GodCreatedTheIntegers.md](GodCreatedTheIntegers.md) — the deterministic, singularity-free, possibilist vision this doc applies to mind
 - [QLF_as_Intelligence.md](QLF_as_Intelligence.md) — intelligence as the substrate operation at every scale
 - [README.md](README.md) — the convergence of independent programs on an informational, computable, closure-bounded reality
