@@ -91,6 +91,7 @@ lean_lib QLF where
     `QLF_HorizonClosure,
     `QLF_MaxwellCurl,
     `QLF_Consciousness,
+    `QLF_PrimeResonance,
     `QLF_GaugeUnification,
     `QLF_PhysicalPi,
     `QLF_PlanckScale,
