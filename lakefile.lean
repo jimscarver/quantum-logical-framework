@@ -124,6 +124,7 @@ lean_lib QLF where
     `QLF_HodgeStructure,
     `QLF_PhaseInformation,
     `QLF_Realizability,
+    `QLF_AngularMomentum,
     `QLF_Uncertainty,
     `QLF_StateSpace,
     `QLF_Minkowski,
