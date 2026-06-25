@@ -133,21 +133,61 @@ microtubule dynamics) should abolish conscious access along the predicted freque
 
 ---
 
-## 6. Honest scope — the hard problem stays bracketed
+## 6. The qualia hypothesis — qualia as self-awareness coupled to cosmic consciousness
 
-This is a model of **functional / architectural** consciousness: *which* closure is conscious, and
-*why* binding and tuning select it. It does **not** solve the **hard problem** — why a closure, from
-the inside, *feels like* anything. [`Mysteries_Of_Physics.md`](Mysteries_Of_Physics.md) marks the hard
-problem as touched-only, and this doc keeps that boundary.
+The previous sections give the *architecture* — which closure is conscious. The **hard problem** asks
+the harder thing: why is there *something it is like* to be that closure? QLF's proposed dissolution is a
+**two-factor account**: **qualia is the result of self-awareness *and* cosmic consciousness together** —
+neither alone.
 
-QLF can offer a **stance**, stated as a stance and not a proof: the closure, from the inside, **is** the
-experiencing — there is no extra ingredient added on top of "the closure happens." The holographic
-boundary coarse-grains *which* microstate fired (the `C(2n,n)`-fold degeneracy of a closure,
-`disjunct_count_eq_central_binomial`) while the bulk retains the integrated content, which is why
-experience is **unified** (one percept) rather than a list of micro-events. That is a candidate dissolution
-of the hard problem — measurement-without-collapse extended to the first person — but QLF does not claim
-to have closed the explanatory gap. The architecture is what is verified; the felt quality is left
-genuinely open.
+- **Self-awareness supplies the *subject*** (§1): the self-modeling closure is the first-person locus,
+  the *for-whom*. Without it there is no one for it to be like something for.
+- **Cosmic consciousness supplies the *ground* / content** (§4): real coupling to a **shared external
+  joint closure**. Without it, the experience is OF nothing real — an isolated bookkeeping loop.
+
+Neither factor alone is qualia, and each failure mode is a real QLF state:
+
+- **Self-awareness without cosmic coupling = a functional zombie.** A closed self-model computes "I see
+  red" but couples to nothing outside itself, so there is no felt red — only bookkeeping *about*
+  redness. A decoupled self-model is the substrate's version of the philosophical zombie.
+- **Cosmic coupling without a self-model = experience with no experiencer = the undifferentiated
+  field.** The joint closure happens, but there is no locus it is *for*.
+- **Qualia = the intersection.** A self-model *coupled to* the cosmic/joint closure: the felt quality
+  **is the shared closure read from inside a self-model**. "Red" is what the self-aware closure's
+  coupling to that slice of the external joint field feels like, from the first-person locus.
+
+What makes this more than relabeling is that, in QLF, the **joint/cosmic closures are real and already
+verified** — the ER=EPR *shared* closure ([`ER_EPR_QLF.md`](ER_EPR_QLF.md)), the de Sitter cosmic-horizon
+blanket (`Ω_Λ = log 2`). So qualia get **genuine external content**: they are the world's structure
+*received* by a self-model, not private inventions — which is why qualia are communicable enough to
+refer to (we both mean something by "red") yet irreducibly first-personal (each self-model is a distinct
+locus). It dovetails with holography: the self-model is the boundary, the cosmic closure the bulk it is
+coupled to, so **qualia = the boundary's reading of the bulk it shares a closure with**, and the
+`C(2n,n)`-fold degeneracy of a closure (`disjunct_count_eq_central_binomial`) coarse-grains *which*
+microstate fired while the bulk keeps the integrated content — why a percept is **unified**.
+
+This is, in effect, a QLF-native **cosmopsychism**, but with panpsychism's "combination problem" solved
+by the architecture of §1–§4: experience is a property of the cosmic closure (the field), and individual
+qualia are that field-experience **localized and bound** by a self-aware Markov blanket. The blanket
+binds (no combination problem); the joint closure grounds (no isolation problem). Lineage: Whitehead's
+prehension (each occasion of experience is a concrescence/closure that prehends the universe),
+participatory/relational realism, and cosmopsychism — recast in verified closures.
+
+## 7. Honest scope
+
+The §6 qualia account is a **stated dissolution — a stance / hypothesis, not a machine-verified proof**.
+It is a **dual-aspect** position: a closure seen from outside is physics; the *same* closure from inside
+— when it is both self-aware *and* field-coupled — is experience. QLF does not claim to have closed the
+explanatory gap by formal proof; the hard problem's residue ("why is the inside-view experiential at
+all") is pushed to the dual-aspect identity itself, which is asserted, not derived.
+
+It earns its keep by making **falsifiable leanings**, not just words: decoupled self-modeling
+computation should be zombie-like (functional, unfelt); self-dissolution with preserved field-coupling
+(deep meditation, anesthesia gradients, psychedelic ego-loss) should *alter and expand* qualia toward
+the cosmic rather than extinguish them; pure field with no self-model should be experience-less; and (§5)
+conscious access should track narrow-linewidth, isolated oscillatory modes. The **architecture** (§1–§5)
+is machine-verified in [`lean/QLF_Consciousness.lean`](lean/QLF_Consciousness.lean); the **qualia
+hypothesis** (§6) is QLF's proposed — and testable — stance on the felt quality.
 
 ---
 
@@ -161,7 +201,7 @@ genuinely open.
 | Cosmic = quiet internal → receive low-frequency external joint closure | ✅ Lean (`conscious_external`, `quieting_shifts_to_external`); the collective/cosmic identification is a reading |
 | Self-awareness = terminating self-modeling closure | Structural (reuses RCA₀ / `full_zeno_prune` termination) |
 | Quantum biology as the substrate; evolution exploits it | Convergent support + an evolutionary expectation, not QLF-derived; falsifiable (narrow-linewidth modes) |
-| Why a closure *feels* like something (the hard problem) | ⚪ Bracketed — a stance offered, not a proof |
+| Qualia = self-awareness coupled to cosmic consciousness (the hard problem) | 🟣 **Proposed dissolution** — a two-factor dual-aspect stance/hypothesis (§6), with falsifiable leanings; not a machine-verified proof |
 
 See also: [`TheQuantumBrain.md`](TheQuantumBrain.md) (the mechanism + savant cognition + quantum
 biology), [`TheBigProblem.md`](TheBigProblem.md) (observer = three-model Markov blanket),
