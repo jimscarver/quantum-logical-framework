@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" font-family="ui-sans-serif, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <rect width="760" height="400" fill="#ffffff"/>
+  <defs>
+    <marker id="gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#374151"/>
+    </marker>
+  </defs>
+  <text x="380" y="34" text-anchor="middle" font-size="21" font-weight="700" fill="#111827">The Fuller geodesic blanket — 12 pentamons, invariant at every scale</text>
+  <text x="380" y="56" text-anchor="middle" font-size="13" fill="#6b7280">every Markov blanket is an icosa-sphere of closures; subdividing never changes three things</text>
+
+  <!-- v=1 icosahedron -->
+  <g transform="translate(170,205)">
+    <circle r="74" fill="#fef2f2" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="3 4"/>
+    <polygon points="0,-50 47.6,-15.5 29.4,40.5 -29.4,40.5 -47.6,-15.5" fill="none" stroke="#cbd5e1" stroke-width="1.4"/>
+    <polyline points="0,-50 29.4,40.5 -47.6,-15.5 47.6,-15.5 -29.4,40.5 0,-50" fill="none" stroke="#cbd5e1" stroke-width="1.2"/>
+    <!-- 12 vertices, all pentamons -->
+    <g fill="#dc2626">
+      <circle cx="0" cy="-50" r="5"/><circle cx="47.6" cy="-15.5" r="5"/><circle cx="29.4" cy="40.5" r="5"/><circle cx="-29.4" cy="40.5" r="5"/><circle cx="-47.6" cy="-15.5" r="5"/>
+      <circle cx="14.1" cy="-19.4" r="5"/><circle cx="22.8" cy="7.4" r="5"/><circle cx="0" cy="24" r="5"/><circle cx="-22.8" cy="7.4" r="5"/><circle cx="-14.1" cy="-19.4" r="5"/>
+      <circle cx="0" cy="-64" r="5"/><circle cx="0" cy="60" r="5"/>
+    </g>
+    <text x="0" y="98" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">v = 1 · icosahedron</text>
+    <text x="0" y="115" text-anchor="middle" font-size="12" fill="#6b7280">all 12 vertices are pentamons</text>
+  </g>
+
+  <!-- subdivide arrow -->
+  <line x1="262" y1="200" x2="338" y2="200" stroke="#374151" stroke-width="2" marker-end="url(#gray)"/>
+  <text x="300" y="190" text-anchor="middle" font-size="12" fill="#374151">subdivide (v)</text>
+
+  <!-- large v geodesic -->
+  <g transform="translate(470,205)">
+    <circle r="84" fill="#fef2f2" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="3 4"/>
+    <g stroke="#e5e7eb" stroke-width="1">
+      <line x1="-84" y1="0" x2="84" y2="0"/><line x1="-42" y1="-73" x2="42" y2="73"/><line x1="42" y1="-73" x2="-42" y2="73"/>
+      <ellipse cx="0" cy="0" rx="42" ry="84" fill="none"/><ellipse cx="0" cy="0" rx="84" ry="42" fill="none"/>
+    </g>
+    <g fill="#cbd5e1">
+      <circle cx="20" cy="-20" r="3"/><circle cx="-25" cy="15" r="3"/><circle cx="38" cy="22" r="3"/><circle cx="-40" cy="-28" r="3"/><circle cx="10" cy="40" r="3"/><circle cx="-12" cy="-45" r="3"/><circle cx="52" cy="-8" r="3"/><circle cx="-55" cy="30" r="3"/><circle cx="30" cy="-48" r="3"/><circle cx="-30" cy="50" r="3"/><circle cx="0" cy="0" r="3"/><circle cx="60" cy="40" r="3"/><circle cx="-60" cy="-40" r="3"/><circle cx="18" cy="62" r="3"/>
+    </g>
+    <!-- 12 pentamons (red), ~30° apart on the rim -->
+    <g fill="#dc2626">
+      <circle cx="0" cy="-80" r="4.5"/><circle cx="40" cy="-69.3" r="4.5"/><circle cx="69.3" cy="-40" r="4.5"/><circle cx="80" cy="0" r="4.5"/><circle cx="69.3" cy="40" r="4.5"/><circle cx="40" cy="69.3" r="4.5"/><circle cx="0" cy="80" r="4.5"/><circle cx="-40" cy="69.3" r="4.5"/><circle cx="-69.3" cy="40" r="4.5"/><circle cx="-80" cy="0" r="4.5"/><circle cx="-69.3" cy="-40" r="4.5"/><circle cx="-40" cy="-69.3" r="4.5"/>
+    </g>
+    <text x="0" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">v ≈ 10⁶⁰ · cosmic horizon</text>
+    <text x="0" y="125" text-anchor="middle" font-size="12" fill="#6b7280">still exactly 12 pentamons (red)</text>
+  </g>
+
+  <!-- facts -->
+  <g transform="translate(620,150)">
+    <text x="0" y="0" font-size="13" fill="#374151"><tspan font-weight="700" fill="#dc2626">●</tspan> 12 pentamons</text>
+    <text x="0" y="20" font-size="12" fill="#9ca3af"><tspan font-weight="700" fill="#cbd5e1">●</tspan> hexamons</text>
+  </g>
+  <rect x="60" y="346" width="640" height="34" rx="6" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="380" y="368" text-anchor="middle" font-size="12.5" fill="#374151">2-sphere <tspan font-weight="700">V − E + F = 2</tspan> at every v  ·  exactly <tspan font-weight="700">12 pentamons</tspan>  ·  symmetry <tspan font-weight="700">2I → E₈</tspan> (McKay, dim 248) — E₈ falls out, not chosen</text>
+</svg>

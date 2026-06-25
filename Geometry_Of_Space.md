@@ -11,6 +11,10 @@ Most of the geometry below is machine-verified; the new Lean anchor is
 keystone). The *dynamics* of this geometry — angular momentum as circulation, vorticity, and the
 Navier–Stokes no-blow-up — are [`Navier_Stokes_Geometry.md`](Navier_Stokes_Geometry.md).
 
+<img src="diagrams/inner_outer_duality.svg" alt="Inner and outer space as one closure-resonance substrate — the same icosahedral geometry rendered at high frequency (inner: particle, atom, mind) and low frequency (outer: cosmos, horizon), bridged by f = 1/R" width="100%">
+
+*The organizing thesis: inner and outer space are not two arenas but one substrate, the same icosahedral geometry tuned by frequency.*
+
 ---
 
 ## 1. One geometry at every scale — the Fuller geodesic blanket
@@ -30,6 +34,8 @@ Every Markov blanket is a **geodesic icosa-sphere** of ZFA closures — machine-
 So inner and outer space are the **same polygonal closure geometry** at different `v`. Geometry is
 *synthesized* (the blanket renders it), not a fixed backdrop.
 
+<img src="diagrams/fuller_blanket_pentamons.svg" alt="The Fuller geodesic blanket: the v=1 icosahedron and the v≈10⁶⁰ cosmic-horizon subdivision both keep exactly 12 pentamons; V−E+F=2 at every v; symmetry 2I → E₈" width="100%">
+
 ## 1b. 2D blanket, 3D bulk — a surface that *creates* space
 
 The blanket is a **2-D** geodesic surface — polygons / triangular ZFA closures tile it (`20v²` faces),
@@ -44,6 +50,8 @@ the curvature rungs), with **3-D selected** as the minimal dimension in which a 
 renders faithfully ([`SpaceTime.md`](SpaceTime.md) §3a; `QLF_Generations`; the magic numbers,
 [`Magic_numbers.md`](Magic_numbers.md)). So "2D and 3D" is the one blanket read two ways: the polygonal
 screen and the bulk it synthesizes.
+
+<img src="diagrams/holographic_screen_bulk.svg" alt="The holographic relation: a 2-D screen of 20v² triangular ZFA closures projects to the 3-D bulk observables (X,Y,Z); dimension is built by combining histories — 1-D chain → 2-D causal diamond → 3-D (selected)" width="100%">
 
 ## 2. Crystals — the blanket geometry extended into ordered matter
 
@@ -64,6 +72,8 @@ Zeno-pruning cannot factor it into a whole-number repeat of a shorter stable clo
 lock** ([`Prime_Topology_Stability.md`](Prime_Topology_Stability.md)). The proton (`n=3` Borromean) is
 stable for exactly this reason; composite-period closures factor and can decay (`composite_freq_factors`).
 
+<img src="diagrams/prime_vs_composite_lock.svg" alt="A prime-period closure (3) is irreducible — no whole-number sub-cycle, so it can't be factored: locked and stable (the proton, n=3). A composite period (6 = 2×3) factors into sub-repeats and comes apart" width="100%">
+
 The prime ↔ frequency tie runs through the substrate census: `is_resonant_generation` — a generation
 *resonates* iff a ZFA-stable closure survives, "corresponding to a zeta zero" (`QLF_QuCalc`); the stable
 count is `closure_census = C(2n,n)` (`QLF_PhysicalPi`), and the same `C(2n,n)` is the gap-zero density
@@ -77,6 +87,11 @@ machine-verified `rotation_720_eq_id` (two 360° turns), with one turn giving on
 (`rotation_360_eq_negI`). Read each 360° turn as **3 steps of 120°** — the Koide three-phase (`koide_three_phase`),
 the 3 axes / 3 generations / `S₃` (`num_generations_eq_three`). Then the half-spin is **3 steps forward
 (first turn) + 3 steps back (the second turn that returns `−I·−I = +I`)**:
+
+<img src="diagrams/half_spin_balanced_prime.svg" alt="The half-spin: 3 steps of 120° forward (turn 1 → −I) and 3 back (turn 2 → +I) — balanced (returns to identity = ZFA) and prime (3 steps, irreducible). A structural reading; the verified fold_electron is the 4-twist 2-D cut" width="100%">
+
+> **Caption (read against the verified-vs-reading table):** this diagram shows the **3-axis / 120° (3-D) reading** of the half-spin. What is *machine-verified* is the step-count algebra (`half_spin_prime`, `half_spin_balanced_steps`, `half_spin_irreducible`) and the 720° closure (`rotation_720_eq_id`); the **3-D fold itself is not yet proven** — the verified `fold_electron` is the 4-twist 2-D (x–y square) cut of the same object.
+
 
 - **Balanced** — the forward path plus its Hermitian-conjugate / time-reverse "back" (the dagger,
   `eval_dagger`, the reversibility capstone) close to identity: ZFA.
