@@ -248,12 +248,12 @@ The two Gauss laws are dual faces of a single gap identity. For charge-neutral e
 
 ### §4.3 Faraday and Ampère-Maxwell
 
-Curl equations require a time-indexed event sequence, currently realized numerically in `maxwell_qlf.py` and conceptually mapped in [Maxwell.md §3–4](Maxwell.md):
+The curl equations are now **machine-verified at the conservation level** on the time-indexed event sequence ([`QLF_MaxwellCurl.lean`](lean/QLF_MaxwellCurl.lean), issue #93), and confirmed numerically in `maxwell_qlf.py`:
 
 - `maxwell_qlf.py` Report 3 confirms curl(E) ≈ −∂B/∂t in a 1D wave simulation.
 - `maxwell_qlf.py` Report 4 confirms wave-propagation speed matches c = 1/√(μ₀ε₀) to four significant figures.
 
-**Lean status**: Faraday and Ampère-Maxwell are open; they require a time-indexed history type, which is a natural next module.
+**Lean status**: **Faraday and Ampère-Maxwell machine-verified (conservation form)**. The closure behind the Heaviside curl form is flux-conservation telescoping: Faraday's boundary EMF telescopes to minus the net magnetic-flux change (`faraday_integral`), so a closed magnetic cycle induces zero net EMF (`faraday_closed_cycle` — Faraday as a ZFA closure); Ampère-Maxwell is the dual with an enclosed source plus displacement current (`ampere_integral`). With `∇·B=0` (`no_magnetic_monopoles`) all four Maxwell equations are substrate-anchored at the conservation level; the full 3-D vector `∇×` (Stokes on the synthesized metric) is the continuum rendering.
 
 ### §4.4 Force law and energy accounting
 
