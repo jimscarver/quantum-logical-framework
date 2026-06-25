@@ -51,6 +51,15 @@ renders faithfully ([`SpaceTime.md`](SpaceTime.md) §3a; `QLF_Generations`; the 
 [`Magic_numbers.md`](Magic_numbers.md)). So "2D and 3D" is the one blanket read two ways: the polygonal
 screen and the bulk it synthesizes.
 
+**Where time fits — the off-shelf 4th.** Time is *not* a fourth spatial axis: it is the **gauge-fold /
+closure direction**, synthesized as `f = 1/t` ([`ZFAEventDynamics`](lean/ZFAEventDynamics.lean)). The
+8-twist alphabet splits **6 + 2** — the **6 spatial twists** are the 3 axis-pairs (the 3 spatial
+dimensions), and the **2 gauge twists** (the `±` fold) make time (the closure rate, the constructing
+delay `Δt = R/f`) plus the `U(1)` charge. So spacetime is **3 + 1**: in the causal-set ladder the 1-D
+chain is a *worldline (time)* and the 2-D diamond is *1 space + 1 time*, so reaching the 3 spatial axes
+is `3 + 1 = 4-D` — with the **4th dimension (time) taken off the shelf** as the synthesized gauge/closure
+direction, leaving the 3 spatial dimensions we render as space.
+
 <img src="diagrams/holographic_screen_bulk.svg" alt="The holographic relation: a 2-D screen of 20v² triangular ZFA closures projects to the 3-D bulk observables (X,Y,Z); dimension is built by combining histories — 1-D chain → 2-D causal diamond → 3-D (selected)" width="100%">
 
 ## 2. Crystals — the blanket geometry extended into ordered matter
