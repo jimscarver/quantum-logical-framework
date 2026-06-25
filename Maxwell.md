@@ -87,11 +87,11 @@ Every ZFA-closed event has zero magnetic divergence. Magnetic monopoles are alge
 | Equation | Status | Lean anchor |
 |---|---|---|
 | ∇·B = 0 | **Machine-verified** | `no_magnetic_monopoles` — ZFAEventDynamics.lean |
-| ∇·E = ρ/ε₀ | Provable (discrete form) | Future: `gauss_electric` in ZFAEventDynamics.lean |
-| ∇×E = −∂B/∂t | Requires event-sequence structure | Future: needs time-indexed history type |
-| ∇×B = μ₀J + μ₀ε₀∂E/∂t | Requires event-sequence structure | Future: same |
+| ∇·E = ρ/ε₀ | Provable (discrete form) | `gauss_electric` (discrete gauge-imbalance count) |
+| ∇×E = −∂B/∂t | **Machine-verified (conservation form)** | `faraday_integral` / `faraday_closed_cycle` — QLF_MaxwellCurl.lean |
+| ∇×B = μ₀J + μ₀ε₀∂E/∂t | **Machine-verified (conservation form)** | `ampere_integral` — QLF_MaxwellCurl.lean |
 
-The homogeneous equations (∇·B = 0 and ∇·E = ρ/ε₀) are purely algebraic and provable in the current framework. The curl equations require a time-indexed event sequence type — a natural next module.
+The homogeneous equation (∇·B = 0) is purely algebraic; ∇·E = ρ/ε₀ is the discrete gauge-imbalance count. The **curl laws are now anchored on the time-indexed event sequence** ([`QLF_MaxwellCurl.lean`](lean/QLF_MaxwellCurl.lean), issue #93): the closure process behind the Heaviside curl form is **flux-conservation telescoping** — Faraday's boundary EMF telescopes to minus the net magnetic-flux change (`faraday_integral`, the Stokes/integral form), so a closed magnetic cycle induces zero net EMF (`faraday_closed_cycle`, Faraday as a ZFA closure); Ampère–Maxwell is the dual with an enclosed source current plus the displacement current (`ampere_integral`). The full 3-D vector `∇×` with Stokes' theorem on the synthesized metric is the continuum rendering of this discrete conservation.
 
 ---
 
