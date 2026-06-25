@@ -88,6 +88,7 @@ lean_lib QLF where
     `QLF_CausalDimension,
     `QLF_CausalContinuum,
     `QLF_HorizonClosure,
+    `QLF_MaxwellCurl,
     `QLF_GaugeUnification,
     `QLF_PhysicalPi,
     `QLF_PlanckScale,
