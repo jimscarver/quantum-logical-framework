@@ -168,7 +168,9 @@ substrate's **universal 12 pentamons** at every Fuller frequency (`pentamons_inv
 rendering is the quasicrystalline / Penrose tiling. The "5" reaches into atomic structure too: the
 d-subshell (`ℓ=2`, `2ℓ+1 = 5` orbitals) is the **5-dimensional irreducible representation of `A₅`** (whose
 irreps are `{1,3,3,4,5}`; the unsplit `H_g` multiplet), so "5D atomic structure" (the 5 d-orbitals) and
-the icosahedral 5-fold are the *same representation* — and `5` is a McKay mark of `2I → E₈`.
+the icosahedral 5-fold are the *same representation* — and `5` is a McKay mark of `2I → E₈`. This atomic
+thread is developed in [`Atomic_Structure_QLF.md`](Atomic_Structure_QLF.md) (s/p/d = the unsplit
+icosahedral irreps; `f` the first break = the `ℓ≤2/ℓ≥3` magic-number boundary).
 
 **What is verified vs a reading (the distinct-primes discipline).** Verified: orthogonality carries one
 bit (`log 2`); `2,3,5,7` are prime; prime periods are irreducible locks; `5 ∣ \|2I\|`; `b₀ = 7`. Readings
