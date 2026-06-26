@@ -88,6 +88,7 @@ lean_lib QLF where
     `QLF_CausalInterval,
     `QLF_CausalDimension,
     `QLF_CausalContinuum,
+    `QLF_OrderMetric,
     `QLF_HorizonClosure,
     `QLF_MaxwellCurl,
     `QLF_Consciousness,
