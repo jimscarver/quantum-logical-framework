@@ -15,7 +15,7 @@
   <text x="100" y="103" text-anchor="middle" font-size="15" font-weight="700" fill="#15803d">1</text>
   <ellipse cx="100" cy="168" rx="34" ry="15" fill="#fffbeb" stroke="#eab308" stroke-width="2"/>
   <circle cx="84" cy="168" r="4.5" fill="#eab308"/><circle cx="116" cy="168" r="4.5" fill="#eab308"/>
-  <circle cx="100" cy="232" r="5" fill="#eab308"/>
+  <g><ellipse cx="100" cy="232" rx="9" ry="4" fill="none" stroke="#6b7280" stroke-width="1.6"/><circle cx="91" cy="232" r="3" fill="#6b7280"/><circle cx="109" cy="232" r="3" fill="#6b7280"/></g>
   <text x="100" y="290" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">neutrino</text>
   <text x="100" y="308" text-anchor="middle" font-size="11.5" fill="#374151">ν · ν̄ — 1 difference</text>
   <text x="100" y="325" text-anchor="middle" font-size="11" fill="#16a34a">stable · minimal</text>
@@ -28,7 +28,7 @@
   <text x="258" y="173" text-anchor="middle" font-size="15" font-weight="700" fill="#2563eb">−</text>
   <circle cx="302" cy="168" r="18" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
   <text x="302" y="173" text-anchor="middle" font-size="15" font-weight="700" fill="#dc2626">+</text>
-  <g><circle cx="272" cy="232" r="5" fill="#eab308"/><circle cx="288" cy="232" r="5" fill="#111827"/></g>
+  <g><ellipse cx="268" cy="232" rx="9" ry="4" fill="none" stroke="#eab308" stroke-width="1.6"/><circle cx="259" cy="232" r="3" fill="#eab308"/><circle cx="277" cy="232" r="3" fill="#eab308"/><ellipse cx="292" cy="232" rx="9" ry="4" fill="none" stroke="#111827" stroke-width="1.6"/><circle cx="283" cy="232" r="3" fill="#111827"/><circle cx="301" cy="232" r="3" fill="#111827"/></g>
   <text x="280" y="290" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">electron / positron</text>
   <text x="280" y="308" text-anchor="middle" font-size="11.5" fill="#374151">e⁻ · e⁺ — 2 differences</text>
   <text x="280" y="325" text-anchor="middle" font-size="11" fill="#16a34a">stable</text>
@@ -43,7 +43,7 @@
   <text x="438" y="175" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626">μ⁺</text>
   <circle cx="500" cy="170" r="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
   <text x="500" y="174" text-anchor="middle" font-size="11" font-weight="700" fill="#2563eb">e⁻</text>
-  <g><circle cx="444" cy="232" r="5" fill="#eab308"/><circle cx="460" cy="232" r="5" fill="#111827"/><circle cx="476" cy="232" r="5" fill="#dc2626"/></g>
+  <g><ellipse cx="436" cy="232" rx="9" ry="4" fill="none" stroke="#eab308" stroke-width="1.6"/><circle cx="427" cy="232" r="3" fill="#eab308"/><circle cx="445" cy="232" r="3" fill="#eab308"/><ellipse cx="460" cy="232" rx="9" ry="4" fill="none" stroke="#111827" stroke-width="1.6"/><circle cx="451" cy="232" r="3" fill="#111827"/><circle cx="469" cy="232" r="3" fill="#111827"/><ellipse cx="484" cy="232" rx="9" ry="4" fill="none" stroke="#7c3aed" stroke-width="1.6"/><circle cx="475" cy="232" r="3" fill="#7c3aed"/><circle cx="493" cy="232" r="3" fill="#7c3aed"/></g>
   <text x="460" y="290" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">muonium</text>
   <text x="460" y="308" text-anchor="middle" font-size="11.5" fill="#374151">μ⁺ e⁻ — 3 differences · balanced</text>
   <text x="460" y="325" text-anchor="middle" font-size="11" fill="#ea580c">decays</text>
@@ -58,7 +58,7 @@
   <text x="618" y="175" text-anchor="middle" font-size="13" font-weight="700" fill="#2563eb">τ⁻</text>
   <circle cx="680" cy="170" r="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
   <text x="680" y="174" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">e⁺</text>
-  <g><circle cx="616" cy="232" r="5" fill="#eab308"/><circle cx="632" cy="232" r="5" fill="#111827"/><circle cx="648" cy="232" r="5" fill="#dc2626"/><circle cx="664" cy="232" r="5" fill="#16a34a"/></g>
+  <g><ellipse cx="607" cy="232" rx="9" ry="4" fill="none" stroke="#eab308" stroke-width="1.6"/><circle cx="598" cy="232" r="3" fill="#eab308"/><circle cx="616" cy="232" r="3" fill="#eab308"/><ellipse cx="631" cy="232" rx="9" ry="4" fill="none" stroke="#111827" stroke-width="1.6"/><circle cx="622" cy="232" r="3" fill="#111827"/><circle cx="640" cy="232" r="3" fill="#111827"/><ellipse cx="655" cy="232" rx="9" ry="4" fill="none" stroke="#7c3aed" stroke-width="1.6"/><circle cx="646" cy="232" r="3" fill="#7c3aed"/><circle cx="664" cy="232" r="3" fill="#7c3aed"/><ellipse cx="679" cy="232" rx="9" ry="4" fill="none" stroke="#ea580c" stroke-width="1.6"/><circle cx="670" cy="232" r="3" fill="#ea580c"/><circle cx="688" cy="232" r="3" fill="#ea580c"/></g>
   <text x="640" y="290" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">tau atom</text>
   <text x="640" y="308" text-anchor="middle" font-size="11.5" fill="#374151">τ⁻ e⁺ — 4 differences · balanced</text>
   <text x="640" y="325" text-anchor="middle" font-size="11" font-weight="700" fill="#ea580c">too short-lived ↓</text>
@@ -75,7 +75,7 @@
   <circle cx="852" cy="170" r="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
   <text x="852" y="174" text-anchor="middle" font-size="11" font-weight="700" fill="#2563eb">e⁻</text>
   <line x1="814" y1="170" x2="840" y2="170" stroke="#9ca3af" stroke-width="1.4"/>
-  <g><circle cx="780" cy="232" r="5" fill="#dc2626"/><circle cx="794" cy="232" r="5" fill="#16a34a"/><circle cx="808" cy="232" r="5" fill="#2563eb"/><circle cx="822" cy="232" r="5" fill="#eab308"/><circle cx="836" cy="232" r="5" fill="#111827"/></g>
+  <g><ellipse cx="762" cy="232" rx="8" ry="4" fill="none" stroke="#dc2626" stroke-width="1.6"/><circle cx="754" cy="232" r="3" fill="#dc2626"/><circle cx="770" cy="232" r="3" fill="#dc2626"/><ellipse cx="786" cy="232" rx="8" ry="4" fill="none" stroke="#16a34a" stroke-width="1.6"/><circle cx="778" cy="232" r="3" fill="#16a34a"/><circle cx="794" cy="232" r="3" fill="#16a34a"/><ellipse cx="810" cy="232" rx="8" ry="4" fill="none" stroke="#2563eb" stroke-width="1.6"/><circle cx="802" cy="232" r="3" fill="#2563eb"/><circle cx="818" cy="232" r="3" fill="#2563eb"/><ellipse cx="834" cy="232" rx="8" ry="4" fill="none" stroke="#eab308" stroke-width="1.6"/><circle cx="826" cy="232" r="3" fill="#eab308"/><circle cx="842" cy="232" r="3" fill="#eab308"/><ellipse cx="858" cy="232" rx="8" ry="4" fill="none" stroke="#111827" stroke-width="1.6"/><circle cx="850" cy="232" r="3" fill="#111827"/><circle cx="866" cy="232" r="3" fill="#111827"/></g>
   <text x="810" y="290" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">hydrogen</text>
   <text x="810" y="308" text-anchor="middle" font-size="11.5" fill="#374151">p⁺ e⁻ — 5 differences</text>
   <text x="810" y="325" text-anchor="middle" font-size="11" fill="#16a34a">stable · 3 colour + charge + spin</text>
