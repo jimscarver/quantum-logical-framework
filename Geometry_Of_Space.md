@@ -289,7 +289,7 @@ and adjacency unlike the 3-D metric — and 3-D space is its minimal faithful sh
 | Curvature = causal-layer growth (no flat background) | ✅ discrete core Lean (`QLF_CausalInterval`/`Dimension`); the continuum Ricci is the named bridge `benincasa_dowker_limit` |
 | Distance perspectival — substrate adjacency ≠ 3-D metric (ER=EPR) | ✅ Lean, zero-axiom (`ER_EPR_QLF`) |
 | "External" = the logically-prior substrate, not a containing space | Ontology / reading (spacetime synthesized) |
-| Order → metric reconstruction (graph → smooth 3-D metric) | ⬜ **open** — the causal-set continuum limit (`einstein_curvature_in_progress`) |
+| Order → metric reconstruction (graph → smooth 3-D metric) | 🟦 **reduced** to the Millennium shape — verified discrete core (*Order + Number = Geometry*) + one named bridge `order_metric_continuum_limit` ([`QLF_OrderMetric`](lean/QLF_OrderMetric.lean), [`Order_Metric_QLF.md`](Order_Metric_QLF.md)) |
 
 See also: [`Primordial_Markov_Blankets.md`](Primordial_Markov_Blankets.md),
 [`Crystal_QuantumOS.md`](Crystal_QuantumOS.md), [`Prime_Topology_Stability.md`](Prime_Topology_Stability.md),
