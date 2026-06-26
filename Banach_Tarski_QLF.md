@@ -52,6 +52,52 @@ starts.
 
 ---
 
+## 1a. The free group — what QLF shares with Banach–Tarski, and what it doesn't
+
+It is tempting to dispatch Banach–Tarski by saying the QLF twist algebra "cannot form the free group
+`F₂`." That is **false**, and saying it would weaken the case. QLF *does* generate freely: the twist
+strings are the **free monoid** on the 8-letter alphabet — `expand_generation` branches without
+relations, giving exponentially many histories (`generated_count`: `4^n` strings of length `2n`,
+[`QLF_Firebreak`](lean/QLF_Firebreak.lean)), and the closure census is the central binomial `C(2n,n)`
+([`QLF_PhysicalPi`](lean/QLF_PhysicalPi.lean)). That exponential free growth is the direct combinatorial
+analog of `F₂`'s — the free group on two generators has `4·3^{n−1}` reduced words of length `n`. QLF has
+the free engine; it is **not** too poor to host one. And `F₂` itself is **not** a continuum object — the
+standard `F₂ ⊂ SO(3)` is built from two rotations with *rational* matrix entries and is *provably* free
+with no Choice at all.
+
+So freeness is not where the paradox's teeth are. By **Tarski's theorem**, a set admits a paradoxical
+decomposition **iff** the acting group is **non-amenable** — it has *no* invariant finitely-additive
+measure. `F₂` is the canonical non-amenable group; that, not its freeness per se, is the engine. And to
+turn the group-theoretic paradox into a *geometric* one — doubling the ball — Banach–Tarski needs two
+further ingredients on top: an **uncountable continuum** for `F₂` to act on (the sphere's points), and
+the **Axiom of Choice** to select one representative per orbit, producing the non-measurable pieces.
+
+The substrate supplies **none** of the three (anchored in
+[`QLF_NoFreeDuplication`](lean/QLF_NoFreeDuplication.lean)):
+
+1. **Amenability by construction.** Every signed twist count is a *conserved additive invariant* — a
+   homomorphism `(TopoString, ++) → (ℤ, +)` (`zfa_charge_additive`, reusing `wcount_append`). That is
+   precisely the invariant finitely-additive measure `F₂` lacks: the ZFA balance **is** the invariant
+   mean. A configuration that conserves an additive charge cannot be cut and reassembled into two copies
+   of itself — the charge would have to double.
+2. **A finite (amenable) fold.** The free twist-monoid's *physical image* under closure is the **finite**
+   order-16 Pauli group (`closure_folds_to_finite_group`, reusing `count_balanced_pauli_closed`): every
+   ZFA closure renders to a `PauliScalar`. Finite groups are amenable; no paradox lives in the rendering.
+   The free generation happens in the possibility stream; the realized physics is its finite,
+   measure-preserving shadow.
+3. **No continuum to act on, no Choice to select.** The substrate is countable / finite-information
+   (`no_continuum_in_finite_region`, [`QLF_Realizability`](lean/QLF_Realizability.lean)) — there is no
+   uncountable orbit space — and `full_zeno_prune` replaces AC, so the non-measurable orbit selection
+   never happens.
+
+So relating QLF twists to the free group **strengthens** the argument rather than dodging it: QLF
+concedes the free combinatorial richness (the honest move) and then locates Banach–Tarski's actual
+dependencies — non-amenability, the continuum, and Choice — showing the substrate omits each, two of them
+machine-verified by reuse. The free engine is real; it is just amenable, finite-folded, and acting on a
+countable world, so it never doubles anything.
+
+---
+
 ## 2. Is it "a false axiom proving anything"? — yes, but precisely
 
 It is tempting to say Banach–Tarski shows ZFC is broken — "from a false axiom you can prove anything,"
@@ -177,6 +223,13 @@ biology happened to inherit; it is the same fact that keeps the universe consist
 - The **"no free duplication" principle across scales** is a synthesis/reading, anchored where Lean
   exists (the quantum no-cloning, the no-diproton, the `−log 2` cost) and stated as analogy where it does
   not (the cellular scale).
+- The **free-group / amenability angle** (§1a) is the honest version: QLF *concedes* the free engine (the
+  free twist-monoid is real) and locates the paradox's actual dependencies — non-amenability, the
+  continuum, and Choice. **Tarski's theorem** (paradoxical ⟺ non-amenable) is *cited*, not formalized;
+  what is machine-verified by reuse is that the substrate carries a conserved additive invariant
+  (`zfa_charge_additive`) and folds to a finite, amenable group (`closure_folds_to_finite_group`) — the
+  structural reasons it is amenable. Claiming the substrate has *no* free structure would be false and is
+  not claimed.
 
 ## See also
 
