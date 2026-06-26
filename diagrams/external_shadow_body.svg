@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 392" font-family="ui-sans-serif, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <rect width="780" height="392" fill="#ffffff"/>
+  <text x="390" y="34" text-anchor="middle" font-size="21" font-weight="700" fill="#111827">The shadow and the body</text>
+  <text x="390" y="56" text-anchor="middle" font-size="12.5" fill="#6b7280">what's external to spacetime is not a bigger space — it is the icosahedral / E₈ closure geometry; 3-D is its minimal faithful shadow</text>
+
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#111827"/>
+    </marker>
+    <marker id="arb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <!-- THE BODY: icosahedral / E8 (left) -->
+  <g transform="translate(185,222)">
+    <circle r="96" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+    <!-- pentagram (5-fold icosahedral signature) -->
+    <polygon points="0,-82 48.2,66.3 -78,-25.3 78,-25.3 -48.2,66.3" fill="none" stroke="#7c3aed" stroke-width="1.8"/>
+    <!-- spokes to the 5 outer points -->
+    <g stroke="#c4b5fd" stroke-width="1">
+      <line x1="0" y1="0" x2="0" y2="-82"/><line x1="0" y1="0" x2="78" y2="-25.3"/>
+      <line x1="0" y1="0" x2="48.2" y2="66.3"/><line x1="0" y1="0" x2="-48.2" y2="66.3"/>
+      <line x1="0" y1="0" x2="-78" y2="-25.3"/>
+    </g>
+    <circle r="3.5" fill="#7c3aed"/>
+    <text x="0" y="120" text-anchor="middle" font-size="14" font-weight="700" fill="#6d28d9">THE BODY</text>
+    <text x="0" y="138" text-anchor="middle" font-size="12" fill="#374151">icosahedral 2I → E₈ closure geometry</text>
+    <text x="0" y="155" text-anchor="middle" font-size="12" fill="#6b7280">8 twists = 6 spatial + 2 gauge · 8-fold</text>
+  </g>
+
+  <!-- projection arrow -->
+  <line x1="298" y1="200" x2="470" y2="200" stroke="#111827" stroke-width="2.2" marker-end="url(#ar)"/>
+  <text x="384" y="189" text-anchor="middle" font-size="13" fill="#111827">renders / projects</text>
+  <text x="384" y="221" text-anchor="middle" font-size="11.5" font-style="italic" fill="#6b7280">a shadow drops dimensions</text>
+
+  <!-- THE SHADOW: 3D axes (right) -->
+  <g transform="translate(602,206)">
+    <g fill="none" stroke="#2563eb" stroke-width="2.4">
+      <line x1="0" y1="0" x2="0" y2="-76" marker-end="url(#arb)"/>
+      <line x1="0" y1="0" x2="72" y2="26" marker-end="url(#arb)"/>
+      <line x1="0" y1="0" x2="-58" y2="44" marker-end="url(#arb)"/>
+    </g>
+    <text x="8" y="-78" font-size="12" font-weight="700" fill="#1d4ed8">Z</text>
+    <text x="78" y="30" font-size="12" font-weight="700" fill="#1d4ed8">X</text>
+    <text x="-72" y="52" font-size="12" font-weight="700" fill="#1d4ed8">Y</text>
+    <circle r="3.5" fill="#2563eb"/>
+    <text x="0" y="104" text-anchor="middle" font-size="14" font-weight="700" fill="#1d4ed8">THE SHADOW</text>
+    <text x="0" y="122" text-anchor="middle" font-size="12" fill="#374151">3-D space (3 axis-pairs)</text>
+    <text x="0" y="139" text-anchor="middle" font-size="12" fill="#6b7280">minimal faithful render — every graph embeds in ℝ³</text>
+  </g>
+</svg>

@@ -124,6 +124,10 @@ The prime-3 proton is one rung. The deeper statement is general: **orthogonality
 resolution of the rendered perspective, and the prime arrangements are the substrate's irreducible
 structure.**
 
+<img src="diagrams/prime_ladder.svg" alt="The prime ladder: 2 (the bit/spin), 3 (axes/proton), the icosahedral pair 5 & 13 (5-fold / 1+12 centered cluster), the QCD-coupling pair 7 & 11 (net b₀ / gluon antiscreening), the gap 17 & 19 (no substrate lock — number-theoretic only), and the apex 31 (E₈, 248 = 8·31, via 2I → E₈ McKay). Geometric primes 2/3/5/13, derived-count primes 7/11/31" width="100%">
+
+
+
 **Orthogonality is one bit.** Two states are orthogonal exactly when they are perfectly distinguishable —
 one bit. In the substrate that bit is concrete: the Hermitian-conjugate pair `(t, t†)` is a binary
 partition whose ZFA closure carries exactly `log 2` nats — one bit (`orthogonal_distinction_is_one_bit`,
@@ -224,6 +228,52 @@ space and the geometry of outer space are the same geometry, tuned.
 
 ---
 
+## 7. The geometry external to 3-D — the shadow and the body
+
+What lies *external* to spacetime? In QLF there is no containing space — spacetime is **synthesized**, not
+embedded, so "external" cannot mean "the bigger space it sits inside" (that is *north of the North Pole*).
+What is external is **logically prior**: the substrate that generates spacetime. And 3-D is a *fossil* of
+that substrate — from the rendering we can read the geometry of the thing being rendered.
+
+<img src="diagrams/external_shadow_body.svg" alt="The shadow and the body: 3-D space is the minimal faithful shadow of the icosahedral / E₈ closure geometry (the 8-twist substrate); what is external to spacetime is not a bigger space but that closure geometry" width="100%">
+
+1. **The external geometry is a graph, and "3" is its fingerprint.** It is not a space but a relational
+   closure-network (a causal set). Three is the dimension at which that network draws *without false
+   crossings*: every finite graph embeds in ℝ³, 2-D cannot, ≥4 is redundant (`SpaceTime.md` §3a,
+   [`QLF_ReachableEvent`](lean/QLF_ReachableEvent.lean), [`QLF_Generations`](lean/QLF_Generations.lean)).
+   So the external geometry is **combinatorial**, and 3-D space is its minimal faithful rendering, built
+   by combining histories (1-D chain → 2-D diamond → 3-D, [`QLF_CausalDimension`](lean/QLF_CausalDimension.lean)).
+2. **The shadow is 3; the body is 8 — E₈.** The 6 spatial twists (3 axis-pairs) sit inside the 8-twist
+   alphabet whose closure symmetry is the icosahedral `2I → E₈`. So the external geometry is the **E₈ root
+   geometry** (rank 8, 240 roots — the prime-31 apex of §3c), with 3-D as its spatial slice; the
+   fingerprints leak through as the magic numbers, the d-orbital 5-fold, and `α = 1/(128+d²)`.
+3. **The external of any region is a 2-D screen (holography).** A volume is rendered by its bounding
+   Fuller geodesic icosa-blanket — a 2-D triangulated sphere (`20v²` faces, 12 pentamons, `χ=2`) that
+   *creates* the space inside it (§1b, the holographic diagram above). "External to a volume" is its
+   lower-dimensional boundary, which holds the volume's full description.
+4. **No flat background — curvature lives in the branching.** The external geometry has no pre-existing
+   stage; curvature *is* the growth of causal layers. A single history reads `R=0`; curvature appears only
+   where histories branch ([`QLF_CausalInterval`](lean/QLF_CausalInterval.lean)/[`QLF_CausalDimension`](lean/QLF_CausalDimension.lean), Benincasa–Dowker).
+
+<img src="diagrams/curvature_from_branching.svg" alt="Curvature lives in the branching: a single causal history has constant layers |L_k|=1 and reads R=0; a branching history has growing layers |L_k|=1,2,3 whose growth is the Ricci scalar in the continuum limit (Benincasa–Dowker)" width="100%">
+
+5. **Self-similar — one geometry at every scale.** The icosahedral blanket (12 pentamons, `χ=2`) is
+   invariant from `v=1` (the bare icosahedron) to `v≈10⁶⁰` (the cosmic blanket), so inner and outer space
+   are the *same* closure geometry at different frequency `v` (§6, the inner↔outer diagram). There is no
+   different geometry "out there" — it is the same blanket, larger.
+6. **Distance is the rendering's, not the substrate's.** Closure-distance ≠ 3-D metric distance: entangled
+   ends are *adjacent* in the substrate (one shared closure) yet far apart in 3-D (**ER=EPR**, derived
+   zero-axiom, [`ER_EPR_QLF`](lean/ER_EPR_QLF.lean)). So the 3-D metric *scrambles* the substrate's true
+   adjacency — the external geometry is **non-local relative to 3-D**, with bridges the 3-D distance hides.
+
+<img src="diagrams/perspectival_distance.svg" alt="ER=EPR perspectival distance: two entangled ends A and B are joined by one shared ZFA closure (closure-distance zero, adjacent in the substrate) yet separated by a large distance through synthesized 3-D space — the same link read as two different distances" width="100%">
+
+**In one line:** what is external to 3-D spacetime is not a higher-dimensional space but the **icosahedral /
+E₈ closure geometry** — a scale-invariant, holographic 2-D-screen geometry with curvature in its branching
+and adjacency unlike the 3-D metric — and 3-D space is its minimal faithful shadow.
+
+---
+
 ## What is verified vs. a reading
 
 | Claim | Status |
@@ -235,6 +285,11 @@ space and the geometry of outer space are the same geometry, tuned.
 | Half-spin = balanced + prime (3 forward + 3 back) | ✅ step-count facts Lean (`half_spin_*`); the 3-axis/120° 3-D fold is a reading (verified `fold_electron` is the 4-twist 2-D cut) |
 | Crystals as resonant closure lattices | Structural/engineering reading (`Crystal_QuantumOS.md`) |
 | Prime ↔ π ↔ ζ via `C(2n,n)` | Shared census (a structural resonance), **not** a proof of RH |
+| External geometry = a relational graph; 3 = minimal faithful embedding | ✅ Lean (`QLF_Generations`, `QLF_ReachableEvent`) + `SpaceTime.md` §3a reading |
+| Curvature = causal-layer growth (no flat background) | ✅ discrete core Lean (`QLF_CausalInterval`/`Dimension`); the continuum Ricci is the named bridge `benincasa_dowker_limit` |
+| Distance perspectival — substrate adjacency ≠ 3-D metric (ER=EPR) | ✅ Lean, zero-axiom (`ER_EPR_QLF`) |
+| "External" = the logically-prior substrate, not a containing space | Ontology / reading (spacetime synthesized) |
+| Order → metric reconstruction (graph → smooth 3-D metric) | ⬜ **open** — the causal-set continuum limit (`einstein_curvature_in_progress`) |
 
 See also: [`Primordial_Markov_Blankets.md`](Primordial_Markov_Blankets.md),
 [`Crystal_QuantumOS.md`](Crystal_QuantumOS.md), [`Prime_Topology_Stability.md`](Prime_Topology_Stability.md),

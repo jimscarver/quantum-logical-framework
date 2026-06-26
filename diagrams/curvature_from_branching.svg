@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 348" font-family="ui-sans-serif, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <rect width="760" height="348" fill="#ffffff"/>
+  <text x="380" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#111827">Curvature lives in the branching, not a background</text>
+  <text x="380" y="54" text-anchor="middle" font-size="12.5" fill="#6b7280">a single history reads R = 0; curvature is the growth of the causal layers |L_k| (Benincasa–Dowker)</text>
+
+  <line x1="380" y1="80" x2="380" y2="318" stroke="#e5e7eb" stroke-width="1.5"/>
+
+  <!-- LEFT: flat single history -->
+  <g transform="translate(150,96)">
+    <text x="0" y="0" text-anchor="middle" font-size="14" font-weight="700" fill="#1d4ed8">single history — flat</text>
+    <g stroke="#2563eb" stroke-width="2">
+      <line x1="0" y1="24" x2="0" y2="64"/><line x1="0" y1="76" x2="0" y2="116"/><line x1="0" y1="128" x2="0" y2="168"/>
+    </g>
+    <g fill="#2563eb">
+      <circle cx="0" cy="20" r="6"/><circle cx="0" cy="72" r="6"/><circle cx="0" cy="124" r="6"/><circle cx="0" cy="176" r="6"/>
+    </g>
+    <g font-size="12" fill="#6b7280" text-anchor="start">
+      <text x="22" y="24">|L₀| = 1</text><text x="22" y="76">|L₁| = 1</text>
+      <text x="22" y="128">|L₂| = 1</text><text x="22" y="180">|L₃| = 1</text>
+    </g>
+    <text x="0" y="212" text-anchor="middle" font-size="15" font-weight="700" fill="#111827">R = 0</text>
+    <text x="0" y="230" text-anchor="middle" font-size="11.5" fill="#6b7280">layers constant ⇒ second difference = 0</text>
+  </g>
+
+  <!-- RIGHT: branching = curvature -->
+  <g transform="translate(575,96)">
+    <text x="0" y="0" text-anchor="middle" font-size="14" font-weight="700" fill="#6d28d9">branching — curvature</text>
+    <!-- edges -->
+    <g stroke="#7c3aed" stroke-width="2">
+      <line x1="0" y1="26" x2="-34" y2="66"/><line x1="0" y1="26" x2="34" y2="66"/>
+      <line x1="-34" y1="78" x2="-68" y2="118"/><line x1="-34" y1="78" x2="0" y2="118"/>
+      <line x1="34" y1="78" x2="68" y2="118"/>
+    </g>
+    <!-- nodes -->
+    <g fill="#7c3aed">
+      <circle cx="0" cy="20" r="6"/>
+      <circle cx="-34" cy="72" r="6"/><circle cx="34" cy="72" r="6"/>
+      <circle cx="-68" cy="124" r="6"/><circle cx="0" cy="124" r="6"/><circle cx="68" cy="124" r="6"/>
+    </g>
+    <g font-size="12" fill="#6b7280" text-anchor="start">
+      <text x="86" y="24">|L₀| = 1</text><text x="86" y="76">|L₁| = 2</text><text x="86" y="128">|L₂| = 3</text>
+    </g>
+    <text x="0" y="212" text-anchor="middle" font-size="15" font-weight="700" fill="#111827">R = layer growth &gt; 0</text>
+    <text x="0" y="230" text-anchor="middle" font-size="11.5" fill="#6b7280">|L_k| grows ⇒ Ricci scalar in the continuum limit</text>
+  </g>
+</svg>
