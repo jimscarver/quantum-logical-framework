@@ -151,7 +151,9 @@ identical to the original — volume doubled from nothing, measure conjured from
 constructive or physical process can do this; it is simply **false**. A system whose
 theorems include falsehoods has already crossed the line ex falso warns about: in the
 sector where choice and the continuum operate, ZFC is **unsound**, and a "proof" there is
-no longer a certificate of truth.
+no longer a certificate of truth. (The full treatment — Banach–Tarski as impossible
+duplication, the precise model-vs-syntactic reading of *ex falso*, and its *possible* twin
+**mitosis** — is in [Banach_Tarski_QLF.md](Banach_Tarski_QLF.md).)
 
 This reframes the whole Millennium program. To demand a **ZFC-internal proof** of a problem
 whose hard step lies in the continuum/choice sector is to demand a proof in a system that,
