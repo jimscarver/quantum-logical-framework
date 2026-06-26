@@ -155,6 +155,30 @@ theorem gluon_antiscreening_is_eleven : beta_coefficient 3 0 = 11 := by
 theorem eleven_thirteen_prime : Nat.Prime 11 ∧ Nat.Prime 13 := by
   refine ⟨?_, ?_⟩ <;> decide
 
+/-! ### The apex — prime-31 and E₈
+
+The exceptional Lie series factors with primes: `G₂ = 2·7`, `F₄ = 4·13`, `E₆ = 6·13`, `E₇ = 7·19`,
+`E₈ = 8·31`. The substrate's icosahedral closure group maps to **E₈** (McKay `2I → E₈`,
+`mckay_2I_E8_anchor`), whose dimension factors as `248 = 8·31` — rank `8` times the **size prime** `31`,
+with `31 = 1 + h` for `h = 30` the Coxeter number of E₈ (shared with `H₄`, the 600-cell of `2I`). So
+`31` is the size prime of the exceptional group the substrate's 5-fold symmetry generates — a derived
+count (like 7, 11), **not** a 31-fold symmetry. **The intervening `17` and `19` have no substrate lock**
+— `17` (Fermat prime, the constructible family `3,5,17,…` containing the geometric rungs; the SM
+particle count) and `19` (`E₇ = 7·19`; Heegner; Monster supersingular) are number-theoretic resonances,
+*not* anchored. The anchored ladder is `2,3,5,7,11,13` with `31` reaching through E₈; `17/19` are the gap. -/
+
+theorem e8_size_prime_31 : Nat.Prime 31 := by decide
+
+/-- **`31` is the large prime factor of `dim E₈`.** `248 = 8 · 31` (reuse `E8_dimension` /
+    `E8_dimension_eq`): rank `8` times the size prime `31`. Via McKay `2I → E₈`, `31` is the size prime
+    of the exceptional group the substrate's icosahedral 5-fold symmetry generates. -/
+theorem e8_dimension_factors : E8_dimension = 8 * 31 := by decide
+
+/-- **`31 = 1 + h(E₈)`.** `dim E₈ = rank · (1 + Coxeter) = 8 · (1 + 30) = 8 · 31` — the structural reason
+    `31` appears: one more than the Coxeter number `h = 30` of E₈ (shared with `H₄`, the 600-cell of
+    `2I`). Cited Lie theory; a derived count, not a 31-fold symmetry. -/
+theorem e8_dim_rank_coxeter_succ : E8_dimension = 8 * (1 + 30) := by decide
+
 /-- **Established (the prime-ladder generalization, `Geometry_Of_Space.md` §3c):** orthogonality is the
     1-bit resolution of the rendered perspective (`orthogonal_distinction_is_one_bit`); the prime
     arrangements are the irreducible structure (`prime_freq_irreducible`; rungs prime,
@@ -163,9 +187,13 @@ theorem eleven_thirteen_prime : Nat.Prime 11 ∧ Nat.Prime 13 := by
     `five_divides_icosahedral`), **7** the *derived count* QCD `b₀` (`prime_seven_is_qcd_b0`), not a
     7-fold symmetry. **The primes pair by sector:** `5 & 13` the **icosahedral pair** (fold symmetry /
     centered cluster, `centered_icosahedron_is_thirteen` = `1+12`, `thirteen_irreducible`); `7 & 11` the
-    **QCD-coupling pair** (net `b₀` / gluon antiscreening, `gluon_antiscreening_is_eleven` = `b₀(n_f=0)`);
-    higher primes (17, 19, …) open. Honest scope: 2/3/5/13 are geometric prime locks, 7/11 counting
-    primes in the coupling sector (not 7- or 11-fold symmetries); 11/13 are more speculative than 2/3/5/7;
+    **QCD-coupling pair** (net `b₀` / gluon antiscreening, `gluon_antiscreening_is_eleven` = `b₀(n_f=0)`).
+    The **apex** is `31` = the size prime of E₈ (`e8_dimension_factors`: `248 = 8·31`; `e8_size_prime_31`),
+    the exceptional group the icosahedral closure maps to (McKay) — a derived count, not a 31-fold
+    symmetry. **`17` and `19` have no substrate lock** (number-theoretic resonances: Fermat prime; `E₇ =
+    7·19`; Heegner; Monster supersingular) — the honest gap. Honest scope: 2/3/5/13 are geometric prime
+    locks, 7/11/31 counting/structural primes (not 7-, 11-, or 31-fold symmetries); 11/13/31 are more
+    speculative than 2/3/5/7;
     the d-orbital ↔ 5-dim `A₅` irrep is cited group theory, not a derivation of atomic structure. Reuses
     `QLF_FreeEnergy` + `QLF_PrimordialMarkovBlanket` + `QLF_BetaFunction`; no new axioms. -/
 theorem prime_ladder_summary : True := trivial
