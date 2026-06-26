@@ -78,6 +78,31 @@ At the **cluster** scale the same geometry returns as the icosahedral magic numb
 then `55, 147, …`. Atomic matter, where local packing dominates, adopts the icosahedral order of the
 substrate blanket.
 
+## 5. The constituents — particles by number of differences
+
+Below the shells are the particles the atom is built from, and QLF reads each as a closure of
+distinguishable **twist pairs** — its **number of differences**. Each difference is one orthogonal
+distinction = **one bit** (the orthogonality-is-one-bit quantum of §3c above). The ladder runs
+**neutrino (1) → electron (2) → muon (3) → tau (4) → proton (5)**, and the three *kinds* of difference are
+**charge** (lateral), **spin** (transverse), and **colour** (internal — the three Borromean axes). The
+charged leptons `e, μ, τ` at 2, 3, 4 are exactly the **three generations** (`QLF_Generations`, the 3
+axes); the proton's **5 = 3 colour + charge + spin** is the **`π⁵`** of `m_p/m_e = |S₃|·π⁵`
+(`QLF_BorromeanAngles`/`QLF_LenzMassRatio`).
+
+<img src="diagrams/particle_differences.svg" alt="Particles by number of differences: neutrino (1, stable), electron/positron (2, stable), muonium μ⁺e⁻ (3, decays), tau atom τ⁻e⁺ (4, balanced but unstable — falls to a neutron then β-decays to a proton), hydrogen p⁺e⁻ (5, stable, = 3 colour + charge + spin). Each difference is an orthogonal twist pair: charge lateral, spin transverse, colour internal" width="100%">
+
+Bound states (atoms) join a heavy closure to a light partner, balanced. Leptons are **unlinked** twist-pair
+loops (baryon number 0); the **proton is Borromean-linked** — three colour twist pairs, no two linked but
+all three locked (baryon number 1, `QLF_BaryonWinding`), the stable nucleus. The stable rungs are the
+neutrino, the electron, and the proton; the heavier leptons decay — the τ is too short-lived to bind, so
+its balanced `τ⁻ e⁺` closure relaxes via a neutron that β-decays to the proton
+([`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) §6).
+
+<img src="diagrams/atom_closures.svg" alt="The atoms as closure topologies: positronium (two coupled loops), muonium (antimuon's 3 twist-pair loops + electron), tau atom (tau's 4 loops + positron, unstable), hydrogen (the Borromean proton — 3 colour twist pairs locked — plus electron). Leptons are unlinked loops (baryon number 0); the proton is Borromean-linked (baryon number 1)" width="100%">
+
+The *number-of-differences* classification is a structural reading; the verified anchors are the three
+generations, the proton's `π⁵`, and the Borromean baryon.
+
 ---
 
 ## Honest scope

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 478" font-family="ui-sans-serif, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <rect width="900" height="478" fill="#ffffff"/>
+  <text x="450" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#111827">Particles by number of differences (distinguishable twist pairs)</text>
+  <text x="450" y="54" text-anchor="middle" font-size="12.5" fill="#6b7280">each difference = one orthogonal twist-pair distinction; balanced bound states; decay flows down to the stable rungs</text>
+
+  <defs>
+    <marker id="bk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/>
+    </marker>
+  </defs>
+
+  <!-- ===== 1 · neutrino (stable) ===== -->
+  <rect x="16" y="74" width="168" height="262" rx="12" fill="#f9fafb" stroke="#e5e7eb"/>
+  <circle cx="100" cy="98" r="16" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="100" y="103" text-anchor="middle" font-size="15" font-weight="700" fill="#15803d">1</text>
+  <ellipse cx="100" cy="168" rx="34" ry="15" fill="#fffbeb" stroke="#eab308" stroke-width="2"/>
+  <circle cx="84" cy="168" r="4.5" fill="#eab308"/><circle cx="116" cy="168" r="4.5" fill="#eab308"/>
+  <circle cx="100" cy="232" r="5" fill="#eab308"/>
+  <text x="100" y="290" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">neutrino</text>
+  <text x="100" y="308" text-anchor="middle" font-size="11.5" fill="#374151">ν · ν̄ — 1 difference</text>
+  <text x="100" y="325" text-anchor="middle" font-size="11" fill="#16a34a">stable · minimal</text>
+
+  <!-- ===== 2 · electron / positron (stable) ===== -->
+  <rect x="196" y="74" width="168" height="262" rx="12" fill="#f9fafb" stroke="#e5e7eb"/>
+  <circle cx="280" cy="98" r="16" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="280" y="103" text-anchor="middle" font-size="15" font-weight="700" fill="#15803d">2</text>
+  <circle cx="258" cy="168" r="18" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="258" y="173" text-anchor="middle" font-size="15" font-weight="700" fill="#2563eb">−</text>
+  <circle cx="302" cy="168" r="18" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="302" y="173" text-anchor="middle" font-size="15" font-weight="700" fill="#dc2626">+</text>
+  <g><circle cx="272" cy="232" r="5" fill="#eab308"/><circle cx="288" cy="232" r="5" fill="#111827"/></g>
+  <text x="280" y="290" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">electron / positron</text>
+  <text x="280" y="308" text-anchor="middle" font-size="11.5" fill="#374151">e⁻ · e⁺ — 2 differences</text>
+  <text x="280" y="325" text-anchor="middle" font-size="11" fill="#16a34a">stable</text>
+
+  <!-- ===== 3 · muonium (unstable) ===== -->
+  <rect x="376" y="74" width="168" height="262" rx="12" fill="#f9fafb" stroke="#e5e7eb"/>
+  <circle cx="460" cy="98" r="16" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="460" y="103" text-anchor="middle" font-size="15" font-weight="700" fill="#c2410c">3</text>
+  <ellipse cx="460" cy="170" rx="60" ry="42" fill="#ffffff" stroke="#9ca3af" stroke-width="1.5"/>
+  <line x1="445" y1="170" x2="495" y2="170" stroke="#9ca3af" stroke-width="1.4"/>
+  <circle cx="438" cy="170" r="21" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="438" y="175" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626">μ⁺</text>
+  <circle cx="500" cy="170" r="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="500" y="174" text-anchor="middle" font-size="11" font-weight="700" fill="#2563eb">e⁻</text>
+  <g><circle cx="444" cy="232" r="5" fill="#eab308"/><circle cx="460" cy="232" r="5" fill="#111827"/><circle cx="476" cy="232" r="5" fill="#dc2626"/></g>
+  <text x="460" y="290" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">muonium</text>
+  <text x="460" y="308" text-anchor="middle" font-size="11.5" fill="#374151">μ⁺ e⁻ — 3 differences · balanced</text>
+  <text x="460" y="325" text-anchor="middle" font-size="11" fill="#ea580c">decays</text>
+
+  <!-- ===== 4 · tau atom (balanced, unstable → neutron → proton) ===== -->
+  <rect x="556" y="74" width="168" height="262" rx="12" fill="#fff7ed" stroke="#fdba74"/>
+  <circle cx="640" cy="98" r="16" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="640" y="103" text-anchor="middle" font-size="15" font-weight="700" fill="#c2410c">4</text>
+  <ellipse cx="640" cy="170" rx="60" ry="42" fill="#ffffff" stroke="#ea580c" stroke-width="1.6" stroke-dasharray="6 5"/>
+  <line x1="625" y1="170" x2="675" y2="170" stroke="#9ca3af" stroke-width="1.4"/>
+  <circle cx="618" cy="170" r="21" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="618" y="175" text-anchor="middle" font-size="13" font-weight="700" fill="#2563eb">τ⁻</text>
+  <circle cx="680" cy="170" r="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="680" y="174" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">e⁺</text>
+  <g><circle cx="616" cy="232" r="5" fill="#eab308"/><circle cx="632" cy="232" r="5" fill="#111827"/><circle cx="648" cy="232" r="5" fill="#dc2626"/><circle cx="664" cy="232" r="5" fill="#16a34a"/></g>
+  <text x="640" y="290" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">tau atom</text>
+  <text x="640" y="308" text-anchor="middle" font-size="11.5" fill="#374151">τ⁻ e⁺ — 4 differences · balanced</text>
+  <text x="640" y="325" text-anchor="middle" font-size="11" font-weight="700" fill="#ea580c">too short-lived ↓</text>
+
+  <!-- ===== 5 · hydrogen (stable) ===== -->
+  <rect x="736" y="74" width="148" height="262" rx="12" fill="#f9fafb" stroke="#e5e7eb"/>
+  <circle cx="810" cy="98" r="16" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="810" y="103" text-anchor="middle" font-size="15" font-weight="700" fill="#15803d">5</text>
+  <ellipse cx="810" cy="170" rx="62" ry="42" fill="#ffffff" stroke="#9ca3af" stroke-width="1.5"/>
+  <!-- proton: borromean 3 colour pairs -->
+  <circle cx="792" cy="170" r="22" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <circle cx="785" cy="162" r="4.5" fill="#dc2626"/><circle cx="799" cy="162" r="4.5" fill="#16a34a"/><circle cx="792" cy="178" r="4.5" fill="#2563eb"/>
+  <text x="792" y="200" text-anchor="middle" font-size="10" font-weight="700" fill="#dc2626">p⁺</text>
+  <circle cx="852" cy="170" r="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="852" y="174" text-anchor="middle" font-size="11" font-weight="700" fill="#2563eb">e⁻</text>
+  <line x1="814" y1="170" x2="840" y2="170" stroke="#9ca3af" stroke-width="1.4"/>
+  <g><circle cx="780" cy="232" r="5" fill="#dc2626"/><circle cx="794" cy="232" r="5" fill="#16a34a"/><circle cx="808" cy="232" r="5" fill="#2563eb"/><circle cx="822" cy="232" r="5" fill="#eab308"/><circle cx="836" cy="232" r="5" fill="#111827"/></g>
+  <text x="810" y="290" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">hydrogen</text>
+  <text x="810" y="308" text-anchor="middle" font-size="11.5" fill="#374151">p⁺ e⁻ — 5 differences</text>
+  <text x="810" y="325" text-anchor="middle" font-size="11" fill="#16a34a">stable · 3 colour + charge + spin</text>
+
+  <!-- decay flow: tau → neutron → proton -->
+  <path d="M640,338 C 640,356 720,356 760,344" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#bk)"/>
+  <text x="700" y="372" text-anchor="middle" font-size="11.5" font-weight="700" fill="#c2410c">falls to a neutron → β-decay → proton</text>
+
+  <!-- legend -->
+  <rect x="16" y="392" width="868" height="70" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="32" y="414" font-size="12.5" font-weight="700" fill="#374151">A difference = one orthogonal twist pair:</text>
+  <g font-size="12" fill="#374151">
+    <circle cx="300" cy="410" r="6" fill="#eab308"/><text x="312" y="414">charge (lateral)</text>
+    <circle cx="420" cy="410" r="6" fill="#111827"/><text x="432" y="414">spin (transverse)</text>
+    <circle cx="560" cy="410" r="6" fill="#dc2626"/><circle cx="575" cy="410" r="6" fill="#16a34a"/><circle cx="590" cy="410" r="6" fill="#2563eb"/><text x="604" y="414">colour (internal — 3, the Borromean axes)</text>
+  </g>
+  <text x="32" y="442" font-size="12" fill="#6b7280">Balanced = neutral bound state (like muonium). Stable rungs: neutrino (1), electron (2), proton (5); the heavier leptons μ (3) and τ (4) decay — τ is too short-lived to hold an atom, falling to a neutron that β-decays to the proton.</text>
+</svg>

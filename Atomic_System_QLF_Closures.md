@@ -27,6 +27,26 @@ $$m_{\text{bound}} \;=\; \alpha \, (R_e + R_{\text{partner}}) \;-\; E_{\text{bin
 
 with `E_bind ≪ m_constituent` (typically 10⁻⁸ relative) for all three atomic systems considered here.
 
+**Visual overview.** Each system is a closure of distinguishable **twist pairs** — counted as its
+*number of differences* (each difference is one orthogonal distinction = one bit, the
+orthogonality-is-one-bit quantum of [`Geometry_Of_Space.md`](Geometry_Of_Space.md) §3c). The ladder runs
+neutrino (1) → electron (2) → muonium (3) → tau atom (4) → hydrogen (5); the *kinds* of difference are
+**charge** (lateral), **spin** (transverse), and **colour** (internal — the three Borromean axes). The
+stable rungs are the neutrino, the electron, and the proton; the heavier leptons μ and τ decay, and the
+τ is too short-lived to Bohr-bind (§6) — its balanced `τ⁻ e⁺` closure relaxes via a neutron that
+β-decays to the proton.
+
+<img src="diagrams/particle_differences.svg" alt="Particles by number of differences: neutrino (1, stable), electron/positron (2, stable), muonium μ⁺e⁻ (3, decays), tau atom τ⁻e⁺ (4, balanced but unstable — falls to a neutron then β-decays to a proton), hydrogen p⁺e⁻ (5, stable, = 3 colour + charge + spin). Each difference is an orthogonal twist pair: charge lateral, spin transverse, colour internal" width="100%">
+
+<img src="diagrams/atom_closures.svg" alt="The atoms as closure topologies: positronium (two coupled loops), muonium (antimuon's 3 twist-pair loops + electron), tau atom (tau's 4 loops + positron, unstable), hydrogen (the Borromean proton — 3 colour twist pairs locked, baryon number 1 — plus electron). Leptons are unlinked loops (baryon number 0); the proton is Borromean-linked" width="100%">
+
+**Honest scope.** The *number-of-differences* classification is a structural reading of these closures;
+the verified anchors are the **three generations** from the 3 axes ([`QLF_Generations`](lean/QLF_Generations.lean)),
+the proton's **5 = 3 colour + charge + spin = the `π⁵`** angular DOF ([`QLF_BorromeanAngles`](lean/QLF_BorromeanAngles.lean),
+[`QLF_LenzMassRatio`](lean/QLF_LenzMassRatio.lean)), and **baryon number = the 3-axis Borromean linking**
+([`QLF_BaryonWinding`](lean/QLF_BaryonWinding.lean)). The τ is drawn as a *balanced but transient* closure
+(its decay channels are §6).
+
 ---
 
 ## §2 Positronium — symmetric minimal joint closure

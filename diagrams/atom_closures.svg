@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 452" font-family="ui-sans-serif, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <rect width="920" height="452" fill="#ffffff"/>
+  <text x="460" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#111827">The atoms as closure topologies — twist-pair loops and the Borromean proton</text>
+  <text x="460" y="54" text-anchor="middle" font-size="12.5" fill="#6b7280">each atom = a heavy closure + a light partner, balanced; leptons are unlinked loops (B=0), the proton is Borromean-linked (B=1)</text>
+
+  <!-- ===== positronium (e- e+) — 2 ===== -->
+  <g>
+    <ellipse cx="135" cy="180" rx="96" ry="60" fill="#f9fafb" stroke="#e5e7eb"/>
+    <circle cx="112" cy="180" r="26" fill="none" stroke="#2563eb" stroke-width="2.4"/>
+    <text x="112" y="185" text-anchor="middle" font-size="13" font-weight="700" fill="#2563eb">e⁻</text>
+    <circle cx="160" cy="180" r="26" fill="none" stroke="#dc2626" stroke-width="2.4"/>
+    <text x="160" y="185" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626">e⁺</text>
+    <text x="135" y="262" text-anchor="middle" font-size="13.5" font-weight="700" fill="#111827">positronium</text>
+    <text x="135" y="280" text-anchor="middle" font-size="11.5" fill="#374151">2 differences · two coupled loops</text>
+  </g>
+
+  <!-- ===== muonium (mu+ e-) — 3 ===== -->
+  <g>
+    <ellipse cx="358" cy="180" rx="100" ry="62" fill="#f9fafb" stroke="#e5e7eb"/>
+    <!-- antimuon: 3 twist-pair loops -->
+    <circle cx="328" cy="156" r="13" fill="none" stroke="#eab308" stroke-width="2.2"/>
+    <circle cx="328" cy="204" r="13" fill="none" stroke="#111827" stroke-width="2.2"/>
+    <circle cx="305" cy="180" r="13" fill="none" stroke="#dc2626" stroke-width="2.2"/>
+    <circle cx="328" cy="180" r="3" fill="#dc2626"/>
+    <text x="318" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">μ⁺</text>
+    <line x1="345" y1="180" x2="378" y2="180" stroke="#9ca3af" stroke-width="1.4"/>
+    <circle cx="398" cy="180" r="15" fill="none" stroke="#2563eb" stroke-width="2.2"/>
+    <text x="398" y="184" text-anchor="middle" font-size="11" font-weight="700" fill="#2563eb">e⁻</text>
+    <text x="358" y="262" text-anchor="middle" font-size="13.5" font-weight="700" fill="#111827">muonium</text>
+    <text x="358" y="280" text-anchor="middle" font-size="11.5" fill="#374151">3 differences · μ⁺ + e⁻ · decays</text>
+  </g>
+
+  <!-- ===== tau atom (tau- e+) — 4 (unstable) ===== -->
+  <g>
+    <ellipse cx="585" cy="180" rx="100" ry="62" fill="#fff7ed" stroke="#fdba74" stroke-dasharray="6 5"/>
+    <!-- tau: 4 twist-pair loops -->
+    <circle cx="548" cy="158" r="12" fill="none" stroke="#eab308" stroke-width="2.2"/>
+    <circle cx="578" cy="158" r="12" fill="none" stroke="#111827" stroke-width="2.2"/>
+    <circle cx="578" cy="202" r="12" fill="none" stroke="#dc2626" stroke-width="2.2"/>
+    <circle cx="548" cy="202" r="12" fill="none" stroke="#16a34a" stroke-width="2.2"/>
+    <circle cx="563" cy="180" r="3" fill="#2563eb"/>
+    <text x="540" y="143" text-anchor="middle" font-size="11" font-weight="700" fill="#2563eb">τ⁻</text>
+    <line x1="598" y1="180" x2="628" y2="180" stroke="#9ca3af" stroke-width="1.4"/>
+    <circle cx="648" cy="180" r="15" fill="none" stroke="#dc2626" stroke-width="2.2"/>
+    <text x="648" y="184" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">e⁺</text>
+    <text x="585" y="262" text-anchor="middle" font-size="13.5" font-weight="700" fill="#111827">tau atom</text>
+    <text x="585" y="280" text-anchor="middle" font-size="11.5" fill="#374151">4 differences · τ⁻ + e⁺ · balanced, unstable</text>
+  </g>
+
+  <!-- ===== hydrogen (p+ e-) — 5, Borromean proton ===== -->
+  <g>
+    <ellipse cx="808" cy="180" rx="104" ry="64" fill="#f9fafb" stroke="#e5e7eb"/>
+    <!-- proton: 3 Borromean colour rings -->
+    <circle cx="778" cy="166" r="20" fill="none" stroke="#dc2626" stroke-width="2.6"/>
+    <circle cx="798" cy="166" r="20" fill="none" stroke="#16a34a" stroke-width="2.6"/>
+    <circle cx="788" cy="190" r="20" fill="none" stroke="#2563eb" stroke-width="2.6"/>
+    <text x="788" y="222" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">p⁺ (Borromean)</text>
+    <line x1="824" y1="178" x2="852" y2="178" stroke="#9ca3af" stroke-width="1.4"/>
+    <circle cx="872" cy="178" r="15" fill="none" stroke="#2563eb" stroke-width="2.2"/>
+    <text x="872" y="182" text-anchor="middle" font-size="11" font-weight="700" fill="#2563eb">e⁻</text>
+    <text x="808" y="262" text-anchor="middle" font-size="13.5" font-weight="700" fill="#111827">hydrogen</text>
+    <text x="808" y="280" text-anchor="middle" font-size="11.5" fill="#374151">5 differences · p⁺ + e⁻ · stable</text>
+  </g>
+
+  <!-- bottom note -->
+  <rect x="16" y="312" width="888" height="124" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="32" y="338" font-size="13" font-weight="700" fill="#374151">Reading the loops</text>
+  <text x="32" y="360" font-size="12" fill="#374151">• A loop = one <tspan font-weight="700">twist pair</tspan> (a difference): charge (<tspan fill="#eab308" font-weight="700">yellow</tspan>), spin (<tspan fill="#111827" font-weight="700">black</tspan>), colour (<tspan fill="#dc2626" font-weight="700">R</tspan> <tspan fill="#16a34a" font-weight="700">G</tspan> <tspan fill="#2563eb" font-weight="700">B</tspan>).</text>
+  <text x="32" y="382" font-size="12" fill="#374151">• <tspan font-weight="700">Leptons</tspan> are <tspan font-weight="700">unlinked</tspan> loops — baryon number 0 (no 3-axis linking). The heavy lepton + a light antiparticle make a balanced atom.</text>
+  <text x="32" y="404" font-size="12" fill="#374151">• The <tspan font-weight="700" fill="#dc2626">proton</tspan> is <tspan font-weight="700">Borromean</tspan>-linked — three colour twist pairs, no two linked but all three locked together: baryon number 1, the stable nucleus.</text>
+  <text x="32" y="426" font-size="11.5" font-style="italic" fill="#6b7280">Anchors: baryon number = signed 3-axis linking (QLF_BaryonWinding); the proton's 5 = 3 colour + charge + spin = the π⁵ angular DOF (QLF_BorromeanAngles / QLF_LenzMassRatio).</text>
+</svg>
