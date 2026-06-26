@@ -146,7 +146,19 @@ arrangements, and they are general — not a 5-fold special case. Each small pri
 | **3** | *geometric symmetry* — 3 spatial axes / proton `n=3` / colour SU(3) / 3 generations / Koide | `half_spin_irreducible`, §3b; `QLF_Generations` |
 | **5** | *geometric symmetry* — icosahedral 5-fold / 12 pentamons / `I ≅ A₅`; densest **local** packing ⟹ common (clusters, viruses, quasicrystals) | `prime_five_irreducible`, `five_divides_icosahedral` (`5 ∣ \|2I\|=120`) |
 | **7** | *a derived count, NOT a 7-fold symmetry* — QCD `b₀ = 11·3/3 − 2·6/3 = 7`, the `14π=2π·7` hierarchy | `prime_seven_is_qcd_b0` (reuse `beta_coefficient_eq_seven`); [`QLF_BetaFunction`](lean/QLF_BetaFunction.lean) |
-| **11, 13, …** | open — locks (`prime_freq_irreducible`) with no anchored geometric/physical role yet | — |
+| **11** | *a derived count* — the **gluon antiscreening** `b₀(n_f=0) = 11·N_c/3 = 11`, the QCD partner of 7 | `gluon_antiscreening_is_eleven` (reuse `beta_coefficient`) |
+| **13** | *geometric* — the **centered icosahedron** `1 + 12 = 13` (first Mackay magic number), the partner of 5 | `centered_icosahedron_is_thirteen`, `thirteen_irreducible` |
+| **17, 19, …** | open — locks (`prime_freq_irreducible`) with no anchored geometric/physical role yet | — |
+
+**The primes pair by sector** — the ladder is not random. **5 and 13 are the icosahedral pair**: `5` the
+fold *symmetry*, `13` the centered-cluster *count* (`1` centre `+ 12` shell, the densest small cluster),
+both built on the same icosahedron's 12 pentamons. **7 and 11 are the QCD-coupling pair**: `11` the bare
+gluon antiscreening `11·N_c/3`, `7` the net after quark screening `11 − 4`. So each *kind* of role recurs:
+a geometric prime (3, 5, 13) and a coupling-count prime (7, 11) per sector, with the bit (2) underneath
+all of it. Honest scope: `11` and `13` are **more speculative** than `2/3/5/7` (which have unambiguous
+physics homes); the pairing is anchored by reuse but is a *reading*, and the numerology-risk alternatives
+(`E₆ = 6·13`, the 13 Archimedean solids, the Monster/moonshine supersingular primes which do include 11
+and 13) are **not** asserted — coincidences until something structural connects them.
 
 **Prime-5 is common, not exceptional** — and this is what corrects the naive "5-fold is forbidden"
 reflex. The crystallographic restriction forbids 5-fold *for an orthogonal, periodic lattice* — i.e. at
