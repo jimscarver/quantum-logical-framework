@@ -161,6 +161,45 @@ So mitosis is precisely the duplication Banach–Tarski is *not*: it buys its se
 energy, mass, and time. Banach–Tarski is what duplication would look like if those bills never came due
 — which is to say, it is not physics.
 
+### 3a. The geometric sharpening — the blanket's charge is subdivision-invariant
+
+Banach–Tarski's minimal decomposition uses **five pieces** (Robinson 1947 — four is impossible). It is
+tempting to look for that "5" in QLF geometry — the substrate even has a verified `5 = 3 + 2`
+([`QLF_BorromeanAngles`](lean/QLF_BorromeanAngles.lean), `total_angular_DOF_eq_five`). **Resist it.** The
+Banach–Tarski 5 is `1 + 2×2` — the identity class plus the four "first-letter" classes of `F₂`'s *two*
+generators; it is tied to the 2-generator free group, not to QLF's 3 axes, and the Borromean 5 is a count
+of *angular degrees of freedom*, a different object. Forcing the identification would be numerology.
+
+What *does* relate — and sharpens mitosis — is the **doubling requirement** itself: *finitely many pieces
+reassembling into two copies.* A QLF Markov blanket is a Fuller geodesic sphere carrying **conserved,
+subdivision-invariant topological charge**:
+
+- Euler characteristic `V − E + F = 2` at **every** frequency `v` (`primordial_blanket_euler`);
+- exactly **12 pentamons**, independent of `v` (`pentamons_invariant` — the universal signature from the
+  icosahedron to the cosmic blanket);
+- a holographic boundary screen of `20 v²` events carrying `S(v) = 20 v² · log 2` nats
+  (`primordial_blanket_information_capacity`).
+
+Subdividing a blanket — refining `v`, the geometric analog of cutting it into finer pieces — **preserves**
+all of these: still `χ = 2`, still 12 pentamons (`blanket_charge_subdivision_invariant`,
+[`QLF_NoFreeDuplication`](lean/QLF_NoFreeDuplication.lean)). Two blankets have `χ = 4` and 24 pentamons. So
+**no decomposition of one blanket — into five pieces or any number — can yield two**, because the charge
+is conserved *and* subdivision-invariant. This is the geometric face of §1a's amenability point: the
+blanket's `χ`/pentamon count is another invariant the paradox has no room for.
+
+Banach–Tarski evades it only because its five pieces are **non-measurable scatter** — they have no `χ`,
+no pentamons, no boundary, no geometry at all; they are choice-selected dust, not blanket-pieces. A
+blanket built of finite-information closures **has no such pieces to use**. So to make two blankets it
+cannot rearrange — it must **synthesize** the second blanket's conserved structure: a second `χ = 2`, a
+fresh set of 12 pentamons, and a doubled holographic screen carrying its own `20 v² · log 2` nats
+(`blanket_doubling_doubles_information`). That synthesis *is* mitosis's cost — DNA replication writes the
+second boundary's bits, ATP pays the `log 2`-per-event Landauer bill.
+
+This is the sharpened statement: **the conserved geometric structure that Banach–Tarski steals from
+nothing is exactly the structure mitosis must build.** The "five pieces" of the impossible version
+correspond, in the possible version, not to a piece count but to the subdivision-invariant charge that
+has to be *manufactured* — a second 12-pentamon screen, written bit by bit — rather than shuffled.
+
 ---
 
 ## 4. One principle, four scales — "no free duplication"
@@ -230,6 +269,12 @@ biology happened to inherit; it is the same fact that keeps the universe consist
   (`zfa_charge_additive`) and folds to a finite, amenable group (`closure_folds_to_finite_group`) — the
   structural reasons it is amenable. Claiming the substrate has *no* free structure would be false and is
   not claimed.
+- The **geometric sharpening** (§3a) deliberately *resists* matching Banach–Tarski's "5 pieces" to QLF's
+  `5 = 3 + 2` angular DOF — that would be numerology (the two 5s are unrelated objects). What is
+  machine-verified is the subdivision-invariance of the blanket's charge (`blanket_charge_subdivision_invariant`,
+  reusing `primordial_blanket_euler` + `pentamons_invariant`) and the doubled holographic information
+  (`blanket_doubling_doubles_information`); the identification of "writing the second screen" with DNA
+  replication / ATP is the *structural analogy* (the mitosis reading), not derived cell biology.
 
 ## See also
 
