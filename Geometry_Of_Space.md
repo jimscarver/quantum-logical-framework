@@ -148,17 +148,28 @@ arrangements, and they are general — not a 5-fold special case. Each small pri
 | **7** | *a derived count, NOT a 7-fold symmetry* — QCD `b₀ = 11·3/3 − 2·6/3 = 7`, the `14π=2π·7` hierarchy | `prime_seven_is_qcd_b0` (reuse `beta_coefficient_eq_seven`); [`QLF_BetaFunction`](lean/QLF_BetaFunction.lean) |
 | **11** | *a derived count* — the **gluon antiscreening** `b₀(n_f=0) = 11·N_c/3 = 11`, the QCD partner of 7 | `gluon_antiscreening_is_eleven` (reuse `beta_coefficient`) |
 | **13** | *geometric* — the **centered icosahedron** `1 + 12 = 13` (first Mackay magic number), the partner of 5 | `centered_icosahedron_is_thirteen`, `thirteen_irreducible` |
-| **17, 19, …** | open — locks (`prime_freq_irreducible`) with no anchored geometric/physical role yet | — |
+| **17, 19** | *no substrate lock* — number-theoretic resonances only (`17` a Fermat prime, the constructible family `3,5,17,…`; `19` the factor `E₇ = 7·19`; Heegner; Monster supersingular), **not** anchored | — |
+| **31** | *the E₈ apex* — `dim E₈ = 248 = 8·31` (rank × size-prime), the exceptional group the icosahedral closure maps to (McKay `2I → E₈`); `31 = 1 + h(E₈)` (Coxeter `h=30`). A derived/structural count, not a 31-fold symmetry | `e8_size_prime_31`, `e8_dimension_factors`, `e8_dim_rank_coxeter_succ` |
+| **higher** | open — locks (`prime_freq_irreducible`) with no anchored role yet | — |
 
 **The primes pair by sector** — the ladder is not random. **5 and 13 are the icosahedral pair**: `5` the
 fold *symmetry*, `13` the centered-cluster *count* (`1` centre `+ 12` shell, the densest small cluster),
 both built on the same icosahedron's 12 pentamons. **7 and 11 are the QCD-coupling pair**: `11` the bare
 gluon antiscreening `11·N_c/3`, `7` the net after quark screening `11 − 4`. So each *kind* of role recurs:
 a geometric prime (3, 5, 13) and a coupling-count prime (7, 11) per sector, with the bit (2) underneath
-all of it. Honest scope: `11` and `13` are **more speculative** than `2/3/5/7` (which have unambiguous
-physics homes); the pairing is anchored by reuse but is a *reading*, and the numerology-risk alternatives
-(`E₆ = 6·13`, the 13 Archimedean solids, the Monster/moonshine supersingular primes which do include 11
-and 13) are **not** asserted — coincidences until something structural connects them.
+all of it. The **apex** is `31`, the size prime of `E₈` — the exceptional group the icosahedral closure
+generates by McKay (`dim E₈ = 248 = 8·31 = rank·(1 + Coxeter)`), tying the whole ladder back to the same
+`2I → E₈` symmetry behind the blanket. **And the ladder honestly *stops* there.** The intervening `17` and
+`19` have **no** substrate lock — they are number-theoretic resonances (`17` a Fermat prime; `19 = E₇/7`;
+Heegner; Monster supersingular), exactly the kind of coincidence the discipline below refuses to assert.
+
+Honest scope: `11`/`13` are **more speculative** than `2/3/5/7` (which have unambiguous physics homes),
+and `31` more so still — a *structural factor* of E₈, not a 31-fold symmetry, and the `2I → E₈` map itself
+is QLF's McKay anchor (orders `120`/`248`), not a built-out E₈ representation theory. The pairing and the
+apex are *readings* anchored by reuse; the numerology-risk alternatives (`E₆ = 6·13`, `E₇ = 7·19`, the 13
+Archimedean solids, the Monster/moonshine supersingular primes — which include 11, 13, 17, 19) are **not**
+asserted — coincidences until something structural connects them. `17`/`19` are named precisely *as the
+gap*, to keep the line between a lock and a resonance visible.
 
 **Prime-5 is common, not exceptional** — and this is what corrects the naive "5-fold is forbidden"
 reflex. The crystallographic restriction forbids 5-fold *for an orthogonal, periodic lattice* — i.e. at
