@@ -1,83 +1,94 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 432" font-family="ui-sans-serif, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
-  <rect width="920" height="432" fill="#ffffff"/>
-  <text x="460" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#111827">Particles as twist-pair closures — the individual twist pairs</text>
-  <text x="460" y="54" text-anchor="middle" font-size="12.5" fill="#6b7280">each particle = its number of differences, drawn as crossing orthogonal twist pairs (each an in / out propagating pair)</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 612" font-family="ui-sans-serif, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <rect width="900" height="612" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="21" font-weight="700" fill="#111827">Atoms as joint closures — the electron outside the core, twists threading in</text>
+  <text x="450" y="52" text-anchor="middle" font-size="12.5" fill="#6b7280">the light partner sits outside the core; its twists thread in and bind to the core's internal twist pairs (orthogonal pairs)</text>
 
-  <!-- ===== 1 · neutrino ===== -->
+  <!-- ============ POSITRONIUM (TL) ============ -->
   <g>
-    <ellipse cx="110" cy="160" rx="34" ry="8" fill="none" stroke="#6b7280" stroke-width="2"/>
-    <circle cx="144" cy="160" r="5" fill="#6b7280"/><circle cx="76" cy="160" r="5" fill="#6b7280"/>
-    <circle cx="110" cy="160" r="2.5" fill="#374151"/>
-    <text x="110" y="244" text-anchor="middle" font-size="13.5" font-weight="700" fill="#111827">neutrino · 1</text>
-    <text x="110" y="262" text-anchor="middle" font-size="11.5" fill="#16a34a">stable · 1 twist pair</text>
+    <ellipse cx="232" cy="190" rx="150" ry="98" fill="#fbfbfd" stroke="#111827" stroke-width="1.4"/>
+    <!-- e- outside (top) -->
+    <ellipse cx="232" cy="128" rx="40" ry="18" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="232" y="133" text-anchor="middle" font-size="12" font-weight="700" fill="#2563eb">e⁻</text>
+    <!-- e+ core (bottom) -->
+    <ellipse cx="232" cy="232" rx="40" ry="18" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+    <text x="232" y="237" text-anchor="middle" font-size="12" font-weight="700" fill="#dc2626">e⁺</text>
+    <!-- 2 threading twists -->
+    <line x1="210" y1="142" x2="254" y2="218" stroke="#111827" stroke-width="2.4"/>
+    <line x1="254" y1="142" x2="210" y2="218" stroke="#111827" stroke-width="2.4"/>
+    <!-- 2 internal twist pairs (charge, spin) -->
+    <ellipse cx="218" cy="180" rx="13" ry="6.5" fill="none" stroke="#eab308" stroke-width="2" transform="rotate(-38 218 180)"/>
+    <circle cx="210" cy="171" r="3" fill="#eab308"/><circle cx="226" cy="189" r="3" fill="#eab308"/>
+    <ellipse cx="246" cy="180" rx="13" ry="6.5" fill="none" stroke="#111827" stroke-width="2" transform="rotate(38 246 180)"/>
+    <circle cx="254" cy="171" r="3" fill="#111827"/><circle cx="238" cy="189" r="3" fill="#111827"/>
+    <text x="232" y="312" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">positronium</text>
+    <text x="232" y="330" text-anchor="middle" font-size="11.5" fill="#374151">e⁻ + e⁺ · 2 differences · stable-ish</text>
   </g>
 
-  <!-- ===== 2 · electron / positron ===== -->
+  <!-- ============ MUONIUM (TR) ============ -->
   <g>
-    <ellipse cx="290" cy="160" rx="34" ry="8" fill="none" stroke="#eab308" stroke-width="2"/>
-    <circle cx="324" cy="160" r="5" fill="#eab308"/><circle cx="256" cy="160" r="5" fill="#eab308"/>
-    <ellipse cx="290" cy="160" rx="34" ry="8" fill="none" stroke="#111827" stroke-width="2" transform="rotate(90 290 160)"/>
-    <circle cx="290" cy="194" r="5" fill="#111827"/><circle cx="290" cy="126" r="5" fill="#111827"/>
-    <text x="290" y="244" text-anchor="middle" font-size="13.5" font-weight="700" fill="#111827">electron · 2</text>
-    <text x="290" y="262" text-anchor="middle" font-size="11.5" fill="#16a34a">stable · charge + spin</text>
+    <ellipse cx="668" cy="190" rx="150" ry="98" fill="#fbfbfd" stroke="#111827" stroke-width="1.4"/>
+    <!-- electron outside (top) -->
+    <ellipse cx="668" cy="126" rx="40" ry="18" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="668" y="131" text-anchor="middle" font-size="12" font-weight="700" fill="#2563eb">e⁻</text>
+    <!-- anti-muon core: 3 orthogonal twist pairs -->
+    <ellipse cx="668" cy="214" rx="28" ry="13" fill="none" stroke="#eab308" stroke-width="2"/>
+    <circle cx="696" cy="214" r="4" fill="#eab308"/><circle cx="640" cy="214" r="4" fill="#eab308"/>
+    <ellipse cx="668" cy="214" rx="28" ry="13" fill="none" stroke="#111827" stroke-width="2" transform="rotate(60 668 214)"/>
+    <circle cx="682" cy="238.2" r="4" fill="#111827"/><circle cx="654" cy="189.8" r="4" fill="#111827"/>
+    <ellipse cx="668" cy="214" rx="28" ry="13" fill="none" stroke="#db2777" stroke-width="2" transform="rotate(120 668 214)"/>
+    <circle cx="654" cy="238.2" r="4" fill="#db2777"/><circle cx="682" cy="189.8" r="4" fill="#db2777"/>
+    <text x="668" y="262" text-anchor="middle" font-size="10" font-weight="700" fill="#dc2626">μ⁺ core</text>
+    <!-- threading twists from electron into core -->
+    <line x1="648" y1="140" x2="660" y2="196" stroke="#111827" stroke-width="2.2"/>
+    <line x1="688" y1="140" x2="676" y2="196" stroke="#111827" stroke-width="2.2"/>
+    <text x="668" y="312" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">muonium</text>
+    <text x="668" y="330" text-anchor="middle" font-size="11.5" fill="#374151">μ⁺ core + e⁻ · 3 differences · decays</text>
   </g>
 
-  <!-- ===== 3 · muon ===== -->
+  <!-- ============ TAU ATOM (BL) ============ -->
   <g>
-    <ellipse cx="470" cy="160" rx="34" ry="8" fill="none" stroke="#eab308" stroke-width="2"/>
-    <circle cx="504" cy="160" r="5" fill="#eab308"/><circle cx="436" cy="160" r="5" fill="#eab308"/>
-    <ellipse cx="470" cy="160" rx="34" ry="8" fill="none" stroke="#111827" stroke-width="2" transform="rotate(60 470 160)"/>
-    <circle cx="487" cy="189.4" r="5" fill="#111827"/><circle cx="453" cy="130.6" r="5" fill="#111827"/>
-    <ellipse cx="470" cy="160" rx="34" ry="8" fill="none" stroke="#7c3aed" stroke-width="2" transform="rotate(120 470 160)"/>
-    <circle cx="453" cy="189.4" r="5" fill="#7c3aed"/><circle cx="487" cy="130.6" r="5" fill="#7c3aed"/>
-    <text x="470" y="244" text-anchor="middle" font-size="13.5" font-weight="700" fill="#111827">muon · 3</text>
-    <text x="470" y="262" text-anchor="middle" font-size="11.5" fill="#ea580c">decays · gen 2</text>
+    <ellipse cx="232" cy="430" rx="150" ry="98" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="7 5"/>
+    <!-- positron outside (top) -->
+    <ellipse cx="232" cy="366" rx="40" ry="18" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+    <text x="232" y="371" text-anchor="middle" font-size="12" font-weight="700" fill="#dc2626">e⁺</text>
+    <!-- tau core: 4 orthogonal twist pairs -->
+    <ellipse cx="232" cy="452" rx="28" ry="13" fill="none" stroke="#eab308" stroke-width="2"/>
+    <circle cx="260" cy="452" r="4" fill="#eab308"/><circle cx="204" cy="452" r="4" fill="#eab308"/>
+    <ellipse cx="232" cy="452" rx="28" ry="13" fill="none" stroke="#111827" stroke-width="2" transform="rotate(45 232 452)"/>
+    <circle cx="252" cy="472" r="4" fill="#111827"/><circle cx="212" cy="432" r="4" fill="#111827"/>
+    <ellipse cx="232" cy="452" rx="28" ry="13" fill="none" stroke="#db2777" stroke-width="2" transform="rotate(90 232 452)"/>
+    <circle cx="232" cy="480" r="4" fill="#db2777"/><circle cx="232" cy="424" r="4" fill="#db2777"/>
+    <ellipse cx="232" cy="452" rx="28" ry="13" fill="none" stroke="#7c3aed" stroke-width="2" transform="rotate(135 232 452)"/>
+    <circle cx="212" cy="472" r="4" fill="#7c3aed"/><circle cx="252" cy="432" r="4" fill="#7c3aed"/>
+    <text x="232" y="502" text-anchor="middle" font-size="10" font-weight="700" fill="#2563eb">τ⁻ core</text>
+    <line x1="212" y1="380" x2="222" y2="434" stroke="#111827" stroke-width="2.2"/>
+    <line x1="252" y1="380" x2="242" y2="434" stroke="#111827" stroke-width="2.2"/>
+    <text x="232" y="552" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">tau atom</text>
+    <text x="232" y="570" text-anchor="middle" font-size="11.5" fill="#ea580c">τ⁻ core + e⁺ · 4 differences · too short-lived → neutron → proton</text>
   </g>
 
-  <!-- ===== 4 · tau (unstable) ===== -->
+  <!-- ============ HYDROGEN (BR) ============ -->
   <g>
-    <ellipse cx="650" cy="160" rx="44" ry="44" fill="#fff7ed" stroke="#fdba74" stroke-dasharray="6 5"/>
-    <ellipse cx="650" cy="160" rx="34" ry="8" fill="none" stroke="#eab308" stroke-width="2"/>
-    <circle cx="684" cy="160" r="5" fill="#eab308"/><circle cx="616" cy="160" r="5" fill="#eab308"/>
-    <ellipse cx="650" cy="160" rx="34" ry="8" fill="none" stroke="#111827" stroke-width="2" transform="rotate(45 650 160)"/>
-    <circle cx="674" cy="184" r="5" fill="#111827"/><circle cx="626" cy="136" r="5" fill="#111827"/>
-    <ellipse cx="650" cy="160" rx="34" ry="8" fill="none" stroke="#7c3aed" stroke-width="2" transform="rotate(90 650 160)"/>
-    <circle cx="650" cy="194" r="5" fill="#7c3aed"/><circle cx="650" cy="126" r="5" fill="#7c3aed"/>
-    <ellipse cx="650" cy="160" rx="34" ry="8" fill="none" stroke="#ea580c" stroke-width="2" transform="rotate(135 650 160)"/>
-    <circle cx="626" cy="184" r="5" fill="#ea580c"/><circle cx="674" cy="136" r="5" fill="#ea580c"/>
-    <text x="650" y="244" text-anchor="middle" font-size="13.5" font-weight="700" fill="#111827">tau · 4</text>
-    <text x="650" y="262" text-anchor="middle" font-size="11.5" fill="#ea580c">unstable · gen 3 ↓</text>
-  </g>
-
-  <!-- ===== 5 · proton (Borromean colour triple + charge + spin) ===== -->
-  <g>
-    <ellipse cx="822" cy="160" rx="50" ry="48" fill="none" stroke="#9ca3af" stroke-width="1.4"/>
-    <!-- colour pairs R G B (Borromean) -->
-    <ellipse cx="822" cy="160" rx="36" ry="8" fill="none" stroke="#dc2626" stroke-width="2"/>
-    <circle cx="858" cy="160" r="5" fill="#dc2626"/><circle cx="786" cy="160" r="5" fill="#dc2626"/>
-    <ellipse cx="822" cy="160" rx="36" ry="8" fill="none" stroke="#16a34a" stroke-width="2" transform="rotate(60 822 160)"/>
-    <circle cx="840" cy="191.2" r="5" fill="#16a34a"/><circle cx="804" cy="128.8" r="5" fill="#16a34a"/>
-    <ellipse cx="822" cy="160" rx="36" ry="8" fill="none" stroke="#2563eb" stroke-width="2" transform="rotate(120 822 160)"/>
-    <circle cx="804" cy="191.2" r="5" fill="#2563eb"/><circle cx="840" cy="128.8" r="5" fill="#2563eb"/>
-    <!-- charge + spin pairs (shorter, inner) -->
-    <ellipse cx="822" cy="160" rx="20" ry="6" fill="none" stroke="#eab308" stroke-width="2" transform="rotate(30 822 160)"/>
-    <circle cx="839.3" cy="170" r="4" fill="#eab308"/><circle cx="804.7" cy="150" r="4" fill="#eab308"/>
-    <ellipse cx="822" cy="160" rx="20" ry="6" fill="none" stroke="#111827" stroke-width="2" transform="rotate(150 822 160)"/>
-    <circle cx="804.7" cy="170" r="4" fill="#111827"/><circle cx="839.3" cy="150" r="4" fill="#111827"/>
-    <text x="822" y="244" text-anchor="middle" font-size="13.5" font-weight="700" fill="#111827">proton · 5</text>
-    <text x="822" y="262" text-anchor="middle" font-size="11.5" fill="#16a34a">stable · 3 colour + charge + spin</text>
+    <ellipse cx="668" cy="430" rx="155" ry="100" fill="#fbfbfd" stroke="#111827" stroke-width="1.4"/>
+    <!-- electron outside (top) -->
+    <ellipse cx="668" cy="362" rx="46" ry="19" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="668" y="367" text-anchor="middle" font-size="12" font-weight="700" fill="#2563eb">electron e⁻</text>
+    <!-- proton core: 3 colour quark twist pairs (Borromean) -->
+    <ellipse cx="640" cy="442" rx="30" ry="15" fill="none" stroke="#dc2626" stroke-width="2.2" transform="rotate(-25 640 442)"/>
+    <circle cx="667" cy="430.5" r="4.5" fill="#dc2626"/><circle cx="613" cy="453.5" r="4.5" fill="#dc2626"/>
+    <ellipse cx="696" cy="442" rx="30" ry="15" fill="none" stroke="#16a34a" stroke-width="2.2" transform="rotate(25 696 442)"/>
+    <circle cx="669" cy="430.5" r="4.5" fill="#16a34a"/><circle cx="723" cy="453.5" r="4.5" fill="#16a34a"/>
+    <ellipse cx="668" cy="470" rx="30" ry="15" fill="none" stroke="#2563eb" stroke-width="2.2" transform="rotate(90 668 470)"/>
+    <circle cx="668" cy="497" r="4.5" fill="#2563eb"/><circle cx="668" cy="443" r="4.5" fill="#2563eb"/>
+    <text x="668" y="512" text-anchor="middle" font-size="10" font-weight="700" fill="#dc2626">p⁺ core · 3 Borromean colour pairs</text>
+    <!-- threading twists: electron into the proton core -->
+    <line x1="642" y1="378" x2="690" y2="462" stroke="#111827" stroke-width="2.6"/>
+    <line x1="694" y1="378" x2="646" y2="462" stroke="#111827" stroke-width="2.6"/>
+    <text x="668" y="552" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">hydrogen</text>
+    <text x="668" y="570" text-anchor="middle" font-size="11.5" fill="#374151">p⁺ core + e⁻ · 5 differences · stable</text>
   </g>
 
   <!-- legend -->
-  <rect x="16" y="292" width="888" height="124" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
-  <text x="32" y="318" font-size="13" font-weight="700" fill="#374151">A twist pair = one difference (an in / out propagating pair, the ellipse with its two ends):</text>
-  <g font-size="12" fill="#374151">
-    <circle cx="44" cy="340" r="6" fill="#eab308"/><text x="56" y="344">charge (lateral)</text>
-    <circle cx="180" cy="340" r="6" fill="#111827"/><text x="192" y="344">spin (transverse)</text>
-    <circle cx="320" cy="340" r="6" fill="#dc2626"/><circle cx="335" cy="340" r="6" fill="#16a34a"/><circle cx="350" cy="340" r="6" fill="#2563eb"/><text x="364" y="344">colour (internal — 3, the Borromean axes)</text>
-    <circle cx="640" cy="340" r="6" fill="#7c3aed"/><text x="652" y="344">heavier-generation pairs (internal · open)</text>
-  </g>
-  <text x="32" y="366" font-size="12" fill="#374151">• Bound <tspan font-weight="700">atoms</tspan> join a heavy particle's pairs to a light partner: positronium (e⁻+e⁺), muonium (μ⁺+e⁻), tau atom (τ⁻+e⁺), hydrogen (p⁺+e⁻).</text>
-  <text x="32" y="388" font-size="12" fill="#374151">• <tspan font-weight="700">Leptons</tspan> are <tspan font-weight="700">unlinked</tspan> twist pairs (baryon 0). The <tspan font-weight="700" fill="#dc2626">proton's</tspan> three colour pairs are <tspan font-weight="700">Borromean</tspan>-linked — none pairwise, all three locked (baryon 1).</text>
-  <text x="32" y="409" font-size="11.5" font-style="italic" fill="#6b7280">Anchors: baryon = signed 3-axis linking (QLF_BaryonWinding); proton 5 = 3 colour + charge + spin = the π⁵ (QLF_BorromeanAngles / QLF_LenzMassRatio); 3 generations = the 3 axes (QLF_Generations).</text>
+  <rect x="16" y="586" width="868" height="0" fill="none"/>
+  <text x="450" y="600" text-anchor="middle" font-size="11.5" font-style="italic" fill="#6b7280">A twist pair (orthogonal pair) = one difference: charge (yellow) · spin (black) · colour (R G B, internal). Leptons unlinked (baryon 0); proton's colour triple Borromean (baryon 1). Anchors: QLF_BaryonWinding · QLF_BorromeanAngles · QLF_Generations.</text>
 </svg>
