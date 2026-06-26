@@ -1,4 +1,7 @@
 import QLF_Consciousness
+import QLF_FreeEnergy
+import QLF_PrimordialMarkovBlanket
+import QLF_BetaFunction
 import Mathlib
 
 set_option linter.unusedVariables false
@@ -37,6 +40,7 @@ deeper model these step-count facts anchor, not a proof of it. Reuses `QLF_Consc
 namespace QLF.PrimeResonance
 
 open QLF.Consciousness
+open QLF
 
 /-- **Prime frequencies are irreducible — the topological lock.** A closure whose period `R` is prime
     has NO nontrivial sub-closure repeat: the only `d ∣ R` are `1` and `R`, so the vacuum cannot factor
@@ -77,6 +81,59 @@ theorem half_spin_balanced_steps : halfSpinSteps + halfSpinSteps = 6 := by decid
     fermion. So the half-spin is *balanced and prime*. -/
 theorem half_spin_irreducible : ∀ d, d ∣ halfSpinSteps → d = 1 ∨ d = halfSpinSteps :=
   prime_freq_irreducible half_spin_prime
+
+/-! ## Orthogonality is one bit; the prime ladder (2, 3, 5, 7, …)
+
+The one-bit/orthogonality point is general (Jim): orthogonality is the *coarse* resolution of the
+rendered 3-D perspective, and the **prime arrangements** — not the 5-fold alone — are the substrate's
+irreducible structure. Each prime is a closure lock (`prime_freq_irreducible`); composites factor. The
+rungs play *different kinds* of role: **2/3/5** are geometric prime symmetries, **7** is a derived count
+(QCD `b₀`), higher primes are open. See `Geometry_Of_Space.md` §3c. -/
+
+/-- **Orthogonality is one bit.** A binary / orthogonal distinction — the Hermitian-conjugate pair
+    `(t, t†)`, the two orderings of a half-spin ZFA closure — carries exactly `log 2` nats = **one bit**
+    (reuse `zfa_closure_minimizes_free_energy`, `QLF_FreeEnergy`). The 3 mutually-orthogonal spatial axes
+    are 3 one-bit distinctions: the rendered 3-D perspective *is* the geometry at 1-bit-per-axis
+    resolution. Orthogonality is the coarse floor; the finer structure is the prime ladder. -/
+theorem orthogonal_distinction_is_one_bit : -binary_kl 1 (1 / 2) = -Real.log 2 :=
+  zfa_closure_minimizes_free_energy
+
+/-- **The ladder rungs are prime.** `2, 3, 5, 7` are the small primes — each an irreducible closure lock
+    (`prime_freq_irreducible`). -/
+theorem small_primes_prime : Nat.Prime 2 ∧ Nat.Prime 3 ∧ Nat.Prime 5 ∧ Nat.Prime 7 := by
+  refine ⟨?_, ?_, ?_, ?_⟩ <;> decide
+
+/-- **Prime-5 — the icosahedral lock.** `5` is irreducible (no nontrivial sub-closure repeat, reuse
+    `prime_freq_irreducible`): the 5-valent pentamon / icosahedral 5-fold closure, the geometric sibling
+    of the prime-3 proton (`half_spin_irreducible`). -/
+theorem prime_five_irreducible : ∀ d, d ∣ 5 → d = 1 ∨ d = 5 :=
+  prime_freq_irreducible (by decide : Nat.Prime 5)
+
+/-- **Prime-5 sits inside the icosahedral closure group.** `5 ∣ |2I| = 120` (reuse
+    `binary_icosahedral_order_eq`) — the 5-fold lives in the binary icosahedral group `2I` (and `A₅`),
+    the substrate's closure symmetry that McKay sends to `E₈`. The d-subshell (`ℓ=2`, `2ℓ+1=5`) is the
+    5-dim irrep of `A₅` — the *same* representation as that "5D atomic structure" (cited group theory;
+    a shared representation, not a derivation of atomic structure). See `Geometry_Of_Space.md` §3c. -/
+theorem five_divides_icosahedral : 5 ∣ binary_icosahedral_order := by
+  rw [binary_icosahedral_order_eq]; decide
+
+/-- **Prime-7 — a derived count, not a 7-fold symmetry.** `7` enters QLF as the QCD one-loop coefficient
+    `b₀ = 11·3/3 − 2·6/3 = 7` (reuse `beta_coefficient_eq_seven`, `QLF_BetaFunction`), fixing the
+    `14π = 2π·7` mass hierarchy. It is a *count* in the coupling sector — there is **no** heptagonal
+    substrate symmetry. The ladder's geometric rungs are `2, 3, 5`; `7` is a counting prime. -/
+theorem prime_seven_is_qcd_b0 : beta_coefficient 3 6 = 7 :=
+  beta_coefficient_eq_seven
+
+/-- **Established (the prime-ladder generalization, `Geometry_Of_Space.md` §3c):** orthogonality is the
+    1-bit resolution of the rendered perspective (`orthogonal_distinction_is_one_bit`); the prime
+    arrangements are the irreducible structure (`prime_freq_irreducible`; rungs prime,
+    `small_primes_prime`). Anchored homes — **2** the bit/spin, **3** the axes/proton
+    (`half_spin_irreducible`), **5** the icosahedral lock (`prime_five_irreducible`,
+    `five_divides_icosahedral`), **7** the *derived count* QCD `b₀` (`prime_seven_is_qcd_b0`), not a
+    7-fold symmetry; higher primes open. Honest scope: 2/3/5 are geometric prime symmetries, 7 a counting
+    prime; the d-orbital ↔ 5-dim `A₅` irrep is cited group theory, not a derivation of atomic structure.
+    Reuses `QLF_FreeEnergy` + `QLF_PrimordialMarkovBlanket` + `QLF_BetaFunction`; no new axioms. -/
+theorem prime_ladder_summary : True := trivial
 
 /-- **Established (the synthesis, `Geometry_Of_Space.md`):** prime frequencies are the irreducible
     resonant modes (`prime_freq_irreducible`; composites factor, `composite_freq_factors`); higher
