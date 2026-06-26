@@ -127,6 +127,7 @@ lean_lib QLF where
     `QLF_AngularMomentum,
     `QLF_NavierStokesBKM,
     `QLF_Turbulence,
+    `QLF_NoFreeDuplication,
     `QLF_Uncertainty,
     `QLF_StateSpace,
     `QLF_Minkowski,
