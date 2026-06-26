@@ -52,6 +52,8 @@ QLF spans **more than a hundred machine-verified Lean modules** (zero `sorry`) c
 
 **Primordial Markov blankets** (June 2026): every Markov blanket in QLF is a Fuller frequency-`v` geodesic sphere of ZFA closures with icosahedral symmetry. The holographic event count `4π R²/L_Planck²` used in #7 (Newton), #8 (Mercury), #9 (Λ) IS the face count `F_v = 20v²` of this discrete blanket at frequency `v(R) = √(π/5)·R/L_Planck`. **McKay correspondence** then sends the binary icosahedral closure group `2I ⊂ SU(2)` to **E₈** — the largest exceptional Lie group is structurally encoded in the substrate via the primordial-blanket symmetry. Same primitive at every scale, from the v=1 icosahedron up to the v ≈ 10⁶⁰ cosmic Markov blanket.
 
+**The prime ladder, atomic structure, and no free duplication** (June 2026): the icosahedral blanket geometry extends into an account of matter. *Orthogonality is one bit* — the coarse resolution of the rendered 3-D perspective — and the **prime arrangements (2, 3, 5, 7, 11, 13)** are the substrate's irreducible structure ([`Geometry_Of_Space.md`](Geometry_Of_Space.md) §3c): 2 the bit, 3 the axes/proton, **5 & 13** the icosahedral pair (fold symmetry / `1+12` centered cluster), **7 & 11** the QCD-coupling pair (net `b₀` / gluon antiscreening). This reaches into **atomic structure** ([`Atomic_Structure_QLF.md`](Atomic_Structure_QLF.md)): the `s, p, d` shells (orbital dims `1, 3, 5`) are the *unsplit* irreps of the icosahedral group `A₅`, with `f` (dim 7) the first to break — exactly the `ℓ≤2 / ℓ≥3` magic-number boundary. And the substrate **forbids free duplication** ([`Banach_Tarski_QLF.md`](Banach_Tarski_QLF.md)): a conserved ZFA charge + a finite, amenable closure fold mean there is no Banach–Tarski free copy, so real duplication — no-cloning, the no-diproton, cell mitosis — must *pay* in information and energy. The "impossible mathematics" is precisely the continuum + Axiom of Choice the substrate excludes (consistency ≠ realizability).
+
 Reading order:
 - Start with [**Active_Inference_Mathematics.md**](Active_Inference_Mathematics.md) for the meta-framing.
 - See [**Magnetism_Spatial_Dynamics.md §6**](Magnetism_Spatial_Dynamics.md) for the α derivation that anchors the substrate program.
@@ -470,7 +472,11 @@ lake build
 
 ### If you care most about curvature and geometry
 
-[Primordial_Markov_Blankets.md](Primordial_Markov_Blankets.md) → [Gravity.md](Gravity.md) → [Magnetism_Spatial_Dynamics.md](Magnetism_Spatial_Dynamics.md) → [Cosmological_Constant.md](Cosmological_Constant.md) → [Curvature.md](Curvature.md)
+[Primordial_Markov_Blankets.md](Primordial_Markov_Blankets.md) → [Geometry_Of_Space.md](Geometry_Of_Space.md) → [Atomic_Structure_QLF.md](Atomic_Structure_QLF.md) → [Gravity.md](Gravity.md) → [Magnetism_Spatial_Dynamics.md](Magnetism_Spatial_Dynamics.md) → [Cosmological_Constant.md](Cosmological_Constant.md) → [Curvature.md](Curvature.md)
+
+### If you care most about the substrate vs the continuum (impossible vs possible mathematics)
+
+[TheContinuum.md](TheContinuum.md) → [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md) → [Banach_Tarski_QLF.md](Banach_Tarski_QLF.md) → [Mathematics_From_QLF.md](Mathematics_From_QLF.md)
 
 ### If you care most about the variational / Lagrangian formulation
 
