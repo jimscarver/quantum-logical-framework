@@ -37,3 +37,7 @@ Understanding Prime Topology provides the algorithmic rules for building structu
 * **Core Truths (Long-Term Memory / Base Matter):** When a system requires an indestructible foundation—a core logic that the environment cannot overwrite or degrade—it must be deliberately driven into a Prime Topology. 
 
 By utilizing prime numbers as topological "locks," we can engineer semantic Markov Blankets in AI that are immune to degradation, hallucination, or catastrophic forgetting.
+
+---
+
+The prime-3 lock is one rung of a general ladder. [`Geometry_Of_Space.md`](Geometry_Of_Space.md) §3c generalizes it: **orthogonality is the one-bit resolution of the rendered perspective**, and the prime arrangements `2, 3, 5, 7, …` are the substrate's irreducible structure — **2** the bit/spin, **3** the axes/proton, **5** the icosahedral 5-fold (`5 ∣ |2I|`; the d-orbital `ℓ=2 = A₅` 5-dim irrep), **7** the *derived* QCD `b₀` count (not a 7-fold symmetry), higher primes open. Anchored in [`lean/QLF_PrimeResonance.lean`](lean/QLF_PrimeResonance.lean).

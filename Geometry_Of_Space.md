@@ -118,6 +118,60 @@ the 3-forward-3-back is the deeper 3-axis / 120° (3-D) cut of the same 720° ob
 the prime-step-count facts anchor, *not yet a proof* of the 3-D fold. See `QLF_PrimeResonance`'s honest
 scope.
 
+## 3c. Orthogonality is one bit — the prime ladder (2, 3, 5, 7, …)
+
+The prime-3 proton is one rung. The deeper statement is general: **orthogonality is the one-bit
+resolution of the rendered perspective, and the prime arrangements are the substrate's irreducible
+structure.**
+
+**Orthogonality is one bit.** Two states are orthogonal exactly when they are perfectly distinguishable —
+one bit. In the substrate that bit is concrete: the Hermitian-conjugate pair `(t, t†)` is a binary
+partition whose ZFA closure carries exactly `log 2` nats — one bit (`orthogonal_distinction_is_one_bit`,
+reusing `zfa_closure_minimizes_free_energy`, [`QLF_FreeEnergy`](lean/QLF_FreeEnergy.lean)). The three
+mutually-orthogonal spatial axes (`su2_comm_*`, [`QLF_Spin`](lean/QLF_Spin.lean)) are three one-bit
+distinctions, so the rendered **3-D perspective *is* the geometry seen at one-bit-per-axis resolution**.
+The orthogonal / periodic-lattice description — and the crystallographic restriction that allows only 2-,
+3-, 4-, 6-fold axes — is therefore a *low-resolution rendering*, the coarse floor. It is not where the
+structure lives.
+
+**The structure lives in the primes.** Every closure period factors; a **prime** period has no
+nontrivial sub-closure repeat (`prime_freq_irreducible` — the irreducible lock), and a composite one
+decomposes (`composite_freq_factors`). So the irreducible building blocks of the geometry are the prime
+arrangements, and they are general — not a 5-fold special case. Each small prime has a home in QLF, but
+**the *kind* of role shifts up the ladder**, and honesty requires saying so:
+
+| Prime | Role | Where (anchored) |
+|---|---|---|
+| **2** | the bit itself — spin, the Hermitian pair, the `log 2` quantum | `orthogonal_distinction_is_one_bit`; orthogonality *is* this 2 |
+| **3** | *geometric symmetry* — 3 spatial axes / proton `n=3` / colour SU(3) / 3 generations / Koide | `half_spin_irreducible`, §3b; `QLF_Generations` |
+| **5** | *geometric symmetry* — icosahedral 5-fold / 12 pentamons / `I ≅ A₅`; densest **local** packing ⟹ common (clusters, viruses, quasicrystals) | `prime_five_irreducible`, `five_divides_icosahedral` (`5 ∣ \|2I\|=120`) |
+| **7** | *a derived count, NOT a 7-fold symmetry* — QCD `b₀ = 11·3/3 − 2·6/3 = 7`, the `14π=2π·7` hierarchy | `prime_seven_is_qcd_b0` (reuse `beta_coefficient_eq_seven`); [`QLF_BetaFunction`](lean/QLF_BetaFunction.lean) |
+| **11, 13, …** | open — locks (`prime_freq_irreducible`) with no anchored geometric/physical role yet | — |
+
+**Prime-5 is common, not exceptional** — and this is what corrects the naive "5-fold is forbidden"
+reflex. The crystallographic restriction forbids 5-fold *for an orthogonal, periodic lattice* — i.e. at
+the one-bit-lattice floor. Above that floor, icosahedral 5-fold is the densest **local** packing (Frank
+1952), so it is everywhere local order dominates: atomic clusters, virus capsids, quasicrystals, and the
+substrate's **universal 12 pentamons** at every Fuller frequency (`pentamons_invariant`). Its macroscopic
+rendering is the quasicrystalline / Penrose tiling. The "5" reaches into atomic structure too: the
+d-subshell (`ℓ=2`, `2ℓ+1 = 5` orbitals) is the **5-dimensional irreducible representation of `A₅`** (whose
+irreps are `{1,3,3,4,5}`; the unsplit `H_g` multiplet), so "5D atomic structure" (the 5 d-orbitals) and
+the icosahedral 5-fold are the *same representation* — and `5` is a McKay mark of `2I → E₈`.
+
+**What is verified vs a reading (the distinct-primes discipline).** Verified: orthogonality carries one
+bit (`log 2`); `2,3,5,7` are prime; prime periods are irreducible locks; `5 ∣ \|2I\|`; `b₀ = 7`. Readings
+and cited facts: that orthogonality is the "rendered-perspective resolution" (a QLF interpretation); that
+prime-5 is "common" (cited — icosahedral packing, quasicrystals); the d-orbital `ℓ=2` ↔ 5-dim `A₅` irrep
+(**standard group theory, cited — a shared representation, *not* a QLF derivation of atomic structure**;
+QLF's native shell model is the 3-D oscillator, [`Magic_numbers.md`](Magic_numbers.md)). And the several
+"fives" are **different objects** — keep them apart: the 5-fold *symmetry* (pentamons, `A₅` axes), the
+5-*dimensional* irrep (d-orbitals), the Banach–Tarski 5 *pieces* (`1+2×2` from `F₂`'s 2 generators,
+[`Banach_Tarski_QLF.md`](Banach_Tarski_QLF.md)), and the Borromean `5 = 3+2` angular *DOF*
+(`total_angular_DOF_eq_five`, behind `m_p/m_e = |S₃|·π⁵`) are not one thing. Likewise `b₀ = 7` is a count,
+not a heptagonal symmetry. Asserting only the genuine identities — and refusing the rest — is what keeps
+this a structure and not a numerology. Anchored in [`QLF_PrimeResonance`](lean/QLF_PrimeResonance.lean);
+no new axioms.
+
 ## 4. Higher frequencies dominate
 
 Among co-present resonant closures, the **highest-frequency (shortest-period) one dominates the
