@@ -165,7 +165,7 @@ theorem eleven_thirteen_prime : Nat.Prime 11 ∧ Nat.Prime 13 := by
     centered cluster, `centered_icosahedron_is_thirteen` = `1+12`, `thirteen_irreducible`); `7 & 11` the
     **QCD-coupling pair** (net `b₀` / gluon antiscreening, `gluon_antiscreening_is_eleven` = `b₀(n_f=0)`);
     higher primes (17, 19, …) open. Honest scope: 2/3/5/13 are geometric prime locks, 7/11 counting
-    primes in the coupling sector (not 7-/11-fold symmetries); 11/13 are more speculative than 2/3/5/7;
+    primes in the coupling sector (not 7- or 11-fold symmetries); 11/13 are more speculative than 2/3/5/7;
     the d-orbital ↔ 5-dim `A₅` irrep is cited group theory, not a derivation of atomic structure. Reuses
     `QLF_FreeEnergy` + `QLF_PrimordialMarkovBlanket` + `QLF_BetaFunction`; no new axioms. -/
 theorem prime_ladder_summary : True := trivial
