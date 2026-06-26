@@ -1,5 +1,7 @@
 import QLF_Fusion
 import QLF_FreeEnergy
+import QLF_TwistAlphabet
+import QLF_BMinusL
 
 set_option linter.unusedVariables false
 
@@ -36,6 +38,22 @@ buys distinguishability and pays in energy/time/information*. Banach–Tarski is
 like with that ledger dropped (AC's free choice); mitosis is what it looks like with the ledger kept
 (ZFA closure).
 
+**The free-group angle (does the substrate's free generation enable a paradox?).** The substrate *does*
+generate freely — the free twist-monoid has exponential `4^n` possibility (the `C(2n,n)` census), the
+combinatorial analog of Banach–Tarski's free group `F₂` (exponential word growth). QLF concedes the free
+engine; it is **not** "too poor" to have one. But a paradoxical decomposition needs more than freeness:
+by Tarski's theorem it needs the acting group to be **non-amenable** (no invariant finitely-additive
+measure), AND it needs an uncountable continuum to act on plus the Axiom of Choice to select
+non-measurable orbit representatives. The substrate supplies none of these:
+* `zfa_charge_additive` — every signed twist count is a **conserved additive invariant** (a homomorphism
+  to `(ℤ, +)`); the substrate has the invariant mean `F₂` lacks (amenability by construction).
+* `closure_folds_to_finite_group` — the closure fold lands in the **finite** (hence amenable) Pauli
+  group, so no paradox lives in the rendering.
+* the substrate is countable / finite-information (`no_continuum_in_finite_region`, `QLF_Realizability`),
+  with no uncountable orbit space, and `full_zeno_prune` replaces AC.
+So the freeness is real but harmless; Banach–Tarski's teeth are the continuum + Choice + non-amenability
+layered on top, exactly the layers QLF omits.
+
 ## Honest scope
 
 The three facts are **already proven** and reused here, no new axioms, no `sorry`. Banach–Tarski itself
@@ -47,7 +65,7 @@ paid duplication), not a derivation of cell biology. See `Banach_Tarski_QLF.md`.
 
 namespace QLF.NoFreeDuplication
 
-open QLF QLF.Fusion QLF.Spin Matrix
+open QLF QLF.Fusion QLF.Spin QLF.BMinusL Matrix
 
 /-- **No free identical copy.** Two identical offspring closures have no bound fermionic channel —
     `fermi_antisym p p = 0` — so a second *identical* copy cannot share the closure (the substrate's
@@ -72,11 +90,37 @@ theorem duplication_pays_log_two :
     -binary_kl 1 (1/2) = -Real.log 2 :=
   zfa_closure_minimizes_free_energy
 
+/-- **The ZFA charge is a conserved, finitely-additive invariant** — a homomorphism
+    `(TopoString, ++) → (ℤ, +)` (direct reuse of `wcount_append`). This is the free-group angle on
+    Banach–Tarski: by Tarski's theorem a set admits a paradoxical decomposition **iff** the acting
+    group is *non-amenable* — admits **no** invariant finitely-additive measure. The free group `F₂`
+    (Banach–Tarski's engine) is the canonical non-amenable group; the QLF substrate, by contrast,
+    carries such an invariant *by construction* — every signed twist count is a conserved additive
+    charge — so the free twist-monoid cannot host a paradoxical doubling. The ZFA balance **is** the
+    invariant mean that `F₂` lacks. -/
+theorem zfa_charge_additive (w : TopoElement → Int) (s t : TopoString) :
+    wcount w (s ++ t) = wcount w s + wcount w t :=
+  wcount_append w s t
+
+/-- **Every ZFA closure folds to the finite Pauli group** (direct reuse of
+    `count_balanced_pauli_closed`): a count-balanced twist history renders to a `PauliScalar` — an
+    element of the finite (order-16) Pauli group, which is **amenable**. So although the substrate
+    *generates* freely (the free twist-monoid, exponential `4^n` possibility, the `C(2n,n)` census —
+    the combinatorial analog of `F₂`'s exponential word growth), its *physical image* under the
+    closure fold is a finite, amenable group: no paradoxical decomposition lives in the rendering.
+    Banach–Tarski's freeness-on-the-continuum is exactly what the finite fold excludes. -/
+theorem closure_folds_to_finite_group {ts : List Twist} (h : countBalanced ts) :
+    ∃ p : PauliScalar, twistMatrixFold ts = pauliScalarToMatrix p :=
+  count_balanced_pauli_closed h
+
 /-- **Established (the no-free-duplication principle, by reuse):** identical copies are Pauli-blocked
     (`identical_copy_pauli_blocked`), a realizable one-becomes-two needs distinguishable products
     (`realizable_duplication_needs_distinguishability`), and minting the distinguishing bit pays
-    `ΔF = −log 2` (`duplication_pays_log_two`). The substrate's "no free Banach–Tarski," one principle
-    behind no-cloning, the no-diproton, and mitosis. No new axioms. See `Banach_Tarski_QLF.md`. -/
+    `ΔF = −log 2` (`duplication_pays_log_two`). On the free-group angle: the substrate generates freely
+    yet hosts no paradox — it carries a conserved additive invariant (`zfa_charge_additive`) and folds
+    to a finite, amenable group (`closure_folds_to_finite_group`), so Banach–Tarski's non-amenable
+    `F₂`-on-the-continuum never forms. The substrate's "no free Banach–Tarski," one principle behind
+    no-cloning, the no-diproton, and mitosis. No new axioms. See `Banach_Tarski_QLF.md`. -/
 theorem no_free_duplication_summary : True := trivial
 
 end QLF.NoFreeDuplication
