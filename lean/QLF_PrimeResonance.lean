@@ -124,15 +124,50 @@ theorem five_divides_icosahedral : 5 ∣ binary_icosahedral_order := by
 theorem prime_seven_is_qcd_b0 : beta_coefficient 3 6 = 7 :=
   beta_coefficient_eq_seven
 
+/-! ### The next rungs — 11 and 13 pair with 7 and 5 by sector
+
+The ladder is not random: the primes pair by sector. **5 and 13 are the icosahedral pair** (fold
+symmetry / centered cluster); **7 and 11 are the QCD-coupling pair** (net `b₀` / gluon antiscreening).
+More speculative than 2/3/5/7, but each anchored by reuse; higher primes (17, 19, …) stay open. -/
+
+/-- **Prime-13 — the centered icosahedron (the icosahedral partner of 5).** A *centered* icosahedron is
+    `1` centre `+ 12` shell vertices `= 13` (`primordial_blanket_vertex_count 1 = 12`, `base_icosahedron`)
+    — the first **Mackay icosahedral magic number** (13, 55, 147, …), the densest small cluster. So `5`
+    (the 5-fold symmetry) and `13` (the centered-cluster count) are the **icosahedral pair**, both built
+    on the same icosahedron's 12 pentamons. -/
+theorem centered_icosahedron_is_thirteen : 1 + primordial_blanket_vertex_count 1 = 13 := by decide
+
+/-- `13` is irreducible (reuse `prime_freq_irreducible`): an irreducible cluster lock, like the proton's
+    prime-3 and the icosahedral prime-5. -/
+theorem thirteen_irreducible : ∀ d, d ∣ 13 → d = 1 ∨ d = 13 :=
+  prime_freq_irreducible (by decide : Nat.Prime 13)
+
+/-- **Prime-11 — the gluon antiscreening (the QCD partner of 7).** The pure-gauge (`n_f = 0`) one-loop
+    coefficient is the gluon antiscreening `b₀ = 11·N_c/3 = 11` (reuse `beta_coefficient`). So `7` (the
+    net `b₀` after quark screening, `beta_coefficient 3 6 = 7`) and `11` (the bare antiscreening) are the
+    **QCD-coupling pair**. Like `7`, prime-`11` is a **derived count in the coupling sector — NOT an
+    11-fold symmetry** (the alternative reading, M-theory's 11 dimensions, is dimensional/structural, not
+    anchored here as a lock). -/
+theorem gluon_antiscreening_is_eleven : beta_coefficient 3 0 = 11 := by
+  unfold beta_coefficient; norm_num
+
+/-- The next two rungs are prime. -/
+theorem eleven_thirteen_prime : Nat.Prime 11 ∧ Nat.Prime 13 := by
+  refine ⟨?_, ?_⟩ <;> decide
+
 /-- **Established (the prime-ladder generalization, `Geometry_Of_Space.md` §3c):** orthogonality is the
     1-bit resolution of the rendered perspective (`orthogonal_distinction_is_one_bit`); the prime
     arrangements are the irreducible structure (`prime_freq_irreducible`; rungs prime,
     `small_primes_prime`). Anchored homes — **2** the bit/spin, **3** the axes/proton
     (`half_spin_irreducible`), **5** the icosahedral lock (`prime_five_irreducible`,
     `five_divides_icosahedral`), **7** the *derived count* QCD `b₀` (`prime_seven_is_qcd_b0`), not a
-    7-fold symmetry; higher primes open. Honest scope: 2/3/5 are geometric prime symmetries, 7 a counting
-    prime; the d-orbital ↔ 5-dim `A₅` irrep is cited group theory, not a derivation of atomic structure.
-    Reuses `QLF_FreeEnergy` + `QLF_PrimordialMarkovBlanket` + `QLF_BetaFunction`; no new axioms. -/
+    7-fold symmetry. **The primes pair by sector:** `5 & 13` the **icosahedral pair** (fold symmetry /
+    centered cluster, `centered_icosahedron_is_thirteen` = `1+12`, `thirteen_irreducible`); `7 & 11` the
+    **QCD-coupling pair** (net `b₀` / gluon antiscreening, `gluon_antiscreening_is_eleven` = `b₀(n_f=0)`);
+    higher primes (17, 19, …) open. Honest scope: 2/3/5/13 are geometric prime locks, 7/11 counting
+    primes in the coupling sector (not 7-/11-fold symmetries); 11/13 are more speculative than 2/3/5/7;
+    the d-orbital ↔ 5-dim `A₅` irrep is cited group theory, not a derivation of atomic structure. Reuses
+    `QLF_FreeEnergy` + `QLF_PrimordialMarkovBlanket` + `QLF_BetaFunction`; no new axioms. -/
 theorem prime_ladder_summary : True := trivial
 
 /-- **Established (the synthesis, `Geometry_Of_Space.md`):** prime frequencies are the irreducible
