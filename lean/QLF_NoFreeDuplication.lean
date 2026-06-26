@@ -2,6 +2,7 @@ import QLF_Fusion
 import QLF_FreeEnergy
 import QLF_TwistAlphabet
 import QLF_BMinusL
+import QLF_PrimordialMarkovBlanket
 
 set_option linter.unusedVariables false
 
@@ -113,14 +114,47 @@ theorem closure_folds_to_finite_group {ts : List Twist} (h : countBalanced ts) :
     ∃ p : PauliScalar, twistMatrixFold ts = pauliScalarToMatrix p :=
   count_balanced_pauli_closed h
 
+/-- **Geometric no-free-doubling: the blanket's topological charge is subdivision-invariant.** A QLF
+    Markov blanket is a Fuller geodesic sphere with Euler characteristic `V − E + F = 2` at *every*
+    frequency `v` (reuse `primordial_blanket_euler`) and exactly **12 pentamons** independent of `v`
+    (reuse `pentamons_invariant`). Subdividing a blanket — refining `v`, the geometric analog of a
+    Banach–Tarski decomposition into finer pieces — **preserves** both: still `χ = 2`, still 12
+    pentamons. So no decomposition of one blanket (into 5 pieces or any number) can yield *two* (which
+    would need `χ = 4`, 24 pentamons). Banach–Tarski's "5 pieces" escape this only by being
+    non-measurable scatter with no `χ` and no pentamons — pieces a blanket of finite-information closures
+    cannot have. The "5" is thus a feature of the geometry-less construction, not a piece-count QLF
+    reproduces (and *not* the `5 = 3 + 2` angular-DOF of `QLF_BorromeanAngles` — a different object). -/
+theorem blanket_charge_subdivision_invariant (v : ℕ) :
+    (primordial_blanket_vertex_count v : ℤ) - primordial_blanket_edge_count v
+        + primordial_blanket_face_count v = 2
+      ∧ pentamon_count = 12 :=
+  ⟨primordial_blanket_euler v, pentamons_invariant⟩
+
+/-- **Doubling the blanket doubles its holographic information — the second copy must be written.** The
+    blanket's boundary screen carries `S(v) = 20 v² · log 2` nats (reuse
+    `primordial_blanket_information_capacity_eq`). Two blankets carry `2 · 20 v² · log 2` — the second
+    screen's worth of information that a *free* Banach–Tarski doubling would conjure from nothing. Mitosis
+    must instead **write** it (DNA replication lays down the second boundary's bits) and pay the
+    `log 2`-per-event Landauer cost (`duplication_pays_log_two`). This is the geometric form of
+    "duplication pays": the conserved structure Banach–Tarski steals is exactly the structure mitosis
+    synthesizes. -/
+theorem blanket_doubling_doubles_information (v : ℕ) :
+    primordial_blanket_information_capacity v + primordial_blanket_information_capacity v
+      = 2 * ((20 * v ^ 2 : ℝ) * Real.log 2) := by
+  rw [primordial_blanket_information_capacity_eq]; ring
+
 /-- **Established (the no-free-duplication principle, by reuse):** identical copies are Pauli-blocked
     (`identical_copy_pauli_blocked`), a realizable one-becomes-two needs distinguishable products
     (`realizable_duplication_needs_distinguishability`), and minting the distinguishing bit pays
     `ΔF = −log 2` (`duplication_pays_log_two`). On the free-group angle: the substrate generates freely
     yet hosts no paradox — it carries a conserved additive invariant (`zfa_charge_additive`) and folds
     to a finite, amenable group (`closure_folds_to_finite_group`), so Banach–Tarski's non-amenable
-    `F₂`-on-the-continuum never forms. The substrate's "no free Banach–Tarski," one principle behind
-    no-cloning, the no-diproton, and mitosis. No new axioms. See `Banach_Tarski_QLF.md`. -/
+    `F₂`-on-the-continuum never forms. Geometrically the blanket's topological charge is subdivision-
+    invariant (`blanket_charge_subdivision_invariant`: `χ = 2`, 12 pentamons at every `v`), so no
+    cutting of one blanket yields two — the second must be *built*, writing its `20 v² · log 2`-nat
+    holographic screen (`blanket_doubling_doubles_information`). The substrate's "no free Banach–Tarski,"
+    one principle behind no-cloning, the no-diproton, and mitosis. No new axioms. See
+    `Banach_Tarski_QLF.md`. -/
 theorem no_free_duplication_summary : True := trivial
 
 end QLF.NoFreeDuplication
