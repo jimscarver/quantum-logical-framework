@@ -41,8 +41,8 @@ def simulate_bell_state() -> Dict[str, Any]:
     rho = """
 new a, b in
   (a ! (@^) | b ! (@^)) |
-  ApplyZfa(a, "ZFA_FLUXOID") |
-  ApplyZfa(b, "ZFA_FLUXOID")
+  ApplyZfa(a, "FULL_FLUXOID") |
+  ApplyZfa(b, "FULL_FLUXOID")
 """
     print("=== Bell State Simulation (RhoQuCalc) ===")
     return simulate_rho_circuit(rho)
@@ -53,8 +53,8 @@ def simulate_double_slit() -> Dict[str, Any]:
     rho = """
 new slit1, slit2 in
   (^ ! (> ! (@slit1)) | ^ ! (< ! (@slit2))) |
-  *ApplyZfa(slit1, "ZFA_MIN_SQUARE") |
-  *ApplyZfa(slit2, "ZFA_MIN_SQUARE")
+  *ApplyZfa(slit1, "POSITRON_LOOP") |
+  *ApplyZfa(slit2, "POSITRON_LOOP")
 """
     print("=== Double-Slit Interference (RhoQuCalc) ===")
     return simulate_rho_circuit(rho)
@@ -64,7 +64,7 @@ def simulate_n_particle_gas(n: int = 4) -> Dict[str, Any]:
     """Multi-particle gas using replication *."""
     rho = f"""
 new particle in
-  *ApplyZfa(particle, "ZFA_FLUXOID")   // replicated {n} times
+  *ApplyZfa(particle, "FULL_FLUXOID")   // replicated {n} times
 """
     # The transpiler handles * via engine.replicate()
     print(f"=== {n}-Particle Gas Simulation (RhoQuCalc) ===")

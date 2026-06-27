@@ -155,15 +155,23 @@ class PossibilistEngine:
         self._register_standard_closures()
 
     def _register_standard_closures(self) -> None:
-        """Register the official minimal and composite ZFA closures."""
-        # Minimal spatial loops
-        self.catalog.register("ZFA_MIN_SQUARE", "^>v<")
-        self.catalog.register("ZFA_MIN_SQUARE_CCW", "^<v>")
-        self.catalog.register("ZFA_MIN_DIAG", "/\\/\\")
-        # Gauge-resolved
-        self.catalog.register("ZFA_GAUGE_LOOP", "+-")
-        # Composite particle-like fluxoid
-        self.catalog.register("ZFA_FLUXOID", "^>/+v<\\-")
+        """Register the named ZFA closures, by geometry + the role each plays.
+
+        Names describe what the closure IS:
+          ELECTRON_LOOP  ^<v>      minimal CCW spatial square (one ^v + one <> pair)
+          POSITRON_LOOP  ^>v<      minimal CW spatial square (Hermitian conjugate of the electron)
+          DIAGONAL_LOOP  /\\/\\      the diagonal (/\\) spatial axis loop
+          GAUGE_BIT      +-        the minimal gauge handshake = one resolved bit (photon-like)
+          FULL_FLUXOID   ^>/+v<\\-  all eight twists once = the complete fluxoid (all four axes)
+        """
+        # Minimal spatial loops — the electron/positron chiral pair
+        self.catalog.register("ELECTRON_LOOP", "^<v>")
+        self.catalog.register("POSITRON_LOOP", "^>v<")
+        self.catalog.register("DIAGONAL_LOOP", "/\\/\\")
+        # Gauge-resolved handshake (one bit)
+        self.catalog.register("GAUGE_BIT", "+-")
+        # Composite all-eight-twist fluxoid
+        self.catalog.register("FULL_FLUXOID", "^>/+v<\\-")
         # Add more closures here as they are discovered
 
     def ApplyZfa(self, prefix: str, name: str) -> Optional[str]:
@@ -207,8 +215,8 @@ if __name__ == "__main__":
 
     # Example 1: ApplyZfa (catalog composition)
     open_prefix = "^>"
-    closed = engine.ApplyZfa(open_prefix, "ZFA_MIN_SQUARE")
-    print(f"ApplyZfa('{open_prefix}', 'ZFA_MIN_SQUARE') → {closed}")
+    closed = engine.ApplyZfa(open_prefix, "POSITRON_LOOP")
+    print(f"ApplyZfa('{open_prefix}', 'POSITRON_LOOP') → {closed}")
     print(f"   ZFA closed? {is_zfa_closed(closed) if closed else False}\n")
 
     # Example 2: Rho parallel + replicate

@@ -104,8 +104,8 @@ if __name__ == "__main__":
     bell_rho = """
 new a, b in
   (a ! (@^) | b ! (@^)) |
-  ApplyZfa(a, "ZFA_FLUXOID") |
-  ApplyZfa(b, "ZFA_FLUXOID")
+  ApplyZfa(a, "FULL_FLUXOID") |
+  ApplyZfa(b, "FULL_FLUXOID")
 """
     print("\n2. Bell state (parallel Rho process):")
     bell_stats = count_rho_process(bell_rho)
@@ -115,8 +115,8 @@ new a, b in
     slit_rho = """
 new slit1, slit2 in
   (^ ! (> ! (@slit1)) | ^ ! (< ! (@slit2))) |
-  *ApplyZfa(slit1, "ZFA_MIN_SQUARE") |
-  *ApplyZfa(slit2, "ZFA_MIN_SQUARE")
+  *ApplyZfa(slit1, "POSITRON_LOOP") |
+  *ApplyZfa(slit2, "POSITRON_LOOP")
 """
     print("\n3. Double-slit with replication (*):")
     slit_stats = count_rho_process(slit_rho)
@@ -124,7 +124,7 @@ new slit1, slit2 in
 
     # Example 4: 8-particle gas
     gas_rho = """
-*ApplyZfa(particle, "ZFA_FLUXOID")
+*ApplyZfa(particle, "FULL_FLUXOID")
 """
     print("\n4. 8-particle gas (replication):")
     gas_stats = count_rho_process(gas_rho)

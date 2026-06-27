@@ -121,19 +121,19 @@ class PrimordialBlackHoleParticle:
 PARTICLE_LIBRARY: Dict[str, Dict[str, str]] = {
     "electron": {
         "prefix": "^<",
-        "closure_name": "ZFA_MIN_SQUARE_CCW",
+        "closure_name": "ELECTRON_LOOP",
         "note": "Minimal CCW spatial closure; the electron half-loop.",
         "constituents": "one half-loop",
     },
     "positron": {
         "prefix": "v>",
-        "closure_name": "ZFA_MIN_SQUARE",
+        "closure_name": "POSITRON_LOOP",
         "note": "Conjugate-oriented minimal spatial closure; the positron half-loop.",
         "constituents": "one half-loop (Hermitian conjugate of the electron)",
     },
     "fluxoid": {
         "prefix": "^>/+",
-        "closure_name": "ZFA_FLUXOID",
+        "closure_name": "FULL_FLUXOID",
         "note": "Composite particle-like closure from the catalog.",
         "constituents": "composite catalog closure",
     },

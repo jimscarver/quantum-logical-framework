@@ -81,15 +81,15 @@ All closures are verified minimal or composite loops that satisfy **E_free = Σ(
 
 ```rholang
 // Minimal square (clockwise)
-ZFA_MIN_SQUARE = ^ ! ( > ! ( v ! ( < ! 0 ) ) ) |   // path emission
+POSITRON_LOOP = ^ ! ( > ! ( v ! ( < ! 0 ) ) ) |   // path emission
                  < ! ( v ! ( > ! ( ^ ! 0 ) ) )     // Hermitian conjugate closure
 
 // Minimal square (counter-clockwise)
-ZFA_MIN_SQUARE_CCW = ^ ! ( < ! ( v ! ( > ! 0 ) ) ) |
+ELECTRON_LOOP = ^ ! ( < ! ( v ! ( > ! 0 ) ) ) |
                      > ! ( v ! ( < ! ( ^ ! 0 ) ) )
 
 // Diagonal square (using / and \)
-ZFA_MIN_DIAG = / ! ( \ ! ( / ! ( \ ! 0 ) ) ) |
+DIAGONAL_LOOP = / ! ( \ ! ( / ! ( \ ! 0 ) ) ) |
                \ ! ( / ! ( \ ! ( / ! 0 ) ) )
 ```
 
@@ -97,24 +97,24 @@ ZFA_MIN_DIAG = / ! ( \ ! ( / ! ( \ ! 0 ) ) ) |
 
 ```rholang
 // Time-synthesized loop (uses + / - for unresolved spatial)
-ZFA_GAUGE_LOOP = + ! ( - ! 0 ) | - ! ( + ! 0 )
+GAUGE_BIT = + ! ( - ! 0 ) | - ! ( + ! 0 )
 
 // Composite 8-twist fluxoid (particle-like)
-ZFA_FLUXOID = ^ ! ( > ! ( / ! ( + ! ( v ! ( < ! ( \ ! ( - ! 0 ) ) ) ) ) ) ) |
+FULL_FLUXOID = ^ ! ( > ! ( / ! ( + ! ( v ! ( < ! ( \ ! ( - ! 0 ) ) ) ) ) ) ) |
               // conjugate omitted for brevity – full Hermitian pair required
 ```
 
 ### Composite / Higher-Order Closures (reusable building blocks)
 
 ```rholang
-ZFA_2PARTICLE_BOUND = ZFA_MIN_SQUARE | ZFA_MIN_SQUARE_CCW   // two-particle bound state
+POSITRONIUM = POSITRON_LOOP | ELECTRON_LOOP   // two-particle bound state (electron + positron)
 ```
 
 **Catalog lookup example** (in QuCalc simulation):
 
 ```rholang
 CurrentPrefix = ^ ! ( > ! 0 )   // unresolved directional state after two twists
-OptimizedPath = CurrentPrefix | ApplyZfa(CurrentPrefix, "ZFA_MIN_SQUARE")
+OptimizedPath = CurrentPrefix | ApplyZfa(CurrentPrefix, "POSITRON_LOOP")
 ```
 
 This replaces exhaustive search with direct composition → exponential speedup.
@@ -126,14 +126,14 @@ Multi-particle systems are simply **parallel composition** of independent ZFA pr
 ```rholang
 // Two-particle scattering (optimized via catalog)
 TwoParticleScattering = new p1, p2 in
-  *ZFA_MIN_SQUARE |               // particle 1 (replicated for statistics)
-  *ZFA_MIN_SQUARE_CCW |           // particle 2 (opposite chirality)
+  *POSITRON_LOOP |               // particle 1 (replicated for statistics)
+  *ELECTRON_LOOP |           // particle 2 (opposite chirality)
   // Interaction via gauge channel (time-like exchange)
   for( _ <- + ) . ( - ! (@interactionData) ) |
   for( data <- - ) . ( + ! (@data) )
 
 // N-particle gas (path-integral optimized)
-NParticleGas(n) = * (new i in ApplyZfa(0, "ZFA_FLUXOID"))   // n identical particles
+NParticleGas(n) = * (new i in ApplyZfa(0, "FULL_FLUXOID"))   // n identical particles
 ```
 
 **Optimization**: Instead of re-running BFS for every particle, the engine injects cataloged closures from the current directional prefix of each particle. Net action remains zero globally; local residuals project as 3D trajectories or forces.
@@ -150,8 +150,8 @@ DoubleSlit = new slit1, slit2, screen in
   ( ^ ! ( > ! (@slit1) ) | ^ ! ( < ! (@slit2) ) ) |   // emit from source, choose slit
 
   // Both paths close with identical cataloged ZFA at screen
-  *ApplyZfa(slit1, "ZFA_MIN_SQUARE") |               // upper path closure
-  *ApplyZfa(slit2, "ZFA_MIN_SQUARE") |               // lower path closure
+  *ApplyZfa(slit1, "POSITRON_LOOP") |               // upper path closure
+  *ApplyZfa(slit2, "POSITRON_LOOP") |               // lower path closure
 
   // Detection screen counts arrivals (path-integral statistics)
   for( arrival <- screen ) .

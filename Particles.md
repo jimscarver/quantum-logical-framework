@@ -67,11 +67,11 @@ A particle is treated here as a dense knot of unresolved free
 action that stabilizes only by QuCalc / RhoQuCalc ZFA closure.
 ============================================================
 Registered ZFA closures:
-  - ZFA_FLUXOID: ^>/+v<\-
-  - ZFA_GAUGE_LOOP: +-
-  - ZFA_MIN_DIAG: /\/\
-  - ZFA_MIN_SQUARE: ^>v<
-  - ZFA_MIN_SQUARE_CCW: ^<v>
+  - DIAGONAL_LOOP: /\/\
+  - ELECTRON_LOOP: ^<v>
+  - FULL_FLUXOID: ^>/+v<\-
+  - GAUGE_BIT: +-
+  - POSITRON_LOOP: ^>v<
 ============================================================
 
 === NEUTRINO ===

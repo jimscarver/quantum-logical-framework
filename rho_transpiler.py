@@ -103,8 +103,8 @@ if __name__ == "__main__":
     bell_rho = """
 new a, b in
   (a ! (@^) | b ! (@^)) |
-  ApplyZfa(a, "ZFA_FLUXOID") |
-  ApplyZfa(b, "ZFA_FLUXOID")
+  ApplyZfa(a, "FULL_FLUXOID") |
+  ApplyZfa(b, "FULL_FLUXOID")
 """
     print("Transpiling Bell-state Rho code...")
     py = transpile_rho_to_python(bell_rho)
@@ -117,8 +117,8 @@ new a, b in
     double_slit_rho = """
 new slit1, slit2 in
   (^ ! (> ! (@slit1)) | ^ ! (< ! (@slit2))) |
-  *ApplyZfa(slit1, "ZFA_MIN_SQUARE") |
-  *ApplyZfa(slit2, "ZFA_MIN_SQUARE")
+  *ApplyZfa(slit1, "POSITRON_LOOP") |
+  *ApplyZfa(slit2, "POSITRON_LOOP")
 """
     print("\n\nTranspiling Double-Slit Rho code...")
     print(transpile_rho_to_python(double_slit_rho))

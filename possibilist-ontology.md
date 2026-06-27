@@ -36,7 +36,7 @@ OpenPath = ^ ! ( > ! 0 )   // real possibility prefix
 Superposition = OpenPath | ( ^ ! ( < ! 0 ) )
 
 // Closure via catalog = actualization
-Actualized = Superposition | ApplyZfa(OpenPath, "ZFA_MIN_SQUARE")
+Actualized = Superposition | ApplyZfa(OpenPath, "POSITRON_LOOP")
 ```
 
 All terms in the parallel composition exist *simultaneously* until the engine prunes non-closing branches. No collapse is needed — measurement is simply the observer’s own ZFA closure with the system.
