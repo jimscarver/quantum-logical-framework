@@ -98,7 +98,7 @@ neutrino, the electron, and the proton; the heavier leptons decay — the τ is 
 its balanced `τ⁻ e⁺` closure relaxes via a neutron that β-decays to the proton
 ([`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) §6).
 
-<img src="diagrams/atom_closures.svg" alt="Hydrogen as a QLF closure: the proton is three colour-spanning qubits (R=x >/<, G=y ^/v, B=z //\), each qubit two orthogonal twists; each axis-complement closes where two qubits meet a colour (>↔< at R, ^↔v at G, /↔\ at B); the electron sits outside and ties in by two crossing lines to a balanced twist. A qubit is two symbols; balance = a twist meets its complement" width="100%">
+<img src="diagrams/atom_closures.svg" alt="Atom folds: a twist is two symbols, ^> leaving the electron and v< returning to close. positronium = e⁻ ^> v< (out and back to the positron); muonium = e⁻ ^> /v >\ v< (the muon is the two nucleus twists /v and >\); hydrogen = e⁻ ^> /v >\ +− v< (the nucleus extends the muon with the gauge/charge twist +−). Each added qubit adds a new direction; the fold opens and closes at the electron" width="100%">
 
 The *number-of-differences* classification is a structural reading; the verified anchors are the three
 generations, the proton's `π⁵`, and the Borromean baryon.

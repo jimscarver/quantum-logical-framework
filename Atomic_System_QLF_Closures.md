@@ -38,7 +38,7 @@ stable rungs are the neutrino, the electron, and the proton; the heavier leptons
 
 <img src="diagrams/particle_differences.svg" alt="Particles by number of differences: neutrino (1, stable), electron/positron (2, stable), muonium μ⁺e⁻ (3, decays), tau atom τ⁻e⁺ (4, balanced but unstable — falls to a neutron then β-decays to a proton), hydrogen p⁺e⁻ (5, stable, = 3 colour + charge + spin). Each difference is an orthogonal twist pair: charge lateral, spin transverse, colour internal" width="100%">
 
-<img src="diagrams/atom_closures.svg" alt="Hydrogen as a QLF closure: the proton is three colour-spanning qubits (R=x >/<, G=y ^/v, B=z //\), each qubit two orthogonal twists; each axis-complement closes where two qubits meet a colour (>↔< at R, ^↔v at G, /↔\ at B); the electron sits outside and ties in by two crossing lines to a balanced twist. A qubit is two symbols; balance = a twist meets its complement" width="100%">
+<img src="diagrams/atom_closures.svg" alt="Atom folds: a twist is two symbols, ^> leaving the electron and v< returning to close. positronium = e⁻ ^> v< (out and back to the positron); muonium = e⁻ ^> /v >\ v< (the muon is the two nucleus twists /v and >\); hydrogen = e⁻ ^> /v >\ +− v< (the nucleus extends the muon with the gauge/charge twist +−). Each added qubit adds a new direction; the fold opens and closes at the electron" width="100%">
 
 **Honest scope.** The *number-of-differences* classification is a structural reading of these closures;
 the verified anchors are the **three generations** from the 3 axes ([`QLF_Generations`](lean/QLF_Generations.lean)),
