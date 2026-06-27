@@ -1,15 +1,22 @@
-# Atomic structure in QLF — what the substrate geometry tells us
+# Atomic structure in QLF — substrate origins and joint closures
 
-The [Quantum Logical Framework](README.md) (QLF) does not reproduce quantum chemistry. It tells you where
-atomic structure's *ingredients* come from — and it adds one genuinely structural signature that ties the
-orbital ladder to the substrate's icosahedral closure geometry. This doc collects what the geometry says,
-from most-solid (machine-verified) to most-speculative (a cited representation resonance), with the
-honest scope stated plainly.
+This is the detailed companion to [`Atom.md`](Atom.md) (the narrative picture: the atom as a fractal Markov
+blanket, the ZFA clock, Pauli exclusion as path-blocking). The [Quantum Logical Framework](README.md) (QLF)
+does not reproduce quantum chemistry. It tells you where
+atomic structure's *ingredients* come from, and it writes out the **joint-closure topology of each atomic
+system** with its mass and binding energy. Two parts:
 
-The Lean anchor is [`lean/QLF_AtomicStructure.lean`](lean/QLF_AtomicStructure.lean) (reuse-only, no new
-axioms).
+- **Part I — what the substrate geometry says:** why atoms have shells, the orbital ladder, the energy
+  scale (α), the icosahedral signature, and the twist-fold model of the constituents.
+- **Part II — atomic systems as joint closures:** the specific QLF closure mapping for positronium,
+  hydrogen, muonium, the τ, and heavier nuclei, with the masses, binding energies, and Bohr scaling.
+
+The Lean anchor for Part I is [`lean/QLF_AtomicStructure.lean`](lean/QLF_AtomicStructure.lean) (reuse-only,
+no new axioms).
 
 ---
+
+# Part I — What the substrate geometry says
 
 ## 1. Why atoms have shells at all — Pauli exclusion
 
@@ -45,10 +52,9 @@ atomic structure is substrate-combinatorial, set by the same three axes (`N = 9 
 
 ## 4. The icosahedral signature — why s, p, d are special, and where it breaks
 
-This is the part the prime-ladder / icosahedral thread ([`Geometry_Of_Space.md`](Geometry_Of_Space.md)
-§3c) surfaces, and it is the one genuinely new claim. The substrate's closure symmetry is the icosahedral
-group `I ≅ A₅` (order 60; irreps of dimension `1, 3, 3, 4, 5`, since `1² + 3² + 3² + 4² + 5² = 60`). Set
-the orbital dimensions beside the icosahedral irrep dimensions `{1, 3, 4, 5}`:
+The substrate's closure symmetry is the icosahedral group `I ≅ A₅` (order 60; irreps of dimension
+`1, 3, 3, 4, 5`, since `1² + 3² + 3² + 4² + 5² = 60`). Set the orbital dimensions beside the icosahedral
+irrep dimensions `{1, 3, 4, 5}`:
 
 | Shell | `ℓ` | dim `2ℓ+1` | icosahedral irrep? |
 |---|---|---|---|
@@ -67,68 +73,219 @@ crystal-field result). The **f** shell (`ℓ = 3`, dimension 7) is the **first**
 irrep dimension (`f_orbital_breaks_icosahedral`), so it cannot stay unsplit — it is the first to break
 icosahedral symmetry.
 
-And that break lands exactly where `Magic_numbers.md` already places a phase boundary: the `ℓ ≤ 2`
-(`s, p, d`) **dimensional-growth** régime versus the `ℓ ≥ 3` (`f` and up) **vacuum-intruder** régime. So
-QLF's icosahedral closure geometry *resonates with* why the low shells are clean and the f-block is where
-the regularities strain — the same `ℓ ≤ 2 / ℓ ≥ 3` line, read as "where the substrate's icosahedral
-irreps run out."
-
-At the **cluster** scale the same geometry returns as the icosahedral magic numbers: `13 = 1` centre
-`+ 12` shell (the first Mackay number, the densest small cluster — `QLF_PrimeResonance.centered_icosahedron_is_thirteen`),
-then `55, 147, …`. Atomic matter, where local packing dominates, adopts the icosahedral order of the
-substrate blanket.
+That break lands exactly where `Magic_numbers.md` places a phase boundary: the `ℓ ≤ 2` (`s, p, d`)
+**dimensional-growth** régime versus the `ℓ ≥ 3` (`f` and up) **vacuum-intruder** régime. At the
+**cluster** scale the same geometry returns as the icosahedral magic numbers: `13 = 1` centre `+ 12` shell
+(the first Mackay number — `QLF_PrimeResonance.centered_icosahedron_is_thirteen`), then `55, 147, …`.
 
 ## 5. The constituents — particles by number of differences
 
 Below the shells are the particles the atom is built from, and QLF reads each as a closure of
 distinguishable **twist pairs** — its **number of differences**. Each difference is one orthogonal
-distinction = **one bit** (the orthogonality-is-one-bit quantum of §3c above). The ladder runs
-**neutrino (1) → electron (2) → muon (3) → tau (4) → proton (5)**, and the three *kinds* of difference are
-**charge** (lateral), **spin** (transverse), and **colour** (internal — the three Borromean axes). The
-charged leptons `e, μ, τ` at 2, 3, 4 are exactly the **three generations** (`QLF_Generations`, the 3
-axes); the proton's **5 = 3 colour + charge + spin** is the **`π⁵`** of `m_p/m_e = |S₃|·π⁵`
+distinction = **one bit** (the orthogonality-is-one-bit quantum of `Geometry_Of_Space.md` §3c). The ladder
+runs **neutrino (1) → electron (2) → muon (3) → tau (4) → proton (5)**, and the three *kinds* of difference
+are **charge** (lateral), **spin** (transverse), and **colour** (internal — the three Borromean axes). The
+charged leptons `e, μ, τ` at 2, 3, 4 are exactly the **three generations** (`QLF_Generations`, the 3 axes);
+the proton's **5 = 3 colour + charge + spin** is the **`π⁵`** of `m_p/m_e = |S₃|·π⁵`
 (`QLF_BorromeanAngles`/`QLF_LenzMassRatio`).
 
 <img src="diagrams/particle_differences.svg" alt="Particles by number of differences: neutrino (1, stable), electron/positron (2, stable), muonium μ⁺e⁻ (3, decays), tau atom τ⁻e⁺ (4, balanced but unstable — falls to a neutron then β-decays to a proton), hydrogen p⁺e⁻ (5, stable, = 3 colour + charge + spin). Each difference is an orthogonal twist pair: charge lateral, spin transverse, colour internal" width="100%">
 
-Bound states (atoms) join a heavy closure to a light partner, balanced. Leptons are **unlinked** twist-pair
-loops (baryon number 0); the **proton is Borromean-linked** — three colour twist pairs, no two linked but
-all three locked (baryon number 1, `QLF_BaryonWinding`), the stable nucleus. The stable rungs are the
-neutrino, the electron, and the proton; the heavier leptons decay — the τ is too short-lived to bind, so
-its balanced `τ⁻ e⁺` closure relaxes via a neutron that β-decays to the proton
-([`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) §6).
+The stable rungs are the neutrino, the electron, and the proton; the heavier leptons decay — the τ is too
+short-lived to bind, so its balanced `τ⁻ e⁺` closure relaxes via a neutron that β-decays to the proton
+(Part II §6). The *number-of-differences* classification is a structural reading; the verified anchors are
+the three generations, the proton's `π⁵`, and the Borromean baryon (`QLF_BaryonWinding`).
+
+## 6. The fold model — twist sequences closing at the electron
+
+Each atom is a **fold**: a sequence of twists that leaves the electron and returns to close on it. The
+rule:
+
+- a **twist is two symbols**; `^>` *leaves* the electron and its complement `v<` *returns* to close it;
+- the eight twists pair by complement `^↔v · >↔< · /↔\ · +↔−`;
+- **each added qubit adds a new direction**, so heavier constituents have longer folds.
+
+The QuCalc fold for each atomic system (start and end at the electron):
+
+| atom | QuCalc fold | nucleus |
+|---|---|---|
+| positronium | `e⁻ ^> v<` | — (the positron) |
+| muonium | `e⁻ ^> /v >\ v<` | muon = `/v >\` |
+| hydrogen | `e⁻ ^> /v >\ +− v<` | muon + gauge/charge `+−` |
 
 <img src="diagrams/atom_closures.svg" alt="Atom folds: a twist is two symbols, ^> leaving the electron and v< returning to close. positronium = e⁻ ^> v< (out and back to the positron); muonium = e⁻ ^> /v >\ v< (the muon is the two nucleus twists /v and >\); hydrogen = e⁻ ^> /v >\ +− v< (the nucleus extends the muon with the gauge/charge twist +−). Each added qubit adds a new direction; the fold opens and closes at the electron" width="100%">
 
-The *number-of-differences* classification is a structural reading; the verified anchors are the three
-generations, the proton's `π⁵`, and the Borromean baryon.
+This fold model is a **structural reading** (a work-in-progress visualization of the closure topology),
+not a machine-verified theorem; the verified per-system masses and binding energies are Part II.
+
+## Honest scope (Part I)
+
+- **Verified:** shells from Pauli exclusion; the `2ℓ+1` orbital dimensions; `s, p, d` (1, 3, 5) are
+  icosahedral-irrep-sized and `f` (7) is the first that is not.
+- **Cited group theory, not derived here:** that `s, p, d` stay *unsplit* under icosahedral symmetry, and
+  the `A₅` irrep list — a shared-representation resonance (the discrete `2I / A₅` renders to `SO(3)`),
+  **not** "atoms are icosahedral" (the atom is `SO(3)`-symmetric).
+- **Structural reading:** the number-of-differences classification and the twist-fold model.
+- **Cited, not re-proved:** the α / fine-structure / mass-ratio results live in their own modules.
+- **Open:** the full periodic table, the many-electron solution, electron correlation, chemistry.
 
 ---
 
-## Honest scope
+# Part II — Atomic systems as joint closures (specific mappings)
 
-- **Verified:** shells from Pauli exclusion; the `2ℓ+1` orbital dimensions; that `s, p, d` (1, 3, 5) are
-  icosahedral-irrep-sized and `f` (7) is the first that is not. These are exact.
-- **Cited (standard group theory), not derived here:** that `s, p, d` stay *unsplit* under icosahedral
-  symmetry (the d-orbital non-splitting), and the `A₅` irrep list. The arithmetic match is *necessary,
-  not sufficient*, for the unsplit-ness; the physics content is the cited branching.
-- **A shared-representation resonance, NOT "atoms are icosahedral."** The actual atom is `SO(3)`-symmetric
-  (fully rotational). The connection is that the discrete substrate symmetry `2I / A₅` renders to `SO(3)`
-  in the continuum, and the low-`ℓ` irrep dimensions coincide — a resonance between the discrete substrate
-  and the continuum orbital structure, not a replacement for quantum chemistry.
-- **Cited, not re-proved here:** the α / fine-structure / mass-ratio results live in their own modules
-  (`QLF_FineStructureSubstrate`, `QLF_DiracCorrection`, `QLF_LambShift`, `QLF_GMinusTwo`,
-  `QLF_LenzMassRatio`).
-- **Open:** the full periodic table, the many-electron Schrödinger/Dirac solution, electron correlation,
-  and chemistry. QLF supplies the *origins* (exclusion, three axes, α, spin, the icosahedral irrep
-  resonance), not the worked-out atomic physics.
+> **Per-qubit reading** (see [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md)): each qubit contributes `ℏω = E_Planck / R_qubit` of rest energy, so the mass formulas below — `m(Ps) = 2 m_e`, `m(H) = m_e + m_p`, `m(Mu) = m_e + m_μ` — are direct sums of constituent-qubit `ℏω` contributions.
 
-## See also
+Per [`Bound_States_QLF.md`](Bound_States_QLF.md), the natural QLF mass observables are atomic systems. Each is a **joint ZFA closure between two half-loops**, in the same structural sense that a photon is a joint emitter-absorber closure ([`Delayed_Choice_Eraser.md`](Delayed_Choice_Eraser.md)). The constituent halves carry **gauge-fold-depth** contributions `R_constituent` ([`Electron.md`](Electron.md), [`Higgs.md`](Higgs.md) §2); the joint closure has total depth `R_joint = R_A + R_B` (modulo binding corrections); the mass is `m = α R_joint`.
 
-- [`Magic_numbers.md`](Magic_numbers.md) — the `ℓ`/`j` shell model, magic numbers, the `ℓ≤2 / ℓ≥3`
-  boundary.
-- [`Geometry_Of_Space.md`](Geometry_Of_Space.md) §3c — orthogonality is one bit; the prime ladder
-  (2, 3, 5, 7, 11, 13), where the d-orbital `ℓ=2` = `A₅`'s 5-dim irrep first appears.
-- [`Alpha.md`](Alpha.md) — `α = 1/137` from the substrate.
-- [`Primordial_Markov_Blankets.md`](Primordial_Markov_Blankets.md) — the icosahedral geodesic blanket and
-  `2I → E₈`.
+## §1 The mapping pattern
+
+Every atomic system in QLF has the same structural template:
+
+$$\text{Joint closure} \;=\; \text{(electron-like half)} \;\circ\; \text{(partner half)}$$
+
+with three ingredients:
+
+1. **A leptonic half-loop**, typically the electron half-loop `^<v>^+` of [`Electron.md`](Electron.md) §1, carrying gauge-fold depth `R_e`.
+2. **A partner half-loop** with gauge-fold depth `R_partner` set by the partner's species.
+3. **A joint-closure binding**, with binding-energy depth `R_bind` related by the Bohr reduced-mass formula (§5).
+
+Total mass of the bound state:
+
+$$m_{\text{bound}} \;=\; \alpha \, (R_e + R_{\text{partner}}) \;-\; E_{\text{bind}}$$
+
+with `E_bind ≪ m_constituent` (typically 10⁻⁸ relative) for the three atomic systems below. (The twist-fold topology of each is Part I §6.)
+
+## §2 Positronium — symmetric minimal joint closure
+
+The simplest atomic system. Constituents:
+
+- Electron half-loop:    `^<v>^+`  (gauge-fold depth `R_e`)
+- Positron half-loop:    `v>^<v-` (Hermitian conjugate; gauge-fold depth `R_e+ = R_e` by CPT)
+
+Joint ZFA closure (schematic):
+
+$$|\text{Ps}\rangle \;=\; \,^<v>^+ \;\circ\; v>^<v- \;\;\Rightarrow\;\; \text{net topology balanced},\; \text{Pauli fold scalar}$$
+
+Both halves carry the same gauge-fold depth `R_e`. The joint closure has total depth `R(\text{Ps}) = 2 R_e`. Mass:
+
+$$m(\text{Ps}) \;=\; \alpha \cdot 2 R_e \;=\; 2 m_e \;\approx\; 1.022\,\text{MeV}$$
+
+Therefore `α R_e = m_e ≈ 0.511 MeV`. The "electron mass" `m_e` is exactly **half** of `m(Ps)` — it is the electron half-loop's contribution to the joint positronium closure, not an isolated free-particle property.
+
+**Reduced mass:** `μ(Ps) = m_e/2`. **Binding energy (Bohr):** `E_bind(Ps) = (1/2)·13.6 eV ≈ 6.8 eV`; measured 6.803 eV. ✓
+
+## §3 Hydrogen — leptonic + baryonic joint closure
+
+Hydrogen binds an electron half-loop to a proton internal closure (a composite three-quark closure per [`HadronicDepth.md`](HadronicDepth.md)):
+
+- Electron half-loop:  gauge-fold depth `R_e` ≈ 0.511 MeV / α
+- Proton internal closure: three-quark composite, gauge-fold depth `R_p` ≈ 938.27 MeV / α
+
+Total joint depth `R(H) = R_e + R_p`. Mass:
+
+$$m(\text{H}) \;=\; \alpha \cdot (R_e + R_p) \;=\; m_e + m_p \;\approx\; 938.78\,\text{MeV}$$
+
+Strongly dominated by `m_p` (`m_e/m_p ≈ 5.4 × 10⁻⁴`). **Reduced mass:** `μ(H) ≈ m_e (1 − m_e/m_p) ≈ m_e` (the 5.4 × 10⁻⁴ correction is the hydrogen reduced-mass shift). **Binding energy:** `≈ 13.6 eV`; measured 13.598 eV. ✓
+
+## §4 Muonium — leptonic + leptonic joint closure (asymmetric)
+
+Muonium binds an electron half-loop to an antimuon half-loop (both leptonic, the antimuon much deeper):
+
+- Electron half-loop:  gauge-fold depth `R_e` ≈ 0.511 MeV / α
+- Antimuon half-loop:  gauge-fold depth `R_μ` ≈ 105.66 MeV / α
+
+Total joint depth `R(Mu) = R_e + R_μ`. Mass `m(Mu) = m_e + m_μ ≈ 106.17 MeV`. **Reduced mass:** `μ(Mu) ≈ m_e (1 − m_e/m_μ) ≈ m_e` (correction 4.8 × 10⁻³). **Binding energy:** `≈ 13.6 eV`; measured 13.541 eV. ✓ (the 0.4% difference from hydrogen is the reduced-mass correction).
+
+## §5 The Bohr reduced-mass scaling — derived from joint-closure structure
+
+| System | Reduced mass | Predicted E_bind | Measured E_bind |
+|---|---|---|---|
+| Ps | `m_e / 2` | 6.80 eV | 6.803 eV ✓ |
+| H | `≈ m_e` | 13.6 eV | 13.598 eV ✓ |
+| Mu | `≈ m_e` | 13.6 eV | 13.541 eV ✓ |
+
+The factor-of-2 between positronium and hydrogen/muonium is structural: **positronium** is symmetric (`R_A = R_B = R_e`, reduced mass exactly half); **hydrogen and muonium** are heavy-light (`R_partner ≫ R_e`, reduced mass ≈ `m_e`). The reduced-mass formula `μ = R_A R_B / (R_A + R_B)` is a property of the joint-closure binding; the full QLF derivation of `13.6 eV = (1/2) m_e α²` from closure-multiplicity (with `α ≈ 1/137`, [`Alpha.md`](Alpha.md)) is sketched in [`Hydrogen.md`](Hydrogen.md).
+
+**Empirical ratios (all reproduced):** `E(Mu)/E(Ps) ≈ 1.99`, `E(H)/E(Ps) ≈ 2.00`, `E(H)/E(Mu) ≈ 1.004`.
+
+## §6 The τ — decay-vertex closure, not Bohr-bound
+
+The τ does not form a stable atomic system; its lifetime ≈ 290 fs is too short for Bohr binding ([`Bound_States_QLF.md`](Bound_States_QLF.md) §4). The QLF observable for the third generation is the τ-decay vertex. Schematic (leptonic channel):
+
+$$\tau^- \;\to\; \nu_\tau + W^- \;\to\; \nu_\tau + (\ell^- + \bar\nu_\ell)$$
+
+a **multi-body joint ZFA closure** at the energetic threshold `m_τ > m_{ν_τ} + m_W^*` (virtual W) — structurally different from the two-body Bohr closures of §§2–4. `m_τ ≈ 1776.86 MeV` corresponds to the gauge-fold depth `R_τ`; a detailed treatment needs the W boson's QLF closure ([`Higgs.md`](Higgs.md) §3) and is open ([`Standard_Model.md`](Standard_Model.md) §6).
+
+## §7 Heavier atoms — extended vacuum-resonance spectrum
+
+Under the vacuum-alignment principle of [`VacuumEnergy.md`](VacuumEnergy.md) §6, each atomic system is a **vacuum-resonance projection** at a Markov-blanket depth `R_X = E_Planck / (M_X c²)`. The periodic table is the discrete spectrum of depths the vacuum supports as stable resonant closures.
+
+### 7.1 Depth spectrum for representative nuclei
+
+Using `E_Planck ≈ 1.22091 × 10²² MeV` and CODATA-2022 atomic masses:
+
+| System | A | M (MeV) | R = E_Planck / Mc² | BE/A (MeV) | Notes |
+|---|---:|---:|---:|---:|---|
+| ¹H | 1 | 938.78 | 1.301 × 10¹⁹ | 0 | sets the proton-class scale |
+| ²H | 2 | 1876.12 | 6.508 × 10¹⁸ | 1.112 | weakest stable joint closure |
+| ⁴He | 4 | 3728.40 | 3.275 × 10¹⁸ | 7.074 | doubly-magic; first BE/A jump |
+| ¹²C | 12 | 11177.93 | 1.092 × 10¹⁸ | 7.680 | triple-α resonance node |
+| ¹⁶O | 16 | 14899.17 | 8.195 × 10¹⁷ | 7.976 | doubly magic |
+| ⁴⁰Ca | 40 | 37224.91 | 3.280 × 10¹⁷ | 8.551 | doubly magic |
+| ⁵⁶Fe | 56 | 52102.71 | 2.344 × 10¹⁷ | 8.790 | **BE/A maximum** |
+| ²⁰⁸Pb | 208 | 193687.10 | 6.305 × 10¹⁶ | 7.867 | doubly magic Z=82, N=126 |
+| ²³⁸U | 238 | 221695.51 | 5.508 × 10¹⁶ | 7.570 | edge of stability |
+
+The depth `R_X` scales ≈ `1 / A` because `M_X ≈ A · m_amu`. Demo: [`heavier_atoms_demo.py`](heavier_atoms_demo.py).
+
+### 7.2 Magic numbers as vacuum-resonance peaks
+
+The `BE/A` peak at ⁵⁶Fe and enhancements at doubly-magic nuclei are the Mayer–Jensen magic numbers `2, 8, 20, 28, 50, 82, 126`. Under vacuum-alignment ([`VacuumEnergy.md`](VacuumEnergy.md) §6.1) these are **vacuum-resonance peaks**; the first-principles derivation of the sequence is in [`Magic_numbers.md`](Magic_numbers.md) (dimensional growth → 2, 8, 20; vacuum-as-intruder for ℓ ≥ 3; the ℓ = 3 threshold from the 8-twist alphabet's 6+2 split).
+
+### 7.3 The ⁵⁶Fe peak and the cosmological arrow
+
+The ⁵⁶Fe binding-energy maximum is the iron-peak terminator of stellar nucleosynthesis: stars fuse up to iron releasing energy, heavier elements form only via energy-absorbing supernova nucleosynthesis — the direction of vacuum-resonance descent.
+
+### 7.4 What §7 does and does not derive
+
+- ✓ **Derived:** depth `R_X` from measured mass; the `R ∝ 1/A` baseline; magic numbers as vacuum-resonance peaks under §6.1; the sequence end-to-end via [`Magic_numbers.md`](Magic_numbers.md).
+- ⚠ **Reframed, not derived:** the precise per-nucleon binding-energy curve; the ⁵⁶Fe peak position quantitatively.
+- ✗ **Open:** the binding-energy curve from vacuum-resonance enumeration; nuclear-matter equation of state.
+
+## §8 Summary: derived vs. sketched vs. open
+
+| Item | Status |
+|---|---|
+| Positronium ↔ symmetric joint closure, m = 2m_e | ✓ Derived (§2) |
+| Hydrogen ↔ electron-half + proton-internal, m = m_e + m_p | ✓ Derived (§3) |
+| Muonium ↔ asymmetric leptonic, m = m_e + m_μ | ✓ Derived (§4) |
+| E(Mu)/E(Ps) ≈ 2, E(H)/E(Mu) ≈ 1 from reduced mass | ✓ Derived |
+| Depth `R_X` for heavier nuclei; `R ∝ 1/A` | ✓ Derived (§7) |
+| Magic numbers as vacuum-resonance peaks | ⚠ Reframed (§7.2) |
+| Bohr `13.6 eV = (1/2) m_e α²` from closure-multiplicity | ⚠ Sketched ([`Hydrogen.md`](Hydrogen.md)) |
+| α numerically via Bohr inversion `α = sqrt(2 R_e / R_1)` | ✓ Numerical anchor 10⁻¹⁰ ([`Hydrogen.md`](Hydrogen.md) §4.1) |
+| α from first principles | ✗ Open — equivalent to deriving `R_e ≈ 2.4 × 10²²` ([`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md) §3.3) |
+| Quantitative `R_e`, `R_μ`, `R_p` from first-principles QLF | ✗ Open (Standard-Model mass-spectrum programme) |
+| τ-decay-vertex closure topology | ✗ Open |
+
+## §9 What this is NOT
+
+- **Not a first-principles derivation of `m_e`.** `α R_e = m_e` identifies `R_e` with the measured electron contribution; `0.511 MeV` is input, not prediction.
+- **Not a derivation of the `13.6 eV` scale from first principles.** [`Hydrogen.md`](Hydrogen.md) sketches it; this doc shows the *relative* binding structure follows from reduced-mass scaling.
+- **Not a replacement for QED radiative corrections** (Lamb shift, hyperfine, etc., at ppm level).
+- **Not a complete particle-physics framework** — these are the simplest QLF bound-state observables.
+
+## §10 Open work
+
+- **Atomic-system Lean theorem** `atomic_system_zfa_closures` — each system is a constructible RhoProcess satisfying `rho_process_always_zfa`.
+- **Bohr `13.6 eV` derivation** in QLF closure-multiplicity language ([`Hydrogen.md`](Hydrogen.md)).
+- **Quantitative `R_p`** from three-quark structure ([`HadronicDepth.md`](HadronicDepth.md)).
+- **τ-decay-vertex closure topology**; **heavier-atom binding curves**; **first-principles `m_e`** (≡ deriving `R_e ≈ 2.4 × 10²²`).
+
+---
+
+## References
+
+- [`Bound_States_QLF.md`](Bound_States_QLF.md), [`Electron.md`](Electron.md), [`Hydrogen.md`](Hydrogen.md), [`HadronicDepth.md`](HadronicDepth.md), [`Hadrons_Markov_Blankets.md`](Hadrons_Markov_Blankets.md), [`Higgs.md`](Higgs.md) §2, [`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md), [`Standard_Model.md`](Standard_Model.md) §6, [`Magic_numbers.md`](Magic_numbers.md), [`VacuumEnergy.md`](VacuumEnergy.md) §6.
+- [`Geometry_Of_Space.md`](Geometry_Of_Space.md) §3c — the prime ladder; the d-orbital `ℓ=2` = `A₅`'s 5-dim irrep. [`Alpha.md`](Alpha.md) — `α = 1/137`. [`Primordial_Markov_Blankets.md`](Primordial_Markov_Blankets.md) — the icosahedral blanket and `2I → E₈`.
+- External: Karshenboim, S. G. (2005), *Precision physics of simple atoms*, Phys. Rep. 422, 1–63; Particle Data Group.

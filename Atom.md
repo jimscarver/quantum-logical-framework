@@ -183,3 +183,5 @@ The atom is completely topologically sealed. It will not interact chemically.
 *(Note: Electrons #9 and #10 hit the critical block in the simplistic routing of version 4.1 because this specific script is capped at completing the p-shell to strictly model up to Neon. In a fully expanded QuCalc engine, those final ticks would initialize the d-shell tensor.)*
 
 See also: [Annihilation.md](Annihilation.md) — the LH proton / RH electron chirality assignment used in §1 of this doc is what makes hydrogen + antihydrogen a joint Hermitian pair that unwinds completely on contact.
+
+For the detailed substrate companion to this narrative — shells from Pauli exclusion, the 3-axis orbital ladder, α/scale, the icosahedral s/p/d signature, the twist-fold model of the constituents, and the specific joint-closure topology + masses for positronium, hydrogen, muonium, the τ, and heavier nuclei — see [`Atomic_Structure_QLF.md`](Atomic_Structure_QLF.md) (Lean anchor [`lean/QLF_AtomicStructure.lean`](lean/QLF_AtomicStructure.lean)).

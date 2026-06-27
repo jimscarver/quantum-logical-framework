@@ -350,7 +350,7 @@ This is the falsifiable, quantitative experimental test that grounds the rest of
 
 The natural QLF mass observables are **bound atomic systems** ([Bound_States_QLF.md](Bound_States_QLF.md)) — positronium (e⁻ + e⁺), muonium (e⁻ + μ⁺), hydrogen (e⁻ + p) — each a joint ZFA closure of its charged constituents. Per [Per_Qubit_Mass_Quantum.md](Per_Qubit_Mass_Quantum.md), each constituent qubit contributes `m c² = ℏω = E_Planck / R_qubit` of rest energy, where `R_qubit` is the qubit's Markov-blanket depth. Bound-state masses are sums of constituent-qubit Compton energies; binding energies follow the Bohr reduced-mass formula.
 
-Specific QLF closure topologies for each system are pinned in [Atomic_System_QLF_Closures.md](Atomic_System_QLF_Closures.md). The measured-vs-derived comparison:
+Specific QLF closure topologies for each system are pinned in [Atomic_Structure_QLF.md](Atomic_Structure_QLF.md). The measured-vs-derived comparison:
 
 | Atomic system | QLF joint closure | Measured mass | QLF mass | Measured E_bind | QLF E_bind |
 |---|---|---|---|---|---|
@@ -366,13 +366,13 @@ Free-particle mass ratios are reproduced **exactly** via depth ratios `m_X/m_Y =
 | m_μ / m_e | 206.77 | 206.77 ✓ |
 | m_τ / m_μ | 16.82 | 16.82 ✓ |
 
-The Bohr reduced-mass binding ratios `E(Mu)/E(Ps) ≈ 2`, `E(H)/E(Mu) ≈ 1` fall out structurally from the symmetric vs. asymmetric joint-closure cases ([Atomic_System_QLF_Closures.md](Atomic_System_QLF_Closures.md) §5).
+The Bohr reduced-mass binding ratios `E(Mu)/E(Ps) ≈ 2`, `E(H)/E(Mu) ≈ 1` fall out structurally from the symmetric vs. asymmetric joint-closure cases ([Atomic_Structure_QLF.md](Atomic_Structure_QLF.md) §5).
 
 **Honest scoping.** The specific `R_qubit` depths (e.g., `R_e ≈ 2.4 × 10²²` in Planck units) are identified from measured masses, not derived from first principles. What is derived structurally is the per-qubit accounting, the additivity of constituent ℏω contributions, and the reduced-mass binding-ratio structure. The remaining first-principles question — derive `R_e` from QLF closure-multiplicity — is named in [Per_Qubit_Mass_Quantum.md](Per_Qubit_Mass_Quantum.md) §3.3 and joins the §6 fundamental-constants programme.
 
 ### §5.6 Heavier atomic systems and vacuum-resonance projection
 
-[Atomic_System_QLF_Closures.md](Atomic_System_QLF_Closures.md) §7 extends the per-qubit Compton accounting from the three §5.5 systems to the full heavier-atomic-systems panel: ¹H, ²H, ³H, ³He, ⁴He, ⁶Li, ⁷Li, ¹²C, ¹⁶O, ²⁸Si, ⁴⁰Ca, ⁵⁶Fe, ⁵⁸Ni, ⁹⁰Zr, ¹⁴⁰Ce, ²⁰⁸Pb, ²³⁸U. For each, `R_X = E_Planck / (M_X c²)` with CODATA-2022 atomic masses; the `R ∝ 1/A` baseline holds because `M ≈ A · m_amu`, with small residuals tracking the per-nucleon binding-energy variation.
+[Atomic_Structure_QLF.md](Atomic_Structure_QLF.md) §7 extends the per-qubit Compton accounting from the three §5.5 systems to the full heavier-atomic-systems panel: ¹H, ²H, ³H, ³He, ⁴He, ⁶Li, ⁷Li, ¹²C, ¹⁶O, ²⁸Si, ⁴⁰Ca, ⁵⁶Fe, ⁵⁸Ni, ⁹⁰Zr, ¹⁴⁰Ce, ²⁰⁸Pb, ²³⁸U. For each, `R_X = E_Planck / (M_X c²)` with CODATA-2022 atomic masses; the `R ∝ 1/A` baseline holds because `M ≈ A · m_amu`, with small residuals tracking the per-nucleon binding-energy variation.
 
 Under the vacuum-alignment principle (§6.6 below; [VacuumEnergy.md](VacuumEnergy.md) §6.1), the magic-number BE/A peaks (⁴He, ¹⁶O, ⁴⁰Ca, ⁴⁸Ca, ²⁰⁸Pb, doubly-magic) are reframed as **vacuum-resonance peaks** — depths the vacuum's spectral structure most strongly supports as stable nuclear ZFA closures. The ⁵⁶Fe BE/A maximum (8.79 MeV/nucleon) identifies the cosmological terminator of stellar nucleosynthesis as the deepest stable vacuum resonance below the gauge-fold transition; stars saturate fusion at this resonance, then either contract or explode.
 
@@ -610,7 +610,7 @@ The Quantum Logical Framework does not abandon the experimental triumphs of the 
 - QED precision: electron g-2 anomaly.
 - d-shell synthesis and periodic-table anomalies (Cr, Cu, La).
 - Magic-number residual: derive *why* the vacuum specifically selects `j = ℓ_max + 1/2` (rather than `j = ℓ_max − 1/2`) from the alphabet's gauge ↔ spatial coupling — the last residual axiom in the magic-number chain (§7.1, [Magic_numbers.md](Magic_numbers.md) §"Current Status").
-- BE/A binding-energy curve and the per-nucleon shell-structure quantitatively from vacuum-resonance enumeration (§5.6, [Atomic_System_QLF_Closures.md](Atomic_System_QLF_Closures.md) §10).
+- BE/A binding-energy curve and the per-nucleon shell-structure quantitatively from vacuum-resonance enumeration (§5.6, [Atomic_Structure_QLF.md](Atomic_Structure_QLF.md) §10).
 - Schrödinger-level hydrogen (fine and hyperfine structure).
 - Lean theorem `qubit_mass_is_hbar_omega` ([Per_Qubit_Mass_Quantum.md](Per_Qubit_Mass_Quantum.md) §7) and the corollary `hbar_omega_per_bit` ([Information_Energy_Equivalence.md](Information_Energy_Equivalence.md) §5).
 - Experimental test of ancilla-free intrinsic EC at quiet-frequency crystal-QPU transitions ([Crystal_QuantumOS.md](Crystal_QuantumOS.md) §9).

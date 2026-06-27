@@ -207,7 +207,7 @@ Each step is concrete research, not session-scope; but each is a sharper questio
 - [`HadronicDepth.md`](HadronicDepth.md) — Hadronic-depth hypothesis, `n ~ (m_P/m_p)³`
 - [`Hadrons_Markov_Blankets.md`](Hadrons_Markov_Blankets.md) — quark Borromean closure structure
 - [`Bound_States_QLF.md`](Bound_States_QLF.md) — free leptons not direct observables; atomic systems are
-- [`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) — joint-closure topology
+- [`Atomic_Structure_QLF.md`](Atomic_Structure_QLF.md) — joint-closure topology
 - [`VacuumEnergy.md`](VacuumEnergy.md) §6 — vacuum-alignment as TOE-completing layer; vacuum-resonance projection
 - [`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md) — selection rule for admissible trajectories
 - [`Annihilation.md`](Annihilation.md) — when `E + E† ≡ ZFA` annihilation actually occurs

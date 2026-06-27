@@ -28,7 +28,7 @@ The competing null hypothesis is Poisson `P(s) = e^{−s}`, `Var(s) = 1`.
 
 ## 2. The data
 
-The QLF-admissible observables are the bound states. Free leptons are not admissible (per [`Bound_States_QLF.md`](Bound_States_QLF.md)); hadrons are (per [`Hadrons_Markov_Blankets.md`](Hadrons_Markov_Blankets.md)); atomic systems are (per [`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md)).
+The QLF-admissible observables are the bound states. Free leptons are not admissible (per [`Bound_States_QLF.md`](Bound_States_QLF.md)); hadrons are (per [`Hadrons_Markov_Blankets.md`](Hadrons_Markov_Blankets.md)); atomic systems are (per [`Atomic_Structure_QLF.md`](Atomic_Structure_QLF.md)).
 
 The script uses:
 

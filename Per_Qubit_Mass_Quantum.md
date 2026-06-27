@@ -13,7 +13,7 @@ $$m_{\text{particle}} \, c^2 \;=\; \sum_{\text{qubits } i} \hbar \omega_i \;=\; 
 This principle unifies and clarifies several earlier QLF formulations:
 
 - [`Higgs.md`](Higgs.md) §2 wrote `m = α R` with `α` a unit-conversion factor. The per-qubit reading clarifies: `α = ℏ ω_per_qubit / R_per_qubit = E_Planck / R²_per_qubit` in QLF natural units, so the implicit per-qubit structure is explicit.
-- [`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) §1 wrote `m_bound = α (R_A + R_B)` for joint closures. Under the per-qubit reading this becomes `m_bound = ℏω_A + ℏω_B` — masses add directly, each constituent contributing its own ℏω.
+- [`Atomic_Structure_QLF.md`](Atomic_Structure_QLF.md) §1 wrote `m_bound = α (R_A + R_B)` for joint closures. Under the per-qubit reading this becomes `m_bound = ℏω_A + ℏω_B` — masses add directly, each constituent contributing its own ℏω.
 - [`Frequency_Synchronization.md`](Frequency_Synchronization.md) wrote `Δt = R / f`. The per-qubit reading identifies `ω = 1/Δt = f/R` as the qubit's internal clock frequency, with mass = ℏω.
 
 ---
@@ -43,7 +43,7 @@ These are not derivations of `m_e` from QLF — the depths `R_X` are themselves 
 
 ## §2 Atomic-system masses as constituent-qubit sums
 
-Under the per-qubit reading, the atomic-system mappings of [`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) become explicit qubit sums:
+Under the per-qubit reading, the atomic-system mappings of [`Atomic_Structure_QLF.md`](Atomic_Structure_QLF.md) become explicit qubit sums:
 
 ### Positronium (2 qubits, both electron-class)
 
@@ -195,9 +195,9 @@ Each ZFA closure event reduces free energy by exactly `log 2` nats; each constit
 | Atomic-system mass additivity `m_bound = Σ ℏω_i` | ✓ Derived (this doc §2) |
 | Mass ratios `m_p/m_e = 1836`, etc. from `R_e/R_p` | ✓ Consistent (this doc §1) — but R values are identified from measured masses, not derived |
 | First-principles derivation of `R_e` from QLF closure-multiplicity | ✗ Open (this doc §3.3) — natural reformulation of `α R_e = m_e` problem |
-| τ as decay-vertex closure | ⚠ Sketched ([`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) §6, [`Bound_States_QLF.md`](Bound_States_QLF.md) §4) |
+| τ as decay-vertex closure | ⚠ Sketched ([`Atomic_Structure_QLF.md`](Atomic_Structure_QLF.md) §6, [`Bound_States_QLF.md`](Bound_States_QLF.md) §4) |
 | Lean theorem `qubit_mass_is_hbar_omega` | ✗ Open |
-| Connection to Bohr binding energies via reduced-mass formula | ✓ Derived ([`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) §5) |
+| Connection to Bohr binding energies via reduced-mass formula | ✓ Derived ([`Atomic_Structure_QLF.md`](Atomic_Structure_QLF.md) §5) |
 
 ---
 
@@ -226,7 +226,7 @@ Each ZFA closure event reduces free energy by exactly `log 2` nats; each constit
 ### Internal
 
 - [`Bound_States_QLF.md`](Bound_States_QLF.md) — free leptons are not QLF observables; atomic systems are.
-- [`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) — joint-closure topologies for positronium, muonium, hydrogen; mass-additivity made explicit via the per-qubit principle.
+- [`Atomic_Structure_QLF.md`](Atomic_Structure_QLF.md) — joint-closure topologies for positronium, muonium, hydrogen; mass-additivity made explicit via the per-qubit principle.
 - [`Frequency_Synchronization.md`](Frequency_Synchronization.md) — `Δt = R/f`; the per-qubit reading identifies `ω = 1/Δt` as the qubit's internal frequency.
 - [`Higgs.md`](Higgs.md) — `m = αR` framework; the per-qubit reading clarifies the implicit per-qubit structure.
 - [`MRE.md`](MRE.md) — per-event `log 2` quantum; dual to the per-qubit `ℏω` mass quantum.

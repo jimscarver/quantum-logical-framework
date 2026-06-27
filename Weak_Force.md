@@ -1,6 +1,6 @@
 # The Weak Force and the W/Z Bosons in [QLF](README.md)
 
-**The weak sector, consolidated — what QLF derives, what it sketches, and what is open, with the honest three-tier discipline of the rest of the corpus.** Previously this content was scattered across [`Higgs.md`](Higgs.md) §4, [`Standard_Model.md`](Standard_Model.md), [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md), and [`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) §6.
+**The weak sector, consolidated — what QLF derives, what it sketches, and what is open, with the honest three-tier discipline of the rest of the corpus.** Previously this content was scattered across [`Higgs.md`](Higgs.md) §4, [`Standard_Model.md`](Standard_Model.md), [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md), and [`Atomic_Structure_QLF.md`](Atomic_Structure_QLF.md) §6.
 
 **Headline:** the **group-theoretic identification of the weak-isospin SU(2) inside the 8-twist algebra is machine-verified** (`weak_isospin_su2`, [`lean/BraKetRhoQuCalc.lean`](lean/BraKetRhoQuCalc.lean)). The **quantitative** weak sector — W/Z masses, the Weinberg-angle value, the Fermi constant, the flavor-change vertex — remains explicitly open.
 
@@ -82,7 +82,7 @@ So "which lepton variety closes the proton" is a **generation** choice, and the 
 
 ## 5. The τ-decay vertex — where the W is the named blocker
 
-The electron and muon are handled as two-body bound-state ("Bohr") half-loop closures. The **τ breaks this pattern**: it is too short-lived for bound-state binding. Its decay `τ⁻ → ν_τ + W⁻` is a **multi-body joint ZFA closure** (one in, several out) that fires at an energetic threshold, and the **W's QLF closure topology is the named missing piece** needed to derive `m_τ` ([`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) §6, [`Bound_States_QLF.md`](Bound_States_QLF.md) §4). So the W is not peripheral — it is the structural blocker for completing the lepton mass spectrum.
+The electron and muon are handled as two-body bound-state ("Bohr") half-loop closures. The **τ breaks this pattern**: it is too short-lived for bound-state binding. Its decay `τ⁻ → ν_τ + W⁻` is a **multi-body joint ZFA closure** (one in, several out) that fires at an energetic threshold, and the **W's QLF closure topology is the named missing piece** needed to derive `m_τ` ([`Atomic_Structure_QLF.md`](Atomic_Structure_QLF.md) §6, [`Bound_States_QLF.md`](Bound_States_QLF.md) §4). So the W is not peripheral — it is the structural blocker for completing the lepton mass spectrum.
 
 ### 5a. Attempt — the τ as the deepest generation phase (a Koide-structured mass)
 
@@ -254,7 +254,7 @@ A structural proposal for what makes a heavy lepton heavy, tying together §5b (
 - [`Higgs.md`](Higgs.md) §4 — W/Z as gauge-fold closures, `m = αR`, `cos θ_W = R_W/R_Z`.
 - [`Standard_Model.md`](Standard_Model.md) §§2–4 — the honest scoreboard; weak SU(2) row.
 - [`Beta_Decay_Neutrino_Nature.md`](Beta_Decay_Neutrino_Nature.md) — beta decay as boundary restructuring; the Majorana neutrino (`neutrino_majorana`) and the `0νββ` prediction.
-- [`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) §6, [`Bound_States_QLF.md`](Bound_States_QLF.md) §4 — the τ-decay vertex (the W blocker).
+- [`Atomic_Structure_QLF.md`](Atomic_Structure_QLF.md) §6, [`Bound_States_QLF.md`](Bound_States_QLF.md) §4 — the τ-decay vertex (the W blocker).
 - [`Lagrangian_Formulation.md`](Lagrangian_Formulation.md) — the Σ₈ algebra and `τᵢ = iσᵢ`.
 - [`Open_Problems.md`](Open_Problems.md) — registry status of the weak-sector items.
 
