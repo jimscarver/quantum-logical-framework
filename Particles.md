@@ -35,11 +35,22 @@ The neutrino's **Majorana** nature (it is its own antiparticle) and its conseque
 
 Spin, charge, and chirality across the zoo are all the same twists — see [`Spin_QLF.md`](Spin_QLF.md) for the demystification (720°/SU(2)→SO(3), charge conjugation = view-from-behind, integer spin = composite half-spins).
 
-Here is the updated markdown section containing a sample run that outputs both the Electron and the Neutrino equivalents, followed by the theoretical breakdown.
+### The depth progression — neutrino → positronium → muonium → atom
 
-# QLF Engine Output: Electrons and Neutrinos
+The neutrino is only the **shallowest** rung. The engine's default run walks a **progression of increasing fold depth**, where **each step adds a new direction (a qubit)** to the closure — the same joint-closure ladder derived in [`Atomic_Structure_QLF.md`](Atomic_Structure_QLF.md) (Part II) and drawn in [`Atom.md`](Atom.md):
 
-By running the `particles.py` Intuitionistic Engine and allowing it to explore both the spatial (`<`, `>`) and gauge (`+`, `-`) bases simultaneously, we can observe the parallel emergence of electromagnetically interacting particles (Electrons) and "ghost" particles (Neutrinos).
+| Rung | Closure | Added direction | Depth (pairs) | Bound state |
+|---|---|---|---|---|
+| **neutrino** | `^+v-` | spin + gauge, *no* `<>` spatial width | 2 | a lone "ghost" loop |
+| **positronium** | `^<v>^>v<` | horizontal `<>` → the spatial square | 4 | electron ++ positron (symmetric, `m = 2 m_e`) |
+| **muonium** | `^<v>^>v</\` | diagonal `/\` → a deeper partner | 5 | electron ++ antimuon (`m = m_e + m_μ`) |
+| **atom (hydrogen)** | `^<v>^>v</\+-` | gauge `+-` → the deepest partner | 6 | electron ++ proton (`m = m_e + m_p`) |
+
+Every rung is a genuine ZFA closure (`ZFA closed : True` below), and the depth `2 → 4 → 5 → 6` grows monotonically as each direction is folded in — the substrate analogue of the bound-state mass ladder (`m(Ps) = 2 m_e < m(Mu) = m_e + m_μ < m(H) = m_e + m_p`).
+
+# QLF Engine Output: the depth progression
+
+By running the `particles.py` Intuitionistic Engine over the spatial (`<`, `>`, `/`, `\`) and gauge (`+`, `-`) bases, we observe the bound-state progression emerge by increasing fold depth — from the gauge-only neutrino through positronium and muonium to the full atom.
 
 ### Execution Command
 ```bash
@@ -63,52 +74,60 @@ Registered ZFA closures:
   - ZFA_MIN_SQUARE_CCW: ^<v>
 ============================================================
 
-=== ELECTRON ===
-open prefix         : ^<
-catalog closure     : ZFA_MIN_SQUARE_CCW
-ApplyZfa result     : ^<^<v>
-engine closure      : ^<^<v>v>
-final history       : ^<^<v>v>
-ZFA closed          : True
-hermitian conjugate : <^<^>v>v
-interpretation      : Primordial quantum black hole successfully gauge-folded into a stable ZFA particle closure.
-
-=== POSITRON ===
-open prefix         : v>
-catalog closure     : ZFA_MIN_SQUARE
-ApplyZfa result     : v>^>v<
-engine closure      : v>^>v<^<
-final history       : v>^>v<^<
-ZFA closed          : True
-hermitian conjugate : >v>^<v<^
-interpretation      : Primordial quantum black hole successfully gauge-folded into a stable ZFA particle closure.
-
 === NEUTRINO ===
-open prefix         : ^-
-catalog closure     : ZFA_GAUGE_LOOP
-ApplyZfa result     : ^-+-
-engine closure      : ^-+-v+
-final history       : ^-+-v+
+open prefix         : ^+v-
+constituents        : one self-closing loop (gauge axis)
+engine closure      : ^+v-
+final history       : ^+v-
+fold depth (pairs)  : 2
 ZFA closed          : True
-hermitian conjugate : -^+-+v
+hermitian conjugate : +^-v
 interpretation      : Primordial quantum black hole successfully gauge-folded into a stable ZFA particle closure.
 
-=== FLUXOID ===
-open prefix         : ^>/+
-catalog closure     : ZFA_FLUXOID
-ApplyZfa result     : ^>/+^>/+v<\-
-engine closure      : ^>/+^>/+v<\-v<\-
-final history       : ^>/+^>/+v<\-v<\-
+=== POSITRONIUM ===
+open prefix         : ^<v>^>v<
+constituents        : electron ^<v> ++ positron ^>v< (spatial square)
+engine closure      : ^<v>^>v<
+final history       : ^<v>^>v<
+fold depth (pairs)  : 4
 ZFA closed          : True
-hermitian conjugate : +/>^+/>^-\<v-\<v
+hermitian conjugate : >^<v<^>v
 interpretation      : Primordial quantum black hole successfully gauge-folded into a stable ZFA particle closure.
+
+=== MUONIUM ===
+open prefix         : ^<v>^>v</\
+constituents        : electron ++ antimuon (+ diagonal axis)
+engine closure      : ^<v>^>v</\
+final history       : ^<v>^>v</\
+fold depth (pairs)  : 5
+ZFA closed          : True
+hermitian conjugate : /\>^<v<^>v
+interpretation      : Primordial quantum black hole successfully gauge-folded into a stable ZFA particle closure.
+
+=== ATOM ===
+open prefix         : ^<v>^>v</\+-
+constituents        : electron ++ proton (+ diagonal + gauge axes)
+engine closure      : ^<v>^>v</\+-
+final history       : ^<v>^>v</\+-
+fold depth (pairs)  : 6
+ZFA closed          : True
+hermitian conjugate : +-/\>^<v<^>v
+interpretation      : Primordial quantum black hole successfully gauge-folded into a stable ZFA particle closure.
+
+Depth progression (each step adds a direction / qubit):
+  neutrino     depth=2  ^+v-           ->
+  positronium  depth=4  ^<v>^>v<       ->
+  muonium      depth=5  ^<v>^>v</\     ->
+  atom         depth=6  ^<v>^>v</\+-     
 
 Vacuum ecology summary:
   resolved histories : 4
   baseline density   : 4.0
 ```
 
-Reading the output: each particle is an **open prefix** (the unresolved divergence) that the engine gauge-folds into a closed history whose `ZFA closed` flag is `True`. The **electron** `^<…` and **positron** `v>…` close through the spatial square (`ZFA_MIN_SQUARE_CCW` / `ZFA_MIN_SQUARE`) — they are Hermitian conjugates of each other (particle ↔ antiparticle = the reversed-and-conjugated history). The **neutrino** `^-…` closes purely through the **gauge loop** `+-` (`ZFA_GAUGE_LOOP`) — no `<`/`>` spatial width, hence the "ghost" non-interaction. The **fluxoid** is the composite `^>/+…` closure. The vacuum ecology then records all four as resolved histories in the [`VacuumEnergy.md`](VacuumEnergy.md) information ecology.
+Reading the output: each rung is an **open prefix** (the unresolved divergence) the engine gauge-folds into a closed history whose `ZFA closed` flag is `True`, and the **fold depth grows `2 → 4 → 5 → 6`** as each new direction is added. The **neutrino** `^+v-` closes through spin + gauge only — no `<`/`>` spatial width, hence the "ghost" non-interaction. **Positronium** `^<v>^>v<` is the symmetric joint closure of an electron `^<v>` and a positron `^>v<` (mutual Hermitian conjugates — particle ↔ antiparticle = the reversed-and-conjugated history). **Muonium** adds the diagonal `/\` fold (a deeper partner), and the **atom** (hydrogen) adds the gauge `+-` fold (the deepest, electron ++ proton). The vacuum ecology then records all four as resolved histories in the [`VacuumEnergy.md`](VacuumEnergy.md) information ecology.
+
+To inspect the bare half-loops instead of the bound states, run `python particles.py --particle constituents` (electron, positron, fluxoid); a single rung with `--particle muonium`, etc.
 
 ---
 

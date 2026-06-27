@@ -47,6 +47,8 @@ class ParticleRecord:
     imbalance: Optional[tuple]
     hermitian: Optional[str]
     interpretation: str
+    depth: Optional[int] = None
+    constituents: str = ""
 
 
 class PrimordialBlackHoleParticle:
@@ -58,11 +60,13 @@ class PrimordialBlackHoleParticle:
         label: str = "particle",
         closure_name: Optional[str] = None,
         engine: Optional[PossibilistEngine] = None,
+        constituents: str = "",
     ) -> None:
         self.prefix = prefix
         self.label = label
         self.closure_name = closure_name
         self.engine = engine or PossibilistEngine()
+        self.constituents = constituents
 
     def resolve(self) -> ParticleRecord:
         combined_history: Optional[str] = None
@@ -84,6 +88,7 @@ class PrimordialBlackHoleParticle:
         is_closed = bool(final_history and is_zfa_closed(final_history))
         imbalance = compute_imbalance(final_history) if final_history else None
         hermitian = hermitian_conjugate(final_history) if final_history else None
+        depth = len(final_history) // 2 if final_history else None  # Hermitian-pair fold depth
 
         if is_closed:
             interpretation = (
@@ -107,31 +112,63 @@ class PrimordialBlackHoleParticle:
             imbalance=imbalance,
             hermitian=hermitian,
             interpretation=interpretation,
+            depth=depth,
+            constituents=self.constituents,
         )
 
 
+# --- constituents (single closures, the half-loops the bound states are built from) ---
 PARTICLE_LIBRARY: Dict[str, Dict[str, str]] = {
     "electron": {
         "prefix": "^<",
         "closure_name": "ZFA_MIN_SQUARE_CCW",
-        "note": "Minimal spatial closure; electron-like pedagogical example.",
+        "note": "Minimal CCW spatial closure; the electron half-loop.",
+        "constituents": "one half-loop",
     },
     "positron": {
         "prefix": "v>",
         "closure_name": "ZFA_MIN_SQUARE",
-        "note": "Conjugate-oriented minimal spatial closure.",
-    },
-    "neutrino": {
-        "prefix": "^-",
-        "closure_name": "ZFA_GAUGE_LOOP",
-        "note": "Gauge-dominant pedagogical example.",
+        "note": "Conjugate-oriented minimal spatial closure; the positron half-loop.",
+        "constituents": "one half-loop (Hermitian conjugate of the electron)",
     },
     "fluxoid": {
         "prefix": "^>/+",
         "closure_name": "ZFA_FLUXOID",
         "note": "Composite particle-like closure from the catalog.",
+        "constituents": "composite catalog closure",
+    },
+    # --- the depth progression: neutrino -> positronium -> muonium -> atom ---
+    # Each bound state is a joint ZFA closure; each step adds a new direction
+    # (a qubit), so the fold depth strictly increases down the ladder.
+    "neutrino": {
+        "prefix": "^+v-",
+        "closure_name": "",
+        "note": "Gauge-dominant single loop: spin (^v) + gauge (+-), no <> spatial "
+                "width — the 'ghost'. The shallowest rung.",
+        "constituents": "one self-closing loop (gauge axis)",
+    },
+    "positronium": {
+        "prefix": "^<v>^>v<",
+        "closure_name": "",
+        "note": "Symmetric minimal joint closure: electron ++ positron. Mass 2 m_e.",
+        "constituents": "electron ^<v> ++ positron ^>v< (spatial square)",
+    },
+    "muonium": {
+        "prefix": "^<v>^>v</\\",
+        "closure_name": "",
+        "note": "Adds the diagonal /\\ fold — a deeper (antimuon) partner. Mass m_e + m_mu.",
+        "constituents": "electron ++ antimuon (+ diagonal axis)",
+    },
+    "atom": {
+        "prefix": "^<v>^>v</\\+-",
+        "closure_name": "",
+        "note": "Adds the gauge +- fold — the deepest (proton) partner: hydrogen. Mass m_e + m_p.",
+        "constituents": "electron ++ proton (+ diagonal + gauge axes)",
     },
 }
+
+# The depth ladder shown by default (--particle all): bound states of growing depth.
+PROGRESSION: List[str] = ["neutrino", "positronium", "muonium", "atom"]
 
 
 class IntuitionisticEngine:
@@ -185,12 +222,16 @@ def resolve_rho_process(rho_code: str) -> Dict[str, Any]:
 def print_particle_record(record: ParticleRecord, verbose: bool = False) -> None:
     print(f"\n=== {record.label.upper()} ===")
     print(f"open prefix         : {record.prefix}")
-    print(f"catalog closure     : {record.closure_name}")
+    if record.constituents:
+        print(f"constituents        : {record.constituents}")
+    if record.closure_name:
+        print(f"catalog closure     : {record.closure_name}")
     if record.combined_history is not None:
         print(f"ApplyZfa result     : {record.combined_history}")
     if record.shortest_closure is not None:
         print(f"engine closure      : {record.shortest_closure}")
     print(f"final history       : {record.final_history}")
+    print(f"fold depth (pairs)  : {record.depth}")
     print(f"ZFA closed          : {record.is_zfa}")
     print(f"hermitian conjugate : {record.hermitian}")
     print(f"interpretation      : {record.interpretation}")
@@ -224,7 +265,12 @@ def run_demo(args: argparse.Namespace) -> None:
         print(resolve_rho_process(args.rho))
         return
 
-    targets = list(PARTICLE_LIBRARY.keys()) if args.particle == "all" else [args.particle]
+    if args.particle == "all":
+        targets = PROGRESSION
+    elif args.particle == "constituents":
+        targets = ["electron", "positron", "fluxoid"]
+    else:
+        targets = [args.particle]
     records: List[ParticleRecord] = []
 
     for name in targets:
@@ -232,8 +278,9 @@ def run_demo(args: argparse.Namespace) -> None:
         particle = PrimordialBlackHoleParticle(
             prefix=spec["prefix"],
             label=name,
-            closure_name=spec["closure_name"],
+            closure_name=spec["closure_name"] or None,
             engine=engine,
+            constituents=spec.get("constituents", ""),
         )
         record = particle.resolve()
         records.append(record)
@@ -253,6 +300,14 @@ def run_demo(args: argparse.Namespace) -> None:
     for record in records:
         print_particle_record(record, verbose=args.verbose)
 
+    if len(records) > 1:
+        print("\nDepth progression (each step adds a direction / qubit):")
+        for record in records:
+            arrow = "->" if record is not records[-1] else "  "
+            print(
+                f"  {record.label:12} depth={record.depth}  {record.final_history:14} {arrow}"
+            )
+
     print("\nVacuum ecology summary:")
     print(f"  resolved histories : {len(vacuum.resolved_histories)}")
     print(f"  baseline density   : {vacuum.baseline_density}")
@@ -266,8 +321,14 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--particle",
-        choices=["electron", "positron", "neutrino", "fluxoid", "all"],
+        choices=[
+            "neutrino", "positronium", "muonium", "atom",   # the depth progression
+            "electron", "positron", "fluxoid",              # constituents
+            "constituents", "all",
+        ],
         default="all",
+        help="'all' (default) = the depth progression neutrino->positronium->"
+             "muonium->atom; 'constituents' = the electron/positron/fluxoid half-loops.",
     )
     parser.add_argument("--parallel", action="store_true")
     parser.add_argument("--replicate", type=int, default=0)
