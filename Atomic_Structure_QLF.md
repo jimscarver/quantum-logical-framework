@@ -98,7 +98,7 @@ neutrino, the electron, and the proton; the heavier leptons decay — the τ is 
 its balanced `τ⁻ e⁺` closure relaxes via a neutron that β-decays to the proton
 ([`Atomic_System_QLF_Closures.md`](Atomic_System_QLF_Closures.md) §6).
 
-<img src="diagrams/atom_closures.svg" alt="The atoms as closure topologies: positronium (two coupled loops), muonium (antimuon's 3 twist-pair loops + electron), tau atom (tau's 4 loops + positron, unstable), hydrogen (the Borromean proton — 3 colour twist pairs locked — plus electron). Leptons are unlinked loops (baryon number 0); the proton is Borromean-linked (baryon number 1)" width="100%">
+<img src="diagrams/atom_closures.svg" alt="Hydrogen as a QLF closure: the proton is three colour-spanning qubits (R=x >/<, G=y ^/v, B=z //\), each qubit two orthogonal twists; each axis-complement closes where two qubits meet a colour (>↔< at R, ^↔v at G, /↔\ at B); the electron sits outside and ties in by two crossing lines to a balanced twist. A qubit is two symbols; balance = a twist meets its complement" width="100%">
 
 The *number-of-differences* classification is a structural reading; the verified anchors are the three
 generations, the proton's `π⁵`, and the Borromean baryon.
