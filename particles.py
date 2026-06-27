@@ -117,25 +117,25 @@ class PrimordialBlackHoleParticle:
         )
 
 
-# --- constituents (single closures, the half-loops the bound states are built from) ---
+# --- constituents (fundamental fluxoids: ONE ZFA loop = minimum action) ---
 PARTICLE_LIBRARY: Dict[str, Dict[str, str]] = {
     "electron": {
-        "prefix": "^<",
-        "closure_name": "ELECTRON_LOOP",
-        "note": "Minimal CCW spatial closure; the electron half-loop.",
-        "constituents": "one half-loop",
+        "prefix": "^<v>",
+        "closure_name": "",
+        "note": "The fundamental fluxoid: one CCW 2pi spatial loop = minimum action.",
+        "constituents": "one fluxoid (^<v>)",
     },
     "positron": {
-        "prefix": "v>",
-        "closure_name": "POSITRON_LOOP",
-        "note": "Conjugate-oriented minimal spatial closure; the positron half-loop.",
-        "constituents": "one half-loop (Hermitian conjugate of the electron)",
+        "prefix": "^>v<",
+        "closure_name": "",
+        "note": "The electron's Hermitian conjugate (CW fluxoid).",
+        "constituents": "one fluxoid (^>v<)",
     },
-    "fluxoid": {
-        "prefix": "^>/+",
-        "closure_name": "FULL_FLUXOID",
-        "note": "Composite particle-like closure from the catalog.",
-        "constituents": "composite catalog closure",
+    "photon": {
+        "prefix": "+-",
+        "closure_name": "",
+        "note": "The minimal gauge loop — the gauge quantum.",
+        "constituents": "one gauge loop (+-)",
     },
     # --- the depth progression: neutrino -> positronium -> muonium -> atom ---
     # Each bound state is a joint ZFA closure; each step adds a new direction
@@ -268,7 +268,7 @@ def run_demo(args: argparse.Namespace) -> None:
     if args.particle == "all":
         targets = PROGRESSION
     elif args.particle == "constituents":
-        targets = ["electron", "positron", "fluxoid"]
+        targets = ["electron", "positron", "photon"]
     else:
         targets = [args.particle]
     records: List[ParticleRecord] = []
@@ -323,12 +323,12 @@ def build_parser() -> argparse.ArgumentParser:
         "--particle",
         choices=[
             "neutrino", "positronium", "muonium", "atom",   # the depth progression
-            "electron", "positron", "fluxoid",              # constituents
+            "electron", "positron", "photon",               # constituents
             "constituents", "all",
         ],
         default="all",
         help="'all' (default) = the depth progression neutrino->positronium->"
-             "muonium->atom; 'constituents' = the electron/positron/fluxoid half-loops.",
+             "muonium->atom; 'constituents' = the electron/positron/photon fluxoids.",
     )
     parser.add_argument("--parallel", action="store_true")
     parser.add_argument("--replicate", type=int, default=0)

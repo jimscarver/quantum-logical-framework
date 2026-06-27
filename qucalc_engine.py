@@ -155,23 +155,30 @@ class PossibilistEngine:
         self._register_standard_closures()
 
     def _register_standard_closures(self) -> None:
-        """Register the named ZFA closures, by geometry + the role each plays.
+        """Register the named ZFA closures, named for the particle/atom each realizes.
 
-        Names describe what the closure IS:
-          ELECTRON_LOOP  ^<v>      minimal CCW spatial square (one ^v + one <> pair)
-          POSITRON_LOOP  ^>v<      minimal CW spatial square (Hermitian conjugate of the electron)
-          DIAGONAL_LOOP  /\\/\\      the diagonal (/\\) spatial axis loop
-          GAUGE_BIT      +-        the minimal gauge handshake = one resolved bit (photon-like)
-          FULL_FLUXOID   ^>/+v<\\-  all eight twists once = the complete fluxoid (all four axes)
+        A **fluxoid is ONE ZFA loop = minimum action** (Collective_Electrodynamics.md
+        §3: "1 fluxoid ≡ 1 ZFA loop"; a single 2π topological boundary). The electron
+        is the fundamental fluxoid — NOT the all-eight-twist string, which is the
+        opposite of minimal.
+
+          ELECTRON     ^<v>          the fundamental fluxoid — one CCW 2π spatial loop
+          POSITRON     ^>v<          its Hermitian conjugate (CW)
+          PHOTON       +-            the minimal gauge loop (the gauge quantum)
+          NEUTRINO     ^+v-          gauge-dominant loop: spin + gauge, no <> spatial width
+          POSITRONIUM  ^<v>^>v<      electron + positron (the symmetric bound state)
+          MUONIUM      ^<v>^>v</\\    + the diagonal axis (a deeper partner)
+          HYDROGEN     ^<v>^>v</\\+-  + the gauge axis (the atom)
         """
-        # Minimal spatial loops — the electron/positron chiral pair
-        self.catalog.register("ELECTRON_LOOP", "^<v>")
-        self.catalog.register("POSITRON_LOOP", "^>v<")
-        self.catalog.register("DIAGONAL_LOOP", "/\\/\\")
-        # Gauge-resolved handshake (one bit)
-        self.catalog.register("GAUGE_BIT", "+-")
-        # Composite all-eight-twist fluxoid
-        self.catalog.register("FULL_FLUXOID", "^>/+v<\\-")
+        # Fundamental fluxoids — single minimum-action loops
+        self.catalog.register("ELECTRON", "^<v>")
+        self.catalog.register("POSITRON", "^>v<")
+        self.catalog.register("PHOTON", "+-")
+        self.catalog.register("NEUTRINO", "^+v-")
+        # Atoms / bound states — the depth progression (each adds one direction)
+        self.catalog.register("POSITRONIUM", "^<v>^>v<")
+        self.catalog.register("MUONIUM", "^<v>^>v</\\")
+        self.catalog.register("HYDROGEN", "^<v>^>v</\\+-")
         # Add more closures here as they are discovered
 
     def ApplyZfa(self, prefix: str, name: str) -> Optional[str]:
@@ -215,8 +222,8 @@ if __name__ == "__main__":
 
     # Example 1: ApplyZfa (catalog composition)
     open_prefix = "^>"
-    closed = engine.ApplyZfa(open_prefix, "POSITRON_LOOP")
-    print(f"ApplyZfa('{open_prefix}', 'POSITRON_LOOP') → {closed}")
+    closed = engine.ApplyZfa(open_prefix, "POSITRON")
+    print(f"ApplyZfa('{open_prefix}', 'POSITRON') → {closed}")
     print(f"   ZFA closed? {is_zfa_closed(closed) if closed else False}\n")
 
     # Example 2: Rho parallel + replicate

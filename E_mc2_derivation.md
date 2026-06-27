@@ -188,7 +188,7 @@ Add an unresolved spatial prefix (momentum \( p \)):
 ```rholang
 BoostedParticle = RestMassiveParticle |
   ^ ! ( ^ ! 0 ) |                     // kinetic spatial prefix
-  ApplyZfa(kinetic_prefix, "GAUGE_BIT")
+  ApplyZfa(kinetic_prefix, "PHOTON")
 ```
 
 The role swap increases effective multiplicity by the Lorentz factor \( \gamma = 1 / \sqrt{1 - v^2/c^2} \), giving

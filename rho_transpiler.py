@@ -26,59 +26,117 @@ from typing import Dict, Any
 engine = PossibilistEngine()
 
 
+_TWISTS = set("^v<>/\\+-")
+
+
+def _parse_term(term: str):
+    """From a Rho subterm — e.g. ``a ! (@^)`` or ``^ ! (> ! (@slit1))`` — return
+    ``(channel, history)`` where ``channel`` is the name it acts on and
+    ``history`` is the ordered string of twist symbols it emits."""
+    m = re.search(r'@([A-Za-z_]\w*)', term)            # @channel reference
+    channel = m.group(1) if m else None
+    if channel is None:                                 # else a leading "name !"
+        m2 = re.match(r'\s*\(*\s*([A-Za-z_]\w*)\s*!', term)
+        channel = m2.group(1) if m2 else None
+    history = "".join(ch for ch in term if ch in _TWISTS)
+    return channel, history
+
+
 def transpile_rho_to_python(rho_code: str) -> str:
     """
-    Transpile RhoQuCalc code to Python using PossibilistEngine.
-    Returns a string containing executable Python code.
+    Transpile RhoQuCalc code to executable, top-level Python that drives the
+    PossibilistEngine. Channels become string histories; ``x ! (@T)`` appends
+    twist ``T`` to channel ``x``; ``P | Q`` becomes ``engine.parallel(...)``;
+    ``ApplyZfa(x, "NAME")`` folds a cataloged closure onto ``x``.
     """
-    # Strip comments and normalize whitespace
-    lines = [line.strip() for line in rho_code.splitlines() if line.strip() and not line.strip().startswith('//')]
+    # Strip blank lines, full-line comments, and trailing `// ...` comments.
+    lines = []
+    for raw in rho_code.splitlines():
+        line = raw.split("//")[0].strip()
+        if line:
+            lines.append(line)
 
-    python_lines = [
+    py = [
         "# RhoQuCalc transpiled code",
         "from qucalc_engine import PossibilistEngine",
         "engine = PossibilistEngine()",
         "",
     ]
+    declared = []
+
+    def ensure(name: str) -> None:
+        if name and name not in declared:
+            declared.append(name)
+            py.append(f'{name} = ""')
 
     for line in lines:
-        line = line.strip()
+        line = line.strip().rstrip("|").strip()
+        if not line:
+            continue
 
-        # ApplyZfa
-        if line.startswith("ApplyZfa("):
-            python_lines.append(f"    result = {line}")
+        # new a, b in   → declare each channel as an empty history
+        if line.startswith("new "):
+            body = line[4:].replace(" in", "")
+            for nm in (n.strip() for n in body.split(",")):
+                ensure(nm)
+            continue
 
-        # Parallel composition:  P | Q
-        elif " | " in line:
-            parts = [p.strip() for p in line.split("|")]
-            python_lines.append(f"    parallel_processes = engine.parallel({', '.join(parts)})")
+        # replication marker
+        replicate = line.startswith("*")
+        if replicate:
+            line = line[1:].strip()
 
-        # Replication: *P
-        elif line.startswith("*"):
-            proc = line[1:].strip()
-            python_lines.append(f"    replicated = engine.replicate({proc})")
+        # ApplyZfa(chan, "NAME")  → fold a cataloged closure onto the channel
+        m = re.match(r'ApplyZfa\(\s*([A-Za-z_]\w*)\s*,\s*"([^"]+)"\s*\)', line)
+        if m:
+            chan, name = m.group(1), m.group(2)
+            ensure(chan)
+            py.append(f'{chan} = engine.ApplyZfa({chan}, "{name}") or {chan}')
+            if replicate:
+                py.append(f"replicated = engine.replicate({chan})")
+            continue
 
-        # new ... in ...
-        elif line.startswith("new "):
-            # Simple ignore for now (name restriction not yet needed in engine)
-            python_lines.append(f"    # new {line[4:]}")
+        # emit / parallel line:  (P | Q | ...) with x ! (@T) outputs
+        if "!" in line:
+            chans = []
+            for term in line.strip("()").split("|"):
+                if not term.strip():
+                    continue
+                chan, history = _parse_term(term)
+                if chan:
+                    ensure(chan)
+                    if history:
+                        py.append(f'{chan} = {chan} + "{history}"')
+                    chans.append(chan)
+            if len(chans) > 1:
+                py.append(f"parallel_processes = engine.parallel({', '.join(chans)})")
+            continue
 
-        # Cataloged closure definition (register)
-        elif "=" in line and "ZFA_" in line:
-            name = line.split("=")[0].strip()
-            closure = line.split("=")[1].strip().replace(";", "")
-            python_lines.append(f"    engine.catalog.register('{name}', '{closure}')")
+        # NAME = closure   → register a new cataloged closure
+        if "=" in line:
+            name = line.split("=", 1)[0].strip()
+            closure = line.split("=", 1)[1].strip().replace(";", "")
+            py.append(f"engine.catalog.register('{name}', '{closure}')")
+            continue
 
-        # Simulate / run
-        elif line.startswith("simulate") or line.startswith("run"):
-            python_lines.append(f"    sim_result = engine.simulate(parallel_processes)")
+        # simulate / run
+        if line.startswith("simulate") or line.startswith("run"):
+            py.append("sim_result = engine.simulate(parallel_processes)")
+            continue
 
+        py.append(f"# (unparsed) {line}")
+
+    # Always leave a sim_result behind: fold the engine over the final channel
+    # histories so execute_rho() returns something meaningful.
+    if not any("sim_result" in l for l in py):
+        if declared:
+            py.append(f"sim_result = engine.simulate([{', '.join(declared)}])")
         else:
-            # Pass-through for other valid Python
-            python_lines.append(f"    {line}")
+            py.append("sim_result = {}")
 
-    python_lines.append("\n# End of transpiled RhoQuCalc code")
-    return "\n".join(python_lines)
+    py.append("")
+    py.append("# End of transpiled RhoQuCalc code")
+    return "\n".join(py)
 
 
 def execute_rho(rho_code: str) -> Dict[str, Any]:
@@ -103,8 +161,8 @@ if __name__ == "__main__":
     bell_rho = """
 new a, b in
   (a ! (@^) | b ! (@^)) |
-  ApplyZfa(a, "FULL_FLUXOID") |
-  ApplyZfa(b, "FULL_FLUXOID")
+  ApplyZfa(a, "ELECTRON") |
+  ApplyZfa(b, "ELECTRON")
 """
     print("Transpiling Bell-state Rho code...")
     py = transpile_rho_to_python(bell_rho)
@@ -117,8 +175,8 @@ new a, b in
     double_slit_rho = """
 new slit1, slit2 in
   (^ ! (> ! (@slit1)) | ^ ! (< ! (@slit2))) |
-  *ApplyZfa(slit1, "POSITRON_LOOP") |
-  *ApplyZfa(slit2, "POSITRON_LOOP")
+  *ApplyZfa(slit1, "ELECTRON") |
+  *ApplyZfa(slit2, "ELECTRON")
 """
     print("\n\nTranspiling Double-Slit Rho code...")
     print(transpile_rho_to_python(double_slit_rho))

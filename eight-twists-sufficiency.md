@@ -31,7 +31,7 @@ The 8 twists are sufficient because **higher-dimensional systems are not embedde
 
 - **Parallel composition (`|`)**: Creates independent “dimensions” on demand.  
   ```rholang
-  ManyDimensionalSystem = *FULL_FLUXOID | *FULL_FLUXOID | …   // each | adds an orthogonal degree of freedom
+  ManyDimensionalSystem = *ELECTRON | *ELECTRON | …   // each | adds an orthogonal degree of freedom
   ```
   Each parallel process lives in its own logical “direction” defined by the shared twist channels. This is exactly how an *n*-qubit Hilbert space (dimension 2ⁿ) arises without ever storing a 2ⁿ vector: the dimensionality is carried by the number of parallel ZFA processes, not by pre-allocating basis states.
 

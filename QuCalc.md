@@ -124,11 +124,13 @@ The engine now explicitly supports named ZFA closures.
 
 Examples include:
 
-- `POSITRON_LOOP = ^>v<`
-- `ELECTRON_LOOP = ^<v>`
-- `DIAGONAL_LOOP = /\/\`
-- `GAUGE_BIT = +-`
-- `FULL_FLUXOID = ^>/+v<\-`
+- `ELECTRON = ^<v>` (the fundamental fluxoid — one ZFA loop = minimum action)
+- `POSITRON = ^>v<`
+- `PHOTON = +-`
+- `NEUTRINO = ^+v-`
+- `POSITRONIUM = ^<v>^>v<`
+- `MUONIUM = ^<v>^>v</\`
+- `HYDROGEN = ^<v>^>v</\+-`
 
 These named closures are no longer merely examples in prose.  
 They are cataloged and callable through the engine.
@@ -158,7 +160,7 @@ A process can append a verified closure to an open prefix.
 Conceptually:
 
 ```text
-ApplyZfa(prefix, "POSITRON_LOOP")
+ApplyZfa(prefix, "POSITRON")
 ```
 
 This means: take the current open history and compose it with a named verified closure.
@@ -323,7 +325,7 @@ This is a minimal spatial ZFA loop.
 ### 13.2 Applying a named closure
 
 ```text
-ApplyZfa("^>", "POSITRON_LOOP")
+ApplyZfa("^>", "POSITRON")
 ```
 
 This composes an open prefix with a cataloged closure.
@@ -331,7 +333,7 @@ This composes an open prefix with a cataloged closure.
 ### 13.3 Parallel composition
 
 ```text
-ApplyZfa(a, "FULL_FLUXOID") | ApplyZfa(b, "FULL_FLUXOID")
+ApplyZfa(a, "ELECTRON") | ApplyZfa(b, "ELECTRON")
 ```
 
 This expresses two independent but concurrent closure processes.
@@ -339,7 +341,7 @@ This expresses two independent but concurrent closure processes.
 ### 13.4 Replication
 
 ```text
-*ApplyZfa(particle, "FULL_FLUXOID")
+*ApplyZfa(particle, "ELECTRON")
 ```
 
 This expresses repeated spawning or reuse of a closure process.
