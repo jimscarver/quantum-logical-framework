@@ -7,7 +7,7 @@ In the **Quantum Logical Framework (QLF)**, the atom is not a spatial object; it
 Chemistry is not the physics of objects bumping into each other; it is the geometry of the QuCalc engine routing logic through available dimensional paths to achieve Zero Free Action (ZFA).
 
 ## 1. The ZFA Clock: The Illusion of "Orbits"
-The proton is a dense, Left-Handed topological knot possessing unresolved free action (positive gauge). The electron is a Right-Handed fundamental fluxoid (negative gauge). 
+The proton is a dense, Left-Handed topological knot possessing unresolved free action (positive gauge). The electron is a Right-Handed fundamental fluxoid (negative gauge). (Where these constituents come from — and how the atom emerges as the deepest rung of the bound-state ladder neutrino → positronium → muonium → atom — is the runnable engine demo in [`Particles.md`](Particles.md) / [`particles.py`](particles.py): watch each particle gauge-fold into a ZFA closure of increasing depth.)
 
 They do not orbit each other in continuous space. The interaction is a frantic, alternating calculation:
 1. The proton projects its unresolved positive gauge toward the vacuum.
@@ -184,4 +184,4 @@ The atom is completely topologically sealed. It will not interact chemically.
 
 See also: [Annihilation.md](Annihilation.md) — the LH proton / RH electron chirality assignment used in §1 of this doc is what makes hydrogen + antihydrogen a joint Hermitian pair that unwinds completely on contact.
 
-For the detailed substrate companion to this narrative — shells from Pauli exclusion, the 3-axis orbital ladder, α/scale, the icosahedral s/p/d signature, the twist-fold model of the constituents, and the specific joint-closure topology + masses for positronium, hydrogen, muonium, the τ, and heavier nuclei — see [`Atomic_Structure_QLF.md`](Atomic_Structure_QLF.md) (Lean anchor [`lean/QLF_AtomicStructure.lean`](lean/QLF_AtomicStructure.lean)).
+For the detailed substrate companion to this narrative — shells from Pauli exclusion, the 3-axis orbital ladder, α/scale, the icosahedral s/p/d signature, the twist-fold model of the constituents, and the specific joint-closure topology + masses for positronium, hydrogen, muonium, the τ, and heavier nuclei — see [`Atomic_Structure_QLF.md`](Atomic_Structure_QLF.md) (Lean anchor [`lean/QLF_AtomicStructure.lean`](lean/QLF_AtomicStructure.lean)). To **watch the constituents and bound states emerge** from the engine, run the depth-progression demo in [`Particles.md`](Particles.md) / [`particles.py`](particles.py).
