@@ -133,6 +133,20 @@ observables (`quark_not_closed`: the closure observable is the *hadron*, not the
 ratio (lighter = deeper closure). The ~5-orders-of-magnitude span `0.0023 → 184` is the flavor puzzle —
 exponentially natural in the closure-depth picture, not six independently tuned couplings.
 
+**Charged leptons in proton-mass units** (the clean Koide tier — the sharp example):
+
+| Lepton | Gen | Charge | Mass | Mass / `m_p` |
+|---|---:|---:|---:|---:|
+| e (electron) | 1 | −1 | 0.511 MeV | 0.000545 |
+| μ (muon) | 2 | −1 | 105.66 MeV | 0.1126 |
+| τ (tau) | 3 | −1 | 1776.86 MeV | 1.894 |
+
+Unlike quarks, charged-lepton masses **are** clean closure observables, and the three obey **Koide**
+exactly: `Q = (Σm) / (Σ√m)² = 0.6667 = 2/3` (`koide_two_thirds`, [`QLF_Koide`](lean/QLF_Koide.lean)),
+which predicts `m_τ` to **0.006%** from `m_e, m_μ` — the sharpest case of the depth-ratio reduction (the
+tier collapses to `{m_p, δ}`, with the Koide angle `δ` the one open input). Neutrinos are **Majorana**
+with sub-eV masses (open; [`QLF_NeutrinoMass`](lean/QLF_NeutrinoMass.lean)).
+
 **Honest residual (still open ✗):** the Koide **angle `δ`** (which fixes the individual masses within a
 tier), the absolute scale, the per-flavour **twist signature**, and the quark CKM/Yukawa angle *values*.
 "Flavour = the Yukawa structure" — and in QLF that structure is **fold depth**: demystified, partly
