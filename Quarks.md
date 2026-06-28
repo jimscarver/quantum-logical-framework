@@ -37,7 +37,9 @@ Confinement is **proven**, as the closure obstruction already established for ch
   it is not a physical state.
 - **`singlet_closure`** — every ZFA closure has zero net charge/colour: **only singlets close**.
 - **`baryon_needs_all_three_axes`** — and the only nonzero-baryon closure is the three-axis Borromean
-  triple. Together: physical hadrons are colour-neutral, and a baryon is exactly the three-colour lock.
+  triple. **`single_colour_not_baryon`** — a history on a single colour axis has `B = 0`: a lone quark's
+  colour content is not a baryon. Together: physical hadrons are colour-neutral, and a baryon is exactly
+  the three-colour lock — no lone or two-colour baryon.
 
 **The dynamical reading — confinement as the 3-body threshold (⚠ cited dynamics, QLF-native bridge).**
 The closure ladder is the n-body integrability ladder:
@@ -62,12 +64,13 @@ closure cost grows with separation); its *value* and the asymptotic-freedom→co
   [`QLF_BMinusL`](lean/QLF_BMinusL.lean)); conserved (`signed_count_conserved`); **zero on every closure**
   (`wcount_zero_on_ZFA`) — global neutrality; annihilation-odd; `charged_not_closed` (a bare charge needs
   its completer — the proton needs its electron, [`Weak_Force.md`](Weak_Force.md) §4a).
-- **Quantisation in thirds, from colour (⚠ structural reading).** The fractional `±1/3`, `±2/3` are the
-  unit gauge fold shared over the three colour axes — a `1/3` quantum per colour. Equivalently the SU(5)
-  charge-quantisation argument ([`QLF_SU5`](lean/QLF_SU5.lean)): three equal-charge colour states + an
-  integer-charge lepton in one multiplet + tracelessness `Σ charge = 0` force the colour-state charge to
-  `1/3`. So **the thirds track the three colours**. (Beyond the integer `chargeWeight` model; the absolute
-  value is then the up/down split, §4.)
+- **Quantisation in thirds, from colour (✓ proven).** The charge quantum is `1/n` for `n` colours:
+  **`charge_quantum_from_colours`** ([`QLF_QuarkStructure`](lean/QLF_QuarkStructure.lean)) — tracelessness
+  `n·q + L = 0` with an integer-charge remainder `L` forces `q = −L/n`. With QLF's `n = 3` colours
+  (= 3 spatial axes) and the SU(5) `5̄` (three `d^c` colour copies + a lepton doublet of net charge `−1`),
+  **`down_quark_charge_third`** gives `3q − 1 = 0 ⟹ q = 1/3` — the down quark is `−1/3`. So the **thirds
+  are forced by the three colours** (the SU(5) multiplet content, [`QLF_SU5`](lean/QLF_SU5.lean), is the
+  input; the *thirds* are the theorem). The absolute up/down value is then the §4 split.
 
 ## 4. Flavour (u/d) — the open frontier (✗)
 
@@ -85,37 +88,43 @@ closure cost grows with separation); its *value* and the asymptotic-freedom→co
 Graded honestly — what is a **genuine/falsifiable** prediction vs a **reproduction with a new reason**.
 
 1. **Dimensional confinement — the 3-body threshold (falsifiable).** No confined sub-three-colour state
-   (no stable diquark baryon); confinement turns on at *exactly* three axes = three spatial dimensions.
-   *Skeleton proven* (`baryon_needs_all_three_axes`, `baryon_zero_of_missing`: fewer than three colours ⟹
-   `B=0`); the chaos cause is cited. **Falsifier:** a stable two-colour bound state, or confinement in a
-   genuinely 2D system.
+   (no lone-quark or diquark baryon); confinement turns on at *exactly* three axes = three spatial
+   dimensions. *Skeleton proven* (`baryon_needs_all_three_axes`; `single_colour_not_baryon` and
+   `baryon_zero_of_missing`: fewer than three colours ⟹ `B=0`); the chaos cause is cited. **Falsifier:** a
+   stable two-colour bound state, or confinement in a genuinely 2D system.
 2. **Exotic hadrons are molecular, not fundamental (falsifiable).** The only nonzero-`B` Borromean closure
    is the three-axis triple, so tetra-/penta-quark states must be two colour-singlets loosely bound, not
    new fundamental closures — matching the emerging experimental "molecular" reading. **Falsifier:** a
    compact, deeply-bound exotic with no two-singlet substructure.
 3. **No fourth generation — exactly three (proven prediction).** Three axes ⟹ three generations
    ([`QLF_Generations`](lean/QLF_Generations.lean), `num_generations_eq_three`) — the same "3" as colour.
-4. **The charge quantum tracks the three colours.** The `1/3` is the share over three colours; the sharp
-   counterfactual ("`1/d` in `d` spatial dimensions") is **speculative** — stated as the soft form: the
-   thirds exist *because* there are three colours = three spatial axes, not as a free fact.
+4. **The charge quantum is `1/n` for `n` colours (proven).** `charge_quantum_from_colours`: tracelessness
+   `n·q + L = 0` ⟹ `q = −L/n`, so the charge quantum is exactly `1/`(number of colours); QLF's three
+   colours give the **thirds** (`down_quark_charge_third`: `q = 1/3`). The sharp counterfactual ("`1/d` in
+   `d` spatial dimensions, since colours = spatial axes") is the one speculative step; the `1/3`-from-3
+   itself is now a theorem.
 
 The strongest *new* ones are **1** (proven skeleton + falsifiable) and **2** (current experimental
-relevance). **3** is a standing QLF prediction; **4** is a structural link, soft.
+relevance). **3** and the `1/3`-from-three-colours of **4** are proven; the dimensional counterfactual in
+**4** is the soft part.
 
 ---
 
 ## Honest scope
 
 - ✓ **Proven:** colour = 3 axes + SU(3); the Borromean three-colour necessity; confinement (only singlets
-  close, `charged_not_closed`/`singlet_closure`); charge conservation, neutrality, and `charged_not_closed`;
-  three generations.
-- ⚠ **Structural reading:** charge quantisation in thirds from colour (SU(5) tracelessness); the
-  integrability/chaos cause of confinement (the bridge *chaotic ⇒ non-terminating ⇒ pruned* is QLF-native;
-  3-body chaos itself is cited Poincaré); the flux-tube linear potential; the quark-as-junction picture.
+  close, `charged_not_closed`/`singlet_closure`; no lone-quark baryon, `single_colour_not_baryon`); charge
+  conservation, neutrality, `charged_not_closed`, and **quantisation in thirds from the three colours**
+  (`charge_quantum_from_colours`, `down_quark_charge_third`); three generations.
+- ⚠ **Structural reading:** the integrability/chaos cause of confinement (the bridge *chaotic ⇒
+  non-terminating ⇒ pruned* is QLF-native; 3-body chaos itself is cited Poincaré); the flux-tube linear
+  potential; the quark-as-junction picture; the `1/d`-in-`d`-dimensions counterfactual.
 - ✗ **Open:** the per-flavour (u/d) twist signature and quark masses; the string-tension value and the
   asymptotic-freedom→confinement RG flow.
 
-## See also
+## References
+
+### Internal (QLF)
 
 - [`Atomic_Structure_QLF.md`](Atomic_Structure_QLF.md) §7 — the nucleon knot the quark reading comes from;
   [`diagrams/hydrogen_proton_quarks.svg`](diagrams/hydrogen_proton_quarks.svg).
@@ -123,4 +132,29 @@ relevance). **3** is a standing QLF prediction; **4** is a structural link, soft
 - [`Weak_Force.md`](Weak_Force.md) §5 — the `d↔u` step, `m_n−m_p`, electron-out vs electron-in.
 - Lean: [`QLF_QuarkStructure`](lean/QLF_QuarkStructure.lean), [`QLF_Confinement`](lean/QLF_Confinement.lean),
   [`QLF_BaryonWinding`](lean/QLF_BaryonWinding.lean), [`QLF_StrongAlgebra`](lean/QLF_StrongAlgebra.lean),
-  [`QLF_QuarkMass`](lean/QLF_QuarkMass.lean), [`QLF_BMinusL`](lean/QLF_BMinusL.lean).
+  [`QLF_QuarkMass`](lean/QLF_QuarkMass.lean), [`QLF_BMinusL`](lean/QLF_BMinusL.lean),
+  [`QLF_SU5`](lean/QLF_SU5.lean), [`QLF_Generations`](lean/QLF_Generations.lean),
+  [`QLF_PrimeResonance`](lean/QLF_PrimeResonance.lean).
+
+### External
+
+- Gell-Mann, M. (1964). *A schematic model of baryons and mesons.* Phys. Lett. **8**, 214 — quarks.
+- Greenberg, O. W. (1964). *Spin and unitary-spin independence in a paraquark model.* Phys. Rev. Lett.
+  **13**, 598 — colour.
+- Fritzsch, H., Gell-Mann, M., Leutwyler, H. (1973). *Advantages of the color octet gluon picture.*
+  Phys. Lett. B **47**, 365 — QCD / SU(3) colour, the eight gluons.
+- Gross, D. J., Wilczek, F. (1973); Politzer, H. D. (1973). *Asymptotic freedom* — the high-energy
+  vanishing of the strong coupling (the deconfined limit).
+- Wilson, K. G. (1974). *Confinement of quarks.* Phys. Rev. D **10**, 2445 — the Wilson loop and the
+  linear (flux-tube) potential `V(r) ∝ r`.
+- Georgi, H., Glashow, S. L. (1974). *Unity of all elementary-particle forces.* Phys. Rev. Lett. **32**,
+  438 — SU(5); the tracelessness charge-quantisation argument behind the *thirds-from-three-colours* (§3).
+- Skyrme, T. H. R. (1962). *A unified field theory of mesons and baryons.* Nucl. Phys. **31**, 556 —
+  baryon number as a topological winding (QLF's `baryonNumber`).
+- Poincaré, H. (1890). *Sur le problème des trois corps et les équations de la dynamique.* Acta Math.
+  **13**, 1 — non-integrability of the three-body problem (the chaos behind the 3-axis confinement
+  threshold, §2).
+- Zhukov, M. V. et al. (1993). *Bound state properties of Borromean halo nuclei.* Phys. Rep. **231**, 151
+  — Borromean three-body binding (bound only as a triple, no two-body sub-bound state).
+- Chen, H.-X., Chen, W., Liu, X., Zhu, S.-L. (2016). *The hidden-charm pentaquark and tetraquark states.*
+  Phys. Rep. **639**, 1 — the multiquark / molecular-vs-compact debate (Prediction 2).
