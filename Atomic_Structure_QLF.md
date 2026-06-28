@@ -105,13 +105,15 @@ rule:
 - the eight twists pair by complement `^↔v · >↔< · /↔\ · +↔−`;
 - **each added qubit adds a new direction**, so heavier constituents have longer folds.
 
-The QuCalc fold for each atomic system (start and end at the electron):
+The closure for each system (start and end at the electron), as the verified catalog strings
+([`particles.py`](particles.py)) — each rung adds one internal dimension:
 
-| atom | QuCalc fold | nucleus |
+| closure | twist string | partner — internal dimension(s) |
 |---|---|---|
-| positronium | `e⁻ ^> v<` | — (the positron) |
-| muonium | `e⁻ ^> /v >\ v<` | muon = `/v >\` |
-| hydrogen | `e⁻ ^> /v >\ +− v<` | muon + gauge/charge `+−` |
+| neutrino | `^+v−` | — (gauge-dominant loop, no `<>` spatial width) |
+| positronium | `^<v>^>v<` | positron — **none** |
+| muonium | `^<v>^>v</\` | antimuon — **one** (`/\`) |
+| hydrogen | `^<v>^>v</\+−` | proton — **three** colour dims + charge (§7) |
 
 <img src="diagrams/atom_progression.svg" alt="The difference ladder drawn one way: neutrino (1 difference, gauge-dominant loop ^+v−, no <> spatial width), positronium (2, electron ++ positron; the positron has no internal dimension), muonium (3, electron ++ antimuon whose one internal dimension is /\), hydrogen (5, electron OUT + proton uud — three internal colour dimensions +−/^v//\ across the quarks + charge <>), and the neutron (the electron-IN twin, udd, metastable, n→H+ν̄). Each closure starts at the electron with ^>, traverses its internal dimensions end-to-end, and returns to close" width="100%">
 
@@ -131,6 +133,11 @@ threaded through them. Reading the knot with these directions deduces the quark 
 charge, flavour, confinement, and the predictions — is [`Quarks.md`](Quarks.md).
 
 <img src="diagrams/hydrogen_proton_quarks.svg" alt="Hydrogen, zoomed into the proton: the proton Markov blanket holds three quarks (uud), each holding two ends of the three internal colour dimensions (R = + … −, G = ^ … v, B = / … \\), which cross Borromean-style; the orange closure leaves the electron at ^> and traverses each dimension end-to-end, picking up the charge/handedness < >, and returns to close at the electron" width="100%">
+
+*Labelling note: the diagram uses a **handedness reading** — the three internal dimensions drawn as `+−`,
+`^v`, `/\` and the charge/handedness as the lateral `<>`. The **formal `axOf` convention** used by the
+theorems below instead takes the three colour axes to be the spatial `<>`, `^v`, `/\`, with electric charge
+the gauge `+−`. They are two labellings of the same eight twists; the proofs use the formal one.*
 
 **The three internal qubits = the three colour axes.** The six spatial twists are three orthogonal
 Hermitian pairs — the three axes of `baryonNumber` ([`lean/QLF_BaryonWinding.lean`](lean/QLF_BaryonWinding.lean),
