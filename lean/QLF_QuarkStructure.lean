@@ -104,7 +104,9 @@ content (the lepton charges) is the SU(5) input; what the three colours force is
     count; QLF's `n = 3` gives thirds.) -/
 theorem charge_quantum_from_colours (n : ℕ) (hn : (n : ℚ) ≠ 0) (q L : ℚ)
     (traceless : (n : ℚ) * q + L = 0) : q = - L / n := by
-  rw [eq_div_iff hn]; linear_combination traceless
+  rw [eq_div_iff hn]
+  have h : (n : ℚ) * q = -L := by linarith
+  linarith [mul_comm q (n : ℚ), h]
 
 /-- **The down quark is `−1/3`, forced by the three colours.** The SU(5) `5̄` = three
     colour copies of `d^c` (charge `q`) + a lepton doublet of net charge `−1`;
