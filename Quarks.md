@@ -115,6 +115,24 @@ So the SM's free Yukawa **is** a closure depth — structural, not dialled. The 
   well-posed target (the down is *less* charged yet *heavier* — mass ≠ charge,
   [`Weak_Force.md`](Weak_Force.md) §5e).
 
+**Quark masses in proton-mass units** (`m_p = 938.27 MeV`, the single QLF scale):
+
+| Quark | Gen | Charge | Mass | Mass / `m_p` |
+|---|---:|---:|---:|---:|
+| u (up) | 1 | +2/3 | 2.16 MeV | 0.0023 |
+| d (down) | 1 | −1/3 | 4.67 MeV | 0.0050 |
+| s (strange) | 2 | −1/3 | 93.4 MeV | 0.100 |
+| c (charm) | 2 | +2/3 | 1.27 GeV | 1.35 |
+| b (bottom) | 3 | −1/3 | 4.18 GeV | 4.45 |
+| t (top) | 3 | +2/3 | 172.7 GeV | 184 |
+
+Values are PDG (MS-bar for `u,d,s,c,b`; pole mass for `t`) — scheme-dependent, and **not** QLF
+observables (`quark_not_closed`: the closure observable is the *hadron*, not the bare quark). The
+`m_p` column is the QLF reading: every mass `= m_p ×` (a ratio) (`spectrum_one_scale`,
+[`QLF_MassSpectrum`](lean/QLF_MassSpectrum.lean)); and since `m = 1/R`, it is the **inverse fold-depth**
+ratio (lighter = deeper closure). The ~5-orders-of-magnitude span `0.0023 → 184` is the flavor puzzle —
+exponentially natural in the closure-depth picture, not six independently tuned couplings.
+
 **Honest residual (still open ✗):** the Koide **angle `δ`** (which fixes the individual masses within a
 tier), the absolute scale, the per-flavour **twist signature**, and the quark CKM/Yukawa angle *values*.
 "Flavour = the Yukawa structure" — and in QLF that structure is **fold depth**: demystified, partly
