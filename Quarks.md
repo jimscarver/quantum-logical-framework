@@ -72,16 +72,53 @@ closure cost grows with separation); its *value* and the asymptotic-freedom→co
   are forced by the three colours** (the SU(5) multiplet content, [`QLF_SU5`](lean/QLF_SU5.lean), is the
   input; the *thirds* are the theorem). The absolute up/down value is then the §4 split.
 
-## 4. Flavour (u/d) — the open frontier (✗)
+## 4. Flavour — the settled bookkeeping vs the mass puzzle
 
-- **Structural ✓:** two flavours per generation = the weak `SU(2)` doublet
-  ([`QLF_QuarkMass`](lean/QLF_QuarkMass.lean)); `u` and `d` differ by **one** `u↔d` gauge-fold pair-flip
-  (the weak vertex), so their charge differs by exactly 1 (`uud = +1`, `udd = 0`, §7).
-- **Open ✗:** the **per-flavour twist signature** — *which* twist string is the up vs the down, and why
-  one is `+2/3` — is not derivable yet (only the electron `^<v>`, neutrino `^v`, photon `^>` have
-  signatures, [`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md) §4). Positing it would be
-  arithmetic, not a derivation; the mass *difference* `m_n−m_p` is the well-posed target (the d↔u step is
-  **not** the charge difference — the down is *less* charged yet *heavier*, [`Weak_Force.md`](Weak_Force.md) §5e).
+Flavour is the label for *which* of the six quark fields an excitation is. As in the SM it splits cleanly
+into a **settled gauge-quantum-number bookkeeping** and the **open mass/Yukawa puzzle** — and QLF
+reproduces the first (some of it now proven) and *reframes* the second.
+[`diagrams/flavor_grid.svg`](diagrams/flavor_grid.svg) shows the 3×2 grid with the CKM transitions.
+
+**Settled — the gauge bookkeeping (QLF reproduces; some proven ✓).**
+- **Charge:** up-type `+2/3`, down-type `−1/3` — **proven** thirds from the three colours (§3).
+- **Weak isospin** `T₃ = ±1/2` *within* a generation = the weak `SU(2)` doublet (the 2-state "bit";
+  `weak_isospin_su2` in [`BraKetRhoQuCalc`](lean/BraKetRhoQuCalc.lean); `u,d` doublet in
+  [`QLF_QuarkMass`](lean/QLF_QuarkMass.lean)). `u↔d` is one gauge-fold pair-flip — charge changes by 1
+  (`uud=+1`, `udd=0`, §7).
+- **Three generations** = the three axes (`num_generations_eq_three`, [`QLF_Generations`](lean/QLF_Generations.lean)).
+- **CKM:** flavour changes *only* via the W charged current; unitarity = closure, near-diagonal (Cabibbo),
+  3 angles + 1 CP phase, CP needing ≥3 generations (Kobayashi–Maskawa) — [`QLF_CKM`](lean/QLF_CKM.lean),
+  [`QLF_FlavorMixing`](lean/QLF_FlavorMixing.lean). The angle *values* stay open. (GIM / no tree-level FCNC
+  is *consistent-with*, not derived.)
+
+**The puzzle — mass / Yukawa.** In the SM each quark's mass is a free Yukawa coupling to the Higgs, and the
+"flavor puzzle" is *why* three tiers spanning five orders of magnitude. This is the genuinely open part —
+and the one place QLF goes past "free input."
+
+**Folds demystify mass, so QLF can go further.** In QLF mass is not a coupling but the **gauge-fold delay**
+`m = 1/R` — the constructing delay of the closure (`mass_is_gauge_fold_delay`,
+[`QLF_HiggsMechanism`](lean/QLF_HiggsMechanism.lean); `m=1/R` in [`QLF_QuantumBlackHole`](lean/QLF_QuantumBlackHole.lean)).
+So the SM's free Yukawa **is** a closure depth — structural, not dialled. The flavour mass puzzle becomes
+**"why these fold depths,"** and QLF has partial answers:
+
+- The **three generations = three fold-depth tiers**, and the charged-lepton tier is **Koide-constrained**:
+  `Q = 2/3` from `N=3 ∧ A²=2`, predicting `m_τ` to **0.006%** (`koide_two_thirds`,
+  [`QLF_Koide`](lean/QLF_Koide.lean)) — a real relation *among* the three masses the SM has no handle on.
+- **One scale.** Every mass is the **proton scale times a ratio**, `m = m_p · (ratio)` (`spectrum_one_scale`,
+  [`QLF_MassSpectrum`](lean/QLF_MassSpectrum.lean)) — the SM's ~13 mass parameters collapse to **one**
+  absolute input, `m_p`. ([`diagrams/flavor_grid.svg`](diagrams/flavor_grid.svg) gives the six quark masses
+  in `m_p` units.) And that one ratio span is **exponentially natural**, not fine-tuned: dimensional
+  transmutation gives `ln R = 14π = 2π·b₀` ([`QLF_AlphaS`](lean/QLF_AlphaS.lean)) — the huge hierarchy is
+  `e^{14π}` from a single integer, not a tuned coupling.
+- For **quarks specifically**, confinement intervenes: bare quark masses are not closure observables
+  (`quark_not_closed`); the observable is the hadron-mass *splitting* `m_n−m_p` (the d↔u step), the
+  well-posed target (the down is *less* charged yet *heavier* — mass ≠ charge,
+  [`Weak_Force.md`](Weak_Force.md) §5e).
+
+**Honest residual (still open ✗):** the Koide **angle `δ`** (which fixes the individual masses within a
+tier), the absolute scale, the per-flavour **twist signature**, and the quark CKM/Yukawa angle *values*.
+"Flavour = the Yukawa structure" — and in QLF that structure is **fold depth**: demystified, partly
+derived (Koide tier relation + exponential hierarchy), not yet fully.
 
 ## 5. Predictions
 

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 570" font-family="ui-sans-serif, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <rect width="900" height="570" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">The six quark flavours — charge, weak isospin, and the CKM transitions</text>
+  <text x="450" y="48" text-anchor="middle" font-size="12.5" fill="#6b7280">two charges × three generations · the W is the only flavour-changer · QLF: mass = fold depth (m = 1/R), the Yukawa demystified</text>
+
+  <defs>
+    <marker id="w1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker>
+    <marker id="w0" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#7c3aed"/></marker>
+    <marker id="mass" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#374151"/></marker>
+  </defs>
+
+  <!-- generation headers -->
+  <text x="210" y="96" text-anchor="middle" font-size="13" font-weight="700" fill="#6b7280">1st generation</text>
+  <text x="450" y="96" text-anchor="middle" font-size="13" font-weight="700" fill="#6b7280">2nd generation</text>
+  <text x="690" y="96" text-anchor="middle" font-size="13" font-weight="700" fill="#6b7280">3rd generation</text>
+
+  <!-- charge / row labels -->
+  <text x="60" y="166" text-anchor="middle" font-size="14" font-weight="700" fill="#2563eb">+2/3</text>
+  <text x="60" y="184" text-anchor="middle" font-size="10" fill="#1d4ed8">up-type</text>
+  <text x="60" y="356" text-anchor="middle" font-size="14" font-weight="700" fill="#b91c1c">−1/3</text>
+  <text x="60" y="374" text-anchor="middle" font-size="10" fill="#b91c1c">down-type</text>
+  <text x="36" y="270" text-anchor="middle" font-size="10" fill="#6b7280" transform="rotate(-90 36 270)">T₃ = +½ / −½</text>
+
+  <!-- up-type cells -->
+  <g>
+    <rect x="150" y="135" width="120" height="74" rx="11" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="210" y="173" text-anchor="middle" font-size="26" font-weight="700" fill="#1d4ed8">u</text>
+    <text x="210" y="195" text-anchor="middle" font-size="10" fill="#374151">+2/3 · 0.0023 m_p</text>
+    <rect x="390" y="135" width="120" height="74" rx="11" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="450" y="173" text-anchor="middle" font-size="26" font-weight="700" fill="#1d4ed8">c</text>
+    <text x="450" y="195" text-anchor="middle" font-size="10" fill="#374151">+2/3 · 1.35 m_p</text>
+    <rect x="630" y="135" width="120" height="74" rx="11" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="690" y="173" text-anchor="middle" font-size="26" font-weight="700" fill="#1d4ed8">t</text>
+    <text x="690" y="195" text-anchor="middle" font-size="10" fill="#374151">+2/3 · 184 m_p</text>
+  </g>
+
+  <!-- down-type cells -->
+  <g>
+    <rect x="150" y="325" width="120" height="74" rx="11" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+    <text x="210" y="363" text-anchor="middle" font-size="26" font-weight="700" fill="#b91c1c">d</text>
+    <text x="210" y="385" text-anchor="middle" font-size="10" fill="#374151">−1/3 · 0.0050 m_p</text>
+    <rect x="390" y="325" width="120" height="74" rx="11" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+    <text x="450" y="363" text-anchor="middle" font-size="26" font-weight="700" fill="#b91c1c">s</text>
+    <text x="450" y="385" text-anchor="middle" font-size="10" fill="#374151">−1/3 · 0.100 m_p</text>
+    <rect x="630" y="325" width="120" height="74" rx="11" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+    <text x="690" y="363" text-anchor="middle" font-size="26" font-weight="700" fill="#b91c1c">b</text>
+    <text x="690" y="385" text-anchor="middle" font-size="10" fill="#374151">−1/3 · 4.5 m_p</text>
+  </g>
+
+  <!-- W: vertical, Cabibbo-favoured (within generation) -->
+  <g stroke="#7c3aed" stroke-width="3.4" marker-start="url(#w0)" marker-end="url(#w1)">
+    <line x1="210" y1="213" x2="210" y2="321"/>
+    <line x1="450" y1="213" x2="450" y2="321"/>
+    <line x1="690" y1="213" x2="690" y2="321"/>
+  </g>
+  <text x="222" y="270" font-size="12" font-weight="700" fill="#7c3aed">W</text>
+  <text x="462" y="270" font-size="12" font-weight="700" fill="#7c3aed">W</text>
+  <text x="702" y="270" font-size="12" font-weight="700" fill="#7c3aed">W</text>
+
+  <!-- W: cross-generation, CKM-suppressed (dashed) -->
+  <g stroke="#7c3aed" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#w1)" fill="none">
+    <line x1="262" y1="205" x2="398" y2="330"/>   <!-- u -> s -->
+    <line x1="502" y1="205" x2="638" y2="330"/>   <!-- c -> b -->
+  </g>
+  <text x="320" y="258" text-anchor="middle" font-size="9.5" font-style="italic" fill="#7c3aed">CKM-suppressed</text>
+
+  <!-- mass / fold-depth axis -->
+  <line x1="150" y1="430" x2="760" y2="430" stroke="#374151" stroke-width="2" marker-end="url(#mass)"/>
+  <text x="455" y="448" text-anchor="middle" font-size="11.5" fill="#374151">mass = fold depth (m = 1/R), in units of the proton mass m_p — one scale, exponentially generated (~e^{14π})</text>
+
+  <!-- notes -->
+  <rect x="40" y="468" width="820" height="86" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="54" y="488" font-size="11.5" fill="#374151"><tspan font-weight="700" fill="#7c3aed">W (charged current)</tspan> is the only flavour-changer — always up-type ↔ down-type. Thick = Cabibbo-favoured (within a generation); dashed = CKM-suppressed (cross-generation, near-diagonal).</text>
+  <text x="54" y="508" font-size="11.5" fill="#374151"><tspan font-weight="700">No horizontal links</tspan> — the photon and Z conserve flavour: no tree-level flavour-changing neutral currents (GIM).</text>
+  <text x="54" y="528" font-size="11.5" fill="#374151"><tspan font-weight="700" fill="#16a34a">QLF</tspan>: every mass = m_p × a ratio (one scale, m_p); charge thirds proven from the 3 colours; the 3 tiers Koide-constrained (Q = 2/3, m_τ to 0.006%); mass = fold depth, so the SM's free Yukawa is a closure depth.</text>
+  <text x="54" y="546" font-size="11" font-style="italic" fill="#6b7280">Open: the Koide angle δ (individual masses within a tier), the absolute scale, the per-flavour twist signature, and the CKM angle values.</text>
+</svg>
