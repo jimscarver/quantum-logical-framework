@@ -127,7 +127,8 @@ machine-verified theorem; the verified per-system masses and binding energies ar
 *into* that knot. The nucleus is a **baryon**: a 3-axis Borromean closure whose three internal qubits are
 the **three colour directions**, split one per quark, with **charge** as the extra (gauge) direction
 threaded through them. Reading the knot with these directions deduces the quark content `uud` (proton) and
-`udd` (neutron) — the same closure logic as the atom, one scale down.
+`udd` (neutron) — the same closure logic as the atom, one scale down. The full quark account — colour,
+charge, flavour, confinement, and the predictions — is [`Quarks.md`](Quarks.md).
 
 <img src="diagrams/hydrogen_proton_quarks.svg" alt="Hydrogen, zoomed into the proton: the proton Markov blanket holds three quarks (uud), each holding two ends of the three internal colour dimensions (R = + … −, G = ^ … v, B = / … \\), which cross Borromean-style; the orange closure leaves the electron at ^> and traverses each dimension end-to-end, picking up the charge/handedness < >, and returns to close at the electron" width="100%">
 
