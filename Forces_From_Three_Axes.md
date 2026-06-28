@@ -178,6 +178,8 @@ The synthesis says **color `SU(3)` = the traceless 3-axis directional tensor**, 
 
 So the synthesis upgrades the *gauge* picture (color = traceless 3-axis tensor) but leaves the *flavor* picture where it was: open.
 
+**A structural step on the flavour bullet.** Reading the baryon as a *knot of closures* — the three colour axes (`<>`,`^v`,`/\`) split one per quark (Borromean → `B=+1`), with charge as the gauge direction shared `1/3` per colour — deduces the *content* `uud` (proton, `+1`) / `udd` (neutron, `0`), differing by one `u↔d` gauge-fold pair-flip, and the electron-out (hydrogen) vs electron-in (neutron) contrast. This is the colour-axis-split + `1/3`-share *structural reading*; the explicit per-flavour twist string (bullet 1 above) stays open. See [`Atomic_Structure_QLF.md`](Atomic_Structure_QLF.md) §7.
+
 **A category note on quark masses.** Asking for *quark masses* (e.g. a "quark Koide") is the wrong object in QLF: quarks are fractional ZFA with no independent mass — only hadrons are observables, and the quoted quark masses are scheme-dependent Lagrangian parameters. The physical, observable quantity is the mass *difference* — hadron isospin splittings like `m_n − m_p = (m_d − m_u) − EM`, which *are* the quark flavor step (`d↔u` = the weak vertex). That is the well-posed target; see [`Weak_Force.md`](Weak_Force.md) §5d.
 
 ---

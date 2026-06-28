@@ -12,6 +12,10 @@ fusion. It demonstrates three things the issue asks for:
      neutron (a free neutron beta-decays in ~880 s; bound in the deuteron it is stable),
      and it is GENERATIVE (the gateway to all heavier elements).
   3. The difference between the MALE (proton) and FEMALE (neutron) protocols.
+  4. INSIDE THE KNOT — the proton/neutron read as 3 colour qubits (the 3 spatial
+     axes) split across the 3 quarks, threaded by charge (the gauge direction):
+     uud (+1) vs udd (0), and the electron-out (hydrogen) vs electron-in (neutron)
+     contrast.  Full deduction: Atomic_Structure_QLF.md §7.
 
 QLF grounding:
   - A baryon is a 3-axis Borromean closure (`QLF_BaryonWinding.lean`: proton = `>^/`).
@@ -76,6 +80,32 @@ def binds(a: Baryon, b: Baryon) -> tuple[bool, str]:
         return False, ("identical closures -> Pauli-blocked from the bound channel "
                        "(pauli_exclusion): no bound state")
     return True, "distinguishable closures -> no Pauli block -> binds (spin-triplet, L=0)"
+
+
+# --- Inside the knot: 3 colour qubits across quarks + charge ----------------
+# Colour = the 3 spatial axes (lean/QLF_BaryonWinding.lean `axOf`; pure-Python
+#   baryon_winding_demo.B): R = x = <> , G = y = ^v , B = z = /\  (an assignment).
+# Charge = the gauge (+-) direction, shared 1/3 per colour -> u = +2/3, d = -1/3
+#   (the fractional STRUCTURAL reading, as in np_splitting_demo.py; NOT the integer
+#   chargeWeight model). uud and udd are the same Borromean triple -> B = +1
+#   (lean/QLF_BaryonWinding.baryon_proton: >^/ -> +1).
+COLOURS = [("R", "x", "<>"), ("G", "y", "^v"), ("B", "z", "/\\")]
+QCHARGE = {"u": "+2/3", "d": "-1/3"}
+QCHVAL = {"u": 2.0 / 3.0, "d": -1.0 / 3.0}
+
+
+def quark_decomposition(b: Baryon) -> None:
+    """Print the quark -> colour-axis -> charge split for a baryon, with the
+    column charge sum and the baryon-number (winding) anchor."""
+    print(f"  {b.name.split()[0]}  ({b.quarks}):")
+    print(f"      {'quark':<7}{'colour':<10}{'axis':<8}charge")
+    print("      " + "-" * 33)
+    for flav, (col, ax, pair) in zip(b.quarks, COLOURS):
+        print(f"      {flav:<7}{col + ' = ' + ax:<10}{pair:<8}{QCHARGE[flav]}")
+    q = int(round(sum(QCHVAL[f] for f in b.quarks)))
+    qstr = f"{q:+d}" if q != 0 else "0"
+    print(f"      {'sum':<7}{'':<10}{'':<8}{qstr}   (baryon number B = +1)")
+    print()
 
 
 def header(title: str) -> None:
@@ -144,6 +174,27 @@ def main() -> None:
     print("  The asymmetry is real and complementary, not hierarchical: the male protocol")
     print("  projects an unresolved deficit; the female protocol is neutral, fertile, and")
     print("  becomes stable in the bond.  Their union is the only one that closes.")
+    print()
+
+    header("4. Inside the knot — 3 colour qubits across quarks + charge")
+    print()
+    print("  The baryon is a 3-axis Borromean closure: the 3 internal qubits are the 3")
+    print("  colour directions (R=<>, G=^v, B=/\\), split one per quark, and charge is the")
+    print("  gauge direction shared 1/3 per colour (u=+2/3, d=-1/3).  uud and udd are the")
+    print("  same Borromean triple -> both B=+1; they differ by one u<->d gauge-fold flip.")
+    print()
+    quark_decomposition(PROTON)
+    quark_decomposition(NEUTRON)
+    print("  Electron OUT vs IN (same neutral B=1 content, two arrangements):")
+    print("    hydrogen = uud + electron OUTSIDE  -> neutral atom, stable (m_H = m_e + m_p)")
+    print("    neutron  = udd, the -1 folded IN (one u->d)  -> single closure, metastable")
+    print("    n -> H + nu-bar hands the electron back out; gap m_n - m_H = 0.782 MeV")
+    print()
+    print("  Honest scope: the per-quark charges are the fractional structural reading")
+    print("  (1/3 per colour), NOT the integer chargeWeight model; B=+1 anchors on")
+    print("  baryon_winding_demo.B('>^/') and lean/QLF_BaryonWinding.baryon_proton; the")
+    print("  catalog string ^<v>^>v</\\+- is a depth-ladder representative (B=0), NOT a")
+    print("  literal uud+e encoding.  Full deduction: Atomic_Structure_QLF.md §7.")
     print()
 
     header("Scaling up")

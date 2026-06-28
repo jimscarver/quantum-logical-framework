@@ -118,6 +118,73 @@ The QuCalc fold for each atomic system (start and end at the electron):
 This fold model is a **structural reading** (a work-in-progress visualization of the closure topology),
 not a machine-verified theorem; the verified per-system masses and binding energies are Part II.
 
+## 7. Inside the nucleon — the proton/neutron knot
+
+§6 closed the atom at the electron and left the nucleus as a single "muon + gauge" fold. Zoom one level
+*into* that knot. The nucleus is a **baryon**: a 3-axis Borromean closure whose three internal qubits are
+the **three colour directions**, split one per quark, with **charge** as the extra (gauge) direction
+threaded through them. Reading the knot with these directions deduces the quark content `uud` (proton) and
+`udd` (neutron) — the same closure logic as the atom, one scale down.
+
+**The three internal qubits = the three colour axes.** The six spatial twists are three orthogonal
+Hermitian pairs — the three axes of `baryonNumber` ([`lean/QLF_BaryonWinding.lean`](lean/QLF_BaryonWinding.lean),
+`axOf`): `<>`→x, `^v`→y, `/\`→z (gauge `+−` carries no axis). Label them the three **colours**
+R = x = `<>`, G = y = `^v`, B = z = `/\` — *one convention / an assignment*; the explicit per-quark twist
+string is open ([`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md) §4). Split one colour axis per
+quark → **3 quarks**, Borromean-linked. The cyclic `(x,y,z)` linking gives **baryon number `+1`**
+(`signTriple` cyclic = `+1`; `baryon_proton`: `>^/` → `B=+1`). Both the proton and the neutron carry all
+three colour axes, so **both are `B=+1`** — the same Borromean knot.
+
+**Charge = the gauge direction, shared across the three colour qubits.** Electric charge is the signed
+gauge-phase count (`chargeWeight`: `+`→+1, `−`→−1, spatial→0, [`lean/QLF_BMinusL.lean`](lean/QLF_BMinusL.lean)).
+One unit gauge fold, distributed Borromean-ly over the three colours, gives a **`1/3` charge quantum per
+colour** → the fractional `±1/3`, `±2/3` (the same fractional charges already used in
+[`np_splitting_demo.py`](np_splitting_demo.py) and [`Weak_Force.md`](Weak_Force.md) §5e). This is a
+**structural reading** beyond the integer `chargeWeight` model, not a fresh result.
+
+**`uud` vs `udd`.** With up `= +2/3` and down `= −1/3`:
+
+| baryon | quarks | charge | baryon number |
+|---|---|---:|---:|
+| proton | `uud` | `+2/3 +2/3 −1/3 = +1` | `+1` |
+| neutron | `udd` | `+2/3 −1/3 −1/3 = 0` | `+1` |
+
+They differ by exactly **one `u↔d`** — one **gauge-fold pair-flip**, the weak vertex
+([`Weak_Force.md`](Weak_Force.md) §4). The flip is the *operation*; the `−1` charge change is its
+consequence (and the *mass* difference is **not** the charge difference — `Weak_Force.md` §5e shows the
+down quark is *less* charged yet the neutron is *heavier*).
+
+**Hydrogen vs neutron = the electron out vs in.** The two closed, neutral, `B=1` states differ only in
+**where the electron's `−1` sits**:
+
+- **Hydrogen** — the `uud` proton is a `+1` charge *deficit*, not a closure on its own
+  (`charged_not_closed`: a net-charged state is not ZFA-closed); it is completed by an electron `−1`
+  **outside** the baryon → a neutral **atom**, stable (`m(H) = m_e + m_p`, Part II §3).
+- **Neutron** — the `udd` carries the `−1` **inside** (one `u→d` flip) → a single neutral closure,
+  metastable; it relaxes to hydrogen, `n → H + ν̄`, gap `m_n − m_H = 0.782 MeV`
+  ([`Weak_Force.md`](Weak_Force.md) §5e). The electron the neutron "swallowed" is handed back outside.
+
+So the proton/neutron knot is the atom's nucleus seen from inside: three colour qubits (Borromean → `B=1`)
+threaded by the gauge/charge direction (`uud`/`udd`), and the electron is in or out. Runnable demo:
+[`proton_neutron_demo.py`](proton_neutron_demo.py).
+
+**One honest tension.** `B=+1` is a net *winding* (`baryonNumber ≠ 0`, needing unbalanced axis
+directions), whereas ZFA *closure* forces every signed count to zero (`wcount_zero_on_ZFA`) and a
+count-balanced string tends to `B=0` (the meson cancellation, `baryon_meson`). So the **Part II catalog
+string `^<v>^>v</\+-` is a depth-ladder representative, almost certainly `B=0` — it is *not* a literal
+`uud + e⁻` encoding.** The quark structure here is the topological winding-plus-charge reading *layered
+on* the closure knot, not a claim about that twist string.
+
+**Honest scope (§7).**
+- ✓ **Grounded:** colour = the 3 axes; `B=+1` for the Borromean triple (`baryon_proton`/`baryonNumber`);
+  charge = gauge-phase count; `u↔d` = a gauge-fold pair-flip; `charged_not_closed` (a bare proton is a
+  deficit needing its completer); `n → H + ν̄` with `m_n − m_H = 0.782 MeV`.
+- ⚠ **Structural reading:** the `1/3`-charge-per-colour sharing; the one-axis-per-quark split; the
+  `uud`/`udd` colour assignment (consistent with `np_splitting_demo.py` / `Weak_Force.md` §5e).
+- ✗ **Open:** the explicit flavour↔twist vertex topology and quark masses
+  ([`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md) §4); the literal winding↔closure
+  reconciliation (the catalog string is **not** a literal `uud` encoding).
+
 ## Honest scope (Part I)
 
 - **Verified:** shells from Pauli exclusion; the `2ℓ+1` orbital dimensions; `s, p, d` (1, 3, 5) are
@@ -176,7 +243,7 @@ Therefore `α R_e = m_e ≈ 0.511 MeV`. The "electron mass" `m_e` is exactly **h
 
 ## §3 Hydrogen — leptonic + baryonic joint closure
 
-Hydrogen binds an electron half-loop to a proton internal closure (a composite three-quark closure per [`HadronicDepth.md`](HadronicDepth.md)):
+Hydrogen binds an electron half-loop to a proton internal closure (a composite three-quark closure per [`HadronicDepth.md`](HadronicDepth.md); the proton's internal three-colour-qubit `uud` knot — and the electron-out vs electron-in contrast with the neutron — is Part I §7):
 
 - Electron half-loop:  gauge-fold depth `R_e` ≈ 0.511 MeV / α
 - Proton internal closure: three-quark composite, gauge-fold depth `R_p` ≈ 938.27 MeV / α
