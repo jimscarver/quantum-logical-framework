@@ -126,8 +126,13 @@ So the SM's free Yukawa **is** a closure depth — structural, not dialled. The 
 | b (bottom) | 3 | −1/3 | 4.18 GeV | 4.45 |
 | t (top) | 3 | +2/3 | 172.7 GeV | 184 |
 
-Values are PDG (MS-bar for `u,d,s,c,b`; pole mass for `t`) — scheme-dependent, and **not** QLF
-observables (`quark_not_closed`: the closure observable is the *hadron*, not the bare quark). The
+Values are PDG (MS-bar for `u,d,s,c,b`; pole mass for `t`). These are **running, scale- and
+scheme-dependent** numbers *extracted* from high-energy data (there is no free quark to weigh): a quark
+mass is defined at a reference scale and *decreases* toward higher energy (RG running), and it shifts with
+scheme — the top alone moves ~6% between pole (≈173 GeV) and MS-bar (≈163 GeV). Mass *ratios* are nearly
+RG-invariant, so the relative pattern is robust; but a bare-quark mass being tied to the extraction scale
+is exactly why it is **not** a QLF observable (`quark_not_closed`: the closure observable is the *hadron*,
+not the bare quark). The
 `m_p` column is the QLF reading: every mass `= m_p ×` (a ratio) (`spectrum_one_scale`,
 [`QLF_MassSpectrum`](lean/QLF_MassSpectrum.lean)); and since `m = 1/R`, it is the **inverse fold-depth**
 ratio (lighter = deeper closure). The ~5-orders-of-magnitude span `0.0023 → 184` is the flavor puzzle —
