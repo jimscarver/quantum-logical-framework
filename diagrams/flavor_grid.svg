@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 570" font-family="ui-sans-serif, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
-  <rect width="900" height="570" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 612" font-family="ui-sans-serif, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <rect width="900" height="612" fill="#ffffff"/>
   <text x="450" y="28" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">The six quark flavours — charge, weak isospin, and the CKM transitions</text>
   <text x="450" y="48" text-anchor="middle" font-size="12.5" fill="#6b7280">two charges × three generations · the W is the only flavour-changer · QLF: mass = fold depth (m = 1/R), the Yukawa demystified</text>
 
@@ -17,8 +17,10 @@
   <!-- charge / row labels -->
   <text x="60" y="166" text-anchor="middle" font-size="14" font-weight="700" fill="#2563eb">+2/3</text>
   <text x="60" y="184" text-anchor="middle" font-size="10" fill="#1d4ed8">up-type</text>
+  <text x="60" y="198" text-anchor="middle" font-size="9.5" fill="#1d4ed8">gauge net +</text>
   <text x="60" y="356" text-anchor="middle" font-size="14" font-weight="700" fill="#b91c1c">−1/3</text>
   <text x="60" y="374" text-anchor="middle" font-size="10" fill="#b91c1c">down-type</text>
+  <text x="60" y="388" text-anchor="middle" font-size="9.5" fill="#b91c1c">gauge net −</text>
   <text x="36" y="270" text-anchor="middle" font-size="10" fill="#6b7280" transform="rotate(-90 36 270)">T₃ = +½ / −½</text>
 
   <!-- up-type cells -->
@@ -53,9 +55,12 @@
     <line x1="450" y1="213" x2="450" y2="321"/>
     <line x1="690" y1="213" x2="690" y2="321"/>
   </g>
-  <text x="222" y="270" font-size="12" font-weight="700" fill="#7c3aed">W</text>
-  <text x="462" y="270" font-size="12" font-weight="700" fill="#7c3aed">W</text>
-  <text x="702" y="270" font-size="12" font-weight="700" fill="#7c3aed">W</text>
+  <text x="224" y="263" font-size="12" font-weight="700" fill="#7c3aed">W</text>
+  <text x="224" y="279" font-size="10" font-weight="700" fill="#7c3aed">+−</text>
+  <text x="464" y="263" font-size="12" font-weight="700" fill="#7c3aed">W</text>
+  <text x="464" y="279" font-size="10" font-weight="700" fill="#7c3aed">+−</text>
+  <text x="704" y="263" font-size="12" font-weight="700" fill="#7c3aed">W</text>
+  <text x="704" y="279" font-size="10" font-weight="700" fill="#7c3aed">+−</text>
 
   <!-- W: cross-generation, CKM-suppressed (dashed) -->
   <g stroke="#7c3aed" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#w1)" fill="none">
@@ -69,9 +74,10 @@
   <text x="455" y="448" text-anchor="middle" font-size="11.5" fill="#374151">mass = fold depth (m = 1/R), in units of the proton mass m_p — one scale, exponentially generated (~e^{14π})</text>
 
   <!-- notes -->
-  <rect x="40" y="468" width="820" height="86" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
-  <text x="54" y="488" font-size="11.5" fill="#374151"><tspan font-weight="700" fill="#7c3aed">W (charged current)</tspan> is the only flavour-changer — always up-type ↔ down-type. Thick = Cabibbo-favoured (within a generation); dashed = CKM-suppressed (cross-generation, near-diagonal).</text>
-  <text x="54" y="508" font-size="11.5" fill="#374151"><tspan font-weight="700">No horizontal links</tspan> — the photon and Z conserve flavour: no tree-level flavour-changing neutral currents (GIM).</text>
-  <text x="54" y="528" font-size="11.5" fill="#374151"><tspan font-weight="700" fill="#16a34a">QLF</tspan>: every mass = m_p × a ratio (one scale, m_p); charge thirds proven from the 3 colours; the 3 tiers Koide-constrained (Q = 2/3, m_τ to 0.006%); mass = fold depth, so the SM's free Yukawa is a closure depth.</text>
-  <text x="54" y="546" font-size="11" font-style="italic" fill="#6b7280">Open: the Koide angle δ (individual masses within a tier), the absolute scale, the per-flavour twist signature, and the CKM angle values.</text>
+  <rect x="40" y="466" width="820" height="130" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="54" y="486" font-size="11.5" fill="#374151"><tspan font-weight="700" fill="#7c3aed">W (charged current)</tspan> is the only flavour-changer — always up-type ↔ down-type, and in twist terms a <tspan font-weight="700" fill="#7c3aed">+− gauge-fold pair-flip</tspan>. Thick = Cabibbo-favoured (within a generation); dashed = CKM-suppressed (cross-generation).</text>
+  <text x="54" y="506" font-size="11.5" fill="#374151"><tspan font-weight="700">No horizontal links</tspan> — the photon and Z conserve flavour: no tree-level flavour-changing neutral currents (GIM).</text>
+  <text x="54" y="526" font-size="11.5" fill="#374151">Each quark is an <tspan font-weight="700">open colour line</tspan> on an axis (&lt;&gt;, ^v, /\), not a closure — the QuCalc closure string is the <tspan font-weight="700">hadron's</tspan> (proton = uud), not the individual quark's.</text>
+  <text x="54" y="546" font-size="11.5" fill="#374151"><tspan font-weight="700" fill="#16a34a">QLF</tspan>: every mass = m_p × a ratio (one scale); charge thirds proven from the 3 colours; the 3 tiers Koide-constrained (Q = 2/3, m_τ to 0.006%); mass = fold depth — the Yukawa demystified.</text>
+  <text x="54" y="568" font-size="11" font-style="italic" fill="#6b7280">Open: the per-flavour twist signature; the Koide angle δ (masses within a tier); the absolute scale; the CKM angle values.</text>
 </svg>
