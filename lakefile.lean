@@ -104,6 +104,7 @@ lean_lib QLF where
     `QLF_HiggsMechanism,
     `QLF_CKM,
     `QLF_QuarkMass,
+    `QLF_QuarkStructure,
     `QLF_NeutrinoMass,
     `QLF_PMNS,
     `QLF_Supersymmetry,
