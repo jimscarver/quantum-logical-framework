@@ -113,10 +113,13 @@ The QuCalc fold for each atomic system (start and end at the electron):
 | muonium | `e⁻ ^> /v >\ v<` | muon = `/v >\` |
 | hydrogen | `e⁻ ^> /v >\ +− v<` | muon + gauge/charge `+−` |
 
-<img src="diagrams/atom_closures.svg" alt="Atom folds: a twist is two symbols, ^> leaving the electron and v< returning to close. positronium = e⁻ ^> v< (out and back to the positron); muonium = e⁻ ^> /v >\ v< (the muon is the two nucleus twists /v and >\); hydrogen = e⁻ ^> /v >\ +− v< (the nucleus extends the muon with the gauge/charge twist +−). Each added qubit adds a new direction; the fold opens and closes at the electron" width="100%">
+<img src="diagrams/atom_progression.svg" alt="The difference ladder drawn one way: neutrino (1 difference, gauge-dominant loop ^+v−, no <> spatial width), positronium (2, electron ++ positron; the positron has no internal dimension), muonium (3, electron ++ antimuon whose one internal dimension is /\), hydrogen (5, electron OUT + proton uud — three internal colour dimensions +−/^v//\ across the quarks + charge <>), and the neutron (the electron-IN twin, udd, metastable, n→H+ν̄). Each closure starts at the electron with ^>, traverses its internal dimensions end-to-end, and returns to close" width="100%">
 
-This fold model is a **structural reading** (a work-in-progress visualization of the closure topology),
-not a machine-verified theorem; the verified per-system masses and binding energies are Part II.
+Each closure **starts at the electron with `^>`**, traverses its internal dimensions end-to-end, and
+**returns to close at the electron** (both legs terminate there). Heavier partners add internal
+dimensions: the positron has none, the antimuon one (`/\`), the proton three (the colour axes, §7). This
+is a **structural reading** (a work-in-progress visualization of the closure topology), not a
+machine-verified theorem; the verified per-system masses and binding energies are Part II.
 
 ## 7. Inside the nucleon — the proton/neutron knot
 
@@ -125,6 +128,8 @@ not a machine-verified theorem; the verified per-system masses and binding energ
 the **three colour directions**, split one per quark, with **charge** as the extra (gauge) direction
 threaded through them. Reading the knot with these directions deduces the quark content `uud` (proton) and
 `udd` (neutron) — the same closure logic as the atom, one scale down.
+
+<img src="diagrams/hydrogen_proton_quarks.svg" alt="Hydrogen, zoomed into the proton: the proton Markov blanket holds three quarks (uud), each holding two ends of the three internal colour dimensions (R = + … −, G = ^ … v, B = / … \\), which cross Borromean-style; the orange closure leaves the electron at ^> and traverses each dimension end-to-end, picking up the charge/handedness < >, and returns to close at the electron" width="100%">
 
 **The three internal qubits = the three colour axes.** The six spatial twists are three orthogonal
 Hermitian pairs — the three axes of `baryonNumber` ([`lean/QLF_BaryonWinding.lean`](lean/QLF_BaryonWinding.lean),
