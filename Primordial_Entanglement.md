@@ -12,7 +12,7 @@ Before space, time, or mass existed, the computational manifold executed a singl
 * **Perspective A:** `^>` (Evolves Up and Right / Forward-Time, Right-Handed bias)
 * **Perspective B:** `^<` (Evolves Up and Left / Backward-Time, Left-Handed bias)
 
-This is the primordial entangled pair. At this exact moment, the universe consists of pure **Free Action**. There are no particles, no mass, and no closed space—only two open, divergent logical horizons.
+This is the primordial entangled pair.
 
 ## 2. The Axiom of Closure: Generating "Particles"
 The engine is strictly constrained by the requirement to achieve global Zero Free Action (ZFA). Because `^>` and `^<` are open strings, they must evolve to cancel their topological deficits. 
