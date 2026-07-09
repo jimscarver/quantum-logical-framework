@@ -76,16 +76,25 @@ It **oscillates at a frequency set by the number of bits it contains** — mass 
 `ℏω = 1 bit at frequency ω`, [`Information_Energy_Equivalence.md`](Information_Energy_Equivalence.md);
 `markov_blanket_local_clock`, per tick `log 2`, [`lean/QLF_LocalClock.lean`](lean/QLF_LocalClock.lean)). In
 that oscillation it carries a **virtual antiproton** that permits cancellation — and given high-energy
-noise, that virtual half can be lifted into an actual proton (pair production). Its bits do not decay: a
-ZFA closure is stable and stores its information holographically, on a horizon of area law `S = 4πR²log2`
+noise, that virtual half is lifted into an actual proton (pair production), a synthesis whose synergy
+**intensifies with the available energy**. Its bits do not decay: a ZFA closure is stable and stores its
+information holographically, on a horizon of area law `S = 4πR²log2`
 ([`Holographic.md`](Holographic.md); `hadron_horizon_entropy_eq`,
 [`lean/QLF_QuantumBlackHole.lean`](lean/QLF_QuantumBlackHole.lean)).
 
-*Scope: the assembled hydrogen mechanism above — oscillation minting a virtual antiproton that manifests a
-proton under high-energy noise — is a **structural reading**, a picture whose individual clauses are
-anchored (the fold, `m = ℏω`, pair production, holographic storage) but whose assembly is not a derived
-theorem. The **magnitude** of the resulting matter excess (`η_B`) is open, as in the Standard Model
-([`lean/QLF_Baryogenesis.lean`](lean/QLF_Baryogenesis.lean)).*
+This is a direction QLF leans **into**, not away from. Proton generation is no strained edge case:
+baryogenesis is **generic** — the three Sakharov conditions are met on the substrate (matter and antimatter
+carry opposite winding, `matter_antimatter_opposite`, [`lean/QLF_Baryogenesis.lean`](lean/QLF_Baryogenesis.lean);
+C/CP violation from the chirality engine; out-of-equilibrium from the expansion), so a matter excess is
+**expected, not fine-tuned**. And the **self-synergy grows with energy**: every closure *creates* energy
+(§5), and higher energy synthesises events faster (`higher_energy_faster_expansion`,
+[`lean/QLF_CosmicInflation.lean`](lean/QLF_CosmicInflation.lean); `zfa_dynamics_drive_acceleration`,
+[`lean/ZFAEventDynamics.lean`](lean/ZFAEventDynamics.lean)) — so the closure process **feeds the very energy
+density that drives more closure and more proton generation**, a positive-feedback synthesis that
+intensifies with the energy available. The one genuinely open piece is the *quantitative magnitude* of the
+excess (`η_B`, open in QLF as in the Standard Model), and the assembled hydrogen picture is a structural
+reading — but the **thrust, that energy favours closure and proton generation synergistically, is the
+grounded direction.**
 
 ## 5. Time and space emerge
 
@@ -132,8 +141,11 @@ is the standing fact that everything permitted, is.
   (`C_eq_motional_reversal`, `matter_antimatter_opposite`, `baryon_dagger_odd`); energy created per event
   and half lent to the future; synthesized spacetime (`f = 1/t`); mass as frequency (`m = ℏω`) set by
   bit-depth; holographic, non-decaying closure information.
-- **Structural reading (flagged in §4):** the assembled hydrogen hall-of-mirrors mechanism; the
-  matter-excess magnitude `η_B` is open.
+- **Grounded direction (§4):** ZFA closure *favours* proton generation — baryogenesis is generic (the
+  Sakharov conditions are met, `QLF_Baryogenesis`) and its self-synergy grows with energy (each closure
+  creates energy; `higher_energy_faster_expansion`, `zfa_dynamics_drive_acceleration`). The assembled
+  hydrogen hall-of-mirrors mechanism is a structural reading, and only the quantitative magnitude of the
+  matter excess (`η_B`) is open.
 - This is a foundations/synthesis page — it re-derives nothing. The canonical machinery is in
   [`Lagrangian_Formulation.md`](Lagrangian_Formulation.md) (ℒ = 0), [`Conservation.md`](Conservation.md) §2b
   (energy per event), and [`Primordial_Entanglement.md`](Primordial_Entanglement.md) (the seed split).
