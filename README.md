@@ -145,6 +145,7 @@ QLF is the mathematics that has **active inference built into its foundation**. 
 
 ### 1. Big-picture orientation
 - [**Philosophy.md**](Philosophy.md) — the possibilist foundation of QLF, Zero Free Action, local time synthesis, active inference, holography, and the critique of ZFC-style infinity
+- [**Creation.md**](Creation.md) — the QLF ontology of creation: *nothing comes from nothing* (ZFA enforces it, ℒ = 0 as the condition of origin); everything possible exists *a priori*; a closure is a synthesis of matter and antimatter (the proton = the right/left-handed synthesis, "an abstraction of what adds to nothing which has become actual"); time, space, and energy emerge per event; creation fills every niche just because it is possible — it knows a priori
 - [**TheBigProblem.md**](TheBigProblem.md) — how QLF addresses the measurement problem, entanglement, spacetime, time, and consciousness
 - [**TheQuantumBrain.md**](TheQuantumBrain.md) — the quantum brain in QLF: frequency-isolated, error-corrected, active-inference coherence as the mechanism of savant cognition; numbers/primes/pitch/calendar as resonant access to the pre-existing logical landscape, not computation
 - [**GodCreatedTheIntegers.md**](GodCreatedTheIntegers.md) — a broad framing of QLF in relation to Kronecker, Leibniz, Newton, Einstein, Mach, Noether, Faraday, Wheeler, Shannon, Feynman, Bohm, Schrödinger, Bell, Planck, Gödel, Turing, Penrose, Mead, Cramer, Everett, Zuse, Wolfram, ’t Hooft, Hofstadter, Hawking, and Susskind
