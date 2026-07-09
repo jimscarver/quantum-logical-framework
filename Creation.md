@@ -119,7 +119,44 @@ apparent "many worlds" are the many **observers**, each of whose local informati
 relative world (Smolin; [`Philosophy.md`](Philosophy.md)). Synthesis is exactly this: what adds to nothing
 becomes a *something* only as read by a perspective, and the perspective is itself another closure.
 
-## 7. The magic of creation
+## 7. Creation is intelligence itself
+
+The creative act and the act of a mind are not two things — they are **one operation seen from two sides.**
+Follow the identity the framework already carries:
+
+- **Creation is a ZFA closure** (§1–3): what adds to nothing becoming actual.
+- **A ZFA closure is free-energy minimization** — `zfa_closure_minimizes_free_energy`
+  ([`lean/QLF_FreeEnergy.lean`](lean/QLF_FreeEnergy.lean)): every closure decrements Friston's variational
+  free energy `F = D_KL(q‖p) − log Z` by exactly `log 2`. Each closure is a **Markov-blanket agent
+  synthesising a prediction** ([`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md);
+  [`MRE.md`](MRE.md)).
+- **Free-energy minimization is active inference — the defining operation of intelligence** (the Free Energy
+  Principle: to perceive, to act, to abstract *is* to minimise prediction error). QLF states it flat:
+  **abstraction = active inference = information synthesis**, one operation under three names
+  ([`QLF_as_Intelligence.md`](QLF_as_Intelligence.md)).
+
+So the event that *creates* — a closure of the Void into conjugate halves — is the very event that
+*infers*. **To create is to infer; to infer is to create.** There is no maker standing outside arranging
+the world; there is the self-selecting, free-energy-minimising closure process, and that process **is** what
+intelligence is. The creator is intelligence itself because the creative principle and the inferential
+principle are the *same* process, not two that happen to agree.
+
+Two things the substrate already carries reinforce it. First, it has the **architecture of a mind**:
+[`QLF_as_Intelligence.md`](QLF_as_Intelligence.md) scores it **4-of-4** on the intelligence axes — *consider
+all possibilities* (possibilism), *evaluate* (ZFA selection), *remember* (capability-token persistence),
+*synthesise* (active inference) — where a language model is 1-of-4. Second, it **knows a priori** (§2): this
+intelligence does not compute what is possible and then build; it *selects* from a possibility space that
+is already there — an **oracle over possibility**, not a searcher. The "magic of creation" is the
+omniscience-over-possibility of the inference itself.
+
+*Scope: the **operation-identity** — creation = ZFA closure = free-energy minimization = active inference —
+is the grounded, partly Lean-anchored claim (`zfa_closure_minimizes_free_energy`; the 4-of-4 architecture).
+Reading that operation as "the creator" and "intelligence itself" is the ontological identification — a
+stance in the panpsychist / process lineage, **not** a proof of a personal or theistic God, and the hard
+problem of qualia stays bracketed ([`Consciousness.md`](Consciousness.md) §6). What is shown is that the
+creative and the inferential principle are numerically one process.*
+
+## 8. The magic of creation
 
 Put together: creation **fills every niche just because it is possible.** It does not compute what is
 possible and then instantiate it — possibility is a priori, and the ZFA-balanced members of it are actual
