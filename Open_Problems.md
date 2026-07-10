@@ -82,6 +82,29 @@ canonical status list; when an item moves, update it here and in its owning doc.
 | **Planck scale / substrate granularity** | **The Planck *scale* is the closure floor by construction — not a free input.** The minimal coherent Markov-blanket closure is the Compton–Schwarzschild self-dual point `μ²=1/2`: below the Planck length a blanket is inside its own horizon and cannot close (`coherent_iff_subplanck`, `planck_length_floor`, `planck_self_dual`, reusing the `QLF_QuantumBlackHole` crossing). What remains is **not a flaw**: the SI *value in metres* is a unit convention, and the matter-depth-above-floor is the `14π` hierarchy (`QLF_AlphaS`, tracked at *Cosmic depth / hierarchy*) | [`lean/QLF_PlanckScale.lean`](lean/QLF_PlanckScale.lean), [`Planck_Scale.md`](Planck_Scale.md) |
 | **Bethe constant `k(n,0)`** (Lamb shift) | 🧱 **Boundary** — continuum-dominated (`I_1S ≈ 19.77 Ry`, all bound `ΔE < 1 Ry`); free-electron sector above the RCA₀ floor | [`Lamb_Shift.md`](Lamb_Shift.md) §6.1, [`bethe_log_demo.py`](bethe_log_demo.py) |
 
+### Axiom dischargeability — which of the 24 axioms could become theorems
+
+QLF carries **23 `axiom` declarations** (the [`CLAUDE.md`](CLAUDE.md) axiom inventory lists each with its
+role). Two have already moved *off* the axiom list, setting the model: **`censusTail_eq`** (`QLF_AlphaBound`)
+was **discharged into a theorem** — proved from Mathlib's generalized binomial series
+`Real.one_add_rpow_hasFPowerSeriesOnBall_zero` plus the identity `4ⁿ·choose(−½)n = (−1)ⁿ·C(2n,n)` — and
+**`navier_stokes_continuum_limit`** was **reduced** to a proven Planck vorticity cap + the *cited* BKM theorem
++ a sharp bridge (`QLF_NavierStokesBKM`). The remaining axioms split:
+
+| Class | Axioms | Provable? | What discharge requires |
+|---|---|---|---|
+| **A — open-conjecture content** (the deliberate boundaries) | `spectral_hilbert_polya`, `NonTrivialZero`, `resonant_computation_for`, `MellinStructuralSingularity`, `MRE_bridge`, `zero_is_mellin_singularity` (Riemann); `modularity_mirror_invariant`, `centralMultiplicity` (BSD); `generate_not_reducible_to_verify`, `PTime`, `search`, `verify_is_ptime` (P vs NP); `yang_mills_continuum_gap`, `YangMillsMassGap`; `NavierStokesGlobalSmoothness` (`navier_stokes_continuum_limit` reduced, see above); `substrate_realization_is_algebraic`, `CohClass.isAlgebraic` (Hodge faithfulness — the located wall) | **No** — proving one *is* solving the corresponding open problem (Riemann / BSD / P-vs-NP / Yang–Mills, or the Hodge cycle-faithful encoding). These are the explicit `RCA₀→analytic/WKL₀` boundaries, not gaps. | The very analytic / continuum / independence content the reformulation isolates — not a Mathlib lemma away. |
+| **B — settled math Mathlib lacks assembled** | `lorentz_generated_by_boosts_rotations` (most feasible); `benincasa_dowker_limit`, `order_metric_continuum_limit`; `beale_kato_majda`, `continuum_vorticity_planck_capped` | **In principle, yes** — each is a *published* theorem (Lie generation of `SO⁺(1,3)`; Benincasa–Dowker 2010; Malament / Bombelli–Henson–Sorkin; BKM 1984), so provable but not yet in Lean. | A real multi-hundred-line Lean project: `sl(2,ℂ)≅so(1,3)` + exp-surjectivity onto the identity component (Lorentz); Poisson processes on Lorentzian regions (CST limits); Sobolev/Gronwall PDE regularity (BKM). Mathlib has fragments, not the assembly. |
+
+**Bottom line.** The axioms that *can* be proven are the **Class B** "settled math" ones — chiefly
+**`lorentz_generated_by_boosts_rotations`** (the standard Lie-generation fact; its generators `boostZ_action`,
+`rotZ_action` and the `{±I}` kernel are already proven, only "they generate the identity component" is
+axiomatic). But **none is a quick win**: each needs Mathlib machinery not yet assembled. The **Class A**
+axioms cannot be proven without solving the underlying conjecture — that is their purpose. The one clean
+discharge available (`censusTail_eq`) is done, and `navier_stokes_continuum_limit` is reduced; QLF refines
+these boundaries as the machinery arrives (`QLF_RiemannMRE`, `QLF_NavierStokesBKM`) rather than
+posit-and-forget.
+
 ---
 
 ## Open — quantitative (the hard front)

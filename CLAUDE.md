@@ -299,6 +299,8 @@ theorem foo (p : RhoProcess) : achieves_ZFA (toTopoString p) :=
 
 `critical_line_forcing` is a **theorem** derived from `spectral_hilbert_polya`, not an axiom.
 
+**Dischargeability.** Which of these axioms could become theorems is classified in [`Open_Problems.md`](Open_Problems.md) §"Axiom dischargeability": **Class A** (open-conjecture content — Riemann/BSD/P-vs-NP/Yang–Mills/Hodge-faithfulness) is unprovable without solving the problem (that is the boundary's purpose); **Class B** (settled math Mathlib lacks assembled — `lorentz_generated_by_boosts_rotations` most feasible, then the CST/PDE continuum limits) is provable *in principle* but each is a multi-hundred-line Lean project. The clean discharge already done is `censusTail_eq`; `navier_stokes_continuum_limit` is reduced (`QLF_NavierStokesBKM`). No further quick win is currently available.
+
 ---
 
 ## Workflow
