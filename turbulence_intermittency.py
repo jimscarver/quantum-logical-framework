@@ -80,6 +80,17 @@ def rms(model, *args):
     return math.sqrt(sum((model(p, *args) - MEASURED[p]) ** 2 for p in MEASURED) / len(MEASURED))
 
 
+def large_p_monotonicity(mu):
+    """At high p, log-normal zeta_p turns over and DECREASES (unphysical:
+    zeta_p must be non-decreasing). log-Poisson/She-Leveque stays monotone with
+    asymptotic slope 1/9 (the minimum Holder exponent). This is the realizability
+    argument that SELECTS log-Poisson over log-normal -- and QLF's closure
+    statistics are Poisson (poissonOccupation, QLF_CausalContinuum), so a
+    Poisson-multiplier cascade is log-Poisson = She-Leveque, not log-normal."""
+    turnover = 1.5 + 3.0 / mu  # dzeta/dp = 0 for the log-normal parabola
+    return turnover
+
+
 if __name__ == "__main__":
     print(__doc__)
     mu = best_fit_mu()
@@ -96,6 +107,22 @@ if __name__ == "__main__":
     print(f"RMS error vs measured:  K41={rms(k41):.3f}   "
           f"log-normal(mu={mu:.3f})={rms(lognormal, mu):.3f}   "
           f"She-Leveque={rms(she_leveque):.3f}")
+    print()
+    print("=" * 74)
+    print("WHICH CLASS?  large-p realizability  (log-normal vs log-Poisson)")
+    print("=" * 74)
+    turnover = large_p_monotonicity(mu)
+    print(f"{'p':>3} | {'log-normal':>11} | {'She-Leveque':>12}")
+    print("-" * 34)
+    for p in (6, 12, 15, 18, 24):
+        flag = "  <- DECREASING (unphysical)" if p > turnover else ""
+        print(f"{p:>3} | {lognormal(p, mu):>11.3f} | {she_leveque(p):>12.3f}{flag}")
+    print(f"\n  log-normal zeta_p turns over at p={turnover:.1f} and DECREASES beyond "
+          f"-- unphysical\n  (zeta_p must be non-decreasing). She-Leveque stays monotone, "
+          f"slope -> 1/9\n  (the minimum Holder exponent of the most-singular structures). So "
+          f"log-Poisson\n  is SELECTED on realizability, not just fit -- and QLF closure "
+          f"statistics are\n  Poisson (poissonOccupation), giving a log-Poisson cascade = "
+          f"She-Leveque.")
     print()
     print("=" * 74)
     print("READING")

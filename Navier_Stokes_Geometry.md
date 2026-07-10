@@ -163,15 +163,19 @@ K41 misses at high `p` (RMS 0.242 vs measured) — **that deficit is the intermi
 `~0.25`), reducing intermittency to a single number — the **census variance of realized closures per
 octave** (`C(2n,n)/4ⁿ` fluctuations).
 
+**Why She–Leveque and not log-normal — closure statistics *select* the class.** The two candidates are not on equal footing. Closures are **rare, quasi-independent events** in a region, so their occupation is **Poisson** — the very object already verified for the causal-set curvature limit (`poissonOccupation`, [`QLF_CausalContinuum`](lean/QLF_CausalContinuum.lean)). A Poisson-multiplier cascade is **log-Poisson** (Dubrulle 1994), *not* log-normal — and log-Poisson with the grounded `C₀ = 2` is exactly She–Leveque. This is decided on **realizability**, not just goodness-of-fit: at high `p` the log-normal `ζ_p` **turns over and decreases** (past `p ≈ 14.5` for `μ = 0.23`), violating the requirement that `ζ_p` be non-decreasing, whereas She–Leveque stays monotone with asymptotic slope `1/9` (the minimum Hölder exponent of the most-singular structures). So QLF's Poisson closure statistics *pick out* the physically correct log-Poisson class and rule the log-normal out — the same "the continuum/unbounded object is unphysical, the discrete one is realizable" move as everywhere in QLF ([`QLF_Realizability`](lean/QLF_Realizability.lean)). The one residual free input is then `β = 2/3`.
+
 **Honest scope — this closes the 🔵 *statistics* item, not the 🧱 regularity boundary.** What is done:
 `−5/3` reduced to the flux-invariance lemma + K41; `ζ_3 = 1` exact; intermittency shown to be the
 multifractal (fractal-closure) deviation, with She–Leveque's `C₀ = 2` grounded in QLF's quantized vortex
-filaments and matching data parameter-free. What stays open (`turbulence_statistics_in_progress`): a Lean
-proof of the flux-invariance lemma, the derivation of `β = 2/3` (or equivalently `μ` from census
-variance), and — separately — the Clay regularity boundary of §5, which self-similar frequencies say
-nothing about. The fractal reading is now **falsifiable**: it lives or dies by whether closure statistics
-yield `C₀ = 2` and `β = 2/3` (equivalently `μ ~ 0.25`) — one input grounded, the rest the named
-computation, and it can fail cleanly.
+filaments and matching data parameter-free. And the **class is now selected**, not just fitted: Poisson
+closures → log-Poisson → She–Leveque, decided on realizability (the log-normal is unphysical at high `p`,
+above). With the class fixed and `C₀ = 2` grounded, intermittency reduces to a **single remaining input,
+`β = 2/3`** (`μ = 2 − ζ_6 = 0.222` then follows and matches data). What stays open
+(`turbulence_statistics_in_progress`): a Lean proof of the flux-invariance lemma, the derivation of
+`β = 2/3` from the closure step-ratio, and — separately — the Clay regularity boundary of §5, which
+self-similar frequencies say nothing about. The fractal reading is **falsifiable**: it lives or dies by
+whether the closure step-ratio is `2/3`, and it can fail cleanly.
 
 ## 7. Honest scope
 
