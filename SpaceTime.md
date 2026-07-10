@@ -88,6 +88,14 @@ premises it rests on — that the substrate *is* a relational graph and space *i
 rendering — are QLF's own load-bearing ontology (the synthesis claim + `QLF_ReachableEvent`), not
 extra assumptions, so this derives 3D *within QLF*, not from nothing external.
 
+The above is the *counting* layer (why the rendering dimension is 3). The *mechanism* layer — how the
+pre-geometric pointer-swap dynamics of the substrate becomes sparse operational 3D *for an embedded
+observer* — is specified and made falsifiable in [`Pointer_Swap_Fuzz.md`](Pointer_Swap_Fuzz.md): geometry
+is built only from swap-orbit invariants, and "sees 3D" gets exact content as swap-graph ball growth
+`~ r³`. A first computation ([`pointer_swap_fuzz.py`](pointer_swap_fuzz.py)) finds growth dimension near 3
+for the two substrate-natural closure lengths (the minimal 4-twist chiral loop and the length-8
+four-complement-pair balanced closure), with the decisive substrate-fixed swap generating set still open.
+
 ## 4. The Uniform Ether and Lorentz Invariance
 
 The ZFA network of §3 is more than a relational graph — it is **Einstein's stateless ether**. In his 1920 Leiden address Einstein rehabilitated the ether as something with real physical and metric properties but **no state of motion**: a medium you cannot ride, with no preferred rest frame. The QuCalc substrate is exactly this. It is structured — it supplies the degeneracy $W_{ZFA}$ that sets each thread's tick rate — yet statistically **homogeneous**: away from mass clusters, every node of the network offers the same $W_{ZFA}$. Because the ether has no mechanical state, no thread can measure absolute motion through it.
