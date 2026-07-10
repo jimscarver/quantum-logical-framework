@@ -165,17 +165,26 @@ octave** (`C(2n,n)/4ⁿ` fluctuations).
 
 **Why She–Leveque and not log-normal — closure statistics *select* the class.** The two candidates are not on equal footing. Closures are **rare, quasi-independent events** in a region, so their occupation is **Poisson** — the very object already verified for the causal-set curvature limit (`poissonOccupation`, [`QLF_CausalContinuum`](lean/QLF_CausalContinuum.lean)). A Poisson-multiplier cascade is **log-Poisson** (Dubrulle 1994), *not* log-normal — and log-Poisson with the grounded `C₀ = 2` is exactly She–Leveque. This is decided on **realizability**, not just goodness-of-fit: at high `p` the log-normal `ζ_p` **turns over and decreases** (past `p ≈ 14.5` for `μ = 0.23`), violating the requirement that `ζ_p` be non-decreasing, whereas She–Leveque stays monotone with asymptotic slope `1/9` (the minimum Hölder exponent of the most-singular structures). So QLF's Poisson closure statistics *pick out* the physically correct log-Poisson class and rule the log-normal out — the same "the continuum/unbounded object is unphysical, the discrete one is realizable" move as everywhere in QLF ([`QLF_Realizability`](lean/QLF_Realizability.lean)). The one residual free input is then `β = 2/3`.
 
+**Both log-Poisson parameters reduce to the 3-axis geometry.** With the class fixed, She–Leveque has exactly two inputs, `C₀` and `β`, and both trace to the single `d = 3` QLF derives ([`SpaceTime.md`](SpaceTime.md) §3a):
+
+- `C₀ = 2 = d − 1` — the codimension of the most-singular structures, i.e. the **1-D vortex filaments** in 3-D space (QLF's quantized vortex *lines*, `vortex_quantum`);
+- `β = 2/3 = 1 − 1/d` — the **eddy-turnover-time exponent**: `δv_ℓ ~ (ε ℓ)^{1/3}` gives an inverse turnover time `δv_ℓ/ℓ ~ ℓ^{−2/3}`, and the `1/3` is the K41 velocity exponent = the cube-root of the **3** spatial axes — the *same* `1/3` behind `−5/3`.
+
+So `μ = 2 − ζ_6 = 0.222` and the whole `ζ_p` curve follow from `d = 3` alone (the computation reproduces `ζ_3 = 1`, `ζ_6 = 1.778` from `C₀ = 3−1`, `β = 1 − 1/3`). **Honest caveat:** the eddy-turnover reading of `β` and the codimension reading of `C₀` are standard turbulence phenomenology (She–Leveque 1994); QLF's contribution is that its *derived* 3-axis geometry supplies **both** ingredients — the `3` (giving `β`) and the 1-D-vortex-in-3-D (giving `C₀`) — so within the log-Poisson class the intermittency spectrum is parameter-free *from the substrate*, not that She–Leveque is re-derived from scratch.
+
 **Honest scope — this closes the 🔵 *statistics* item, not the 🧱 regularity boundary.** What is done:
 `−5/3` reduced to the flux-invariance lemma + K41; `ζ_3 = 1` exact; intermittency shown to be the
 multifractal (fractal-closure) deviation, with She–Leveque's `C₀ = 2` grounded in QLF's quantized vortex
 filaments and matching data parameter-free. And the **class is now selected**, not just fitted: Poisson
 closures → log-Poisson → She–Leveque, decided on realizability (the log-normal is unphysical at high `p`,
-above). With the class fixed and `C₀ = 2` grounded, intermittency reduces to a **single remaining input,
-`β = 2/3`** (`μ = 2 − ζ_6 = 0.222` then follows and matches data). What stays open
-(`turbulence_statistics_in_progress`): a Lean proof of the flux-invariance lemma, the derivation of
-`β = 2/3` from the closure step-ratio, and — separately — the Clay regularity boundary of §5, which
-self-similar frequencies say nothing about. The fractal reading is **falsifiable**: it lives or dies by
-whether the closure step-ratio is `2/3`, and it can fail cleanly.
+above). With the class fixed and **both parameters reduced to `d = 3`** (`C₀ = d−1 = 2`, `β = 1 − 1/d = 2/3`),
+the intermittency spectrum is parameter-free from the substrate (`μ = 2 − ζ_6 = 0.222`, matching data).
+What stays open (`turbulence_statistics_in_progress`): a Lean proof of the flux-invariance lemma, and
+making the `β = 1 − 1/d` / `C₀ = d − 1` identifications rigorous rather than phenomenological (they are
+standard turbulence readings QLF *supplies the geometry for*, not yet re-derives) — and, separately, the
+Clay regularity boundary of §5, which self-similar frequencies say nothing about. The reading is
+**falsifiable**: it lives or dies by whether the most-singular structures are 1-D (`C₀ = 2`) and the
+turnover exponent is `1 − 1/d` — both tied to the derived 3-axis geometry, and both can fail cleanly.
 
 ## 7. Honest scope
 
