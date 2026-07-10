@@ -136,8 +136,7 @@ through the inertial range is scale-invariant. QLF supplies exactly that — eac
 their `2f` sub-closures is `f`-independent across the inertial range (the closure hierarchy is exactly
 self-similar between injection and the `cascade_capped` floor), then dimensional analysis gives
 `E(k) ~ ε^{2/3} k^{−5/3}`. The QLF-specific object is the **flux-invariance lemma** — closure-flux is
-octave-independent in the inertial range — reusing `cascade_frequency_increases`; the `−5/3` exponent
-is then K41's standard corollary, not a new claim. The hard invariant every closure model must pass is
+octave-independent in the inertial range — now **machine-verified** ([`QLF_Kolmogorov`](lean/QLF_Kolmogorov.lean), `flux_scale_invariant`: the per-closure energy is the octave-independent `log 2` quantum, so a scale-invariant transfer count gives octave-independent flux, sitting on the reused `cascade_frequency_increases`); the `−5/3` exponent is then K41's standard corollary — and *that* is a theorem too: **`kolmogorov_exponents`** proves `(a,b) = (2/3, −5/3)` is the **unique** solution of the dimensional constraints on `E(k) = ε^a k^b` (`−3a = −2`, `2a − b = 3`). The hard invariant every closure model must pass is
 `ζ_3 = 1` (the exact `4/5` law), which holds because `⟨W⟩ = 1` *is* flux conservation (`log 2` per
 closure, conserved down the cascade).
 
@@ -179,8 +178,7 @@ filaments and matching data parameter-free. And the **class is now selected**, n
 closures → log-Poisson → She–Leveque, decided on realizability (the log-normal is unphysical at high `p`,
 above). With the class fixed and **both parameters reduced to `d = 3`** (`C₀ = d−1 = 2`, `β = 1 − 1/d = 2/3`),
 the intermittency spectrum is parameter-free from the substrate (`μ = 2 − ζ_6 = 0.222`, matching data).
-What stays open (`turbulence_statistics_in_progress`): a Lean proof of the flux-invariance lemma, and
-making the `β = 1 − 1/d` / `C₀ = d − 1` identifications rigorous rather than phenomenological (they are
+The flux-invariance lemma + the forced `−5/3` are now Lean-anchored ([`QLF_Kolmogorov`](lean/QLF_Kolmogorov.lean)). What stays open (`turbulence_statistics_in_progress`): making the `β = 1 − 1/d` / `C₀ = d − 1` identifications rigorous rather than phenomenological (they are
 standard turbulence readings QLF *supplies the geometry for*, not yet re-derives) — and, separately, the
 Clay regularity boundary of §5, which self-similar frequencies say nothing about. The reading is
 **falsifiable**: it lives or dies by whether the most-singular structures are 1-D (`C₀ = 2`) and the
