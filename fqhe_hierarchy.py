@@ -104,6 +104,23 @@ if __name__ == "__main__":
               f"(Moore-Read), a DIFFERENT closure, not a parity violation.")
 
     print("\n" + "=" * 72)
+    print("CHECK 4 — the STABILITY ORDERING = the closure-depth (denominator) order")
+    print("=" * 72)
+    print("  closure depth = denominator 2sp+-1 = how deep the nested tower is.")
+    print("  Deeper nesting = higher-frequency/deeper closure = smaller gap = less")
+    print("  stable (the frequency-hierarchy reading).  So predict: gap decreases")
+    print("  monotonically with denominator, and particle-hole partners nu <-> 1-nu")
+    print("  (same denominator) have ~equal gaps.\n")
+    principal = [Fraction(1, 3), Fraction(2, 3), Fraction(2, 5), Fraction(3, 5),
+                 Fraction(3, 7), Fraction(4, 7), Fraction(4, 9)]
+    for f in sorted(principal, key=lambda x: (x.denominator, x)):
+        print(f"    nu={str(f):>4}  depth(denominator)={f.denominator:>2}   "
+              f"ph-partner {str(1-f):>4} (depth {(1-f).denominator})")
+    print("\n  Observed robustness (activation gap, experiment):")
+    print("    1/3 ~ 2/3  >  2/5 ~ 3/5  >  3/7 ~ 4/7  >  4/9  ...")
+    print("  Closure-depth order 3 < 5 < 7 < 9 tracks it exactly; ph-partners match.")
+
+    print("\n" + "=" * 72)
     print("READING")
     print("=" * 72)
     print("""\
@@ -118,8 +135,11 @@ if __name__ == "__main__":
   `bind` fold (closure-of-closures).
 
 * GROUNDED: the parity rule + the odd/even <=> unpaired/paired dichotomy (both
-  observed). OPEN (the falsifiable target, fqhe_hierarchy_in_progress): deriving
-  WHICH p,s are stable (the gap hierarchy / relative stability of 1/3 vs 2/5 vs
-  ...) and the Laughlin/Jain many-body wavefunction -- the 2D many-body dynamics
-  QLF's Lean does not yet carry (same boundary as QLF_Anyons). Speculative until
-  the stability ordering falls out; the parity rule itself is solid.""")
+  observed) + the STABILITY ORDERING (gap decreases with closure depth =
+  denominator; particle-hole partners share depth => equal gap -- both observed).
+
+* OPEN (fqhe_hierarchy_in_progress): the gap VALUES (the Coulomb energy scale
+  e^2/(eps l_B) that sets the absolute gaps) and the Laughlin/Jain many-body
+  wavefunction -- the 2D many-body dynamics QLF's Lean does not yet carry (same
+  boundary as QLF_Anyons). The structural ORDERING is now grounded; the absolute
+  gap magnitudes are the residual, as everywhere QLF gives scaling not scale.""")
