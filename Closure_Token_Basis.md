@@ -9,7 +9,13 @@ The question #65 forces, sharpened from #52: not "are LLMs semantic engines" but
 
 ## 1. What a fundamental-constant closure token is
 
-**Definition (closure token).** A closure token is a minimal admissible cycle in the 8-twist algebra: a finite multiset of signed twist operations whose net action is zero under the Zero Free Action postulate. It is identified not by a symbol string but by its **integer signature** — the count vector `c ∈ ℤ⁸` over the eight twist generators — together with the closure constraint that the signed sum vanishes in the relevant quotient.
+**Definition (closure token).** A closure token is a minimal admissible cycle in the 8-twist algebra: an *ordered* history of signed twist operations whose net action is zero under the Zero Free Action postulate. It is identified by **three** data, not by the count alone:
+
+1. **the integer signature** — the count/ledger vector `c ∈ ℤ⁸` over the eight twist generators;
+2. **the phase / fold normal form** — the ordered Pauli fold of the history, its scalar in `μ₄ = {±I, ±iI}` (equivalently a path-class / minimal-representative ID that fixes the order-sensitive content);
+3. **the closure/admissibility witness** — the decidable receipt `full_zeno_prune history = []` (count balance ∧ Pauli closure).
+
+The count vector alone is deliberately **insufficient**, and this is forced by the substrate, not a stylistic choice: [`QLF_PhaseInformation`](lean/QLF_PhaseInformation.lean) proves `count_does_not_determine_phase` — two histories with the *identical* twist multiset (identical `c`, identical Shannon content) can fold to **opposite** Pauli scalars (`^v<>` → `+I` boson vs `^<v>` → `−I` fermion, `fold_udlr` vs `fold_uldr`). A token identified by `c` alone would collapse exactly the order/phase distinction QLF says count-based (Shannon) accounting misses — here the collapsed distinction is *spin itself*. So the closure token is a **phase-bearing** object: integer ledger **+** fold normal form **+** closure witness. The ledger stays integer-native (criterion §3's win survives); it just is not the *whole* token.
 
 **Definition (fundamental-constant closure token).** A closure token is *fundamental-constant* when its cycle count at a given order is the integer that appears in a QLF constant derivation. The canonical example is the α combinatorics: the counting argument yields the integer 137. The closure token there is the minimal cycle class whose enumeration produces that count.
 
@@ -19,7 +25,7 @@ The question #65 forces, sharpened from #52: not "are LLMs semantic engines" but
 
 | | LLM text token | Closure token |
 |---|---|---|
-| Identity | Arbitrary byte-pair symbol; index into a vocabulary | Integer signature of a closed cycle; structure is intrinsic |
+| Identity | Arbitrary byte-pair symbol; index into a vocabulary | Integer ledger **+ fold normal form** of a closed cycle; structure is intrinsic (order-sensitive, not a bare count) |
 | Meaning | Learned float embedding; extrinsic, statistical | Position in the admissibility graph of the twist algebra; intrinsic |
 | Validity | None — every token sequence is representable, just more or less probable | Hard — a combination either closes or it does not; ill-formed combinations are *inadmissible*, not low-probability |
 | Composition | Concatenation + attention over float weights | Ledger addition in ℤ⁸; the composite is a token iff the summed ledger still closes |
