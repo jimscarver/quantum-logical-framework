@@ -103,7 +103,9 @@ axiomatic). But **none is a quick win**: each needs Mathlib machinery not yet as
 axioms cannot be proven without solving the underlying conjecture — that is their purpose. The one clean
 discharge available (`censusTail_eq`) is done, and `navier_stokes_continuum_limit` is reduced; QLF refines
 these boundaries as the machinery arrives (`QLF_RiemannMRE`, `QLF_NavierStokesBKM`) rather than
-posit-and-forget.
+posit-and-forget. For *why* the Class A conjectures should nonetheless be **true** — the active-inference
+reason the substrate side holds (each conjecture asserts one of the closure conditions the construction
+enforces) — see [`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md) §6.
 
 ---
 

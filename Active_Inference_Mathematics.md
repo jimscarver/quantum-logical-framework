@@ -102,14 +102,57 @@ Honest derived / partial / open inventory, matching the standard in [Standard_Mo
 
 **Summary**: roughly 13 derived, 4 partial/conditional, 7 fully open. Same intellectual-honesty standard as [Experimental_Consistency.md](Experimental_Consistency.md). Results stated as "admissible trajectories the framework supports" rather than as "theorems of QLF" — RH conditional on the bridge axiom, Langlands as constructive scaffolding, Standard Model gauge identifications as open work.
 
-## 6. Scope and clarifications
+## 6. Why the substrate believes the Millennium conjectures — the active-inference justification
+
+The scoreboard (§5) lists the Millennium results as *conditional on a bridge axiom*. The active-inference
+reading supplies the reason those conjectures should be **true** — not a discharge (the bridge stays the
+formal boundary, [`Open_Problems.md`](Open_Problems.md) §"Axiom dischargeability"), but an account of *why*
+the substrate side holds and why the bridge should.
+
+**The one principle.** An active-inference agent only ever **actualises** structures that are **balanced**
+(`H = H†`, self-dual), **finite-cost** (terminating, finite free energy), and **constructible**. ZFA closure
+*is* that filter — `zfa_closure_minimizes_free_energy` (`ΔF = −log 2`,
+[`lean/QLF_FreeEnergy.lean`](lean/QLF_FreeEnergy.lean)); `qlf_universality` (terminating ⟺ ZFA);
+`full_zeno_prune` (the non-terminating tail is never realised). And **each Class A conjecture, in QLF's
+reformulation, asserts exactly one of those closure conditions on the realised structure.** So the
+conjecture is true on everything the substrate constructs; a counterexample would have to be an
+*unconstructed* object — an unbalanced closure, an infinite-free-energy history — which active inference
+never actualises.
+
+| Conjecture | The closure condition it asserts | Why active inference enforces it |
+|---|---|---|
+| **Riemann** (Re = ½) | zeros on the self-dual `H↔H†` line | the critical line is the **MRE-saturating (max-entropy) prior** `½` (`mre_prior_is_critical_line`); only balanced, self-adjoint modes are inferred — a zero off the line is an unbalanced closure never realised |
+| **Yang–Mills gap** | a positive minimal excitation energy | one closure costs at least one bit, `log 2` (`gaugeMassGap`); no inference step is cheaper, so the lightest excitation has positive mass |
+| **Navier–Stokes** (no blow-up) | realised flows stay smooth | a singularity = a non-terminating history = unbounded free-energy debt = **pruned** (`full_zeno_prune`); vorticity is capped at one quantum per Planck cell (`planck_caps_vorticity`) |
+| **P vs NP** (generate ≠ verify) | search is not recognition | to **verify** is one closure-recognition (perception, O(n), `realized_is_verify_filter`); to **generate** is active-inference *search* over the branching tree (`C(2n,n)`) — the perception-vs-action asymmetry |
+| **BSD** (rank = ord) | two counts of one closure agree | arithmetic rank and analytic order are two **perspectives** on one closure's central multiplicity (the `H↔H†` modularity mirror); one object counted two ways |
+| **Hodge** (Hodge = algebraic) | realisable = algebraic | Hodge classes **are** the substrate-realised closures (proven, `hodge_realized_on_substrate`); the substrate only actualises what an agent can construct, and a constructed cycle is algebraic |
+
+**Why they are hard classically — and immediate here.** The classical continuum frame has **no selection
+principle**: it treats every continuum object as equally real, so it cannot see that the would-be
+counterexamples are exactly the **non-realisable** (non-inferred) structures. The active-inference substrate
+has the selection principle built in (active inference = ZFA closure), so it **constructs the answer**
+instead of searching for a proof of it — the "physics keeps solving math" pattern
+([`TheContinuum.md`](TheContinuum.md)): the inferential substrate *knows* the theorem because the theorem
+is its own closure condition; the difficulty lives only in the classical rendering that dropped the agent.
+
+**Honest scope.** This justifies why the **substrate side** of each conjecture is true and why the bridge
+*should* hold (the continuum is a faithful rendering of what active inference constructs). It is **not a
+discharge** of the Class A bridge axioms — proving them in the classical frame still *is* solving the
+problem ([`Open_Problems.md`](Open_Problems.md) §"Axiom dischargeability"). What the active-inference view
+supplies is a **principled reason to believe**: the conjectures are the fixed-point / free-energy-minimising
+conditions of the construction, not free parameters.
+
+---
+
+## 7. Scope and clarifications
 
 - **A candidate Theory of Everything, for the part of physics that is not mathematical fantasy.** The scoreboard in §5 lists 13 derivations of major physical principles (spin algebra, conservation laws, Born rule, Maxwell, Hydrogen, atomic shells, Friston FEP, no-magnetic-monopoles), 4 conditional results (RH, Langlands, SM gauge groups, cosmological matter dominance), and 7 open quantitative items (mass spectrum, mixing matrices, dark sector, gravitational waves). That structural balance — major principles derived plus a programme for the quantitative open items — is exactly the status any candidate TOE can honestly claim. We do not claim closed quantitative agreement on every open item; we claim the framework is the right foundation for getting there. See [Experimental_Consistency.md](Experimental_Consistency.md) for the empirical status.
-- **A replacement for ZFC, for the part of mathematics that is not mathematical fantasy.** ZFC was shown incomplete by Gödel and indecisive by the Busy Beaver result; the sentences it cannot decide are precisely those whose objects have no admissible-trajectory referent. Active-inference mathematics declines to import them. For mathematics whose objects correspond to admissible Markov-blanket trajectories — the math of physical and agent-constructible reality — QLF is the proposed foundation. Standard constructive mathematics (Bishop / Martin-Löf / Coquand) is the closest neighbour and shares the constructive-realisability discipline; QLF adds the active-inference selection principle on top (§3). See §6.1 below for the precise definition of "mathematical fantasy."
+- **A replacement for ZFC, for the part of mathematics that is not mathematical fantasy.** ZFC was shown incomplete by Gödel and indecisive by the Busy Beaver result; the sentences it cannot decide are precisely those whose objects have no admissible-trajectory referent. Active-inference mathematics declines to import them. For mathematics whose objects correspond to admissible Markov-blanket trajectories — the math of physical and agent-constructible reality — QLF is the proposed foundation. Standard constructive mathematics (Bishop / Martin-Löf / Coquand) is the closest neighbour and shares the constructive-realisability discipline; QLF adds the active-inference selection principle on top (§3). See §7.1 below for the precise definition of "mathematical fantasy."
 - **Not Wolfram-style "everything is computation."** QLF's selection principle is specific (ZFA + MRE saturation); it is not the assertion that anything computable is real. The pruning is structurally enforced, not stipulated by an external Ruliad.
 - **Not a denial of Platonism.** It's a relocation: mathematical truth still has structure; that structure is the admissible-trajectory space under active-inference selection. Whether this space is "Platonic" is a separate philosophical question ([Philosophy.md](Philosophy.md), [possibilist-ontology.md](possibilist-ontology.md)).
 
-### 6.1 What "mathematical fantasy" means
+### 7.1 What "mathematical fantasy" means
 
 The qualifier "for what is not mathematical fantasy" deserves a precise reading. Two well-established results pin it down.
 
@@ -121,7 +164,7 @@ Both results expose what ZFC permits but cannot constructively access: uncountab
 
 "Mathematical fantasy" is therefore not a derogation — it is a precise scope marker. The claim is that QLF is the right foundation for the non-fantasy half. Where ZFC could not decide, QLF correctly identifies "no admissible trajectory" and stops; where ZFC was indifferent to physical realisability, QLF supplies the active-inference selection principle that picks out the physically realisable trajectories.
 
-## 7. Open work
+## 8. Open work
 
 - **Lean formalization** of `Active_Inference_Selection` as a unified principle: every admissible RhoProcess minimises a per-event free-energy functional. The per-event quantum is anchored — `zfa_closure_minimizes_free_energy` in [`lean/QLF_FreeEnergy.lean`](lean/QLF_FreeEnergy.lean) — and the closure structure of admissible processes is anchored — `rho_process_always_zfa`, `bra_ket_always_balanced`, `decoherence_impossibility`. The remaining work is the *selection-rule* statement that ties them: every constructible RhoProcess is the trajectory of an agent minimising the per-event KL divergence. The candidate unifying statement is articulated as the vacuum-alignment principle in [`VacuumEnergy.md`](VacuumEnergy.md) §6.3 — *admissible signals are those that maximise mutual information with the vacuum's prior subject to ZFA closure* — and is fully Lean-anchored across three layers: per-event `vacuum_alignment_selects_zfa` and trajectory-level `global_alignment_selects_zfa` in [`lean/QLF_VacuumAlignment.lean`](lean/QLF_VacuumAlignment.lean), plus the **RhoProcess bridge** `rho_process_alignment_saturates` in [`lean/QLF_RhoProcessBridge.lean`](lean/QLF_RhoProcessBridge.lean). Together with `rho_process_always_zfa` from RhoQuCalc.lean, this completes the formal link: the QLF constructible processes are exactly the trajectories of agents maximising cumulative mutual information against the vacuum prior subject to ZFA closure.
 - **Discharge the bridge axioms** flagged across [Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md), [Langlands.md](Langlands.md), [Standard_Model.md](Standard_Model.md), [Quantum_Gravity.md](Quantum_Gravity.md). Each is a specific WKL₀-level claim with an MRE-saturation motivation ([ReverseMathematics.md §4](ReverseMathematics.md)).
