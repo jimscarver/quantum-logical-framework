@@ -42,7 +42,7 @@ open QLF.CycleEncoding QLF.SpanningMap QLF.CohomologyRing
 abbrev CohA : Type := AddMonoidAlgebra ℚ Coh
 
 /-- The cycle class map into the ℚ-algebra: a cycle class to its cohomology monomial (coefficient 1). -/
-noncomputable def clA (c : CycleClass) : CohA := Finsupp.single (cl c) (1 : ℚ)
+noncomputable def clA (c : CycleClass) : CohA := AddMonoidAlgebra.single (cl c) (1 : ℚ)
 
 /-- **`cl` is multiplicative as a ring map**: the intersection product ↦ the cup product (now honest
     ring multiplication, via `single_mul_single`). -/
