@@ -123,38 +123,57 @@ half-spins, exactly as the substrate requires.
 
 ## 9. Spin-½ as horizon-relative closure
 
-The `−I` / `+I` fold of §4 is not only the SU(2)→SO(3) double cover — it is the physical
-reading of **horizon-relative closure** ([`QLF_HorizonClosure`](lean/QLF_HorizonClosure.lean),
-issue #104). There, closure is not a primitive yes/no: a history reads **open** to a shallow
-observer and **closed** to a deeper one, `closedAtHorizon R s := boundedPrune R s = []`
-applying the one-pass prune only `R` times (`horizon_relative` — the nested singlet
-`[+,+,−,−]` is open at horizon 1, closed at horizon 2). Spin-½ *is* that structure made
-physical:
+**The pre-spatial primitive is pass-counted closure, not rotation.** Stated at the substrate
+level — before any geometry — spin-½ is:
 
-- **One local pass leaves a residue.** A single 360° turn = one Hermitian pair folds to
-  **`−I`** (`rotation_360_eq_negI`), the **nontrivial kernel element** of SU(2)→SO(3)
-  (`spin_double_cover_nontrivial`, `−I ≠ +I`). At this resolution the closure is *not*
-  complete — the `−1` sign is the un-pruned residue, exactly a history still **open at
-  horizon 1**.
-- **The complementary second pass closes.** A second pair — 720° — folds to **`+I`**
-  (`rotation_720_eq_id`), the identity: the residue is cancelled, the closure **complete at
-  horizon 2**. Turning twice *is* pruning to the empty closure at the deeper horizon.
+> **one local pass leaves the `−I` residue; the second complementary pass closes to `+I`.**
+
+That is a *process* rule over closure passes, with no angle and no space in it. The
+`−I` / `+I` fold of §4 is the physical reading of **horizon-relative closure**
+([`QLF_HorizonClosure`](lean/QLF_HorizonClosure.lean), issue #104): closure is not a
+primitive yes/no — a history reads **open** to a shallow observer and **closed** to a deeper
+one, `closedAtHorizon R s := boundedPrune R s = []` applying the one-pass prune only `R`
+times (`horizon_relative` — the nested singlet `[+,+,−,−]` is open at horizon 1, closed at
+horizon 2). Spin-½ *is* that pass-counted structure:
+
+- **One local pass leaves a residue** → **`−I`** (`rotation_360_eq_negI`), the **nontrivial
+  kernel element** of SU(2)→SO(3) (`spin_double_cover_nontrivial`, `−I ≠ +I`). At this
+  resolution the closure is *not* complete — the `−1` sign is the un-pruned residue, exactly a
+  history still **open at horizon 1**.
+- **The complementary second pass closes** → **`+I`** (`rotation_720_eq_id`), the identity:
+  the residue is cancelled, the closure **complete at horizon 2**. A second pass *is* pruning
+  to the empty closure at the deeper horizon.
 - **Exclusion = the "no identical friend" rule.** Two *identical* half-spins cannot close —
   they anticommute to zero (`like_spin_excludes` = `pauli_exclusion`). A copy of the open
   residue does not complete it; it obstructs it (the same no-free-copy as
   [`QLF_NoFreeDuplication`](lean/QLF_NoFreeDuplication.lean)).
 - **Singlet pairing = the allowed complementary closure.** The *opposite* half-spin does
-  complete it: `(−I)(−I) = +I` (`opposite_spin_singlet_closes`) — the same `+I` as the 720°
-  return. The complementary partner is precisely what carries the open history across its
-  horizon to the empty closure.
+  complete it: `(−I)(−I) = +I` (`opposite_spin_singlet_closes`) — the same `+I` as the second
+  pass. The complementary partner is precisely what carries the open history across its horizon
+  to the empty closure.
 
-So **the fermion sign is an open-at-horizon-1 receipt, and the singlet (or the second turn)
-is its close-at-horizon-2 completion** — one deep-horizon closure the shallow single pass
-cannot see (`nestedSinglet_zfa`: the horizon-2-closed witness is also *absolutely*
-`achieves_ZFA`; the deep reading is the genuine receipt, absolute closure the ideal the finite
-horizons approach). Pauli exclusion and singlet pairing are the two answers to one question —
-*does a complementary partner exist to carry this open half-spin to closure?* — no is
-exclusion, yes is the singlet.
+> **Guardrail — "360°/720°" is representation-language, not the primitive.** The angle words are
+> inherited from the SU(2)/SO(3) rendering *after geometry has emerged*; they are the spatial
+> read-out of the pass-count, not a thing spinning in already-existing space (QLF assumes no
+> background space — spacetime is synthesized, [`QLF_ReachableEvent`](lean/QLF_ReachableEvent.lean),
+> `SpaceTime.md`). The substrate statement is: *spin-½ is one-pass-open / two-pass-closed;
+> "360° → −I, 720° → +I" is the spatial representation of that closure process once the metric is
+> rendered.* The Lean fold names carry "rotation" only because they are stated in the emerged
+> Pauli/σ basis; the content they encode is the pass-count.
+
+So **the fermion sign is an open-at-horizon-1 receipt, and the singlet (or the second pass) is
+its close-at-horizon-2 completion** — one deep-horizon closure the shallow single pass cannot
+see (`nestedSinglet_zfa`: the horizon-2-closed witness is also *absolutely* `achieves_ZFA`; the
+deep reading is the genuine receipt, absolute closure the ideal the finite horizons approach).
+Pauli exclusion and singlet pairing are the two answers to one question — *does a complementary
+partner exist to carry this open half-spin to closure?* — no is exclusion, yes is the singlet.
+
+> **Reading, not derivation (spin-statistics).** The exclusion/singlet lines are a QLF-*process*
+> reading: the reused theorem (`pauli_exclusion` = `like_spin_excludes`) proves the
+> commutator/self-exclusion form `[p,p] = 0`, **not** the full spin-statistics theorem. The
+> missing bridge — from the closure residue to antisymmetric exchange under particle swap — is
+> not yet built; until it is, "residue ⟹ Fermi statistics" stays a labelled reading, not a proof
+> (tracked in [`Open_Problems.md`](Open_Problems.md), `spin_statistics_bridge_in_progress`).
 
 ## 10. Magnetism and electromagnetism
 
