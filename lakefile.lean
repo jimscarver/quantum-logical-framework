@@ -139,5 +139,6 @@ lean_lib QLF where
     `QLF_MondScale,
     `QLF_MondNu,
     `QLF_RarBalance,
-    `QLF_AlgebraEmergence
+    `QLF_AlgebraEmergence,
+    `QLF_Kolmogorov
   ]
