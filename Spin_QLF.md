@@ -121,7 +121,42 @@ half-spins, exactly as the substrate requires.
   spatial contraction (singlet binding, `Magnetism_Spatial_Dynamics.md` §3). Note this `+I`
   is the **same** as the 720° return: **the double cover and annihilation are one fact**.
 
-## 9. Magnetism and electromagnetism
+## 9. Spin-½ as horizon-relative closure
+
+The `−I` / `+I` fold of §4 is not only the SU(2)→SO(3) double cover — it is the physical
+reading of **horizon-relative closure** ([`QLF_HorizonClosure`](lean/QLF_HorizonClosure.lean),
+issue #104). There, closure is not a primitive yes/no: a history reads **open** to a shallow
+observer and **closed** to a deeper one, `closedAtHorizon R s := boundedPrune R s = []`
+applying the one-pass prune only `R` times (`horizon_relative` — the nested singlet
+`[+,+,−,−]` is open at horizon 1, closed at horizon 2). Spin-½ *is* that structure made
+physical:
+
+- **One local pass leaves a residue.** A single 360° turn = one Hermitian pair folds to
+  **`−I`** (`rotation_360_eq_negI`), the **nontrivial kernel element** of SU(2)→SO(3)
+  (`spin_double_cover_nontrivial`, `−I ≠ +I`). At this resolution the closure is *not*
+  complete — the `−1` sign is the un-pruned residue, exactly a history still **open at
+  horizon 1**.
+- **The complementary second pass closes.** A second pair — 720° — folds to **`+I`**
+  (`rotation_720_eq_id`), the identity: the residue is cancelled, the closure **complete at
+  horizon 2**. Turning twice *is* pruning to the empty closure at the deeper horizon.
+- **Exclusion = the "no identical friend" rule.** Two *identical* half-spins cannot close —
+  they anticommute to zero (`like_spin_excludes` = `pauli_exclusion`). A copy of the open
+  residue does not complete it; it obstructs it (the same no-free-copy as
+  [`QLF_NoFreeDuplication`](lean/QLF_NoFreeDuplication.lean)).
+- **Singlet pairing = the allowed complementary closure.** The *opposite* half-spin does
+  complete it: `(−I)(−I) = +I` (`opposite_spin_singlet_closes`) — the same `+I` as the 720°
+  return. The complementary partner is precisely what carries the open history across its
+  horizon to the empty closure.
+
+So **the fermion sign is an open-at-horizon-1 receipt, and the singlet (or the second turn)
+is its close-at-horizon-2 completion** — one deep-horizon closure the shallow single pass
+cannot see (`nestedSinglet_zfa`: the horizon-2-closed witness is also *absolutely*
+`achieves_ZFA`; the deep reading is the genuine receipt, absolute closure the ideal the finite
+horizons approach). Pauli exclusion and singlet pairing are the two answers to one question —
+*does a complementary partner exist to carry this open half-spin to closure?* — no is
+exclusion, yes is the singlet.
+
+## 10. Magnetism and electromagnetism
 
 - The **flat** spin component **is** the magnetic moment (`magneticMoment`); a persistent
   vacuum spin-orientation bias is the **B**-field gradient (Stern–Gerlach,
@@ -132,7 +167,7 @@ half-spins, exactly as the substrate requires.
 - The gyromagnetic ratio **g = 2** is the Pauli-scalar return of one half-spin closure, with
   the Schwinger anomaly `a_e = α/2π` ([`QLF_GMinusTwo`](lean/QLF_GMinusTwo.lean)).
 
-## 10. Honest scope
+## 11. Honest scope
 
 | Claim | Status |
 |---|---|
@@ -143,6 +178,8 @@ half-spins, exactly as the substrate requires.
 | Neutrino neutral (self-conjugate ⟹ 0) | **Lean theorem** |
 | Integer spin = even pair count; photon = spin 1 | **Lean theorems** |
 | Exclusion `[p,p]=0`; singlet `(−I)(−I)=+I` | **Lean theorems** (reuse `pauli_exclusion`) |
+| 360°→−I open at horizon 1, 720°→+I closed at horizon 2 | **Lean theorems** (reuse `horizon_relative`, `rotation_360_eq_negI`, `rotation_720_eq_id`) |
+| Exclusion / singlet = no / yes complementary-partner closure | **reading** of the reused theorems (the horizon-relative *interpretation* of spin) |
 | flat = magnetic moment; perp/chirality = charge sense | **naming defs** (which twist invariant we *call* charge/magnetism) |
 | B-field, monopole-freedom, g=2 | **other modules / prose** |
 
@@ -159,4 +196,4 @@ is structure, not a gap.
 - W. Gerlach & O. Stern, *Der experimentelle Nachweis der Richtungsquantelung im Magnetfeld*, Z. Phys. **9** (1922) 349 — spin orientation / magnetic moment.
 - E. Majorana, *Teoria simmetrica dell'elettrone e del positrone*, Nuovo Cimento **14** (1937) 171 — the self-conjugate fermion.
 
-**See also:** [Spin_Statistics.md](Spin_Statistics.md), [HALF-SPIN-ZFA-EMBEDDING.md](HALF-SPIN-ZFA-EMBEDDING.md), [Magnetism_Spatial_Dynamics.md](Magnetism_Spatial_Dynamics.md), [Maxwell.md](Maxwell.md), [Beta_Decay_Neutrino_Nature.md](Beta_Decay_Neutrino_Nature.md), [`lean/QLF_Majorana.lean`](lean/QLF_Majorana.lean), [`lean/QLF_BaryonWinding.lean`](lean/QLF_BaryonWinding.lean), [`lean/QLF_GMinusTwo.lean`](lean/QLF_GMinusTwo.lean).
+**See also:** [Spin_Statistics.md](Spin_Statistics.md), [HALF-SPIN-ZFA-EMBEDDING.md](HALF-SPIN-ZFA-EMBEDDING.md), [Magnetism_Spatial_Dynamics.md](Magnetism_Spatial_Dynamics.md), [Maxwell.md](Maxwell.md), [Beta_Decay_Neutrino_Nature.md](Beta_Decay_Neutrino_Nature.md), [`lean/QLF_Majorana.lean`](lean/QLF_Majorana.lean), [`lean/QLF_BaryonWinding.lean`](lean/QLF_BaryonWinding.lean), [`lean/QLF_GMinusTwo.lean`](lean/QLF_GMinusTwo.lean), [`lean/QLF_HorizonClosure.lean`](lean/QLF_HorizonClosure.lean).
