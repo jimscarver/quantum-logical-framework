@@ -2,6 +2,8 @@
 
 **A Precise and Defensible Form of Universality**
 
+> **Completeness note.** This document is the *sufficiency* pillar — that ZFA generates every terminating computation. The stronger claim that ZFA is the *only* substrate (exclusivity) is a separate, weaker-supported question; the full evidence ledger — typed by strength, with the misses and named defeaters beside the hits, and the reconstruction-theorem target that would settle exclusivity — is [`Completeness_Evidence.md`](Completeness_Evidence.md).
+
 The earlier universality claim attempted to show that QLF generates *all* finite logical systems. That formulation ran into Gödelian issues of self-reference and was philosophically inconsistent with Shannon’s insight that information is physical and finite.
 
 We therefore adopt a cleaner, stronger, and more honest position:
