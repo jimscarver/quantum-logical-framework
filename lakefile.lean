@@ -145,5 +145,6 @@ lean_lib QLF where
     `QLF_ShannonOverfit,
     `QLF_FQHE,
     `QLF_ContradictionReceipt,
-    `QLF_EntropyUniqueness
+    `QLF_EntropyUniqueness,
+    `QLF_Identifiability
   ]
