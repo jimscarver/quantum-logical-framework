@@ -95,7 +95,7 @@ This is the one region where QLF **contributes to** the mathematics of informati
 ### Method-precedents — QLF's genre done respectably
 
 - **Knuth** derives probability and information measures from **lattice / order structure alone** — the same "structure forces the measure" move as the Gleason-style reconstruction target ([`Completeness_Evidence.md`](Completeness_Evidence.md) §6).
-- **Baez–Fritz–Leinster** characterize **Shannon entropy category-theoretically** as the *unique* functor with given properties — uniqueness-theorem discipline applied to information itself, the shape a QLF reconstruction of the census measure would take.
+- **Baez–Fritz–Leinster** characterize **Shannon entropy category-theoretically** as the *unique* functor with given properties — uniqueness-theorem discipline applied to information itself, the shape a QLF reconstruction of the census measure would take. **First executed fragment:** the finite/counting wing is now machine-checked — additivity on independent ledgers *forces* the census measure to be `|s| · c` and pins it uniquely from its generator value ([`QLF_EntropyUniqueness`](lean/QLF_EntropyUniqueness.lean); the full distributional `−Σ p log p` uniqueness is the analytic residual, [#115](https://github.com/jimscarver/quantum-logical-framework/issues/115) item 6).
 
 ### The synthesis line
 
