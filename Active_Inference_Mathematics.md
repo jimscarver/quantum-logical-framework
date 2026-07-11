@@ -181,6 +181,7 @@ Both results expose what ZFC permits but cannot constructively access: uncountab
 - [HALF-SPIN-ZFA-EMBEDDING.md](HALF-SPIN-ZFA-EMBEDDING.md) — spin-1/2 set-theoretic embedding
 - [MRE.md](MRE.md) — per-event `log 2` quantum
 - [Hierarchical_Control.md](Hierarchical_Control.md) — Friston FEP derivation
+- [Related_Frameworks.md](Related_Frameworks.md) — where ZFA sits vs. Friston's FEP and the other information-theoretic / discrete-substrate neighbors (the FEP is the *statistical shadow* of the exact closure rule, not a rival)
 - [Hadrons_Markov_Blankets.md](Hadrons_Markov_Blankets.md) — Markov blanket as topological boundary
 - [active_inference.md](active_inference.md) + [BayesianMechanics.md](BayesianMechanics.md) — agent-side framing
 - [ReverseMathematics.md](ReverseMathematics.md) — RCA₀ floor; bridge axioms at WKL₀
