@@ -141,5 +141,6 @@ lean_lib QLF where
     `QLF_RarBalance,
     `QLF_AlgebraEmergence,
     `QLF_Kolmogorov,
-    `QLF_PiRational
+    `QLF_PiRational,
+    `QLF_ShannonOverfit
   ]
