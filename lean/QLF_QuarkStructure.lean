@@ -55,7 +55,7 @@ theorem baryon_zero_of_missing (a : Ax) :
 theorem baryon_needs_axis (a : Ax) (ts : List Twist) (h : baryonNumber ts ≠ 0) :
     ∃ t ∈ ts, axOf t = some a := by
   by_contra hcon
-  push_neg at hcon
+  push Not at hcon
   exact h (baryon_zero_of_missing a ts hcon)
 
 /-- **The Borromean three-colour necessity (confinement, geometric).** A non-zero

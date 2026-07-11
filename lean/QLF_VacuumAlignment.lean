@@ -101,7 +101,7 @@ theorem vacuum_alignment_selects_zfa
   constructor
   · intro hkl
     by_contra hnot
-    push_neg at hnot
+    push Not at hnot
     obtain ⟨hne0, hne1⟩ := hnot
     have h0lt : 0 < q := lt_of_le_of_ne hq1 (Ne.symm hne0)
     have hlt1 : q < 1 := lt_of_le_of_ne hq2 hne1
