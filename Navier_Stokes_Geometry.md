@@ -164,23 +164,28 @@ octave** (`C(2n,n)/4ⁿ` fluctuations).
 
 **Why She–Leveque and not log-normal — closure statistics *select* the class.** The two candidates are not on equal footing. Closures are **rare, quasi-independent events** in a region, so their occupation is **Poisson** — the very object already verified for the causal-set curvature limit (`poissonOccupation`, [`QLF_CausalContinuum`](lean/QLF_CausalContinuum.lean)). A Poisson-multiplier cascade is **log-Poisson** (Dubrulle 1994), *not* log-normal — and log-Poisson with the grounded `C₀ = 2` is exactly She–Leveque. This is decided on **realizability**, not just goodness-of-fit: at high `p` the log-normal `ζ_p` **turns over and decreases** (past `p ≈ 14.5` for `μ = 0.23`), violating the requirement that `ζ_p` be non-decreasing, whereas She–Leveque stays monotone with asymptotic slope `1/9` (the minimum Hölder exponent of the most-singular structures). So QLF's Poisson closure statistics *pick out* the physically correct log-Poisson class and rule the log-normal out — the same "the continuum/unbounded object is unphysical, the discrete one is realizable" move as everywhere in QLF ([`QLF_Realizability`](lean/QLF_Realizability.lean)). The one residual free input is then `β = 2/3`.
 
-**Both log-Poisson parameters reduce to the 3-axis geometry.** With the class fixed, She–Leveque has exactly two inputs, `C₀` and `β`, and both trace to the single `d = 3` QLF derives ([`SpaceTime.md`](SpaceTime.md) §3a):
+**The two log-Poisson parameters, anchored — with their origins kept distinct** ([`QLF_Kolmogorov`](lean/QLF_Kolmogorov.lean)). She–Leveque has exactly two inputs, `C₀` and `β`, and — correcting an earlier conflation — they have **different** origins:
 
-- `C₀ = 2 = d − 1` — the codimension of the most-singular structures, i.e. the **1-D vortex filaments** in 3-D space (QLF's quantized vortex *lines*, `vortex_quantum`);
-- `β = 2/3 = 1 − 1/d` — the **eddy-turnover-time exponent**: `δv_ℓ ~ (ε ℓ)^{1/3}` gives an inverse turnover time `δv_ℓ/ℓ ~ ℓ^{−2/3}`, and the `1/3` is the K41 velocity exponent = the cube-root of the **3** spatial axes — the *same* `1/3` behind `−5/3`.
+- `C₀ = 2 = d − 1` — the codimension of the most-singular structures, the **1-D vortex filaments** in `d`-space (QLF's quantized vortex *lines*, `vortex_quantum`). This is the **only genuinely `d`-dependent** parameter; at `d = 3`, `C₀ = 2` (`she_leveque_codimension`).
+- `β = 2/3 = 1 − h` — the **eddy-turnover-time exponent**, where `h` is the velocity Hölder exponent of `δv_ℓ ~ (ε ℓ)^{1/3}`. That `1/3` is **dimensional** — it is the cube-root of the flux `[ε] = L²T⁻³`, the *same* `1/3` behind `−5/3` (`velocity_holder_exponents`: `(c,h)=(1/3,1/3)` forced by `−3c=−1`, `2c+h=1`, exactly as `kolmogorov_exponents` gives `a = 2/3 = 2c`). It is therefore **dimension-independent**, **not `1/d`**. So `β = 2/3` does *not* come from the 3 spatial axes — `she_leveque_beta`: `1 − h = 2/3`.
 
-So `μ = 2 − ζ_6 = 0.222` and the whole `ζ_p` curve follow from `d = 3` alone (the computation reproduces `ζ_3 = 1`, `ζ_6 = 1.778` from `C₀ = 3−1`, `β = 1 − 1/3`). **Honest caveat:** the eddy-turnover reading of `β` and the codimension reading of `C₀` are standard turbulence phenomenology (She–Leveque 1994); QLF's contribution is that its *derived* 3-axis geometry supplies **both** ingredients — the `3` (giving `β`) and the 1-D-vortex-in-3-D (giving `C₀`) — so within the log-Poisson class the intermittency spectrum is parameter-free *from the substrate*, not that She–Leveque is re-derived from scratch.
+So `μ = 2 − ζ_6 = 0.222` and the whole `ζ_p` curve follow with **no free parameter**: `β` from the machine-checked dimension-independent velocity exponent (the same `1/3` as `−5/3`), `C₀` from the vortex-filament codimension (the sole `d`-input). **Honest caveat (the residual posit):** that `β` *equals* the turnover exponent — She–Leveque's identification of the most-singular flux with the inverse eddy-turnover time — is standard turbulence phenomenology, not re-derived here; likewise the identification of the most-singular structures as 1-D filaments. QLF's contribution is that its dimensional analysis (`velocity_holder_exponents`) and its 1-D quantized vortices supply **both** ingredients, so within the log-Poisson class the intermittency spectrum is parameter-free — not that the log-Poisson model itself is derived from scratch.
 
 **Honest scope — this closes the 🔵 *statistics* item, not the 🧱 regularity boundary.** What is done:
 `−5/3` reduced to the flux-invariance lemma + K41; `ζ_3 = 1` exact; intermittency shown to be the
 multifractal (fractal-closure) deviation, with She–Leveque's `C₀ = 2` grounded in QLF's quantized vortex
 filaments and matching data parameter-free. And the **class is now selected**, not just fitted: Poisson
 closures → log-Poisson → She–Leveque, decided on realizability (the log-normal is unphysical at high `p`,
-above). With the class fixed and **both parameters reduced to `d = 3`** (`C₀ = d−1 = 2`, `β = 1 − 1/d = 2/3`),
-the intermittency spectrum is parameter-free from the substrate (`μ = 2 − ζ_6 = 0.222`, matching data).
-The flux-invariance lemma + the forced `−5/3` are now Lean-anchored ([`QLF_Kolmogorov`](lean/QLF_Kolmogorov.lean)). What stays open (`turbulence_statistics_in_progress`): making the `β = 1 − 1/d` / `C₀ = d − 1` identifications rigorous rather than phenomenological (they are
-standard turbulence readings QLF *supplies the geometry for*, not yet re-derives) — and, separately, the
-Clay regularity boundary of §5, which self-similar frequencies say nothing about. The reading is
+above). With the class fixed and **both parameters anchored** — `β = 1 − h = 2/3` from the machine-checked
+dimension-independent velocity exponent `h = 1/3` (the *same* `1/3` as `−5/3`, **not** `1/d`), and
+`C₀ = d − 1 = 2` from the vortex-filament codimension (the sole `d`-input) — the intermittency spectrum is
+parameter-free from the substrate (`μ = 2 − ζ_6 = 0.222`, matching data). The flux-invariance lemma, the
+forced `−5/3`, and the `β`/`C₀` anchors are all Lean-anchored ([`QLF_Kolmogorov`](lean/QLF_Kolmogorov.lean):
+`velocity_holder_exponents`, `she_leveque_beta`, `she_leveque_codimension`). What stays open
+(`turbulence_statistics_in_progress`): the one residual **posit** — She–Leveque's identification of `β` with
+the turnover exponent (most-singular flux = inverse turnover) and of the most-singular structures as 1-D
+filaments — is standard phenomenology QLF *supplies the geometry for*, not the log-Poisson model derived from
+scratch; and, separately, the Clay regularity boundary of §5, which self-similar frequencies say nothing about. The reading is
 **falsifiable**: it lives or dies by whether the most-singular structures are 1-D (`C₀ = 2`) and the
 turnover exponent is `1 − 1/d` — both tied to the derived 3-axis geometry, and both can fail cleanly.
 
