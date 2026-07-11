@@ -144,7 +144,8 @@ QLF is the mathematics that has **active inference built into its foundation**. 
 - [**MRE.md**](MRE.md) — the per-event log 2 quantum that is the math's selection principle
 
 ### 1. Big-picture orientation
-- [**Philosophy.md**](Philosophy.md) — the possibilist foundation of QLF, Zero Free Action, local time synthesis, active inference, holography, and the critique of ZFC-style infinity
+- [**Philosophy.md**](Philosophy.md) — the possibilist foundation of QLF, Zero Free Action, local time synthesis, active inference, holography, the critique of ZFC-style infinity, and (§9) dialectical closure (Aufhebung = cancel/preserve/lift)
+- [**Related_Frameworks.md**](Related_Frameworks.md) — where ZFA sits among the neighbors: Part I the selection-principle rivals to differentiate from (Friston FEP, Fredkin/'t Hooft/Wolfram, constructor theory, …), Part II the mathematics of information QLF builds *on* (Shannon, Kolmogorov–Chaitin AIT, quantum information, semantic information) — foundation under the measure stack, not a rival to it
 - [**Creation.md**](Creation.md) — the QLF ontology of creation: *nothing comes from nothing* (ZFA enforces it, ℒ = 0 as the condition of origin); everything possible exists *a priori*; a closure is a synthesis of matter and antimatter (the proton = the right/left-handed synthesis, "an abstraction of what adds to nothing which has become actual"); time, space, and energy emerge per event; creation fills every niche just because it is possible — it knows a priori
 - [**TheBigProblem.md**](TheBigProblem.md) — how QLF addresses the measurement problem, entanglement, spacetime, time, and consciousness
 - [**TheQuantumBrain.md**](TheQuantumBrain.md) — the quantum brain in QLF: frequency-isolated, error-corrected, active-inference coherence as the mechanism of savant cognition; numbers/primes/pitch/calendar as resonant access to the pre-existing logical landscape, not computation

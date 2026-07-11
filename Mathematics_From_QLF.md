@@ -131,3 +131,4 @@ So QLF does not merely say "mathematics is effective because reality is mathemat
 - [`The_QLF_State_Space.md`](The_QLF_State_Space.md) — the `ℤ[i]` / `μ₄` state space; Hilbert space as completion.
 - [`BraKetRhoQuCalc.md`](BraKetRhoQuCalc.md) — `+` = parallel, `×` = sequence; the bra-ket ↔ ρ-calculus correspondence.
 - [`Physical_Pi.md`](Physical_Pi.md) — `π` from the closure census, the exemplar of a continuum constant recovered finitely.
+- [`Related_Frameworks.md`](Related_Frameworks.md) Part II — the mathematics of information as a *measure stack over an unspecified ontology* (Shannon counts, AIT prices, Fisher measures); ZFA supplies the missing bottom layer (information = realized distinction = closure receipt), the same "realizable math = the substrate" move as §4 here (Wigner dissolved).
