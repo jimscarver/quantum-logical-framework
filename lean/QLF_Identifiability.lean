@@ -64,4 +64,14 @@ theorem identifiable_rat (q : ℚ) : Identifiable (q : ℝ) := by
   simp only [sub_self, abs_zero]
   positivity
 
+/-- **Robustness.** Any computable approximation with *any* computable modulus of convergence
+    yields `Identifiable` — which licenses reading `Identifiable` as "computable real" simpliciter:
+    the sped-up sequence `n ↦ f (m n)` is computable (`Computable.comp`) and hits precision `(1/2)^n`
+    by the modulus. Independence of the modulus is the real content. -/
+theorem identifiable_of_modulus (x : ℝ) (f : ℕ → ℚ) (m : ℕ → ℕ)
+    (hf : Computable f) (hm : Computable m)
+    (hconv : ∀ n k, m n ≤ k → |x - (f k : ℝ)| ≤ (1 / 2 : ℝ) ^ n) :
+    Identifiable x :=
+  ⟨fun n => f (m n), hf.comp hm, fun n => hconv n (m n) le_rfl⟩
+
 end QLF.Identifiability
