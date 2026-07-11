@@ -101,7 +101,7 @@ Every searched-and-absent row confirms exclusivity in the only way exclusivity c
 
 After §4, the survivors are exact reconstructions of quantum logic: **Bohm** (adds trajectories) and **Everett** (adds unrealized branches). No experiment inside quantum mechanics separates them from ZFA. The second stage is therefore argued on non-empirical but principled grounds:
 
-1. **Uniform surplus-structure charge.** Bohmian trajectories and Everettian branches are empirically idle — no observation ever witnesses them — which is *exactly* the charge QLF levels at the continuum's impossible numbers ([`TheContinuum.md`](TheContinuum.md)). Applying the parsimony razor uniformly, ZFA carries no idle ontology: every closure is a receipt, every receipt is a closure. A framework that razors the continuum but tolerates idle trajectories would be inconsistent; QLF razors both.
+1. **Uniform surplus-structure charge.** Bohmian trajectories and Everettian branches are empirically idle — no observation ever witnesses them — which is *exactly* the charge QLF levels at the continuum's impossible numbers ([`TheContinuum.md`](TheContinuum.md)). For the continuum that charge is now a **theorem**, not a slogan: the non-identifiable tail is a *defined uncountable set* of parameters no finite record can touch ([`Shannon_Overfit.md`](Shannon_Overfit.md) Theorem B, `tail_unconstrained`) — the fantasy tier as arithmetic. Applying the parsimony razor uniformly, ZFA carries no idle ontology: every closure is a receipt, every receipt is a closure. A framework that razors the continuum but tolerates idle trajectories would be inconsistent; QLF razors both.
 2. **Constants overdetermination** (§3): the surviving rivals have no story for why α, a₀, sin²θ_W, Koide fall out of their ontology. ZFA does. Within an empirically tied class, explanatory yield is the tiebreaker.
 3. **The reconstruction theorem** (§6): the only route to upgrading the tiebreaker into a theorem.
 
@@ -115,7 +115,7 @@ Its contrapositive is the strongest honest form of "only ZFA": **anything other 
 
 **Guardrails, non-negotiable:**
 - *Non-circularity:* if "quantum logic" is defined as the logic of ZFA closures, the theorem is a tautology. Each postulate must be stated ZFA-free and must not be equivalent to the conclusion. (Von Neumann's no-go is the cautionary tale: valid, empty, one premise smuggled the conclusion.)
-- *Attack surfaces:* each postulate ships with its violation signature — infinite-precision observable (capacity), unclosed-event residue (receipt — the QRNG target), non-orthomodular event lattice, etc.
+- *Attack surfaces:* each postulate ships with its violation signature — infinite-precision observable (capacity — its formal backing is [`Shannon_Overfit.md`](Shannon_Overfit.md): the negative of `no_real_received` *is* the capacity-violation signature, "an identifiable real exists"), unclosed-event residue (receipt — the QRNG target), non-orthomodular event lattice, etc.
 - *The permanent ceiling:* that nature obeys the postulates is empirical, forever. The theorem can only ever be conditional. Its worth is the weakness and independence of its premises, not the grandeur of its conclusion.
 
 **Existing fragments to build from:** `radialAccel_unique` (uniqueness of ν from the closure principle — the method in miniature), the ℤ[i] state-ring resolution, `disjunctive_closure`, the reversibility capstone.
