@@ -45,6 +45,6 @@ theorem capacity_bound {σ : Type*} [Fintype σ] (C : ℕ)
     of freedom past every finite capacity bound of Theorem A. -/
 theorem consistent_set_infinite (a b : ℝ) (h : a < b) :
     (Set.Icc a b).Infinite :=
-  Set.Icc.infinite h
+  Set.infinite_coe_iff.mp (Set.Icc.infinite h)
 
 end QLF.Identifiability
