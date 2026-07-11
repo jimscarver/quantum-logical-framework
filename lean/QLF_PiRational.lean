@@ -1,3 +1,4 @@
+import Mathlib
 import QLF_PhysicalPi
 
 /-!
@@ -17,11 +18,13 @@ truncations `pi_precision_demo.py` delivers — so `π` never appears at the cou
 it enters only as the limit. Below: the concrete rational values, and the general fact that
 *every* approximant is rational.
 
-The complementary half — restating the load-bearing `(rational)·π` **physics bounds**
-(`14π`, `8π`, `2π`) as rational enclosures to audited precision — needs Mathlib's current
-π-bound lemmas (the Lean 4.32 Mathlib removed the decimal-named `Real.pi_gt_314` family); that
-restatement is tracked in issue #113. Precedent for the rational-bound style: `QLF_AlphaBound`
-(`137 < α⁻¹ < 137.048`, rational bounds, zero axioms).
+The complementary half — the load-bearing `(rational)·π` **physics bounds** (`14π`, `8π`,
+`2π`) restated as rational enclosures to audited precision — is proven below via Mathlib's
+current π-bounds `Real.pi_gt_d6`/`Real.pi_lt_d6` (`3.141592 < π < 3.141593`; the Lean 4.32
+Mathlib renamed the decimal-named family to the `_dN` digit-count convention in
+`Mathlib/Analysis/Real/Pi/Bounds.lean`). Each physics quantity is thus a rational interval,
+`Real.pi` appearing only *inside* an enclosure with rational endpoints. Precedent for the
+rational-bound style: `QLF_AlphaBound` (`137 < α⁻¹ < 137.048`, rational bounds, zero axioms).
 -/
 
 namespace QLF.PiRational
@@ -43,9 +46,37 @@ theorem returnDensity_three : returnDensity 3 = 25 / 256 := by native_decide
 theorem returnDensity_isRational (n : ℕ) : ∃ q : ℚ, returnDensity n = q :=
   ⟨returnDensity n, rfl⟩
 
-/-- Summary: the substrate's π-approximants are concrete rationals, `Real`-free; `π`
-    enters only as their (settled) limit, never at the interface. The physics-bound
-    rational-enclosure restatement is issue #113. -/
+/-! ### The physics-bound half — `(rational)·π` quantities as rational enclosures -/
+
+/-- **π lies in a rational interval** — the only thing any measurement of π gives.
+    Directly Mathlib's `_d6` bounds, whose endpoints are rationals. -/
+theorem pi_rational_interval :
+    (3.141592 : ℝ) < Real.pi ∧ Real.pi < 3.141593 :=
+  ⟨Real.pi_gt_d6, Real.pi_lt_d6⟩
+
+/-- **The loop-closure period `2π` as a rational interval** (`QLF_LoopClosure`: the
+    machine is `% N`, `2π` the rendered full cycle): `6.283 < 2π < 6.284`. -/
+theorem two_pi_rational_interval :
+    (6.283 : ℝ) < 2 * Real.pi ∧ 2 * Real.pi < 6.284 := by
+  constructor <;> linarith [Real.pi_gt_d6, Real.pi_lt_d6]
+
+/-- **The mass hierarchy `ln R_p = 14π` as a rational interval** (`QLF_AlphaS`):
+    `43.982 < 14π < 43.983` (vs measured `ln(M_P/m_p) ≈ 44.01`). No `Real` needed to
+    state or test the claim. -/
+theorem hierarchy_rational_interval :
+    (43.982 : ℝ) < 14 * Real.pi ∧ 14 * Real.pi < 43.983 := by
+  constructor <;> linarith [Real.pi_gt_d6, Real.pi_lt_d6]
+
+/-- **The Einstein geometric factor `8π` as a rational interval**
+    (`QLF_EinsteinGeometricFactor`, `8π = 4π·2`): `25.132 < 8π < 25.133`. -/
+theorem eight_pi_rational_interval :
+    (25.132 : ℝ) < 8 * Real.pi ∧ 8 * Real.pi < 25.133 := by
+  constructor <;> linarith [Real.pi_gt_d6, Real.pi_lt_d6]
+
+/-- Summary: the substrate's π-approximants are concrete rationals, `Real`-free (`π`
+    enters only as their settled limit), and every load-bearing `(rational)·π` physics
+    quantity is a rational enclosure to audited precision — the interface never needs `ℝ`.
+    Both halves of issue #113 are now anchored. -/
 theorem pi_rational_summary : True := trivial
 
 end QLF.PiRational
