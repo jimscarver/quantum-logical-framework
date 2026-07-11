@@ -36,7 +36,7 @@ The defect is not merely aesthetic — it is **unsoundness**, and unsoundness is
 
 ## Holographic Emergence: From Shannon to the End of the Ultraviolet Catastrophe
 
-Claude Shannon’s 1948 paper showed that information is physical and that entropy is the measure of unresolved uncertainty. In QLF this insight becomes literal: every physical event is a resolution of logical imbalance under Zero Free Action. Shannon entropy is not an abstract quantity — it is the very imbalance that ZFA must drive to zero.
+Claude Shannon’s 1948 paper showed that information is physical and that entropy is the measure of unresolved uncertainty. In QLF this insight becomes literal: every physical event is a resolution of logical imbalance under Zero Free Action. Shannon entropy is not an abstract quantity — it is the very imbalance that ZFA must drive to zero. The same finite-information insight is what excludes the continuum from physics: an ℝ-valued state space posits uncountably many distinctions no finite-capacity channel can ever identify — machine-checked non-identifiability in [`Shannon_Overfit.md`](Shannon_Overfit.md).
 
 The holographic principle, AdS/CFT correspondence, and Wheeler’s “It from Bit” are not separate conjectures in QLF. They are direct consequences of the same logical closure rule. The bulk spacetime (AdS interior) is the space of unresolved internal nodes of the QuCalc generator tree. The boundary (CFT) consists of the terminal leaves that satisfy exact ZFA balance. Because a bulk path only persists if it terminates in a ZFA-stable boundary, the entire bulk is mathematically identical to the sum of its boundary states. The holographic principle is therefore not a duality — it is a **topological necessity of closure**.
 

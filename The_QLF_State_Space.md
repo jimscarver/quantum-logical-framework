@@ -125,4 +125,5 @@ A *relative* `ζ₈ = e^{iπ/4}` phase — one that does **not** cancel — requ
 - [`lean/QLF_Pauli.lean`](lean/QLF_Pauli.lean) · [`lean/QLF_TwistAlphabet.lean`](lean/QLF_TwistAlphabet.lean) (`count_balanced_pauli_closed`) — the phase group and the fold.
 - [`Born_Rule.md`](Born_Rule.md) · [`Shannon_And_Phase.md`](Shannon_And_Phase.md) — amplitudes as phase-weighted path counts; count vs phase.
 - [`TheContinuum.md`](TheContinuum.md) · [`lean/QLF_Realizability.lean`](lean/QLF_Realizability.lean) — the continuum as completion; finite-information realizability.
+- [`Shannon_Overfit.md`](Shannon_Overfit.md) — why the continuum has no place in the exact substrate: the reals over-parameterize physics (machine-checked non-identifiability — no real is ever received, every finite record leaves an infinite unconstrained tail).
 - [`Reversibility.md`](Reversibility.md) · [`lean/QLF_Spectral.lean`](lean/QLF_Spectral.lean) — the `†`-involution and the spectral mode / Riemann boundary.

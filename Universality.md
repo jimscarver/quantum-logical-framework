@@ -22,7 +22,7 @@ has a canonical encoding as a phase-only `TopoString`. This encoding is generate
 
 ### Why This Is the Right Formulation
 
-- It respects Shannon: information is carried by finite binary distinctions.
+- It respects Shannon: information is carried by finite binary distinctions. (The reals *violate* this — an ℝ-valued state space carries uncountably many distinctions no finite channel can identify: [`Shannon_Overfit.md`](Shannon_Overfit.md), machine-checked non-identifiability.)
 - It avoids Gödel: we restrict to terminating, acyclic computations, so self-reference and infinite recursion are excluded by construction.
 - It is fully constructive: everything is finite at every generation step.
 - It is provably true in the current Lean codebase: `expand_generation` produces all phase-only strings, and ZFA filters the admissible closures.

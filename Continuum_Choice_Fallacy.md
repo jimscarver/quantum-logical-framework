@@ -68,7 +68,9 @@ the continuum is required **exactly** where physics already broke, and **only** 
 finite energy ⟹ finite bandwidth ⟹ finite information ⟹ a discrete, finite-alphabet signal.
 This is the **empirical** companion to the logical argument of §2: Banach–Tarski shows the
 continuum + choice *prove falsehoods* (logical unsoundness); Shannon shows the physical world
-*never instantiates* the continuum (empirical falsification). QLF's per-event `log 2` quantum
+*never instantiates* the continuum (empirical falsification) — now a machine-checked theorem of
+**non-identifiability** ([`Shannon_Overfit.md`](Shannon_Overfit.md): no real is ever received, and
+every finite record leaves an infinite unconstrained tail). QLF's per-event `log 2` quantum
 *is* the substrate's Shannon bit, reinforced by the **Bekenstein bound** (finite information
 `S ≤ A/4ℓ_P²` in any finite region) and **Landauer's principle** (erasing one bit costs
 `kT·log 2` — the same `log 2`); the finite-precision audit confirms the loop-closure constant
