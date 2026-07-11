@@ -186,8 +186,9 @@ forced `−5/3`, and the `β`/`C₀` anchors are all Lean-anchored ([`QLF_Kolmog
 the turnover exponent (most-singular flux = inverse turnover) and of the most-singular structures as 1-D
 filaments — is standard phenomenology QLF *supplies the geometry for*, not the log-Poisson model derived from
 scratch; and, separately, the Clay regularity boundary of §5, which self-similar frequencies say nothing about. The reading is
-**falsifiable**: it lives or dies by whether the most-singular structures are 1-D (`C₀ = 2`) and the
-turnover exponent is `1 − 1/d` — both tied to the derived 3-axis geometry, and both can fail cleanly.
+**falsifiable**: it lives or dies by whether the most-singular structures are 1-D (`C₀ = d − 1 = 2`, the
+`d`-dependent input) and by She–Leveque's turnover identification `β = 1 − h` with the dimension-independent
+`h = 1/3` (the same `1/3` as `−5/3`, not `1/d`) — and both can fail cleanly.
 
 ## 7. Honest scope
 
