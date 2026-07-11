@@ -87,7 +87,19 @@ Two honest signals fall out, neither rigged (the model bakes in no axes):
 1. The adjacent-swap permutohedron of `L` distinct pointers has growth degree `L−1`, which equals **3 precisely at `L = 4`** — the length of the minimal ZFA chiral closure (the electron loop `^<v>`, `fold_electron`). So this reading yields 3D iff the operative swap length is the fundamental 4-twist fluxoid — a substantive tie to the minimal closure, **not** a free knob, though *why* `L=4` is operative is not derived.
 2. The **length-8, four-complement-pair balanced closure** — i.e. the full 8-twist alphabet's own count-balanced structure — has a volume-doubling exponent that **peaks near 3** (≈2.9) in its pre-saturation regime. The 8-twist substrate's own closure class carries a growth dimension close to 3.
 
-Treat these as *one instantiation's evidence*, not a verdict: on finite graphs a growth "dimension" is an estimate (the exponents drift with radius and saturate), and the balance constraint suppresses swap directions so the number is generating-set-dependent. **The content of Stage 4 is that the question is now computable and falsifiable, a first computation exists, and it lands near 3 for the two substrate-natural closure lengths (4 and 8) rather than for an arbitrary one.** But per #112 this toy tests the *wrong object* — the raw swap graph, not the receipt quotient. A *decisive* run measures growth on the **atom-latched coincidence-receipt classes** (the fuzz quotiented by atomic integration), not on the reified pointer graph — open item #1.
+Treat these as *one instantiation's evidence*, not a verdict: on finite graphs a growth "dimension" is an estimate (the exponents drift with radius and saturate), and the balance constraint suppresses swap directions so the number is generating-set-dependent. **The content of the raw-graph toy is that the question is computable and falsifiable, a first computation exists, and it lands near 3 for the two substrate-natural closure lengths (4 and 8) rather than for an arbitrary one.** But per #112 this toy tests the *wrong object* — the raw swap graph, not the receipt quotient.
+
+### The receipt-quotient model (issue #112) — the right object, built
+
+The decisive object is the geometry of the **atom-latched coincidence receipts**, not the raw fuzz. A receipt is a ZFA closure, and its **swap-invariant content** (observables are swap-invariants only, Stage 1) is its **net axis-winding** — for each spatial axis-pair, `count(+) − count(−)`. This is exactly QLF's signed 3-axis winding invariant `baryonNumber` ([`QLF_BaryonWinding`](lean/QLF_BaryonWinding.lean)): the raw fuzz (reorderings that don't change the winding) is quotiented out, and what survives is the winding vector. Atomic integration = latching one coincidence = `±1` winding along one axis, so **the receipt quotient is the `ℤ^d` lattice** with `d` = the number of axis-pairs, and its ball `V(r)` is the `L¹` ball `|{v ∈ ℤ^d : |v|₁ ≤ r}|` (the Delannoy number). Computed in [`pointer_swap_fuzz.py`](pointer_swap_fuzz.py):
+
+| `d` = #axis-pairs | 1 | 2 | **3** | 4 |
+|---|---|---|---|---|
+| receipt-quotient growth dimension (doubling exp) | 0.98 | 1.96 | **2.94** | 3.92 |
+
+The growth dimension is **exactly `d`, stably** — independent of closure size (contrast the raw permutohedron's `L−1`, which drifts with the string length). **For the 8-twist alphabet, `6` spatial twists `/2 = 3` axis-pairs** (the 6+2 split, [`QLF_Generations`](lean/QLF_Generations.lean) / [`QLF_FineStructureSubstrate`](lean/QLF_FineStructureSubstrate.lean)), so `d = 3` and the receipt quotient **renders as 3D**. This is **not baked in**: a `d`-axis-pair alphabet gives dimension `d` (the `d = 1,2,4` rows prove the exponent tracks the axis count, not a chosen 3). Geometry is the axis-windings of the closures — the 3 spatial axes — measured on the receipts, never on the raw fuzz, exactly as #112 required.
+
+**Residual (named, not rigged):** that atomic integration = axis-winding accumulation is the modelling *map* — grounded in `baryonNumber` being the closure's physical winding invariant (`QLF_BaryonWinding`), but posited, not derived; and the continuum limit of the `ℤ³` lattice is the usual order→metric step ([`QLF_CausalDimension`](lean/QLF_CausalDimension.lean) / [`QLF_OrderMetric`](lean/QLF_OrderMetric.lean)).
 
 ---
 
@@ -95,11 +107,12 @@ Treat these as *one instantiation's evidence*, not a verdict: on finite graphs a
 
 **Settled (as definitions):** swap, fuzz-as-orbit, observables-as-invariants (Stage 1); relational distance and apparent volume (Stage 4); the precise statement of what "sees 3D" means (growth exponent 3).
 
+**Modelled (the receipt quotient, #112):** the decisive object — growth dimension of the atom-latched coincidence receipts (their swap-invariant axis-windings) — is built and computed: it equals the axis-pair count `d`, **stably**, and `d = 3` for the 8-twist alphabet, so the receipt quotient renders 3D (`pointer_swap_fuzz.py`, receipt-quotient section). The residual is the modelling map (atomic integration = axis-winding accumulation) + the lattice→continuum step, both named above.
+
 **Open, in order of importance:**
-1. **A decisive model of how the raw pointer fuzz quotients into atom-latched coincidence receipts, then the growth/dimension measured on *that* quotient** (per [#112](https://github.com/jimscarver/quantum-logical-framework/issues/112)) — not on the raw swap graph. The raw-graph exponent ([`pointer_swap_fuzz.py`](pointer_swap_fuzz.py)) is a toy that fixes the falsifiable shape; the real test lives on the receipt quotient, because *raw pointer fuzz has no geometry to measure* (tracked as `pointer_swap_fuzz_in_progress`).
-2. The swap-group → su(3) homomorphism (Stage 2) — the difference between a gluon connection and a numerology.
-3. Closure-neutral composites as swap-fixed structures (Stage 3) — turns the confinement analogy into a theorem target.
-4. Lean formalization of the swap action (Stage 1).
+1. The swap-group → su(3) homomorphism (Stage 2) — the difference between a gluon connection and a numerology.
+2. Closure-neutral composites as swap-fixed structures (Stage 3) — turns the confinement analogy into a theorem target.
+3. Lean formalization of the swap action (Stage 1) + the `ℤ³`-lattice → continuum step (`QLF_CausalDimension`/`QLF_OrderMetric`).
 
 **What this document does not claim:** that QCD is derived, that 3D is proven emergent, or that the fuzz picture is anything more than a formally stated, now-falsifiable hypothesis.
 

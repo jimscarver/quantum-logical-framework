@@ -167,4 +167,71 @@ FALSIFIABLE, and the adjacent-swap reading gives growth dimension 3 only at the
 minimal-closure length L=4. Whether L=4 is forced as the operative swap length
 -- rather than chosen -- is exactly open item #1: fix the swap generating set
 FROM THE SUBSTRATE. Until then this is one instantiation's evidence, not a
-verdict on the mechanism.""")
+verdict on the mechanism.
+
+BUT (issue #112, Allen): the raw swap graph above is the WRONG OBJECT -- it
+reifies the fuzz. Raw pointer fuzz has no geometry to measure; operational
+geometry appears only after matter integrates coincidences into stable closure
+receipts. The RECEIPT QUOTIENT is the right object -- computed next.""")
+
+    # ==================================================================
+    # RECEIPT QUOTIENT (issue #112) -- geometry on the atom-latched
+    # coincidence receipts, NOT the raw swap graph.
+    #
+    # A receipt is a ZFA closure. Its SWAP-INVARIANT content (observables are
+    # swap-invariants only, Stage 1) is its NET AXIS-WINDING: for each spatial
+    # axis-pair, count(+) - count(-). This is exactly QLF's `baryonNumber`-style
+    # signed winding (QLF_BaryonWinding) -- the physical invariant of a closure.
+    # The raw fuzz (reorderings that don't change the winding) is quotiented out.
+    #
+    # Atomic integration = latching one coincidence = +-1 winding along one axis.
+    # So the receipt quotient is the Z^d lattice (d = number of axis-pairs), and
+    # its ball V(r) = #{ windings reachable in <= r atomic steps } = the L1 ball
+    # |{ v in Z^d : |v|_1 <= r }| (the Delannoy number D(d,r)).
+    from math import comb, log
+
+    def receipt_ball(d, r):
+        return sum((2 ** k) * comb(d, k) * comb(r, k) for k in range(min(d, r) + 1))
+
+    def receipt_dim(d, rmax=40):
+        V = [receipt_ball(d, r) for r in range(rmax + 1)]
+        xs = [log(r) for r in range(2, rmax + 1)]
+        ys = [log(V[r]) for r in range(2, rmax + 1)]
+        n = len(xs); mx = sum(xs) / n; my = sum(ys) / n
+        slope = (sum((x - mx) * (y - my) for x, y in zip(xs, ys))
+                 / sum((x - mx) ** 2 for x in xs))
+        dbl = log(V[rmax] / V[rmax // 2], 2)   # volume-doubling exponent, large r
+        return V, slope, dbl
+
+    print("\n" + "=" * 68)
+    print("RECEIPT QUOTIENT -- growth dimension of the axis-winding receipts")
+    print("=" * 68)
+    print("  d = #axis-pairs | growth exponent (log-log fit) | doubling exp (large r)")
+    print("  " + "-" * 62)
+    for d in (1, 2, 3, 4):
+        V, slope, dbl = receipt_dim(d)
+        print(f"  d={d}  {V[:6]}...   log-log ≈ {slope:.2f}   doubling → {dbl:.2f}")
+
+    print("""
+READING (issue #112 -- the right object):
+
+  * The receipt quotient's growth dimension is EXACTLY d = the number of
+    axis-pairs, STABLY -- independent of closure size (contrast the raw
+    permutohedron above, whose exponent L-1 drifts with the string length).
+    The doubling exponent -> d cleanly; the log-log fit sits slightly above d
+    only from the lower-order lattice-shell terms (finite-r curvature).
+
+  * For QLF's 8-twist alphabet: 6 spatial twists / 2 = 3 axis-pairs (the 6+2
+    split, QLF_Generations / QLF_FineStructureSubstrate), so d = 3 and the
+    receipt quotient renders as 3D. This is NOT baked in: a d-axis-pair alphabet
+    gives dimension d (the d=1,2,4 rows prove the exponent tracks the axis count,
+    not a chosen 3). Geometry = the axis-windings of the closures = the 3 spatial
+    axes, measured on the receipts, never on the raw fuzz.
+
+  * So operational 3D is the growth dimension of the atom-latched coincidence
+    receipts, and it equals the substrate's axis-pair count 3 -- the receipt-
+    quotient model #112 asked for. Residual (named, not rigged): that atomic
+    integration = axis-winding accumulation is the modelling map (grounded in
+    baryonNumber being the closure's physical winding invariant, QLF_BaryonWinding),
+    not itself derived; and the continuum limit of the lattice is the usual
+    order->metric step (QLF_CausalDimension / QLF_OrderMetric).""")
