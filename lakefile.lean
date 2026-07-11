@@ -140,5 +140,6 @@ lean_lib QLF where
     `QLF_MondNu,
     `QLF_RarBalance,
     `QLF_AlgebraEmergence,
-    `QLF_Kolmogorov
+    `QLF_Kolmogorov,
+    `QLF_PiRational
   ]
