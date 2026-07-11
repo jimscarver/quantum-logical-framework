@@ -47,4 +47,21 @@ theorem consistent_set_infinite (a b : ℝ) (h : a < b) :
     (Set.Icc a b).Infinite :=
   Set.infinite_coe_iff.mp (Set.Icc.infinite h)
 
+/-! ## Identifiability ⟺ computability -/
+
+/-- A real is **identifiable** iff some *computable* protocol emits rational approximants at every
+    requested precision. This is simultaneously the operational definition of measurement-in-
+    principle and the standard definition of a computable real — which is the point: once both are
+    written down, the "equivalence" is definitional, and the real content moves into robustness
+    (independence of the modulus, a later phase / issue #115). -/
+def Identifiable (x : ℝ) : Prop :=
+  ∃ f : ℕ → ℚ, Computable f ∧ ∀ n : ℕ, |x - (f n : ℝ)| ≤ (1 / 2 : ℝ) ^ n
+
+/-- **Rationals are identifiable** — the sanity anchor validating the `Computable` plumbing (the
+    constant sequence is computable and exact). -/
+theorem identifiable_rat (q : ℚ) : Identifiable (q : ℝ) := by
+  refine ⟨fun _ => q, Computable.const q, fun n => ?_⟩
+  simp only [sub_self, abs_zero]
+  positivity
+
 end QLF.Identifiability
