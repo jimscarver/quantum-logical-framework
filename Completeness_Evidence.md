@@ -8,7 +8,7 @@
 
 ## 0. Two claims, kept separate
 
-- **Sufficiency** — ZFA + rendering accounts for everything observed; no *missing* ingredient.
+- **Sufficiency** — ZFA + rational-interval rendering (§2a: measurement outcomes are counts, never reals) accounts for everything observed; no *missing* ingredient.
 - **Exclusivity** — ZFA is the *only* thing happening; no *additional* ingredient, and no rival substrate fits equally well.
 
 Evidence for one is not automatically evidence for the other. Most of what follows supports sufficiency directly; exclusivity is supported only by the exclusion results (§4) and would be *established* only by the reconstruction theorem (§6), which does not yet exist. Conflating the two is the single most common overclaim in completeness arguments, and this ledger is structured to make it impossible.
@@ -32,6 +32,16 @@ A completeness claim resting only on T5 is rhetoric. [QLF](README.md)'s current 
 **Quantum-computational consistency** (weak half): all exact reconstructions of quantum logic — ZFA, Bohm, Everett — predict identical QC behavior. Perfect answers confirm the equivalence class, not the member. The strong half of the QC evidence is in §4.
 
 **Sufficiency gap, stated plainly:** even the sufficiency direction is only half-theorem. `qlf_universality` proves every terminating computation has a surviving closure encoding; "every *physical event* is such a closure" currently rests on `full_zeno_prune` as posited structure. The connecting theorem is open.
+
+## 2a. The rendering obligation is to ℚ-with-intervals, not to ℝ
+
+A correction that makes the ledger *stronger*, not weaker. It is tempting to state QLF's burden as "render the substrate into the continuum-valued observables physics reports." That concedes far too much, because **no measurement has ever produced a real number.** Every outcome is a finite object — detector counts, cycle counts, a terminating decimal with an error interval. `α⁻¹ = 137.035999206(11)` is a *rational plus a rational interval*, nothing more. Since the 2019 SI redefinition this is explicit all the way down: the units are fixed by exact stipulated integer-valued constants and measurement is *counting against them* — frequency metrology, the most precise measurement humans perform, is literally integer cycle counting. Uncomputable reals are not merely never measured; they are **unmeasurable in principle**, since any measurement protocol is a finite procedure. This is not a QLF thesis but a fact about metrology, and it has a sharp consequence: **the continuum never appears at the measurement interface** — so measurement was never evidence for it at all.
+
+So the rendering obligation shrinks to its true size: **substrate → ℚ-with-intervals, not substrate → ℝ.** QLF owes rational approximants to audited precision (which [`pi_precision_demo.py`](pi_precision_demo.py) already delivers) and nothing else. Reals in textbook notation are theorist shorthand; every *actual* computation ever run — QED loop integrals included — is finite arithmetic on rationals/floats, and measurement lives even lower, in counts. And counts are closure-receipt territory, which flips the burden:
+
+> **Measurement is counting, and counting is what ZFA does natively — it is the continuum theories that owe a story for why every experiment terminates in an integer.**
+
+This is the balanced-truth reading in miniature: the *balanced, finite, closing* object is the real one; the continuum-valued observable is the fantasy that never shows up when you actually look. Two things it does **not** touch, kept on the record so the concession is not overread: (i) the *translation* obligation for the Clay problem **statements** is about how those problems are written, not about measurement, and stays undischarged (§6, [`TheContinuum.md`](TheContinuum.md)); (ii) the guardrail holds — that measurement never touches the continuum shows ℝ is *empirically inert at the interface* (the fantasy charge), **not** that ℝ is inconsistent (consistency ≠ realizability, [`TheContinuum.md`](TheContinuum.md)).
 
 ## 3. T2 — Parameter-free overdetermination (the strongest existing evidence)
 
