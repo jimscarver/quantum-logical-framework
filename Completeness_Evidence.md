@@ -118,7 +118,17 @@ Its contrapositive is the strongest honest form of "only ZFA": **anything other 
 - *Attack surfaces:* each postulate ships with its violation signature — infinite-precision observable (capacity — its formal backing is [`Shannon_Overfit.md`](Shannon_Overfit.md): the negative of `no_real_received` *is* the capacity-violation signature, "an identifiable real exists"), unclosed-event residue (receipt — the QRNG target), non-orthomodular event lattice, etc.
 - *The permanent ceiling:* that nature obeys the postulates is empirical, forever. The theorem can only ever be conditional. Its worth is the weakness and independence of its premises, not the grandeur of its conclusion.
 
-**Existing fragments to build from:** `radialAccel_unique` (uniqueness of ν from the closure principle — the method in miniature), the ℤ[i] state-ring resolution, `disjunctive_closure`, the reversibility capstone.
+**Existing fragments to build from.** Each of the five postulates now has a partial anchor in the verified layer — none is the theorem, but the method-in-miniature and each postulate's violation signature are in hand:
+
+| Postulate (stated ZFA-free) | Fragment(s) in hand | Violation signature |
+|---|---|---|
+| **Finite information capacity** *(most developed)* | `no_real_received` + `tail_unconstrained` ([`QLF_ShannonOverfit`](lean/QLF_ShannonOverfit.lean)); `no_continuum_in_finite_region` ([`QLF_Realizability`](lean/QLF_Realizability.lean)); the `Real`-free census approximant `returnDensity : ℚ` ([`QLF_PiRational`](lean/QLF_PiRational.lean)) | an *identifiable real exists* (a finite record pinning a real to arbitrary precision) |
+| **Closure-as-receipt** | horizon-relative closure `closedAtHorizon` ([`QLF_HorizonClosure`](lean/QLF_HorizonClosure.lean)) — receipts are resolution-bounded, not a primitive yes/no | an *unclosed-event residue* (the QRNG target, `QRNG_Closure_Observatory.md`) |
+| **Reversible logic, irreversible realization** | the reversibility capstone ([`QLF_Reversibility`](lean/QLF_Reversibility.lean)): time-reversal *is* the Hermitian-conjugate involution, forward closure many-to-one | an *injective* physical closure (a reversible macro-process) |
+| **Orthomodularity of the event lattice** | the `ℤ[i]` state-ring / `μ₄` phase group ([`QLF_StateSpace`](lean/QLF_StateSpace.lean)); the Minkowski/Lorentz interval structure ([`QLF_Minkowski`](lean/QLF_Minkowski.lean)) | a *non-orthomodular* event lattice |
+| **No-disconnection** | connectivity forces every state onto a swap orbit ([`Pointer_Swap_Fuzz.md`](Pointer_Swap_Fuzz.md) §1 — observables are swap-invariants only) | a *disconnected* (isolated) admissible state |
+
+The **method in miniature** is `radialAccel_unique` (a physical law shown *unique* given the closure principle — exactly the shape "the postulates force the ZFA realization" must take at full scale) together with `disjunctive_closure` (the OR-fold that a closure *is*). The finite-capacity row is the session's contribution and the furthest along: its postulate, its two proven theorems, and its violation signature are all in place — the template for bringing the other four rows to the same state.
 
 ## 7. What this ledger licenses QLF to say
 
