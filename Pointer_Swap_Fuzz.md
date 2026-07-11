@@ -54,20 +54,20 @@ Structural reading in QLF terms: confinement admits only color-neutral composite
 
 The claim: apparent volume is not filled space; it is delayed relational rendering — relational addresses resolved on demand when interactions require them.
 
-Formalized without metaphor:
+**Correction (per [#112](https://github.com/jimscarver/quantum-logical-framework/issues/112) — the fuzz is not the test object).** The raw pointer fuzz must not be reified into a geometry. Stated sharply:
 
-**Definition (relational distance).** d(A,B) := minimal number of swaps carrying node A's ledger context to node B's. Distance is path length in the swap graph over closure-neutral composites.
+> **Raw pointer fuzz has no geometry to measure. Operational geometry appears only after matter integrates recurring bit-flip coincidence patterns into stable closure receipts.**
 
-**Definition (apparent volume).** V(r) := number of nodes within swap-distance r of a given node — ball growth in the swap graph.
+This is the receipt ontology QLF uses everywhere: only **closures** are receipts ([`Completeness_Evidence.md`](Completeness_Evidence.md) §2a — *measurement is counting*, the raw substrate is not itself observable), and closure is horizon-relative ([`QLF_HorizonClosure`](lean/QLF_HorizonClosure.lean)). So the decisive object is **not** the raw swap graph — it is the **quotient of the fuzz by atomic integration**: the classes of recurring coincidence patterns that matter latches into stable closure receipts. Geometry is measured on *that* quotient, never on the pointer layer.
 
-**The test:** "embedded observers see 3D" now has exact content — **ball growth in the swap graph must scale as r³** (growth dimension 3). This is the causal-set move (Myrheim–Meyer; [`QLF_CausalDimension`](lean/QLF_CausalDimension.lean)): dimension is not assumed, it is measured from the relational graph.
+**The real test:** "embedded observers see 3D" ⟺ the **dimension of the atom-latched coincidence-receipt classes is 3** — growth measured on the receipt quotient (after atomic integration), not on the raw swap graph. This is the causal-set move (Myrheim–Meyer; [`QLF_CausalDimension`](lean/QLF_CausalDimension.lean)), but applied to the receipts, which *are* the causal-set events — not to the sub-observable fuzz beneath them.
 
-This is the resolution artifact for #62: build the swap graph at low order (over the closure-token alphabet from the [#65 doc](Closure_Token_Basis.md), which makes these two specs composable), compute V(r), fit the growth exponent.
+**The raw-swap-graph model below is a toy — safe as a spec, but not the intended object.** The first-cut computation builds distance and ball growth on the *raw* swap graph (`d(A,B)` := minimal swaps carrying node A's ledger to node B's; `V(r)` := nodes within swap-distance r). It reifies the fuzz — nodes, paths, distances — exactly as the correction warns against, so its exponent is a property of the *modeled graph*, not of rendered geometry. Read it as fixing the falsifiable *shape* of the question (dimension is measured, not assumed), **not** as the decisive run:
 
-- Exponent ≈ 3: first nontrivial mechanism-layer evidence; the fuzz→3D pipeline survives.
-- Exponent ≠ 3: the mechanism **as stated fails**, and the failure mode (too sparse, too connected, wrong split) tells you which stage is wrong.
+- Exponent ≈ 3 on the toy: suggestive of the shape only — the raw graph is not the receipt quotient.
+- Exponent ≠ 3: informative about the toy's split, not a verdict on the mechanism.
 
-Either outcome is progress. A mechanism claim that cannot fail is the thing earlier review kept flagging; this one can.
+The decisive object is the receipt quotient (open item #1). A mechanism claim that cannot fail is what earlier review flagged; this one can — once it is tested on the right object.
 
 ### First-cut computation — read the result honestly
 
@@ -87,7 +87,7 @@ Two honest signals fall out, neither rigged (the model bakes in no axes):
 1. The adjacent-swap permutohedron of `L` distinct pointers has growth degree `L−1`, which equals **3 precisely at `L = 4`** — the length of the minimal ZFA chiral closure (the electron loop `^<v>`, `fold_electron`). So this reading yields 3D iff the operative swap length is the fundamental 4-twist fluxoid — a substantive tie to the minimal closure, **not** a free knob, though *why* `L=4` is operative is not derived.
 2. The **length-8, four-complement-pair balanced closure** — i.e. the full 8-twist alphabet's own count-balanced structure — has a volume-doubling exponent that **peaks near 3** (≈2.9) in its pre-saturation regime. The 8-twist substrate's own closure class carries a growth dimension close to 3.
 
-Treat these as *one instantiation's evidence*, not a verdict: on finite graphs a growth "dimension" is an estimate (the exponents drift with radius and saturate), and the balance constraint suppresses swap directions so the number is generating-set-dependent. **The content of Stage 4 is that the question is now computable and falsifiable, a first computation exists, and it lands near 3 for the two substrate-natural closure lengths (4 and 8) rather than for an arbitrary one.** A *decisive* run needs the swap generating set fixed by the substrate (not chosen) — open item #1.
+Treat these as *one instantiation's evidence*, not a verdict: on finite graphs a growth "dimension" is an estimate (the exponents drift with radius and saturate), and the balance constraint suppresses swap directions so the number is generating-set-dependent. **The content of Stage 4 is that the question is now computable and falsifiable, a first computation exists, and it lands near 3 for the two substrate-natural closure lengths (4 and 8) rather than for an arbitrary one.** But per #112 this toy tests the *wrong object* — the raw swap graph, not the receipt quotient. A *decisive* run measures growth on the **atom-latched coincidence-receipt classes** (the fuzz quotiented by atomic integration), not on the reified pointer graph — open item #1.
 
 ---
 
@@ -96,7 +96,7 @@ Treat these as *one instantiation's evidence*, not a verdict: on finite graphs a
 **Settled (as definitions):** swap, fuzz-as-orbit, observables-as-invariants (Stage 1); relational distance and apparent volume (Stage 4); the precise statement of what "sees 3D" means (growth exponent 3).
 
 **Open, in order of importance:**
-1. The growth-exponent computation (Stage 4) — cheap, decisive, do first. **First cut run** ([`pointer_swap_fuzz.py`](pointer_swap_fuzz.py)); a *decisive* run needs the swap generating set fixed by the substrate rather than chosen (tracked as `pointer_swap_fuzz_in_progress`).
+1. **A decisive model of how the raw pointer fuzz quotients into atom-latched coincidence receipts, then the growth/dimension measured on *that* quotient** (per [#112](https://github.com/jimscarver/quantum-logical-framework/issues/112)) — not on the raw swap graph. The raw-graph exponent ([`pointer_swap_fuzz.py`](pointer_swap_fuzz.py)) is a toy that fixes the falsifiable shape; the real test lives on the receipt quotient, because *raw pointer fuzz has no geometry to measure* (tracked as `pointer_swap_fuzz_in_progress`).
 2. The swap-group → su(3) homomorphism (Stage 2) — the difference between a gluon connection and a numerology.
 3. Closure-neutral composites as swap-fixed structures (Stage 3) — turns the confinement analogy into a theorem target.
 4. Lean formalization of the swap action (Stage 1).
