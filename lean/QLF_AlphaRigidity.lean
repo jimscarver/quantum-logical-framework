@@ -257,6 +257,31 @@ theorem prime_below_15_only_three (d : ℕ) (hd : d ≤ 14) (hp : Nat.Prime (inv
 theorem inverseAlpha_fifteen_prime : Nat.Prime (inverseAlpha 15) := by
   unfold inverseAlpha; norm_num
 
+/-!
+### Footnote — the `d = 15` residual near-miss minefield (pre-buried)
+
+The `d = 15` structure also invites a coincidence with the α **residual**, and the next person who
+computes `3·12 = 36` should find it already refuted. The tempting near-misses:
+* `dim Gr(3,15) = 3·(15−3) = 36` — the dimension of the space of 3-D perspectives inside a 15-D
+  structure (the "3-D view of `d=15`" coincidence);
+* `9/250 = 0.036` exactly; `(3/15)² = 0.04`.
+
+**Every one fails two tests no rearrangement dodges.** *(1) The digits test:* the residual is
+**`0.035999084(21)`**, measured to `~10⁻⁸` — not `0.036`. Each pattern matches only the *rounded* value
+and misses at the fifth decimal, and the fifth-through-eighth decimals are measured. *(2) The running
+test:* a static geometric shift (a projection factor, a subspace count) predicts a constant; the residual
+is a **function** — `α⁻¹` runs `137.036 → ~129` at `M_Z`, with the same radiative machinery that nails
+`g−2` to twelve digits. Wrong functional form loses regardless of the number's origin.
+
+So `d = 15` stays a docstring curiosity. The version of the "prime structures contribute corrections"
+instinct that *survives* both tests is not one dimension but the **tower**: a census-weighted sum over
+elementary (prime-count) closures whose weights are **horizon-scale-dependent** (`closedAtHorizon`,
+`QLF_HorizonClosure`) — the substrate reading of vacuum polarization. Its sharp, value-free first target
+(motivation-before-comparison, Step-0 discipline at eight-digit depth): derive the **one-loop running
+coefficient** (`2/3π` per unit charge per fermion) from census counting with no reference to
+`0.035999`. Tracked as the sharpened running-coefficient residual (`Open_Problems.md`).
+-/
+
 /-! ## Summary
 
 The elementarity spine (I1–I3, P1) **and** the cross-sector consistency joint are proven. Three
