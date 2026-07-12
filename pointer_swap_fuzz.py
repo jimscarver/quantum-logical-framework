@@ -2,12 +2,22 @@
 """
 pointer_swap_fuzz.py — Stage 4 of Pointer_Swap_Fuzz.md (issue #62).
 
-THE ONE FALSIFIABLE CHECK of the pointer-swap-fuzz mechanism:
+SUPERSEDED FRAMING NOTICE (#114/#112): the RAW SWAP-GRAPH check below is a TOY
+that reifies the fuzz -- it is NOT the intended test object. The decisive object
+is the RECEIPT QUOTIENT (bottom of file): geometry measured on the atom-latched
+axisWindingVector receipts, never on the raw pointer graph. Read the raw-graph
+section as fixing the falsifiable *shape* only; the receipt-quotient section is
+the actual model. ("fix the swap generating set from the substrate", below, is
+also superseded -- the right open item is the atomic-integration map, not the
+generating set.)
+
+The (superseded) raw-graph check of the pointer-swap-fuzz mechanism was:
 
     "embedded observers see 3D"  <=>  ball growth in the swap graph scales as r^3.
 
-This script builds ONE concrete instantiation of the Stage-4 swap graph and
-measures its growth exponent. Read the result honestly:
+This script builds ONE concrete instantiation of that raw-graph toy and measures
+its growth exponent, THEN builds the receipt quotient that supersedes it. Read
+the raw-graph result honestly:
 
   * The model below is A construction, not THE unique reading of the spec.
     The two modelling choices that fix the answer are stated in ALL CAPS where
@@ -179,10 +189,15 @@ receipts. The RECEIPT QUOTIENT is the right object -- computed next.""")
     # coincidence receipts, NOT the raw swap graph.
     #
     # A receipt is a ZFA closure. Its SWAP-INVARIANT content (observables are
-    # swap-invariants only, Stage 1) is its NET AXIS-WINDING: for each spatial
-    # axis-pair, count(+) - count(-). This is exactly QLF's `baryonNumber`-style
-    # signed winding (QLF_BaryonWinding) -- the physical invariant of a closure.
-    # The raw fuzz (reorderings that don't change the winding) is quotiented out.
+    # swap-invariants only, Stage 1) is the axisWindingVector: the per-axis
+    # signed count (x+ - x-, y+ - y-, z+ - z-) in Z^3. Being a COUNT, it is
+    # permutation-invariant -- so it is genuinely swap-invariant, and the raw
+    # fuzz (reorderings) is exactly what the quotient onto it discards.
+    # NOTE (#114/#112): this is NOT baryonNumber. QLF_BaryonWinding's
+    # baryonNumber is a sliding-window signTriple sum -- a sequence-DEPENDENT
+    # 3-axis linking/chirality scalar, hence NOT swap-invariant. The geometry
+    # quotient is axisWindingVector (per-axis counts); baryonNumber is a
+    # separate linking invariant.
     #
     # Atomic integration = latching one coincidence = +-1 winding along one axis.
     # So the receipt quotient is the Z^d lattice (d = number of axis-pairs), and
@@ -231,7 +246,9 @@ READING (issue #112 -- the right object):
   * So operational 3D is the growth dimension of the atom-latched coincidence
     receipts, and it equals the substrate's axis-pair count 3 -- the receipt-
     quotient model #112 asked for. Residual (named, not rigged): that atomic
-    integration = axis-winding accumulation is the modelling map (grounded in
-    baryonNumber being the closure's physical winding invariant, QLF_BaryonWinding),
-    not itself derived; and the continuum limit of the lattice is the usual
-    order->metric step (QLF_CausalDimension / QLF_OrderMetric).""")
+    integration = axisWindingVector accumulation is the modelling map (the
+    per-axis signed count is a genuine swap-invariant, but the identification of
+    atomic integration with +-1 steps of it is posited, not derived); and the
+    continuum limit of the lattice is the usual order->metric step
+    (QLF_CausalDimension / QLF_OrderMetric). baryonNumber sits alongside as the
+    separate linking/chirality scalar, not this displacement quotient.""")

@@ -91,7 +91,11 @@ Treat these as *one instantiation's evidence*, not a verdict: on finite graphs a
 
 ### The receipt-quotient model (issue #112) — the right object, built
 
-The decisive object is the geometry of the **atom-latched coincidence receipts**, not the raw fuzz. A receipt is a ZFA closure, and its **swap-invariant content** (observables are swap-invariants only, Stage 1) is its **net axis-winding** — for each spatial axis-pair, `count(+) − count(−)`. This is exactly QLF's signed 3-axis winding invariant `baryonNumber` ([`QLF_BaryonWinding`](lean/QLF_BaryonWinding.lean)): the raw fuzz (reorderings that don't change the winding) is quotiented out, and what survives is the winding vector. Atomic integration = latching one coincidence = `±1` winding along one axis, so **the receipt quotient is the `ℤ^d` lattice** with `d` = the number of axis-pairs, and its ball `V(r)` is the `L¹` ball `|{v ∈ ℤ^d : |v|₁ ≤ r}|` (the Delannoy number). Computed in [`pointer_swap_fuzz.py`](pointer_swap_fuzz.py):
+The decisive object is the geometry of the **atom-latched coincidence receipts**, not the raw fuzz. A receipt is a ZFA closure, and its **swap-invariant content** (observables are swap-invariants only, Stage 1) is its per-axis signed count — define the
+
+> **axis-winding vector** `axisWindingVector(ts) := (x⁺−x⁻, y⁺−y⁻, z⁺−z⁻) ∈ ℤ³`,
+
+the net signed twist count along each spatial axis-pair. Because it is a *count*, it is genuinely permutation-invariant — reordering the history leaves it fixed — so it *is* swap-invariant content, and the raw fuzz (reorderings) is exactly what the quotient onto `axisWindingVector` discards. **(Correction, #114/#112 — this is a distinct object from `baryonNumber`.** QLF's `baryonNumber` ([`QLF_BaryonWinding`](lean/QLF_BaryonWinding.lean)) is a signed 3-axis *linking* scalar — a sliding-window sum of oriented `signTriple`, **sequence-dependent** and hence *not* swap-invariant — so it is a chirality/linking invariant, not the displacement quotient. Both are winding-style receipt invariants; they are not the same object, and the geometry quotient is `axisWindingVector`, not `baryonNumber`.)** Atomic integration = latching one coincidence = `±1` along one axis of `axisWindingVector`, so **the receipt quotient is the `ℤ^d` lattice** with `d` = the number of axis-pairs, and its ball `V(r)` is the `L¹` ball `|{v ∈ ℤ^d : |v|₁ ≤ r}|` (the Delannoy number). Computed in [`pointer_swap_fuzz.py`](pointer_swap_fuzz.py):
 
 | `d` = #axis-pairs | 1 | 2 | **3** | 4 |
 |---|---|---|---|---|
@@ -99,7 +103,7 @@ The decisive object is the geometry of the **atom-latched coincidence receipts**
 
 The growth dimension is **exactly `d`, stably** — independent of closure size (contrast the raw permutohedron's `L−1`, which drifts with the string length). **For the 8-twist alphabet, `6` spatial twists `/2 = 3` axis-pairs** (the 6+2 split, [`QLF_Generations`](lean/QLF_Generations.lean) / [`QLF_FineStructureSubstrate`](lean/QLF_FineStructureSubstrate.lean)), so `d = 3` and the receipt quotient **renders as 3D**. This is **not baked in**: a `d`-axis-pair alphabet gives dimension `d` (the `d = 1,2,4` rows prove the exponent tracks the axis count, not a chosen 3). Geometry is the axis-windings of the closures — the 3 spatial axes — measured on the receipts, never on the raw fuzz, exactly as #112 required.
 
-**Residual (named, not rigged):** that atomic integration = axis-winding accumulation is the modelling *map* — grounded in `baryonNumber` being the closure's physical winding invariant (`QLF_BaryonWinding`), but posited, not derived; and the continuum limit of the `ℤ³` lattice is the usual order→metric step ([`QLF_CausalDimension`](lean/QLF_CausalDimension.lean) / [`QLF_OrderMetric`](lean/QLF_OrderMetric.lean)).
+**Residual (named, not rigged):** that atomic integration = `axisWindingVector` accumulation is the modelling *map* — the per-axis signed count is a genuine swap-invariant of the closure, but the *identification* of atomic integration with `±1` steps of it is posited, not derived; and the continuum limit of the `ℤ³` lattice is the usual order→metric step ([`QLF_CausalDimension`](lean/QLF_CausalDimension.lean) / [`QLF_OrderMetric`](lean/QLF_OrderMetric.lean)). (`baryonNumber` sits alongside as the *linking/chirality* scalar, a separate receipt invariant — not this displacement quotient.)
 
 ---
 
