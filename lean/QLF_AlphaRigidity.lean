@@ -89,8 +89,8 @@ explicit *hypothesis* where it is used — so the module declares **no `axiom`s 
 list. The optics of the axiom checker is a thing QLF trades on; this keeps it exact.
 -/
 
-/-- Uninterpreted carrier — the physical notion "the closure space of count `n` splits as independent
-    sub-receipts of counts `a`, `b`." A `variable`, so *not* an axiom. -/
+-- Uninterpreted carrier — the physical notion "the closure space of count `n` splits as independent
+-- sub-receipts of counts `a`, `b`." A `variable`, so *not* an axiom.
 variable (RealizedIndependent : ℕ → ℕ → ℕ → Prop)
 
 /-- **Physical decomposability**: a *realized* nontrivial factorization (the arithmetic factorization is
