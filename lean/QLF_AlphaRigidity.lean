@@ -117,6 +117,37 @@ theorem elementary_iff_prime {n : ℕ} (h2 : 2 ≤ n) : Elementary n ↔ n.Prime
   · intro hp
     exact ⟨h2, fun hd => prime_implies_atomic hp (decomposable_factors hd)⟩
 
+/-! ## Density — the grammar alone excludes nothing (so all rigidity lives in the template)
+
+Before the joint: the frozen grammar `{two, three, sum, prod, pow}` reaches **every** integer `≥ 2`
+(sums of `two` and `three` already suffice). So the grammar excludes *nothing* — including `136`. This
+is the load-bearing disclaimer for `dimension_136_unreachable` below: `136`'s unreachability is a fact
+about the *construction template* (`128 + d²`), **not** about the grammar. All rigidity lives in the
+template; issue #116's census `N(d)` is the job of quantifying what the §6a admissibility constraints
+must therefore impose on the grammar.
+-/
+
+/-- Helper: the grammar reaches every even (`2k+2`) and odd (`2k+3`) value `≥ 2`, by induction adding a
+    `two` each step. -/
+theorem grammar_even_odd (k : ℕ) :
+    (∃ e : Expr, val e = ((2 * k + 2 : ℕ) : ℤ)) ∧ (∃ e : Expr, val e = ((2 * k + 3 : ℕ) : ℤ)) := by
+  induction k with
+  | zero => exact ⟨⟨.two, by norm_num [val]⟩, ⟨.three, by norm_num [val]⟩⟩
+  | succ n ih =>
+    obtain ⟨⟨ee, hee⟩, ⟨eo, heo⟩⟩ := ih
+    exact ⟨⟨.sum .two ee, by simp only [val, hee]; push_cast; ring⟩,
+           ⟨.sum .two eo, by simp only [val, heo]; push_cast; ring⟩⟩
+
+/-- **Density: the grammar reaches every count `≥ 2`.** So the grammar itself excludes no value — the
+    rigidity is entirely in the construction template, never in the grammar. -/
+theorem grammar_reaches_all (n : ℕ) (hn : 2 ≤ n) : ∃ e : Expr, val e = (n : ℤ) := by
+  obtain ⟨k, hk | hk⟩ : ∃ k, n = 2 * k + 2 ∨ n = 2 * k + 3 := by
+    rcases Nat.even_or_odd (n - 2) with ⟨j, hj⟩ | ⟨j, hj⟩
+    · exact ⟨j, Or.inl (by omega)⟩
+    · exact ⟨j, Or.inr (by omega)⟩
+  · subst hk; exact (grammar_even_odd k).1
+  · subst hk; exact (grammar_even_odd k).2
+
 /-! ## The cross-sector consistency theorem (overdetermination), not rigidity over a free parameter
 
 **`d` is not a free parameter.** It is *substrate-derived*: the 6+2 split yields 3 axis-pairs (settled
@@ -198,16 +229,34 @@ theorem inverseAlpha_three_elementary : Elementary (inverseAlpha 3) := by
   have h2 : 2 ≤ inverseAlpha 3 := by unfold inverseAlpha; norm_num
   exact (elementary_iff_prime h2).mpr inverseAlpha_three_prime
 
-/-- Summary: the elementarity spine (I1–I3, P1) **and** the cross-sector consistency joint are proven.
-    Three *independent* substrate sectors meet at `α⁻¹ = 137`: the **dimension** (`d = 3` from the 6+2
-    split), the **bare coupling** (`128 = 2⁷`), and **elementarity** (`137` prime/atomic,
-    `inverseAlpha_three_prime`/`_elementary`). `alpha_unique` shows the meeting has **zero slack** (only
-    `d = 3`), and `rival_excluded` that the sectors are **locked** — overdetermination, not a fit over a
-    free parameter (`d` is substrate-derived, not observed). `alpha_counts_dimension`: `α⁻¹ − 128 = d²`.
-    **Honest scope:** `d = 3` is forced at the *counting* layer (the split); the *mechanism*-layer check
-    (the swap-graph growth exponent, issue #62) is pending — so "forced" = "by the split combinatorics,
-    mechanism check pending". The full free-`Expr`-grammar enumeration + census `N(d)` (issue #116) is the
-    remaining residual. -/
-theorem alpha_rigidity_summary : True := trivial
+/-- **The third sector *agrees*, it does not *select*.** Among dimensions `d ≤ 14`, `inverseAlpha d` is
+    prime only at `d = 3` — so elementarity is a consistency datum at the joint. But it is **not** an
+    independent exclusion: `inverseAlpha 15 = 353` is *also* prime (`inverseAlpha_fifteen_prime`), so
+    "prime output" alone would bless a 15-D rendering — it is the *dimension* sector that excludes it.
+    The three sectors overdetermine **jointly**, not each alone. -/
+theorem prime_below_15_only_three (d : ℕ) (hd : d ≤ 14) (hp : Nat.Prime (inverseAlpha d)) : d = 3 := by
+  interval_cases d <;> simp only [inverseAlpha] at hp <;> first | rfl | exact absurd hp (by decide)
+
+/-- `inverseAlpha 15 = 353` is prime — the explicit witness that elementarity does not select `d = 3`. -/
+theorem inverseAlpha_fifteen_prime : Nat.Prime (inverseAlpha 15) := by
+  unfold inverseAlpha; norm_num
+
+/-! ## Summary
+
+The elementarity spine (I1–I3, P1) **and** the cross-sector consistency joint are proven. Three
+*independent* substrate sectors meet at `α⁻¹ = 137`: the **dimension** (`d = 3` from the 6+2 split),
+the **bare coupling** (`128 = 2⁷`), and **elementarity** (`137` prime/atomic, `inverseAlpha_three_prime`
+/`_elementary`). `alpha_unique` shows the meeting has **zero slack** (only `d = 3`); `rival_excluded`
+that the sectors are **locked** — overdetermination, not a fit over a free parameter (`d` is
+substrate-derived, not observed). `alpha_counts_dimension`: `α⁻¹ − 128 = d²`. `grammar_reaches_all`: the
+grammar excludes nothing, so all rigidity lives in the template. `prime_below_15_only_three` +
+`inverseAlpha_fifteen_prime`: the elementarity sector *agrees* at the joint but does not *select* it
+(`353` is prime too) — the sectors overdetermine jointly.
+
+**Honest scope:** `d = 3` is forced at the *counting* layer (the split); the *mechanism*-layer check
+(the swap-graph growth exponent, issue #62) is pending — so "forced" = "by the split combinatorics,
+mechanism check pending". The full free-`Expr`-grammar enumeration + census `N(d)` (issue #116) is the
+remaining residual.
+-/
 
 end QLF.AlphaRigidity
