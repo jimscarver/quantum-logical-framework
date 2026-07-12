@@ -25,7 +25,7 @@ QLF spans **more than a hundred machine-verified Lean modules** (zero `sorry`) c
 
 | # | Result | Match | Empirical input | Lean module |
 |---|---|---|---|---|
-| 1 | **α = 1/137** from substrate combinatorics (8-twist alphabet × 3D directional tensor) — the **leading value** at the IR / 3-D-rendered scale; bounds Lean-verified `137 < α⁻¹ < 137.048` (`QLF_AlphaBound`), residual to 137.036 open — [**Alpha.md**](Alpha.md) | 0.026% | none | [`QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean) |
+| 1 | **α = 1/137** from substrate combinatorics (8-twist alphabet × 3D directional tensor) — the **leading value** at the IR / 3-D-rendered scale; bounds Lean-verified `137 < α⁻¹ < 137.048` (`QLF_AlphaBound`), residual to 137.036 open. And the leading value is a **machine-checked cross-sector overdetermination joint** (`QLF_AlphaRigidity`, zero axioms): dimension (`d=3`) × bare-coupling (`128=2⁷`) × elementarity (`137` prime) meet with zero slack — *could have failed* (a 4-D rendering forces 144), so it cannot chase a moving measurement — [**Alpha.md**](Alpha.md) §6a | 0.026% | none | [`QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean), [`QLF_AlphaRigidity.lean`](lean/QLF_AlphaRigidity.lean) |
 | 2 | **`m_p/m_e = 6π⁵`** Lenz factor (3-quark Borromean closure × 5-angle integration) | 0.002% | none | [`QLF_LenzMassRatio.lean`](lean/QLF_LenzMassRatio.lean) |
 | 3 | **γ = 0.5772** Euler-Mascheroni (harmonic-excess identity, bridges to Riemann ζ) | 0.017% | none | [`QLF_EulerMascheroni.lean`](lean/QLF_EulerMascheroni.lean) |
 | 4 | **Dirac correction** on hydrogen (Sommerfeld formula composed from substrate) | 0.05% | m_e | [`QLF_DiracCorrection.lean`](lean/QLF_DiracCorrection.lean) |
@@ -203,6 +203,7 @@ See [**lean/README.md**](lean/README.md) for the full module reference, proof ch
 
 **Substrate-derivation of fundamental physics** (June 2026, see [Major substrate-derivation discoveries](#-major-substrate-derivation-discoveries-june-2026) above):
 - [`lean/QLF_FineStructureSubstrate.lean`](lean/QLF_FineStructureSubstrate.lean) — α = 1/137 from 8-twist combinatorics; `alpha_QLF_eq`, 3D-substrate counterfactuals
+- [`lean/QLF_AlphaRigidity.lean`](lean/QLF_AlphaRigidity.lean) — the α⁻¹ = 137 cross-sector overdetermination joint (zero axioms); `alpha_unique`/`rival_excluded` (no dimension but `d=3` reaches 137, could-have-failed), the elementarity sector `inverseAlpha_three_prime`, `alpha_counts_dimension`
 - [`lean/QLF_LenzMassRatio.lean`](lean/QLF_LenzMassRatio.lean) — m_p/m_e = 6π⁵; `mass_ratio_QLF_eq`, S₃ × 5-angle decomposition
 - [`lean/QLF_BorromeanAngles.lean`](lean/QLF_BorromeanAngles.lean) — 5 = 3 Jacobi + 2 chirality-mixing structural count
 - [`lean/QLF_EulerMascheroni.lean`](lean/QLF_EulerMascheroni.lean) — γ harmonic-excess derivation
