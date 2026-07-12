@@ -235,7 +235,7 @@ theorem inverseAlpha_three_elementary : Elementary (inverseAlpha 3) := by
     "prime output" alone would bless a 15-D rendering — it is the *dimension* sector that excludes it.
     The three sectors overdetermine **jointly**, not each alone. -/
 theorem prime_below_15_only_three (d : ℕ) (hd : d ≤ 14) (hp : Nat.Prime (inverseAlpha d)) : d = 3 := by
-  interval_cases d <;> simp only [inverseAlpha] at hp <;> first | rfl | exact absurd hp (by decide)
+  interval_cases d <;> simp only [inverseAlpha] at hp <;> first | rfl | exact absurd hp (by norm_num)
 
 /-- `inverseAlpha 15 = 353` is prime — the explicit witness that elementarity does not select `d = 3`. -/
 theorem inverseAlpha_fifteen_prime : Nat.Prime (inverseAlpha 15) := by
