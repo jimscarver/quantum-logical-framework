@@ -307,18 +307,7 @@ not claimed — the chain routes through elementarity = ZFE-closed ∧ not decom
 invariants kill infinite families, the finite residue is checked directly. **The elementarity spine is
 machine-checked:** a prime count admits no factorization, so it is *atomic* (`prime_implies_atomic`, I2);
 P1 is the single explicit `axiom` (`realization`); together they give *elementary ⟺ prime*
-(`elementary_iff_prime`, I3). **And the rigidity (R1/R2) is machine-checked over the construction's one
-free parameter, the rendering dimension `d`:** the frozen construction is the one-parameter family
-`inverseAlpha d = 128 + d²` (the `128 = 2⁷` selectivity product fixed, the directional tensor adding
-`d²` — both 137-independent), and `alpha_unique` proves `128 + d² = 137 ⟺ d = 3`, so `rival_excluded`:
-no dimension but `d = 3` reaches `137` (and `d = 3` is itself forced by minimal-faithful-rendering, §6).
-**The payoff — 136 dies twice, independently, both now proven:** as a *composite* count it is
-non-elementary (via I3), and it is *unreachable* in the family (`dimension_136_unreachable`: `128 + d² =
-136` has no integer solution). **Honest scope:** the rigidity is over the rendering dimension (the
-construction's genuine free parameter); the further claim that the admissible constructions are *exactly*
-the family `{128 + d²}` — that the grammar constraints pin the template up to `d` — is the Step-0
-motivated restriction, not a mechanical enumeration over arbitrary expressions, and the census `N(d)`
-(issue #116) is the residual that would quantify it.
+(`elementary_iff_prime`, I3). **And R1/R2 is machine-checked — but as a *cross-sector consistency theorem*, not rigidity over a knob.** `d` is **not** a free parameter: it is *substrate-derived* (the 6+2 split yields 3 axis-pairs, §6/#42; minimal-faithful-rendering forces the dimension — *not* read off from "our perspective is 3-D," which would feed a measured datum into `128 + d²` and degrade the parameter-free claim into a one-datum fit). So two *independent* substrate derivations — the **dimension** (`d = 3`, giving `d² = 9`) and the **bare coupling** (`128 = 2⁷`, the selectivity product) — meet, and `alpha_unique` (`128 + d² = 137 ⟺ d = 3`) proves they meet with **zero slack**, at exactly one point. `rival_excluded` re-reads as the *no-slack lemma*: the sectors are **locked** — a 4-D rendering would force `144`, so the framework could not have accommodated a mismatch between its own two derivations, and that it did not have to is the checkable fact. This is **overdetermination**, the strongest evidence QLF has. **A third sector agrees:** `137` is prime (`inverseAlpha_three_prime`), hence *elementary* (I3) — dimension, bare coupling, and elementarity all meet at `α⁻¹ = 137`. The slogan: **`α⁻¹` counts the rendering dimension** (`alpha_counts_dimension`: `α⁻¹ − 128 = d²`). **The `136` payoff, both deaths proven:** composite ⟹ non-elementary (I3) *and* unreachable at any dimension (`dimension_136_unreachable`: `128 + d² = 136` has no integer solution). **Honest scope:** `d = 3` is forced at the *counting* layer (the split); the *mechanism*-layer check — the swap-graph growth exponent (issue #62) — is pending, so "forced" means "by the split combinatorics, mechanism check pending." The full free-`Expr`-grammar enumeration + census `N(d)` (issue #116) is the remaining residual.
 
 **Honest scope.** The identification "this closure structure *is* the electromagnetic coupling" is the
 interpretive premise stated in §1 (uncertified). The rigidity claim is about the *integer* value `137`;
@@ -330,12 +319,13 @@ the `0.036` residual is the separate registry item (only the proven bound `137 <
 
 "Why 137" is not one question but four, and honesty means answering each at its own status:
 
-1. **Why 137 and not another value *within QLF*** — this is what rigidity (R1/R2) answers, and it is
-   now **machine-checked over the construction's one free parameter**: `128 + d² = 137 ⟺ d = 3`
-   (`alpha_unique`/`rival_excluded`), with `d = 3` forced by minimal-faithful-rendering. The residual —
-   that the admissible constructions are *exactly* that one-parameter family (no other expression-shape
-   is admissible) — is the Step-0 restriction, not yet a free-grammar enumeration; so (1) is answered
-   for the dimension, staged for the full grammar.
+1. **Why 137 and not another value *within QLF*** — answered as **cross-sector overdetermination**,
+   machine-checked: two independent substrate derivations (the dimension `d = 3` from the 6+2 split, the
+   bare coupling `128 = 2⁷`) meet at `137` with **zero slack** (`alpha_unique`: `128 + d² = 137 ⟺ d = 3`;
+   `rival_excluded`), and elementarity agrees (`137` prime). `d` is substrate-derived, *not* a fitted or
+   observed parameter — so this is not "137 was tuned to hit" but "the sectors could not have missed and
+   didn't." *Residual:* that the admissible constructions are *exactly* `{128 + d²}` (no other
+   expression-shape admissible) is the Step-0 restriction, not yet a free-grammar enumeration.
 2. **Why *this* grammar** — the Step-0 motivations (§6a), argued in prose, not proven.
 3. **Why this closure structure *is* the electromagnetic coupling** — the interpretive premise (§1),
    permanently uncertified by Lean.
@@ -360,10 +350,10 @@ The genre of "deriving 137" is crowded; QLF's position is only distinctive read 
   substrate yielding the integer. A competent reviewer will make this comparison unprompted, so QLF
   makes it first. **The differentiators QLF can state today:** the Lean verification of the combinatorial
   layer, and the **bounds theorem** (`137 < α⁻¹ < 137.048`, an interval that *could have failed*) — both
-  landed and machine-checked. The **exclusion theorem** (rigidity, §6a) is the further differentiator
-  Singh's framework does not attempt — and it is now **machine-checked over the construction's free
-  parameter** (`rival_excluded`: no rendering dimension but `d = 3` reaches `137`), with the
-  full-grammar version the named residual.
+  landed and machine-checked. The **cross-sector consistency joint** (§6a) is the further differentiator
+  Singh's framework does not attempt — machine-checked: the dimension and bare-coupling sectors meet at
+  `137` with zero slack (`alpha_unique`/`rival_excluded`), a third sector (elementarity, `137` prime)
+  agreeing, with the full free-grammar look-elsewhere census the named residual.
 - **Consistency checks misread as derivations — the MSSM running.** Integrating the β-functions down
   from a unified coupling (`≈ 24.3` at the GUT scale) with threshold corrections reproduces the measured
   α — but it *inputs* the unified coupling and the entire particle content, so it demonstrates
@@ -380,11 +370,11 @@ The genre of "deriving 137" is crowded; QLF's position is only distinctive read 
 
 **The competitive conclusion is clean.** Many frameworks *reach* 137; none — Singh included — proves its
 framework *could not reach anything else*. **Existence proofs are the crowded market; the exclusion
-theorem is the empty one.** So "why 137?" as a rhetorical question is everyone's; a machine-checked
-"137 or refutation" is QLF's alone — now realized over the construction's free parameter
-(`rival_excluded`), with the full-grammar exclusion the named residual. That is on top of the two
-differentiators already true regardless: a Lean-verified combinatorial derivation, and a bounds theorem
-that could have failed.
+theorem is the empty one.** Many frameworks *reach* 137; none — Singh included — proves its own sectors
+could not have missed each other. QLF's machine-checked **overdetermination joint** (dimension × bare
+coupling × elementarity, meeting at `137` with zero slack) is that empty-market result, with the
+full-grammar look-elsewhere census the named residual — on top of the two differentiators already true
+regardless: a Lean-verified combinatorial derivation, and a bounds theorem that could have failed.
 
 ---
 
