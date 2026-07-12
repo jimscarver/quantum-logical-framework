@@ -304,19 +304,76 @@ improving stability is recorded as *motivation*; dynamical stability is not coun
 not claimed — the chain routes through elementarity = ZFE-closed ∧ not decomposable.)
 
 **The proof shape** (Lean program, [issue #116](https://github.com/jimscarver/quantum-logical-framework/issues/116)):
-invariants kill infinite families, bounded enumeration mops the finite residue. A prime count admits no
-factorization, so it is *atomic* (`prime_implies_atomic`); with P1 this gives *elementary ⟺ prime*; the
-headline `rival_excluded` is that no admissible derivation reaches any value but `137`. **The payoff —
-136 dies twice, independently:** as a *composite* count it is non-elementary (depth-unbounded), and it
-is *unreachable* in the frozen grammar. And the reachable value set at bounded depth is finite — its
-cardinality `N(d)` against the measured interval width turns the look-elsewhere objection into a
-*computed probability* rather than an argument.
+invariants kill infinite families, bounded enumeration mops the finite residue. **The elementarity spine
+is machine-checked** ([`QLF_AlphaRigidity`](lean/QLF_AlphaRigidity.lean)): a prime count admits no
+factorization, so it is *atomic* (`prime_implies_atomic`, I2); P1 is the single explicit `axiom`
+(`realization`); together they give *elementary ⟺ prime* (`elementary_iff_prime`, I3). **Still gated on
+the wired grammar holes** (the next module): the headline `rival_excluded` (R1/R2 — no admissible
+derivation reaches any value but `137`) and the census `reachable_finite` (N). **The payoff, once R1
+lands — 136 dies twice, independently:** as a *composite* count it is non-elementary (depth-unbounded,
+now provable via I3), and it is *unreachable* in the frozen grammar (R1). And the reachable value set at
+bounded depth is finite — its cardinality `N(d)` against the measured interval width turns the
+look-elsewhere objection into a *computed probability* rather than an argument.
 
 **Honest scope.** The identification "this closure structure *is* the electromagnetic coupling" is the
 interpretive premise stated in §1 (uncertified). The rigidity claim is about the *integer* value `137`;
 the `0.036` residual is the separate registry item (only the proven bound `137 < α⁻¹ < 137.048` of the
 [bounds section](#bounds-on-α-machine-checked) is machine-checked, not a from-scratch `137.036`). Prime
 *bit*-count is a different claim, not made.
+
+### 6a.1 — "Why 137" is four questions; claim only the layers that hold
+
+"Why 137" is not one question but four, and honesty means answering each at its own status:
+
+1. **Why 137 and not another value *within QLF*** — this is what rigidity (R1/R2) will answer once the
+   grammar holes are wired and the enumeration lands. The elementarity spine is machine-checked; the
+   exclusion itself is *staged, not yet proven*. Nothing is claimed here until it is.
+2. **Why *this* grammar** — the Step-0 motivations (§6a), argued in prose, not proven.
+3. **Why this closure structure *is* the electromagnetic coupling** — the interpretive premise (§1),
+   permanently uncertified by Lean.
+4. **Why 137.036** — open (the residual registry item).
+
+Filled rigidity gives a real, machine-checked answer to (1), *conditional on* (2) and (3), *silent on*
+(4). That is an honest "why 137" of a kind almost nobody has — but it is conditional, and saying so
+first is what keeps it credible.
+
+## 6b. Who else pegs α — the landscape (and why exclusion is the empty market)
+
+The genre of "deriving 137" is crowded; QLF's position is only distinctive read against it. Four tiers:
+
+- **Mainstream: nobody.** Quantum theory does *not* predict α's value — it is one of the ~20 external
+  parameters of the Standard Model, inserted from experiment. That standing vacuum is what any
+  derivation steps into.
+- **The nearest serious peer — Singh's octonionic program (TIFR).** Tejinder Singh and collaborators
+  propose a pre-quantum, pre-spacetime *trace/matrix dynamics* in which the octonions and the
+  **exceptional Jordan algebra** encode the Standard Model, with parameters fixed by roots of the
+  algebra's cubic characteristic equation — and the asymptotic low-energy `1/137` is *derived*.
+  Published, institutionally serious, and structurally the closest rival: an 8-dimensional algebraic
+  substrate yielding the integer. A competent reviewer will make this comparison unprompted, so QLF
+  makes it first. **The differentiators QLF can state today:** the Lean verification of the combinatorial
+  layer, and the **bounds theorem** (`137 < α⁻¹ < 137.048`, an interval that *could have failed*) — both
+  landed and machine-checked. The **exclusion theorem** (rigidity, §6a) is the further differentiator
+  Singh's framework does not attempt — but it is *staged, not yet proven*, and must be stated that way.
+- **Consistency checks misread as derivations — the MSSM running.** Integrating the β-functions down
+  from a unified coupling (`≈ 24.3` at the GUT scale) with threshold corrections reproduces the measured
+  α — but it *inputs* the unified coupling and the entire particle content, so it demonstrates
+  *compatibility*, not explanation. Worth naming because "the Standard Model already explains α" will be
+  raised, and this is what that claim actually amounts to.
+- **The swamp — and it is strategically load-bearing.** The genre is dense with 137 derivations:
+  geometric-resonance substrates, prime-constant formulas, `1/2⁷` numerology, closed forms claiming
+  "a perfect match to all 11 digits, the question closed forever" — with the historical anchor being
+  Eddington, who needed a multiplicity of 137 and *defined the constant to fit*. **The density of this
+  swamp *is* the look-elsewhere argument made flesh:** producing 137 is demonstrably easy, which is
+  exactly why the hit itself carries little weight, and why QLF's hedged framing (bounds not exact value,
+  spine landed but exclusion staged) is survival, not modesty — every overclaimed sentence
+  pattern-matches into this tier.
+
+**The competitive conclusion is clean.** Many frameworks *reach* 137; none — Singh included — proves its
+framework *could not reach anything else*. **Existence proofs are the crowded market; the exclusion
+theorem is the empty one.** So "why 137?" as a rhetorical question is everyone's; a machine-checked
+"137 or refutation" would be QLF's alone — *once rigidity lands*. Until then, QLF's honest, distinctive
+claim is the narrower pair that is already true: a Lean-verified combinatorial derivation, and a bounds
+theorem that could have failed.
 
 ---
 
