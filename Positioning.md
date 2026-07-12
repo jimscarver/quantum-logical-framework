@@ -97,9 +97,22 @@ every framing that exhibits your own discipline compounds.**
 
 - **Derived-α claims stronger than the proven bounds.** What is machine-checked is the *interval*
   `137 < α⁻¹ < 137.048` ([`QLF_AlphaBound`](lean/QLF_AlphaBound.lean)), with the residual to the
-  measured `137.036…` openly tracked. Overclaim a from-scratch derivation and the gap gets found by the
-  second commenter and *becomes the story*. Keep α out of the lead; if it appears, state only the
-  proven bound.
+  measured `137.036…` openly tracked. Overclaim a from-scratch derivation of `137.036` — or any
+  one-term "residual = 9/250 / Grassmannian / (3/15)²" number-hunt — and the gap gets found by the
+  second commenter and *becomes the story*. **The `137` hit is demonstrably easy to produce, so the hit
+  itself carries little weight** — which is why value-derivation framings pattern-match straight into the
+  numerology swamp. Keep α *value* claims out of the lead; if the residual appears, state only the
+  proven bound and that it is open.
+  - **The one α framing that fits the brand** (a *supporting* point for the falsifier identity, never a
+    lead): the machine-checked **cross-sector overdetermination joint** ([`QLF_AlphaRigidity`](lean/QLF_AlphaRigidity.lean),
+    zero axioms) — `α⁻¹ = 137` is where three *independent* substrate derivations (the rendering
+    dimension `d = 3`, the bare coupling `128 = 2⁷`, and elementarity `137` prime) meet with **zero
+    slack**. State it as *falsifiability, not derivation*: it **could have failed** — a 4-D rendering
+    would force `144`, so the framework cannot chase a moving measurement. That is the exclusion
+    result no rival (Singh's octonionic program included) attempts, and it exhibits the discipline the
+    brand compounds on — *provided* it is always paired with the open residual and never phrased as "we
+    derived 137." The one-term geometric shortcuts are pre-refuted in-repo (`Alpha_Residual.md` §7),
+    which is itself the house style: refute your own near-misses before a critic finds them.
 - **Anything Clay-prize-flavored.** The Millennium interfaces get an instant crank classification
   regardless of how carefully they are hedged. The registry's own framing — *translation of the problem
   into the substrate, not a solution* — is correct and belongs in the technical docs; it stays out of
