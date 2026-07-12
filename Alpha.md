@@ -266,6 +266,60 @@ several at once — which is why 3-D is a *derivation*, not a coincidence. (High
 
 ---
 
+## 6a. Rigidity — 137 is the *only* reachable value (the anti-Eddington capstone)
+
+§6 settles *which dimension*; this settles *which value*. The over-determination argument answers the
+Eddington charge — *did you tune the framework to hit 137?* — in its sharpest, machine-checkable form:
+inside a **frozen, substrate-motivated grammar of derivations, no other value is reachable at all.** Had
+the construction come out 136, QLF would be **refuted, not revised** — it cannot follow a moving
+measurement. This is *rigidity*, not existence (the value is already derived above); the
+motivation-first design and the Lean build program are tracked in
+[issue #116](https://github.com/jimscarver/quantum-logical-framework/issues/116).
+
+**The construction, operation by operation** (each motivated *without reference to 137*): `α⁻¹ = 128 + 9
+= 2⁷ + 3²` — the **product** of the four physical selectivities gives `1/128 = 2⁻⁷` (`alpha_bare`); the
+`d×d` input×output **directional-coupling tensor** at the minimal faithful dimension `d=3` gives `N = 9`
+(`N_directional_modes`); the self-energy **resummation** `α_bare/(1+Nα_bare)` joins them as
+`α⁻¹ = 1/α_bare + N`. The value is the *output* of running these; none of the rows names it.
+
+**The frozen grammar.** The rigidity claim is only as strong as the grammar is honest — every extra
+operation inflates the reachable set. So the admissible derivations are *exactly* the operations above:
+leaves are the substrate primitives that actually appear as values (the powers-of-2 selectivities and
+the axis count `3`), and the operations are `prod`, `pow`, `sum` — nothing else. (The alphabet
+cardinality `8` and the `6+2` split are structural *inputs* to the selectivities, not value-leaves of
+the `α⁻¹` expression.) Values are count-pairs (`ℚ` = two finite integers); approaching `1/3` or `π`
+costs no infinite bits anywhere — a ratio is two finite counts, the binary expansion is display, not
+ontology.
+
+**The one physical premise — realization (P1), an explicit axiom.** The *elementarity* half of the
+argument rests on one premise, marked as an `axiom` so the checker always reports it: *every arithmetic
+factorization of the closure count of an independently existing (ZFE-closed) system is realized by an
+available decomposition into independent sub-receipts.* Its motivations are tensor-factorization of
+composite-dimension spaces (the isomorphism always exists; physics need not respect any *particular*
+one — which is exactly why it is a postulate, not a theorem) and MUB/stabilizer completeness at prime
+dimension. **QLF-native scope:** independent existence *is* ZFE closure, so free charges (unterminated
+ledgers) are not independent existents and fall **outside** P1 — the resolution of the proton objection,
+which reclassifies a bare charge out of scope rather than making it a counterexample. (Isolation
+improving stability is recorded as *motivation*; dynamical stability is not counting-theoretic and is
+not claimed — the chain routes through elementarity = ZFE-closed ∧ not decomposable.)
+
+**The proof shape** (Lean program, [issue #116](https://github.com/jimscarver/quantum-logical-framework/issues/116)):
+invariants kill infinite families, bounded enumeration mops the finite residue. A prime count admits no
+factorization, so it is *atomic* (`prime_implies_atomic`); with P1 this gives *elementary ⟺ prime*; the
+headline `rival_excluded` is that no admissible derivation reaches any value but `137`. **The payoff —
+136 dies twice, independently:** as a *composite* count it is non-elementary (depth-unbounded), and it
+is *unreachable* in the frozen grammar. And the reachable value set at bounded depth is finite — its
+cardinality `N(d)` against the measured interval width turns the look-elsewhere objection into a
+*computed probability* rather than an argument.
+
+**Honest scope.** The identification "this closure structure *is* the electromagnetic coupling" is the
+interpretive premise stated in §1 (uncertified). The rigidity claim is about the *integer* value `137`;
+the `0.036` residual is the separate registry item (only the proven bound `137 < α⁻¹ < 137.048` of the
+[bounds section](#bounds-on-α-machine-checked) is machine-checked, not a from-scratch `137.036`). Prime
+*bit*-count is a different claim, not made.
+
+---
+
 ## 7. Parallel derivation pathways
 
 QLF reaches α by more than one route; their agreement is a non-trivial internal consistency claim:
