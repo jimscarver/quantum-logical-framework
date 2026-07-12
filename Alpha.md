@@ -303,17 +303,22 @@ which reclassifies a bare charge out of scope rather than making it a counterexa
 improving stability is recorded as *motivation*; dynamical stability is not counting-theoretic and is
 not claimed — the chain routes through elementarity = ZFE-closed ∧ not decomposable.)
 
-**The proof shape** (Lean program, [issue #116](https://github.com/jimscarver/quantum-logical-framework/issues/116)):
-invariants kill infinite families, bounded enumeration mops the finite residue. **The elementarity spine
-is machine-checked** ([`QLF_AlphaRigidity`](lean/QLF_AlphaRigidity.lean)): a prime count admits no
-factorization, so it is *atomic* (`prime_implies_atomic`, I2); P1 is the single explicit `axiom`
-(`realization`); together they give *elementary ⟺ prime* (`elementary_iff_prime`, I3). **Still gated on
-the wired grammar holes** (the next module): the headline `rival_excluded` (R1/R2 — no admissible
-derivation reaches any value but `137`) and the census `reachable_finite` (N). **The payoff, once R1
-lands — 136 dies twice, independently:** as a *composite* count it is non-elementary (depth-unbounded,
-now provable via I3), and it is *unreachable* in the frozen grammar (R1). And the reachable value set at
-bounded depth is finite — its cardinality `N(d)` against the measured interval width turns the
-look-elsewhere objection into a *computed probability* rather than an argument.
+**The proof shape** ([`QLF_AlphaRigidity`](lean/QLF_AlphaRigidity.lean); [issue #116](https://github.com/jimscarver/quantum-logical-framework/issues/116)):
+invariants kill infinite families, the finite residue is checked directly. **The elementarity spine is
+machine-checked:** a prime count admits no factorization, so it is *atomic* (`prime_implies_atomic`, I2);
+P1 is the single explicit `axiom` (`realization`); together they give *elementary ⟺ prime*
+(`elementary_iff_prime`, I3). **And the rigidity (R1/R2) is machine-checked over the construction's one
+free parameter, the rendering dimension `d`:** the frozen construction is the one-parameter family
+`inverseAlpha d = 128 + d²` (the `128 = 2⁷` selectivity product fixed, the directional tensor adding
+`d²` — both 137-independent), and `alpha_unique` proves `128 + d² = 137 ⟺ d = 3`, so `rival_excluded`:
+no dimension but `d = 3` reaches `137` (and `d = 3` is itself forced by minimal-faithful-rendering, §6).
+**The payoff — 136 dies twice, independently, both now proven:** as a *composite* count it is
+non-elementary (via I3), and it is *unreachable* in the family (`dimension_136_unreachable`: `128 + d² =
+136` has no integer solution). **Honest scope:** the rigidity is over the rendering dimension (the
+construction's genuine free parameter); the further claim that the admissible constructions are *exactly*
+the family `{128 + d²}` — that the grammar constraints pin the template up to `d` — is the Step-0
+motivated restriction, not a mechanical enumeration over arbitrary expressions, and the census `N(d)`
+(issue #116) is the residual that would quantify it.
 
 **Honest scope.** The identification "this closure structure *is* the electromagnetic coupling" is the
 interpretive premise stated in §1 (uncertified). The rigidity claim is about the *integer* value `137`;
@@ -325,9 +330,12 @@ the `0.036` residual is the separate registry item (only the proven bound `137 <
 
 "Why 137" is not one question but four, and honesty means answering each at its own status:
 
-1. **Why 137 and not another value *within QLF*** — this is what rigidity (R1/R2) will answer once the
-   grammar holes are wired and the enumeration lands. The elementarity spine is machine-checked; the
-   exclusion itself is *staged, not yet proven*. Nothing is claimed here until it is.
+1. **Why 137 and not another value *within QLF*** — this is what rigidity (R1/R2) answers, and it is
+   now **machine-checked over the construction's one free parameter**: `128 + d² = 137 ⟺ d = 3`
+   (`alpha_unique`/`rival_excluded`), with `d = 3` forced by minimal-faithful-rendering. The residual —
+   that the admissible constructions are *exactly* that one-parameter family (no other expression-shape
+   is admissible) — is the Step-0 restriction, not yet a free-grammar enumeration; so (1) is answered
+   for the dimension, staged for the full grammar.
 2. **Why *this* grammar** — the Step-0 motivations (§6a), argued in prose, not proven.
 3. **Why this closure structure *is* the electromagnetic coupling** — the interpretive premise (§1),
    permanently uncertified by Lean.
@@ -353,7 +361,9 @@ The genre of "deriving 137" is crowded; QLF's position is only distinctive read 
   makes it first. **The differentiators QLF can state today:** the Lean verification of the combinatorial
   layer, and the **bounds theorem** (`137 < α⁻¹ < 137.048`, an interval that *could have failed*) — both
   landed and machine-checked. The **exclusion theorem** (rigidity, §6a) is the further differentiator
-  Singh's framework does not attempt — but it is *staged, not yet proven*, and must be stated that way.
+  Singh's framework does not attempt — and it is now **machine-checked over the construction's free
+  parameter** (`rival_excluded`: no rendering dimension but `d = 3` reaches `137`), with the
+  full-grammar version the named residual.
 - **Consistency checks misread as derivations — the MSSM running.** Integrating the β-functions down
   from a unified coupling (`≈ 24.3` at the GUT scale) with threshold corrections reproduces the measured
   α — but it *inputs* the unified coupling and the entire particle content, so it demonstrates
@@ -371,9 +381,10 @@ The genre of "deriving 137" is crowded; QLF's position is only distinctive read 
 **The competitive conclusion is clean.** Many frameworks *reach* 137; none — Singh included — proves its
 framework *could not reach anything else*. **Existence proofs are the crowded market; the exclusion
 theorem is the empty one.** So "why 137?" as a rhetorical question is everyone's; a machine-checked
-"137 or refutation" would be QLF's alone — *once rigidity lands*. Until then, QLF's honest, distinctive
-claim is the narrower pair that is already true: a Lean-verified combinatorial derivation, and a bounds
-theorem that could have failed.
+"137 or refutation" is QLF's alone — now realized over the construction's free parameter
+(`rival_excluded`), with the full-grammar exclusion the named residual. That is on top of the two
+differentiators already true regardless: a Lean-verified combinatorial derivation, and a bounds theorem
+that could have failed.
 
 ---
 
