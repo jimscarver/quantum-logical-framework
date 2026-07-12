@@ -148,5 +148,6 @@ lean_lib QLF where
     `QLF_EntropyUniqueness,
     `QLF_Identifiability,
     `QLF_CensusShannon,
-    `QLF_BornProbability
+    `QLF_BornProbability,
+    `QLF_AlphaRigidity
   ]
