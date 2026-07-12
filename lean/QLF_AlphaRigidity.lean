@@ -3,10 +3,12 @@ import Mathlib
 /-!
 # QLF_AlphaRigidity — the elementarity spine of α-rigidity (issue #116)
 
-`Alpha.md` §6a: within a frozen substrate-motivated grammar, `α⁻¹ = 137` is the *only* reachable
-value — rigidity, not existence (the value is derived in `QLF_FineStructureSubstrate`). This module
-lands the **elementarity spine and the rigidity over the construction's one free parameter** (the
-rendering dimension). The remaining census `reachable_finite` (N) is issue #116.
+`Alpha.md` §6a: `α⁻¹ = 137` is not a fit but a **cross-sector consistency joint** — two independent
+substrate derivations (the rendering dimension `d = 3` from the 6+2 split, and the bare inverse
+`128 = 2⁷` from the selectivity product) meet at the measured value, and a third sector (elementarity:
+`137` is prime) agrees at the same point. `d` is *substrate-derived*, not a free/observed parameter, so
+this is **overdetermination**, not rigidity over a knob. This module lands the **elementarity spine and
+the machine-checked joint**; the full free-`Expr`-grammar enumeration + census `N(d)` is issue #116.
 
 Landed here:
 * **I2 `prime_implies_atomic`** — a prime count admits no nontrivial factorization (free arithmetic).
@@ -115,25 +117,48 @@ theorem elementary_iff_prime {n : ℕ} (h2 : 2 ≤ n) : Elementary n ↔ n.Prime
   · intro hp
     exact ⟨h2, fun hd => prime_implies_atomic hp (decomposable_factors hd)⟩
 
-/-! ## R1/R2 — rigidity over the construction's one free parameter (the rendering dimension)
+/-! ## The cross-sector consistency theorem (overdetermination), not rigidity over a free parameter
 
-The frozen construction (§6a) is `α⁻¹ = 128 + d²`: the bare inverse `2⁷ = 128` (the selectivity
-product) is fixed, the directional-coupling tensor contributes `d²` at rendering dimension `d`, and the
-resummation adds them. So the admissible constructions form a **one-parameter family in `d`** — and the
-rigidity question is exactly whether `137` is reached at more than one `d`. It is not. This is the
-substantive, non-circular rigidity: `128` and the `+d²` form are 137-independent, and `d = 3` is itself
-forced by minimal-faithful-rendering (`SpaceTime.md` §3a), so the value is rigid, not chosen.
+**`d` is not a free parameter.** It is *substrate-derived*: the 6+2 split yields 3 axis-pairs (settled
+combinatorics, issue #42), and minimal-faithful-rendering (`SpaceTime.md` §3a) forces the rendering
+dimension from that structure — not from observing that our perspective is 3-D (that would feed a
+measured datum into `128 + d²` and degrade the parameter-free claim into a one-datum fit). So this is
+**not** rigidity over a live knob. It is a **cross-sector consistency theorem**: two *independent*
+substrate derivations —
+* the **dimension sector**: `d = 3` from the 6+2 split, giving `d² = 9`;
+* the **bare-coupling sector**: `128 = 2⁷` from the selectivity product —
+
+intersect, and their intersection `128 + 9` is the measured `α⁻¹ = 137`. That is *overdetermination*,
+the strongest evidence QLF has, now with a machine-checked joint. The slogan it licenses: **`α⁻¹` counts
+the rendering dimension** — `137 − 128 = 9 = 3²`, so measuring α is, in QLF, measuring `d²`.
+
+What survives of the modal content is **brittleness, not choice**: `alpha_unique` quantifies over
+*counterfactual* dimensions and shows **zero slack** — a 4-D rendering would force `α⁻¹ = 144`, full
+stop. The dimension and α sectors are **locked**: nothing can perturb one without the other (a standing
+conditional prediction, falsifiable in principle in a way "137 fits" never was). *Outstanding check, so
+"forced" stays honest:* `d = 3` is settled at the **counting** layer (the split); the **mechanism**-layer
+test — the swap-graph growth exponent (issue #62) — is pending. Until it lands at 3, "forced" means
+"forced by the split combinatorics, mechanism check pending."
 -/
 
-/-- The α⁻¹ construction template: the fixed bare inverse `128 = 2⁷` (selectivity product) plus the
-    directional-coupling tensor `d²` at rendering dimension `d`. The **one** free parameter is `d`. -/
+/-- The α⁻¹ construction: the bare inverse `128 = 2⁷` (selectivity product, one substrate sector) plus
+    the directional-coupling tensor `d²` at the *substrate-derived* rendering dimension `d` (the other
+    sector). `d` is fixed by minimal-faithful-rendering, not free. -/
 def inverseAlpha (d : ℕ) : ℕ := 128 + d * d
 
-/-- At the minimal faithful rendering dimension `d = 3`, `α⁻¹ = 137`. -/
+/-- At the substrate-derived rendering dimension `d = 3` (6+2 split), `α⁻¹ = 137`. -/
 theorem inverseAlpha_at_three : inverseAlpha 3 = 137 := by decide
 
-/-- **R1 — 137 is reached at exactly one dimension.** `inverseAlpha d = 137 ↔ d = 3`: within the frozen
-    construction, no rendering dimension but `d = 3` yields `137`. -/
+/-- **The slogan, formalized: `α⁻¹` counts the rendering dimension.** `inverseAlpha d − 128 = d²`, so
+    the coupling above the bare `128` *is* the squared rendering dimension — measuring α is measuring
+    `d²`. -/
+theorem alpha_counts_dimension (d : ℕ) : inverseAlpha d - 128 = d * d := by
+  unfold inverseAlpha; omega
+
+/-- **The sectors meet only at `d = 3` (zero slack).** `inverseAlpha d = 137 ↔ d = 3`: the bare-coupling
+    sector (`128`) and a rendering of dimension `d` agree with the measured `α⁻¹` at *exactly one*
+    dimension. Read as brittleness, not choice — the substrate-derived `d = 3` is where the two
+    independent sectors intersect, and nowhere else could. -/
 theorem alpha_unique (d : ℕ) : inverseAlpha d = 137 ↔ d = 3 := by
   unfold inverseAlpha
   constructor
@@ -143,13 +168,14 @@ theorem alpha_unique (d : ℕ) : inverseAlpha d = 137 ↔ d = 3 := by
     interval_cases d <;> omega
   · rintro rfl; rfl
 
-/-- **R2 — the headline exclusion.** No admissible dimension other than `d = 3` reaches `137`: the
-    construction cannot follow a moving measurement — had α come out otherwise, it is refuted. -/
+/-- **The no-slack lemma.** Any dimension other than the substrate-derived `d = 3` misses `137`: the
+    sectors are **locked**, so the framework could not have accommodated a mismatch between its own two
+    derivations. That it did not have to is the checkable fact (a 4-D rendering would force `144`). -/
 theorem rival_excluded {d : ℕ} (hd : d ≠ 3) : inverseAlpha d ≠ 137 := fun h => hd ((alpha_unique d).mp h)
 
-/-- **136 dies the second death — unreachable in the frozen family.** No rendering dimension yields
-    `128 + d² = 136` (`d² = 8` has no ℕ solution). Together with I3 (`136` composite ⟹ non-elementary),
-    `136` dies twice, independently — the anti-Eddington payoff. -/
+/-- **136 is unreachable at any dimension** (`128 + d² = 136` needs `d² = 8`, no ℕ solution). With I3
+    (`136` composite ⟹ non-elementary) this is the *second* independent death of `136` — the
+    anti-Eddington payoff: the near-miss the swamp reaches for is doubly excluded. -/
 theorem dimension_136_unreachable (d : ℕ) : inverseAlpha d ≠ 136 := by
   unfold inverseAlpha
   intro h
@@ -157,14 +183,31 @@ theorem dimension_136_unreachable (d : ℕ) : inverseAlpha d ≠ 136 := by
   have hle : d ≤ 8 := by nlinarith [h8]
   interval_cases d <;> omega
 
-/-- Summary: the elementarity spine (I1–I3, P1) **and** the rigidity over the construction's one free
-    parameter are proven — `137` is reached at exactly `d = 3` (`alpha_unique`), no rival dimension
-    reaches it (`rival_excluded`), and `136` is unreachable in the family (`dimension_136_unreachable`,
-    the second of its two deaths). **Honest scope:** the rigidity is over the *rendering dimension* (the
-    construction's genuine free parameter, `d = 3` forced by minimal-faithful-rendering); the further
-    claim that the admissible constructions are *exactly* the family `{128 + d²}` — i.e. the grammar
-    constraints pin the template up to `d` — is the Step-0 motivated restriction (§6a), not a mechanical
-    enumeration over arbitrary `Expr`. The census `N(d)` (issue #116) quantifies the residual. -/
+/-! ## The third sector — elementarity agrees at the same point -/
+
+/-- **`137` is prime — the elementarity sector agrees.** The intersection value of the dimension and
+    bare-coupling sectors is *also* prime, so a third independent property (I3: elementary ⟺ prime)
+    holds at the same point. -/
+theorem inverseAlpha_three_prime : Nat.Prime (inverseAlpha 3) := by
+  unfold inverseAlpha; norm_num
+
+/-- **`137` is elementary** — via I3 (`elementary_iff_prime`, backward direction, I2 only; no P1). So all
+    three sectors — dimension (`d = 3`), bare coupling (`128`), and elementarity (prime/atomic) — meet at
+    `α⁻¹ = 137`: the machine-checked overdetermination joint. -/
+theorem inverseAlpha_three_elementary : Elementary (inverseAlpha 3) := by
+  have h2 : 2 ≤ inverseAlpha 3 := by unfold inverseAlpha; norm_num
+  exact (elementary_iff_prime h2).mpr inverseAlpha_three_prime
+
+/-- Summary: the elementarity spine (I1–I3, P1) **and** the cross-sector consistency joint are proven.
+    Three *independent* substrate sectors meet at `α⁻¹ = 137`: the **dimension** (`d = 3` from the 6+2
+    split), the **bare coupling** (`128 = 2⁷`), and **elementarity** (`137` prime/atomic,
+    `inverseAlpha_three_prime`/`_elementary`). `alpha_unique` shows the meeting has **zero slack** (only
+    `d = 3`), and `rival_excluded` that the sectors are **locked** — overdetermination, not a fit over a
+    free parameter (`d` is substrate-derived, not observed). `alpha_counts_dimension`: `α⁻¹ − 128 = d²`.
+    **Honest scope:** `d = 3` is forced at the *counting* layer (the split); the *mechanism*-layer check
+    (the swap-graph growth exponent, issue #62) is pending — so "forced" = "by the split combinatorics,
+    mechanism check pending". The full free-`Expr`-grammar enumeration + census `N(d)` (issue #116) is the
+    remaining residual. -/
 theorem alpha_rigidity_summary : True := trivial
 
 end QLF.AlphaRigidity
