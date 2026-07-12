@@ -47,6 +47,14 @@ theorem consistent_set_infinite (a b : ℝ) (h : a < b) :
     (Set.Icc a b).Infinite :=
   Set.infinite_coe_iff.mp (Set.Icc.infinite h)
 
+/-- **Theorem B (continuum form).** The consistent set of a positive-width finite-precision record
+    has cardinality *continuum* — uncountably many theory-distinct real states, of which (Theorem A)
+    only finitely many are distinguishable by any finite-capacity channel. The non-identifiable tail
+    is the full continuum. -/
+theorem consistent_set_continuum (a b : ℝ) (h : a < b) :
+    Cardinal.mk (Set.Icc a b) = Cardinal.continuum :=
+  Cardinal.mk_Icc_real h
+
 /-! ## Identifiability ⟺ computability -/
 
 /-- A real is **identifiable** iff some *computable* protocol emits rational approximants at every
