@@ -69,7 +69,7 @@ Not "the reals are inconsistent" — the guardrail holds. But "**the reals viola
 - [`Completeness_Evidence.md`](Completeness_Evidence.md) — §2a (measurement is counting), §6 (the reconstruction program this backs).
 - [`TheContinuum.md`](TheContinuum.md) — consistency ≠ realizability; the five-strike "continuum is gratuitous" case.
 - [`lean/QLF_ShannonOverfit.lean`](lean/QLF_ShannonOverfit.lean) — Theorems A and B (`no_real_received`, `tail_unconstrained`).
-- [`lean/QLF_Identifiability.lean`](lean/QLF_Identifiability.lean) — the K-free companion form: `capacity_bound` (a `C`-bit record distinguishes ≤ `2^C` states), `consistent_set_infinite` (the finite-precision tail is infinite), and `Identifiable` = has a computable ℚ-approximant (`identifiable_rat`, `identifiable_of_modulus`) — measurement-in-principle *is* computability. The continuum cardinality + the Kolmogorov-`K` tier grading are the residual (issue #115 item 2).
+- [`lean/QLF_Identifiability.lean`](lean/QLF_Identifiability.lean) — the K-free companion form: `capacity_bound` (a `C`-bit record distinguishes ≤ `2^C` states), `consistent_set_infinite` / **`consistent_set_continuum`** (the finite-precision tail is infinite, indeed of cardinality **continuum**), and `Identifiable` = has a computable ℚ-approximant (`identifiable_rat`, `identifiable_of_modulus`) — measurement-in-principle *is* computability. Only the Kolmogorov-`K` tier grading (Ω as witness) remains the residual (issue #115 item 2).
 - [`lean/QLF_Realizability.lean`](lean/QLF_Realizability.lean) — the pigeonhole floor Theorem A reuses.
 
 ### External
