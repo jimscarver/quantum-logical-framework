@@ -49,7 +49,7 @@ One structure — the 8-twist alphabet with its 6+2 split and the closure census
 
 | Quantity | Substrate origin | Agreement | Anchor |
 |---|---|---|---|
-| α⁻¹ leading value | 3² tensor, IR anchor; bounds 137 < α⁻¹ < 137.048 | measured 137.036 inside the verified bounds; **residual open** | `QLF_AlphaBound` |
+| α⁻¹ leading value | 3² tensor, IR anchor; bounds 137 < α⁻¹ < 137.048; **cross-sector overdetermination joint** (dimension × bare-coupling × elementarity meet at 137, zero slack) | measured 137.036 inside the verified bounds; the leading value is a *machine-checked joint*, not a fit (`d` substrate-derived); **residual open** (reformulated as the #117 running-coefficient tower) | `QLF_AlphaBound`, `QLF_AlphaRigidity` |
 | Ω_Λ | 2/8 of the alphabet | consistent | `electroweak_substrate_signature` |
 | sin²θ_W (unification) | 3/8 spatial fraction | RG running to 0.231 **open** | `QLF_WeinbergAngle` |
 | a₀ = cH₀/2π | closure-loop period, 2π derived | SPARC blind test, parameter-free, 0.133 dex floor | `QLF_MondScale`, `QLF_MondNu` |

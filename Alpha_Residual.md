@@ -302,7 +302,8 @@ principle-derived*. That is the honest boundary.
 *irreducible* (prime) ones (`G = 1/(1−I)`: every closure is an ordered sequence of primes; the
 stable=prime↔Riemann program, `QLF_Riemann`). Push that to the coupling itself: require the leading
 inverse coupling `α⁻¹ = 128 + d²` to be *irreducible* (a prime integer — a closure that cannot factor into
-sub-closures). Then **only `d = 3` qualifies**:
+sub-closures). Then among low dimensions **only `d = 3` qualifies** (machine-checked to `d ≤ 14`; the
+`d = 15 → 353` caveat is below):
 
 | `d` | `128 + d²` | |
 |---|---|---|
@@ -314,15 +315,20 @@ sub-closures). Then **only `d = 3` qualifies**:
 | 6 | 164 = 2²·41 | composite |
 | 7 | 177 = 3·59 | composite |
 
-`137` is the **unique prime** among `128 + d²` for `d = 1..7` — so "the stable coupling is an irreducible
-(prime) closure" *selects the physical dimension* `d = 3`, an independent cross-check alongside the
-graph-embedding / magic-number arguments (`QLF_Generations`). (Octave `7` and the `3` of `3²` are also
-prime; `137` prime.) **Honest scope:** this bears on the *leading value / dimension*, not the residual —
-and the link "closure-irreducible ↔ integer-prime" is a suggestive structural reading, not yet derived
-(it would need the coupling's integer to literally count an un-factorable closure). The prime-closure
-*spectrum* (irreducible counts `2·Catalan(n−1) = 2,2,4,10,28,…`) is itself monotonic, so it adds no
-resonance peak; the prime tail (`0.0159`) still undershoots the residual. So primes help explain *why 137 /
-why d=3*, not the `+0.036`.
+`137` is prime, and among `128 + d²` it is the **unique** prime for `d ≤ 14` — **machine-checked**
+([`QLF_AlphaRigidity`](lean/QLF_AlphaRigidity.lean): `prime_below_15_only_three`, `inverseAlpha_three_prime`).
+**But primality is not an *independent* selector of `d = 3`, and the honest form matters:** the fence is
+tight only to `d ≤ 14` — `128 + 15² = 353` is **also prime** (`inverseAlpha_fifteen_prime`), so "prime
+output" alone would bless a 15-D rendering. The elementarity (prime) sector therefore *agrees* at `d = 3`
+but does **not** exclude on its own; it is the *dimension* sector (6+2 split → `d = 3`) that excludes
+`d = 15`. This is precisely the **cross-sector overdetermination** result ([`Alpha.md`](Alpha.md) §6a):
+the dimension sector, the bare-coupling sector (`128 = 2⁷`), and elementarity (`137` prime) *meet* at
+`α⁻¹ = 137`, and the three overdetermine **jointly**, not each alone. **Honest scope:** this bears on the
+*leading value / dimension*, not the residual — and the link "closure-irreducible ↔ integer-prime" is a
+suggestive structural reading, not yet derived (it would need the coupling's integer to literally count an
+un-factorable closure). The prime-closure *spectrum* (`2·Catalan(n−1) = 2,2,4,10,28,…`) is itself
+monotonic, so it adds no resonance peak; the prime tail (`0.0159`) still undershoots the residual. So
+primes *agree* on *why 137 / why d=3* (jointly with the other sectors), not the `+0.036`.
 
 ---
 
@@ -441,7 +447,14 @@ nameable obstacles. Stated so the work can resume against a concrete target:
 **What would unblock it (a real program, not a tweak):**
 - **(a) Derive the kinematic weighting from the substrate** — show how the closure census acquires the
   running's higher-order coefficients (the logs / phase space *from counting*). Shared open frontier with
-  the RG sector (`QLF_RunningCouplings`, `QLF_BetaFunction`).
+  the RG sector (`QLF_RunningCouplings`, `QLF_BetaFunction`). **Sharpened, falsifiable form**
+  ([issue #117](https://github.com/jimscarver/quantum-logical-framework/issues/117)): the residual is the
+  substrate reading of **vacuum polarization** as a census-weighted, **horizon-scale-dependent** sum over
+  the elementary (prime-count) closure **tower** (`closedAtHorizon`); the value-free first target is to
+  derive the **one-loop running coefficient** (`2/3π` per unit charge per fermion) from census counting
+  with no reference to `0.035999`. One-term geometric shortcuts (`dim Gr(3,15)=36`, `9/250`, `(3/15)²`)
+  are refuted — they match only the *rounded* `0.036`, miss at the 5th decimal (`0.035999084(21)`), and
+  are static where the residual runs.
 - **(b) Or find an *exact* (non-perturbative) substrate self-consistency** — a closure/eigenvalue condition
   giving the value exactly, not leading-order. The self-consistent `A = α⁻¹` is the *leading* term of such
   a condition; an exact version (if it exists) bypasses the series.
