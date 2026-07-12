@@ -12,13 +12,13 @@ the machine-checked joint**; the full free-`Expr`-grammar enumeration + census `
 
 Landed here:
 * **I2 `prime_implies_atomic`** — a prime count admits no nontrivial factorization (free arithmetic).
-* **P1 `realization`** — the *single physical premise*, an explicit `axiom`: every arithmetic
-  factorization of the closure count of an independently existing (ZFE-closed) system is realized by an
-  available decomposition into independent sub-receipts. (`RealizedIndependent` is an uninterpreted
-  predicate — the physical notion of independent realization — *not* itself a premise; only
-  `realization` is.) Scope is ZFE-closed systems: free charge is a non-closed ledger, outside P1.
-* **I3 `elementary_iff_prime`** — *elementary* (ZFE-closed ∧ not decomposable) ⟺ *prime* count, from
-  I2 + P1. "Stable" appears nowhere: the chain routes through elementarity only.
+* **P1 `Realization`** — the *single physical premise*, taken as an explicit **hypothesis, not an
+  axiom**: every composite closure count of an independently existing (ZFE-closed) system is physically
+  decomposable. (`RealizedIndependent` is a `variable` carrier — the physical notion of independent
+  realization — *not* a premise.) So the module declares **no `axiom`s**; `#print axioms` is clean and
+  P1 sits in the *type* of the theorems that use it. Scope: ZFE-closed systems (free charge outside P1).
+* **I3 `elementary_iff_prime`** — *elementary* (ZFE-closed ∧ not decomposable) ⟺ *prime* count, forward
+  from the P1 hypothesis, backward (`elementary_of_prime`) from I2 alone. "Stable" appears nowhere.
 * **I1 `dyadic_closed`** — admissible values are dyadic. Near-vacuous in the division-free α⁻¹ grammar
   (all values are integers), stated to validate the grammar scaffold; it bites only in a `/3` extension.
 
@@ -80,42 +80,58 @@ theorem prime_implies_atomic {n : ℕ} (hp : n.Prime) : Atomic n := by
   · have hle : a * 2 ≤ a * b := Nat.mul_le_mul (le_refl a) hb
     omega
 
-/-! ## P1 — the realization postulate (the single physical premise) -/
+/-! ## P1 — the realization postulate (the single physical premise — a hypothesis, not an axiom)
 
-/-- Uninterpreted predicate: the closure space of count `n` physically splits as independent
-    sub-receipts of counts `a`, `b`. Not a premise — the *carrier* of the physical notion. -/
-axiom RealizedIndependent : ℕ → ℕ → ℕ → Prop
+**Axiom hygiene:** `RealizedIndependent` is a section `variable` and `Realization` (P1) is taken as an
+explicit *hypothesis* where it is used — so the module declares **no `axiom`s at all**, and running
+`#print axioms` on any theorem reports zero QLF axioms. The single physical premise appears in the
+*type* of the theorems that need it (`prime_of_elementary`, `elementary_iff_prime`), never in the axiom
+list. The optics of the axiom checker is a thing QLF trades on; this keeps it exact.
+-/
 
-/-- **Physical decomposability**: a *realized* nontrivial factorization (arithmetic factorization is
-    built in, so the backward direction of `elementary_iff_prime` closes by construction). -/
+/-- Uninterpreted carrier — the physical notion "the closure space of count `n` splits as independent
+    sub-receipts of counts `a`, `b`." A `variable`, so *not* an axiom. -/
+variable (RealizedIndependent : ℕ → ℕ → ℕ → Prop)
+
+/-- **Physical decomposability**: a *realized* nontrivial factorization (the arithmetic factorization is
+    built in, so `elementary_of_prime` closes by construction). -/
 def DecomposableCount (n : ℕ) : Prop :=
   ∃ a b, 2 ≤ a ∧ 2 ≤ b ∧ n = a * b ∧ RealizedIndependent n a b
 
-/-- **P1 (realization) — the single physical premise, explicit.** Every composite (non-prime,
-    `≥ 2`) closure count of an independently existing system is physically decomposable. Scope:
-    ZFE-closed systems only (free charge is a non-closed ledger, outside the domain). -/
-axiom realization : ∀ n : ℕ, 2 ≤ n → ¬ n.Prime → DecomposableCount n
-
 /-- Decomposability entails the arithmetic factorization (the easy, definitional direction). -/
-theorem decomposable_factors {n : ℕ} (h : DecomposableCount n) :
+theorem decomposable_factors {n : ℕ} (h : DecomposableCount RealizedIndependent n) :
     ∃ a b, 2 ≤ a ∧ 2 ≤ b ∧ n = a * b := by
   obtain ⟨a, b, ha, hb, hab, _⟩ := h
   exact ⟨a, b, ha, hb, hab⟩
 
-/-! ## I3 — elementary ⟺ prime -/
-
 /-- **Elementary**: independently existing (`2 ≤ n`, ZFE-closed) and not physically decomposable.
     Dynamical stability appears nowhere — the chain routes through counting/elementarity only. -/
-def Elementary (n : ℕ) : Prop := 2 ≤ n ∧ ¬ DecomposableCount n
+def Elementary (n : ℕ) : Prop := 2 ≤ n ∧ ¬ DecomposableCount RealizedIndependent n
 
-/-- **I3.** For `n ≥ 2`, *elementary ⟺ prime* — from I2 (backward) and P1 (forward). -/
-theorem elementary_iff_prime {n : ℕ} (h2 : 2 ≤ n) : Elementary n ↔ n.Prime := by
-  constructor
-  · rintro ⟨_, hnd⟩
-    by_contra hnp
-    exact hnd (realization n h2 hnp)
-  · intro hp
-    exact ⟨h2, fun hd => prime_implies_atomic hp (decomposable_factors hd)⟩
+/-- **P1 (realization) — the single physical premise.** Every composite (`≥ 2`, non-prime) closure
+    count of an independently existing (ZFE-closed) system is physically decomposable. Stated as a
+    `Prop` so it can be taken as a *hypothesis*, not asserted as an axiom. -/
+def Realization : Prop := ∀ n : ℕ, 2 ≤ n → ¬ n.Prime → DecomposableCount RealizedIndependent n
+
+/-! ## I3 — elementary ⟺ prime -/
+
+/-- **I3, backward — no premise.** A prime is elementary, from I2 alone (no P1, no axiom). This is the
+    direction the connective theorems use, so they stay premise-free. -/
+theorem elementary_of_prime {n : ℕ} (h2 : 2 ≤ n) (hp : n.Prime) :
+    Elementary RealizedIndependent n :=
+  ⟨h2, fun hd => prime_implies_atomic hp (decomposable_factors RealizedIndependent hd)⟩
+
+/-- **I3, forward — needs P1.** An elementary count is prime, given the realization premise (taken as
+    an explicit hypothesis). -/
+theorem prime_of_elementary (P1 : Realization RealizedIndependent) {n : ℕ}
+    (he : Elementary RealizedIndependent n) : n.Prime := by
+  by_contra hnp
+  exact he.2 (P1 n he.1 hnp)
+
+/-- **I3.** For `n ≥ 2`, *elementary ⟺ prime* — backward from I2, forward from the P1 hypothesis. -/
+theorem elementary_iff_prime (P1 : Realization RealizedIndependent) {n : ℕ} (h2 : 2 ≤ n) :
+    Elementary RealizedIndependent n ↔ n.Prime :=
+  ⟨fun he => prime_of_elementary RealizedIndependent P1 he, elementary_of_prime RealizedIndependent h2⟩
 
 /-! ## Density — the grammar alone excludes nothing (so all rigidity lives in the template)
 
@@ -222,12 +238,12 @@ theorem dimension_136_unreachable (d : ℕ) : inverseAlpha d ≠ 136 := by
 theorem inverseAlpha_three_prime : Nat.Prime (inverseAlpha 3) := by
   unfold inverseAlpha; norm_num
 
-/-- **`137` is elementary** — via I3 (`elementary_iff_prime`, backward direction, I2 only; no P1). So all
+/-- **`137` is elementary** — via `elementary_of_prime` (I2 only; **no P1, no axiom**). So all
     three sectors — dimension (`d = 3`), bare coupling (`128`), and elementarity (prime/atomic) — meet at
     `α⁻¹ = 137`: the machine-checked overdetermination joint. -/
-theorem inverseAlpha_three_elementary : Elementary (inverseAlpha 3) := by
+theorem inverseAlpha_three_elementary : Elementary RealizedIndependent (inverseAlpha 3) := by
   have h2 : 2 ≤ inverseAlpha 3 := by unfold inverseAlpha; norm_num
-  exact (elementary_iff_prime h2).mpr inverseAlpha_three_prime
+  exact elementary_of_prime RealizedIndependent h2 inverseAlpha_three_prime
 
 /-- **The third sector *agrees*, it does not *select*.** Among dimensions `d ≤ 14`, `inverseAlpha d` is
     prime only at `d = 3` — so elementarity is a consistency datum at the joint. But it is **not** an
