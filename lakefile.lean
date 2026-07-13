@@ -149,5 +149,6 @@ lean_lib QLF where
     `QLF_Identifiability,
     `QLF_CensusShannon,
     `QLF_BornProbability,
-    `QLF_AlphaRigidity
+    `QLF_AlphaRigidity,
+    `QLF_Reconstruction
   ]
