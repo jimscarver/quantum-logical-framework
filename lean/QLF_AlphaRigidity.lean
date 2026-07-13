@@ -182,10 +182,12 @@ the rendering dimension** — `137 − 128 = 9 = 3²`, so measuring α is, in QL
 What survives of the modal content is **brittleness, not choice**: `alpha_unique` quantifies over
 *counterfactual* dimensions and shows **zero slack** — a 4-D rendering would force `α⁻¹ = 144`, full
 stop. The dimension and α sectors are **locked**: nothing can perturb one without the other (a standing
-conditional prediction, falsifiable in principle in a way "137 fits" never was). *Outstanding check, so
-"forced" stays honest:* `d = 3` is settled at the **counting** layer (the split); the **mechanism**-layer
-test — the swap-graph growth exponent (issue #62) — is pending. Until it lands at 3, "forced" means
-"forced by the split combinatorics, mechanism check pending."
+conditional prediction, falsifiable in principle in a way "137 fits" never was). *The two-layer check,
+now both landed:* `d = 3` is settled at the **counting** layer (the split), and the **mechanism**-layer
+test — the swap-graph growth exponent (issue #62) — now **also lands at 3**: the receipt-quotient
+(the atom-latched coincidence receipts) has growth dimension = the axis-pair count = 3 for the 8-twist
+alphabet (`pointer_swap_fuzz.py`), so `d = 3` is evidenced at *both* independent layers. The remaining
+residual is the posited atomic-integration→axis-winding map (`Pointer_Swap_Fuzz.md`), not the exponent.
 -/
 
 /-- The α⁻¹ construction: the bare inverse `128 = 2⁷` (selectivity product, one substrate sector) plus
@@ -294,10 +296,10 @@ grammar excludes nothing, so all rigidity lives in the template. `prime_below_15
 `inverseAlpha_fifteen_prime`: the elementarity sector *agrees* at the joint but does not *select* it
 (`353` is prime too) — the sectors overdetermine jointly.
 
-**Honest scope:** `d = 3` is forced at the *counting* layer (the split); the *mechanism*-layer check
-(the swap-graph growth exponent, issue #62) is pending — so "forced" = "by the split combinatorics,
-mechanism check pending". The full free-`Expr`-grammar enumeration + census `N(d)` (issue #116) is the
-remaining residual.
+**Honest scope:** `d = 3` is evidenced at *both* layers — the *counting* layer (the 6+2 split) and the
+*mechanism* layer (the receipt-quotient growth dimension = axis-pair count = 3, `pointer_swap_fuzz.py`,
+issue #62), the residual there being the posited atomic-integration map. The full free-`Expr`-grammar
+enumeration + census `N(d)` (issue #116) is the remaining residual on the rigidity side.
 -/
 
 end QLF.AlphaRigidity
