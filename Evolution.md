@@ -48,7 +48,56 @@ physics needs none — selection *is* closure. The naïve phrasing "possibility 
 niche" and the QLF phrasing use the same three words; the causal arrow is reversed, and the arrow is the
 whole content.
 
-## 3. Generate-and-select is census-and-closure
+## 3. Why a possible niche can stay unfilled — possibility is not realization
+
+The immediate objection to a possibilist reading: if every genotype pre-exists as pure possibility, and a
+niche is just a possible closure, why is any niche ever *empty*? If possibilism filled every niche
+automatically, "selection" would select nothing and this whole page would be a tautology. It does not,
+and the reason is the load-bearing distinction of the framework: **possibilism is a claim about the
+possibility space; "filling a niche" is a claim about realization** — and ZFA-**plus-reachability** is the
+entire gap between them. Three tiers, straight off the firebreak census:
+
+1. **Generated** — all possibility. Every configuration exists a priori (`expand_generation`, `4ⁿ`).
+2. **Closing** — the ZFA-balanced subset, realizable *in principle* (`C(2n,n)`). The firebreak
+   `4ⁿ − C(2n,n)` is generated but never closes (`not_all_paths_close`).
+3. **Reached** — actual: the closures in *this* history's future cone, path-dependent
+   (`reachable A B := A <+: B`, [`QLF_ReachableEvent`](lean/QLF_ReachableEvent.lean)).
+
+A "possible niche" is a would-be closure, and it stays unfilled in one of two categorically different
+ways, then three resource ways:
+
+- **It is not actually a closure** (tier 1, not tier 2). The configuration is describable but no
+  ZFA-balanced history instantiates it — a firebreak pseudo-niche. This is the *consistency ≠
+  realizability* line ([`QLF_Realizability`](lean/QLF_Realizability.lean)): "unfilled" is the wrong word,
+  it is *unrealizable*. Most imaginable "perfect organisms" live here.
+- **It is a genuine closure but unreachable** (tier 2, not tier 3) — the dominant case, and the whole
+  answer to how possibilism leaves a niche open. Realization is not teleportation into the possibility
+  space; it is a **connected walk** through it, each step of which must itself close (be viable). The
+  filled-niche closure exists as a possible world; the actual world is one connected ZFA-walk that may
+  never pass through it. This is Lewis's actual/possible distinction made computable — all worlds real as
+  possibility, one indexical actual history — and biologically it is Maynard Smith's protein space: the
+  functional sequence exists, but no path of viable single-step intermediates connects the present
+  population to it (fitness valleys, epistatic traps). *You can't get there from here* is a first-class
+  constraint, not a failure of possibility.
+- **Excluded / occupied** (Pauli + horizon-relativity): the closure horizon admits no second identical
+  closure ([`QLF_HorizonClosure`](lean/QLF_HorizonClosure.lean), `like_spin_excludes`) — an incumbent
+  holds the niche. Competitive exclusion.
+- **Unaffordable** (no-free-duplication): instantiating a new distinguishable closure costs the
+  distinguishing bit, `ΔF = −log 2` ([`QLF_NoFreeDuplication`](lean/QLF_NoFreeDuplication.lean),
+  Landauer). If the free energy / distinguishability is not available there, a reachable, empty niche
+  still stays open.
+- **Untimely** (the synthesized-time arrow): the niche is not a static target — the closure horizon *is*
+  a moving realized configuration, so the environment defining a niche can dissolve before any history
+  closes into it. Extinction of opportunity.
+
+The payoff is the anti-teleology point (§2) stated the right way round: **an unfilled niche is never a
+failure of possibility to "reach."** Possibility does not reach; there is no arrow from the niche back to
+the variant. A niche is open exactly when no *actual, reachable, affordable, timely, genuinely-closing*
+history satisfies the condition — with zero tension against possibilism, which only ever promised
+existence-as-possibility. The tier-2-vs-tier-3 gap is what makes generate-and-select non-vacuous rather
+than a tautology.
+
+## 4. Generate-and-select is census-and-closure
 
 The map is not an analogy loosely drawn — it is the `QLF_Firebreak` census moved from path space to
 genotype space, term for term:
@@ -66,7 +115,7 @@ carries from phase strings to genotypes is not decoration — it is the universa
 out: one closure principle, different tokens. Evolution is what ZFA generate-and-select looks like when
 the tokens are heritable.
 
-## 4. The generate step is quantum — so ZFA causality reaches into evolution
+## 5. The generate step is quantum — so ZFA causality reaches into evolution
 
 Here is the substance behind "quantum-logical causality is behind evolution," and it is stronger than a
 metaphor.
@@ -93,7 +142,7 @@ produces the structured possibility; the niche admits. Neither step is teleologi
 is not a caveat but the design: ZFA drives evolution without ever needing to aim it, exactly as it drives
 everything else.
 
-## 5. Honest scope
+## 6. Honest scope
 
 - **QLF supplies the structure, not a biological constant.** It states that evolution *is* ZFA
   generate-and-select and that the generate step is quantum-substrate; it does not derive a mutation rate
