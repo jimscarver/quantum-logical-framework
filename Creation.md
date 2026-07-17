@@ -36,7 +36,9 @@ knows a priori.** The catalog of everything that can exist is just the exhaustiv
 to close a history ([`Primordial_Entanglement.md`](Primordial_Entanglement.md) §2). Creation does not
 search possibility space and then build; possibility space *is* already there, and the ZFA-balanced members
 of it are, by that fact alone, actual. Filling a niche costs no deliberation. It is filled *because it is
-possible*.
+possible*. (This is the timeless possibility-space register; *within any one actual, reachable history*
+a niche can still stand open — reachability, exclusion, and cost constrain which possibilities a given
+walk realizes. See [`Evolution.md`](Evolution.md) §3.)
 
 ## 3. Creation is the separation of nothing into conjugates
 
@@ -165,6 +167,15 @@ closures: matter, time, space, and mind are all the same move — nothing separa
 that cancel, read by a local perspective. **The magic of the quantum is the magic of ZFA.** There is no
 maker outside doing the arranging; the arrangement is what "adds to nothing" already permits, and creation
 is the standing fact that everything permitted, is.
+
+One register distinction keeps this precise. "Fills every niche" is the claim of the **timeless
+possibility space**: every ZFA-balanced closure exists as a realized possibility by the fact of being
+permitted. It is *not* the claim that every niche is occupied inside a single **actual history** —
+realization there is a connected, resource-bounded, one-way walk through possibility space, so a niche can
+stand open because the filling closure is unreachable from where the walk is, is excluded by an incumbent,
+is unaffordable, or came too late. That gap between *possible* and *realized-here* is exactly what makes
+selection (and evolution) non-vacuous; it is worked out as three tiers and five constraints in
+[`Evolution.md`](Evolution.md) §3.
 
 ---
 
