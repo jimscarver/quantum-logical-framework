@@ -147,7 +147,7 @@ QLF is the mathematics that has **active inference built into its foundation**. 
 - [**Philosophy.md**](Philosophy.md) — the possibilist foundation of QLF, Zero Free Action, local time synthesis, active inference, holography, the critique of ZFC-style infinity, and (§9) dialectical closure (Aufhebung = cancel/preserve/lift)
 - [**Related_Frameworks.md**](Related_Frameworks.md) — where ZFA sits among the neighbors: Part I the selection-principle rivals to differentiate from (Friston FEP, Fredkin/'t Hooft/Wolfram, constructor theory, …), Part II the mathematics of information QLF builds *on* (Shannon, Kolmogorov–Chaitin AIT, quantum information, semantic information) — foundation under the measure stack, not a rival to it
 - [**Creation.md**](Creation.md) — the QLF ontology of creation: *nothing comes from nothing* (ZFA enforces it, ℒ = 0 as the condition of origin); everything possible exists *a priori*; a closure is a synthesis of matter and antimatter (the proton = the right/left-handed synthesis, "an abstraction of what adds to nothing which has become actual"); time, space, and energy emerge per event; creation fills every niche just because it is possible — it knows a priori
-- [**TheBigProblem.md**](TheBigProblem.md) — how QLF addresses the measurement problem, entanglement, spacetime, time, and consciousness
+- [**Evolution.md**](Evolution.md) — biological evolution as ZFA generate-and-select (census-and-closure on genotype space) [structural reading]: genomics has been converging on structured, non-uniform variation (the biological image of the firebreak); the *generate* step is quantum → ZFA (proton tunnelling in DNA, Löwdin / Slocombe–Al-Khalili), so quantum-logical causality is the substrate evolution runs on; anti-teleology by construction (closure is a filter, not a goal — directed mutation refuted and never needed). §3 answers *how a possible niche can stay unfilled* — the three tiers (generated / closing / reached) and five constraints that make the possibility-vs-realization gap non-vacuous. Qualifies [`Creation.md`](Creation.md)'s "creation fills every niche": true in the timeless possibility register, constrained by reachability in any actual history
 - [**TheQuantumBrain.md**](TheQuantumBrain.md) — the quantum brain in QLF: frequency-isolated, error-corrected, active-inference coherence as the mechanism of savant cognition; numbers/primes/pitch/calendar as resonant access to the pre-existing logical landscape, not computation
 - [**GodCreatedTheIntegers.md**](GodCreatedTheIntegers.md) — a broad framing of QLF in relation to Kronecker, Leibniz, Newton, Einstein, Mach, Noether, Faraday, Wheeler, Shannon, Feynman, Bohm, Schrödinger, Bell, Planck, Gödel, Turing, Penrose, Mead, Cramer, Everett, Zuse, Wolfram, ’t Hooft, Hofstadter, Hawking, and Susskind
 - [**SEX.md**](SEX.md) — higher-order closure through complementary specialists: the modelled proton♂/neutron♀ pairing ([`proton_neutron_demo.py`](proton_neutron_demo.py)) — `pn` binds where `pp`/`nn` are Pauli-blocked, and the bond *stabilizes* the otherwise-decaying neutron — scaling to the collective-intelligence factor and quantum-os room best practices
@@ -501,6 +501,10 @@ lake build
 ### If you care most about consciousness and cognition
 
 [TheBigProblem.md](TheBigProblem.md) → [Hierarchical_Control.md](Hierarchical_Control.md) → [Frequency_Synchronization.md](Frequency_Synchronization.md) → [TheQuantumBrain.md](TheQuantumBrain.md)
+
+### If you care most about life, evolution, and biology
+
+[Creation.md](Creation.md) → [Evolution.md](Evolution.md) → [CP-Violation-and-Chirality.md](CP-Violation-and-Chirality.md) → [Active_Inference_Mathematics.md](Active_Inference_Mathematics.md)
 
 ---
 
