@@ -32,7 +32,16 @@ outcome are ordinary **multiple realizability** — expected, not a counterexamp
 the one ZFA invariant. So "ZFA is correct" means the forced *fixed point* every coherent computation
 lands on, not a unique substrate machine; the reconstruction target's "isomorphic **to** ZFA" carries
 exactly this (invariant forced up to realization; `comparison_isomorphism` the local proven instance,
-`Completeness_Evidence.md` §0). Its defeaters are axion detection, α drift, an exhaustive 0νββ null, and
+`Completeness_Evidence.md` §0). **The reconstruction target has narrowed substantially** (§6a–§6c): the
+*emergence forcing chain* (`QLF_EmergenceChain`) shows the ZFA invariant emerges from the one premise
+(discreteness forced → balanced closure folds to the μ₄ algebra); the *five postulates collapse into
+one-and-a-half* (`QLF_PostulateReduction`) — finite-capacity, closure-as-receipt, and reversible/
+irreversible all reduce to the one postulate, leaving orthomodularity the residue; and that residue
+*narrows too* to **(a1) the dagger is a proper involution — now machine-checked** (`QLF_ProperInvolution`,
+`substrate_dagger_proper`) **+ (a2) the projection-lattice identification + the Baer-`*`-ring bridge**
+(settled math Mathlib lacks) **+ (b) the Gleason-hard uniqueness**. So the target is no longer "five
+independent postulates → ZFA" but **"the one postulate + two named settled-math bridges + the Gleason
+uniqueness"**, with the substrate-side facts proven. Its defeaters are axion detection, α drift, an exhaustive 0νββ null, and
 a QRNG deviation (gravity is emergent, so it cannot be a hidden influence —
 [`Beyond_Standard_Model.md`](Beyond_Standard_Model.md) §3b). So these are the
 *calculational frontier* of a complete foundation, the same way "derive the proton mass from QCD" is
