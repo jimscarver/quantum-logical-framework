@@ -19,6 +19,10 @@ no new axioms.
 
 namespace QLF.ProperInvolution
 
+-- ℂ has no *global* order; the `StarOrderedRing ℂ` / `PartialOrder ℂ` instances the
+-- positive-definiteness lemma needs live behind the `ComplexOrder` scope.
+open scoped ComplexOrder
+
 /-- **The substrate dagger is a proper involution.** On the complex matrices carrying the substrate
     state, `Mᴴ * M = 0 ⟹ M = 0` — positive-definiteness of the inner product. The property from which
     orthomodularity follows via the projection-lattice theorem (`Completeness_Evidence.md` §6c). -/
