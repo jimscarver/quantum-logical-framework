@@ -13,15 +13,26 @@ precision) by collecting the *forward* work in one place.
 
 **What "open" means here (issue [#78](https://github.com/jimscarver/quantum-logical-framework/issues/78)).**
 🔵/🟣 "open" means **a value not yet calculated / a rendering not yet formalized — work requiring
-deeper investigation**, *not* a hole where the theory could be wrong. QLF's ontology is **sufficient**,
-and its *exclusivity* is a published conjecture with named defeaters — the full ledger, typed by
+deeper investigation**, *not* a hole where the theory could be wrong. QLF's ontology is **sufficient** —
+the load-bearing posture is a **single premise**: in a possibilist, logically-consistent (`RCA₀`)
+substrate, **Zero Free Action accounts for every terminating computation** — all possible logical Turing
+machines, quantum computations, and formal languages are ZFA strings that survive the closure filter
+([`qlf_universality`](lean/QLF_Universality.lean), the proven *sufficiency* pillar; the filter is
+Church–Turing complete, a selection principle that discards no computable physics, not a restriction).
+Its *exclusivity* is a published conjecture with named defeaters — the full ledger, typed by
 evidential strength with the misses beside the hits, is [`Completeness_Evidence.md`](Completeness_Evidence.md).
 Sufficiency is supported by parameter-free overdetermination (§3 there) and confirmed exclusions (§4c);
 Bell/KS/PBR exclude *added* local, non-contextual, and ψ-epistemic ingredients (Bohm/Everett survive as
 exact reconstructions); error-corrected QC at scale progressively excludes the deviation class
 (GRW/CSL/Penrose); among the surviving exact reconstructions ZFA is distinguished by parsimony and
 constants overdetermination. Exclusivity is conjectured pending the reconstruction theorem
-(`Completeness_Evidence.md` §6); its defeaters are axion detection, α drift, an exhaustive 0νββ null, and
+(`Completeness_Evidence.md` §6), and it is **invariant-uniqueness, not machine-uniqueness**: the
+infinitely many Turing machines, quantum computations, and languages that yield the *same* ZFA-closed
+outcome are ordinary **multiple realizability** — expected, not a counterexample — and they *converge on*
+the one ZFA invariant. So "ZFA is correct" means the forced *fixed point* every coherent computation
+lands on, not a unique substrate machine; the reconstruction target's "isomorphic **to** ZFA" carries
+exactly this (invariant forced up to realization; `comparison_isomorphism` the local proven instance,
+`Completeness_Evidence.md` §0). Its defeaters are axion detection, α drift, an exhaustive 0νββ null, and
 a QRNG deviation (gravity is emergent, so it cannot be a hidden influence —
 [`Beyond_Standard_Model.md`](Beyond_Standard_Model.md) §3b). So these are the
 *calculational frontier* of a complete foundation, the same way "derive the proton mass from QCD" is
