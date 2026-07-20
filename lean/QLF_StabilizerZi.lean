@@ -41,32 +41,32 @@ def sqrt2H : Matrix (Fin 2) (Fin 2) Zi := !![1, 1; 1, -1]
 
 /-- `X² = I`. -/
 theorem pauliX_sq : pauliX * pauliX = !![1, 0; 0, 1] := by
-  ext i j; fin_cases i <;> fin_cases j <;>
+  apply Matrix.ext; intro i j; fin_cases i <;> fin_cases j <;>
     simp [pauliX, Matrix.mul_apply, Fin.sum_univ_two] <;> decide
 
 /-- `Y² = I` (uses `i ∈ ℤ[i]`). -/
 theorem pauliY_sq : pauliY * pauliY = !![1, 0; 0, 1] := by
-  ext i j; fin_cases i <;> fin_cases j <;>
+  apply Matrix.ext; intro i j; fin_cases i <;> fin_cases j <;>
     simp [pauliY, gI, Matrix.mul_apply, Fin.sum_univ_two] <;> decide
 
 /-- `Z² = I`. -/
 theorem pauliZ_sq : pauliZ * pauliZ = !![1, 0; 0, 1] := by
-  ext i j; fin_cases i <;> fin_cases j <;>
+  apply Matrix.ext; intro i j; fin_cases i <;> fin_cases j <;>
     simp [pauliZ, Matrix.mul_apply, Fin.sum_univ_two] <;> decide
 
 /-- `S² = Z` — the phase gate squares to Pauli-`Z`, exact over `ℤ[i]`. -/
 theorem sGate_sq : sGate * sGate = pauliZ := by
-  ext i j; fin_cases i <;> fin_cases j <;>
+  apply Matrix.ext; intro i j; fin_cases i <;> fin_cases j <;>
     simp [sGate, pauliZ, gI, Matrix.mul_apply, Fin.sum_univ_two] <;> decide
 
 /-- `(√2·H)² = 2·I` — Hadamard is an involution up to the global `√2² = 2`. -/
 theorem sqrt2H_sq : sqrt2H * sqrt2H = !![2, 0; 0, 2] := by
-  ext i j; fin_cases i <;> fin_cases j <;>
+  apply Matrix.ext; intro i j; fin_cases i <;> fin_cases j <;>
     simp [sqrt2H, Matrix.mul_apply, Fin.sum_univ_two] <;> decide
 
 /-- `(√2·H)·X·(√2·H) = 2·Z` — the Clifford relation `HXH = Z`, exact over `ℤ[i]` up to the global `2`. -/
 theorem hadamard_conjugates_X_to_Z : sqrt2H * pauliX * sqrt2H = !![2, 0; 0, -2] := by
-  ext i j; fin_cases i <;> fin_cases j <;>
+  apply Matrix.ext; intro i j; fin_cases i <;> fin_cases j <;>
     simp [sqrt2H, pauliX, Matrix.mul_apply, Fin.sum_univ_two] <;> decide
 
 /-- **Status — the integer skeleton is closed.** The Clifford generators live over `ℤ[i]`
