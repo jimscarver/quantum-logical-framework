@@ -122,8 +122,9 @@ inductive EventStep : Type
 def extendTowardZFA (pfx : History) (possibleTwists : List Twist) : List History :=
   possibleTwists.map (fun t => pfx ++ [t])
 
-instance : DecidablePred isZFAClosed := fun h =>
-  Fintype.decidableForallFintype
+instance : DecidablePred isZFAClosed := fun h => by
+  unfold isZFAClosed
+  infer_instance
 
 -- Simplest dynamics: one-step extension + closure check (BFS can be simulated)
 def generateNextEvents (current : History) : List ZFAEvent :=

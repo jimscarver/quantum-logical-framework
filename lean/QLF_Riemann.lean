@@ -225,7 +225,7 @@ private lemma expand_generation_filter_pos_count (k p : ℕ) :
       -- avoid decide-matching issues by using split_ifs directly
       simp only [Nat.choose_zero_succ]
       split_ifs with h
-      · rw [decide_eq_true_eq] at h; push_cast at h; omega
+      · have h' := of_decide_eq_true h; omega
       · rfl
   | succ k ih =>
     simp only [expand_generation]
