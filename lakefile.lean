@@ -150,5 +150,6 @@ lean_lib QLF where
     `QLF_CensusShannon,
     `QLF_BornProbability,
     `QLF_AlphaRigidity,
-    `QLF_Reconstruction
+    `QLF_Reconstruction,
+    `QLF_EmergenceChain
   ]
