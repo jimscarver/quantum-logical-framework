@@ -71,7 +71,37 @@ which-history.** Time and irreversibility are born in the same event — which i
 reversible you would need to go back in time": the time *and* the loss are the same closure, so undoing
 the loss means undoing the time, and there is nothing to undo it in.
 
-## 5. The payoff — time-reversal symmetry **is** the critical line
+## 5. Possibility is symmetric; the reachable walk is one-way
+
+§4 located the arrow at the **count** level — forward closure is many-to-one. There is a second,
+independent anchor at the **order** level, and it is the same arrow seen structurally: realization is a
+*directed walk* through possibility space. Three tiers ([`Evolution.md`](Evolution.md) §3):
+
+- **generated** — all possibility (`expand_generation`, `4ⁿ`);
+- **closing** — the ZFA-balanced subset (`C(2n,n)`), the **timeless algebra where the dagger involution
+  of §1–§2 lives** — symmetric, no forward/backward;
+- **reached** — actual: the closures in *this* history's future cone (`futureCone_subset`).
+
+The reachability relation `reachable A B := A <+: B` (one closure is a *prefix-extension* of another,
+[`QLF_ReachableEvent`](lean/QLF_ReachableEvent.lean)) is a **partial order** — reflexive, transitive, and
+**antisymmetric** (`reachable_antisymm`). Antisymmetry *is* the no-going-back at the order level: if `A`
+reaches `B` and `B` reaches `A` then `A = B`, so the walk never returns to a strictly earlier closure. So
+the reversible-logic / irreversible-process split of §3 restates order-theoretically:
+
+> **Tier 2 (possibility) is reversible** — the full ZFA space carries the order-2 `H ↔ H†` involution,
+> nothing in it distinguishes forward from backward. **Tier 3 (realization) is a monotone climb** — the
+> actual history extends forward in the reachability order and *only* forward (`reachable_antisymm`); the
+> passage from tier 2 into tier 3 is one-way.
+
+This is a *distinct* structural anchor from §4's non-injectivity: **non-injectivity (count)** says you
+cannot retrodict *which* history closed; **antisymmetry (order)** says you cannot un-reach the closures
+you have climbed through. Neither is a fine-tuned past condition — both are properties of the closure
+walk itself. (The [`Evolution.md`](Evolution.md) §3 reading — a *possible* niche left unfilled because it
+is unreachable from where the actual history stands — is exactly this tier-2-vs-tier-3 gap in the
+biological register: the closure exists in symmetric tier-2 possibility, but the one-way tier-3 walk never
+climbs to it.)
+
+## 6. The payoff — time-reversal symmetry **is** the critical line
 
 The `H ↔ H†` involution of §1–§2 is the *same* involution behind QLF's
 [Riemann program](README.md): its fixed points are the Hermitian (real-eigenvalue) closures, which is the
@@ -85,7 +115,7 @@ Physical reality is selected as the **self-adjoint = time-reversal-fixed** subse
 selection is the same `H ↔ H†` whose fixed line carries the Riemann zeros. Time-reversal symmetry, the
 reality of energies, and the critical line are **one** involution.
 
-## 6. Are reversible theories wrong? — *half-right*
+## 7. Are reversible theories wrong? — *half-right*
 
 Not wholesale. Reversibility is a **real** symmetry of the QLF laws (the dagger; every closure `H = H†`),
 so a reversible theory has the **law-level algebra right**. It goes wrong only when it treats that as the
@@ -123,7 +153,7 @@ irreversible-measurement split of real quantum computing. "Everything can be rev
 claim QLF denies: you can *postpone* the bit, but to **have** a definite world you must close, and closing
 costs `log 2` and one tick of time.
 
-## 7. What we can say, if the universe is quantum logical
+## 8. What we can say, if the universe is quantum logical
 
 The second law, decoherence, measurement-without-collapse, and the arrow of time are **one thing** — the
 forward, many-to-one, bit-synthesizing direction of ZFA closure, in a time it makes itself. The universe is
@@ -152,6 +182,7 @@ conservation has mistaken the present-local balance of the closure for the whole
 | every closure's mode is Hermitian | `toSpectralMode_hermitian` (`QLF_Spectral`) |
 | **balanced ⟺ `H = H†`** (self-time-reverse) | `spectral_symmetric_eq_scalar_id` (`QLF_Spectral`) |
 | forward closure is many-to-one (`C(2n,n)` histories → 1) | `disjunct_count_eq_central_binomial` (`QLF_InfoSynthesis`) |
+| reachability is an antisymmetric partial order (no un-reaching) | `reachable_antisymm`, `futureCone_subset` (`QLF_ReachableEvent`) |
 | each closure synthesizes one bit `ΔF = −log 2` | `zfa_closure_minimizes_free_energy` (`QLF_FreeEnergy`) |
 | time is synthesized, `f = 1/t` | `ZFAEventDynamics` |
 | `H = H†` fixed points = the critical line | `spectral_hilbert_polya` (`QLF_Riemann`), `functional_equation_fixed_real` |
