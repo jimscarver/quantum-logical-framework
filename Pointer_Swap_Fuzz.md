@@ -140,7 +140,7 @@ The growth dimension is **exactly `d`, stably** — independent of closure size 
 ## References
 
 ### Internal
-- [`genesis.py`](genesis.py) §4b — the finite-size extrapolation ladder showing the raw binary swap-graph exponent **diverges** (does not converge to 3), quantifying the "drifts with string length" caveat; and (§2) the exact `−p/2` census spectral exponent that counts conjugate pairs.
+- [`genesis.py`](genesis.py) §4b — the finite-size extrapolation ladder showing the raw binary swap-graph exponent **diverges** (does not converge to 3), quantifying the "drifts with string length" caveat; and (§2) the exact `−p/2` census spectral exponent that counts conjugate pairs. Full annotated sample run: [`Genesis.md`](Genesis.md).
 - [`Closure_Token_Basis.md`](Closure_Token_Basis.md) — the closure-token alphabet the Stage-4 swap graph is built over (#65); the two specs are composable.
 - [`SpaceTime.md`](SpaceTime.md) §3a — the counting layer (#42): why the faithful rendering of the closure graph is minimally 3D.
 - [`Spin_QLF.md`](Spin_QLF.md) §9 — the same pre-spatial discipline (process over closures, not motion in existing space).

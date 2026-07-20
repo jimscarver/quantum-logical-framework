@@ -123,6 +123,8 @@ at `−p/2`, so `p = 3` conjugate (spatial) pairs give slope `−3/2` (the `8`-t
          4        -1.9694          -2.0000     <- 8-twist / 4-pair
 ```
 
+The full annotated run (census, spectral exponent, octave hierarchy, swap-graph, `128 + d²`) is [`Genesis.md`](Genesis.md).
+
 ---
 
 ## 3. Which scale — the 3-D-rendered IR anchor
