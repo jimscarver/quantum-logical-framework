@@ -13,6 +13,8 @@
 
 Evidence for one is not automatically evidence for the other. Most of what follows supports sufficiency directly; exclusivity is supported only by the exclusion results (§4) and would be *established* only by the reconstruction theorem (§6), which does not yet exist. Conflating the two is the single most common overclaim in completeness arguments, and this ledger is structured to make it impossible.
 
+**Exclusivity is invariant-uniqueness, not implementation-uniqueness.** "ZFA is the *only* thing happening" (bullet 2) is a claim about the forced *correctness invariant* — the ZFA closure condition, the isomorphism class every coherent outcome lands on — **not** a claim that a unique substrate machine exists. Multiple realizability is expected and is *not* evidence against exclusivity: infinitely many machines, algorithms, and generative paths compute the same ZFA-closed outcomes (Turing equivalence), and they *converge on* the ZFA invariant — which is the claim, not a problem for it. So "ZFA is correct" reads as *the forced fixed point*, not *a chosen formalism among many*. This is exactly why the reconstruction target (§6) is phrased "isomorphic **to** ZFA": the invariant is forced up to realization. The local, already-proven instance of "many realizations, one invariant" is `comparison_isomorphism` ([`QLF_Motives`](lean/QLF_Motives.lean)) — all faithful Weil realizations agree because they render the one substrate object. This clarifies *what* exclusivity claims; it does not upgrade its status — invariant-uniqueness in general remains the §6 conjecture.
+
 ## 1. Evidence typology (strongest first)
 
 | Type | What it establishes | Ceiling |

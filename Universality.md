@@ -33,6 +33,8 @@ This universality shows that QLF is universal in the only sense that matters for
 
 This resolves the ultraviolet catastrophe of mathematics: there is no runaway recursion, no Busy Beaver explosion, no unprovable truths hidden in the limit. Only finite, terminating, ZFA-closed logical structures persist.
 
+Universality also *predicts* multiple realizability, and this matters for how the exclusivity question (above, §"Completeness note") should be read. Infinitely many machines, algorithms, and generative paths render the **same** ZFA-closed outcomes — the ordinary Turing-equivalence fact that many implementations compute one function. So **what is universal is the invariant, not the implementation.** "ZFA is correct" means it is the forced *fixed point* that coherent computation lands on — not a unique substrate machine, and not one formalism chosen from a menu. Read this way, "infinitely many machines give the same outcome" is not an objection to exclusivity but its expected shape: exclusivity is invariant-uniqueness (the closure condition every coherent outcome satisfies), which is precisely why the reconstruction target is phrased "isomorphic *to* ZFA" — forced up to realization ([`Completeness_Evidence.md`](Completeness_Evidence.md) §0; local proven instance `comparison_isomorphism`).
+
 Thus QLF achieves a Neo-Platonist universality: the One (the uniform QuCalc algebra of distinctions) generates the Many (all terminating computations) without ever losing coherence or introducing paradoxes.
 
 ### Formal Lean Proof
