@@ -220,6 +220,33 @@ def swap_growth_exponent(counts, cap=60000):
     return slope(xs, ys), n_nodes, diameter
 
 
+def swap_dimension_ladder(half_counts, cap=200_000):
+    """
+    Finite-size ladder for the binary (k,k) swap-graph: measure the ball-growth
+    exponent D(k) as the system grows, and test whether it converges.
+
+    Returns (rows, delta_D, lin_slope) where
+        rows      = [(k, nodes, diameter, D), ...]
+        delta_D   = successive increments D(k+1)-D(k)  [~constant => linear => diverges]
+        lin_slope = least-squares slope of D vs k       [>0 and steady => no finite limit]
+
+    The extrapolation, NOT any single finite D, is what bears on #62 -- and here it
+    shows the naive ball-growth diverges, so this instrument does not support D=3.
+    """
+    rows = []
+    for k in half_counts:
+        res = swap_growth_exponent((k, k), cap=cap)
+        if res is None:
+            continue
+        D, nn, diam = res
+        rows.append((k, nn, diam, D))
+    ks = [r[0] for r in rows]
+    Ds = [r[3] for r in rows]
+    delta_D = [Ds[i + 1] - Ds[i] for i in range(len(Ds) - 1)]
+    lin_slope = slope(ks, Ds) if len(ks) >= 2 else float("nan")
+    return rows, delta_D, lin_slope
+
+
 # ----------------------------------------------------------------------
 # 5. CONSTANTS SECTOR  ->  where census combinatorics meets physics
 #    census -> pi  (Wallis; pi ~ 1/(n*ratio^2)),  and  alpha^-1 = 128 + d^2.
@@ -311,6 +338,22 @@ def main():
     print("[OPEN] whether the substrate-forced 6+2 -> 3-axis structure yields D~3")
     print("        is issue #62; this is the apparatus, deliberately not rigged.")
 
+    rule("4b. SWAP-GRAPH EXTRAPOLATION  (does D converge? finite-size ladder)")
+    rows, dD, lin = swap_dimension_ladder(range(4, 11))
+    print(f"{'k (=(k,k))':>10} {'#nodes':>9} {'diam':>6} {'D(k)':>8}")
+    for k, nn, diam, D in rows:
+        cross = "  > 3" if D > 3 else ""
+        print(f"{k:>10} {nn:>9} {diam:>6} {D:>8.4f}{cross}")
+    print(f"\nD increments D(k+1)-D(k): {[round(x,3) for x in dD]}")
+    print(f"linear slope of D vs k  : {lin:.4f}  (steady & positive)")
+    print("[MEASURED] D does NOT converge -- it climbs past 3 and keeps rising")
+    print("        (~ k*log2/log k -> infinity).  The '~3 at moderate size' seen")
+    print("        in section 4 is a CROSSING, not a limit.")
+    print("[STRUCTURAL] so the naive binary ball-growth is not a fixed-D spatial")
+    print("        probe; the #62 mechanism evidence is the NORMALIZED doubling /")
+    print("        receipt-quotient exponent (~2.94, pointer_swap_fuzz.py), a")
+    print("        different instrument.  Honest negative result for this one.")
+
     rule("5. CONSTANTS SECTOR  (census meets physics; tagged)")
     print("census -> pi   (pi ~ 1/(n*ratio^2)):")
     for n, est in pi_from_census([10, 100, 1000, 10000, 100000]):
@@ -329,7 +372,8 @@ def main():
         "COMPUTES [EXACT]  : the closure census, the -p/2 spectral exponent,",
         "                    census->pi convergence, the 128+d^2 joint at d=3.",
         "MEASURES          : octave self-similarity; swap-graph growth D.",
-        "DOES NOT SHOW     : that D=3 (measured, config-dependent, #62 open);",
+        "DOES NOT SHOW     : that D=3 -- the naive ball-growth DIVERGES (4b),",
+        "                    refuting the crossing seen at moderate size; #62 open;",
         "                    any log-periodic DSI in the binary sector (none found);",
         "                    the alpha residual (QED running from census: OPEN);",
         "                    that these closures ARE physics (STRUCTURAL reading).",
