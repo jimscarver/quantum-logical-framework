@@ -152,5 +152,6 @@ lean_lib QLF where
     `QLF_AlphaRigidity,
     `QLF_Reconstruction,
     `QLF_EmergenceChain,
-    `QLF_PostulateReduction
+    `QLF_PostulateReduction,
+    `QLF_ProperInvolution
   ]
