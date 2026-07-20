@@ -86,7 +86,7 @@ def History.hermitian : History → History :=
 
 /-! # Free Action = Imbalance Vector (exact match to qucalc_engine.py) -/
 
-def Imbalance := Fin 8 → Nat   -- index order: ^ v < > / \ + -
+abbrev Imbalance := Fin 8 → Nat   -- index order: ^ v < > / \ + -  (abbrev: transparent to typeclass inference, gotcha #3)
 
 def computeImbalance (h : History) : Imbalance :=
   fun i =>
