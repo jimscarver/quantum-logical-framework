@@ -147,6 +147,22 @@ Separately from the postulates→ZFA *uniqueness* wing (§6 proper), there is a 
 
 **The retarget (why this changes the §6 goal).** Under the invariant-vs-machine framing (§0), "ZFA *will* emerge in a possibilist logical realm" should mean *the closure **invariant** is forced* — not *the 8-twist **machine** is the unique substrate*. Those are different bars: the invariant sits at the end of the mostly-proven chain above, whereas machine-uniqueness is neither proven nor, by multiple realizability, the right thing to demand (many alphabets realize one invariant; `comparison_isomorphism` the proven local instance). So the reconstruction goal (§6) is properly stated as **uniqueness of the invariant**, and `QLF_EmergenceChain` is its proven *necessary-condition* spine. **The open residue is exactly two hard steps:** *why this alphabet* (the 8-twist / 6+2 split as forced — [#116](https://github.com/jimscarver/quantum-logical-framework/issues/116), α-rigidity) and the **Gleason-hard uniqueness** of §6 (dim ≥ 3, non-distributive orthomodular). The chain does not close these; it shows the necessary conditions are met and names the residue precisely.
 
+### 6b. The five postulates collapse into the one postulate
+
+The §6 target is usually stated over **five** ZFA-free postulates — orthomodularity, finite information capacity, closure-as-receipt, reversible logic with irreversible realization, no-disconnection. But they are **not five independent axioms.** Read against the one postulate — *physical reality is the finite, self-consistent (closing) subset of logical possibility* — four of them reduce, leaving essentially **one-and-a-half**. Anchored (the two proven rungs) in [`QLF_PostulateReduction`](lean/QLF_PostulateReduction.lean):
+
+- **Finite information capacity — a *component* of the one postulate** (its "finite" clause), not independent; and it forces discreteness (`finite_capacity_forces_discreteness`, reusing `no_continuum_in_finite_region`). **Proven.**
+- **Closure-as-receipt — the *selection* clause restated** ("what is real is what closes"); definitional, not independent.
+- **Reversible logic with irreversible realization — DERIVED, not assumed.** The reverse is the *involutive* dagger (distinctions carry their conjugate ⟹ `H↔H†`) and the forward closure is *many-to-one* (`C(2n,n) ≥ 2` histories per closure): `reversible_logic_irreversible_realization` (reusing `time_reverse_involutive_but_closure_degenerate`, [`QLF_Reversibility`](lean/QLF_Reversibility.lean)). **Proven** — the one fully-derived rung.
+- **No-disconnection — *plausibly derivable*** from the relational nature of closure (a fully disconnected event closes with nothing, so it is never selected; `reachable`/`SharedClosure`, `QLF_ReachableEvent`). Stated, not yet a Lean theorem — the weakest of the reductions.
+- **Orthomodularity — the genuine residue, and half-free.** The *orthocomplement* comes for free from the dagger involution (the reversibility rung); only the orthomodular *law* (the specific weakening of distributivity, Birkhoff–von Neumann) is the Gleason-hard content the one postulate does not visibly force.
+
+So the reconstruction target collapses from "five postulates ⟹ ZFA" to
+
+> **the one postulate + the orthomodular law ⟹ ZFA (up to isomorphism)**
+
+with even the orthocomplement half of that supplied by the dagger. The honest open frontier is exactly two things: **(a) the orthomodular law** (why the closure lattice is orthomodular, not merely orthocomplemented) and **(b) the Gleason-hard uniqueness** (the §6 residue, `QLF_Reconstruction` has only the Boolean wing). **Honest scope:** this is a *reduction of the target*, not its closure — four postulates and a half evaporate into the one; the residue (a + b) is not derived. The tiering is real (two rungs proven, one definitional, one plausibly-derivable, orthomodularity the residue).
+
 ## 7. What this ledger licenses QLF to say
 
 - **Licensed now:** "ZFA is sufficient for all audited observations; overdetermines constants parameter-free; all added-ingredient and deviation-class rivals are experimentally excluded; among surviving exact reconstructions ZFA is uniquely parsimonious and uniquely predictive of constants; exclusivity is conjectured, its defeaters are published (§4c), and its proof target is specified (§6)."

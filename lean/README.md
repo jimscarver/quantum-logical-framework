@@ -1,7 +1,7 @@
 # Lean 4 Formalization — Quantum Logical Framework
 
 **Build:** `lake build` on Lean 4.30.0-rc2 + Mathlib  
-**Status:** CI passing, zero `sorry` blocks across all 142 active modules (the per-module table below trails the canonical index in [`../CLAUDE.md`](../CLAUDE.md); recent modules may be listed there first)
+**Status:** CI passing, zero `sorry` blocks across all 143 active modules (the per-module table below trails the canonical index in [`../CLAUDE.md`](../CLAUDE.md); recent modules may be listed there first)
 
 ## What This Formalization Proves
 
