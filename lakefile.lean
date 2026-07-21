@@ -155,5 +155,6 @@ lean_lib QLF where
     `QLF_PostulateReduction,
     `QLF_ProperInvolution,
     `QLF_StabilizerZi,
-    `QLF_CensusWalk
+    `QLF_CensusWalk,
+    `QLF_HarmonicClosure
   ]
