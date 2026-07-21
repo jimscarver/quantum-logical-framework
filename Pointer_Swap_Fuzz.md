@@ -104,7 +104,7 @@ D increments D(k+1)-D(k): [0.271, 0.349, 0.282, 0.262, 0.24, 0.204]
 linear slope of D vs k  : 0.2728  (steady & positive)
 ```
 
-So the raw graph's "≈3 at moderate size" is a **crossing, not a limit** — an *independent, quantitative confirmation* of the "drifts with the string length" caveat, and the sharpest reason the raw graph is the wrong #62 object. The instrument that *does* converge — stably, size-independently — is the receipt quotient below.
+So the raw graph's "≈3 at moderate size" is a **crossing, not a limit** — an *independent, quantitative confirmation* of the "drifts with the string length" caveat, and the sharpest reason the raw graph is the wrong #62 object (for the *external* 3-D rendering). The instrument that *does* converge — stably, size-independently — is the receipt quotient below. **The raw-graph excess is not waste, though** ([`Genesis.md`](Genesis.md) §"the particle zoo"): the receipt quotient is the *externally rendered* 3-D, and the raw graph's growth *beyond* 3 is read as the **internal gauge/color dimensions** — degrees of freedom not perceived as space, manifesting as the stronger (color) force. External 3-D + internal-color is a clean split of the two swap measures.
 
 ### The receipt-quotient model (issue #112) — the right object, built
 

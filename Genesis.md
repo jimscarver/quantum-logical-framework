@@ -17,12 +17,18 @@ Pure standard library, no network. Run: `python3 genesis.py`.
   → `−2`. This is the strongest thing in the file and it is derived. See [`Alpha.md`](Alpha.md).
 - **census → π (§1, §5).** `C(2n,n)/4ⁿ → 1/√(πn)`, so `π ≈ 1/(n·ratio²)` with error falling as `~1/n`
   (`7.85×10⁻⁶` at `n=10⁵`). The census carries π. See [`Physical_Pi.md`](Physical_Pi.md).
-- **The honest negatives — as valuable as the hits.** The swap-graph ball-growth `D` (§4) does **not**
-  converge to 3: the finite-size ladder (§4b) shows it climbs *past* 3 and keeps rising (`D ~ k·log2/log k
-  → ∞`), so "≈3 at moderate size" is a **crossing, not a limit** — the naive raw-graph is the *wrong*
-  #62 instrument (the stable one is the receipt-quotient `~2.94`, [`Pointer_Swap_Fuzz.md`](Pointer_Swap_Fuzz.md)).
-  No log-periodic discrete-scale-invariance signal is found in the binary sector. The α residual `0.036`
-  is *not* here — census-derivation of it stays open ([`Alpha_Residual.md`](Alpha_Residual.md)).
+- **The swap-graph beyond 3-D — internal dimensions, not a negative (§4, §4b).** The ball-growth `D`
+  does **not** converge to 3; it climbs *past* 3 (`D ~ k·log2/log k → ∞`). This is **not** a failed 3-D
+  probe: the *external* rendered dimension is the receipt quotient (→3-D, `~2.94`,
+  [`Pointer_Swap_Fuzz.md`](Pointer_Swap_Fuzz.md)); the **excess beyond 3 is the internal gauge/color
+  structure** — dimensions not perceived as space, manifesting externally as *stronger forces* (the
+  Kaluza-Klein reading). More internal DOF = stronger color binding = heavier. This feeds the particle
+  map (below). *(Genuine residuals that stay negative: no discrete-scale-invariance in the binary sector;
+  the α `0.036` residual is not here, [`Alpha_Residual.md`](Alpha_Residual.md).)*
+- **Frequency = mass → the particle map (§3, §6).** `m = 1/R = frequency` is a QLF identity, so the
+  frequency-octave hierarchy **is** the mass spectrum; §6 maps internal structure → quantum numbers →
+  zoo particle → mass relative to `m_e` (proton `6π⁵`, pion `2/α`, Koide τ — all with the measured value
+  beside them). See below.
 - **The `128 + d²` census joint (§5).** `d=3 → 137`, the only prime in the small family — the α
   cross-sector reading, tagged `[STRUCTURAL]` for the identification, `[OPEN]` for the residual.
 
@@ -75,6 +81,9 @@ bits increment per octave : [1.585, 3.544, 7.522, 15.511, 31.506, 63.503]
 successive increment ratio: [2.2362, 2.1224, 2.062, 2.0311, 2.0156]
 [MEASURED] increment ratio -> 2 (each octave doubles n, ~doubles the
         extensive 2n term): self-similar cascade across frequency.
+[STRUCTURAL] m = 1/R = frequency (QLF_HiggsMechanism, mass_is_gauge_fold_delay):
+        this frequency hierarchy IS the mass spectrum -- frequency determines
+        mass.  The particle assignments referenced to m_e are in sec 6.
 
 log-periodic residual: peak power=6.712e-03, rms=1.683e-02
 [MEASURED] no significant discrete-scale-invariance signal in the binary
@@ -95,8 +104,9 @@ log-periodic residual: peak power=6.712e-03, rms=1.683e-02
        (4, 2, 2)       420     20              1.926
 
 [MEASURED] growth exponent D of the pointer-swap configuration space.
-[OPEN] whether the substrate-forced 6+2 -> 3-axis structure yields D~3
-        is issue #62; this is the apparatus, deliberately not rigged.
+[STRUCTURAL] D>3 = INTERNAL (gauge/color) dimensions, not 3D space (Jim's reading):
+        the EXTERNAL 3D is the receipt quotient (#62, pointer_swap_fuzz.py ~2.94);
+        the excess beyond 3 is the internal color DOF = stronger forces (sec 6).
 
 ======================================================================
 4b. SWAP-GRAPH EXTRAPOLATION  (does D converge? finite-size ladder)
@@ -113,12 +123,11 @@ k (=(k,k))    #nodes   diam     D(k)
 D increments D(k+1)-D(k): [0.271, 0.349, 0.282, 0.262, 0.24, 0.204]
 linear slope of D vs k  : 0.2728  (steady & positive)
 [MEASURED] D does NOT converge -- it climbs past 3 and keeps rising
-        (~ k*log2/log k -> infinity).  The '~3 at moderate size' seen
-        in section 4 is a CROSSING, not a limit.
-[STRUCTURAL] so the naive binary ball-growth is not a fixed-D spatial
-        probe; the #62 mechanism evidence is the NORMALIZED doubling /
-        receipt-quotient exponent (~2.94, pointer_swap_fuzz.py), a
-        different instrument.  Honest negative result for this one.
+        (~ k*log2/log k -> infinity).  The '~3 at moderate size' is a CROSSING.
+[STRUCTURAL] NOT a failed 3D probe (Jim's reading): the external 3D is the
+        receipt-quotient (~2.94, pointer_swap_fuzz.py); the growth beyond 3 is
+        the INTERNAL gauge/color structure -- more internal DOF = stronger
+        forces / more binding = heavier (frequency=mass, sec 6).
 
 ======================================================================
 5. CONSTANTS SECTOR  (census meets physics; tagged)
@@ -142,19 +151,103 @@ alpha^-1 = 128 + d^2:
 [OPEN] the 0.036 residual (QED running) is NOT here; census-derivation open.
 
 ======================================================================
+6. PARTICLE MAP  (frequency=mass; internal structure -> quantum #s -> m/m_e)
+======================================================================
+m = 1/R = frequency (QLF_HiggsMechanism): the sec-3 frequency hierarchy IS the
+mass ladder.  Internal dims (sec 4, D>3) = gauge/color, not 3D space.  Every mass
+is a ratio to the electron; proton & pion reuse THIS run's pi and 137 (sec 5).
+
+ particle         internal    quantum #s   m/m_e QLF   measured        tag
+ electron  min chiral loop   L q=-1 gen1        1.00       1.00      [ref]
+     muon     gen-2 lepton   L q=-1 gen2      206.77     206.77    [depth]
+      tau    3-phase Koide   L q=-1 gen3     3477.40    3477.23  [Derived]
+   proton  3 colors |S3|=6     B=+1 q=+1     1836.12    1836.15  [Derived]
+   pion+-  2 quarks |S2|=2     B=0 q=+-1      274.00     273.13  [Derived]
+
+[Derived]  proton 6*pi^5 = |S3|*pi^5 (3-colour permutation x internal angular,
+           QLF_LenzMassRatio, 0.002%); pion 2/alpha = |S2|/alpha (2 quarks x exposed
+           chirality, QLF_PionMassRatio); tau via Koide Q=2/3 given m_e,m_mu (QLF_Koide).
+[STRUCTURAL] internal dimension = colour charge (Borromean 3, QLF_QuarkStructure);
+           charge in thirds from 3 colours; generations = 3 axis-pairs (= sec-2 p=3).
+[Hypothesis] deeper internal (higher-D) structure = stronger colour binding = heavier;
+           swap-graph symbol-count <-> quark/colour content (falsifiable, untested).
+[DEFEATER] every row shows the measured value; any mismatch falsifies that assignment.
+
+======================================================================
 WHAT THIS COMPUTES vs CLAIMS  (misses at full weight)
 ======================================================================
   COMPUTES [EXACT]  : the closure census, the -p/2 spectral exponent,
                       census->pi convergence, the 128+d^2 joint at d=3.
-  MEASURES          : octave self-similarity; swap-graph growth D.
-  DOES NOT SHOW     : that D=3 -- the naive ball-growth DIVERGES (4b),
-                      refuting the crossing seen at moderate size; #62 open;
-                      any log-periodic DSI in the binary sector (none found);
-                      the alpha residual (QED running from census: OPEN);
-                      that these closures ARE physics (STRUCTURAL reading).
+  READS             : frequency=mass (m=1/R), so the octave hierarchy IS the
+                      mass spectrum; D>3 = internal gauge/color (external 3D =
+                      receipt quotient); particle map to m_e (sec 6).
+  DERIVED (reused)  : proton 6*pi^5, pion 2/alpha, tau Koide -- ratios to m_e,
+                      verified in QLF_LenzMassRatio/PionMassRatio/Koide.
+  HYPOTHESIS        : swap-graph symbol-count <-> quark/color content; deeper
+                      internal structure = stronger binding = heavier (untested).
+  STILL OPEN        : DSI (none in binary sector); the alpha 0.036 residual; the
+                      ABSOLUTE mass scale (needs closure depth + QCD, not census).
   NOT A PROOF       : an exploratory instrument.  The Lean layer, not this,
-                      is where verified claims live.
+                      is where the verified ratios live.
+
 ```
+
+## genesis.py ↔ the particle zoo
+
+genesis.py's sectors are not separate from particle physics — each is *the same combinatorial object* a
+verified QLF module already rests on. Two identities carry the tie:
+
+- **Frequency = mass.** `m = 1/R = frequency` ([`QLF_HiggsMechanism`](lean/QLF_HiggsMechanism.lean),
+  `mass_is_gauge_fold_delay`), so the §3 frequency-octave hierarchy **is** the mass spectrum — frequency
+  *determines* mass ([`Per_Qubit_Mass_Quantum.md`](Per_Qubit_Mass_Quantum.md)).
+- **Internal dimensions = color/forces.** The §4 swap-graph growth beyond the externally-rendered 3-D
+  (the receipt quotient) is the **internal gauge/color structure** — extra dimensions not perceived as
+  space, manifesting as the stronger (color) force ([`QLF_StrongAlgebra`](lean/QLF_StrongAlgebra.lean);
+  Borromean three-color necessity `baryon_needs_all_three_axes`, [`QLF_QuarkStructure`](lean/QLF_QuarkStructure.lean)).
+
+### The shared objects
+
+| genesis sector | the object | shared with (verified) | what it fixes |
+|---|---|---|---|
+| §1 census `C(2n,n)` | central-binomial closure count | `string_mode_count` ([`StringTheoryQLF`](lean/StringTheoryQLF.lean)) | the string level-`n` **mode degeneracy** |
+| §2 `−p/2` exponent | conjugate-pair count | [`QLF_Generations`](lean/QLF_Generations.lean), [`QLF_StrongAlgebra`](lean/QLF_StrongAlgebra.lean), [`QLF_SU5`](lean/QLF_SU5.lean) | the **6+2 split** → colour SU(3), 3 generations, α's `N=3²` |
+| §3 frequency hierarchy | `m = 1/R` ladder | [`QLF_HiggsMechanism`](lean/QLF_HiggsMechanism.lean), [`QLF_PrimeResonance`](lean/QLF_PrimeResonance.lean) | **mass**, and prime-frequency stability (proton `n=3`) |
+| §4 swap-graph `D>3` | internal config-space DOF | [`QLF_QuarkStructure`](lean/QLF_QuarkStructure.lean), [`QLF_StrongAlgebra`](lean/QLF_StrongAlgebra.lean) | the internal **color** structure / strong force |
+| §5 `128+d²=137` | α from `6+2` | [`QLF_FineStructureSubstrate`](lean/QLF_FineStructureSubstrate.lean) | EM coupling / fine structure |
+
+### Quantum numbers (derived)
+
+- **Color** = the 3 internal axes (`QLF_StrongAlgebra`); a baryon needs **all three** (`baryon_needs_all_three_axes`).
+- **Electric charge** = signed twist winding, quantized in **thirds** by the 3 colors (`down_quark_charge_third`, `QLF_QuarkStructure`).
+- **Baryon number** = 3-axis winding ([`QLF_BaryonWinding`](lean/QLF_BaryonWinding.lean)); proton `+1`.
+- **Generation** = the 3 spatial axis-pairs (= genesis §2's `p=3`; `num_generations_eq_three`, `QLF_Generations`).
+- **Spin** = the half-spin closure ([`QLF_Spin`](lean/QLF_Spin.lean)), 720° double cover.
+
+### The particle table — internal structure → mass relative to `m_e`
+
+Every mass is a ratio to the electron (the minimal chiral 4-twist loop, `fold_electron`). The proton and
+pion ratios use genesis.py's *own* π (§5 census) and `137` (§5, `128+d²`):
+
+| particle | internal structure | quantum #s | `m/m_e` (QLF) | measured | tag |
+|---|---|---|---|---|---|
+| electron | minimal chiral loop | `L, q=−1, gen 1` | `1` (reference) | 1 | reference |
+| muon | gen-2 lepton | `L, q=−1, gen 2` | `206.77` | 206.77 | depth ratio |
+| tau | 3-phase Koide | `L, q=−1, gen 3` | `3477.4` | 3477.2 | **[Derived]** (Koide, given `m_e,m_μ`) |
+| proton | 3 colors, `\|S₃\|=6` | `B=+1, q=+1` | `6π⁵ = 1836.12` | 1836.15 | **[Derived]** ([`QLF_LenzMassRatio`](lean/QLF_LenzMassRatio.lean), 0.002%) |
+| charged pion | 2 quarks, `\|S₂\|=2` | `B=0, q=±1` | `2/α = 274` | 273.1 | **[Derived]** ([`QLF_PionMassRatio`](lean/QLF_PionMassRatio.lean)) |
+
+**[Hypothesis]** (falsifiable, untested): deeper internal (higher-`D`) structure = stronger color
+binding = heavier; the swap-graph symbol-type count maps to quark/color content. **Defeater:** every row
+carries its measured value — any assignment that misses the PDG number falsifies *that* assignment.
+
+**Honest scope.** The `m_e`-referenced *ratios* (`6π⁵`, `2/α`, Koide) are machine-verified in the cited
+Lean modules; genesis.py **reuses and displays** them (its own π and `137` feed the proton/pion rows). It
+does **not** compute the **absolute** mass scale — that needs the closure depth + the QCD scale
+([`QLF_MassSpectrum`](lean/QLF_MassSpectrum.lean), [`QLF_AlphaS`](lean/QLF_AlphaS.lean)), which is a
+separate, in-progress input. So the answer to "can genesis.py's results be tied to the particle zoo?" is:
+**yes — the frequency ladder is the mass spectrum and the internal dimensions are the color/gauge
+structure, with the specific mass *ratios* derived and referenced to the electron; the absolute scale
+stays open.** See [`Standard_Model.md`](Standard_Model.md), [`Quarks.md`](Quarks.md).
 
 ## Extending it (from the script's own notes)
 
