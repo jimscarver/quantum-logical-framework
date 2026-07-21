@@ -32,7 +32,9 @@ Pure standard library, no network. Run: `python3 genesis.py`.
 - **Frequency = mass → the particle map (§3, §6).** `m = 1/R = frequency` is a QLF identity, so the
   frequency-octave hierarchy **is** the mass spectrum; §6 maps internal structure → quantum numbers →
   zoo particle → mass relative to `m_e` (proton `6π⁵`, pion `2/α`, Koide τ — all with the measured value
-  beside them). See below.
+  beside them). See below. §3's frequency-octave hierarchy **is** the *closure spectrum* of the
+  harmonic-closure model — each octave a closure frequency, each closure a quantum-logical computation
+  ([`Frequency_Synchronization.md`](Frequency_Synchronization.md) §0, [`QLF_HarmonicClosure`](lean/QLF_HarmonicClosure.lean)).
 - **The `128 + d²` census joint (§5).** `d=3 → 137`, the only prime in the small family — the α
   cross-sector reading, tagged `[STRUCTURAL]` for the identification, `[OPEN]` for the residual.
 

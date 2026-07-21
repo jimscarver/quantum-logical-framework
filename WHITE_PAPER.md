@@ -292,7 +292,13 @@ This is the active-inference perception step made precise.
 From **Pythagoras's** *all is number* to **Boole's** laws of thought made the laws of being, the
 picture is one **harmonic logic**: physical reality is the subset of logical possibility that closes
 in harmonic balance, and to think and to exist are the same disjunctive closure on the possible
-([`GodCreatedTheIntegers.md`](GodCreatedTheIntegers.md)).
+([`GodCreatedTheIntegers.md`](GodCreatedTheIntegers.md)). Sharpened: **each frequency component is one
+ZFA closure — a quantum-logical *computation*, a set of Feynman diagrams** (the path integral is the
+*generate* step, every kinematic path; ZFA closure is the *firebreak* selecting the physical diagrams,
+`QLF_Firebreak`), each carrying frequency `f = 1/R`. **Reality and constructable truth are the
+ZFA-closing subset of the frequency spectrum** — a truth is constructable iff it closes — so physical
+reality and constructive mathematical truth are the *same* harmonic-closure spectrum
+([`Frequency_Synchronization.md`](Frequency_Synchronization.md) §0, [`QLF_HarmonicClosure`](lean/QLF_HarmonicClosure.lean)).
 
 The same frequency-resonance picture organizes **the geometry of space and consciousness**. Inner space
 (particle, atom, mind) and outer space (the cosmos) are one closure-resonance substrate — the *same*

@@ -24,6 +24,43 @@ This document explains how frequency governs particle synthesis in QuCalc, with 
 
 All behavior is native to the updated `particles.py` (v2.2) and `IntuitionisticEngine`.
 
+## 0. The harmonic-closure spectrum — each frequency component is a ZFA closure (a quantum-logical computation)
+
+The organizing principle beneath everything below: **each frequency component constructing reality and
+constructable truth is one ZFA closure — a quantum-logical process, i.e. a quantum-logical *computation*
+(a set of Feynman diagrams).** Reality is a superposition of such frequency-component closures, and
+**reality and constructable truth are the ZFA-closing subset of the frequency spectrum**. Machine-checked
+skeleton: [`QLF_HarmonicClosure`](lean/QLF_HarmonicClosure.lean) (reuse-only, no new axioms).
+
+1. **A frequency component *is* a closure.** A closure of period `R` carries frequency `f = 1/R`
+   (`component_freq`, reusing [`QLF_Consciousness`](lean/QLF_Consciousness.lean)'s `freq`; the
+   Markov-blanket local clock, [`QLF_LocalClock`](lean/QLF_LocalClock.lean)). The spectrum is ordered —
+   a higher-frequency (shorter-period) closure **dominates the rendering** (`higher_freq_dominates`), and
+   binding sub-closures into a closure-of-closures **raises the harmonic** (`binding_raises_harmonic`).
+   The **prime** frequencies are the irreducible, vacuum-proof modes (`irreducible_mode`,
+   [`QLF_PrimeResonance`](lean/QLF_PrimeResonance.lean)) — the proton's `n=3` lock. Mass **is** a
+   frequency (`m = 1/R`, [`QLF_HiggsMechanism`](lean/QLF_HiggsMechanism.lean)); the frequency-octave
+   *closure spectrum* is computed in [`Genesis.md`](Genesis.md) §3.
+2. **A closure *is* a quantum-logical computation — a Feynman-diagram set.** The path integral's
+   sum-over-histories is the **generate** step — every kinematic path is generated (`4ⁿ`,
+   `path_integral_generates` = [`QLF_Firebreak`](lean/QLF_Firebreak.lean)'s `generated_count`) — and
+   **ZFA closure is the firebreak** that selects which histories are physical (the realized `C(2n,n)`;
+   `not_all_paths_close` — not every path closes; [`P_vs_NP_QLF.md`](P_vs_NP_QLF.md)). Every closure IS a
+   *terminating* computation (`qlf_universality`). So a frequency component = the ZFA-closing subset of
+   the generated histories = its physical Feynman-diagram set; the loop phase is the `2π` closure
+   (`g−2 = α/2π`, [`Quantum Logical Framework`](README.md) `QLF_GMinusTwo`). *(The literal QFT
+   diagrammatics — `e^{iS/ℏ}` phase, propagators/vertices — are the continuum rendering; the closing
+   histories are the substrate content.)*
+3. **Constructable truth = the closing spectrum.** A truth is constructable iff it has a finite closure
+   (terminating, RCA₀), so **physical reality and constructive mathematical truth are the *same*
+   harmonic-closure spectrum** ([`Mathematics_From_QLF.md`](Mathematics_From_QLF.md),
+   [`GodCreatedTheIntegers.md`](GodCreatedTheIntegers.md)'s *all is number / harmonic logic*). A mind is
+   a hierarchy of such closures, conscious thought being whichever closure one is resonantly tuned to
+   ([`Consciousness.md`](Consciousness.md)).
+
+**Honest scope:** a structural / foundational framing that crystallizes established pieces (`f=1/R`,
+mass=frequency, the primes, the firebreak, universality) into one named model — not a new derivation.
+
 ## 1. What Frequency Synchronization Means in QLF
 
 Frequency \(f\) is the vacuum ecology’s natural “tick rate” — the rate at which unresolved distinctions attempt to close into stable loops. In Planck units the default vacuum frequency is \(f = 1\) (one logical step per unit time), but it can be locally modulated by entanglement density.
