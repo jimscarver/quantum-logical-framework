@@ -89,7 +89,7 @@ Two honest signals fall out, neither rigged (the model bakes in no axes):
 
 Treat these as *one instantiation's evidence*, not a verdict: on finite graphs a growth "dimension" is an estimate (the exponents drift with radius and saturate), and the balance constraint suppresses swap directions so the number is generating-set-dependent. **The content of the raw-graph toy is that the question is computable and falsifiable, a first computation exists, and it lands near 3 for the two substrate-natural closure lengths (4 and 8) rather than for an arbitrary one.** But per #112 this toy tests the *wrong object* — the raw swap graph, not the receipt quotient.
 
-**Finite-size ladder — the raw-graph exponent diverges (`genesis.py`).** [`genesis.py`](genesis.py) §4b runs the extrapolation the caveat above demands: it measures the raw binary `(k,k)` swap-graph ball-growth `D(k)` up a size ladder, to test whether `D` *converges*. It does not — `D` climbs straight past 3 and keeps rising, at a steady increment ≈ `0.27` per `k` (`D ~ k·log2/log k → ∞`):
+**Finite-size ladder — the raw-graph exponent diverges ([`Genesis.md`](Genesis.md) §4b, run [`genesis.py`](genesis.py)).** The extrapolation the caveat above demands: it measures the raw binary `(k,k)` swap-graph ball-growth `D(k)` up a size ladder, to test whether `D` *converges*. It does not — `D` climbs straight past 3 and keeps rising, at a steady increment ≈ `0.27` per `k` (`D ~ k·log2/log k → ∞`):
 
 ```
 k (=(k,k))    #nodes   diam     D(k)
@@ -140,7 +140,7 @@ The growth dimension is **exactly `d`, stably** — independent of closure size 
 ## References
 
 ### Internal
-- [`genesis.py`](genesis.py) §4b — the finite-size extrapolation ladder showing the raw binary swap-graph exponent **diverges** (does not converge to 3), quantifying the "drifts with string length" caveat; and (§2) the exact `−p/2` census spectral exponent that counts conjugate pairs. Full annotated sample run: [`Genesis.md`](Genesis.md).
+- [`Genesis.md`](Genesis.md) §4b (run: [`genesis.py`](genesis.py)) — the finite-size extrapolation ladder showing the raw binary swap-graph exponent **diverges** (does not converge to 3), quantifying the "drifts with string length" caveat; and (§2) the exact `−p/2` census spectral exponent that counts conjugate pairs.
 - [`Closure_Token_Basis.md`](Closure_Token_Basis.md) — the closure-token alphabet the Stage-4 swap graph is built over (#65); the two specs are composable.
 - [`SpaceTime.md`](SpaceTime.md) §3a — the counting layer (#42): why the faithful rendering of the closure graph is minimally 3D.
 - [`Spin_QLF.md`](Spin_QLF.md) §9 — the same pre-spatial discipline (process over closures, not motion in existing space).

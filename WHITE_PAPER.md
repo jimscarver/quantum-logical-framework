@@ -148,7 +148,10 @@ parameters ([`Standard_Model.md`](Standard_Model.md)):
   137; 2D→132, 4D→144), to 0.026%.
 - **The mass spectrum from one scale**: `m_p/m_e = 6π⁵` (0.002%), the charged-pion ratio `2/α`, Koide
   `Q = 2/3` fixing `m_τ` to 0.006%; the entire 10¹⁹ Planck/proton hierarchy collapses to the single
-  integer `b₀ = 7` (= `N_c=3`, `n_f=6`) as `e^{14π}` — 0.07% on the log.
+  integer `b₀ = 7` (= `N_c=3`, `n_f=6`) as `e^{14π}` — 0.07% on the log. Because `m = 1/R = frequency`,
+  these mass *ratios* — with the *internal dimensions = colour* reading (the proton's `|S₃|=6` 3-colour
+  structure) — are assembled as a **particle map referenced to `m_e`** in [`Genesis.md`](Genesis.md), the
+  ZFA spectrum-explorer instrument whose census `−p/2` exponent is itself Lean-anchored (`QLF_CensusWalk`).
 - **CKM/PMNS counting**, baryogenesis (the three Sakharov conditions), strong-CP `θ̄ = 0` without an
   axion, and primordial nucleosynthesis (`Y_p = 1/4`) all follow.
 
@@ -339,7 +342,10 @@ closure condition.** QLF is the constructive substrate in which they coincide.
   `*_proven_constructively` / `*_in_progress` status markers — never overclaiming, never the
   apologetic "not proved here."
 - Lean is verified by CI (GitHub Actions); Python demonstrations (`QuCalc.py`, `SpaceTime.py`,
-  `particles.py`) are directly runnable.
+  `particles.py`) are directly runnable. [`Genesis.md`](Genesis.md) (runnable as [`genesis.py`](genesis.py))
+  documents the epistemically-tagged ZFA spectrum-explorer — the exact `−p/2` census exponent
+  (Lean-anchored, `QLF_CensusWalk`), census→π, and the particle map referenced to `m_e`, with its honest
+  negatives at full weight.
 
 ---
 

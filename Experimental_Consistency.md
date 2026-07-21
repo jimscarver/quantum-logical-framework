@@ -18,6 +18,8 @@ Every claim in this document carries one of three status markers:
 
 We avoid stating digits the code does not currently produce. Where a calibration choice is required (e.g. anchoring a mass scale to bridge SI units), it is called out explicitly as a calibration, not a fit.
 
+The **ZFA spectrum-explorer** [`Genesis.md`](Genesis.md) (runnable as [`genesis.py`](genesis.py)) exercises several of these end-to-end with every line epistemically tagged: the exact `−p/2` census spectral exponent (now **Lean-anchored** at low orders, `QLF_CensusWalk` — `p=2` = the machine-checked π return density), census→π, the `128+d²=137` joint, and a **particle map referenced to `m_e`** (`m = 1/R = frequency`; the proton `6π⁵`, pion `2/α`, Koide-τ rows *reuse* the Lean-verified ratios below, with the measured value beside each). It **displays and reuses** verified results — not a new precision row — and states its honest negatives (the raw swap-graph dimension diverges; no discrete-scale-invariance; the α residual) at full weight.
+
 ZFA is the conjunction of two algebraic conditions: **count balance** (signed action vector vanishes) and **Pauli closure** (matrix product folds to a scalar). Both are enforced in every reference implementation — see §2.1.
 
 ---

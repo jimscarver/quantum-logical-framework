@@ -109,7 +109,7 @@ The whole chain collapses to a single rational function of the rendering dimensi
 ([`SpaceTime.md`](SpaceTime.md) §3a; the `6+2` split, [`Magic_numbers.md`](Magic_numbers.md)). α is a
 function of `d` **alone** — the key fact for §5.
 
-**Runnable illustration ([`genesis.py`](genesis.py)).** The census sector is exercised end-to-end: the
+**Runnable illustration ([`Genesis.md`](Genesis.md); run [`genesis.py`](genesis.py)).** The census sector is exercised end-to-end: the
 `128 + d²` family is tabulated with `d = 3 → 137` the **only prime** in the small range, and — an
 independent census-side fingerprint of the same `d` — the closure-census *spectral exponent* is measured
 at `−p/2`, so `p = 3` conjugate (spatial) pairs give slope `−3/2` (the `8`-twist/`4`-pair sector gives
