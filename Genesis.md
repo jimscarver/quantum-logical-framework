@@ -5,7 +5,7 @@ the *first distinction* (one signed generator pair `+g/−g`), builds the exact 
 cycle-order as a **frequency-octave hierarchy**, and measures the fractal structure of closures at each
 frequency. It computes **real combinatorics** and reports **measured** exponents — it does not prove
 physics. Every printed result carries an epistemic tag (`[EXACT]`, `[MEASURED]`, `[STRUCTURAL]`,
-`[OPEN]`), and the sectors that show no signal say so.
+`[LEAN]` = machine-checked in the Lean layer, `[OPEN]`), and the sectors that show no signal say so.
 
 Pure standard library, no network. Run: `python3 genesis.py`.
 
@@ -14,7 +14,11 @@ Pure standard library, no network. Run: `python3 genesis.py`.
 - **The one genuine derivation — the spectral exponent (§2).** The census fractal exponent is `−p/2`,
   *exactly*, and this is not a fit: `C(2m,m)·c_pair(p,m)` is the closed-walk count on `ℤ^p`, so the slope
   is the `p`-dimensional return-probability exponent. Three spatial pairs → `−3/2`; the 8-twist / 4-pair
-  → `−2`. This is the strongest thing in the file and it is derived. See [`Alpha.md`](Alpha.md).
+  → `−2`. This is the strongest thing in the file and it is derived — **and now Lean-anchored at the low
+  orders** ([`QLF_CensusWalk`](lean/QLF_CensusWalk.lean)): `p=1` is the closure census, and `p=2` is the
+  Vandermonde identity `Σ_k C(m,k)² = C(2m,m)` (`sumChooseSq_eq_central`), so the p=2 census `C(2m,m)²`
+  **is** the machine-checked π return density (`census_p2_is_return_density`, = `QLF_PhysicalPi.returnDensity`).
+  The general-`p` closed-walk identity and the `−p/2` asymptotic stay the Wallis residual. See [`Alpha.md`](Alpha.md).
 - **census → π (§1, §5).** `C(2n,n)/4ⁿ → 1/√(πn)`, so `π ≈ 1/(n·ratio²)` with error falling as `~1/n`
   (`7.85×10⁻⁶` at `n=10⁵`). The census carries π. See [`Physical_Pi.md`](Physical_Pi.md).
 - **The swap-graph beyond 3-D — internal dimensions, not a negative (§4, §4b).** The ball-growth `D`
@@ -64,6 +68,9 @@ genesis.py  —  ZFA landscape spectrum explorer
 
 [EXACT] slope -> -p/2: the census fractal exponent IS the pair count.
 [STRUCTURAL] 3 spatial pairs -> slope -3/2 ; the 8-twist/4-pair -> -2.
+[LEAN] anchored at low orders (QLF_CensusWalk): p=1 = the closure census;
+        p=2 = C(2m,m)^2 = the machine-checked pi return density (sumChooseSq_eq_central,
+        census_p2_is_return_density).  General-p + the -p/2 asymptotic = Wallis residual.
 
 ======================================================================
 3. FREQUENCY-OCTAVE HIERARCHY  (closure spectrum, p=1)

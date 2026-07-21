@@ -12,6 +12,7 @@ prove physics.  Every printed result carries an epistemic tag:
     [EXACT]      exact integer/limit combinatorics, machine-checkable
     [MEASURED]   an empirical exponent fitted from the instrument (can vary)
     [STRUCTURAL] an identification / reading, not derived here
+    [LEAN]       machine-checked in the Lean layer (module named)
     [OPEN]       conjecture or pending check, stated at full weight
 
 Two DISTINCT fractal signatures are measured and kept separate:
@@ -326,6 +327,9 @@ def main():
         print(f"{p:>10} {s:>14.4f} {(-p/2):>16.4f}")
     print("\n[EXACT] slope -> -p/2: the census fractal exponent IS the pair count.")
     print("[STRUCTURAL] 3 spatial pairs -> slope -3/2 ; the 8-twist/4-pair -> -2.")
+    print("[LEAN] anchored at low orders (QLF_CensusWalk): p=1 = the closure census;")
+    print("        p=2 = C(2m,m)^2 = the machine-checked pi return density (sumChooseSq_eq_central,")
+    print("        census_p2_is_return_density).  General-p + the -p/2 asymptotic = Wallis residual.")
 
     rule("3. FREQUENCY-OCTAVE HIERARCHY  (closure spectrum, p=1)")
     rows = octave_spectrum(6, p=1)
