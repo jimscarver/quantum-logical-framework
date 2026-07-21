@@ -154,5 +154,6 @@ lean_lib QLF where
     `QLF_EmergenceChain,
     `QLF_PostulateReduction,
     `QLF_ProperInvolution,
-    `QLF_StabilizerZi
+    `QLF_StabilizerZi,
+    `QLF_CensusWalk
   ]
