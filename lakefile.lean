@@ -156,5 +156,6 @@ lean_lib QLF where
     `QLF_ProperInvolution,
     `QLF_StabilizerZi,
     `QLF_CensusWalk,
-    `QLF_HarmonicClosure
+    `QLF_HarmonicClosure,
+    `QLF_DynamicalDarkEnergy
   ]
