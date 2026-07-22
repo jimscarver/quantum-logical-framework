@@ -60,6 +60,36 @@ The twist commutators close the gauge Lie algebras: `weak_isospin_su2` ([`lean/B
 
 The objects above are discrete and computable. The *continuum* algebra of textbook mathematics — the real and complex fields, Hilbert space, arbitrary rings — is the **rendering / completion** of these substrate structures, exactly as `π` is the rendering of the closure census ([`Physical_Pi.md`](Physical_Pi.md)), `2π` the rendering of `% N` ([`lean/QLF_LoopClosure.lean`](lean/QLF_LoopClosure.lean)), and Hilbert space the metric completion of the `ℤ[i]`-lattice ([`The_QLF_State_Space.md`](The_QLF_State_Space.md)). The continuum is where the substrate's algebra is *displayed*, not where it is *founded*.
 
+### Rung 8 — differential calculus, on the completed continuum
+
+Once the continuum is the metric completion (Rung 7), **differential calculus is available as an
+effective tool** — and it is emergent, not foundational. QLF gives it a *logical origin story*: it is the
+smooth approximation of large numbers of discrete logical events in the appropriate limit. Four bridges,
+already present in the repo, make this precise:
+
+- **Discrete rates / delays → derivatives.** Finite event-rate differences are the precursors of `∂/∂t`,
+  `∇`; the entropy gradient `dS/dx` across the holographic boundary gives the force law
+  ([`Gravity_From_Delay.md`](Gravity_From_Delay.md)).
+- **Lie algebras = discrete infinitesimal generators → differential operators.** The discrete twist
+  commutators of Rung 6 (`su2_comm`, [`QLF_StrongAlgebra`](lean/QLF_StrongAlgebra.lean)) *are* the Lie
+  algebras; in standard mathematics a Lie algebra is the tangent/infinitesimal structure of a Lie group,
+  represented by vector fields = differential operators — so the discrete algebra already carries the
+  seed of the continuum differential structure. **The geometric instance: curvature is the Lie bracket**
+  of the one-bit orthogonal axes ([`QLF_CurvatureLie`](lean/QLF_CurvatureLie.lean), [`Curvature.md`](Curvature.md)
+  §1a), which becomes the differential-geometric curvature 2-form / field strength in the limit.
+- **Variational calculus.** The null action `S = ∫ℒ dΩ`, `ℒ = 0`, with `δℒ = 0` the discrete-logical
+  Euler–Lagrange, and `EventSynthesisField` (`∂ₜφ`, `V_φ`) the continuum field limit
+  ([`Lagrangian_Formulation.md`](Lagrangian_Formulation.md)).
+- **Metric completion** (Rung 7) is where limits, derivatives, integrals, and differential equations
+  become available.
+
+**Honest scope:** this is the *continuum-rendering* thesis applied to calculus — QLF does **not** build
+differential geometry / calculus in Lean, and deliberately does not assume it at the foundation
+([`Einstein_Equations.md`](Einstein_Equations.md): the honest route doesn't require differential
+geometry). The full differential-geometric tensor derivation (the Einstein/Riemann tensor) stays the
+named open step; the claim here is the *origin story* (calculus emerges as the smooth limit of the
+discrete substrate), not a Lean construction of calculus.
+
 ---
 
 ## 2. The bootstrapping resolution — is using rings to prove QLF circular?

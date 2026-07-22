@@ -38,6 +38,42 @@ so the face count *is* the Bekenstein–Hawking area in substrate units (`hologr
 
 Everything below is what happens when this canvas is deformed.
 
+## 1a. Curvature, orthogonality, and the Lie algebra
+
+The pentamon deficit (§1) is curvature as a *topological* signature. There is a second, complementary
+face of curvature — the **gauge / holonomy** curvature — and it is exactly the **Lie bracket of the
+one-bit orthogonal axes**. Machine-checked skeleton (reuse-only): [`QLF_CurvatureLie`](lean/QLF_CurvatureLie.lean).
+
+1. **Orthogonality is one bit.** Each orthogonal axis is a binary / Hermitian-conjugate distinction
+   resolved to `log 2` (`orthogonal_distinction_is_one_bit`, [`Geometry_Of_Space.md`](Geometry_Of_Space.md)
+   §3c); the three orthogonal axes are `σx, σy, σz`.
+2. **The one-bit orthogonal axes ARE the su(2) generators.** They close the su(2) Lie algebra
+   `[σᵢ,σⱼ] = 2i·εᵢⱼₖ·σₖ` ([`QLF_Spin`](lean/QLF_Spin.lean), `su2_comm_xy/yz/zx`).
+3. **Curvature = the non-commutativity of the orthogonal axes = the non-abelian holonomy = the Lie
+   bracket.** The Wilson-loop plaquette (field strength) around a loop of orthogonal one-bit steps is
+   `σxσyσxσy = −1 ≠ 1` — **curved** — precisely because su(2) is non-abelian
+   ([`QLF_GaugeHolonomy`](lean/QLF_GaugeHolonomy.lean), `nonabelian_plaquette`); when the distinctions
+   **commute** (abelian, the photon) the plaquette is `1` — **flat** (`em_plaquette_trivial`).
+
+So the **structure constants `εᵢⱼₖ` *are* the curvature** — the amount by which going around a loop of
+orthogonal one-bit steps rotates you — and the **one bit** (`log 2` = half-spin, the SU(2) double cover,
+the `−I`/720° closure) quantizes the minimal curvature into the `−I` unit. *Abelian orthogonality is flat
+(the massless photon); non-abelian orthogonality is curved (the self-interacting gluon/W — and the
+gravitational self-interaction).* This is the same `6+2` / three-axis substrate as everything else
+([`Forces_From_Three_Axes.md`](Forces_From_Three_Axes.md)).
+
+**Metric curvature (a plausible extension).** The Riemann/metric curvature of §3–§6 is the continuum
+limit; read through the frame bundle it is the curvature of the **Lorentz spin connection**
+(`so(1,3) ≅ su(2)⊕su(2)`, [`QLF_LorentzCover`](lean/QLF_LorentzCover.lean) `SL(2,ℂ)→SO⁺(1,3)`), with the
+one-bit orthogonal spatial axes as the su(2) spin frame — so metric curvature is *also* Lie-algebra-valued.
+**Honest scope:** the gauge-curvature = Lie-bracket identity is a structural reading of proven pieces (the
+standard gauge field-strength identity); the metric-curvature/spin-connection reading is a further
+structural reading — QLF's metric is the Benincasa–Dowker continuum limit ([`QLF_CausalDimension`](lean/QLF_CausalDimension.lean)),
+and the differential-geometric tensor step stays the named open piece ([`Einstein_Equations.md`](Einstein_Equations.md)).
+The discrete Lie bracket is the *infinitesimal generator* that becomes the differential-geometric
+curvature 2-form in the limit — one instance of differential calculus emerging as the continuum rendering
+of the discrete substrate ([`Mathematics_From_QLF.md`](Mathematics_From_QLF.md)).
+
 ## 2. Two deformations: expand and contract
 
 A blanket changes shape by gaining or losing substrate events on its surface. There are exactly two primitives, and they recur at every scale:
