@@ -200,6 +200,35 @@ inference* rather than a crisis. Anything stronger ("QLF resolves the Hubble ten
 **Defeater:** if the tension resolves toward the CMB value (i.e. the local measurements carried a
 systematic), QLF's local vote and this framing are stressed.
 
+### 5b. Conformal (Weyl / Mannheim) gravity — the nearest alternative-gravity neighbor, declined
+
+QLF's closest alternative-gravity relative is **conformal / Weyl gravity** (Mannheim–Kazanas): a scale-free,
+fourth-order theory (Weyl-squared action `∫C_{μνρσ}C^{μνρσ}√−g`, Bach equations `B_{μν}=0`) whose static
+weak-field potential `Φ = −β/r + γr − κr²` is offered as galaxy rotation curves *without* dark matter. It
+is a genuine neighbor because it too starts from "**no fundamental scale**" — and one can sketch a route
+"ZFA closure is unit-rescaling-invariant ⟹ conformal invariance ⟹ Weyl-squared ⟹ Bach ⟹ Mannheim
+potential." **QLF is distinguished from it on three counts, and declines it:**
+
+1. **QLF recovers second-order GR, not fourth-order Weyl.** The Einstein equations are QLF's continuum
+   gravity (Jacobson equation of state, `QLF_EinsteinEquations`; Schwarzschild, Newton, Mercury to
+   0.03%). Weyl gravity does not reduce to GR — it *replaces* it. QLF cannot have both continuum shadows.
+2. **QLF's dark sector is the parameter-free RAR, not the `γr` potential.** The closure-balance RAR
+   (`g_obs² = g_bar(g_obs+a₀)`, `a₀ = cH₀/2π`, unique `ν`) fits 147 SPARC galaxies at the floor
+   (`0.133 dex`, zero offset, = best-fit MOND) with **zero** per-galaxy tuning; Mannheim's linear
+   potential needs a per-galaxy `γ` and fares worse on the RAR's tightness and on clusters. Adopting it
+   would be a regression to a more contested, less-tested account.
+3. **QLF is *not* conformally invariant** — the premise breaks. QLF has **real** (emergent, not
+   externally-posited) scales: `c = L_Planck/τ_Planck`, and the **Planck floor** below which no coherent
+   closure exists (`QLF_PlanckScale`, `μ²=1/2`). Discreteness *is* a scale; conformal invariance forbids
+   it. And ZFA is **count balance** (`#pos=#neg`, integer) **∧ Pauli closure** — not a continuous linear
+   form a smooth Weyl factor `Ω(x)` slides through.
+
+The grain of truth QLF shares — *scale is not an externally-given primitive* — is real; QLF resolves it
+by **emergent** scale (Planck floor + Hubble horizon + closure-loop period → `a₀`) with GR via Jacobson
+and rotation curves via the RAR, **not** by conformal invariance. So conformal gravity is a legitimate
+*alternative* continuum-shadow speculation, but it competes with QLF's better-anchored, better-tested
+package and rests on a scale-freedom premise QLF's discreteness specifically breaks.
+
 ---
 
 ## 6. Two regimes: dense logic (Newton/GR) vs. sparse floor (apparent dark matter)
