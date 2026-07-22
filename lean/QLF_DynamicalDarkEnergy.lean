@@ -29,7 +29,6 @@ theorem rhoLambda_prop_Hsq (G c H : ℝ) (hG : G ≠ 0) (hc : c ≠ 0) (hH : H �
     vacuum_energy_density_QLF G c (c / H) = rhoLambdaCoeff G c * H ^ 2 := by
   unfold vacuum_energy_density_QLF rhoLambdaCoeff
   field_simp
-  ring
 
 /-- The scaling constant is positive (`prefactor = 3 log 2 / 8π > 0`; physical `G, c > 0`). -/
 theorem rhoLambdaCoeff_pos {G c : ℝ} (hG : 0 < G) (hc : 0 < c) : 0 < rhoLambdaCoeff G c := by
