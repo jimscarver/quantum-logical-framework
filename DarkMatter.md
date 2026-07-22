@@ -169,7 +169,10 @@ Can QLF say anything significant about the Hubble tension (early/CMB `H₀ ≈ 6
 
 1. **QLF is not ΛCDM — its dark energy is *dynamical*.** The vacuum density
    `ρ_Λ = (3 log 2 / 8π)·c⁴/(G R_H²)` with `R_H = c/H₀` (`vacuum_energy_prefactor`,
-   [`QLF_CosmologicalConstant`](lean/QLF_CosmologicalConstant.lean)) gives **`ρ_Λ ∝ H²`**, and dark
+   [`QLF_CosmologicalConstant`](lean/QLF_CosmologicalConstant.lean)) gives **`ρ_Λ ∝ H²`** — now
+   **Lean-anchored** ([`QLF_DynamicalDarkEnergy`](lean/QLF_DynamicalDarkEnergy.lean): `rhoLambda_prop_Hsq`
+   proves `ρ_Λ = (prefactor·c²/G)·H²`, `rhoLambda_past_denser` its strict increase in `H`,
+   `rhoLambda_not_constant` that it is not a static `Λ`), and dark
    energy is *energy created per event, lent forward* ([`Conservation.md`](Conservation.md) §2b;
    `event_duality_balanced`, `QLF_CosmicInflation`), not a static `Λ`. Because `ρ_Λ ∝ H²`, **dark energy
    was denser in the past — early-dark-energy character**, which is precisely the *leading class of
