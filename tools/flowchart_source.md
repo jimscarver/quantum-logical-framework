@@ -38,6 +38,8 @@ The four families: **Foundations** (1-2) &middot; **Matter and forces** (3, 4, 7
 Root reading: **everything derives from the 8-twist substrate under Zero Free Action** —
 [`Philosophy.md`](Philosophy.md) (possibilist ontology), [`WHITE_PAPER.md`](WHITE_PAPER.md).
 
+**Harmonic-closure model:** reality and constructable truth are the *closing spectrum* of frequency-component closures — each frequency `f = 1/R` is one ZFA closure, i.e. a quantum-logical **computation** (a set of Feynman diagrams: path integral = generate, ZFA closure = the firebreak selecting the physical ones) ([`Frequency_Synchronization.md`](Frequency_Synchronization.md) §0).
+
 ---
 
 ## 1. Space, time, and the continuum
@@ -80,7 +82,9 @@ flowchart TD
 
 **Connectors:** *N = 3^2* &rarr; alpha = 1/137 &middot; *spatial 3/8* &rarr; sin^2theta_W = 3/8 &middot; *gauge 2/8* &rarr; Omega_Lambda = log 2 &middot; *surface ~ r^2* &rarr; Newton 1/r^2 &middot; *l = 3* &rarr; nuclear magic numbers &middot; *6pi^5* &rarr; m_p/m_e = 6pi^5 &middot; *2/alpha* &rarr; m_pi/m_e = 274
 
-**Open:** [`SpaceTime.md`](SpaceTime.md) · [`Alpha.md`](Alpha.md) · [`Weak_Force.md`](Weak_Force.md) · [`Cosmological_Constant.md`](Cosmological_Constant.md) · [`Gravity_From_Delay.md`](Gravity_From_Delay.md) · [`Magic_numbers.md`](Magic_numbers.md) · [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md) · [`Pion_QLF.md`](Pion_QLF.md)
+**Open:** [`SpaceTime.md`](SpaceTime.md) · [`Alpha.md`](Alpha.md) · [`Weak_Force.md`](Weak_Force.md) · [`Cosmological_Constant.md`](Cosmological_Constant.md) · [`Gravity_From_Delay.md`](Gravity_From_Delay.md) · [`Magic_numbers.md`](Magic_numbers.md) · [`Proton_Resonance_R_e.md`](Proton_Resonance_R_e.md) · [`Pion_QLF.md`](Pion_QLF.md) · [`Genesis.md`](Genesis.md)
+
+The census spectrum explorer [`Genesis.md`](Genesis.md) exercises the constants sector end-to-end: the exact `−p/2` census spectral exponent (Lean-anchored, `QLF_CensusWalk`), census → π, and `α⁻¹ = 128 + d²` (`d = 3 → 137`).
 
 **α's full story** (derivation, IR/3-D scale, the running, the no-drift theorem, 4D/5D
 over-determination): [`Alpha.md`](Alpha.md).
@@ -163,7 +167,9 @@ flowchart TD
 
 **Connectors:** *gauge 2/8* &rarr; Omega_Lambda = log 2 closes the 10^122 catas… &middot; *high-V epoch* &rarr; Inflation (same field) &middot; *denser logic* &rarr; Dark matter (no particle) &middot; *residual w = -1* &rarr; Dark energy &middot; *event rate* &rarr; Age ~ 13.8 Gyr &middot; *freeze-out n/p* &rarr; ^4He fraction Y_p ~ 1/4
 
-**Open:** [`Cosmological_Constant.md`](Cosmological_Constant.md) · [`Curvature.md`](Curvature.md) · [`DarkMatter.md`](DarkMatter.md) · [`AgeOfUniverse.md`](AgeOfUniverse.md) · [`Fusion.md`](Fusion.md)
+**Open:** [`Cosmological_Constant.md`](Cosmological_Constant.md) · [`Curvature.md`](Curvature.md) · [`DarkMatter.md`](DarkMatter.md) · [`SPARC.md`](SPARC.md) · [`AgeOfUniverse.md`](AgeOfUniverse.md) · [`Fusion.md`](Fusion.md)
+
+Dark matter is the closure-balance RAR, blind-tested parameter-free on 147 SPARC galaxies (`a₀ = cH₀/2π`, the `2π` derived; [`SPARC.md`](SPARC.md)). Dark energy is **dynamical** — `ρ_Λ ∝ H²` (Lean-anchored, `QLF_DynamicalDarkEnergy`) — so QLF sits in the *resolution-favorable* class of the **Hubble tension**, and its dark-matter fit votes local (`H₀ ≈ 72.9`); a reframe + vote, not a numeric resolution ([`DarkMatter.md`](DarkMatter.md) §5a).
 
 ---
 
