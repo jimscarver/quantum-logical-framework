@@ -61,7 +61,7 @@ One structure — the 8-twist alphabet with its 6+2 split and the closure census
 
 **Why this bears on exclusivity at all:** each parameter-free hit multiplies the coincidence-cost of any rival substrate. No rival exact reconstruction of quantum logic (Bohm, Everett, bare Hilbert-space QM) delivers *any* of these numbers from its ontology. This is ZFA's positive discriminator within the surviving class of §4.
 
-**The misses, at full weight (a selective ledger is how frameworks fool their authors):** the 137.036 residual; the entire value sector (couplings g₁,g₂,g₃, G_F, Higgs VEV, mixing angles, absolute masses); the hierarchy is a log-level reduction with a ×15 value band; H₀ is an input; the Hubble-tension residual is unexplained, not predicted. The overdetermination case is strong *because* it survives this column being written down.
+**The misses, at full weight (a selective ledger is how frameworks fool their authors):** the 137.036 residual; the entire value sector (couplings g₁,g₂,g₃, G_F, Higgs VEV, mixing angles, absolute masses); the hierarchy is a log-level reduction with a ×15 value band; H₀ is an input, and the Hubble-tension residual is **not numerically predicted** (QLF's structural stance — dynamical DE / non-ΛCDM, dark sector voting local, [`DarkMatter.md`](DarkMatter.md) §5a — is a *perspective + data vote*, not a derivation of the value). The overdetermination case is strong *because* it survives this column being written down.
 
 ## 4. T3 + T4 — Exclusions: how "only" gets evidence
 

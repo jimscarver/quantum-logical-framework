@@ -162,6 +162,41 @@ in counting — the *same* loop behind `g−2 = α/2π`, the horizon temperature
 > `H₀`** to `< 1%`; the residual is the cosmological `H₀` value (the Hubble tension), not a QLF prefactor.
 > The one physical premise the algebra rests on is identifying `H₀` as the cosmic closure's *angular* rate.
 
+### 5a. QLF and the Hubble tension
+
+Can QLF say anything significant about the Hubble tension (early/CMB `H₀ ≈ 67.4` vs late/local
+`H₀ ≈ 73`)? **Yes — a reframing and a vote, though not a numeric resolution.** Three QLF facts, connected:
+
+1. **QLF is not ΛCDM — its dark energy is *dynamical*.** The vacuum density
+   `ρ_Λ = (3 log 2 / 8π)·c⁴/(G R_H²)` with `R_H = c/H₀` (`vacuum_energy_prefactor`,
+   [`QLF_CosmologicalConstant`](lean/QLF_CosmologicalConstant.lean)) gives **`ρ_Λ ∝ H²`**, and dark
+   energy is *energy created per event, lent forward* ([`Conservation.md`](Conservation.md) §2b;
+   `event_duality_balanced`, `QLF_CosmicInflation`), not a static `Λ`. Because `ρ_Λ ∝ H²`, **dark energy
+   was denser in the past — early-dark-energy character**, which is precisely the *leading class of
+   proposed Hubble-tension resolutions* (more early dark energy → higher early expansion → a smaller
+   sound horizon → the CMB-inferred `H₀` shifts *up* toward the local value). And QLF's dark matter is
+   emergent (denser logic, **no particle CDM**), gravity is emergent. So the CMB `H₀ ≈ 67` is a **ΛCDM
+   *inference*** — constant `Λ` + particle CDM + a fixed sound horizon — assumptions QLF shares *none* of;
+   QLF therefore does not inherit that value.
+2. **QLF's late-time dark sector independently votes *local*.** The blind, parameter-free SPARC RAR fit
+   (`a₀ = cH₀/2π`, the `2π` *derived* as the ZFA closure-loop period) lands at **`H₀ = 72.9 ± 3`** ≈ the
+   SH0ES local value (§5, [`SPARC.md`](SPARC.md)) — an independent, non-supernova, late-time `H₀`
+   estimator agreeing with the distance ladder. QLF ties `a₀`, `Ω_Λ = log 2`, and the de Sitter
+   temperature `T = ℏH₀/(2πk_B)` (`desitter_temperature_eq`, [`QLF_HorizonTemperature`](lean/QLF_HorizonTemperature.lean))
+   to **one** Hubble horizon at **one** `H₀`, so its whole dark sector is internally self-consistent at
+   the *local* value.
+3. **The sign is right (qualitative).** Energy-created-forward / early-DE-denser ⟹ the late expansion is
+   enhanced ⟹ local `>` CMB — the observed direction of the tension.
+
+**Honest scope (binding).** QLF does **not** derive the absolute `H₀` — it is the one cosmological
+calibration (like the absolute mass scale) — and does **not** compute the early-universe expansion
+history, so it does **not** numerically resolve the tension or predict `67`/`73`. The defensible claims
+are exactly: QLF is a **dynamical-dark-energy, non-ΛCDM cosmology in the resolution-favorable class**,
+whose dark sector **votes local**, reframing the tension as a *model-dependence of the ΛCDM early
+inference* rather than a crisis. Anything stronger ("QLF resolves the Hubble tension") is overreach.
+**Defeater:** if the tension resolves toward the CMB value (i.e. the local measurements carried a
+systematic), QLF's local vote and this framing are stressed.
+
 ---
 
 ## 6. Two regimes: dense logic (Newton/GR) vs. sparse floor (apparent dark matter)

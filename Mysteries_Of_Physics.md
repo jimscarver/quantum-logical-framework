@@ -46,7 +46,7 @@ This doc is the physics-facing companion to [`Open_Problems.md`](Open_Problems.m
 | **Cosmic inflation / initial conditions** | Inflation and dark energy are one `w=−1` field at two scales — *no inflaton*; high-`V` early epoch inflates (`H∝√V`) | ✅ unification / ⚪ observables | `QLF_CosmicInflation.lean`, [`Curvature.md`](Curvature.md) §8 |
 | **Matter–antimatter asymmetry (baryogenesis)** | All three Sakharov conditions are met (B-violation via winding + Majorana, C/CP via the chirality engine + strong-CP, out-of-equilibrium via expansion) ⟹ a matter excess is generic | 🔵 (magnitude `η_B` open) | `QLF_Baryogenesis.lean` |
 | **Primordial nucleosynthesis (`Y_p`)** | Every surviving neutron → ⁴He ⟹ `Y_p = 2r/(1+r)`; freeze-out `r=1/7 ⟹ Y_p=1/4` (matches 0.247) | 🔵 (`r`, D/⁷Li open) | `QLF_Nucleosynthesis.lean` |
-| **The Hubble tension** | The SPARC fit picks the *local* `H₀ = 72.9`; the residual is the Planck-vs-SH0ES tension itself, not predicted | 🔵 | [`DarkMatter.md`](DarkMatter.md) §5, [`Cosmological_Constant.md`](Cosmological_Constant.md) |
+| **The Hubble tension** | Not numerically resolved, but QLF **reframes + votes**: a *dynamical-DE, non-ΛCDM* cosmology (`ρ_Λ ∝ H²` = early-DE character, the resolution-favorable class; emergent gravity, no particle CDM), so the CMB `H₀≈67` is a ΛCDM inference QLF doesn't share; its blind SPARC dark-matter fit (`a₀=cH₀/2π`) independently picks the *local* `H₀ = 72.9`. Perspective + data vote, not a derivation | 🔵 | [`DarkMatter.md`](DarkMatter.md) §5a, [`Cosmological_Constant.md`](Cosmological_Constant.md) |
 
 ## 4. Particle physics & the Standard Model
 
