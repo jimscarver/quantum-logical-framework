@@ -163,13 +163,21 @@ flowchart TD
   OL --> DE["Dark energy"]
   EV --> AGE["Age ~ 13.8 Gyr"]
   EV --> NS["^4He fraction Y_p ~ 1/4"]
+  OL --> CORE["Concordant with LCDM data CMB BBN age Omega_Lambda w = -1"]
+  AGE --> CORE
+  NS --> CORE
+  DM --> DIV["Divergent on LCDM interpretation particle CDM and static Lambda"]
+  DE --> DIV
+  EV --> TG["Thermodynamic gravity Jacobson Bekenstein derives 8piG and Lambda = log 2"]
 ```
 
-**Connectors:** *gauge 2/8* &rarr; Omega_Lambda = log 2 closes the 10^122 catas… &middot; *high-V epoch* &rarr; Inflation (same field) &middot; *denser logic* &rarr; Dark matter (no particle) &middot; *residual w = -1* &rarr; Dark energy &middot; *event rate* &rarr; Age ~ 13.8 Gyr &middot; *freeze-out n/p* &rarr; ^4He fraction Y_p ~ 1/4
+**Connectors:** *gauge 2/8* &rarr; Omega_Lambda = log 2 closes the 10^122 catas… &middot; *high-V epoch* &rarr; Inflation (same field) &middot; *denser logic* &rarr; Dark matter (no particle) &middot; *residual w = -1* &rarr; Dark energy &middot; *event rate* &rarr; Age ~ 13.8 Gyr &middot; *freeze-out n/p* &rarr; ^4He fraction Y_p ~ 1/4 &middot; *measured values* &rarr; Concordant with LCDM data &middot; *interpretive pillars* &rarr; Divergent on LCDM interpretation &middot; *equation of state* &rarr; Thermodynamic gravity
 
-**Open:** [`Cosmological_Constant.md`](Cosmological_Constant.md) · [`Curvature.md`](Curvature.md) · [`DarkMatter.md`](DarkMatter.md) · [`SPARC.md`](SPARC.md) · [`AgeOfUniverse.md`](AgeOfUniverse.md) · [`Fusion.md`](Fusion.md)
+**Open:** [`Cosmological_Constant.md`](Cosmological_Constant.md) · [`Curvature.md`](Curvature.md) · [`DarkMatter.md`](DarkMatter.md) · [`SPARC.md`](SPARC.md) · [`AgeOfUniverse.md`](AgeOfUniverse.md) · [`Fusion.md`](Fusion.md) · [`Mysteries_Of_Physics.md`](Mysteries_Of_Physics.md) §3a
 
 Dark matter is the closure-balance RAR, blind-tested parameter-free on 147 SPARC galaxies (`a₀ = cH₀/2π`, the `2π` derived; [`SPARC.md`](SPARC.md)). Dark energy is **dynamical** — `ρ_Λ ∝ H²` (Lean-anchored, `QLF_DynamicalDarkEnergy`) — so QLF sits in the *resolution-favorable* class of the **Hubble tension**, and its dark-matter fit votes local (`H₀ ≈ 72.9`); a reframe + vote, not a numeric resolution ([`DarkMatter.md`](DarkMatter.md) §5a).
+
+**Convergence with accepted cosmology (the ledger, [`Mysteries_Of_Physics.md`](Mysteries_Of_Physics.md) §3a).** QLF is **concordant with ΛCDM's observational core** — the hot Big Bang, CMB, BBN (`Y_p = 1/4`), the ≈13.8 Gyr age, `Ω_Λ = log 2 ≈ 0.69`, and the `w≈−1` accelerating expansion are all reproduced or left intact (*a Big-Bang-singularity alternative, not a hot-Big-Bang-observation alternative*). It **diverges only on ΛCDM's two interpretive pillars** — particle cold dark matter (→ the RAR/MOND reading above) and a static `Λ` (→ dynamical `ρ_Λ ∝ H²`), i.e. the open, contested questions. Its **deeper convergence** is with accepted **thermodynamic/emergent gravity** (Jacobson 1995, Bekenstein–Hawking, holography), from which it *derives* the Einstein `8πG` coefficient and `Λ = log 2` (`QLF_EinsteinEquations`).
 
 ---
 
