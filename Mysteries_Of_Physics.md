@@ -48,6 +48,34 @@ This doc is the physics-facing companion to [`Open_Problems.md`](Open_Problems.m
 | **Primordial nucleosynthesis (`Y_p`)** | Every surviving neutron → ⁴He ⟹ `Y_p = 2r/(1+r)`; freeze-out `r=1/7 ⟹ Y_p=1/4` (matches 0.247) | 🔵 (`r`, D/⁷Li open) | `QLF_Nucleosynthesis.lean` |
 | **The Hubble tension** | Not numerically resolved, but QLF **reframes + votes**: a *dynamical-DE, non-ΛCDM* cosmology (`ρ_Λ ∝ H²` = early-DE character, the resolution-favorable class; emergent gravity, no particle CDM), so the CMB `H₀≈67` is a ΛCDM inference QLF doesn't share; its blind SPARC dark-matter fit (`a₀=cH₀/2π`) independently picks the *local* `H₀ = 72.9`. Perspective + data vote, not a derivation | 🔵 | [`DarkMatter.md`](DarkMatter.md) §5a, [`Cosmological_Constant.md`](Cosmological_Constant.md) |
 
+### 3a. Does QLF converge with accepted cosmology?
+
+Yes — with the **observational core** of ΛCDM (the accepted concordance model), while diverging from its two *interpretive* choices and going beyond it only on the origin. The distinction is the honest-scope line the cosmology docs hold throughout: **QLF is a Big-Bang-*singularity* alternative, not a hot-Big-Bang-*observation* alternative.**
+
+**Concordant — everything ΛCDM actually measures, QLF reproduces or leaves intact:**
+
+| Accepted result | QLF |
+|---|---|
+| Hot dense early universe; CMB; expansion history; 6-parameter fit | **intact** — the synthesized / nested origin sits *underneath* it and rewrites nothing above ([`BLACK-HOLES.md`](BLACK-HOLES.md) §4a) |
+| Dark-energy fraction `Ω_Λ ≈ 0.69` | **`Ω_Λ = log 2 ≈ 0.693`**, ~1.2% (`QLF_CosmologicalConstant`) |
+| Age ≈ 13.8 Gyr | **≈ 13.8 Gyr** from the ZFA event rate (`AgeOfUniverse`) |
+| Accelerating expansion, `w ≈ −1` | de Sitter horizon, `w = −1` event-synthesis field (`QLF_CosmicInflation`) |
+| BBN helium `Y_p ≈ 0.247` | **`Y_p = 1/4`** at freeze-out `n/p = 1/7` (`QLF_Nucleosynthesis`) |
+| Inflationary near-scale-invariant epoch | the high-`V` epoch of the *same* `w=−1` field — *no separate inflaton* (`QLF_CosmicInflation`) |
+
+So on the *data*, QLF is concordant, not rival.
+
+**Divergent — only where ΛCDM stops being observation and becomes model-choice**, i.e. its two interpretive pillars:
+
+1. **Dark matter** — ΛCDM posits *particle* cold dark matter; QLF gives "denser logic near masses," MOND/RAR-flavored, `a₀ = cH₀/2π`, reproducing the SPARC **Radial Acceleration Relation parameter-free** (0.133 dex, zero offset). The subtlety: the RAR *itself* is an accepted empirical fact QLF matches; it is the *CDM interpretation* QLF parts with.
+2. **Static Λ** — ΛCDM uses a constant `Λ`; QLF gives `ρ_Λ ∝ H²` (`QLF_DynamicalDarkEnergy`), a dynamical / early-dark-energy character (the Hubble-tension "resolution-favorable" camp).
+
+Both departures are on the *open, contested* questions (dark sector, Hubble tension), never the settled ones.
+
+**Deeper convergence — accepted *within its subfield*.** QLF's most load-bearing agreement is with **thermodynamic / emergent gravity**, accepted in the semiclassical-gravity community: Jacobson's 1995 equation-of-state derivation of Einstein's equations, Bekenstein–Hawking entropy, the holographic bound. QLF *derives* the Einstein `8πG` coefficient and `Λ = log 2` from those (`QLF_EinsteinEquations`) — convergence with the accepted thermodynamic *reading* of GR, not merely its predictions.
+
+**Contrast with the speculative relatives.** Unlike Penrose's CCC ([`BLACK-HOLES.md`](BLACK-HOLES.md) §4a) — which contradicts accepted physics via conformal invariance and bets on contested CMB signals — QLF's departures sit on the genuinely open questions and add no unconfirmed observational claim; its own speculative origin (nested cosmology) is *unfalsifiable from within by causal sealing* and so makes none. **Bottom line: concordant with ΛCDM's measurements and with thermodynamic-gravity; divergent on ΛCDM's two interpretations (particle DM, static Λ); speculative only below the observed universe.**
+
 ## 4. Particle physics & the Standard Model
 
 | Mystery | QLF's account | Status | Where |
