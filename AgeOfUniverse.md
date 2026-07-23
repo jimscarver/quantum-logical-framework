@@ -10,7 +10,7 @@
 
 ## Abstract
 
-In QLF there is **no Big-Bang singularity**. The universe has no absolute beginning — it is an ongoing synthesis of spacetime intervals by ZFA events.
+In QLF there is **no Big-Bang singularity**. The universe has no absolute beginning — it is an ongoing synthesis of spacetime intervals by ZFA events. One coherent (speculative) realization is the **nested-cosmology / horizon-birth** picture ([`BLACK-HOLES.md`](BLACK-HOLES.md) §4a): our Big Bang re-read as the first internal event of a child clock born at a parent black-hole horizon — grounded in GR's own black-hole-interior time direction (`r` becomes timelike inside the horizon). The 13.8 Gyr below is then the age of *our* clock from *our* birth-surface, and whether our domain is itself inside a parent closure is causally unfalsifiable from within.
 
 We derive the **effective cosmic age** \( t_0 \) (the proper time experienced by a comoving observer) **directly from the observed frequency distribution of ZFA events** (i.e., the vacuum photon spectrum). No external tuning to the Hubble constant or dark-energy density is required.
 
