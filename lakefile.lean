@@ -158,5 +158,6 @@ lean_lib QLF where
     `QLF_CensusWalk,
     `QLF_HarmonicClosure,
     `QLF_DynamicalDarkEnergy,
-    `QLF_CurvatureLie
+    `QLF_CurvatureLie,
+    `QLF_KnotInvariant
   ]
