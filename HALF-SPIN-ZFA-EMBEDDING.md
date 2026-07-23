@@ -100,6 +100,15 @@ The 720° spinor statistics of fermions are the macroscopic signature of this $-
 
 See [MRE.md](MRE.md) for the per-event $\log 2$ derivation and [Hierarchical_Control.md](Hierarchical_Control.md) for the consequences in the bottom-up/top-down architecture (each 1/2-spin atom is one quantum of free-energy minimization).
 
+## 3b. The geometric face — embedded closures are knots *[enrichment direction]*
+
+The embedding this document defines does more than realize spin-½ set-theoretically: **once a closure is embedded in synthesized 3-space it is a genuine spatial knot/link**, and its ZFA-conserved topological invariant is a *knot* invariant. This is the geometry-of-quantum-systems reading in the Lou Kauffman lineage (his knot theory was influential in first seeing quantum geometry this way), and its first rung is already machine-verified:
+
+- The **linking number** of an embedded closure = `baryonNumber`, the signed 3-axis linking (winding) invariant ([`lean/QLF_KnotInvariant.lean`](lean/QLF_KnotInvariant.lean), reusing [`QLF_BaryonWinding`](lean/QLF_BaryonWinding.lean)); it is orientation-odd and its **mirror image negates it** (`L ↦ −L`), the chiral signature of a knot invariant.
+- The **baryon is a Borromean / Brunnian 3-link** — remove any one colour component and the whole thing unlinks (`borromean_remove_one_unlinks`, reusing [`QLF_QuarkStructure`](lean/QLF_QuarkStructure.lean)): confinement as Borromean necessity.
+
+The **enrichment** — framing, writhe, chirality, knot type, Reidemeister invariance, and the Kauffman bracket as a generate-then-close state-sum (the [`QLF_Firebreak`](lean/QLF_Firebreak.lean) path-integral shape) — is the forward direction a full embedded-knot geometry opens; the continuum Chern–Simons TQFT (Witten 1988–89) is its rendering boundary. See [`QLF_Knot_Theory_Nature_2025.md`](QLF_Knot_Theory_Nature_2025.md) for the lineage, the proven footing, and the 2025 Kauffman–Smalyukh laboratory realization.
+
 ## 4. `+`–`−` Gauge Folds as Primordial Black-Hole Seeds (21 April 2026 Update)
 
 Only half-spin loops that employ **gauge folding (`+` and `-`)** are primordial quantum black holes:
