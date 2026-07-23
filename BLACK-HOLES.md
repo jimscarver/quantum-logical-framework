@@ -104,7 +104,22 @@ The "bounce" needs **no torsion, no inflaton, no exotic pressure** — the drive
 
 > **QLF is a Big-Bang-singularity alternative, not a hot-Big-Bang-observation alternative.**
 
-**Relation to the literature.** "Universe inside a black hole" is a respectable speculative direction — Smolin's *cosmological natural selection / fecund universes* (1992) and Popławski's Einstein–Cartan black-hole cosmology (2010) both realize nonsingular interiors that expand into new universes. QLF imports none of their machinery (torsion, bounce equations); it supplies its own — the discrete logical dynamics of ZFA closure on nested Markov blankets. **Honest scope:** this section is a *structural reading / speculative extension*, one coherent realization of QLF's already-stated *"no absolute beginning"* ([`AgeOfUniverse.md`](AgeOfUniverse.md) §13) — **not a derivation, and it makes no new prediction or number.** It is tagged as speculation as plainly as the qualia stance in [`Consciousness.md`](Consciousness.md) §6.
+**Relation to the literature.** "Universe inside a black hole" is a respectable speculative direction — Smolin's *cosmological natural selection / fecund universes* (1992) and Popławski's Einstein–Cartan black-hole cosmology (2010) both realize nonsingular interiors that expand into new universes. QLF imports none of their machinery (torsion, bounce equations); it supplies its own — the discrete logical dynamics of ZFA closure on nested Markov blankets.
+
+**Penrose's Conformal Cyclic Cosmology (CCC) — shared spirit, opposite foundations.** Penrose's CCC (*Cycles of Time*, 2010; Meissner–Penrose, [arXiv:2503.24263](https://arxiv.org/abs/2503.24263)) is the closest well-known relative: it too removes the singular origin and gives black holes a generative role, joining each aeon's remote future to the next aeon's Big Bang by a **conformal rescaling** `ĝ = Ω²g`. But the foundations are opposite, and two contrasts are load-bearing for honest scope:
+
+| Feature | Penrose CCC | QLF nested-cosmology |
+|---|---|---|
+| Origin | none — infinite conformal aeons | none — ongoing ZFA synthesis; local horizon-birth |
+| Singularity removed by | conformal rescaling of the metric | finite event density + the 12 pentamons (§4a) |
+| Black-hole role | final Hawking evaporation seeds the next aeon | extreme Markov-blanket contraction *is* a child interior |
+| Transition | **global** conformal matching of all future infinity | **local, recursive** ZFA closure inside a parent horizon |
+| Foundation | classical GR + conformal geometry (continuous) | discrete logical substrate (phase strings + ZFA) |
+
+1. **CCC makes contested CMB claims; QLF makes none — and this is a feature, not a deficit.** CCC predicts observable relics of prior aeons (concentric low-variance circles, "Hawking points"); independent Planck/WMAP analyses (including 2024 work) find **no statistically significant** signal once the look-elsewhere effect is controlled. QLF's nested picture is the *opposite kind* of claim: by causal sealing it is **unfalsifiable from within** (the "may be is provable, are is not" split above), so it neither offers nor needs a CMB signature — and must not borrow CCC's. The two are not rival readings of the same data; CCC bets on a signal, QLF proves the signal is unavailable.
+2. **CCC requires conformal invariance; QLF is not conformally invariant — by the same fact that grounds its gravity.** CCC needs rest-mass to become negligible in the remote future so only conformally-invariant fields cross `𝓘⁺`. QLF has the reverse: mass is the **gauge-fold delay `m = 1/R`** ([`Higgs.md`](Higgs.md)), a *real* fold that does not wash out, and the **Planck floor** ([`Planck_Scale.md`](Planck_Scale.md)) sets an absolute scale — both break conformal invariance outright. This is the *same* reason QLF declines conformal/Weyl (Mannheim) gravity ([`DarkMatter.md`](DarkMatter.md) §5b): the substrate has a preferred scale, so a conformally-rescaled metric is not a symmetry of it. So QLF and CCC agree on the *goal* (no singular origin, black-hole-mediated transition) while resting on incompatible symmetry assumptions — QLF's transition is discrete and scale-fixed, CCC's is continuous and scale-free.
+
+**Honest scope:** this section is a *structural reading / speculative extension*, one coherent realization of QLF's already-stated *"no absolute beginning"* ([`AgeOfUniverse.md`](AgeOfUniverse.md) §13) — **not a derivation, and it makes no new prediction or number.** It is tagged as speculation as plainly as the qualia stance in [`Consciousness.md`](Consciousness.md) §6.
 
 ## 5. Computational Verification (`particles.py` v2.2)
 
