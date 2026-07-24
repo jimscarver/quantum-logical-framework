@@ -115,6 +115,9 @@ def Realizes (A : Matrix (Fin 2) (Fin 2) ℂ) (Λ : Matrix (Fin 4) (Fin 4) ℝ) 
 theorem ofCoord_toCoord (f : Form) : ofCoord (toCoord f) = f := by
   obtain ⟨t, x, y, z⟩ := f; rfl
 
+theorem toCoord_ofCoord (v : Fin 4 → ℝ) : toCoord (ofCoord v) = v := by
+  funext i; fin_cases i <;> rfl
+
 /-- **The identity is realized** (`A = 1`) — the unit of the spinor image. -/
 theorem realizes_one : Realizes 1 1 := by
   intro f
@@ -122,11 +125,28 @@ theorem realizes_one : Realizes 1 1 := by
     simp [spinorAct, Matrix.conjTranspose_one]
   rw [h1, fromMatrix_toMatrix, Matrix.one_mulVec, ofCoord_toCoord]
 
-/-- Status: **both round-trips are proven** — `fromMatrix ∘ toMatrix = id` and (on Hermitian
-    matrices) `toMatrix ∘ fromMatrix = id` — plus Hermiticity preservation and `Realizes 1 1`. These
-    are the round-trip lemmas of the Lorentz-axiom discharge. The remaining rungs are the submonoid
-    closure (`Realizes` under composition, via `toMatrix_fromMatrix` + `spinor_hom`) and the
-    real-matrix KAK generation (couched in the Witten-1988 mode). No new axioms. -/
-theorem lorentz_roundtrips_proven : True := trivial
+/-- **The spinor image is closed under composition.** If `A₁` realizes `Λ₁` and `A₂` realizes `Λ₂`
+    then `A₁·A₂` realizes `Λ₁·Λ₂` — the product `X ↦ A₁(A₂ X A₂†)A₁†` (`spinor_hom`) chained through
+    the reverse round-trip on the Hermitian intermediate state (`toMatrix_fromMatrix`,
+    `spinorAct_isHermitian`), with `mulVec` composing on the Lorentz side. -/
+theorem realizes_mul {A₁ A₂ : Matrix (Fin 2) (Fin 2) ℂ} {Λ₁ Λ₂ : Matrix (Fin 4) (Fin 4) ℝ}
+    (h₁ : Realizes A₁ Λ₁) (h₂ : Realizes A₂ Λ₂) : Realizes (A₁ * A₂) (Λ₁ * Λ₂) := by
+  intro f
+  have hHerm : (spinorAct A₂ f.toMatrix)ᴴ = spinorAct A₂ f.toMatrix :=
+    spinorAct_isHermitian A₂ f.toMatrix f.toMatrix_adjoint
+  have hM₂ : (Form.fromMatrix (spinorAct A₂ f.toMatrix)).toMatrix = spinorAct A₂ f.toMatrix :=
+    toMatrix_fromMatrix hHerm
+  have key := h₁ (Form.fromMatrix (spinorAct A₂ f.toMatrix))
+  rw [hM₂] at key
+  rw [spinor_hom, key, h₂ f, toCoord_ofCoord, Matrix.mulVec_mulVec]
+
+/-- **Status: the spinor image is a submonoid (`Realizes 1 1` + `realizes_mul`)** — on top of the
+    two round-trips and Hermiticity preservation. This is the genuine **reduction** of the Lorentz-cover
+    axiom (the `QLF_NavierStokesBKM` pattern): all the spinor content is now proven, so
+    `lorentz_generated_by_boosts_rotations` reduces to the **purely real-matrix** fact that boosts and
+    rotations generate `SO⁺(1,3)` (the KAK/Cartan decomposition) — a settled-Lie-theory bridge in the
+    Witten-1988 mode, no longer a claim about spinors. The remaining rung is that real generation. No
+    new axioms. -/
+theorem lorentz_image_submonoid : True := trivial
 
 end QLF.LorentzGeneration
