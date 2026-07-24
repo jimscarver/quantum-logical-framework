@@ -160,5 +160,6 @@ lean_lib QLF where
     `QLF_DynamicalDarkEnergy,
     `QLF_CurvatureLie,
     `QLF_KnotInvariant,
-    `QLF_ReidemeisterLinking
+    `QLF_ReidemeisterLinking,
+    `QLF_LinkDiagram
   ]
