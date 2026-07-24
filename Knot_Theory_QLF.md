@@ -147,12 +147,28 @@ Unlike `yang_mills_continuum_gap` or `spectral_hilbert_polya`, **the continuum s
 discharged** (RT via quantum groups; Atiyah's functorial-TQFT axioms). QLF supplies the discrete state-sum;
 RT holds up the continuum end.
 
-**Honest scope of the bridge.** *Discrete side built; two pieces cited.* Proven: the state-sum ↔ bracket
-identification via the defining relations (`QLF_KauffmanBracket`). Cited, not proven: (i) the planar
-loop-count function and its **R2/R3** behavior — that `⟨L⟩` is a *regular*-isotopy invariant — the
-Reidemeister topological input (as in `QLF_LinkDiagram`); (ii) the continuum Chern–Simons rendering, the
-Witten → RT leg, already rigorous. The remaining QLF-specific gap is only the loop-count model, finite and
-formalizable — not an open continuum problem.
+**The bracket computes named knots.** The loop-count is no longer only cited: for the family of **2-strand
+torus links** `T(2,n)` (closures of `σ₁ⁿ`), a concrete loop-count is *computed* from the **Temperley–Lieb**
+planar calculus ([`lean/QLF_TorusBracket.lean`](lean/QLF_TorusBracket.lean)): `tlReduce` runs 2-strand TL
+composition (`e·e` forms a loop) and Markov closure (`1↦2`, `e↦1`) to give `torusLoops`, the genuine planar
+loop count of each smoothing state. Feeding it to `bracket` reproduces the **literature Kauffman brackets**:
+
+| named link | `= T(2,n)` | `bracket` (over a field, `Ai = A⁻¹`) |
+|---|---|---|
+| kinked unknot | `T(2,1)` | `−A³` (regular-isotopy R1 value, *not* `1`) — `bracket_unknot_kink` |
+| **Hopf link** | `T(2,2)` | `−A⁴ − A⁻⁴` — `bracket_hopf` |
+| **trefoil** | `T(2,3)` | `−A⁵ − A⁻³ + A⁻⁷` — `bracket_trefoil` |
+
+So the firebreak state-sum, with a real planar loop-count, computes actual named-knot invariants.
+
+**Honest scope of the bridge.** *Discrete side built and computing; two pieces cited.* Proven: the state-sum
+↔ bracket identification via the defining relations (`QLF_KauffmanBracket`), and the bracket *computed* for
+named 2-strand torus links from a genuine planar loop-count (`QLF_TorusBracket`). Cited, not proven: (i) a
+*general* planar loop-count (arbitrary knot diagrams need the full 4-valent-graph / rotation-system model —
+the 2-strand family is done, the general case is the forward step) and the **R2/R3** behavior that makes
+`⟨L⟩` an invariant (Reidemeister, as in `QLF_LinkDiagram`); (ii) the continuum Chern–Simons rendering, the
+Witten → RT leg, already rigorous. The remaining QLF-specific gap is only the general loop-count model,
+finite and formalizable — not an open continuum problem.
 
 ## 5. The enrichment — embedded-knot geometry
 
