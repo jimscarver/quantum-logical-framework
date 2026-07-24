@@ -69,9 +69,16 @@ exposes geometry the string alone does not:
   [`Pion_QLF.md`](Pion_QLF.md), read geometrically).
 - **Knot type as a closure invariant** — beyond linking, the isotopy class of the embedded loop as a new
   label on particles/closures.
-- **Reidemeister moves** — the ambient-isotopy moves under which a genuine knot invariant must be stable;
-  the linking number's invariance under the ZFA-preserving moves is the discrete counterpart, and proving
-  full Reidemeister invariance is a concrete forward target.
+- **Reidemeister moves** — the ambient-isotopy moves under which a genuine knot invariant must be stable.
+  The crossing sign `signTriple` is the **oriented Levi-Civita symbol** on the three axes, and that
+  antisymmetry is the local content of Reidemeister invariance — now machine-verified
+  ([`lean/QLF_ReidemeisterLinking.lean`](lean/QLF_ReidemeisterLinking.lean)): the crossing algebra
+  (`crossing_cyclic`, `crossing_transpose`, **`crossing_self_zero`** = R1 self-crossings don't link,
+  **`crossing_R2_cancel`** = R2 opposite crossings cancel), plus the linking-number invariances it yields
+  (`linking_mirror_odd`; `linking_missing_axis_zero`, a `≤2`-axis diagram has linking `0`;
+  `linking_gauge_prepend`/`append`, a gauge kink at either boundary preserves linking). The remaining
+  target is full ambient-isotopy R2/R3 invariance over an **encoded** link diagram (a Gauss code /
+  crossing sequence) — `baryonNumber` is the substrate's windowed / regular-isotopy form.
 - **The Kauffman bracket as a generate-then-close state-sum** — the bracket's sum over crossing resolutions
   read as a [`QLF_Firebreak`](lean/QLF_Firebreak.lean) generate-then-close, tying the knot polynomial to the
   substrate's path-integral selection.

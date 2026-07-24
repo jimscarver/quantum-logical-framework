@@ -78,10 +78,15 @@ theorem bnA_cons_none : ∀ l : List (Option Ax), bnA (none :: l) = bnA l
       have h : signTriple none a b = 0 := rfl
       rw [h, zero_add]
 
+/-- A crossing window whose last slot is a gauge (`none`) has zero sign. -/
+theorem signTriple_none_last : ∀ p q : Option Ax, signTriple p q none = 0 := by decide
+
 /-- A gauge (`none`) end window is zero. -/
 theorem endWindowA_none (l : List (Option Ax)) : endWindowA l none = 0 := by
-  simp only [endWindowA]
-  split <;> rfl
+  unfold endWindowA
+  split
+  · exact signTriple_none_last _ _
+  · rfl
 
 /-- Appending a gauge (`none`) slot leaves the windowed linking sum unchanged. -/
 theorem bnA_snoc_none (l : List (Option Ax)) : bnA (l ++ [none]) = bnA l := by
