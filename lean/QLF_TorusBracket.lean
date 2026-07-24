@@ -68,7 +68,8 @@ theorem bracket_unknot_kink {K : Type*} [Field K] (A : K) (hA : A ≠ 0) :
     bracket A A⁻¹ 1 torusLoops = -A ^ 3 := by
   simp only [bracket, resolutions, List.map_cons, List.map_nil, List.nil_append, List.cons_append,
     List.sum_cons, List.sum_nil, add_zero, weight, mono, kauffmanDelta,
-    tl_t, tl_f, List.count_cons, List.count_nil]
+    tl_t, tl_f]
+  norm_num [List.count_cons, List.count_nil]
   field_simp
   ring
 
@@ -77,7 +78,8 @@ theorem bracket_hopf {K : Type*} [Field K] (A : K) (hA : A ≠ 0) :
     bracket A A⁻¹ 2 torusLoops = -A ^ 4 - (A⁻¹) ^ 4 := by
   simp only [bracket, resolutions, List.map_cons, List.map_nil, List.nil_append, List.cons_append,
     List.sum_cons, List.sum_nil, add_zero, weight, mono, kauffmanDelta,
-    tl_tt, tl_tf, tl_ft, tl_ff, List.count_cons, List.count_nil]
+    tl_tt, tl_tf, tl_ft, tl_ff]
+  norm_num [List.count_cons, List.count_nil]
   field_simp
   ring
 
@@ -86,8 +88,8 @@ theorem bracket_trefoil {K : Type*} [Field K] (A : K) (hA : A ≠ 0) :
     bracket A A⁻¹ 3 torusLoops = -A ^ 5 - (A⁻¹) ^ 3 + (A⁻¹) ^ 7 := by
   simp only [bracket, resolutions, List.map_cons, List.map_nil, List.nil_append, List.cons_append,
     List.sum_cons, List.sum_nil, add_zero, weight, mono, kauffmanDelta,
-    tl_ttt, tl_ttf, tl_tft, tl_ftt, tl_tff, tl_ftf, tl_fft, tl_fff,
-    List.count_cons, List.count_nil]
+    tl_ttt, tl_ttf, tl_tft, tl_ftt, tl_tff, tl_ftf, tl_fft, tl_fff]
+  norm_num [List.count_cons, List.count_nil]
   field_simp
   ring
 
