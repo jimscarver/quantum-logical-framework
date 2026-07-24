@@ -201,11 +201,19 @@ structure ProperOrthochronous where
   proper : Λ.det = 1
   orthochronous : 1 ≤ Λ 0 0
 
-/-- **Bridge axiom — boosts and rotations generate `SO⁺(1,3)`.** The standard Lie-group generation
-    result (the differential-geometric input Mathlib does not package, in the QLF axiom-boundary
-    style): every proper orthochronous Lorentz transformation is the spinor action of some
-    `A ∈ SL(2,ℂ)`. The generators themselves are *proven* in the image — `boostZ_action`,
-    `rotZ_action`; this axiom supplies only that they generate the whole identity component. -/
+/-- **Bridge axiom — boosts and rotations generate `SO⁺(1,3)` (a settled-mathematics bridge, the
+    Witten-1988 mode).** Every proper orthochronous Lorentz transformation factors into boosts and
+    rotations — the **KAK/Cartan decomposition of `SO⁺(1,3)`** — so it is the spinor action of some
+    `A ∈ SL(2,ℂ)`. This is **settled Lie theory** that Mathlib does not yet package, *not* a
+    QLF-specific posit, and it is couched in the **Witten 1988 → Reshetikhin–Turaev precedent**
+    ([`Knot_Theory_QLF.md`](../Knot_Theory_QLF.md) §6): a physics-native construction whose single
+    bridge is discharged by independent rigorous mathematics. The physics core is **fully proven** —
+    the homomorphism (`spinor_hom`), the explicit generators in the image (`boostZ_action`,
+    `rotZ_action`), and the kernel `{±I}` (`spinor_kernel`, the genuine 2-to-1) — and this axiom is the
+    cited generation fact that composes those proven generators. Full in-Lean elimination is the
+    KAK-decomposition project (the `fromMatrix`/`toMatrix` Hermitian round-trip + the real-matrix
+    generation theorem), **Class-B dischargeable in principle**; couched in the Witten mode, the
+    settled-math bridge is the honored end-state, not a gap. -/
 axiom lorentz_generated_by_boosts_rotations (L : ProperOrthochronous) :
     ∃ A : Matrix (Fin 2) (Fin 2) ℂ, A.det = 1 ∧
       ∀ f : Form, Form.fromMatrix (spinorAct A f.toMatrix) = ofCoord (L.Λ.mulVec (toCoord f))

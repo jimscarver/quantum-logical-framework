@@ -123,6 +123,31 @@ boundaries — *not* for the finitary conjectures (Hodge, BSD, P vs NP, the stan
 are ordinary hard statements. The boundary registry is [Open_Problems.md](Open_Problems.md); the
 unifying ontology is [Continuum_Choice_Fallacy.md](Continuum_Choice_Fallacy.md).
 
+### The bridges, couched in the Witten-1988 precedent
+
+The right way to *couch* these bridge axioms is the **Witten 1988 → Reshetikhin–Turaev precedent**
+([`Knot_Theory_QLF.md`](Knot_Theory_QLF.md) §6): Witten computed a rigorous invariant (the Jones
+polynomial) from a *non-rigorous* physics object (the Chern–Simons path integral), and the answer was
+later made rigorous by *independent* mathematics (RT quantum groups, Atiyah's functorial TQFT) — a
+Fields-Medalled mode of doing mathematics. That is exactly QLF's shape: a machine-verified physics-native
+core **plus one bridge**, where the bridge is discharged by settled adjacent mathematics. This sorts the
+axioms honestly:
+
+- **Class-B bridges are *settled-mathematics* bridges** (the pure Witten→RT mode): the continuum/limit
+  facts Mathlib does not yet package but which *are* established — the `SL(2,ℂ)→SO⁺(1,3)` cover's KAK
+  generation (`lorentz_generated_by_boosts_rotations`), the CST continuum limits, the Planck-capped
+  Navier–Stokes vorticity (`QLF_NavierStokesBKM`). Here a settled-math bridge under a fully-proven core is
+  the **honored end-state**, not a gap — and the **knot sector is the completed exemplar**, its continuum
+  leg *already discharged* by RT.
+- **Class-A bridges carry the problem's own content** (Riemann/BSD/P-vs-NP/Yang–Mills/Hodge-faithfulness):
+  these cannot be discharged without solving the problem — by design. For them the Witten precedent
+  licenses the *method* and directs the work toward the settled-math *neighbour* (GMC for Riemann, §RH;
+  modularity for BSD; Lefschetz for Hodge; reflection positivity for Yang–Mills), not toward eliminating
+  the axiom.
+
+So "strengthening a bridge" means moving it toward the knot sector's end-state — verified core + settled-math
+partner — in the honored Witten mode; it does not mean pretending a Class-A conjecture is solved.
+
 > ZFC is flawed logic, suitable only where there are no exploding infinities. ZFA is correct
 > logic.
 
