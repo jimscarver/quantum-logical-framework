@@ -164,5 +164,6 @@ lean_lib QLF where
     `QLF_LinkDiagram,
     `QLF_KauffmanBracket,
     `QLF_TorusBracket,
-    `QLF_PlanarBracket
+    `QLF_PlanarBracket,
+    `QLF_CensusBrownian
   ]
