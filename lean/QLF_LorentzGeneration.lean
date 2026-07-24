@@ -65,9 +65,64 @@ theorem spinorAct_isHermitian (A X : Matrix (Fin 2) (Fin 2) ℂ) (hX : Xᴴ = X)
 theorem toMatrix_isHermitian (f : Form) : (f.toMatrix)ᴴ = f.toMatrix :=
   f.toMatrix_adjoint
 
-/-- Status: the forward round-trip and Hermiticity preservation are proven — the first rungs of the
-    Lorentz-axiom discharge. The reverse Hermitian round-trip + the realized-image submonoid + the
-    real-matrix KAK generation are the remaining rungs (couched in the Witten-1988 mode). -/
-theorem lorentz_roundtrip_started : True := trivial
+/-- **The reverse round-trip: `toMatrix ∘ fromMatrix = id` on Hermitian matrices.** For a Hermitian
+    `M` (as every spinor-acted `Form` matrix is, `spinorAct_isHermitian`), reading off its Minkowski
+    coordinates and rebuilding gives `M` back. This is the round-trip that lets realizations *chain*. -/
+theorem toMatrix_fromMatrix {M : Matrix (Fin 2) (Fin 2) ℂ} (hM : Mᴴ = M) :
+    (Form.fromMatrix M).toMatrix = M := by
+  -- Hermitian entry relations (`star (M j i) = M i j`)
+  have h00 : star (M 0 0) = M 0 0 := by
+    have := congrFun (congrFun hM 0) 0; simpa [Matrix.conjTranspose_apply] using this
+  have h11 : star (M 1 1) = M 1 1 := by
+    have := congrFun (congrFun hM 1) 1; simpa [Matrix.conjTranspose_apply] using this
+  have hA : star (M 1 0) = M 0 1 := by
+    have := congrFun (congrFun hM 0) 1; simpa [Matrix.conjTranspose_apply] using this
+  have hB : star (M 0 1) = M 1 0 := by
+    have := congrFun (congrFun hM 1) 0; simpa [Matrix.conjTranspose_apply] using this
+  -- each `fromMatrix` field, cast back to ℂ, is its star-fixed combination
+  have vt : ((Form.fromMatrix M).t : ℂ) = (M 0 0 + M 1 1) / 2 :=
+    Complex.conj_eq_iff_re.mp (by
+      simp only [map_div₀, map_add, map_ofNat, starRingEnd_apply, h00, h11])
+  have vx : ((Form.fromMatrix M).x : ℂ) = (M 0 1 + M 1 0) / 2 :=
+    Complex.conj_eq_iff_re.mp (by
+      simp only [map_div₀, map_add, map_ofNat, starRingEnd_apply, hA, hB])
+  have vy : ((Form.fromMatrix M).y : ℂ) = (I * (M 0 1 - M 1 0)) / 2 :=
+    Complex.conj_eq_iff_re.mp (by
+      simp only [map_div₀, map_mul, map_sub, map_ofNat, starRingEnd_apply, Complex.conj_I, hA, hB]
+      ring)
+  have vz : ((Form.fromMatrix M).z : ℂ) = (M 0 0 - M 1 1) / 2 :=
+    Complex.conj_eq_iff_re.mp (by
+      simp only [map_div₀, map_sub, map_ofNat, starRingEnd_apply, h00, h11])
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp only [Form.toMatrix, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
+      Matrix.of_apply, Matrix.cons_val', Matrix.empty_val', Matrix.cons_val_fin_one,
+      Matrix.head_fin_const]
+  · rw [vt, vz]; ring
+  · rw [vx, vy]; linear_combination (-(M 0 1 - M 1 0) / 2) * Complex.I_sq
+  · rw [vx, vy]; linear_combination ((M 0 1 - M 1 0) / 2) * Complex.I_sq
+  · rw [vt, vz]; ring
+
+/-- The predicate "`A ∈ SL(2,ℂ)` realizes the Lorentz transformation `Λ`" — the shape of the
+    surjectivity bridge, isolated so the spinor image can be shown to be a submonoid. -/
+def Realizes (A : Matrix (Fin 2) (Fin 2) ℂ) (Λ : Matrix (Fin 4) (Fin 4) ℝ) : Prop :=
+  ∀ f : Form, Form.fromMatrix (spinorAct A f.toMatrix) = ofCoord (Λ.mulVec (toCoord f))
+
+theorem ofCoord_toCoord (f : Form) : ofCoord (toCoord f) = f := by
+  obtain ⟨t, x, y, z⟩ := f; rfl
+
+/-- **The identity is realized** (`A = 1`) — the unit of the spinor image. -/
+theorem realizes_one : Realizes 1 1 := by
+  intro f
+  have h1 : spinorAct 1 f.toMatrix = f.toMatrix := by
+    simp [spinorAct, Matrix.conjTranspose_one]
+  rw [h1, fromMatrix_toMatrix, Matrix.one_mulVec, ofCoord_toCoord]
+
+/-- Status: **both round-trips are proven** — `fromMatrix ∘ toMatrix = id` and (on Hermitian
+    matrices) `toMatrix ∘ fromMatrix = id` — plus Hermiticity preservation and `Realizes 1 1`. These
+    are the round-trip lemmas of the Lorentz-axiom discharge. The remaining rungs are the submonoid
+    closure (`Realizes` under composition, via `toMatrix_fromMatrix` + `spinor_hom`) and the
+    real-matrix KAK generation (couched in the Witten-1988 mode). No new axioms. -/
+theorem lorentz_roundtrips_proven : True := trivial
 
 end QLF.LorentzGeneration
