@@ -88,7 +88,8 @@ theorem toMatrix_fromMatrix {M : Matrix (Fin 2) (Fin 2) ℂ} (hM : Mᴴ = M) :
   -- each `fromMatrix` combination is star-fixed (Hermitian), hence real, hence itself
   have starI : star Complex.I = -Complex.I := by rw [← starRingEnd_apply, Complex.conj_I]
   have sft : star ((M 0 0 + M 1 1) / 2) = (M 0 0 + M 1 1) / 2 := by simp [h00, h11]
-  have sfx : star ((M 0 1 + M 1 0) / 2) = (M 0 1 + M 1 0) / 2 := by simp [hA, hB]
+  have sfx : star ((M 0 1 + M 1 0) / 2) = (M 0 1 + M 1 0) / 2 := by
+    rw [star_div₀, star_add, star_ofNat, hB, hA]; ring
   have sfy : star ((I * (M 0 1 - M 1 0)) / 2) = (I * (M 0 1 - M 1 0)) / 2 := by
     rw [star_div₀, star_ofNat, star_mul', star_sub, hB, hA, starI]; ring
   have sfz : star ((M 0 0 - M 1 1) / 2) = (M 0 0 - M 1 1) / 2 := by simp [h00, h11]
