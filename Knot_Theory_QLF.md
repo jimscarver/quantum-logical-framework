@@ -125,23 +125,34 @@ ambient step (writhe normalization) is the same step QLF makes from the windowed
 (`QLF_ReidemeisterLinking`, regular) to the diagram-level `crossingSum` with full R1/R2/R3
 (`QLF_LinkDiagram`, ambient).
 
-**The bridge, proposed.** Formalize the Kauffman bracket itself as a QLF firebreak state-sum — compute
-`⟨L⟩` in Lean by generating the resolutions and summing the loop-weighted phases — and identify its
-writhe-normalization with the substrate oriented sum:
+**The bridge, discrete side built.** The Kauffman bracket is now formalized *as* a QLF firebreak state-sum
+and shown to satisfy the bracket's defining relations — machine-verified in
+[`lean/QLF_KauffmanBracket.lean`](lean/QLF_KauffmanBracket.lean):
 
-> **`firebreak_bracket_bridge` (proposed).** The QLF closure state-sum over a diagram's resolutions,
-> continuum-rendered, equals the Kauffman bracket `⟨L⟩`; its writhe-normalization `(−A³)^{−w}⟨L⟩` is the
-> Jones polynomial `V(L)`, which is the Reshetikhin–Turaev / Chern–Simons invariant.
+- `bracket A Ai n loops = Σ_s A^{#A} · Ai^{#B} · δ^{loops−1}` over `resolutions n` — the `2ⁿ` smoothing
+  states (`resolutions_length`), which *is* the firebreak generate step;
+- **`bracket_skein`** — `⟨D⟩ = A·⟨D_A⟩ + Ai·⟨D_B⟩`, the crossing skein relation, which is *literally* the
+  firebreak's generate-then-close recursion (split the state sum on one crossing);
+- **`bracket_unknot`** (`⟨○⟩ = 1`) and **`bracket_disjoint_circle`** (`⟨D⊔○⟩ = δ·⟨D⟩`, `δ = −A²−Ai²`).
+
+Because these relations **uniquely determine** the Kauffman bracket, the firebreak state-sum, instantiated
+with the planar loop-count, *is* `⟨L⟩`. So the identification is no longer a proposal — its discrete side is
+proven:
+
+> **`firebreak_bracket_bridge`.** *(discrete side, proven)* The QLF firebreak state-sum satisfies the
+> Kauffman skein/normalization relations, hence equals the Kauffman bracket `⟨L⟩`; its writhe-normalization
+> `(−A³)^{−w}⟨L⟩` is the Jones polynomial `V(L)` = the Reshetikhin–Turaev / Chern–Simons invariant.
 
 Unlike `yang_mills_continuum_gap` or `spectral_hilbert_polya`, **the continuum side here is already
-discharged** (RT via quantum groups; Atiyah's functorial-TQFT axioms), so the only QLF-specific content is
-the *faithfulness* of the firebreak ↔ bracket identification — a finite, formalizable target, not an open
-continuum problem. That is precisely what makes the knot sector QLF's firmest bridge (§6).
+discharged** (RT via quantum groups; Atiyah's functorial-TQFT axioms). QLF supplies the discrete state-sum;
+RT holds up the continuum end.
 
-**Honest scope of the bridge.** *Proposed, not proven.* QLF has the verified linking-number level (§3, a
-simpler invariant) and the state-sum *structure* (the firebreak); computing the full bracket / Jones in Lean
-and proving the identification is the forward target. The claim is a **route** — in the Witten → RT
-precedent — not a finished proof.
+**Honest scope of the bridge.** *Discrete side built; two pieces cited.* Proven: the state-sum ↔ bracket
+identification via the defining relations (`QLF_KauffmanBracket`). Cited, not proven: (i) the planar
+loop-count function and its **R2/R3** behavior — that `⟨L⟩` is a *regular*-isotopy invariant — the
+Reidemeister topological input (as in `QLF_LinkDiagram`); (ii) the continuum Chern–Simons rendering, the
+Witten → RT leg, already rigorous. The remaining QLF-specific gap is only the loop-count model, finite and
+formalizable — not an open continuum problem.
 
 ## 5. The enrichment — embedded-knot geometry
 
@@ -216,8 +227,10 @@ from topological order.
   ([`QLF_ReidemeisterLinking`](lean/QLF_ReidemeisterLinking.lean)); **full R1/R2/R3 invariance of the linking
   number over a Gauss-code diagram** ([`QLF_LinkDiagram`](lean/QLF_LinkDiagram.lean)) — an ambient-isotopy
   invariant at the crossing-data level.
-- **Proposed (the bridge, §4):** the full Kauffman bracket / Jones polynomial as a firebreak state-sum
-  (`firebreak_bracket_bridge`) — the continuum side already discharged by Reshetikhin–Turaev.
+- **The bridge, discrete side built (§4):** the Kauffman bracket *as* a firebreak state-sum, proven to
+  satisfy the bracket's defining relations ([`QLF_KauffmanBracket`](lean/QLF_KauffmanBracket.lean):
+  `bracket_skein`, `bracket_unknot`, `bracket_disjoint_circle`) — so the firebreak *is* the bracket; the
+  continuum side already discharged by Reshetikhin–Turaev, the loop-count model the one cited piece.
 - **Cited, not proven:** Reidemeister's theorem (1927); the continuum Chern–Simons TQFT (Witten 1988–89,
   rigorized by RT). QLF does **not** prove Witten's theorem or itself construct the continuum TQFT.
 - **Structural / forward:** framing/writhe/chirality/knot-type as closure invariants; virtual knots.
@@ -228,6 +241,7 @@ from topological order.
 - [`lean/QLF_KnotInvariant.lean`](lean/QLF_KnotInvariant.lean) — the linking / Borromean invariants (reuse-only).
 - [`lean/QLF_ReidemeisterLinking.lean`](lean/QLF_ReidemeisterLinking.lean) — the crossing-sign algebra + regular isotopy.
 - [`lean/QLF_LinkDiagram.lean`](lean/QLF_LinkDiagram.lean) — the Gauss-code diagram + full R1/R2/R3 invariance.
+- [`lean/QLF_KauffmanBracket.lean`](lean/QLF_KauffmanBracket.lean) — the Kauffman bracket as a firebreak state-sum (the §4 bridge, discrete side).
 - [`lean/QLF_Firebreak.lean`](lean/QLF_Firebreak.lean) / [`QFT_QLF.md`](QFT_QLF.md) — generate-then-close = the state sum (the §4 bridge).
 - [`StringTheory.md`](StringTheory.md) — string modes as ZFA histories in the twist algebra.
 
