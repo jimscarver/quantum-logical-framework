@@ -1,16 +1,5 @@
 # Knot Theory in QLF — Kauffman's formulation and the substrate bridge
 
-**Scope.** A formal account of how knot theory lives inside the [Quantum Logical Framework (QLF)](README.md):
-Kauffman's formulation (the bracket polynomial and its state sum, the writhe, the Jones polynomial, the
-Reidemeister moves), the QLF ↔ Kauffman dictionary, the machine-verified substrate footing (the linking
-number and its full Reidemeister invariance), the **proposed bridge** from QLF's discrete closure state-sum
-to the continuum Kauffman / Jones / Chern–Simons invariant, and the 2025 Kauffman–Smalyukh laboratory
-realization. **This is a structural reading / enrichment direction**, tagged as plainly as the qualia stance
-in [`Consciousness.md`](Consciousness.md) §6 — the linking-number core is *proven*, the bracket/Jones bridge
-is *proposed* (in the sense of QLF's other Millennium bridges, but with the continuum side already rigorous).
-
----
-
 ## 1. Kauffman's formulation
 
 Lou Kauffman's knot theory was influential in the original QLF realization that the geometry of quantum
