@@ -162,5 +162,6 @@ lean_lib QLF where
     `QLF_KnotInvariant,
     `QLF_ReidemeisterLinking,
     `QLF_LinkDiagram,
-    `QLF_KauffmanBracket
+    `QLF_KauffmanBracket,
+    `QLF_TorusBracket
   ]
