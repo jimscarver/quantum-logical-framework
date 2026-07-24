@@ -65,6 +65,12 @@ theorem spinorAct_isHermitian (A X : Matrix (Fin 2) (Fin 2) ℂ) (hX : Xᴴ = X)
 theorem toMatrix_isHermitian (f : Form) : (f.toMatrix)ᴴ = f.toMatrix :=
   f.toMatrix_adjoint
 
+/-- A star-fixed complex number is real: `star w = w ⟹ ↑w.re = w`. -/
+private theorem real_of_star_fixed {w : ℂ} (h : star w = w) : (↑w.re : ℂ) = w := by
+  have h' : (starRingEnd ℂ) w = w := h
+  have him : w.im = 0 := Complex.conj_eq_iff_im.mp h'
+  apply Complex.ext <;> simp [him]
+
 /-- **The reverse round-trip: `toMatrix ∘ fromMatrix = id` on Hermitian matrices.** For a Hermitian
     `M` (as every spinor-acted `Form` matrix is, `spinorAct_isHermitian`), reading off its Minkowski
     coordinates and rebuilding gives `M` back. This is the round-trip that lets realizations *chain*. -/
@@ -79,25 +85,22 @@ theorem toMatrix_fromMatrix {M : Matrix (Fin 2) (Fin 2) ℂ} (hM : Mᴴ = M) :
     have := congrFun (congrFun hM 0) 1; simpa [Matrix.conjTranspose_apply] using this
   have hB : star (M 0 1) = M 1 0 := by
     have := congrFun (congrFun hM 1) 0; simpa [Matrix.conjTranspose_apply] using this
-  -- each `fromMatrix` field, cast back to ℂ, is its star-fixed combination
-  have vt : ((Form.fromMatrix M).t : ℂ) = (M 0 0 + M 1 1) / 2 :=
-    Complex.conj_eq_iff_re.mp (by
-      simp only [map_div₀, map_add, map_ofNat, starRingEnd_apply, h00, h11])
-  have vx : ((Form.fromMatrix M).x : ℂ) = (M 0 1 + M 1 0) / 2 :=
-    Complex.conj_eq_iff_re.mp (by
-      simp only [map_div₀, map_add, map_ofNat, starRingEnd_apply, hA, hB])
-  have vy : ((Form.fromMatrix M).y : ℂ) = (I * (M 0 1 - M 1 0)) / 2 :=
-    Complex.conj_eq_iff_re.mp (by
-      simp only [map_div₀, map_mul, map_sub, map_ofNat, starRingEnd_apply, Complex.conj_I, hA, hB]
-      ring)
-  have vz : ((Form.fromMatrix M).z : ℂ) = (M 0 0 - M 1 1) / 2 :=
-    Complex.conj_eq_iff_re.mp (by
-      simp only [map_div₀, map_sub, map_ofNat, starRingEnd_apply, h00, h11])
+  -- each `fromMatrix` combination is star-fixed (Hermitian), hence real, hence itself
+  have starI : star Complex.I = -Complex.I := by rw [← starRingEnd_apply, Complex.conj_I]
+  have sft : star ((M 0 0 + M 1 1) / 2) = (M 0 0 + M 1 1) / 2 := by simp [h00, h11]
+  have sfx : star ((M 0 1 + M 1 0) / 2) = (M 0 1 + M 1 0) / 2 := by simp [hA, hB]
+  have sfy : star ((I * (M 0 1 - M 1 0)) / 2) = (I * (M 0 1 - M 1 0)) / 2 := by
+    rw [star_div₀, star_ofNat, star_mul', star_sub, hB, hA, starI]; ring
+  have sfz : star ((M 0 0 - M 1 1) / 2) = (M 0 0 - M 1 1) / 2 := by simp [h00, h11]
+  have vt : ((Form.fromMatrix M).t : ℂ) = (M 0 0 + M 1 1) / 2 := real_of_star_fixed sft
+  have vx : ((Form.fromMatrix M).x : ℂ) = (M 0 1 + M 1 0) / 2 := real_of_star_fixed sfx
+  have vy : ((Form.fromMatrix M).y : ℂ) = (I * (M 0 1 - M 1 0)) / 2 := real_of_star_fixed sfy
+  have vz : ((Form.fromMatrix M).z : ℂ) = (M 0 0 - M 1 1) / 2 := real_of_star_fixed sfz
   ext i j
   fin_cases i <;> fin_cases j <;>
-    simp only [Form.toMatrix, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
-      Matrix.of_apply, Matrix.cons_val', Matrix.empty_val', Matrix.cons_val_fin_one,
-      Matrix.head_fin_const]
+    simp only [Fin.mk_zero, Fin.mk_one, Form.toMatrix, Matrix.cons_val_zero, Matrix.cons_val_one,
+      Matrix.head_cons, Matrix.of_apply, Matrix.cons_val', Matrix.empty_val',
+      Matrix.cons_val_fin_one, Matrix.head_fin_const]
   · rw [vt, vz]; ring
   · rw [vx, vy]; linear_combination (-(M 0 1 - M 1 0) / 2) * Complex.I_sq
   · rw [vx, vy]; linear_combination ((M 0 1 - M 1 0) / 2) * Complex.I_sq
