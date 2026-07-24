@@ -76,9 +76,15 @@ exposes geometry the string alone does not:
   (`crossing_cyclic`, `crossing_transpose`, **`crossing_self_zero`** = R1 self-crossings don't link,
   **`crossing_R2_cancel`** = R2 opposite crossings cancel), plus the linking-number invariances it yields
   (`linking_mirror_odd`; `linking_missing_axis_zero`, a `≤2`-axis diagram has linking `0`;
-  `linking_gauge_prepend`/`append`, a gauge kink at either boundary preserves linking). The remaining
-  target is full ambient-isotopy R2/R3 invariance over an **encoded** link diagram (a Gauss code /
-  crossing sequence) — `baryonNumber` is the substrate's windowed / regular-isotopy form.
+  `linking_gauge_prepend`/`append`, a gauge kink at either boundary preserves linking). The ambient-isotopy
+  step — **full R1/R2/R3 invariance over an encoded link diagram** — is then crossed in
+  [`lean/QLF_LinkDiagram.lean`](lean/QLF_LinkDiagram.lean): a **Gauss-code diagram** (`Crossing` = two
+  component tags + oriented sign) with the linking number `crossingSum a b D` proven invariant under all
+  three moves — `linking_r1_invariant` (self-crossing insert), `linking_r2_invariant` (opposite-sign pair
+  insert cancels), `linking_r3_invariant` (a slide permutes crossings, `List.Perm.sum_eq`); Hopf link
+  `crossingSum = 2` (`lk = 1`). So the linking number is a genuine ambient-isotopy invariant at the
+  crossing-data level (`baryonNumber` being its windowed / regular-isotopy shadow); Reidemeister's theorem
+  (1927 — that R1/R2/R3 generate ambient isotopy) is the cited topological input.
 - **The Kauffman bracket as a generate-then-close state-sum** — the bracket's sum over crossing resolutions
   read as a [`QLF_Firebreak`](lean/QLF_Firebreak.lean) generate-then-close, tying the knot polynomial to the
   substrate's path-integral selection.
@@ -113,15 +119,54 @@ This is real-world laboratory evidence for the topological-logical structures ce
 stable knotted configurations, controlled transformation via external fields (analogous to
 measurement/resolution), and particle-like behavior emerging from topological order.
 
+## 5. Riding the Witten 1988 precedent
+
+Witten's 1988–89 derivation of the Jones polynomial did something QLF's method depends on being legitimate:
+it computed a rigorous mathematical invariant from a **physical, non-rigorous** object — the Chern–Simons
+path integral `⟨W(K)⟩ = ∫ 𝒟A e^{iS_CS[A]} W_K(A)`, whose measure `𝒟A` has no rigorous definition. It was a
+*physicist's heuristic*, not a proof by standard-math criteria. What legitimized it was **what came next**:
+the answers were independently made rigorous by other mathematics — **Reshetikhin–Turaev** (1990–91)
+reconstructed the same invariants from quantum groups / modular tensor categories (the WRT invariants), and
+**Atiyah** (1988) axiomatized TQFT into a functorial framework. Witten's Fields Medal (1990) honored the
+*ideas*; the *rigor* rode in behind him.
+
+That shape — **a physics engine produces correct invariants through a non-rigorous bridge, later discharged
+by independent rigorous means** — is exactly QLF's method: a machine-verified discrete/RCA₀ core **plus one
+named bridge axiom** (`yang_mills_continuum_gap`, `spectral_hilbert_polya`, …). So Witten 1988 is a citable
+**precedent that the QLF bridge-axiom pattern is honored mathematics**, not crankery — the Witten→RT arc *is*
+that pattern, Fields-Medaled.
+
+In the knot sector specifically the ride is stronger than analogy, because QLF is operating **inside
+Chern–Simons/Jones territory**:
+
+- QLF's **generate-then-close firebreak IS a discrete state-sum** ([`QLF_Firebreak`](lean/QLF_Firebreak.lean))
+  — the same combinatorial object as the Kauffman bracket / RT state-sum.
+- The linking number and its **full R1/R2/R3 invariance** (`QLF_LinkDiagram`), the Borromean/Brunnian baryon
+  (§2), are the **discrete cores** the WRT construction renders continuous.
+- And here the bridge is **already discharged**: Reshetikhin–Turaev *already* made the continuum Chern–Simons
+  TQFT rigorous. So QLF's knot-sector bridge stands on **finished** mathematics — unlike Riemann or
+  Yang–Mills, where the discharge is still open. It is QLF's **firmest bridge**.
+
+**The line to hold (the trap refused):** the precedent legitimizes the *method*, and in this sector hands
+QLF an *already-completed* continuum leg — it does **not** transfer *content*. Witten's theorem is about
+Chern–Simons/Jones; it is not a lemma that closes `spectral_hilbert_polya` or `yang_mills_continuum_gap`.
+Riding coattails means adopting the licensed division of labor (and inheriting RT's rigor *here*), never
+claiming Witten's theorem proves QLF's open bridges — the same discipline as "QLF does not prove Witten's
+theorem" below.
+
 ## Honest scope
 
-- **Proven (reuse):** the linking invariant and the Borromean/Brunnian baryon
-  ([`QLF_KnotInvariant.lean`](lean/QLF_KnotInvariant.lean), over `QLF_BaryonWinding` / `QLF_QuarkStructure`)
-  — the geometry-of-quantum-systems footing, in knot invariants.
+- **Proven:** the linking invariant and the Borromean/Brunnian baryon
+  ([`QLF_KnotInvariant.lean`](lean/QLF_KnotInvariant.lean), over `QLF_BaryonWinding` / `QLF_QuarkStructure`);
+  the crossing-sign Levi-Civita algebra + R1/mirror ([`QLF_ReidemeisterLinking.lean`](lean/QLF_ReidemeisterLinking.lean));
+  and **full R1/R2/R3 invariance of the linking number over a Gauss-code diagram**
+  ([`QLF_LinkDiagram.lean`](lean/QLF_LinkDiagram.lean)) — the geometry-of-quantum-systems footing, in knot
+  invariants, now an ambient-isotopy invariant at the crossing-data level.
 - **Structural / forward:** embedded-closure = spatial knot; framing/writhe/chirality/knot-type as closure
-  invariants; Reidemeister invariance in full; the Kauffman bracket as a firebreak state-sum; continuum
-  Chern–Simons TQFT as the rendering. QLF does **not** prove Witten's theorem or construct the continuum
-  Chern–Simons TQFT — that is a named boundary, not a result here.
+  invariants; the Kauffman bracket as a firebreak state-sum. **Cited, not proven:** Reidemeister's theorem
+  (1927, R1/R2/R3 generate ambient isotopy) and the continuum Chern–Simons TQFT — the latter *already
+  rigorously discharged* by Reshetikhin–Turaev (§5), QLF's firmest bridge. QLF does **not** prove Witten's
+  theorem or itself construct the continuum Chern–Simons TQFT.
 
 ## Relevant repo files
 - [`HALF-SPIN-ZFA-EMBEDDING.md`](HALF-SPIN-ZFA-EMBEDDING.md) — closures embedded as knots/links in
@@ -141,5 +186,8 @@ measurement/resolution), and particle-like behavior emerging from topological or
 - V. F. R. Jones (1985). *A polynomial invariant for knots via von Neumann algebras.* Bull. AMS 12.
 - L. H. Kauffman (1987). *State models and the Jones polynomial.* Topology 26 — the bracket state-sum.
 - E. Witten (1989). *Quantum Field Theory and the Jones Polynomial.* Comm. Math. Phys. 121 — Chern–Simons TQFT.
+- M. Atiyah (1988). *Topological quantum field theories.* Publ. IHÉS 68 — the functorial TQFT axioms.
+- N. Reshetikhin & V. Turaev (1991). *Invariants of 3-manifolds via link polynomials and quantum groups.* Invent. Math. 103 — the rigorous construction discharging Witten's Chern–Simons invariants.
+- K. Reidemeister (1927). *Elementare Begründung der Knotentheorie.* Abh. Math. Sem. Hamburg 5 — R1/R2/R3 generate ambient isotopy.
 - [Laws of Form – Kauffman](http://homepages.math.uic.edu/~kauffman/Laws.pdf)
 - Hall, Tai, Kauffman, Smalyukh et al. (2025). *Fusion and fission of particle-like chiral nematic vortex knots.* Nature Physics.
