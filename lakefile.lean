@@ -161,5 +161,6 @@ lean_lib QLF where
     `QLF_CurvatureLie,
     `QLF_KnotInvariant,
     `QLF_ReidemeisterLinking,
-    `QLF_LinkDiagram
+    `QLF_LinkDiagram,
+    `QLF_KauffmanBracket
   ]
