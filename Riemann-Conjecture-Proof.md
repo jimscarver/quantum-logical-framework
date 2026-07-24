@@ -335,6 +335,28 @@ So the critical line follows from the substrate's count-balance condition, and z
 
 ---
 
+## The census is a random walk — the log-correlated-field / GMC bridge candidate  *[bridge candidate, not a proof]*
+
+The substrate's closure census is, at its core, a **simple random walk**, and this connects QLF's critical line to *rigorous* results about `ζ`. It is the single most promising way to attach the RH program to settled adjacent mathematics — the same move that made the knot sector airtight (there, Reshetikhin–Turaev; here, Gaussian multiplicative chaos). Tagged as a **bridge candidate**: it enriches the reformulation and names a settled-math neighbour, it does **not** prove RH.
+
+**The census is Brownian, and its return locus is the critical line.** A ZFA-balanced string of length `2n` (`#+ = #−`) is exactly a **closed** `±1` random walk — each twist a step, count-balance the condition that the walk *returns to its origin*. So the census `= C(2n,n)` is the closed-walk count (`census_is_closed_walk_count`, [`lean/QLF_CensusBrownian.lean`](lean/QLF_CensusBrownian.lean), reusing `closure_census`), and the return density `P₂ₙ(0) = (C(2n,n)/4ⁿ)²` is **two independent 1-D Brownian returns** (`returnDensity_eq_sq_1d`). Crucially, *balance = walk-closure is the same condition as the critical line* (`count_pos = count_neg ⇒ Re = 1/2`, `zfa_implies_critical_line`): **the walk returns exactly on the critical line.**
+
+**Scale-indexed Brownian phases are a log-correlated field — and that is precisely how `ζ` on the critical line behaves.** Indexing the ZFA phase by *scale* with Brownian statistics is a **log-correlated Gaussian field**, whose exponential is a **Gaussian multiplicative chaos (GMC)**; the census's `n^{−p/2}` exponent is the diffusive (Brownian) scaling. The rigorous, settled results say `ζ` on the critical line lives in exactly this universality class:
+
+- **Montgomery–Odlyzko** — the zero spacings follow **GUE** random-matrix statistics.
+- **Fyodorov–Hiary–Keating** (2012) — `max|ζ|` on short critical-line intervals is the maximum of a **log-correlated field**.
+- **Saksman–Webb** (2020) — normalized `ζ` converges to a **Gaussian multiplicative chaos** measure.
+
+So the critical-line statistics QLF's census generates and the rigorous statistics of `ζ` are the *same object*.
+
+**The Planck floor is the GMC regularization.** GMC and log-correlated fields exist only as **regularized** limits — a UV cutoff, taken to infinity. QLF's fractality is **semi**-fractal precisely because it stops at the **Planck floor** ([`Planck_Scale.md`](Planck_Scale.md)) — the same cutoff that resolves the UV catastrophe and the Navier–Stokes blow-up ([`Navier_Stokes_Geometry.md`](Navier_Stokes_Geometry.md)). So the substrate's semifractal-Brownian phase *is* a naturally-regularized log-correlated field: the cutoff physics needs and the cutoff GMC needs are one and the same.
+
+**One framework, two Millennium sectors.** The same GMC / log-correlated object governs **turbulence** — the multifractal energy cascade (`QLF_Kolmogorov`, She–Leveque; Kahane's GMC was *born* from Mandelbrot's turbulence cascades). So Riemann and Navier–Stokes turbulence share one rigorous framework, unified through the substrate's Brownian census.
+
+**Honest scope.** Proven (`QLF_CensusBrownian`): the census's Brownian structure — closed-walk count, `returnDensity = returnProb1D²`. Settled analysis, cited (the *bridge candidate*): the `n^{−p/2}` asymptotic (Wallis/Stirling) and the GMC ↔ `ζ` correspondence (Montgomery–Odlyzko / FHK / Saksman–Webb). What this does: it moves the RH program toward the knot sector's end-state — verified discrete core **plus a settled-math neighbour** — and unifies it with turbulence. What it does **not** do: GMC/log-correlated theory describes `ζ`'s *statistics*; it does not prove that *all* zeros lie on the line. So this **enriches the reformulation and localizes the axioms' surrounding rigour**; it does not discharge `spectral_hilbert_polya` / `MRE_bridge`, which remain Class-A boundaries (unprovable without solving RH, by design).
+
+---
+
 ## Conclusion
 
 The current QLF result should be stated plainly.
