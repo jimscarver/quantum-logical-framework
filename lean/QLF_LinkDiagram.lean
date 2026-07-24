@@ -29,7 +29,7 @@ The linking number (×2, staying in `ℤ`; classically `lk = ½·crossingSum`) o
 isotopy invariant. Cited, not proven: Reidemeister's theorem (1927) that R1/R2/R3 generate
 ambient isotopy of link diagrams, and the planar-diagram ↔ crossing-data faithfulness (the
 geometric realization of a QLF closure's embedding is the synthesized-spacetime rendering).
-No new axioms. See `QLF_Knot_Theory_Nature_2025.md`, `HALF-SPIN-ZFA-EMBEDDING.md` §3b.
+No new axioms. See `Knot_Theory_QLF.md`, `HALF-SPIN-ZFA-EMBEDDING.md` §3b.
 -/
 
 namespace QLF.LinkDiagram

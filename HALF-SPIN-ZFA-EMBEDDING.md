@@ -107,7 +107,7 @@ The embedding this document defines does more than realize spin-½ set-theoretic
 - The **linking number** of an embedded closure = `baryonNumber`, the signed 3-axis linking (winding) invariant ([`lean/QLF_KnotInvariant.lean`](lean/QLF_KnotInvariant.lean), reusing [`QLF_BaryonWinding`](lean/QLF_BaryonWinding.lean)); it is orientation-odd and its **mirror image negates it** (`L ↦ −L`), the chiral signature of a knot invariant.
 - The **baryon is a Borromean / Brunnian 3-link** — remove any one colour component and the whole thing unlinks (`borromean_remove_one_unlinks`, reusing [`QLF_QuarkStructure`](lean/QLF_QuarkStructure.lean)): confinement as Borromean necessity.
 
-The **enrichment** — framing, writhe, chirality, knot type, Reidemeister invariance, and the Kauffman bracket as a generate-then-close state-sum (the [`QLF_Firebreak`](lean/QLF_Firebreak.lean) path-integral shape) — is the forward direction a full embedded-knot geometry opens; the continuum Chern–Simons TQFT (Witten 1988–89) is its rendering boundary. See [`QLF_Knot_Theory_Nature_2025.md`](QLF_Knot_Theory_Nature_2025.md) for the lineage, the proven footing, and the 2025 Kauffman–Smalyukh laboratory realization.
+The **enrichment** — framing, writhe, chirality, knot type, Reidemeister invariance, and the Kauffman bracket as a generate-then-close state-sum (the [`QLF_Firebreak`](lean/QLF_Firebreak.lean) path-integral shape) — is the forward direction a full embedded-knot geometry opens; the continuum Chern–Simons TQFT (Witten 1988–89) is its rendering boundary. See [`Knot_Theory_QLF.md`](Knot_Theory_QLF.md) for the lineage, the proven footing, and the 2025 Kauffman–Smalyukh laboratory realization.
 
 ## 4. `+`–`−` Gauge Folds as Primordial Black-Hole Seeds (21 April 2026 Update)
 

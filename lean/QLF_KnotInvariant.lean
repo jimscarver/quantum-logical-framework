@@ -27,7 +27,7 @@ geometry-of-quantum-systems footing (Kauffman) an explicit knot-invariant statem
 **Honest scope.** These ARE the knot invariants of embedded closures, machine-verified.
 Full Reidemeister-move invariance and the Kauffman-bracket / continuum Chern–Simons TQFT
 rendering are the structural / boundary reading (`knot_invariant_in_progress`). See
-`QLF_Knot_Theory_Nature_2025.md`, `HALF-SPIN-ZFA-EMBEDDING.md`.
+`Knot_Theory_QLF.md`, `HALF-SPIN-ZFA-EMBEDDING.md`.
 -/
 
 namespace QLF.KnotInvariant

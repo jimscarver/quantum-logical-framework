@@ -31,7 +31,7 @@ invariance), R1 (self-crossings / two-axis diagrams / gauge kinks do not change 
 and mirror oddness. `baryonNumber` is the substrate's *windowed / regular-isotopy* linking
 form; the full ambient-isotopy R2/R3 invariance over an **encoded** link diagram (a Gauss
 code / crossing sequence) is the named boundary (`reidemeister_full_in_progress`). No new
-axioms. See `QLF_Knot_Theory_Nature_2025.md`, `HALF-SPIN-ZFA-EMBEDDING.md` §3b.
+axioms. See `Knot_Theory_QLF.md`, `HALF-SPIN-ZFA-EMBEDDING.md` §3b.
 -/
 
 namespace QLF.ReidemeisterLinking
