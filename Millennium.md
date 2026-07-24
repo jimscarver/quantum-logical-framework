@@ -135,8 +135,9 @@ axioms honestly:
 
 - **Class-B bridges are *settled-mathematics* bridges** (the pure Witten→RT mode): the continuum/limit
   facts Mathlib does not yet package but which *are* established — the `SL(2,ℂ)→SO⁺(1,3)` cover's KAK
-  generation (`lorentz_generated_by_boosts_rotations`), the CST continuum limits, the Planck-capped
-  Navier–Stokes vorticity (`QLF_NavierStokesBKM`). Here a settled-math bridge under a fully-proven core is
+  generation (`lorentz_generated_by_boosts_rotations` — now **reduced** in `QLF_LorentzGeneration`: both
+  `Form↔Matrix` round-trips + the spinor-image submonoid proven, so only the purely-real KAK generation
+  remains), the CST continuum limits, the Planck-capped Navier–Stokes vorticity (`QLF_NavierStokesBKM`). Here a settled-math bridge under a fully-proven core is
   the **honored end-state**, not a gap — and the **knot sector is the completed exemplar**, its continuum
   leg *already discharged* by RT.
 - **Class-A bridges carry the problem's own content** (Riemann/BSD/P-vs-NP/Yang–Mills/Hodge-faithfulness):

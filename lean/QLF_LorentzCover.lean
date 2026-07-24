@@ -210,9 +210,11 @@ structure ProperOrthochronous where
     bridge is discharged by independent rigorous mathematics. The physics core is **fully proven** —
     the homomorphism (`spinor_hom`), the explicit generators in the image (`boostZ_action`,
     `rotZ_action`), and the kernel `{±I}` (`spinor_kernel`, the genuine 2-to-1) — and this axiom is the
-    cited generation fact that composes those proven generators. Full in-Lean elimination is the
-    KAK-decomposition project (the `fromMatrix`/`toMatrix` Hermitian round-trip + the real-matrix
-    generation theorem), **Class-B dischargeable in principle**; couched in the Witten mode, the
+    cited generation fact that composes those proven generators. **Now reduced** in
+    [`QLF_LorentzGeneration`](QLF_LorentzGeneration.lean): both `Form↔Matrix` round-trips
+    (`fromMatrix_toMatrix`, `toMatrix_fromMatrix` on Hermitian) and the spinor-image submonoid
+    (`realizes_one` + `realizes_mul`) are proven, so all spinor content is discharged and this axiom
+    localizes to the *purely real-matrix* KAK generation of `SO⁺(1,3)`. Couched in the Witten mode, that
     settled-math bridge is the honored end-state, not a gap. -/
 axiom lorentz_generated_by_boosts_rotations (L : ProperOrthochronous) :
     ∃ A : Matrix (Fin 2) (Fin 2) ℂ, A.det = 1 ∧
