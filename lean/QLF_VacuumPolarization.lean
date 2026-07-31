@@ -54,13 +54,17 @@ The target `2/(3π)` decomposes into four census factors:
 with the `b = −4/3` per-unit-charge β-coefficient in the `inv_coupling` convention. The `1/π` is the
 reused Wallis census.
 
-**Honest scope (`qed_running_coefficient_in_progress`).** The `Σ k(n−k)/n³ → 1/6` limit is the
-elementary cubic-over-cubic asymptotic (same settled-mathematics tier as the Wallis π limit
-`QLF_PhysicalPi` states but does not re-derive) — formalizing it is housekeeping. The two prefactor
-`2`s are rendered (vertex structure), not counted. The **horizon → scale (`Q²`) map** that turns this
-per-loop coefficient into the full running *function* `α⁻¹(Q²)` — the tower, via `closedAtHorizon`
-(`QLF_HorizonClosure`) — is the next step (#117), and the eight-digit `0.036` residual is that tower
-summed over the elementary (prime-count) closures. This module anchors only the leading coefficient.
+The `Σ k(n−k)/n³ → 1/6` limit is **proven** (`splitRiemannSum_tendsto`, via the exact form
+`splitRiemannSum_eq`: `census_split n / n³ = 1/6 − 1/(6n²)`, needing no `Real`-analysis input beyond
+the standard `1/n → 0`) — the discrete two-vertex split census genuinely *is* the Feynman parameter
+integral `∫₀¹ x(1−x) dx`, not merely a match to its closed form.
+
+**Honest scope (`qed_running_coefficient_in_progress`).** The two prefactor `2`s are rendered (vertex
+structure), not counted. The **horizon → scale (`Q²`) map** that turns this per-loop coefficient into
+the full running *function* `α⁻¹(Q²)` is built in `QLF_VacuumPolarizationTower`, and the charge census
+`Σ Nᶜ Q_f² = 8` weighting the tower in `QLF_ChargeCensus`; the eight-digit `0.036` value residual is
+that tower's threshold octaves (the mass spectrum) plus the SM's own non-perturbative hadronic piece.
+This module anchors the leading coefficient.
 -/
 
 namespace QLF
@@ -102,6 +106,42 @@ theorem census_split (n : ℕ) :
   simp_rw [h]
   rw [Finset.sum_sub_distrib, ← Finset.mul_sum, sum_id_real, sum_sq_real]
   ring
+
+/-! ### The `→ 1/6` limit — the discrete split census IS the Feynman integral -/
+
+/-- The split-census **Riemann sum** `census_split n / n³` — the discrete form of the Feynman
+    parameter integral `∫₀¹ x(1−x) dx`, with `x = k/n` (`Σ (k/n)(1−k/n)·(1/n)`). -/
+noncomputable def splitRiemannSum (n : ℕ) : ℝ :=
+  (∑ k ∈ Finset.range (n + 1), (k : ℝ) * ((n : ℝ) - (k : ℝ))) / (n : ℝ) ^ 3
+
+/-- Exact form: `census_split n / n³ = 1/6 − 1/(6n²)` for `n ≥ 1` — the Riemann sum approaches `1/6`
+    monotonically from below at rate `1/n²`. -/
+theorem splitRiemannSum_eq (n : ℕ) (hn : 1 ≤ n) :
+    splitRiemannSum n = 1 / 6 - 1 / (6 * (n : ℝ) ^ 2) := by
+  unfold splitRiemannSum
+  rw [census_split]
+  have hn0 : (n : ℝ) ≠ 0 := Nat.cast_ne_zero.mpr (by omega)
+  field_simp
+  ring
+
+/-- **The discrete split census converges to the Feynman integral `1/6`.** `census_split n / n³ →
+    ∫₀¹ x(1−x) dx = 1/6` — so the `1/3!` behind the `3` in `3π` is not merely the closed form but the
+    genuine continuum limit of the two-vertex split count (the discrete census *is* the Feynman
+    parameter integral, no `Real`-analysis input beyond the standard `1/n → 0`). -/
+theorem splitRiemannSum_tendsto :
+    Filter.Tendsto splitRiemannSum Filter.atTop (nhds (1 / 6)) := by
+  have hcongr : ∀ᶠ n in Filter.atTop, splitRiemannSum n = 1 / 6 - 1 / (6 * (n : ℝ) ^ 2) := by
+    filter_upwards [Filter.eventually_ge_atTop 1] with n hn using splitRiemannSum_eq n hn
+  rw [Filter.tendsto_congr' hcongr]
+  have hz : Filter.Tendsto (fun n : ℕ => 1 / (6 * (n : ℝ) ^ 2)) Filter.atTop (nhds 0) := by
+    have hsq : Filter.Tendsto (fun n : ℕ => ((1 : ℝ) / (n : ℝ)) ^ 2) Filter.atTop (nhds 0) := by
+      simpa using (tendsto_one_div_atTop_nhds_zero_nat).pow 2
+    have hmul := hsq.const_mul (1 / 6 : ℝ)
+    simp only [mul_zero] at hmul
+    refine hmul.congr (fun n => ?_)
+    rw [div_pow, one_pow]
+    ring
+  simpa using tendsto_const_nhds.sub hz
 
 /-! ### The census factors of `2/(3π)` -/
 
