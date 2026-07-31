@@ -179,5 +179,6 @@ lean_lib QLF where
     `QLF_CondensateGap,
     `QLF_HolographicDensity,
     `QLF_GravitationalCoupling,
-    `QLF_VacuumPolarization
+    `QLF_VacuumPolarization,
+    `QLF_VacuumPolarizationTower
   ]
