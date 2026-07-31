@@ -181,5 +181,6 @@ lean_lib QLF where
     `QLF_GravitationalCoupling,
     `QLF_VacuumPolarization,
     `QLF_VacuumPolarizationTower,
-    `QLF_ChargeCensus
+    `QLF_ChargeCensus,
+    `QLF_ChargeBalance
   ]
