@@ -133,13 +133,17 @@ theorem splitRiemannSum_tendsto :
   have hcongr : ∀ᶠ n in Filter.atTop, splitRiemannSum n = 1 / 6 - 1 / (6 * (n : ℝ) ^ 2) := by
     filter_upwards [Filter.eventually_ge_atTop 1] with n hn using splitRiemannSum_eq n hn
   rw [Filter.tendsto_congr' hcongr]
+  have hone : Filter.Tendsto (fun n : ℕ => (1 : ℝ) / (n : ℝ)) Filter.atTop (nhds 0) :=
+    tendsto_one_div_atTop_nhds_zero_nat
   have hz : Filter.Tendsto (fun n : ℕ => 1 / (6 * (n : ℝ) ^ 2)) Filter.atTop (nhds 0) := by
-    have hsq : Filter.Tendsto (fun n : ℕ => ((1 : ℝ) / (n : ℝ)) ^ 2) Filter.atTop (nhds 0) := by
-      simpa using (tendsto_one_div_atTop_nhds_zero_nat).pow 2
-    have hmul := hsq.const_mul (1 / 6 : ℝ)
-    simp only [mul_zero] at hmul
-    refine hmul.congr (fun n => ?_)
-    rw [div_pow, one_pow]
+    have hprod : Filter.Tendsto
+        (fun n : ℕ => (1 / 6 : ℝ) * ((1 / (n : ℝ)) * (1 / (n : ℝ)))) Filter.atTop (nhds 0) := by
+      have h := (hone.mul hone).const_mul (1 / 6 : ℝ)
+      simpa using h
+    refine hprod.congr' ?_
+    filter_upwards [Filter.eventually_ge_atTop 1] with n hn
+    have hne : (n : ℝ) ≠ 0 := Nat.cast_ne_zero.mpr (by omega)
+    field_simp
     ring
   simpa using tendsto_const_nhds.sub hz
 
