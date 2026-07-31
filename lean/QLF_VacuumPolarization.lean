@@ -144,7 +144,6 @@ theorem splitRiemannSum_tendsto :
     filter_upwards [Filter.eventually_ge_atTop 1] with n hn
     have hne : (n : ℝ) ≠ 0 := Nat.cast_ne_zero.mpr (by omega)
     field_simp
-    ring
   simpa using tendsto_const_nhds.sub hz
 
 /-! ### The census factors of `2/(3π)` -/
