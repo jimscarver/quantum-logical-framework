@@ -188,5 +188,6 @@ lean_lib QLF where
     `QLF_GUTScale,
     `QLF_BindingStrength,
     `QLF_PackingFactor,
-    `QLF_ClosureAttraction
+    `QLF_ClosureAttraction,
+    `QLF_SteadyStateDensity
   ]
