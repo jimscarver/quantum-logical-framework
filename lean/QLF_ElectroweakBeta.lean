@@ -84,7 +84,7 @@ theorem hyperSqPerGen_eq : hyperSqPerGen = 10 / 3 := by
 def weylY2 : ℚ := 3 * hyperSqPerGen
 
 theorem weylY2_eq : weylY2 = 10 := by
-  rw [weylY2, hyperSqPerGen_eq]; norm_num
+  unfold weylY2; rw [hyperSqPerGen_eq]; norm_num
 
 /-! ### The three β-coefficients (Georgi–Quinn–Weinberg convention) -/
 
@@ -103,7 +103,7 @@ theorem b2_eq : b2 = -19 / 6 := by norm_num [b2, C2_SU2, weylT_SU2, higgsT_SU2]
 
 /-- **`b₁ = 41/10`** — the GUT-normalized U(1)_Y coefficient (screening). -/
 theorem b1_eq : b1 = 41 / 10 := by
-  rw [b1, weylY2_eq]; norm_num [higgsY2]
+  unfold b1; rw [weylY2_eq]; norm_num [higgsY2]
 
 /-- **`b₃` reproduces `QLF_BetaFunction`'s `b₀ = 7`** (opposite sign convention: AF-positive). -/
 theorem neg_b3_eq_qcd : -b3 = 7 := by rw [b3_eq]; norm_num
