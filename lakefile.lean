@@ -184,5 +184,6 @@ lean_lib QLF where
     `QLF_ChargeCensus,
     `QLF_ChargeBalance,
     `QLF_AnomalyCancellation,
-    `QLF_ElectroweakBeta
+    `QLF_ElectroweakBeta,
+    `QLF_GUTScale
   ]
