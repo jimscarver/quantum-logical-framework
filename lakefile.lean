@@ -190,5 +190,6 @@ lean_lib QLF where
     `QLF_PackingFactor,
     `QLF_ClosureAttraction,
     `QLF_SteadyStateDensity,
+    `QLF_MO2,
     `QLF_ElectroweakScale
   ]
