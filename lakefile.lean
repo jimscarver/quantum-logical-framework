@@ -186,5 +186,6 @@ lean_lib QLF where
     `QLF_AnomalyCancellation,
     `QLF_ElectroweakBeta,
     `QLF_GUTScale,
-    `QLF_BindingStrength
+    `QLF_BindingStrength,
+    `QLF_PackingFactor
   ]
