@@ -99,7 +99,7 @@ theorem freeAction_nonneg (s : TopoString) : 0 ≤ freeAction s := abs_nonneg _
 /-- **Free action is subadditive** — joining two histories never raises the free action. -/
 theorem freeAction_subadditive (A B : TopoString) :
     freeAction (A ++ B) ≤ freeAction A + freeAction B := by
-  unfold freeAction; rw [netGauge_append]; exact abs_add _ _
+  unfold freeAction; rw [netGauge_append]; exact abs_add_le _ _
 
 /-- ZFA balance ⟺ zero free action. -/
 theorem zfa_iff_zero_free_action (s : TopoString) : is_symmetric s ↔ freeAction s = 0 := by
