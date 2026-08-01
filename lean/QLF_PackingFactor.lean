@@ -89,11 +89,7 @@ theorem condensationDepth_antitone {g1 g2 : ℝ} (h1 : 0 < g1) (h : g1 ≤ g2) :
     condensationDepth g2 ≤ condensationDepth g1 := by
   unfold condensationDepth
   have h2pos : 0 < g2 := lt_of_lt_of_le h1 h
-  have hg1 : (0 : ℝ) < 4 * g1 ^ 2 := by positivity
-  have hg2 : (0 : ℝ) < 4 * g2 ^ 2 := by positivity
-  have hle : 4 * g1 ^ 2 ≤ 4 * g2 ^ 2 := by nlinarith
-  rw [div_le_div_iff hg2 hg1]
-  nlinarith [Real.pi_pos, hle]
+  gcongr
 
 /-- Honest-scope marker: the bare 8-twist packing is modelled (subcritical, O(1)), and shown by
     `condensationDepth_antitone` to give no hierarchy — so the `v`-fixing packing is the near-critical
