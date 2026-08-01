@@ -75,9 +75,12 @@ theorem no_steady_without_binding (c ρ : ℝ) (hc : 0 < c) : 0 < netRate c 0 ρ
 theorem steady_is_fixed_point (c k : ℝ) (hc : 0 ≤ c) (hk : 0 < k) :
     netRate c k (steadyDensity c k) = 0 := by
   have hk0 : k ≠ 0 := ne_of_gt hk
-  unfold netRate steadyDensity
-  rw [Real.sq_sqrt (by positivity : (0 : ℝ) ≤ c / k)]
-  field_simp
+  have h2 : k * (steadyDensity c k) ^ 2 = c := by
+    unfold steadyDensity
+    rw [Real.sq_sqrt (by positivity : (0 : ℝ) ≤ c / k), ← mul_div_assoc, mul_comm k c,
+      mul_div_assoc, div_self hk0, mul_one]
+  unfold netRate
+  linarith [h2]
 
 /-- **The steady density is positive** — a genuine finite defect density. -/
 theorem steady_pos (c k : ℝ) (hc : 0 < c) (hk : 0 < k) : 0 < steadyDensity c k := by
