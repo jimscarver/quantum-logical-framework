@@ -120,6 +120,14 @@ python3 qucalc_search.py --serve --port 8765
 python3 qucalc_search.py --serve --host 0.0.0.0 --port 8765 --max-depth-cap 7 --max-concurrent 2
 ```
 
+**Public deployment.** [`render.yaml`](render.yaml) in this repo defines a free Render web
+service, `quantum-os-qucalc-search`, running exactly the exposed form above with `$PORT`.
+Connect it once at dashboard.render.com → New → Blueprint → this repo; thereafter a push to
+the default branch redeploys. Its URL (`https://quantum-os-qucalc-search.onrender.com`) is
+the default that quantum-os's `/search` and `/solve` use with no configuration
+(`DEFAULT_SEARCH_URL` in `packages/browser/src/qucalc-search.ts`). Free plan: sleeps after
+~15 min idle, ~50 s cold start, then sub-second.
+
 ### Contract (stable — `version` field; consumers depend on it)
 
 | route | response |

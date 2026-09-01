@@ -9,3 +9,6 @@ __pycache__/
 # CI does `rm -rf .lake` on every run; it must never be committed.
 # No trailing slash: .lake is a symlink here, not a directory.
 .lake
+
+# Local runtime dir for  qucalc_search.py --serve  (pid/log)
+.run
