@@ -101,6 +101,7 @@ What QLF does **not** do is construct the rigorous continuum QFT (a Wightman/Ost
 
 ## See also
 
+- [`Perturbation_Theory_QLF.md`](Perturbation_Theory_QLF.md) — the perturbation series as the closure-order expansion, the search event registry computing it, and the capacity-horizon renormalization (Wilsonian, finite by the Kraft bound).
 - [`Continuum_Choice_Fallacy.md`](Continuum_Choice_Fallacy.md) · [`TheContinuum.md`](TheContinuum.md) — the continuum/UV-catastrophe thesis.
 - [`Born_Rule.md`](Born_Rule.md) · [`Double_Slit.md`](Double_Slit.md) · [`Shannon_And_Phase.md`](Shannon_And_Phase.md) — amplitudes, interference, count vs phase.
 - [`BraKetRhoQuCalc.md`](BraKetRhoQuCalc.md) · [`Lagrangian_Formulation.md`](Lagrangian_Formulation.md) — the bra/ket process algebra and the `ℒ=0` continuum limit.
