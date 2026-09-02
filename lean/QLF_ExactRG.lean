@@ -183,9 +183,9 @@ theorem amp_eq_sub (N : ℕ) : S.amp N = S.ampPos N - S.ampNeg N := by
     rw [← Finset.sum_add_distrib]
     apply Finset.sum_congr rfl
     intro R _
-    rcases le_or_lt 0 (S.signed R) with h | h
+    rcases le_total 0 (S.signed R) with h | h
     · rw [max_eq_left h, max_eq_right (by linarith : -(S.signed R) ≤ 0)]; ring
-    · rw [max_eq_right (le_of_lt h), max_eq_left (by linarith : (0 : ℝ) ≤ -(S.signed R))]; ring
+    · rw [max_eq_right h, max_eq_left (by linarith : (0 : ℝ) ≤ -(S.signed R))]; ring
   linarith
 
 /-- **The partition-function flow converges** as the horizon opens — monotone and bounded by `1`. -/
