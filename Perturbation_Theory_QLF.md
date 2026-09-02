@@ -195,8 +195,14 @@ propagator being the one frame-independent thing in an otherwise scheme-dependen
 - The depth-≥3 tail of `𝒵` (the eight-digit `0.036` α-residual) bottoms out in the absolute mass scale and
   the SM's own non-perturbative hadronic vacuum polarization `Δα_had` ([`Alpha_Residual.md`](Alpha_Residual.md),
   `fractal_diagram_in_progress`).
-- A Lean module for the exact-RG recursion `A_{R+1} = A_R + (\text{finite Kraft-bounded counterterm})` over
-  `𝒵(x, R)` — the pieces (`twist_kraft`, `perOctave_is_flux`, `IsDiagram`) exist; the assembly does not.
+- ~~A Lean module for the exact-RG recursion~~ **done** — [`lean/QLF_ExactRG.lean`](lean/QLF_ExactRG.lean):
+  `ClosureSpectrum` + the Wilsonian recursion `Z (N+1) = Z N + mass N` / `amp (N+1) = amp N + signed N`
+  (`Z_succ`/`amp_succ`), the single bounded counterterm (`counterterm_eq`/`counterterm_abs_le`),
+  finiteness at every scale (`Z_le_one`/`amp_abs_le_one`), monotone mass flow (`Z_mono`), and
+  **convergence** (`Z_tendsto`/`amp_tendsto`) with the limit `≤ 1` — the absolute-convergence claim,
+  machine-checked. The Kraft field is `twist_kraft` for a depth-partitioned prefix-free family
+  (`kraft_partition_bound`), and `demoSpectrum` exhibits bare term counts growing while `Z → 1`. What
+  the module does **not** supply is the closure spectrum of a particular interacting theory (next item).
 - Rigorous continuum QFT (Wightman / Osterwalder–Schrader) is the `yang_mills_continuum_gap` boundary axiom
   — contrast once, then move on ([`QFT_QLF.md`](QFT_QLF.md) §5).
 
@@ -217,6 +223,7 @@ higher-order numbers are gated on the one open coupling that gates the rest of t
   committed per-stratum summaries and the listening / first-closure experiment layer.
 - [`Alpha.md`](Alpha.md) §4a · [`g_minus_2.md`](g_minus_2.md) · [`Lamb_Shift.md`](Lamb_Shift.md) — the
   one-loop sector worked in detail.
+- [`lean/QLF_ExactRG.lean`](lean/QLF_ExactRG.lean) — the exact-RG recursion, finiteness and convergence.
 - [`lean/QLF_FractalDiagram.lean`](lean/QLF_FractalDiagram.lean) ·
   [`lean/QLF_VacuumPolarization.lean`](lean/QLF_VacuumPolarization.lean) ·
   [`lean/QLF_VacuumPolarizationTower.lean`](lean/QLF_VacuumPolarizationTower.lean) ·
