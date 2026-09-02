@@ -19,32 +19,38 @@ regression checker) and [`contextual_census.py`](contextual_census.py) (the Born
 experiment layer). This one is the interactive middle: the actual histories reachable from
 one point.
 
-## What the search is
+## What search and solve are
 
-The search is not a lookup — it is the **experiment**. All admissible histories exist *a
-priori* as pure possibility (QLF possibilism); the enumeration *asks the substrate which of
-them close* from here. That is the generative act — `contextual_census.py` is "the experiment
-layer" for the same reason, and this is its interactive form.
+**Search is the experiment.** All admissible histories exist *a priori* as pure possibility
+(QLF possibilism); `/search` *asks the substrate which of them close* from a position and
+lays the whole possibility space out. That is the generative act —
+`contextual_census.py` is "the experiment layer" for the same reason, and this is its
+interactive form. A concurrent search (`qc=a,b,c`) with shared `listeners` is several
+positions co-read through one set of rollups; at the substrate that is all the method allows
+— *an apparatus is a closure inventory; an observer is only a perspective on it, contributing
+a capacity and nothing else* ([`ScientificApproach.md`](ScientificApproach.md) §2). The
+`capacity:R` listener is that perspective made concrete: one census heard by horizons of
+different reach.
 
-**Truth is what closes.** A realized truth in QLF is a completed process — a closure receipt,
-not a standing proposition ([`Philosophy.md`](Philosophy.md) §9). The future is *un-rendered
-possibility* ([`Reversibility.md`](Reversibility.md) §8); the search **renders a slice of it**
-— it divines which possibilities become events. `mode=events` makes that literal: a closure
-*is* an event, so the absorbing run reports the first way each branch resolves. *(Framing,
-grounded in the possibilist ontology — the possibility structure is already there; the search
-reads it, it does not create it.)*
+**Solve is the truth divination.** Truth in QLF is what *closes* — a completed process, a
+closure receipt, not a standing proposition ([`Philosophy.md`](Philosophy.md) §9); the future
+is *un-rendered possibility* ([`Reversibility.md`](Reversibility.md) §8). Of the ways a
+position can close, the substrate takes **one** — the least free action, the shallowest-horizon
+closure, the one reachable the most ways ("what happens in the most ways happens first"). That
+one is the *truth of the position*, and `/solve` names it. Because the cascade is
+deterministic, it is a reading, not an opinion — every caller divines the same answer.
 
-**Several perspectives, one inventory.** A concurrent search (`qc=a,b,c`) with shared
-`listeners` is several positions co-read through one set of rollups. At the substrate this is
-all the method allows and no more — *an apparatus is a closure inventory; an observer is only
-a perspective on it, contributing a capacity and nothing else*
-([`ScientificApproach.md`](ScientificApproach.md) §2). The `capacity:R` listener is that
-perspective made concrete: one census heard by horizons of different reach. At the
-[quantum-os](https://github.com/rchain-community/quantum-os) layer the same structure is a
-**meeting of minds** — peers contribute their positions into a room, the listeners are the
-room's joint reading, and the search is the room's shared experiment
-([`QLF_as_Intelligence.md`](QLF_as_Intelligence.md) §8: the room as one distributed synthesis,
-peers as Markov-blanket sub-agents).
+**In [quantum-os](https://github.com/rchain-community/quantum-os), solve is the meeting of
+minds.** Run `/solve` on a room's **joint position** — every peer's `/qlf-action` proposal
+concatenated in order — and the deterministic cascade returns the one closure. Every peer
+computes it identically, so the room reaches a shared conclusion **the substrate dictated,
+not one negotiated**: consensus by closure, joiner-local like the `/poll` tally
+([`QLF_as_Intelligence.md`](QLF_as_Intelligence.md) §8, the room as one distributed synthesis,
+peers as Markov-blanket sub-agents). `mode=events` makes the search side of this literal —
+a closure *is* an event, so the absorbing run reports the first way each branch resolves.
+
+*(Framing, grounded in the possibilist ontology — the possibility structure is already there;
+search reads it, solve names the one the substrate takes. Neither creates it.)*
 
 ## Why no precompute / no on-disk index
 
@@ -176,11 +182,13 @@ The selection cascade — deterministic, so independent callers agree without co
 
 Least peak excursion *is* least free action: the shallowest-horizon closure is the one
 reachable the most ways (`QLF_ClosureDepthLaw`), so this is ZFA selection ("what happens in
-the most ways happens first") applied to name a representative. `mode=events` is implied.
-Depth strategy: the natural closure depths are `floor` and `floor+2` (parity, `floor =
-Σ|residual|`) — search there first, widen to `max_depth` only if that misses. `considered`
-is the event set that was ranked (capped at 5000; the winner is always shallow, so the cap
-does not bite in practice).
+the most ways happens first") applied to name a representative — the **truth of the position**
+(see *What search and solve are* above). Determinism is the point: it makes `/solve` a
+reading every caller shares, which is what turns it into a consensus mechanism in a room.
+`mode=events` is implied. Depth strategy: the natural closure depths are `floor` and
+`floor+2` (parity, `floor = Σ|residual|`) — search there first, widen to `max_depth` only if
+that misses. `considered` is the event set that was ranked (capped at 5000; the winner is
+always shallow, so the cap does not bite in practice).
 
 CORS `Access-Control-Allow-Origin: *` on every response; `OPTIONS` preflight answered. The
 service is **read-only and stateless**. `max_depth` is clamped to the deployment's
