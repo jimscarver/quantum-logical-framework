@@ -24,6 +24,9 @@ cheaper than reading a ~1 MB cache entry back over a slow mount. See the
     python3 qucalc_search.py "^<v>+-" --max-depth 6 --count-only
     python3 qucalc_search.py "^<v>+-" --max-depth 6 --json
 
+    # the one closure the substrate takes from a position (least free action)
+    python3 qucalc_search.py "^^<" --solve
+
     # HTTP endpoint — streams NDJSON, one closure per line, flushed as found
     python3 qucalc_search.py --serve --port 8765
     curl -N 'http://127.0.0.1:8765/search?qc=%5E%3Cv%3E%2B-&max_depth=6&limit=10000'
@@ -49,6 +52,15 @@ HTTP contract (stable; consumers such as quantum-os depend on it):
                          "truncated": <hit limit?>}
         400  {"error": "..."}   bad qc / non-integer params
         429  {"error": "..."}   host at --max-concurrent, try later
+    GET /solve?qc=<hist>&max_depth=<int>   (comma-separated qc is concatenated)
+        200 application/json, one answer:
+          {"solved": true,  "cont", "history", "depth", "phase",
+           "peak_excursion", "arrangements", "considered", "version"}
+          {"solved": false, "residual": [v,h,d,l], "floor_depth", "reason",
+           "completion", "version"}
+        the one closure the substrate takes — least free action, by the cascade
+          least peak excursion -> shortest -> phase +1 -> lexicographic
+        (deterministic, so independent callers agree). See `solve()`.
 
 CORS: `Access-Control-Allow-Origin: *` on every response; `OPTIONS` preflight
 answered. The service is read-only and stateless — nothing is written, no
@@ -60,6 +72,7 @@ from __future__ import annotations
 import argparse
 import itertools
 import json
+import math
 import sys
 import threading
 import time
@@ -84,6 +97,7 @@ MAX_LIMIT_CAP = 100_000
 DEFAULT_MAX_DEPTH = 6
 DEFAULT_LIMIT = 10_000
 DEFAULT_MAX_CONCURRENT = 3   # simultaneous /search enumerations
+SOLVE_CONSIDER = 5_000      # /solve caps the event set it ranks (winner is shallow)
 
 _PAULI_TOL = 1e-9
 
@@ -362,6 +376,96 @@ def run_search(
 
 
 # --------------------------------------------------------------------------- #
+# solve — the complement of search: the one closure the substrate takes
+# --------------------------------------------------------------------------- #
+_PHASE_RANK = {"+1": 0, "-1": 1, "+i": 2, "-i": 3}
+
+
+def _residual_to_twists(r: list[int]) -> str:
+    """One concrete continuation supplying exactly the residual action vector —
+    count-balances the position (its twists may not fold to a Pauli scalar in
+    that order). Mirrors quantum-os `residualToTwists`."""
+    axes = (("^", "v"), (">", "<"), ("/", "\\"), ("+", "-"))
+    return "".join((axes[i][0] if r[i] >= 0 else axes[i][1]) * abs(r[i]) for i in range(4))
+
+
+def solve(qc: str, max_depth: int = MAX_DEPTH_CAP,
+          min_total_len: int = MIN_ZFA_LENGTH) -> dict:
+    """Pick the one closure the substrate takes from `qc` — **least free
+    action** — or report the residual a completion still owes.
+
+    Deterministic cascade, so independent callers agree without coordinating:
+
+        least peak excursion  →  shortest depth  →  phase +1  →  lexicographic
+
+    "Least peak excursion" is least free action: the shallowest-horizon closure
+    is the one reachable the most ways (`QLF_ClosureDepthLaw`), which is ZFA
+    selection ("what happens in the most ways happens first") applied to pick a
+    representative. `absorbing` is implied — the events, not every possibility.
+
+    Depth strategy: the natural closure depths are `floor` and `floor + 2`
+    (parity), `floor = Σ|residual|`; search there first, only pay for the full
+    `max_depth` sweep if that misses.
+    """
+    validate_history(qc)
+    t0 = time.time()
+    max_depth = max(1, min(max_depth, MAX_DEPTH_CAP))
+    seed_action = calculate_action(qc)
+    residual = [-x for x in seed_action]
+    floor = sum(abs(x) for x in residual)
+
+    if seed_action == (0, 0, 0, 0) and len(qc) >= min_total_len:
+        phase = _classify_phase(pauli_fold(qc))
+        if phase is not None:
+            n = len(qc)
+            return {
+                "solved": True, "qc": qc, "already_closed": True,
+                "cont": "", "history": qc, "depth": 0, "phase": phase,
+                "peak_excursion": max_excursion(qc),
+                "arrangements": math.comb(n, n // 2),
+                "considered": 0, "searched_depth": 0,
+                "elapsed_s": round(time.time() - t0, 3), "version": VERSION,
+            }
+
+    first = min(max(floor + 2, 2), max_depth)
+    tries = [first, max_depth] if first < max_depth else [max_depth]
+    events: list[dict] = []
+    searched = 0
+    for w in tries:
+        searched = w
+        events = list(search(qc, max_depth=w, limit=SOLVE_CONSIDER,
+                             min_total_len=min_total_len, absorbing=True))
+        if events:
+            break
+
+    if not events:
+        completion = _residual_to_twists(residual)
+        return {
+            "solved": False, "qc": qc, "residual": residual, "floor_depth": floor,
+            "searched_depth": searched,
+            "reason": "beyond max_depth" if floor > searched else "no short event",
+            "completion": completion or None,
+            "elapsed_s": round(time.time() - t0, 3), "version": VERSION,
+        }
+
+    events.sort(key=lambda r: (max_excursion(r["history"]), r["depth"],
+                               _PHASE_RANK[r["phase"]], r["history"]))
+    best = events[0]
+    bn = best["len"]
+    return {
+        "solved": True, "qc": qc,
+        "cont": best["cont"], "history": best["history"],
+        "depth": best["depth"], "phase": best["phase"],
+        "peak_excursion": max_excursion(best["history"]),
+        "arrangements": math.comb(bn, bn // 2),
+        "considered": len(events),
+        "truncated": len(events) >= SOLVE_CONSIDER,
+        "searched_depth": searched,
+        "elapsed_s": round(time.time() - t0, 3), "version": VERSION,
+    }
+
+
+# --------------------------------------------------------------------------- #
 # HTTP endpoint
 # --------------------------------------------------------------------------- #
 def _make_handler(depth_cap: int, sem: threading.BoundedSemaphore):
@@ -407,17 +511,50 @@ def _make_handler(depth_cap: int, sem: threading.BoundedSemaphore):
                 self._send_json(200, {
                     "service": "qucalc_search",
                     "version": VERSION,
-                    "usage": "/search?qc=<history[,history…]>&max_depth=<1..%d>"
-                             "&limit=<1..%d>&listeners=<phase,depth,capacity:R,head:N>"
-                             "&stream=<0|1>" % (depth_cap, MAX_LIMIT_CAP),
+                    "usage": {
+                        "search": "/search?qc=<history[,history…]>&max_depth=<1..%d>"
+                                  "&limit=<1..%d>&listeners=<phase,depth,capacity:R,head:N>"
+                                  "&stream=<0|1>&mode=<possibilities|events>"
+                                  % (depth_cap, MAX_LIMIT_CAP),
+                        "solve": "/solve?qc=<history[,history…]>&max_depth=<1..%d>"
+                                 % depth_cap,
+                    },
                     "alphabet": TWISTS,
                     "caps": {"max_depth": depth_cap, "max_limit": MAX_LIMIT_CAP},
                     "listeners": ["phase", "depth", "capacity:R", "head:N", "count (always on)"],
-                    "response": "application/x-ndjson; first line _meta, last line _done",
+                    "response": {
+                        "search": "application/x-ndjson; first line _meta, last line _done",
+                        "solve": "application/json; one answer, {solved: true|false, …}",
+                    },
                 })
                 return
             if route == "/health":
                 self._send_json(200, {"ok": True})
+                return
+            if route == "/solve":
+                raw = (params.get("qc") or [""])[0]
+                position = "".join(s for s in raw.split(",") if s)
+                if not position:
+                    self._send_json(400, {"error": "qc required"})
+                    return
+                try:
+                    validate_history(position)
+                except ValueError as e:
+                    self._send_json(400, {"error": str(e)})
+                    return
+                try:
+                    md = int((params.get("max_depth") or [depth_cap])[0])
+                except ValueError:
+                    self._send_json(400, {"error": "max_depth must be an integer"})
+                    return
+                md = max(1, min(md, depth_cap))
+                if not sem.acquire(blocking=False):
+                    self._send_json(429, {"error": "host at capacity (--max-concurrent); retry"})
+                    return
+                try:
+                    self._send_json(200, solve(position, max_depth=md))
+                finally:
+                    sem.release()
                 return
             if route != "/search":
                 self._send_json(404, {"error": "not found", "path": route})
@@ -525,6 +662,8 @@ def main(argv: Optional[list[str]] = None) -> int:
                    help="rollups to report: phase,depth,capacity:R,head:N (count always on)")
     p.add_argument("--events", action="store_true",
                    help="absorbing: stop each branch at its first closure (events, not possibilities)")
+    p.add_argument("--solve", action="store_true",
+                   help="pick the one closure the substrate takes (least free action); JSON answer")
     p.add_argument("--json", action="store_true", help="emit NDJSON instead of plain words")
     p.add_argument("--count-only", action="store_true", help="print only the closure count")
     p.add_argument("--serve", action="store_true", help="run the HTTP endpoint instead")
@@ -553,6 +692,13 @@ def main(argv: Optional[list[str]] = None) -> int:
         listeners = parse_listeners(args.listeners)
     except ValueError as e:
         p.error(str(e))
+
+    if args.solve:
+        position = "".join(seeds)
+        # solve reaches to the cap by default (it widens from floor+2 only as needed)
+        md = args.max_depth if args.max_depth != DEFAULT_MAX_DEPTH else MAX_DEPTH_CAP
+        print(json.dumps(solve(position, max_depth=md), indent=2))
+        return 0
 
     limit = None if args.limit == 0 else args.limit
 

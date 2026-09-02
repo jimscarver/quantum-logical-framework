@@ -135,6 +135,7 @@ the default that quantum-os's `/search` and `/solve` use with no configuration
 | `GET /` | `{service, version, usage, alphabet, caps}` |
 | `GET /health` | `{ok: true}` |
 | `GET /search?qc=<hist[,hist…]>&max_depth=<int>&limit=<int>&mode=<possibilities\|events>&listeners=<spec>&stream=<0\|1>` | `200 application/x-ndjson`, streamed |
+| `GET /solve?qc=<hist[,hist…]>&max_depth=<int>` | `200 application/json`, one answer |
 | | `400 {error}` — bad `qc` / non-integer params / unknown listener |
 | | `429 {error}` — host at `--max-concurrent`, retry |
 
@@ -152,6 +153,34 @@ The `/search` stream, one JSON object per line, flushed as produced:
 `depth` = appended twists; `phase` = the Pauli scalar the whole history folds to
 (`{"+1","-1","+i","-i"}`, per [`QLF_PhaseRule`](lean/QLF_PhaseRule.lean); a balanced history
 is always real `±1`, per `QLF_BalancedPhaseReal`).
+
+### `/solve` — the one closure the substrate takes
+
+The complement of `/search`: where `/search` renders *every* way to close, `/solve` picks
+*the* one — least free action — or reports the residual. A comma-separated `qc` is
+**concatenated** into one position (unlike `/search`, where seeds are separate). One JSON
+answer, not a stream — the point is to return a decision, not a set.
+
+```
+{"solved": true, "qc": "^^<", "cont": "v>v", "history": "^^<v>v",
+ "depth": 3, "phase": "+1", "peak_excursion": 3, "arrangements": 20,
+ "considered": 149, "searched_depth": 5, "version": "1.0"}
+{"solved": true, "qc": "^<v>+-", "already_closed": true, "history": "^<v>+-", …}
+{"solved": false, "qc": "^^^^^^^^", "residual": [-8,0,0,0], "floor_depth": 8,
+ "searched_depth": 6, "reason": "beyond max_depth", "completion": "vvvvvvvv", "version": "1.0"}
+```
+
+The selection cascade — deterministic, so independent callers agree without coordinating:
+
+> **least peak excursion → shortest depth → phase `+1` → lexicographic history**
+
+Least peak excursion *is* least free action: the shallowest-horizon closure is the one
+reachable the most ways (`QLF_ClosureDepthLaw`), so this is ZFA selection ("what happens in
+the most ways happens first") applied to name a representative. `mode=events` is implied.
+Depth strategy: the natural closure depths are `floor` and `floor+2` (parity, `floor =
+Σ|residual|`) — search there first, widen to `max_depth` only if that misses. `considered`
+is the event set that was ranked (capped at 5000; the winner is always shallow, so the cap
+does not bite in practice).
 
 CORS `Access-Control-Allow-Origin: *` on every response; `OPTIONS` preflight answered. The
 service is **read-only and stateless**. `max_depth` is clamped to the deployment's
