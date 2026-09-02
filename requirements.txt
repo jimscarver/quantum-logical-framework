@@ -1,3 +1,0 @@
-# qucalc_search.py and twist_core.py are pure Python standard library —
-# no third-party packages. This file exists so Render (and any other host)
-# detects a Python service and does not error on a missing requirements file.

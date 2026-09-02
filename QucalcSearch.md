@@ -1,4 +1,4 @@
-# QuCalc Search — the "what closes next" query service
+# QuCalc Search — the "what closes next" query
 
 [`qucalc_search.py`](qucalc_search.py) answers one question over the QLF substrate:
 
@@ -6,11 +6,11 @@
 
 Given a twist history `qc`, it enumerates the **continuations** — twist words you can
 append so the whole history is a ZFA closure (count-balanced ∧ Pauli-closed) — shortest
-first, and streams them. It is meant to be **exposed as a network service** for
-[quantum-os](https://github.com/rchain-community/quantum-os) and other research operations
-that need reachable-closure data without embedding the enumerator. The quantum-os side —
-deploy target, browser/Rust client, room integration — is tracked in
-[rchain-community/quantum-os#117](https://github.com/rchain-community/quantum-os/issues/117).
+first. `qucalc_search.py` is the **Python reference implementation + CLI**; it also has an
+optional local HTTP mode (`--serve`) for research use. [quantum-os](https://github.com/rchain-community/quantum-os)
+computes the same `/search` and `/solve` **client-side in the browser** from its own ZFA
+primitives — no deployed service ([quantum-os#119](https://github.com/rchain-community/quantum-os/issues/119)) —
+using the contract and cascade below as the spec.
 
 It is a **query, not a stored layer.** Nothing is cached, nothing is written, the answer
 is always current with [`twist_core.py`](twist_core.py). Contrast
@@ -118,23 +118,22 @@ python3 qucalc_search.py "^<v>+-,^^<" --max-depth 4 --listeners phase   # concur
 python3 qucalc_search.py --time                                 # benchmark this host
 ```
 
-## HTTP endpoint
+## HTTP endpoint (local / research use)
 
 ```
 python3 qucalc_search.py --serve --port 8765
-# exposed, with a per-host ceiling and concurrent-search cap:
 python3 qucalc_search.py --serve --host 0.0.0.0 --port 8765 --max-depth-cap 7 --max-concurrent 2
 ```
 
-**Public deployment.** [`render.yaml`](render.yaml) in this repo defines a free Render web
-service, `quantum-os-qucalc-search`, running exactly the exposed form above with `$PORT`.
-Connect it once at dashboard.render.com → New → Blueprint → this repo; thereafter a push to
-the default branch redeploys. Its URL (`https://quantum-os-qucalc-search.onrender.com`) is
-the default that quantum-os's `/search` and `/solve` use with no configuration
-(`DEFAULT_SEARCH_URL` in `packages/browser/src/qucalc-search.ts`). Free plan: sleeps after
-~15 min idle, ~50 s cold start, then sub-second.
+**Not a deployed dependency.** `qucalc_search.py` is the **Python reference implementation +
+CLI**; `--serve` is here for local research use. quantum-os does **not** call it over HTTP —
+its `/search` and `/solve` compute [client-side in the
+browser](https://github.com/rchain-community/quantum-os/issues/119), reusing the ZFA
+primitives it already has (`signedAction`, `isPauliClosed`, `pauliFold`) and the deterministic
+`/solve` cascade below. The contract in this section is the **spec that TS port conforms
+to** — same routes, same `version`, same cascade — not a service anyone has to keep alive.
 
-### Contract (stable — `version` field; consumers depend on it)
+### Contract (the spec — `version` field; the TS port pins it)
 
 | route | response |
 |---|---|
@@ -194,7 +193,7 @@ CORS `Access-Control-Allow-Origin: *` on every response; `OPTIONS` preflight ans
 service is **read-only and stateless**. `max_depth` is clamped to the deployment's
 `--max-depth-cap`; `limit` to 100 000.
 
-### Deploying on a constrained host
+### Running `--serve` on a constrained host
 
 Each concurrent `/search` holds only its generator (a few MB — `itertools.product` is lazy,
 only the streamed line is materialised), so memory is dominated by `--max-concurrent`, not
@@ -202,12 +201,13 @@ result size. On a small box set `--max-depth-cap 6` (≈ 3 s worst case) and
 `--max-concurrent 2`. Depth 7 is ~2 M candidates (tens of seconds on a slow CPU); depth 8
 is disallowed by the hard cap.
 
-## Client examples
+## Client examples (for a local `--serve` instance)
 
-The service is designed to be consumed by [quantum-os](https://github.com/rchain-community/quantum-os)
-(Rust/WASM core + WebRTC browser peers). Both examples below consume the stream
-incrementally — the first `_meta` line confirms the query, closures arrive shortest-first,
-and the `_done` line carries the final count.
+These consume the NDJSON stream from a local `python3 qucalc_search.py --serve`. The
+in-browser quantum-os implementation ([quantum-os#119](https://github.com/rchain-community/quantum-os/issues/119))
+does not use HTTP — it runs the same enumeration natively — but these show the contract's
+shape and are the reference for the TS port's behaviour (`_meta` line, closures
+shortest-first, `_done` trailer).
 
 ### TypeScript / browser peer (`fetch` + streaming NDJSON)
 
