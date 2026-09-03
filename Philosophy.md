@@ -165,6 +165,15 @@ the `log 2` quantum, the `H↔H†` Millennium involution, the icosa-blanket at 
 closures — are the *expected* output rather than coincidences: scale-invariant multiplicity is what
 maximises the count of ways, and the argmax of multiplicity is what is real.
 
+*Concretely* ([`self_similar_closures.py`](self_similar_closures.py)): the **Thue-Morse closure**
+`+--+-++-` (the substitution `σ(+) = +−`, `σ(−) = −+`, iterated) is a ZFA closure at every truncation
+`σ^k(+)`, its left half is `σ^{k-1}(+)` — a closure of the identical structure — and its
+prime-factorization word is *itself* the Thue-Morse sequence, so it is self-similar at the string level
+and at the free-monoid/bifibration level at once. And it is not a lone specimen: every conjugate pair
+carries one (`^vv^v^^v`, `><<><>><`, `/\\/\//\`, `+--+-++-`), multi-axis products add dozens, longer
+substitution blocks make the count unbounded (`C(2m,m)²` per pair) — and every one of them sits at
+`max_excursion = 1`, the lowest capacity, so it is heard at *every* horizon.
+
 ## 3b. The Law of Exceptions
 
 > **There is an exception to every restrictive law except this law.**
