@@ -112,6 +112,16 @@
    "V>CH": "valence 2 is neutral",
    "CH>FOLD": "backbone carries none",
    "HP>FOLD": "only H-H pays"
+  },
+  {
+   "PT>ORD": "grade by closure",
+   "ORD>C1": "IsDiagram order 0",
+   "ORD>C2": "single binding",
+   "PT>RG": "listen at capacity R",
+   "RG>CT": "A_R+1 minus A_R",
+   "RG>RUN": "Q(R) = Q0 2^R",
+   "PT>KR": "prefix-free code",
+   "KR>DYS": "no mode continuum"
   }
  ],
  "master_domain_verbs": {
@@ -125,6 +135,7 @@
   "8": "meets",
   "9": "resolves",
   "10": "predicts",
-  "11": "assembles"
+  "11": "assembles",
+  "12": "sums"
  }
 }

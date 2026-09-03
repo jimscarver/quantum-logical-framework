@@ -133,7 +133,7 @@ A foundation earns trust by being honest about its boundaries, so here is the sc
 
 ## Where to go next
 
-The fastest way in is the **flow chart** — the whole framework as a single linked index, one substrate branching into five families, eleven domains, and the individual results: [the rendered, clickable map with a printable PDF](https://rchain-community.github.io/quantum-logical-framework/FlowChart.html).
+The fastest way in is the **flow chart** — the whole framework as a single linked index, one substrate branching into five families, twelve domains, and the individual results: [the rendered, clickable map with a printable PDF](https://rchain-community.github.io/quantum-logical-framework/FlowChart.html).
 
 From there:
 

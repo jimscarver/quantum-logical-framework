@@ -135,7 +135,7 @@ that derives quantum mechanics and spacetime from a single selection principle: 
 (ZFA) balance</em>. Every chart below shows one domain; the <strong>boxes are clickable</strong>
 (this is a PDF/HTML perk &mdash; GitHub disables Mermaid node links), and each <strong>Open</strong>
 line lists the documents that derive that domain.</p>
-<p><strong>How to read it:</strong> one substrate &rarr; five families &rarr; eleven domains &rarr; the
+<p><strong>How to read it:</strong> one substrate &rarr; five families &rarr; twelve domains &rarr; the
 individual results. Click a box to jump to its section or open its source document; use the table of
 contents to navigate. To save as PDF: open this file in a browser, then File &rarr; Print &rarr;
 Save&nbsp;as&nbsp;PDF (keep &ldquo;Background graphics&rdquo; on).</p>

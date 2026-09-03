@@ -122,5 +122,16 @@
   "HP": "Chemistry.md",
   "CH": "Chemistry.md",
   "FOLD": "Protein_Folding.md"
+ },
+ {
+  "PT": "QFT_QLF.md",
+  "ORD": "Perturbation_Theory_QLF.md",
+  "C1": "lean/QLF_FractalDiagram.lean",
+  "C2": "lean/QLF_VacuumPolarization.lean",
+  "RG": "Perturbation_Theory_QLF.md",
+  "CT": "lean/QLF_ExactRG.lean",
+  "RUN": "lean/QLF_VacuumPolarizationTower.lean",
+  "KR": "lean/QLF_KraftMeasure.lean",
+  "DYS": "TheContinuum.md"
  }
 ]

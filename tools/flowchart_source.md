@@ -1,14 +1,14 @@
 # QLF Flow Chart — a visual map of the framework
 
 > **This is a navigation map of the [Quantum Logical Framework (QLF)](README.md)** — one substrate, five
-> families, eleven domains, and the documents that derive each. The **Jump to** and **Open** links are the
+> families, twelve domains, and the documents that derive each. The **Jump to** and **Open** links are the
 > navigation; the visual diagrams live in the rendered version linked below.
 
-The taxonomy: **one substrate → five domain families → eleven domains → the individual results.**
+The taxonomy: **one substrate → five domain families → twelve domains → the individual results.**
 
 ---
 
-## Master map — the substrate and its eleven domains
+## Master map — the substrate and its twelve domains
 
 ```mermaid
 flowchart LR
@@ -20,6 +20,7 @@ flowchart LR
   S --> FRN["Frontiers"]
   FND --> D1["1 Space, time and the continuum"]
   FND --> D2["2 The fundamental constants"]
+  FND --> D12["12 Quantum field theory and renormalization"]
   MAT --> D3["3 Forces"]
   MAT --> D4["4 Atoms and QED"]
   MAT --> D7["7 Particles and the Standard Model"]
@@ -31,9 +32,9 @@ flowchart LR
   FRN --> D10["10 Beyond the SM"]
 ```
 
-**Jump to:** [1 Space, time and the continuum](#1-space-time-and-the-continuum) &middot; [2 The fundamental constants](#2-the-fundamental-constants) &middot; [3 Forces](#3-forces) &middot; [4 Atoms and QED](#4-atoms-and-qed) &middot; [5 Gravity and GR](#5-gravity-and-gr) &middot; [6 Cosmology and the dark sector](#6-cosmology-and-the-dark-sector) &middot; [7 Particles and the Standard Model](#7-particles-and-the-standard-model) &middot; [8 Quantum-gravity / TOE pillars](#8-quantum-gravity--toe-pillars) &middot; [9 The Millennium Prize program](#9-the-millennium-prize-program) &middot; [10 Beyond the SM](#10-beyond-the-sm) &middot; [11 Chemistry, molecules and folding](#11-chemistry-molecules-and-folding)
+**Jump to:** [1 Space, time and the continuum](#1-space-time-and-the-continuum) &middot; [2 The fundamental constants](#2-the-fundamental-constants) &middot; [3 Forces](#3-forces) &middot; [4 Atoms and QED](#4-atoms-and-qed) &middot; [5 Gravity and GR](#5-gravity-and-gr) &middot; [6 Cosmology and the dark sector](#6-cosmology-and-the-dark-sector) &middot; [7 Particles and the Standard Model](#7-particles-and-the-standard-model) &middot; [8 Quantum-gravity / TOE pillars](#8-quantum-gravity--toe-pillars) &middot; [9 The Millennium Prize program](#9-the-millennium-prize-program) &middot; [10 Beyond the SM](#10-beyond-the-sm) &middot; [11 Chemistry, molecules and folding](#11-chemistry-molecules-and-folding) &middot; [12 Quantum field theory and renormalization](#12-quantum-field-theory-and-renormalization)
 
-The five families: **Foundations** (1-2) &middot; **Matter and forces** (3, 4, 7) &middot; **Emergent matter** (11) &middot; **Gravity and the cosmos** (5-6) &middot; **Frontiers** (8-10).
+The five families: **Foundations** (1-2, 12) &middot; **Matter and forces** (3, 4, 7) &middot; **Emergent matter** (11) &middot; **Gravity and the cosmos** (5-6) &middot; **Frontiers** (8-10).
 
 **Emergent matter** is the one family that is not fundamental physics. The other four ask what the
 substrate *is*; this one asks what it **assembles** once atoms exist — and it earns a family of its own
@@ -338,6 +339,51 @@ contact is a ZFA closure in the literal sense: zero net displacement, count-bala
 keystone ([`QLF_Folding`](lean/QLF_Folding.lean)). The lattice-protein parity rule and the `log 2` contact
 quantum follow; the **mirror no-go** — counting cannot select a handedness — bounds what the census can
 ever answer ([`Protein_Folding.md`](Protein_Folding.md)).
+
+---
+
+## 12. Quantum field theory and renormalization
+
+A **Foundations** domain: the continuum thesis of domains 1 and 9, applied to physics' most quantitative
+framework. **QFT is the continuum limit of the substrate's discrete ZFA-event combinatorics** — it works
+because the substrate really is doing sum-over-histories; its infinities appear only where that sum is
+pushed to a *continuum* of modes ([`QFT_QLF.md`](QFT_QLF.md)).
+
+```mermaid
+flowchart TD
+  PT["path integral = the possibility tree - phase-weighted ZFA closures"]
+  PT --> ORD["expansion order = closure structure - length, vertices, depth"]
+  ORD --> C1["tree level = the closure census"]
+  ORD --> C2["one loop = the 2/3pi coefficient"]
+  PT --> RG["renormalization = the capacity horizon"]
+  RG --> CT["counterterm = one finite term, never a divergence"]
+  RG --> RUN["running: QED log = census octave count"]
+  PT --> KR["Kraft bound: the series converges"]
+  KR --> DYS["Dyson divergence = continuum artefact"]
+```
+
+**Connectors:** *grade by closure* &rarr; expansion order &middot; *IsDiagram order 0* &rarr; tree level = the closure census &middot; *single binding* &rarr; one loop = the 2/3pi coefficient &middot; *listen at capacity R* &rarr; renormalization = the capacity horizon &middot; *A_R+1 minus A_R* &rarr; counterterm, one finite term &middot; *Q(R) = Q0 2^R* &rarr; running: QED log = census octave count &middot; *prefix-free code* &rarr; Kraft bound: the series converges &middot; *no mode continuum* &rarr; Dyson divergence = continuum artefact
+
+**Open:** [`QFT_QLF.md`](QFT_QLF.md) · [`Perturbation_Theory_QLF.md`](Perturbation_Theory_QLF.md) · [`lean/QLF_ExactRG.lean`](lean/QLF_ExactRG.lean) · [`lean/QLF_FractalDiagram.lean`](lean/QLF_FractalDiagram.lean) · [`lean/QLF_VacuumPolarization.lean`](lean/QLF_VacuumPolarization.lean) · [`lean/QLF_RunningCouplings.lean`](lean/QLF_RunningCouplings.lean) · [`TheContinuum.md`](TheContinuum.md)
+
+**The perturbation series is the possibility tree**, graded not by an external coupling but by **closure
+structure** — continuation length, diagram order (`IsDiagram`, the closure↔Feynman-diagram map), or
+closure depth ([`Perturbation_Theory_QLF.md`](Perturbation_Theory_QLF.md)). Two orders are proven against
+QED: the **tree level is exactly the closure census** (`order_zero_iff_closure`), and the **one loop is the
+`2/(3π)` vacuum-polarization coefficient** (`orderOneWeight_eq`), census-sourced and committed before
+comparison ([`QLF_FractalDiagram`](lean/QLF_FractalDiagram.lean), [`QLF_VacuumPolarization`](lean/QLF_VacuumPolarization.lean)).
+
+**Renormalization is Wilsonian and finite.** The regulator is the **capacity horizon** `R` — a listener of
+capacity `R` hears the closures of depth `≤ R`; the counterterm for the step `R → R+1` is a single finite
+term `A_{R+1} − A_R`, never a subtracted infinity; the running is `Q(R) = Q₀·2^R`, so the QED logarithm
+**is** the census octave count ([`QLF_VacuumPolarizationTower`](lean/QLF_VacuumPolarizationTower.lean)).
+And the substrate's series **converges absolutely** in its cylinder measure — `twist_kraft` plus
+`|A| ≤ W` — so no Borel resummation, and the Dyson divergence is exposed as an artefact of the mode
+continuum the substrate does not have ([`QLF_ExactRG`](lean/QLF_ExactRG.lean), the exact-RG recursion +
+finiteness + convergence, no axioms). **Contrast, once:** the rigorous continuum QFT (a Wightman /
+Osterwalder–Schrader theory on ℝ⁴) is not constructed here — that step is the Yang–Mills boundary axiom of
+domain 9. What the reformulation proves is that the discrete substrate the continuum is the *limit of*, plus
+the one explicit crossing, carries QFT's empirical content.
 
 ---
 
