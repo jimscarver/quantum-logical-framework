@@ -85,6 +85,29 @@ So each Millennium attack is the *same* move: the "sum over everything" is a **v
 every smoothing, close on loops — [`QLF_KauffmanBracket`](lean/QLF_KauffmanBracket.lean)), and its continuum leg
 is *already* discharged by RT. The other five ride the same coattails — verified all-closures core + one bridge.
 
+**The "sum over everything" is a *free monoid on the primes* — proven.** Every ZFA closure factors
+**uniquely** into an ordered sequence of irreducible (prime) closures: `G(x) = 1/(1 − I(x))`
+(`census_irreducible_resummation`, [`QLF_AlphaBound`](lean/QLF_AlphaBound.lean); the Dyson/1PI structure).
+That is what makes "generate every possibility" genuinely *free* — relation-free — and forces the census's
+scale-invariant self-similarity (geometric GF ⟹ linear recurrence ⟹ no bifurcation;
+[`Category_Theory_QLF.md`](Category_Theory_QLF.md) §3a). It is the machinery under all six.
+
+**Where the bridge line falls — calibrated, and run to convergence, by the α residual.** `α` is *not* a
+Millennium problem, but the `+0.036` residual is the clearest worked instance of the exact boundary the
+Millennium program lives on, because it has a *measured* answer to check against. QLF **proves the census
+space** (a two-sided bracket `137.01587 < α⁻¹ < 137.04813`, both ends machine-checked) and **proves the
+equal-weight prediction `137.032` is structural** (`w = ½` forced by the free monoid, not fitted). What
+stays open is not a census-truncation rule — none exists — but the **multiplicity**: *which* partial
+resummation of the primes, i.e. how many 1PI insertions the continuum vacuum polarization sums. Existence
+is proven (`0.036` is strictly inside the bracket, reachable by a prime resummation); the count is the
+continuum sector. Every substrate mechanism swing is closed, each by an independent computation
+([`Alpha_Residual.md`](Alpha_Residual.md) §9b–§9c). **This is the shape of every Millennium bridge —
+verified discrete space, open continuum multiplicity — demonstrated to be a stable boundary rather than a
+moving target.** The QFT side of the same move is [`Perturbation_Theory_QLF.md`](Perturbation_Theory_QLF.md)
+/ [`QLF_ExactRG`](lean/QLF_ExactRG.lean): the perturbation series *is* the closure-order sum, it **converges
+absolutely** by the Kraft bound (no Borel resummation), and the Dyson divergence is the continuum artefact
+— which is exactly the Yang–Mills row's discrete side.
+
 ---
 
 ## The six problems
@@ -92,7 +115,7 @@ is *already* discharged by RT. The other five ride the same coattails — verifi
 | Problem | QLF discrete core (machine-verified) | The one boundary axiom | Lean module · doc | Status |
 |---|---|---|---|---|
 | **[Riemann hypothesis](Riemann-Conjecture-Proof.md)** | every ZFA closure is count-balanced ⇒ sits on the critical-ratio `1/2`; the functional-equation fixed locus `s=1/2` is the `Σ_sa` self-adjoint line (`zfa_implies_critical_line`, `spectral_symmetric_eq_scalar_id`, `functional_equation_fixed_real`). **MRE scaffold**: `Z_QLF` concrete; MRE saturation only at the `1/2` prior (`mre_saturation_only_at_closure`) = the critical line (`mre_prior_is_critical_line`) | `spectral_hilbert_polya`, refined to `MRE_bridge` (the Mellin↔ζ correspondence over the concrete `Z_QLF`) | [`QLF_Riemann`](lean/QLF_Riemann.lean), [`QLF_RiemannZeta`](lean/QLF_RiemannZeta.lean), [`QLF_RiemannMRE`](lean/QLF_RiemannMRE.lean) · [Riemann-Conjecture-Proof.md](Riemann-Conjecture-Proof.md) | `rh_proof_in_progress` |
-| **[Yang–Mills mass gap](YangMills_MassGap_QLF.md)** | gauge algebras exist (SU(2)/SU(3) verified); vacuum = ℒ=0 identity closure; lightest non-vacuum closure carries one `log 2` quantum ⇒ positive gap `gaugeMassGap = log 2 > 0` (`mass_gap_quantum_pos`, `lightest_closure_is_gap_quantum`) | `yang_mills_continuum_gap` (continuum-QFT existence on ℝ⁴) | [`QLF_MassGap`](lean/QLF_MassGap.lean) · [YangMills_MassGap_QLF.md](YangMills_MassGap_QLF.md) | `mass_gap_proven_constructively` |
+| **[Yang–Mills mass gap](YangMills_MassGap_QLF.md)** | gauge algebras exist (SU(2)/SU(3) verified); vacuum = ℒ=0 identity closure; lightest non-vacuum closure carries one `log 2` quantum ⇒ positive gap `gaugeMassGap = log 2 > 0` (`mass_gap_quantum_pos`, `lightest_closure_is_gap_quantum`). **The perturbative side is now finite by theorem**: the closure-order series **converges absolutely** by the Kraft bound (`QLF_ExactRG`, `Perturbation_Theory_QLF.md`) — the Dyson divergence is a continuum artefact, and the one-loop `2/(3π)` coefficient is 1PI-confirmed (`census_split → 1/6` for the *prime* census, `alpha_residual_bridge.py`) | `yang_mills_continuum_gap` (continuum-QFT existence on ℝ⁴) | [`QLF_MassGap`](lean/QLF_MassGap.lean) · [`QLF_ExactRG`](lean/QLF_ExactRG.lean) · [YangMills_MassGap_QLF.md](YangMills_MassGap_QLF.md) | `mass_gap_proven_constructively` |
 | **[Birch–Swinnerton-Dyer](BSD_QLF.md)** | the `L(E,s)` central point `s=1` is the self-dual fixed point of `s↦2−s` (`bsd_central_point_self_dual`), grounded in the *same* `H↔H†` involution as Riemann — both are `a/2` midpoints of `s↦a−s` (`bsd_riemann_shared_involution`, reusing `functional_equation_fixed_real`); qualitative BSD `E(ℚ)` infinite ⟺ `L(E,1)=0` derived (`bsd_in_qlf`). **Constructive encoding**: `EllipticCurveQLF` is a concrete Weierstrass curve with its closure (Frobenius traces `a_p = p − #E(𝔽_p)`) *computed* — worked curve `Ecn1`, verified `a₂=0` (`frobeniusTrace`, `Ecn1_frobenius_two`). **Proven (substrate):** the self-dual central point + the *computed* Frobenius-trace encoding. **Gap (faithfulness):** `rank = ord` (`bsd_rank_equals_order`) follows from the bridge. *(Classical BSD not proved here.)* | `modularity_mirror_invariant` (mirror preserves the central multiplicity at the self-dual fixed point) | [`QLF_BSD`](lean/QLF_BSD.lean) · [BSD_QLF.md](BSD_QLF.md), [Langlands.md](Langlands.md) | `bsd_proof_in_progress` |
 | **[Hodge conjecture](Hodge_QLF.md)** — *reformulation complete; both sides built; thread closed at its honest floor* | **Proven (no axiom):** Hodge classes are exactly the substrate-realized closures (`hodge_realized_on_substrate`); the Hodge conjugation `H^{p,q}↔H^{q,p}` **is** the adjoint `H↔H†`, and Hodge classes are its balanced fixed points. **Algebraic side complete** — the cohomology build gives a graded ℚ-**subalgebra**, the image of a ℚ-algebra hom from the cycle ring (`QLF_CohomologyAlgebra`). **Transcendental side built** — weight, Hodge numbers, the real structure, Tate/Lefschetz objects (`QLF_HodgeStructure`). **Gap located at one input: geometric realization / polarization** — which Hodge structure the cohomology carries — exactly where the classical difficulty lives, and no further scaffolding closes it. *(Classical Hodge, finite ℚ-linear algebra rather than independence, is not proved here.)* | `substrate_realization_is_algebraic` (realized closure ⟹ classical algebraic cycle — the faithfulness bridge, = geometric realization) | [`QLF_Hodge`](lean/QLF_Hodge.lean), [`QLF_HodgeStructure`](lean/QLF_HodgeStructure.lean) · [Hodge_QLF.md](Hodge_QLF.md) | `hodge_proof_in_progress` *(closed as far as the substrate reaches)* |
 | **[Navier–Stokes smoothness](NavierStokes_QLF.md)** | realized flows achieve ZFA (`realized_flow_achieves_zfa`, reusing `encode_is_zfa`) and are stable closures (`realized_flow_is_stable`, reusing `qlf_universality`) — no realized history blows up; blow-up = a non-terminating history pruned by `full_zeno_prune` | `continuum_vorticity_planck_capped` (continuum-PDE inheritance under the limit) | [`QLF_NavierStokes`](lean/QLF_NavierStokes.lean) · [NavierStokes_QLF.md](NavierStokes_QLF.md) | `navier_stokes_proof_in_progress` |

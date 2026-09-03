@@ -85,7 +85,13 @@ The `6 spatial + 2 gauge` split (the `3` axes) fixes a family of constants. **α
 The census spectrum explorer [`Genesis.md`](Genesis.md) exercises the constants sector end-to-end: the exact `−p/2` census spectral exponent (Lean-anchored, `QLF_CensusWalk`), census → π, and `α⁻¹ = 128 + d²` (`d = 3 → 137`).
 
 **α's full story** (derivation, IR/3-D scale, the running, the no-drift theorem, 4D/5D
-over-determination): [`Alpha.md`](Alpha.md).
+over-determination): [`Alpha.md`](Alpha.md). **The `+0.036` residual is now healed to its honest shape**
+([`Alpha_Residual.md`](Alpha_Residual.md) §9c): the bracket is two-sided and machine-checked both ends
+(`137.01587 < α⁻¹ < 137.04813`), the equal-weight prediction **`137.032` is structural** (`w = ½` forced
+by the free-monoid bifibration, not fitted), and `0.036` is **existence-proven** (reachable by a prime
+resummation) with its **multiplicity open** — which resummation = the continuum vacuum-polarisation
+running, the Standard Model's own frontier. Every substrate mechanism swing is closed; CODATA is an
+estimate of the missing count, not a target.
 
 ---
 
@@ -235,7 +241,13 @@ term `A_{R+1} − A_R`, never a subtracted infinity; the running is `Q(R) = Q₀
 And the substrate's series **converges absolutely** in its cylinder measure — `twist_kraft` plus
 `|A| ≤ W` — so no Borel resummation, and the Dyson divergence is exposed as an artefact of the mode
 continuum the substrate does not have ([`QLF_ExactRG`](lean/QLF_ExactRG.lean), the exact-RG recursion +
-finiteness + convergence, no axioms). **Contrast, once:** the rigorous continuum QFT (a Wightman /
+finiteness + convergence, no axioms). **The α residual is the worked calibration of the bridge line**
+([`Alpha_Residual.md`](Alpha_Residual.md) §9c): QLF proves the census space (two-sided bracket) and proves
+`w = ½ → 137.032` structural; the open piece is the *multiplicity* — which continuum resummation — not a
+census-truncation rule. Existence proven, multiplicity open — the exact shape of every Millennium bridge,
+run to convergence in a case with a measured answer. Every substrate mechanism swing is closed; the
+turbulence swing produced a side-derivation (She–Léveque `C₀ = 2` from `/solve` axis-minimality).
+**Contrast, once:** the rigorous continuum QFT (a Wightman /
 Osterwalder–Schrader theory on ℝ⁴) is not constructed here — that step is the Yang–Mills boundary axiom of
 domain 9. What the reformulation proves is that the discrete substrate the continuum is the *limit of*, plus
 the one explicit crossing, carries QFT's empirical content.
