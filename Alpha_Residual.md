@@ -712,3 +712,27 @@ number-theoretic modulation that *would* move `w` is exactly the nonlinear ingre
 linearity excludes. The `δw` to `0.624` is the continuum vacuum-polarization running integral (§2a), not
 a census re-weighting; `census_split` gives its **coefficient** `2/(3π)` (now 1PI-confirmed, §9b table),
 not its higher orders.
+
+**The turbulence / intermittency swing — the best-motivated candidate for `δw`, and what it needs.**
+The nonlinear ingredient the linear census lacks has a home in the repo already:
+**intermittency**. The α running and the turbulent cascade **share one Lean theorem** —
+`QLF_Kolmogorov.flux_scale_invariant` carries both the QED octave-count logarithm
+([`QLF_VacuumPolarizationTower`](lean/QLF_VacuumPolarizationTower.lean)) and the `−5/3` spectrum
+([`Navier_Stokes_Geometry.md`](Navier_Stokes_Geometry.md) §6a) — and the monofractal (flat per-octave,
+`w = 1/2`) reading is exactly K41. Real cascades deviate from K41 by a **multifractal** correction: the
+per-octave flux multiplier `W` fluctuates, and QLF fixes its law to **log-Poisson / She–Leveque** on
+realizability grounds (closures are rare quasi-independent events ⟹ Poisson occupation ⟹ log-Poisson
+multiplier, `poissonOccupation`), with `ζ_p = p/9 + 2(1 − (2/3)^{p/3})`, parameters
+`μ = 2 − ζ_6 = 0.222`, `β = 2/3`, `C₀ = 2` all **forced**, not fitted (`QLF_Kolmogorov`). Two features
+line up: `Δζ(3) = 0` (the 4/5 law is exact), so the clean **3rd-order** term (§7's `9/250` peak) is
+*protected*; and the 2nd-moment correction `Δζ(2) = +0.029` is the right sector and scale (`~5α`) for
+`δw`. **But it is a lead, not a result:** the step from "intermittency of a velocity field" to
+"vacuum-polarization census weight" is a real bridge — which moment `p` vacuum polarization is, whether
+its closures are Poisson-occupied in a momentum shell, how `ζ_p` becomes a resummation weight — and the
+crude per-order modulations tried so far that land near CODATA were *chosen* (the She–Leveque turnover
+factor `(2/3)^{−(n−1)/3}` gives `137.0356`) rather than derived, with `w_impl > 1` signalling the naive
+application is wrong. Before any comparison counts, this needs the **R0 pre-registration** of §9a:
+the moment identification, the Poisson-occupation check, and the `ζ_p → weight` rule all fixed in a
+frozen commit, target **value-free** (the `ζ_2` correction, not `0.035999`). Until then it is the
+**most promising open swing** — shared Lean core, forced parameters, right sector — and the first
+genuinely new one since the 4-D projection (§8).
