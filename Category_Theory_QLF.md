@@ -31,6 +31,16 @@ presheaf / the principal up-set at `A`.
 **Status: proven.** The poset laws are Lean theorems. Reading it as "a category" adds nothing the poset
 did not already say — which is the point of a thin category.
 
+**The observer group acts on it, and the closure structure is invariant.** A change of observer frame
+is an element of the discrete symmetry group (the 48 signed axis permutations × the gauge swap,
+`QLF_BasisIndependence`). It acts on histories by relabeling, and **the ZFA closure verdict and the
+phase of a closure are fixed points** — `closure_verdict_frame_independent`, `phase_frame_independent`,
+so `observers_agree` ([`lean/QLF_MultiObserver.lean`](lean/QLF_MultiObserver.lean), no axioms). In
+categorical terms the frame group acts by automorphisms of the census, and `countBalanced` /
+`twistMatrixFold` are the invariants of that action — the closure and its phase are **objective**, the
+same from two or more perspectives, and witnessed *two independent ways* (the count route and the
+Pauli route). "Truth is what closes" is therefore not observer-relative.
+
 ### 1a. Histories under composition — the free monoid
 
 Closures concatenate. `List α` under `++` with `[]` as unit is the **free monoid on `α`**

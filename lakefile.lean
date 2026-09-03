@@ -234,5 +234,6 @@ lean_lib QLF where
     `QLF_Folding,
     `QLF_Unsaturation,
     `QLF_Inertia,
-    `QLF_ExactRG
+    `QLF_ExactRG,
+    `QLF_MultiObserver
   ]
