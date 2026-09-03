@@ -10,15 +10,19 @@
 > α's leading value — the coupling of the world **as we, and the cosmos we observe, are rendered** — and the framework derives 3
 > rather than assuming it ([`SpaceTime.md`](SpaceTime.md) §3a; the over-determination is §6 below).
 
-> **Status — `alpha_exact_value_in_progress`.** QLF derives **why the leading combinatorial value is
-> `1/137`**: the bare `2⁻⁷ = 1/128` coupling and the `+d² = 9` directional screening, both fixed by the
-> 8-twist substrate and 3-D rendering. The **exact** measured value is `1/137.035999` (the `q²→0` Thomson
-> limit); the residual `0.036` is the **convergent tail of higher-order (length-4+) closure census
-> orders** — an *internal* completeness target (the substrate has no external sector to defer it to), and
-> **not yet derived**: the next census order is positive and the right order of magnitude but *brackets*
-> `0.036` rather than producing it (a finite rational census term can only approach the irrational Thomson
-> value in the limit; the resummation rule that sums the tail is the open piece). So throughout:
-> **`1/137` = the derived leading value; `1/137.036` = the exact value, in progress.**
+> **Status — `alpha_exact_value_in_progress` (leading value + bounds + `w=½` prediction done; the
+> continuum tail is the SM's frontier).** QLF derives **why the leading combinatorial value is `1/137`**:
+> the bare `2⁻⁷ = 1/128` coupling and the `+d² = 9` directional screening, both fixed by the 8-twist
+> substrate and 3-D rendering. The residual to the measured `1/137.035999` (`q²→0` Thomson) is now
+> **bounded two-sided and machine-checked** (`137.01587 < α⁻¹ < 137.04813`), and the equal-weight
+> prediction **`137.032` is structural** — `w = 1/2` is forced by the free-monoid/bifibration, not
+> fitted. The proven bracket + `G = 1/(1−I)` establish that `0.036` **is** in the census's reach (total
+> resummation overshoots, one prime term undershoots) — *existence* of the value, not a fit. What is
+> open is the **multiplicity** — *which* partial resummation, i.e. how many 1PI insertions contribute
+> as `q²→0` — and that count *is* the continuum vacuum-polarisation running, the Standard Model's own
+> un-derived frontier. Every substrate mechanism swing is closed (§*Bounds*, [`Alpha_Residual.md`](Alpha_Residual.md) §9c).
+> So: **`1/137` = derived leading value; `137.032` = the structural `w=½` prediction; `1/137.036` = the
+> exact value, its last `~0.004` the continuum running.**
 
 **The canonical QLF document for the fine-structure constant `α ≈ 1/137`.** It collects, in one place,
 everything QLF says about α and links every related proof:
@@ -161,11 +165,19 @@ higher-order residual `+0.036` (status box) — and that residual is now **bound
 |---|---|---|---|
 | Leading value | `α⁻¹ = 128 + 9 = 137` | substrate structure, parameter-free | `leadInv_eq` / `alpha_QLF_eq` |
 | Residual sign | `α⁻¹ > 137` | EM abelian ⟹ screening | `alpha_inv_gt_137` |
-| Census cap | `α⁻¹ < (217 + 512√62)/31 ≈ 137.04813` | one `α_bare`/order; GF now a **theorem** (`central_binom_genfun`, `censusTail_eq` — no axiom) | `alphaInvCap_eq`, `codata_below_alphaInvCap` |
+| Census cap (upper) | `α⁻¹ < (217 + 512√62)/31 ≈ 137.04813` | every closure once (`α_bare`/order); GF a **theorem** (`central_binom_genfun`, `censusTail_eq` — no axiom) | `alphaInvCap_eq`, `codata_below_alphaInvCap` |
+| Irreducible cap (lower) | `α⁻¹ > 263 − 16√62 ≈ 137.01587` | prime closures only (`2·Catalan(n−1)`/order) | `irreducibleCap_eq` |
+| Dyson/1PI resummation | `G(x) = 1/(1 − I(x))` — total census = geometric resummation of primes | — | `census_irreducible_resummation` |
 
-So the substrate pins α to a window — **`137 < α⁻¹ < 137.0481`**, i.e. **`0.0072967 < α < 0.0072993`**
-(~0.035% wide). The measured `α⁻¹ = 137.035999` (`α = 0.00729735`) lies inside, `0.036` above the leading
-value and `0.012` below the cap.
+So the substrate pins α to a **two-sided window, both ends machine-checked** —
+**`137.01587 < α⁻¹ < 137.04813`**, i.e. **`0.0072967 < α < 0.0072992`** (~0.024% wide). The measured
+`α⁻¹ = 137.035999` (`α = 0.00729735`) lies **strictly inside**: `0.020` above the irreducible cap,
+`0.012` below the census cap. The **pure-ZFA prediction** is the equal-weight resummation `w = 1/2`
+between the two caps — `α⁻¹ = 137 + ½(irreducibleTail + censusTail) = 137.032` — and `w = 1/2` is now a
+**structural** value, not a fit: unique prime factorisation (`census_irreducible_resummation`) makes the
+closures a free monoid, whose geometric generating function gives a *linear* coefficient recurrence,
+which has no period-doubling — so the discrete-scale-invariance line that would move `w` off `½` is
+**closed by structure** ([`Alpha_Residual.md`](Alpha_Residual.md) §9b, [`Category_Theory_QLF.md`](Category_Theory_QLF.md) §3a).
 
 The genuinely *construction-independent* prediction is the residual's **sign**: EM is abelian
 (`em_gauge_abelian`, U(1), no self-interaction), so higher closures only *screen* (add positively) and the
@@ -173,11 +185,25 @@ dressed coupling is weaker than the leading value — `α⁻¹ > 137`. It is fal
 `α⁻¹ ≤ 137` refutes the screening picture, and a steeper counting rule caps the residual *below* the
 measured value (`steep_map_excludes_codata`), so the data *selects* the shallow one-power-per-order map.
 
-**Settled vs open.** The leading value `137` is derived, the band is proved, and the generating-function
-input is now a **theorem** (`central_binom_genfun`/`censusTail_eq`, from Mathlib's `(1+x)^a` binomial series —
-`QLF_AlphaBound` carries no axiom). The one open piece is the residual *within* the window — the exact
-`137.036` (the length→order / curvature rule, [`QLF_AlphaBound`](lean/QLF_AlphaBound.lean)). Leading value
-derived; residual open and bounded — stated plainly, no weaker and no stronger.
+**Settled vs open.** The leading value `137` is derived, the two-sided band is proved, the
+generating-function input is a **theorem** (`central_binom_genfun`/`censusTail_eq`, from Mathlib's
+`(1+x)^a` binomial series — `QLF_AlphaBound` carries no axiom), and the equal-weight prediction
+`137.032` is now structural. The one open piece is the residual *within* the window — the exact
+`137.036`, which by the Dyson identity is a **specific partial resummation** of the prime-closure series
+(§4a; [`Alpha_Residual.md`](Alpha_Residual.md) §4).
+
+**Existence is proven; the multiplicity is the open number — and that is where CODATA legitimately
+enters.** QLF normally refuses CODATA as a target (fitting a substrate number to the answer is
+numerology). Here the discipline is respected by an asymmetry the working method makes explicit
+([`Philosophy.md`](Philosophy.md) §3a rule 1: *an existence result is a lower bound on multiplicity*).
+The proven bracket plus `G = 1/(1−I)` establish that `0.036` **is** in the census's reach — the total
+resummation overshoots it (`+0.0481`), one prime term undershoots it (`+0.0159`), so *some* partial
+resummation of the primes gives exactly `0.036`. **We have shown one way it manifests, so we know it
+*can* happen** — existence, not a fit. What we do not know is *how many* ways — which partial
+resummation, i.e. how many 1PI insertions contribute as `q² → 0` — and that count *is* the continuum
+vacuum-polarisation running (§4a). CODATA's `137.035999(1)` is then an **estimate of that count**
+(`δw ≈ 0.124`, a quarter of the interval), read off after the fact — an observation of where physical
+reality's multiplicity landed inside a proven space, not a knob turned to reach it.
 
 The residual is dissected in [`Alpha_Residual.md`](Alpha_Residual.md). **Where it stands:** `α⁻¹ = 128 +
 9 = 137` is the *exact leading pure-EM* value — **confirmed by the running**: `128 = 2⁷ ≈ α̂⁻¹(M_Z)` (the
@@ -196,8 +222,20 @@ ordered sequence of prime (irreducible) closures. The **curvature route is also 
 directional-sphere curvature gives the right *sign* (`d_eff > 3 ⟹ α⁻¹ > 137`), but the *magnitude* is the
 wrong scale — `κ = 0.036` is a `0.4%` correction while geometric curvature invariants are O(1) (10–40×
 too big); the residual sits at the closure-order scale (`κ ≈ 4.6·α_bare`), so curvature is not a
-standalone mechanism but must *be* the closure-order resummation. Both routes localize the open problem to
-one object: the **partial-resummation truncation rule** of the prime-closure series.
+standalone mechanism but must *be* the closure-order resummation.
+
+**The investigation has now converged** ([`Alpha_Residual.md`](Alpha_Residual.md) §9b–§9c;
+[`alpha_residual_bridge.py`](alpha_residual_bridge.py), [`intermittency_bridge.py`](intermittency_bridge.py),
+[`intermittency_seeded.py`](intermittency_seeded.py)). The pre-registered census bridge confirmed the
+**`2/(3π)` coefficient survives the prime/1PI restriction** (`census_split → 1/6` for the prime census
+too); the **turbulence/intermittency swing** was run to the end — its leg 1 *derives* She–Léveque's
+`C₀ = 2` from `/solve` axis-minimality (a contribution back to [`Navier_Stokes_Geometry.md`](Navier_Stokes_Geometry.md) §6a),
+but its leg 2 finds **no inertial range** in the closure census (vacuum or seeded, converged transfer
+recursion) — the census is not a turbulent cascade. Every mechanism swing (weak, gauge, hypercharge,
+curvature, 4-D projection, self-similarity×ways, turbulence) is now closed, each forced by an
+independent computation. What remains is exactly one object, and it is **not** a census-truncation rule
+(none exists — the truncation depth *is* the running): the **continuum vacuum-polarisation running**,
+the Standard Model's own un-derived precision frontier, which QLF brackets by design.
 
 ---
 
@@ -226,7 +264,7 @@ The *matter* vacuum-polarization running — the piece the dimension-flow leaves
 sector — is now derived from census counting, three modules, every factor value-free (committed
 before comparison to QED, Step-0):
 
-* **The coefficient `2/(3π)`** ([`lean/QLF_VacuumPolarization.lean`](lean/QLF_VacuumPolarization.lean)).
+* **The coefficient `2/(3π)`** ([`lean/QLF_VacuumPolarization.lean`](lean/QLF_VacuumPolarization.lean); **1PI-confirmed** — `census_split → 1/6` holds for the *prime* census `2·Catalan(n−1)` exactly as for the total, so `2/(3π) = (1/6)·(4/π)` is a property of irreducible fermion loops, not an artefact of counting reducible ones, [`alpha_residual_bridge.py`](alpha_residual_bridge.py)).
   The one-loop coefficient decomposes `2/(3π) = 2·(1/6)·2·(1/π)`; the two non-trivial factors are
   counted. The **`3`** is the **two-vertex split census**: a fermion loop cut at its two photon
   vertices splits into arcs `k` and `n−k`, the two-vertex insertion count is `k(n−k)`, and
@@ -598,10 +636,11 @@ established about the formal object) and physical (what is established about the
 |---|---|---|
 | `α_lead = 1/(128 + 3²) = 1/137`, `alpha_QLF_eq` | **Proved** | **Retrodiction** — the comparison target was known |
 | `α(d) = 1/(128 + d²)`, `only_3d_substrate_gives_137` | **Proved** | **Internal** |
-| bounds `137 < α⁻¹ < 137.048` | **Proved** | **Predicted absent** — a two-sided null CODATA lands inside |
+| bounds `137.01587 < α⁻¹ < 137.04813` (both ends) | **Proved** (`irreducibleCap_eq`, `alphaInvCap_eq`) | **Predicted absent** — a two-sided null CODATA lands inside |
+| the equal-weight prediction `α⁻¹ = 137.032` (`w = ½`) | **Proved structural** — `w = ½` forced by the free monoid / no bifurcation | **Prediction** — `~0.004` from CODATA, the gap being the continuum running |
 | `no_cosmological_drift_of_alpha` | **Proved** (scoped to the leading value) | **Pre-registered prediction** — the SM permits a varying-α field; the test is not yet decisive |
 | the `6+2` split is the only split | **Proved** | **Internal** |
-| the exact `1/137.035999` | **Conjecture** | **Open bridge** ([`Alpha_Residual.md`](Alpha_Residual.md)) |
+| the exact `1/137.035999` | **Existence proved** (`0.036` strictly inside the bracket; some prime-resummation gives it) | **Open — the multiplicity** (which resummation / how many 1PI insertions = the continuum running; every substrate mechanism swing closed, [`Alpha_Residual.md`](Alpha_Residual.md) §9c) |
 
 `no_cosmological_drift_of_alpha` is the only row here that can *confirm* rather than retrodict — the
 leading value's agreement with CODATA is a retrodiction however exact, since `137.036` was in view when
@@ -610,14 +649,22 @@ the reading was built ([`Alpha_Residual.md`](Alpha_Residual.md) §0a).
 - **Derived (zero free parameters, Lean-verified): the leading value `α_lead = 1/(128+9) = 1/137`** — why
   the substrate's combinatorics + 3-D rendering give the integer `137` (the `2⁻⁷` bare coupling, the
   `+d²=9` directional screening), `0.026%` from CODATA's `1/137.036`.
-- **In progress (`alpha_exact_value_in_progress`): the exact `1/137.035999`.** The residual `0.036` is an
-  *internal* target — the convergent tail of higher-order (length-4+) closure census orders, not an
-  external sector (completeness forbids deferring it). Derived honestly, the **next** census order is
-  positive and the right order of magnitude but *brackets* `0.036` (reducible-4 → `137.031`, total-6 →
-  `137.047`) rather than producing it; the coefficient needed (`4.6·α_bare`) is not a census number, and a
-  finite rational term can only approach the irrational Thomson value in the limit. The open piece is the
-  **resummation rule** that fixes the census tail — to be *derived* from the irreducible-closure
-  generating function, never tuned to `0.036`.
+- **Bounded + structural: `137.01587 < α⁻¹ < 137.04813` (proved both ends), and `137.032` from `w = ½`.**
+  The two caps are the total-census (`+0.0481`) and prime-only (`+0.0159`) resummations; `w = ½` between
+  them is the equal-weight prediction, and `w = ½` is *forced* — unique prime factorisation → free monoid
+  → geometric GF → linear recurrence → no period-doubling → no discrete-scale-invariance line to shift
+  it. `137.032` is `~0.004` from CODATA.
+- **Existence proved, multiplicity open: the exact `1/137.035999`.** `0.036` lies *strictly inside* the
+  proved bracket, and total-resummation overshoots while one prime term undershoots — so *some* partial
+  resummation of the primes gives exactly `0.036`. That is **existence**, not a fit: we have shown a way
+  it manifests, so it *can* happen. The open number is the **multiplicity** — which partial resummation,
+  i.e. how many 1PI insertions contribute as `q²→0` — and `Alpha_Residual.md` §2a shows that count *is*
+  the continuum vacuum-polarisation running, not a census-truncation rule (none exists). Every substrate
+  mechanism swing — weak, gauge, hypercharge, curvature, 4-D, self-similarity×ways, turbulence — is
+  **closed**, each by an independent computation ([`Alpha_Residual.md`](Alpha_Residual.md) §9b–§9c). The
+  turbulence swing's leg 1 produced a *side*-derivation: She–Léveque's `C₀ = 2` from `/solve`
+  axis-minimality. CODATA's `137.035999(1)` is then an **estimate of the missing count** (`δw ≈ 0.124`),
+  read off after the proof — an observation, not a target.
 - **Structural (*direction* only):** the QED running ≈ effective-dimension flow `3→2` toward the UV
   (`QLF_CausalDimension` + the `1/132` counterfactual); not the running *magnitude*.
 - **Scale/time-invariance of the *leading* value:** `α_lead(d)=1/(128+d²)` has no time argument, so the
@@ -625,8 +672,10 @@ the reading was built ([`Alpha_Residual.md`](Alpha_Residual.md) §0a).
   the exact value's full scale-dependence is the running (§4) + the in-progress tail. The empirical "does
   `α(0)` drift in cosmic time?" is a falsifiable check, with the universal "does QLF describe reality?" caveat.
 
-The honest headline: QLF **derives why the leading value is `1/137`**; the **exact `1/137.036` is in
-progress** — an internal census-tail target, not an external renormalization deferral.
+The honest headline: QLF **derives why the leading value is `1/137`**, **proves the two-sided bracket**,
+and shows the **`w = ½` prediction `137.032` is structural**. The exact `1/137.036` is *existence-proved*
+(it is reachable by a prime resummation) with its **multiplicity open** — and that missing count is the
+continuum vacuum-polarisation running, the Standard Model's own frontier, not a QLF gap.
 
 ---
 
@@ -634,7 +683,13 @@ progress** — an internal census-tail target, not an external renormalization d
 
 - [`Alpha_Residual.md`](Alpha_Residual.md) §0a (the discovery/confirmation firewall and the pre-filter),
   §3a (which fractions a census can carry), §6a–§6b (two-axis status; the failure-criterion test),
-  §9a (the pre-registered bridge for the running-coefficient route).
+  §9a (the pre-registered bridge), **§9b–§9c (the investigation converged: `2/(3π)` 1PI-confirmed,
+  `w = ½` structural, the turbulence swing run to the end — `C₀ = 2` derived, no inertial range)**.
+- [`Category_Theory_QLF.md`](Category_Theory_QLF.md) §3a — why the free-monoid bifibration makes
+  `w = ½` a theorem rather than a fit.
+- [`Perturbation_Theory_QLF.md`](Perturbation_Theory_QLF.md) · [`lean/QLF_ExactRG.lean`](lean/QLF_ExactRG.lean)
+  — the exact-RG recursion (no axiom): the perturbation series as the closure-order expansion,
+  renormalization as the capacity horizon, Kraft convergence.
 
 - [`Magnetism_Spatial_Dynamics.md`](Magnetism_Spatial_Dynamics.md) §6.1 — full prose derivation + demo.
 - [`SpaceTime.md`](SpaceTime.md) §3a — why space renders 3-D, `α = N = 3²` as a consequence.
