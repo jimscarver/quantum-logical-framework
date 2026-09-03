@@ -114,6 +114,21 @@ This is the same epistemic move as the Riemann program: a constructive theorem c
 whose only non-RCA₀ input is a single, named boundary axiom marking exactly the
 constructive→analytic crossing — never a `sorry`, never a hidden gap.
 
+**The perturbative side of the boundary is now finite by theorem.** Continuum Yang–Mills'
+perturbation series is asymptotic (Dyson 1952) and its diagrams diverge before renormalisation —
+part of why a rigorous construction is hard. On the substrate that trouble is absent *by counting*:
+the perturbation series **is** the closure-order sum ([`Perturbation_Theory_QLF.md`](Perturbation_Theory_QLF.md)),
+which **converges absolutely** in its cylinder measure — `twist_kraft` (`Σ 8^{−|h|} ≤ 1`) plus
+`|A| ≤ W` — with no Borel resummation, no Lipatov analysis
+([`QLF_ExactRG`](lean/QLF_ExactRG.lean), the exact-RG recursion + finiteness + convergence, **no
+axiom**). Renormalisation is the Wilsonian capacity horizon (a finite integer counterterm per octave,
+`Q(R) = Q₀·2^R` the running), and the one-loop `2/(3π)` coefficient is 1PI-confirmed (`census_split →
+1/6` for the *prime* census, [`alpha_residual_bridge.py`](alpha_residual_bridge.py)). So the Dyson
+divergence is diagnosed as an artefact of the coupling continuum the substrate does not have — the
+same "continuum is the UV catastrophe" reading as everywhere else. What `yang_mills_continuum_gap`
+still carries is only the *reconstruction* of the Wightman theory itself, not the finiteness of its
+expansion.
+
 ## 5. Epistemic stance
 
 Within QLF's frame — where the substrate-constructive part of mathematics has its own
