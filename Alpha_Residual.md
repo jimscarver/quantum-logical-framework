@@ -720,7 +720,7 @@ The nonlinear ingredient the linear census lacks has a home in the repo already:
 ([`QLF_VacuumPolarizationTower`](lean/QLF_VacuumPolarizationTower.lean)) and the `−5/3` spectrum
 ([`Navier_Stokes_Geometry.md`](Navier_Stokes_Geometry.md) §6a) — and the monofractal (flat per-octave,
 `w = 1/2`) reading is exactly K41. Real cascades deviate from K41 by a **multifractal** correction: the
-per-octave flux multiplier `W` fluctuates, and QLF fixes its law to **log-Poisson / She–Leveque** on
+per-octave flux multiplier `W` fluctuates, and QLF fixes its law to **log-Poisson / She–Léveque** on
 realizability grounds (closures are rare quasi-independent events ⟹ Poisson occupation ⟹ log-Poisson
 multiplier, `poissonOccupation`), with `ζ_p = p/9 + 2(1 − (2/3)^{p/3})`, parameters
 `μ = 2 − ζ_6 = 0.222`, `β = 2/3`, `C₀ = 2` all **forced**, not fitted (`QLF_Kolmogorov`). Two features
@@ -729,10 +729,49 @@ line up: `Δζ(3) = 0` (the 4/5 law is exact), so the clean **3rd-order** term (
 `δw`. **But it is a lead, not a result:** the step from "intermittency of a velocity field" to
 "vacuum-polarization census weight" is a real bridge — which moment `p` vacuum polarization is, whether
 its closures are Poisson-occupied in a momentum shell, how `ζ_p` becomes a resummation weight — and the
-crude per-order modulations tried so far that land near CODATA were *chosen* (the She–Leveque turnover
+crude per-order modulations tried so far that land near CODATA were *chosen* (the She–Léveque turnover
 factor `(2/3)^{−(n−1)/3}` gives `137.0356`) rather than derived, with `w_impl > 1` signalling the naive
 application is wrong. Before any comparison counts, this needs the **R0 pre-registration** of §9a:
 the moment identification, the Poisson-occupation check, and the `ζ_p → weight` rule all fixed in a
 frozen commit, target **value-free** (the `ζ_2` correction, not `0.035999`). Until then it is the
 **most promising open swing** — shared Lean core, forced parameters, right sector — and the first
 genuinely new one since the 4-D projection (§8).
+
+---
+
+## 9c. The intermittency swing, pre-registered and run ([`intermittency_bridge.py`](intermittency_bridge.py))
+
+**Pre-registration (R0), frozen at the commit that adds `intermittency_bridge.py`.** The full R0 table
+(inputs held fixed, substrate representation, extraction rule, tolerance, comparator, kill condition) is
+in the script's header docstring. The essentials: physical input is the 8-twist census and the `/solve`
+selection cascade only — **no** use of `α⁻¹(0)`, `137.036`, `0.036` or `w = 0.624`; the comparator is
+She–Léveque, forced (`C₀ = 2`, `β = 2/3`, `μ = 2 − ζ₆ = 0.222`, from `QLF_Kolmogorov` /
+`Navier_Stokes_Geometry.md` §6a); the target is **value-free** (the parameters and the resulting
+`ζ_p`, never `0.035999`). Per Jim's steer, the swing tests the **one** closure the substrate selects
+per octave via the handedness listener-listener interaction (`/solve`), not the full-census sum.
+
+**Leg 1 — `C₀`, the codimension of the selected structure: PASS, and it is a *derivation*.** `/solve`
+is **axis-minimal** — from a single-axis seed it closes within that one axis, from the vacuum it selects
+a 1-D structure (verified across single-axis, multi-axis and gauge seeds). So the selected structure has
+codimension `3 − 1 = 2` in 3-D — **She–Léveque's `C₀ = 2`, now derived from the substrate's own
+selection rule** (least peak excursion → shortest) rather than posited from "vortex filaments are 1-D".
+`Navier_Stokes_Geometry.md` §6a took `C₀ = 2` as "the sole `d`-input"; it is no longer an input.
+
+**Leg 1b — the listener-listener interaction: PASS.** The joint `/solve` of two seeds (the "meeting of
+minds", `QucalcSearch.md`) collapses to **one** low-codimension solution — not the union of both
+listeners' axis content. Handedness balance selects one solution, which is the "one solution, not all
+solutions" the swing is built on.
+
+**Leg 2 — `μ`, the intermittency exponent: INCONCLUSIVE (depth-limited, not a kill).** The per-octave
+flux multiplier `W(R)` from the first-closure census is truncation-limited at the length this machine can
+enumerate (<= 10); `W(R)` is converged only for the lowest `R`, so a clean `W(R) ~ 2^{Rλ}` fit — and
+hence `μ = 2 − ζ₆` — needs a census to length >= 14 or the absorbing transfer operator (numpy, not
+installed here). The kill condition distinguishes this from a failure: no scaling *seen* is not no
+scaling *present*.
+
+**Net.** The swing **advances**: one of its three forced parameters (`C₀`) is now substrate-derived,
+and the "one solution" selection mechanism is confirmed. It does **not** yet deliver `δw` or `+0.036`
+— that is leg 2 (the intermittency *magnitude*) plus the `ζ_p →` resummation-weight rule, both open.
+What is now a **prediction** from the frozen construction: once leg 2 has the depth, `μ` extracted
+value-free must equal `0.222` (She–Léveque) — a retrodiction for `μ` itself, with the resulting `δw`
+the first unused consequence.
