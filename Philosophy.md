@@ -152,6 +152,19 @@ close — each one a realized way, each one a lower bound on how many ways there
 repo's answer to "is this the only way?" is always no, and why that is a strength rather than a
 concession.
 
+**Self-similar things dominate existence** — a corollary of §3a, not a separate principle. A structure
+that reproduces itself at every scale is reachable *every way* at *every scale*, so its multiplicity is
+compounded across the whole hierarchy rather than confined to one stratum. **Composability is
+multiplicity:** a closure you can assemble by concatenating primes in any order carries factorial-class
+multiplicity; a hypothetical rigid, non-composable structure would carry one. And closure factorization
+is **unique** (every ZFA closure is one ordered sequence of irreducible closures — the free monoid,
+`census_irreducible_resummation`, `G = 1/(1−I)`), so *every* closure is compositionally organized and the
+self-similar organization has multiplicity equal to the entire census. By "the most ways happen first,"
+it therefore dominates what happens. This is why the recurrences across the repo — the `2π` loop phase,
+the `log 2` quantum, the `H↔H†` Millennium involution, the icosa-blanket at every scale, closures within
+closures — are the *expected* output rather than coincidences: scale-invariant multiplicity is what
+maximises the count of ways, and the argmax of multiplicity is what is real.
+
 ## 3b. The Law of Exceptions
 
 > **There is an exception to every restrictive law except this law.**
