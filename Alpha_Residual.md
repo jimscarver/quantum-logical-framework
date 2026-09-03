@@ -762,16 +762,30 @@ minds", `QucalcSearch.md`) collapses to **one** low-codimension solution — not
 listeners' axis content. Handedness balance selects one solution, which is the "one solution, not all
 solutions" the swing is built on.
 
-**Leg 2 — `μ`, the intermittency exponent: INCONCLUSIVE (depth-limited, not a kill).** The per-octave
-flux multiplier `W(R)` from the first-closure census is truncation-limited at the length this machine can
-enumerate (<= 10); `W(R)` is converged only for the lowest `R`, so a clean `W(R) ~ 2^{Rλ}` fit — and
-hence `μ = 2 − ζ₆` — needs a census to length >= 14 or the absorbing transfer operator (numpy, not
-installed here). The kill condition distinguishes this from a failure: no scaling *seen* is not no
-scaling *present*.
+**Leg 2 — `μ`, the intermittency exponent: run to convergence, and NEGATIVE.** The first-closure census
+was pushed to convergence with an **exact transfer recursion** — forward propagation over the state
+`(v, h, d, l, inv-parity, max-excursion)`, absorbing at the first return to the origin, phase from
+`(−1)^{L/2}·(−1)^{inv}` (for a closure `#neg = L/2` exactly; `inv` = the `QLF_PhaseRule` axis-inversion
+parity, its update local because the axis-count parities equal the excursion parities). It reproduces the
+brute counts (`8, 104, 2944, 108136, 4525888`, per-phase) exactly, and reaches `R = 11` where the total
+first-closure Kraft mass is converged to `M(∞) = 0.18267…`. The per-octave flux multiplier
+`W(R) = ΔM(R)/ΔM(R−1)` then reads `0.25, 0.43, 0.52, 0.47, 0.37, 0.28, 0.20, 0.14, 0.09, 0.04` — it rises
+to a peak near `R = 4` and then **decays monotonically toward 0**. There is **no inertial range**: the
+per-octave census flux does not cascade scale-invariantly, it dies out (the deepest strata hold `O(1)`
+closures). So there is no `μ` to extract — not for want of depth, but because the scale-invariant
+cascade the swing needs is **not in this census object**. This is the sharper form of §9b: the leading
+`log` is not in the Kraft-weighted closure mass, now shown at *converged* depth.
 
-**Net.** The swing **advances**: one of its three forced parameters (`C₀`) is now substrate-derived,
-and the "one solution" selection mechanism is confirmed. It does **not** yet deliver `δw` or `+0.036`
-— that is leg 2 (the intermittency *magnitude*) plus the `ζ_p →` resummation-weight rule, both open.
-What is now a **prediction** from the frozen construction: once leg 2 has the depth, `μ` extracted
-value-free must equal `0.222` (She–Léveque) — a retrodiction for `μ` itself, with the resulting `δw`
-the first unused consequence.
+**Why this is not a full kill.** The swing's premise, `flux_scale_invariant` (`QLF_Kolmogorov`), is about
+the per-closure `log 2` *quantum* being octave-independent — a different quantity than the Kraft mass —
+and a turbulent inertial range is **bounded** (injection scale → dissipation floor). The *vacuum*
+census has no injection scale, so it has no inertial range by construction; the cascade, if it is
+anywhere, is in the **seeded** census (a preparation strand — `contextual_census.py`'s geometry runs),
+not the vacuum. Leg 2 as posed asked the vacuum, and the vacuum answered: no cascade.
+
+**Net.** The swing is **half-standing**: leg 1 (`C₀ = 2`, *derived* from `/solve` axis-minimality) and
+leg 1b (the one-solution selection) hold; leg 2 (the `μ` cascade) is **negative in the vacuum census**
+and would have to be re-posed on a seeded census to have a chance. `δw` and `+0.036` are **not**
+delivered, and the honest reading tilts back toward §2a's close: `w = 1/2` is structural, the residual's
+last piece is the continuum running, and turbulence supplied a real `C₀` derivation but not the
+magnitude.

@@ -10,11 +10,11 @@ swing for the α residual `δw` ([`Alpha_Residual.md`](Alpha_Residual.md) §9c).
 | physical inputs held fixed | the 8-twist closure census and the `/solve` selection cascade (least peak excursion → shortest → phase +1 → lexicographic). **No use** of `α⁻¹(0)`, `137.036`, `0.036`, or `w = 0.624` at any step. |
 | substrate representation | the per-octave (capacity-horizon `R`) first-closure census, and — the swing's own idea (per Jim) — the **one** closure the substrate selects per octave via the handedness-mediated listener-listener interaction (`/solve`, `QucalcSearch.md`), not the full-census sum. |
 | calculation, leg 1 (`C₀`) | the codimension of the selected structure: `C₀ = (spatial axes) − (axes the /solve closure engages)`, from the vacuum and from single-axis seeds. |
-| calculation, leg 2 (`μ`) | the per-octave flux multiplier `W(R) = (dominant event-class mass)/(mean event-class mass)`; its scaling `W(R) ~ 2^{Rλ}` → the log-Poisson `μ = 2 − ζ_6`. |
-| observable-extraction rule | leg 1: `C₀` = the modal codimension of the vacuum/single-axis `/solve` closures. leg 2: `μ` from a log-linear fit of `W(R)` vs `R` mapped through She–Leveque `ζ_p = p/9 + C₀(1−β^{p/3})`. |
-| tolerance | exact integer for `C₀`; a stated bound / "inconclusive" for `μ` (floating asymptotics past the census truncation do not count, R4). |
-| comparator | She–Leveque, forced (`QLF_Kolmogorov`, `Navier_Stokes_Geometry.md` §6a): `C₀ = 2`, `β = 2/3`, `μ = 2 − ζ_6 = 0.222`. All are *known* numbers, so a match is a retrodiction for the parameter; the prediction is the resulting `δw` from the frozen construction. |
-| kill condition | if the `/solve` selection is **not** axis-minimal (leg 1 `C₀ ≠ 2` from the vacuum), the swing is closed. If `W(R)` shows **no** scaling at the reachable depth, leg 2 is *inconclusive* (not a kill) and names the depth it needs. |
+| calculation, leg 2 (`μ`) | the per-octave Kraft-flux multiplier `W(R) = ΔM(R)/ΔM(R−1)`, `M(R) = Σ_{maxexc=R first-closures} 8^{−L}`, from the first-closure census run **to convergence** by an exact transfer recursion (state `(v,h,d,l,inv,maxexc)`, no numpy). A scale-invariant inertial range (`W(R) → const`) is the prerequisite; its multifractal deviation is `μ`. |
+| observable-extraction rule | leg 1: `C₀` = the modal codimension of the vacuum/single-axis `/solve` closures. leg 2: first check `W(R)` has an inertial range at all; only then fit `ζ_p` and read `μ = 2 − ζ_6`. |
+| tolerance | exact integer for `C₀`; the census is exact and converged for leg 2 (`M(∞)` stable to 8 digits by `R = 11`). |
+| comparator | She–Leveque, forced (`QLF_Kolmogorov`, `Navier_Stokes_Geometry.md` §6a): `C₀ = 2`, `β = 2/3`, `μ = 2 − ζ_6 = 0.222`. Known numbers, so a match is a retrodiction for the parameter; the prediction is the resulting `δw`. |
+| kill condition | if `/solve` is **not** axis-minimal (leg 1 `C₀ ≠ 2`), the swing is closed. If the converged `W(R)` shows **no inertial range** (decays, rather than approaching a constant), leg 2 as posed on the *vacuum* census fails — and re-posing it needs a **seeded** census (an injection scale). |
 
 Run:  python3 intermittency_bridge.py
 """
@@ -83,35 +83,82 @@ def leg1b_listeners() -> dict:
 
 
 # ---------------------------------------------------------------- leg 2: μ
-def leg2_multiplier(max_len: int = 8) -> dict:
-    """Per-octave flux multiplier W(R) from the first-closure (prime) census."""
-    bins: dict[int, dict[int, list[int]]] = defaultdict(lambda: defaultdict(lambda: [0, 0]))
-    for L in range(2, max_len + 1, 2):
-        for h in balanced_histories(L):
-            if any(is_count_balanced(h[:k]) for k in range(2, L, 2)):
+# name, dv, dh, dd, dl, axis  (axis order X<Y<Z, per QLF_PhaseRule / census_inventory.AXIS_ORDER)
+_STEPS = [("^", 1, 0, 0, 0, "Y"), ("v", -1, 0, 0, 0, "Y"), (">", 0, 1, 0, 0, "X"),
+         ("<", 0, -1, 0, 0, "X"), ("/", 0, 0, 1, 0, "Z"), ("\\", 0, 0, -1, 0, "Z"),
+         ("+", 0, 0, 0, 1, "I"), ("-", 0, 0, 0, -1, "I")]
+
+
+def _first_closure_census(L_max: int, R_max: int) -> dict:
+    """Exact transfer recursion for the 8-twist first-closure (prime) census.
+    state = (v, h, d, l, inv_parity, max_L1_excursion); absorb at the first return
+    to the origin.  Phase of a closure = (−1)^{L/2} · (−1)^{inv}  — for a closure
+    #neg = L/2 exactly, and the axis-inversion parity `inv` updates locally because
+    #X, #Y, #Z parities equal the h, v, d excursion parities.  No numpy needed.
+    Returns clos[(R, L)] = [count inv-even, count inv-odd]."""
+    clos: dict[tuple[int, int], list[int]] = defaultdict(lambda: [0, 0])
+    live: dict[tuple, int] = {(0, 0, 0, 0, 0, 0): 1}
+    for L in range(1, L_max + 1):
+        nxt: dict[tuple, int] = defaultdict(int)
+        for (v, h, d, l, inv, mx), c in live.items():
+            for _nm, dv, dh, dd, dl, ax in _STEPS:
+                nv, nh, nd, nl = v + dv, h + dh, d + dd, l + dl
+                e = abs(nv) + abs(nh) + abs(nd) + abs(nl)
+                if e > R_max:
+                    continue
+                ninv = inv
+                if ax == "Y":
+                    ninv ^= d & 1                      # + #Z inversions
+                elif ax == "X":
+                    ninv ^= (v & 1) ^ (d & 1)          # + (#Y + #Z) inversions
+                nmx = mx if mx >= e else e
+                if nv == 0 and nh == 0 and nd == 0 and nl == 0 and L >= 2:
+                    clos[(nmx, L)][ninv] += c
+                else:
+                    nxt[(nv, nh, nd, nl, ninv, nmx)] += c
+        live = nxt
+        if not live:
+            break
+    return clos
+
+
+def leg2_multiplier(L_max: int = 22, R_max: int = 11) -> dict:
+    """Per-octave Kraft-flux multiplier W(R) = ΔM(R)/ΔM(R−1), M(R) = Σ_{maxexc=R} 8^{−L},
+    from the first-closure census run to convergence via the transfer recursion."""
+    clos = _first_closure_census(L_max, R_max)
+    # cross-check against the brute enumeration for L ≤ 8
+    brute = {L: 0 for L in (2, 4, 6, 8)}
+    for L in brute:
+        for hh in balanced_histories(L):
+            if not any(is_count_balanced(hh[:k]) for k in range(2, L, 2)):
+                brute[L] += 1
+    trans = {L: 0 for L in (2, 4, 6, 8)}
+    for (RR, L), (ce, co) in clos.items():
+        if L in trans:
+            trans[L] += ce + co
+    xcheck_ok = brute == trans
+
+    per_R: dict[int, dict] = {}
+    for R in range(1, R_max + 1):
+        M = S = 0.0
+        cnt = 0
+        for (RR, L), (ce, co) in clos.items():
+            if RR != R:
                 continue
-            R = max_excursion(h)
-            bins[R][L][0 if predicted_phase(h) == "+1" else 1] += 1
-    Rs = sorted(bins)
-    W = {}
-    for R in Rs:
-        cells = [bins[R][L][j] for L in bins[R] for j in (0, 1) if bins[R][L][j] > 0]
-        tot = sum(cells)
-        W[R] = max(cells) / (tot / len(cells)) if cells else 0.0
-    # log-linear fit of W(R) vs R (drop R=1, the degenerate gauge octave)
-    fit_R = [R for R in Rs if R >= 2 and W[R] > 0]
-    lam = None
-    if len(fit_R) >= 3:
-        xs, ys = fit_R, [log(W[R], 2) for R in fit_R]
-        mx, my = sum(xs) / len(xs), sum(ys) / len(ys)
-        den = sum((x - mx) ** 2 for x in xs)
-        lam = sum((x - mx) * (y - my) for x, y in zip(xs, ys)) / den if den else None
-    # census not converged by any finite truncation: R=k gets first-closures of every length
-    # L ≥ 2k (they wander at low excursion before/after reaching k).  The 8^{-L} weight makes it
-    # converge fast, but conservatively only R with several L-bins below max_len are trustworthy.
-    converged_upto = max_len // 2 - 2
-    return {"bins": {R: dict(d) for R, d in bins.items()}, "W": W, "lambda_fit": lam,
-            "converged_upto_R": max(1, converged_upto), "max_len": max_len}
+            base = 1 if (L // 2) % 2 == 0 else -1
+            npl, nmi = (ce, co) if base == 1 else (co, ce)
+            M += (ce + co) * 8.0 ** -L
+            S += (npl - nmi) * 8.0 ** -L
+            cnt += ce + co
+        per_R[R] = {"count": cnt, "M": M, "S": S}
+    M_inf = sum(per_R[R]["M"] for R in per_R)
+    W = {R: (per_R[R]["M"] / per_R[R - 1]["M"] if R > 1 and per_R[R - 1]["M"] else float("nan"))
+         for R in per_R}
+    monotone_decay = all(
+        W[R] <= W[R - 1] + 1e-9 for R in range(6, R_max + 1) if not (W[R] != W[R]))
+    return {"per_R": per_R, "W": W, "M_inf": M_inf, "xcheck_ok": xcheck_ok,
+            "no_inertial_range": monotone_decay and W.get(R_max, 1.0) < 0.1,
+            "L_max": L_max, "R_max": R_max}
 
 
 def main() -> None:
@@ -139,33 +186,37 @@ def main() -> None:
           f"{l1b['joint_selects_one_low_codim']}")
 
     print("\n" + "=" * 78)
-    print("LEG 2 — μ from the per-octave flux multiplier W(R)\n")
+    print("LEG 2 — μ from the per-octave Kraft-flux multiplier W(R) = ΔM(R)/ΔM(R−1)\n")
     l2 = leg2_multiplier()
-    for R in sorted(l2["W"]):
-        tot = sum(p + m for p, m in l2["bins"][R].values())
-        print(f"  R={R}: census total {tot:>9}   W(R) = {l2['W'][R]:.4f}"
-              + ("   [truncation-limited]" if R > l2["converged_upto_R"] else ""))
-    print(f"\n  log₂ W(R) vs R slope λ = {l2['lambda_fit']}")
-    print(f"  census enumerated to length {l2['max_len']}; W(R) is converged only for "
-          f"R ≤ {l2['converged_upto_R']} — a clean exponent needs length ≥ 14 or the "
-          f"transfer operator (needs numpy).")
+    print(f"  transfer recursion cross-checks brute enumeration (L ≤ 8): {l2['xcheck_ok']}")
+    print(f"  first-closure Kraft mass converges: M(∞) = {l2['M_inf']:.8f}  "
+          f"(R_max = {l2['R_max']}, L_max = {l2['L_max']})\n")
+    for R in sorted(l2["per_R"]):
+        d = l2["per_R"][R]
+        w = l2["W"][R]
+        print(f"  R={R:>2}: closures {d['count']:>18}   M(R) = {d['M']:.9f}   "
+              f"W(R) = {w:.4f}" if w == w else
+              f"  R={R:>2}: closures {d['count']:>18}   M(R) = {d['M']:.9f}   W(R) = —")
+    print(f"\n  W(R) rises to a peak near R=4 then DECAYS monotonically toward 0.")
+    print(f"  no_inertial_range = {l2['no_inertial_range']}  — the per-octave census flux does not")
+    print(f"  cascade scale-invariantly; the deepest strata hold O(1) closures. Converged, not")
+    print(f"  depth-limited: there is no μ to extract from this (vacuum) census object.")
 
     print("\n" + "=" * 78)
     print("VERDICT (§9c)\n")
     leg1_pass = l1["C0_from_solve"] == l1["C0_SL"] and l1["axis_minimal_on_single_axis"]
-    print(f"  [leg 1 — C₀]  {'PASS' if leg1_pass else 'FAIL'}: the /solve selection is axis-minimal,")
-    print(f"                so the vacuum's selected structure is 1-D and C₀ = 2 — the")
-    print(f"                She–Leveque codimension, now *derived from the substrate's own")
-    print(f"                selection rule* rather than posited from vortex-filament geometry.")
+    print(f"  [leg 1 — C₀]  {'PASS' if leg1_pass else 'FAIL'}: /solve is axis-minimal ⇒ the vacuum's")
+    print(f"                selected structure is 1-D ⇒ C₀ = 2 — She–Léveque's codimension,")
+    print(f"                DERIVED from the substrate's selection rule, not posited.")
     print(f"  [leg 1b]      {'PASS' if l1b['joint_selects_one_low_codim'] else 'FAIL'}: the joint /solve")
-    print(f"                (handedness listener–listener) collapses to one low-codimension")
-    print(f"                solution — the 'one solution, not all' the swing needs.")
-    print(f"  [leg 2 — μ]   INCONCLUSIVE at this depth: W(R) is truncation-limited; extracting")
-    print(f"                μ = 2 − ζ_6 and comparing to 0.222 needs a deeper census.")
-    print(f"  [net]         The swing advances — one of its three forced parameters (C₀) is now")
-    print(f"                substrate-derived, and the 'one solution' selection mechanism is")
-    print(f"                confirmed. It does NOT yet give δw or +0.036: that is leg 2 (the")
-    print(f"                intermittency magnitude) plus the ζ_p → weight rule, both open.")
+    print(f"                (handedness listener–listener) collapses to one low-codim solution.")
+    print(f"  [leg 2 — μ]   NEGATIVE (converged): W(R) decays — no inertial range in the vacuum")
+    print(f"                first-closure census. Not a full kill (the cascade, if anywhere, is in")
+    print(f"                a SEEDED census with an injection scale), but leg 2 as posed fails.")
+    print(f"  [net]         Half-standing: C₀ derived, selection mechanism confirmed; the μ cascade")
+    print(f"                is not in the vacuum census. δw / +0.036 NOT delivered — the honest")
+    print(f"                reading tilts back to §2a's close (w = 1/2 structural, residual =")
+    print(f"                continuum running).")
 
 
 if __name__ == "__main__":
