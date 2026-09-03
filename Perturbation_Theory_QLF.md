@@ -146,6 +146,17 @@ By the working method's rule 4 ([`CLAUDE.md`](CLAUDE.md) *"It happens every way"
 [`ScientificApproach.md`](ScientificApproach.md)): this RG changes a **count of ways** — `A_{R+1} − A_R` is
 a definite integer — so it carries physical content, unlike an identity true for every weight.
 
+### The two RG directions are a bifibration (structural note — redundant, no count changes)
+
+The spectrum carries two maps over the horizon/order grading: **restrict** to capacity `R`
+(`closedAtHorizon`, the `--listening` rollup — *integrating out* the deep closures) and **extend** to
+`R+1` (`Z_succ`, and the `IsDiagram` binding/nesting clauses — *adding a shell*). These are the cartesian
+and cocartesian lifts of a **bifibration** over that grading, and it is **self-similar** on the fractal
+closure base — `IsDiagram` nesting makes every fiber again the whole structure. `G = 1/(1−I)`
+(`census_irreducible_resummation`) is its shadow: the closure census is the free monoid on the prime
+closures. This adds no falsifiable content (method rule 4 — it changes no count), but it names the
+structure the Wilsonian flow already has.
+
 ---
 
 ## 4. `/solve` as the physical renormalization point
@@ -194,7 +205,13 @@ propagator being the one frame-independent thing in an otherwise scheme-dependen
   `g`/`ρ*`.
 - The depth-≥3 tail of `𝒵` (the eight-digit `0.036` α-residual) bottoms out in the absolute mass scale and
   the SM's own non-perturbative hadronic vacuum polarization `Δα_had` ([`Alpha_Residual.md`](Alpha_Residual.md),
-  `fractal_diagram_in_progress`).
+  `fractal_diagram_in_progress`). **The pre-registered census bridge for it is now run**
+  ([`alpha_residual_bridge.py`](alpha_residual_bridge.py), `Alpha_Residual.md` §9b): the `2/(3π)` one-loop
+  coefficient **survives the prime/1PI restriction** (`census_split → 1/6` for `2·Catalan(n−1)` as for
+  `C(2n,n)`), but the leading `log` is **not** in the Kraft-weighted closure mass (a bounded sum's
+  per-octave increment decays) — it is carried by the scale↔octave map, which `QLF_VacuumPolarizationTower`
+  already anchors. Route (a) refined, not closed; the higher-order tail (`−10α²`) still needs the kinematic
+  weights equal-weight counting does not produce.
 - ~~A Lean module for the exact-RG recursion~~ **done** — [`lean/QLF_ExactRG.lean`](lean/QLF_ExactRG.lean):
   `ClosureSpectrum` + the Wilsonian recursion `Z (N+1) = Z N + mass N` / `amp (N+1) = amp N + signed N`
   (`Z_succ`/`amp_succ`), the single bounded counterterm (`counterterm_eq`/`counterterm_abs_le`),

@@ -646,3 +646,43 @@ first thing here capable of confirming rather than retrodicting.
 **What route (a) does not require.** It requires no reference to `0.036` at any point. A derivation
 that reaches the running coefficients from counting delivers the residual as an output; one that
 reaches `0.036` by any other path delivers a ninth discarded bridge (§6b).
+
+---
+
+## 9b. Route (a), executed — the search-registry bridge ([`alpha_residual_bridge.py`](alpha_residual_bridge.py))
+
+The §9a construction is now run, value-free, and it splits into three parts with three different
+verdicts. Two census layers: the abstract 1-D walk census (`C(2n,n)` total, `2·Catalan(n−1)` prime,
+brute-checked, `G = 1/(1−I)` verified as a power series), and — per Jim's steer that *the search event
+registry could go deeper* — the **real 8-twist first-closure (absorbing) census** from
+[`qucalc_search`](qucalc_search.py) / [`twist_core`](twist_core.py): count-balanced histories (= ZFA
+closures by `count_balanced_pauli_closed`) whose no proper even prefix closes. Enumerated primes:
+**8, 104, 2944, 108136, 4525888** at lengths 2–10. Binned by max-excursion `R` and weighted by the
+Kraft cylinder measure `8^{−L}` ([`QLF_KraftMeasure`](lean/QLF_KraftMeasure.lean)), this is a genuine
+[`QLF_ExactRG`](lean/QLF_ExactRG.lean) `ClosureSpectrum`: the recursion `Z(N+1) = Z(N) + mass(N)` runs,
+`Z` is monotone and Kraft-bounded (`Z_limit ≈ 0.172 < 1`), `amp` converges (`≈ −0.114`).
+
+| Part of the bridge | Verdict | Detail |
+|---|---|---|
+| **The one-loop coefficient `2/(3π)`** | **SURVIVES — 1PI-confirmed** | `census_split → 1/6` for the **prime** (irreducible / 1PI-loop) census `2·Catalan(n−1)` exactly as for the total `C(2n,n)` or a flat weighting — all reach the Feynman integral `∫₀¹ x(1−x)\,dx = 1/6` by the same dominated limit. So `2/(3π) = (1/6)·(4/π)` is a property of *irreducible* fermion loops, not an artifact of counting reducible ones. The census-anchored coefficient is now shown 1PI-legitimate |
+| **The leading `log` from the horizon sum** | **NO — this step of §9a does not hold** | The Kraft-weighted per-octave increment **decays** (`mass(R)` ratios `≈ 0.25, 0.38, 0.26, 0.11` — not constant), because a Kraft sum is bounded by `1` (`twist_kraft`) so its increments must vanish. There is no `log` in the closure *mass*. The QED logarithm is carried by the scale↔octave map `Q(R) = Q₀·2^R` with a **scale-free per-octave count** (`flux_scale_invariant`, [`QLF_VacuumPolarizationTower`](lean/QLF_VacuumPolarizationTower.lean)) — an information-theoretic input the prime census does not itself derive. §9a's "read the leading log of the horizon sum" conflates the census (which gives the coefficient) with the scale map (which gives the log); the test separates them |
+| **The higher-order tail** | **UNTOUCHED** | The `−10α²` that detunes the clean `5` to `4.93` (§8b) needs kinematic weights; the equal-weight closure census gives every order weight `1` (§9 obstacle 2). Unchanged |
+
+**Net.** Route (a) is **refined, not closed**: the coefficient part advances (`2/(3π)` is now a
+confirmed 1PI/prime object, not just a census fit), the log-carrier is relocated to the scale map
+(already Lean-anchored, `QLF_VacuumPolarizationTower`), and the higher-order tail is the same open
+piece as before — frontier #1. The `+0.036` value is **not** delivered, and no reference to it entered.
+
+**Fractal / Zipf probe** (per Jim, *"fractals and zipf might close the gap"*): run at lengths ≤ 10 and
+**null so far** — the octave self-similarity ratios are truncation-dominated (the deep excursion levels
+are still filling in at `L = 10`), and the Zipf rank–frequency slope of the prime multiplicities is
+`≈ −4.7`, steepening with depth, not the `−1` of a Zipfian law. This is consistent with `genesis.py`'s
+pre-registered log-periodic (discrete-scale-invariance) probe, which is also null: the census is
+scale-*invariant* (period-1 cascade), with no bifurcation/log-periodic line that could move the §2a
+weight `w` off `1/2`. **Structural note (redundant, no count changes — method rule 4):** the two RG
+directions the spectrum carries — restrict to capacity `R` (`closedAtHorizon`, the `--listening`
+cartesian lift, *integrating out*) and extend to `R+1` (`Z_succ` and the `IsDiagram` binding/nesting
+clauses, the cocartesian lift, *adding a shell*) — are the two halves of a **bifibration** over the
+horizon/order grading, and self-similar on the fractal closure base (every fiber is again the whole
+structure, `IsDiagram` nesting). `G = 1/(1−I)` (`census_irreducible_resummation`) is its shadow: the
+census is the free monoid on the primes.
