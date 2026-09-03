@@ -52,6 +52,11 @@ The **category-theoretic** shape — the causal-set base category, ZFA as an equ
 **bifibration** whose free prime-factorisation *forces* self-similarity (and closes the log-periodic channel,
 so the α-residual weight `w = 1/2` is structural), the Tannakian/anabelian layer, RhoQuCalc as a dagger SMC —
 is collected in [`Category_Theory_QLF.md`](Category_Theory_QLF.md) (a description, not an axiom).
+**Truth is objective across observers, and in two ways** ([`lean/QLF_MultiObserver.lean`](lean/QLF_MultiObserver.lean),
+no axioms): whether a history closes, and the phase it carries, are the *same in every observer's frame*
+(the discrete axis-permutation × gauge-swap group) — so two or more perspectives agree on the truth
+(`observers_agree`), witnessed by two independent invariants, the count verdict and the Pauli scalar
+(`truth_from_two_perspectives_in_two_ways`). The `/solve` "meeting of minds" consensus is a theorem.
 **It from bit:** the unit of information is the two-valued **½-spin closure** — one bit (`log 2` for the spinor
 alphabet `{+I,−I}`) vs *zero* for a single-valued vector `{+I}` — the `2π` double-valuedness reproven from the
 explicit rotation matrices and grounding the spinor **Cartan** discovered in 1913 as the carrier of information

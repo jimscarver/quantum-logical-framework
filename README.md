@@ -135,7 +135,7 @@ Standard physics is extraordinarily successful, but its foundations remain unset
 
 | Problem | QLF's specific response |
 |---|---|
-| The measurement problem | ZFA closure IS the measurement event — no separate collapse, no observer-dependence beyond what the logical structure demands |
+| The measurement problem | ZFA closure IS the measurement event — no separate collapse, and the closure verdict is **observer-independent**: whether a history closes and the phase it carries are the same in every observer's frame, proven (`QLF_MultiObserver`, `observers_agree`, no axioms). What is relative is the *rendering* (which projection, at what scale); the closure is not |
 | The role of the observer | `qlf_universality` grounds the observer: every terminating computation (including observation) is a ZFA string |
 | The status of spacetime | Synthesized from ZFA events ([`ZFAEventDynamics.lean`](lean/ZFAEventDynamics.lean)) — spacetime is the output, not the input |
 | Quantum gravity | Emergent from ZFA event rate and gauge-fold depth — no separate quantization procedure needed |

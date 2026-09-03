@@ -114,6 +114,7 @@ In such a universe:
 * The apparent classical world emerges purely from local ZFA closure.
 * The simulation hypothesis for the *full* universe is ruled out (see Irreducibility + Perspective-Relativity theorems).
 * Consciousness, if it plays any role, is simply another observer with its own history string — no special status required.
+* **The measured fact is objective, not observer-contributed.** Each observer has its own frame and its own relative world, but whether a history *closes* — and the phase it carries — is the same for every observer, machine-verified with no axioms ([`lean/QLF_MultiObserver.lean`](lean/QLF_MultiObserver.lean): `observers_agree`, via two independent invariants). So "observer-dependent closure" means the *rendering* is frame-relative; the closure that constitutes the measurement outcome is not. Two observers who measure agree — that is why measurement yields shared reality rather than solipsism.
 
 ## Conclusion
 

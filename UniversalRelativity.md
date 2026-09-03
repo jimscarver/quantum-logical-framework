@@ -45,6 +45,16 @@ from bit* becomes constructive.
 > one selection rule does the work absolute space, absolute time, a background metric, and a
 > continuum state space did in the older frameworks.*
 
+**What is relative, and what is not.** The *perspective* is relative — the projection, the scale, the
+frame. The **closure is not**: whether a history achieves ZFA, and the phase it carries, are the
+*same for every observer* in the discrete frame group (axis permutations × gauge swap), machine-verified
+with no axioms ([`lean/QLF_MultiObserver.lean`](lean/QLF_MultiObserver.lean): `observers_agree`), and the
+agreement holds by **two independent invariants** — the count verdict and the Pauli scalar. This is
+what makes "Universal Relativity" a relativity and not a relativism: like the invariant interval of
+special relativity, the ZFA closure is the frame-independent fact that all observers compute the same,
+each in their own labels. Two or more perspectives agree on the truth because truth is what closes, and
+closing is objective.
+
 This is a *hypothesis*, not a manifesto, because it is **falsifiable** and **graded**. It dies
 if any published kill-condition fires (§8): a cosmological drift of low-energy `α`, an `α⁻¹`
 outside `137 < α⁻¹ < 137.048`, `v_GW ≠ c`, a light right-handed (sterile) neutrino, or an
