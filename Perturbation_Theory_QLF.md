@@ -146,16 +146,21 @@ By the working method's rule 4 ([`CLAUDE.md`](CLAUDE.md) *"It happens every way"
 [`ScientificApproach.md`](ScientificApproach.md)): this RG changes a **count of ways** — `A_{R+1} − A_R` is
 a definite integer — so it carries physical content, unlike an identity true for every weight.
 
-### The two RG directions are a bifibration (structural note — redundant, no count changes)
+### The bifibration is upstream of the self-similarity
 
 The spectrum carries two maps over the horizon/order grading: **restrict** to capacity `R`
 (`closedAtHorizon`, the `--listening` rollup — *integrating out* the deep closures) and **extend** to
 `R+1` (`Z_succ`, and the `IsDiagram` binding/nesting clauses — *adding a shell*). These are the cartesian
-and cocartesian lifts of a **bifibration** over that grading, and it is **self-similar** on the fractal
-closure base — `IsDiagram` nesting makes every fiber again the whole structure. `G = 1/(1−I)`
-(`census_irreducible_resummation`) is its shadow: the closure census is the free monoid on the prime
-closures. This adds no falsifiable content (method rule 4 — it changes no count), but it names the
-structure the Wilsonian flow already has.
+and cocartesian lifts of a **bifibration** over that grading — and in the possibilist frame it is *one
+thing that happens*: closures factor **uniquely** into ordered sequences of primes
+([`Alpha_Residual.md`](Alpha_Residual.md) §4), so the primes generate a **free** monoid and the lifts are
+unique. That realized bifibration is what forces `G(x) = 1/(1−I(x))` (`census_irreducible_resummation`,
+proven), hence a geometric generating function, hence the constant ratio-4 growth `C(2n,n) ~ 4ⁿ`, hence
+**self-similarity** — every fiber again the whole structure. So self-similarity is a *consequence* of the
+bifibration, not an independent observation; and a realized bifibration over a graded base admits no
+bifurcation, which is why the log-periodic / discrete-scale-invariance channel for the α residual is
+closed by structure ([`Alpha_Residual.md`](Alpha_Residual.md) §9b, `genesis.py`). It changes no count
+directly, but it is the structural reason the counts grow the way they do.
 
 ---
 

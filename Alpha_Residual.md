@@ -679,10 +679,20 @@ are still filling in at `L = 10`), and the Zipf rank–frequency slope of the pr
 `≈ −4.7`, steepening with depth, not the `−1` of a Zipfian law. This is consistent with `genesis.py`'s
 pre-registered log-periodic (discrete-scale-invariance) probe, which is also null: the census is
 scale-*invariant* (period-1 cascade), with no bifurcation/log-periodic line that could move the §2a
-weight `w` off `1/2`. **Structural note (redundant, no count changes — method rule 4):** the two RG
-directions the spectrum carries — restrict to capacity `R` (`closedAtHorizon`, the `--listening`
-cartesian lift, *integrating out*) and extend to `R+1` (`Z_succ` and the `IsDiagram` binding/nesting
-clauses, the cocartesian lift, *adding a shell*) — are the two halves of a **bifibration** over the
-horizon/order grading, and self-similar on the fractal closure base (every fiber is again the whole
-structure, `IsDiagram` nesting). `G = 1/(1−I)` (`census_irreducible_resummation`) is its shadow: the
-census is the free monoid on the primes.
+weight `w` off `1/2`.
+
+**And the null is forced, not lucky — the bifibration is upstream of the self-similarity** (per Jim: *in
+the possibilist realm the bifibration is one thing that happens, and it is responsible for the
+self-similarity*). The chain: closures factor **uniquely** into an ordered sequence of primes (§4,
+"uniquely an ordered sequence of irreducible closures"), so the primes generate a **free** monoid; over
+the horizon/order grading that free monoid *is* a **bifibration** — restrict to capacity `R`
+(`closedAtHorizon`, the `--listening` cartesian lift, *integrating out*) and extend to `R+1` (`Z_succ`
+and the `IsDiagram` binding/nesting clauses, the cocartesian lift, *adding a shell*), with unique lifts
+because the factorization is unique. That bifibration forces `G(x) = 1/(1−I(x))`
+(`census_irreducible_resummation`, proven), hence a **geometric** generating function, hence a **linear**
+coefficient recurrence `G_m = Σ_j I_j G_{m−j}`, hence the constant ratio-4 growth `C(2n,n) ~ 4ⁿ` and
+scale-invariant self-similarity — every fiber again the whole structure. So the census is self-similar
+*because* the bifibration is realized; and a linear recurrence has **no period-doubling** — bifurcation
+needs a nonlinear parameter-dependent map — so the log-periodic channel is closed by structure, not
+merely unobserved. This does not hand over `+0.036` — the weight stays `w = 1/2`, which is the point —
+but it upgrades §2a's `w = 1/2` from "measured null" to "structural consequence".
