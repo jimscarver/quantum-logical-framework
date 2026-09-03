@@ -66,6 +66,10 @@ foundation of mathematics (bottom-up, sound vs. exploding) in [`Quantum_Logic_Fo
 with the minimal quantum logic `MO2` machine-verified on the substrate (orthomodular + non-distributive,
 [`lean/QLF_QuantumLogic.lean`](lean/QLF_QuantumLogic.lean)); and ordinary mathematics *emerging* from it (ℕ,
 the ring, `μ₄`, su(2)/su(3), the continuum as completion) in the companion [`Mathematics_From_QLF.md`](Mathematics_From_QLF.md).
+The **category-theoretic** shape — the causal-set base category, ZFA as an equalizer, the capacity-horizon
+**bifibration** whose free prime-factorisation *forces* self-similarity (and closes the log-periodic channel,
+so the α-residual weight `w = 1/2` is structural), the Tannakian/anabelian layer, RhoQuCalc as a dagger SMC —
+is collected in [`Category_Theory_QLF.md`](Category_Theory_QLF.md) (a description, not an axiom).
 **It from bit:** the unit of information is the two-valued **½-spin closure** — one bit (`log 2` for the spinor
 alphabet `{+I,−I}`) vs *zero* for a single-valued vector `{+I}` — the `2π` double-valuedness reproven from the
 explicit rotation matrices and grounding the spinor **Cartan** discovered in 1913 as the carrier of information
