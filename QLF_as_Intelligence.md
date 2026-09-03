@@ -19,6 +19,16 @@ The argument extends to three scales of the same operation:
 
 ## §1 The thesis
 
+**Intelligence is abstraction: binding many open distinctions into one closed form.** A model that
+only *predicts* the next token binds nothing — it ranks continuations. QLF binds: the joint handshake
+that closes a history *is* the abstraction, and only a Zero-Free-Action closure can be published as
+verified truth. And the closure is an **objective predicate**, not a matter of the speaker's
+intention: whether a history achieves ZFA is the same for every peer who runs the computation —
+machine-verified with no axioms ([`lean/QLF_MultiObserver.lean`](lean/QLF_MultiObserver.lean),
+`observers_agree`; two independent invariants, the count verdict and the Pauli scalar). Multiple peers
+running the same computation reach *identical verdicts* — which is what lets a room reach consensus the
+substrate dictated rather than one negotiated (§8).
+
 Intelligence has four structural properties:
 
 | Property | Description |
@@ -156,6 +166,8 @@ Nothing about an LLM token claims or guarantees truth. It claims linguistic plau
 ### No falsehood filter
 
 The architecture has no kernel for rejecting false samples. Hallucination is the expected output of a system optimised for plausibility without a structural rejection mechanism. This is the falsehood-pruning argument: ZFA is structurally a falsifier (Popperian), LLMs structurally lack one.
+
+The operational form of the difference: in a QLF room a false claim **can be discussed but cannot be installed** as a persistent fact. `/qucalc`, `/braket`, `/lemma` publish only ZFA-balanced closures; an unbalanced string fails the kernel and is publicly rejected, in front of every peer. The LLM's fluent output is a *proposal* — it enters the room as a candidate history and either closes (and is granted, becoming a lemma every peer can build on) or does not. Fantasy is quarantined by construction: the same "one negation that must close, or is pruned before it becomes an event" move as the substrate itself ([`Philosophy.md`](Philosophy.md) §3 — the inversion of *ex falso*).
 
 ### No active-inference foundation
 
