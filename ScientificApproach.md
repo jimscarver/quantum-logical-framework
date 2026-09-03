@@ -542,6 +542,20 @@ limits degenerate, capacity provably changes only the rate, `merge_le_sum` is a 
 sequence **narrowed** — it terminated in a *derived* measure and a sharper question than it started
 with. That is exclusion, not rescue.
 
+**A second worked case, now run to conclusion: the α residual.** By 2026 the `+0.036` had accumulated
+~seven discarded mechanism swings (weak/W-loop, gauge projection at `3/8`, hypercharge `5/8`,
+standalone curvature, the `w = 0.624` weighting, self-similarity×ways, turbulence intermittency —
+[`Alpha_Residual.md`](Alpha_Residual.md) §6b, §9b–§9c). Criterion (b) asks whether the count grew
+*while the question stayed blunt*. It did not. Each rejection was forced by an independent
+computation (the `M_W` threshold; the exact `√62` bracket; an `O(1)`-vs-`O(α_bar)` scale argument; a
+converged transfer-recursion census showing no inertial range), and the **question closed**: from
+"which partial resummation weights the census" to *`w = 1/2` is structural (the free-monoid/bifibration
+proof above), so `α⁻¹ = 137.032` is the pure-ZFA prediction and the last `~0.004` is the continuum
+vacuum-polarisation running — the Standard Model's own un-derived frontier.* The final swing even
+produced a **side-derivation** (She–Léveque's `C₀ = 2` from `/solve` axis-minimality,
+[`Navier_Stokes_Geometry.md`](Navier_Stokes_Geometry.md) §6a). Convergence, not degeneration — but the
+count is recorded, per the rule, in `Alpha_Residual.md`.
+
 So the count is kept, and the criterion is the count's meaning: **if the number of discarded bridges
 for one target grows while the question does not sharpen and the census stops doing the excluding,
 (b) has been met.** Record the number in the owning document, not only the survivor.
@@ -579,6 +593,19 @@ should never be in doubt while the physics is argued. **Lean verifies entailment
 interpretation** — the interpretation is the bridge, and §5 is where it is graded. A `#print axioms`
 footprint tells you what a theorem consumed; it cannot tell you whether the theorem is about the
 world.
+
+**A proof can upgrade a null.** A measured null — "no effect seen" — is weak evidence: absence at the
+depth searched. But when a *proof* shows the effect is **structurally excluded**, the null becomes a
+consequence. Worked case: the α-residual weight `w = 1/2` was for a long time a *measured* null (no
+preferred octave, no log-periodic line — [`genesis.py`](genesis.py)). Then unique prime factorisation
+of closures (`census_irreducible_resummation`, a theorem) → the closures are a **free monoid** → the
+census generating function is geometric → a **linear** coefficient recurrence → **no period-doubling**.
+A linear recurrence *cannot* carry the discrete-scale-invariance line that would move `w` off `1/2`.
+So `w = 1/2` is now a structural consequence, not an observation — and the residual's last piece is
+thereby pinned to the continuum sector ([`Alpha_Residual.md`](Alpha_Residual.md) §9b,
+[`Category_Theory_QLF.md`](Category_Theory_QLF.md) §3a). The two-axis status of §3 in action: the
+*mathematical* fact (free monoid ⟹ no bifurcation) closes the *physical* question (is the weight
+tunable?).
 
 ---
 
@@ -659,7 +686,13 @@ What the method says is *open* right now, stated as it should be stated:
 - the **alphabet residual** — the alphabet size is now quantized to `{2,4,8}` with six impossible and
   eight forced by two distinguishable spatial axes ([`QLF_AlphabetNecessity`](lean/QLF_AlphabetNecessity.lean)),
   so what remains is the one posit underneath it: that an elementary distinction *is* a signed element
-  of the observable frame of a two-valued system.
+  of the observable frame of a two-valued system;
+- **not** the α residual's *mechanism* any longer — that investigation converged (§7a): `w = 1/2` is
+  structural, and the residual's last piece is the continuum running, the SM's own frontier. The
+  perturbation-series / exact-RG side is Lean-anchored ([`QLF_ExactRG`](lean/QLF_ExactRG.lean), no
+  axiom); what stays open is the continuum vacuum-polarisation running itself, and the four category-theory
+  Lean targets of [`Category_Theory_QLF.md`](Category_Theory_QLF.md) §7 (the `full_zeno_prune`
+  coreflection first).
 
 ---
 

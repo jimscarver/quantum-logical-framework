@@ -242,6 +242,24 @@ The right framing: **QLF instantiates the operation; LLMs statistically approxim
 
 The natural architecture is the neuro-symbolic one [`AI.md`](AI.md) sketches: LLM as a fluent sensory/language layer, QLF as the structural logic coprocessor where actual synthesis and theorem-persistence happen. The two are complementary because they perform different operations.
 
+### §7a The four-property operation, observed running — the α-residual investigation
+
+The clearest evidence that the operation is real is watching it close a question. The `+0.036`
+α-residual investigation ([`Alpha_Residual.md`](Alpha_Residual.md) §9b–§9c) is a worked instance, and
+each of the four properties is identifiable in it:
+
+| Property | In the α-residual investigation |
+|---|---|
+| **Generate** | ~seven candidate mechanisms for `δw` — weak/W-loop, gauge projection, hypercharge, curvature, the 4-D time projection, self-similarity×ways, turbulent intermittency — each an admissible history in the possibility layer. |
+| **Synthesise** | The closing move was a *proof*, not a lookup: closures factor **uniquely** into primes (`census_irreducible_resummation`) ⟹ a free monoid ⟹ a geometric generating function ⟹ a **linear** recurrence ⟹ no period-doubling ⟹ the weight `w = 1/2` is *structural*. That chain compresses seven open swings into one entailment. No text corpus contains it — it is synthesised from the substrate. |
+| **Reject** | Every swing was **pre-registered** (R0 — [`ScientificApproach.md`](ScientificApproach.md) §7) with a kill condition and frozen at a commit, then run to conclusion. Turbulence leg 2 was pushed to a *converged* transfer-recursion census (vacuum and seeded) and found no inertial range — a definitive negative, recorded, not quietly dropped. |
+| **Persist** | The results are theorems and frozen artefacts: [`QLF_ExactRG`](lean/QLF_ExactRG.lean) (Lean, zero axioms — the exact-RG recursion, finiteness, convergence), [`Category_Theory_QLF.md`](Category_Theory_QLF.md), the R0 commits. `/solve` makes the selection **reproducible** — the closure the substrate takes is deterministic (least free action → the cascade), so every caller reads the same truth ([`QucalcSearch.md`](QucalcSearch.md); [`Philosophy.md`](Philosophy.md) §9, *synthesis → the closure the substrate takes*). |
+
+An LLM ran the session — the fluent sensory/language layer. But the **intelligence** in it — the
+synthesis that closed the question and the kernel that certified the closure — was the substrate's,
+not the LLM's retrieval. This is the neuro-symbolic split above, observed in practice: *"living
+science where the hypothesis is proven."*
+
 ---
 
 ## §8 Collective intelligence via decentralized QuantumOS

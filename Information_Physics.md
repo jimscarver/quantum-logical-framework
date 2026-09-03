@@ -210,6 +210,36 @@ where it matters and silent where it should be:
   (Faddeev 1956; Baez–Fritz–Leinster; Knuth's "structure forces the measure"). Neither the theorem nor
   its necessity is established here — `QLF_CensusShannon` says as much.
 
+### 2a. The free monoid on primes — the arithmetic-function argument is the census's own structure
+
+The "completely additive functions are free on the primes" remark above is not an analogy the
+substrate happens to resemble. It **is** the census. Every ZFA closure factors **uniquely** into an
+ordered sequence of irreducible (prime) closures — the resummation identity `G(x) = 1/(1 − I(x))`,
+machine-verified (`census_irreducible_resummation`, [`lean/QLF_AlphaBound.lean`](lean/QLF_AlphaBound.lean),
+[`Alpha_Residual.md`](Alpha_Residual.md) §4). So the closures form a **free monoid on the prime
+closures**, `Ω(h)` = the number of prime factors is the completely additive grading (the RG
+"diagram order", [`Perturbation_Theory_QLF.md`](Perturbation_Theory_QLF.md)), and the freedom is
+**relation-free by theorem**, not by assumption.
+
+Two information-physics consequences follow, both used elsewhere:
+
+- **The perturbation series converges because the substrate is a prefix code.** The Kraft inequality
+  `Σ 8^{−|h|} ≤ 1` (`twist_kraft`, [`lean/QLF_KraftMeasure.lean`](lean/QLF_KraftMeasure.lean)) makes the
+  closure-order sum absolutely convergent in its cylinder measure — no Borel resummation, no Lipatov
+  analysis. The Dyson divergence of continuum QED is the signature of a *coupling continuum* the
+  substrate does not have; over a prefix-free code the sum is finite by counting
+  ([`Perturbation_Theory_QLF.md`](Perturbation_Theory_QLF.md) §3, [`lean/QLF_ExactRG.lean`](lean/QLF_ExactRG.lean)).
+- **Self-similarity is forced, and it concentrates the information.** A free monoid gives a geometric
+  generating function, hence a *linear* coefficient recurrence, hence scale-invariant `~4ⁿ` growth —
+  self-similarity as a theorem, the shadow of the free-monoid structure. And a linear recurrence has
+  no period-doubling, so the discrete-scale-invariance / log-periodic channel is **closed by
+  structure**. Since factorisation is unique, *every* closure is compositionally organised, so
+  self-similar organisation carries the census's whole multiplicity mass — *self-similar things
+  dominate existence*, the information-theoretic form of "the most ways happen first"
+  ([`Philosophy.md`](Philosophy.md) §3a; [`Category_Theory_QLF.md`](Category_Theory_QLF.md) §3a;
+  [`self_similar_closures.py`](self_similar_closures.py)). This is why the α-residual weight `w = 1/2`
+  is *structural*, not a fit ([`Alpha_Residual.md`](Alpha_Residual.md) §9b).
+
 ---
 
 ## 3. Shannon is necessary but *not sufficient* — phase is independent information
@@ -570,6 +600,18 @@ contradiction is an *unbalanced ledger* (`count_pos ≠ count_neg`), which admit
 hence carries **zero realized information** — it gets no receipt (`contradiction_no_receipt`, the
 contrapositive of `zfa_implies_critical_line`). Realized information is receipt-counted, so a
 contradiction carries *none*, not the maximum — the **Bar-Hillel–Carnap paradox dissolved**.
+
+**The inversion of *ex falso*, in information terms.** Classical logic *fears* the one false
+statement: by *ex falso quodlibet* it explodes, and "provable" is severed from "true" (Landauer's
+bill would be infinite). QLF *requires* it. In the possibilist layer every distinction is affirmed —
+the free monoid generates it all — and what turns a piece of that space into an **event** carrying
+information is the introduction of **one negation** (a single `−`, "not this") that **closes**: finds
+its affirmation and cancels to Zero Free Action. The false statement is the *selection act*, and it
+cannot explode because it must close — bounded, local, RCA₀ — or `full_zeno_prune` annihilates it
+before it is realized. So a contradiction carries zero information not by patch (Floridi's
+truthfulness demand) but because a contradiction is *receiptless by construction*
+([`Philosophy.md`](Philosophy.md) §3).
+
 Meaning is then **position in the admissibility graph**: semantic content = what closes with what,
 and **information synthesis is disjunctive (OR) closure** — a random possibility stream closing on
 a `List.any verify` OR-fold (`disjunctive_closure`, `closure_always_fires`,
