@@ -696,3 +696,19 @@ scale-invariant self-similarity — every fiber again the whole structure. So th
 needs a nonlinear parameter-dependent map — so the log-periodic channel is closed by structure, not
 merely unobserved. This does not hand over `+0.036` — the weight stays `w = 1/2`, which is the point —
 but it upgrades §2a's `w = 1/2` from "measured null" to "structural consequence".
+
+**"Self-similarity × number of ways" is exactly what `w = 1/2` already is — and it does not help.**
+The residual's per-order weight decomposes as *(per-order weight) × (ways at that order)* with the ways
+`= C(2n,n)`. Self-similarity fixes the first factor: a scale-invariant structure has the **same** weight
+at every order — a constant — so *self-similarity × ways* `= const · C(2n,n)`, which is the equal-weight
+resummation, `w = 1/2`, `α⁻¹ = 137.032`. That is the pure-ZFA prediction, recovered as a *derivation*
+rather than a stipulation. Tested modulations that break the constancy were checked and do not land
+([`alpha_residual_bridge.py`](alpha_residual_bridge.py) idea, computed): weighting order `n` by the
+divisor count `d(n)` (block-lengths it could be a power at) or by `2^{ω(n)}` **overshoots** badly
+(`α⁻¹ → 137.096`); weighting each closure by its automorphism group `|Aut(h)|` via the repetition sum
+`Σ_m C(2m,m)\,x^m/(1−x^m)` **reduces to the plain total census** (the `x^{2m}` corrections are
+negligible at `x = 1/128`). None reaches `w ≈ 0.624`, and — consistent with the paragraph above — a
+number-theoretic modulation that *would* move `w` is exactly the nonlinear ingredient the free-monoid
+linearity excludes. The `δw` to `0.624` is the continuum vacuum-polarization running integral (§2a), not
+a census re-weighting; `census_split` gives its **coefficient** `2/(3π)` (now 1PI-confirmed, §9b table),
+not its higher orders.
