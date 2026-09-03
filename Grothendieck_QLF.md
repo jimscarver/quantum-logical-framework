@@ -289,6 +289,11 @@ making is the ontology and the reformulation, as a bet; the proof claim is conce
 
 ## Lean / doc anchors
 
+> **Broader synthesis:** the motivic/anabelian/Tannakian structure this doc builds is one layer of
+> QLF's overall category-theoretic shape — collected, with the base category, the ZFA equalizer, the
+> capacity-horizon bifibration, RhoQuCalc as a dagger SMC, and `MO2` as the internal logic, in
+> [`Category_Theory_QLF.md`](Category_Theory_QLF.md).
+
 | Claim | Anchor |
 |---|---|
 | **verified discrete core**: count-balanced ⟹ Pauli-closed (a theorem about twist strings) | `count_balanced_pauli_closed` (`QLF_Hodge`/`QLF_TwistAlphabet`) |

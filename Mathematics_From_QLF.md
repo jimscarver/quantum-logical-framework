@@ -37,6 +37,18 @@ Closures concatenate. `TopoString` under `++` (with the empty closure as unit) i
 
 This is the additive homomorphism `(closures, ++) → (ℤ, +)`. **Addition is what counting does to composition.**
 
+**And the closures themselves form a *second* free monoid — on the primes.** Every ZFA closure is
+**uniquely** an ordered sequence of irreducible (prime) closures (`census_irreducible_resummation`,
+`G = 1/(1−I)`, proven in [`QLF_AlphaBound`](lean/QLF_AlphaBound.lean)). That freeness is load-bearing,
+not decorative: over the capacity/order grading it makes the restrict/extend pair a **bifibration**
+whose cocartesian lifts (append a prime) are unique, which forces a *linear* coefficient recurrence,
+which forces the census's scale-invariant `~4ⁿ` growth — **self-similarity is a theorem, the shadow of
+the free-monoid bifibration**, and a linear recurrence has no period-doubling so the log-periodic
+channel is closed by structure. The full categorical picture is [`Category_Theory_QLF.md`](Category_Theory_QLF.md);
+the physics payoff (why the α-residual weight `w = 1/2` is *structural*, not fitted) is
+[`Alpha_Residual.md`](Alpha_Residual.md) §3a/§9b; the ontological reading (*self-similar things dominate
+existence* — composability is multiplicity) is [`Philosophy.md`](Philosophy.md) §3a.
+
 ### Rung 3 — ℤ, from signed counts
 
 Twists come in conjugate pairs (a phase and its negative); subtracting gives the signed count `count_pos − count_neg`, an integer-valued, **conserved** quantity:
@@ -316,6 +328,7 @@ Wigner's puzzle (1960): mathematics, apparently a free creation of the mind, is 
 But QLF's version is sharper than the bare "reality is mathematical" move (Tegmark's Mathematical Universe), and the sharpening is what earns it:
 
 - **Selective, not a plenitude.** Tegmark makes *all* mathematical structures physical — including the continuum, the uncomputable, the Banach–Tarski pathologies (the *gratuitous* tail, [`TheContinuum.md`](TheContinuum.md)). QLF makes only the **realizable** math physical — the `RCA₀`, ZFA-closed, active-inference-selected subset — and *that is exactly the math that is effective.* The "unreasonable" effectiveness becomes reasonable: effective math = realizable math = physical math, because all three are the substrate.
+- **Weighted, not flat — the self-similar dominates.** Realizable structures are not equally present: a structure that reproduces itself at every scale is reachable *every way at every scale*, so its multiplicity is compounded across the whole hierarchy ([`Philosophy.md`](Philosophy.md) §3a). Since closure factorisation is unique (the free monoid, above), *every* closure is compositionally organised, so self-similar organisation carries the census's whole multiplicity mass. This is why the recurring structures — the `2π` loop phase, the `log 2` quantum, the `H↔H†` involution, the icosa-blanket at every scale — are the *expected* mathematical output, not coincidences: effectiveness concentrates where multiplicity does.
 - **It explains the *failures*, which a "miracle" cannot.** Wigner's blanket wonder and Tegmark's blanket plenitude both predict mathematics should *always* work. QLF predicts *where it fails*: force the non-realizable continuum onto reality and you get the ultraviolet catastrophe, the 10¹²² vacuum catastrophe, singularities — the wrong-answer ledger ([`TheContinuum.md`](TheContinuum.md)). **Effectiveness tracks realizability** — a falsifiable edge, not a sigh of awe.
 - **One filter for both.** ZFA is the selection principle for physical reality *and* for realizable mathematics — the same `full_zeno_prune`. With one filter, mathematics and physics cannot diverge: whatever closes mathematically is what is instantiated physically.
 - **Discovery vs invention, reconciled.** All admissible closures exist *a priori* as possibility (QLF's possibilism, [`Philosophy.md`](Philosophy.md)). The mathematician — a Markov blanket doing active inference — *freely explores* that closure-possibility space (felt as *invention*) and finds the structures that close (which are the physically realized ones — felt as *discovery*). Mathematics is the observer's self-model of the very process it is embedded in ([`Active_Inference_Mathematics.md`](Active_Inference_Mathematics.md)); it fits because the model and the modeled share substrate.

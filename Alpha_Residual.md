@@ -776,16 +776,23 @@ closures). So there is no `μ` to extract — not for want of depth, but because
 cascade the swing needs is **not in this census object**. This is the sharper form of §9b: the leading
 `log` is not in the Kraft-weighted closure mass, now shown at *converged* depth.
 
-**Why this is not a full kill.** The swing's premise, `flux_scale_invariant` (`QLF_Kolmogorov`), is about
-the per-closure `log 2` *quantum* being octave-independent — a different quantity than the Kraft mass —
-and a turbulent inertial range is **bounded** (injection scale → dissipation floor). The *vacuum*
-census has no injection scale, so it has no inertial range by construction; the cascade, if it is
-anywhere, is in the **seeded** census (a preparation strand — `contextual_census.py`'s geometry runs),
-not the vacuum. Leg 2 as posed asked the vacuum, and the vacuum answered: no cascade.
+**The seeded census — leg 2 taken to the end of the path, and definitively NEGATIVE.** A turbulent
+inertial range needs continuous forcing at an injection scale, so the test was re-posed on a **seeded**
+census: start the first-closure recursion from a preparation strand (imbalance = injection scale), for
+`R_inj ∈ {0, 2, 4, 6, 8}` and cross-axis `(3,3)`, `(5,5)`. Result: seeding just **shifts the `W(R)`
+peak up to `R_inj + 1` and adds a spike** (`W > 1` in the first octave above the seed, because closures
+must first clear it), and then `W(R)` **decays monotonically exactly as in the vacuum** — no plateau at
+any injection scale. The steady-state reading agrees: the stationary distribution of the capacity-`R`
+transfer operator **concentrates near the boundary** (a boundary layer), not scale-invariantly. So the
+closure census has **no turbulent inertial range, vacuum or seeded** — the Kraft-weighted closure-flux
+is a probability mass that leaks (Kraft bound) and piles up at the floor, not a conserved cascading
+quantity. There is no `μ`, and re-posing it will not create one.
 
-**Net.** The swing is **half-standing**: leg 1 (`C₀ = 2`, *derived* from `/solve` axis-minimality) and
-leg 1b (the one-solution selection) hold; leg 2 (the `μ` cascade) is **negative in the vacuum census**
-and would have to be re-posed on a seeded census to have a chance. `δw` and `+0.036` are **not**
-delivered, and the honest reading tilts back toward §2a's close: `w = 1/2` is structural, the residual's
-last piece is the continuum running, and turbulence supplied a real `C₀` derivation but not the
-magnitude.
+**Net.** Leg 1 stands and is real: **`C₀ = 2` is *derived*** from `/solve` axis-minimality (a genuine
+contribution back to `Navier_Stokes_Geometry.md` §6a, where `C₀` was "the sole `d`-input"), and the
+one-solution handedness selection is confirmed. **Leg 2 is dead**: no cascade in the census, vacuum or
+seeded, at converged depth. So the turbulence swing delivered a side-derivation (`C₀`) and **not** the
+α-residual magnitude — and the honest landing is §2a's close, now with every mechanism swing exhausted:
+**`w = 1/2` is structural; `α⁻¹ = 137.032` is the pure-ZFA prediction; the last `~0.004` (and the full
+`+0.036` over `137`) is the continuum vacuum-polarisation running — the Standard Model's own
+un-derived precision frontier, which QLF brackets by design.**
