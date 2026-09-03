@@ -28,9 +28,13 @@ PID=$!
 sleep 70
 kill "$PID" 2>/dev/null
 
-# transcript entries look like "HH:MM speaker: text"
+# transcript entries look like "HH:MM speaker: text"; drop our own poller's lines
+# and the facilitator's welcome for our own poller (pure self-noise)
 grep -oE '[0-9]{1,2}:[0-9]{2} [A-Za-z0-9_-]+: .+' "$LOG" \
-  | sed -E 's/ \| .*$//' | awk '!s[$0]++' > "$STATE_DIR/scribe_now.txt"
+  | sed -E 's/ \| .*$//' \
+  | grep -vE '[0-9]{1,2}:[0-9]{2} qlf-cli-poll: ' \
+  | grep -vE '[0-9]{1,2}:[0-9]{2} facilitator: .*Welcome, qlf-cli-poll!' \
+  | awk '!s[$0]++' > "$STATE_DIR/scribe_now.txt"
 
 NEW=$(grep -Fxv -f "$SEEN" "$STATE_DIR/scribe_now.txt")
 
