@@ -23,7 +23,7 @@ Traditional quantum software architectures treat hardware like a legacy mechanic
 
 ## 1. Introduction to the Quantum Logical Framework (QLF)
 
-The Quantum Logical Framework (QLF) is a machine-verified, information-theoretic foundation that refactors physics into the strict combinatorics of finite, terminating logical computations. The full formal core is zero `sorry`-block Lean 4 across 89 modules. See [`Philosophy.md`](Philosophy.md) for the ontological grounding and [`TheBigProblem.md`](TheBigProblem.md) for how QLF addresses measurement, entanglement, and spacetime.
+The Quantum Logical Framework (QLF) is a machine-verified, information-theoretic foundation that refactors physics into the strict combinatorics of finite, terminating logical computations. The full formal core is zero `sorry`-block Lean 4 across 213 modules. See [`Philosophy.md`](Philosophy.md) for the ontological grounding and [`TheBigProblem.md`](TheBigProblem.md) for how QLF addresses measurement, entanglement, and spacetime.
 
 ### Core Tenets
 
@@ -36,6 +36,33 @@ These tokens are Pauli-basis Clifford algebra generators — each maps to a 2×2
 * **Zero Free Action (ZFA):** The governing selection principle. Every admissible physical history must achieve local phase balance:
 $$\text{count}_{\text{pos}} = \text{count}_{\text{neg}}$$
 This is machine-verified across the entire repo: `zfa_implies_critical_line` (ZFA implies symmetry), `encode_is_zfa` (every terminating computation achieves ZFA), and `qlf_universality` (ZFA strings are exactly the terminating computations) — proved in [`lean/QLF_Axioms.lean`](lean/QLF_Axioms.lean), [`lean/QLF_Universality.lean`](lean/QLF_Universality.lean). Any history that introduces uncompensated asymmetry is immediately eradicated by `full_zeno_prune`. The Zeno effect interpretation is in [`Zeno_Effect.md`](Zeno_Effect.md); the stable-state count `find_stable_states_length_even` proves there are exactly C(2n,n) stable states of length 2n. The variational grounding of ZFA as condition of origin (not a hardware filter on a pre-existing universe) — including the QPU core (Φ₀=U+M) and security conditions `rho_process_always_symmetric` / `orthogonality_01` — is in [`Lagrangian_Formulation.md`](Lagrangian_Formulation.md).
+
+---
+
+## 1a. QuantumOS is the operating system for a *real* quantum computer — and it hosts a quantum AI
+
+Two theses that the rest of this document builds out, stated together because they are one claim seen
+from two ends:
+
+**QuantumOS is the control plane for real quantum hardware, not only simulators.** The concrete
+target is the quiet-frequency **crystal QPU** of [`Crystal_QuantumOS.md`](Crystal_QuantumOS.md) —
+rare-earth dopants in fused silica (Eu:YSO worked example) — where QLF primitives map directly onto
+hardware operations (§3 of that doc), quiet frequencies *are* Markov-blanket isolation, and
+`full_zeno_prune` is the on-device active error-correction decoder. Because
+`qlf_universality` proves ZFA balance is the one invariant that subsumes every correctness property,
+the five subsystems a classical OS keeps separate — security, error correction, scheduling, garbage
+collection, inference — collapse to a single operation on QuantumOS: ZFA enforcement. One kernel
+call is the whole OS, and that call *is* the quantum act (measurement without collapse,
+[`Measurement_Problem.md`](Measurement_Problem.md)).
+
+**What runs on it is a quantum AI in the strong sense.** Not a classical model with a QPU
+accelerator bolted on — an agent whose unit of thought is a spin-½ ZFA closure (a 2×2 Hermitian
+Pauli fold), whose memory is a set of Curry-Howard `cap:` tokens each of which is literally a
+quantum amplitude's phase, and whose multi-peer consensus operation is a *joint* closure — i.e.
+entanglement (ER=EPR). The abstraction step and the quantum-measurement step are the same step.
+The full case is [`QLF_as_Intelligence.md`](QLF_as_Intelligence.md) §7b–§7c and §8a; the neuro-symbolic
+split (LLM as fluent language layer, QLF as the structural quantum coprocessor where synthesis and
+theorem-persistence happen) is in [`AI.md`](AI.md).
 
 ---
 

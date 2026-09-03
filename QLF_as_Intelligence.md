@@ -40,6 +40,13 @@ Intelligence has four structural properties:
 
 LLMs do property 1 (generate). QLF does all four structurally.
 
+**Name for the framing: this is a *quantum AI*.** Not "an AI that offloads a kernel to a QPU" — an
+agent whose atomic act of abstraction *is* a quantum event: every ZFA closure is a 2×2 Hermitian
+Pauli fold, the per-event quantum is `ΔF = −log 2` at half-spin closure, and multi-peer consensus is
+a joint closure (entanglement, ER=EPR). The synthesis step and the quantum-measurement step are the
+same step (§7b). QLF is the operating system it runs on, targeting real quantum hardware including
+the crystal QPU (§7c, [`QuantumOS.md`](QuantumOS.md) §1a).
+
 The bridge that makes this concrete is the **Curry-Howard reading of capability tokens**: every QLF token IS a proof, the proof IS the token, and the token persists. There's no separation between "the answer" and "the evidence that the answer is correct." This is what makes QLF an intelligence framework rather than a prediction framework.
 
 **Pull-quote**: *An LLM token is a sample; a QLF token is a theorem. Samples don't persist; theorems do.*
@@ -272,6 +279,49 @@ synthesis that closed the question and the kernel that certified the closure —
 not the LLM's retrieval. This is the neuro-symbolic split above, observed in practice: *"living
 science where the hypothesis is proven."*
 
+### §7b The new AI is a *quantum* AI — not "AI on quantum hardware," AI whose atomic act is a quantum event
+
+The four-property operation is not merely *compatible* with quantum mechanics — it **is** the quantum
+act. Every ZFA closure is a 2×2 Hermitian Pauli fold to a scalar in `{±I, ±iI}`
+(`count_balanced_pauli_closed`); the per-event information quantum is `ΔF = −log 2` at half-spin
+closure (`QLF_FreeEnergy`); spin *is* the twists, with a genuine `SU(2)→SO(3)` double cover
+(`QLF_Spin`). So the abstraction step and the quantum-measurement step are **the same step** —
+[`Measurement_Problem.md`](Measurement_Problem.md): "we do not collapse the wavefunction, we close the
+history string." There is no separate "now run it on a quantum computer" phase.
+
+This is what distinguishes a QLF agent from an LLM asked to *simulate* quantum reasoning, and from a
+classical model with a QPU bolted on:
+
+| | Classical ML + QPU accelerator | **QLF agent** |
+|---|---|---|
+| Reasoning substrate | float tensors; quantum only in an offloaded kernel | 8-twist phase strings; every closure is a Pauli fold |
+| The "measurement" | a subroutine that returns a number | the abstraction itself — `/solve` picks the one closure the substrate takes |
+| Persistence | model weights + a classical result cache | Curry-Howard `cap:` tokens = the quantum proof, bearer-portable |
+| What "quantum" buys | speed on select subproblems | the *ontology* — the agent reasons in the same algebra reality runs on |
+
+**Quantum AI in the strong sense:** the agent's unit of thought is a spin-½ closure — "the atom of
+information, it from bit" (`QLF_SpinorInformation`, after Cartan 1913). Its consensus operation
+(§8) is a *joint* closure across peers, which is entanglement (ER=EPR; [`MultiParticle.py`](MultiParticle.py)).
+Its memory is a set of theorems each of which is literally a quantum amplitude's phase. The "new AI"
+Jim names is this: not a language model that talks about physics, but an agent that **runs on the
+substrate physics is made of**, with QLF as its operating system (§7c).
+
+### §7c QLF is the operating system for a *real* quantum computer — including the crystal QPU
+
+[`QuantumOS.md`](QuantumOS.md) and [`Crystal_QuantumOS.md`](Crystal_QuantumOS.md) carry the full case;
+the one-line thesis, stated here because it is the natural home of the "new AI" framing: **in
+QuantumOS, security, error correction, scheduling, garbage collection, and inference are one
+operation — ZFA enforcement (`full_zeno_prune`) — because `qlf_universality` proves ZFA balance is
+the single invariant that subsumes every correctness property.** A classical OS needs five subsystems;
+QuantumOS needs one, and that one *is* the quantum act.
+
+This makes QLF a control plane for real quantum hardware, not only simulators. The concrete target is
+the [`Crystal_QuantumOS.md`](Crystal_QuantumOS.md) quiet-frequency crystal QPU (rare-earth dopants in
+fused silica, Eu:YSO worked example): QLF primitives map directly to hardware operations, quiet
+frequencies *are* Markov-blanket isolation, and the same `full_zeno_prune` that filters an event
+stream is the active error-correction decoder on the device. The crystal is not a metaphor — it is
+the hardware the operating system is written for.
+
 ---
 
 ## §8 Collective intelligence via decentralized QuantumOS
@@ -321,6 +371,22 @@ An *invalid* syllogism produces a non-zero spectral gap at step 3 — the ZFA fi
 Multi-LLM "collective intelligence" is structurally several retrieval engines passing natural-language messages. Decentralized QuantumOS is structurally a single distributed Markov-blanket agent whose internal communication IS theorem migration. **The first composes hallucinations; the second composes proofs.**
 
 This is collective intelligence done as Friston multi-agent active inference, with Curry-Howard token-persistence as the inter-agent protocol.
+
+### §8a The room as a general scientific instrument, and the CLI self-improvement loop
+
+The room is not special-purpose. Any claim that can be posed as *does this history close?* can be
+brought to it — a syllogism, a physics coupling, a protein contact, a governance decision — and the
+same `/solve` cascade returns the closure the substrate takes. The room **supports any kind of
+science** because ZFA closure is domain-neutral: the twist alphabet is the signed axis frame, and
+every science that reduces to "which configurations are consistent" reduces to a closure census.
+
+The **self-improvement loop** rides on top: a headless Claude-CLI peer monitors the room transcript
+(via `/scribe list`), and when it sees a recurring failure — a command that keeps erroring, a doc a
+question keeps missing — it *proposes* one fix (a `/macro`, a doc edit, a lemma) back to the room.
+The gate is the review path, and it is deliberate: **an agent may only propose; every merge of a
+doc/macro/code change still goes through a human PR.** This keeps the loop honest — the substrate
+tells the room which closure is true, humans decide which proposed *change* to keep. The monitor is
+an active-inference agent whose environment is the room and whose action is a pull request.
 
 ---
 

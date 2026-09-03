@@ -138,6 +138,25 @@ blanket with an impedance (what it lets through). Matched impedances (clones) re
 — the Skeptic's failure-mode, delayed and integrated, becomes a closure stronger than either
 started with. That emergent joint closure is the higher-order effect.
 
+### 3a. Multiple observers is the same shape: agreement, then one dominates
+
+Two observers of one history are two complementary perspectives — different signed-axis frames
+(the 48 permutations + the gauge swap of [`lean/QLF_BasisIndependence.lean`](lean/QLF_BasisIndependence.lean)).
+They do **not** produce two half-outcomes. Machine-verified with no axioms
+([`lean/QLF_MultiObserver.lean`](lean/QLF_MultiObserver.lean), `observers_agree`): whether the history
+closes, and the Pauli scalar it carries, are **frame-invariants** — every observer reaches the
+identical verdict on two independent counts. That is the "agree" half, and it is why measurement
+yields shared reality rather than solipsism ([`Measurement_Problem.md`](Measurement_Problem.md) §6).
+
+The "one dominates" half is `/solve`: of the many ways a position *can* close, the substrate takes
+exactly **one** — least free action, the most-ways closure, by a deterministic cascade every observer
+computes identically ([`QucalcSearch.md`](QucalcSearch.md); [`Philosophy.md`](Philosophy.md) §9). So
+the pair behaves like the deuteron: complementary perspectives do not average, they meet on a single
+joint closure, and a single dominant outcome leads — not by negotiation between the observers but
+because the substrate selects it. Multiplicity + agreement ⟹ one dominant closure all perspectives
+share. The social diproton above (§3) is the failure mode: two frames that each insist on *being* the
+selected closure cannot meet; one must yield to the complementary role for the joint closure to form.
+
 ## 4. QuantumOS rooms — best practices (issue #57)
 
 Decentralized QLF agents reach decisions by the same mechanism — joint closure under active
