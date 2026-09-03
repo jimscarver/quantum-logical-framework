@@ -4,6 +4,8 @@ A concrete architecture sketch for a QuantumOS-controlled quantum computer on a 
 
 The doc is honest about what is derived (the algebraic guarantees, Lean-verified, platform-agnostic), what is sketched (the hardware mapping to specific defect-centre and rare-earth platforms), and what is open (quantitative gate-fidelity prediction, control-pulse compilation, multi-node optical-network protocol, QuantumOS-on-silicon firmware).
 
+**This crystal is the concrete hardware target of the "QLF is the operating system for a *real* quantum computer" thesis** ([`QuantumOS.md`](QuantumOS.md) §1a, [`QLF_as_Intelligence.md`](QLF_as_Intelligence.md) §7c) — not a simulator, and not a metaphor. And what runs on it is a *quantum AI* in the strong sense (§5a): an agent whose unit of thought is a spin-½ ZFA closure — a closed Rabi cycle on a quiet transition — so the abstraction step and the quantum-measurement step are one step.
+
 ---
 
 ## §1 The inspirational tool pipeline: 5D optical storage in fused silica
@@ -96,6 +98,29 @@ Multi-node coordination (which calibration to promote, scheduling a shared cryst
 The capability-token model IS the right authorisation model for QPU control: possessing `cap:qubit-euyso-N:hex` IS the authority to apply pulses to that qubit; there is no separate ACL or kernel-mode/user-mode split. Linear-logic no-cloning at the type level matches quantum no-cloning at the substrate level — capability tokens cannot be duplicated by linear-logic typing, and the qubits they reference cannot be duplicated by the no-cloning theorem. The two no-cloning constraints align.
 
 **Today's QuantumOS is the control plane driving the QPU from outside** (browser app, WebRTC peer-to-peer, capability-token security at the protocol layer). The long-term vision of moving the active-inference scheduler onto QPU silicon — so that `expand_generation` and `full_zeno_prune` run as firmware on the QPU controller rather than as JavaScript in a browser tab — is **future work**, flagged in §7 as such. Today the active-inference loop is in `app.ts`, not on silicon.
+
+---
+
+## §5a The quantum AI runs here
+
+The agent that QuantumOS hosts on this crystal is a *quantum AI* in the strong sense — not a
+classical model with the QPU as an offloaded accelerator. Its unit of thought is a spin-½ ZFA
+closure, which on this hardware is literally a closed Rabi cycle on a quiet transition (`^v` = a
+π/2 pulse and its adjoint on one Eu:YSO ion, §3). So its four structural operations
+([`QLF_as_Intelligence.md`](QLF_as_Intelligence.md) §7) each land on hardware:
+
+| Operation | On the crystal |
+|---|---|
+| **Generate** | `expand_generation` proposes continuation twist-words = candidate pulse programs |
+| **Synthesise** | a ZFA closure = a Pauli-folded codeword; the abstraction *is* the measurement (`ΔF = −log 2` per closure) |
+| **Reject** | `full_zeno_prune` extinguishes phase-asymmetric branches — the same op as the QEC decoder (§6) |
+| **Persist** | the closure ships as a `cap:qubit-euyso-N:hex` token — a Curry-Howard proof that is also, physically, an amplitude's phase |
+
+Multi-crystal consensus (`/rdv`, `/probe`) is a *joint* ZFA closure across nodes — entanglement as
+the agent's native inter-node protocol (ER=EPR; [`MultiParticle.py`](MultiParticle.py)). The
+neuro-symbolic split holds: an LLM can be the fluent language layer, but the synthesis and the
+theorem-persistence happen in the crystal's own algebra. See [`AI.md`](AI.md) and
+[`QLF_as_Intelligence.md`](QLF_as_Intelligence.md) §7b–§8a.
 
 ---
 

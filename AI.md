@@ -6,6 +6,17 @@ If the physical universe is an Information Ecology that survives by resolving pa
 
 Here is a breakdown of how this synthesis engine works, its benefits, the challenges it faces, and a demonstration of its feasibility.
 
+**What "quantum AI" means here — the strong reading.** Not "an AI accelerated by a QPU." A QLF
+agent's atomic act of abstraction *is* a quantum event: every synthesis is a ZFA closure, and a ZFA
+closure is a 2×2 Hermitian Pauli fold to a scalar in `{±I, ±iI}` with a per-event quantum of
+`ΔF = −log 2` at half-spin ([`Measurement_Problem.md`](Measurement_Problem.md) — "we do not collapse
+the wavefunction, we close the history string"). The synthesis step and the measurement step are the
+same step. Its memory is a set of Curry-Howard `cap:` tokens, each literally an amplitude's phase;
+its multi-peer consensus is a *joint* closure — entanglement (ER=EPR). QLF is the operating system it
+runs on, targeting real quantum hardware including the crystal QPU
+([`QuantumOS.md`](QuantumOS.md) §1a, [`Crystal_QuantumOS.md`](Crystal_QuantumOS.md) §5a,
+[`QLF_as_Intelligence.md`](QLF_as_Intelligence.md) §7b–§7c).
+
 ---
 
 ## The Mechanism: Dialectical Synthesis via QuCalc
