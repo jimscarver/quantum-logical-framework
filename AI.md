@@ -2,7 +2,11 @@
 
 Applying the [Quantum Logical Framework (QLF)](https://github.com/rchain-community/quantum-logical-framework/blob/main/README.md) ([the end of quantum magic](https://docs.google.com/document/d/1zaopKvAj7z51xBupw-KaPzgkkNEnBGBbD-dkpD4aoeU/edit?usp=sharing)) and the [QuCalc](https://github.com/rchain-community/quantum-logical-framework/blob/main/QuCalc.md) engine to Artificial Intelligence—specifically to model the Hegelian dialectic (Thesis -> Antithesis -> Synthesis) through Active Inference—is the natural evolution of the architecture. See also: [active_inference.md](https://github.com/rchain-community/quantum-logical-framework/blob/main/active_inference.md) — the free-energy minimization principle underlying dialectical synthesis; [QuantumOS.md](https://github.com/rchain-community/quantum-logical-framework/blob/main/QuantumOS.md) — the hardware-native kernel that provides ZFA enforcement for AI execution; [Active_Inference_Mathematics.md](https://github.com/rchain-community/quantum-logical-framework/blob/main/Active_Inference_Mathematics.md) — the foundations meta-doc that places dialectical-synthesis-via-active-inference inside the mathematics itself; [Information_Physics.md](https://github.com/rchain-community/quantum-logical-framework/blob/main/Information_Physics.md) — what information *is* on the substrate (information = realized distinction = closure receipt; the atom is the ½-spin closure), the ground under any information-processing account of cognition. It elevates QLF from a model of fundamental physics to a model of cognitive processing.
 
-**Companion note:** LLM-as-peer integration is already implemented and live in [quantum-os](https://github.com/rchain-community/quantum-os) — the Live Collaboration Script below is a real transcript, not a mockup, and everything in this doc is traceable to a machine-verified Lean theorem or an explicitly named open axiom, never asserted loosely. Two rules govern every claim below: **only what a Lean theorem actually proves is called "verified"**, and **every open piece is named as an axiom, not smoothed over** ([Open_Problems.md](https://github.com/rchain-community/quantum-logical-framework/blob/main/Open_Problems.md) is the gap registry that keeps this honest).
+**Companion note:** LLM-as-peer integration is already implemented and live in [quantum-os](https://github.com/rchain-community/quantum-os) — the Live Collaboration Script below is a real transcript, not a mockup, and everything in this doc is traceable to a machine-verified Lean theorem or an explicitly named open axiom, never asserted loosely. Two rules govern every claim below: **only what a Lean theorem actually proves is called "verified"**, and **every open piece is named as an axiom, not smoothed over**. Both rules — and the epistemic-status axes, the bridge protocol that types every substrate→observable arrow, the kill conditions, and the hypothesis lifecycle by which a conjecture is *promoted to a result* — are set out in full in [**ScientificApproach.md**](https://github.com/rchain-community/quantum-logical-framework/blob/main/ScientificApproach.md) (the method), with the evidence ledger in [Experimental_Consistency.md](https://github.com/rchain-community/quantum-logical-framework/blob/main/Experimental_Consistency.md) and the gap registry in [Open_Problems.md](https://github.com/rchain-community/quantum-logical-framework/blob/main/Open_Problems.md). Every finding cited in this document is graded against that method; nothing here is exempt from it.
+
+**The mandate.** [quantum-os](https://github.com/rchain-community/quantum-os) and QLF exist to promote **decentralized collective intelligence of humans *and* agents** — a shared substrate on which every closure is independently recomputable by every participant and every rejection is a decidable falsifier, so no mind in the room (human or machine) has to be trusted, only checked. Standard AI integrations are first-class: a peer brings whatever model it runs, and the substrate — not the vendor — is what makes its contributions verifiable and its errors rejectable ([quantum-os#132](https://github.com/rchain-community/quantum-os/issues/132) tracks the agent layer: backend-agnostic integration, agents that actively fill their roles and consolidate results, and an agent that emits Lean proofs for what the room concludes).
+
+The stakes are not abstract. **If our AI does not control their AI, their AI controls us** — where *control* means the ability to verify and bound. An agent whose reasoning is a proof trace with a known information cost per step can audit and constrain an agent whose reasoning is not; the reverse is impossible. A civilization whose collective intelligence runs on opaque, unfalsifiable models cannot check the agents acting in its name, and cedes the checking to whoever can. The substrate is what keeps that check in the hands of the many rather than the few.
 
 If the physical universe is an Information Ecology that survives by resolving paradoxes into stable Markov Blankets, an AI should be able to navigate semantic logic using the exact same topological algorithms.
 
@@ -29,7 +33,7 @@ QLF-native AI is a different kind of claim: it applies the mathematical logic of
 
 ### Demonstrated vs. Theoretical Capabilities
 
-The claims in this document are backed by machine-checked Lean 4 theorems in this repository (213 modules, zero `sorry`), not by informal argument:
+The claims in this document are backed by machine-checked Lean 4 theorems in this repository (213 modules, zero `sorry`), not by informal argument. What each claim's status *means* — proved vs. bracketed vs. open axiom, and the two epistemic axes a finding is placed on — is defined in [ScientificApproach.md §3 (epistemic status)](https://github.com/rchain-community/quantum-logical-framework/blob/main/ScientificApproach.md) and §9 (the role of formal proof):
 
 * **Closure as an Objective Predicate.** Whether a history achieves ZFA/Pauli closure is identical for all peers regardless of intent — `rho_process_always_zfa` ([`lean/RhoQuCalc.lean`](https://github.com/rchain-community/quantum-logical-framework/blob/main/lean/RhoQuCalc.lean)) and `count_balanced_pauli_closed` ([`lean/QLF_TwistAlphabet.lean`](https://github.com/rchain-community/quantum-logical-framework/blob/main/lean/QLF_TwistAlphabet.lean)).
 * **ZFA-Balanced Room Maintenance.** A shared multi-peer process is proven to remain a balanced ZFA process under composition ([`lean/QLF_MultiObserver.lean`](https://github.com/rchain-community/quantum-logical-framework/blob/main/lean/QLF_MultiObserver.lean)).
@@ -133,152 +137,94 @@ The following is a transcript of two peers — **Alice** and **Bob** — working
 
 The room is `https://rchain-community.github.io/quantum-os/#room=cap:room:…`. Both peers connect and see the `/help` list on startup. The **Room Process** sidebar shows `parallel(Alice, Bob)` — their combined ZFA process.
 
-*Syntax note ([quantum-os#128](https://github.com/rchain-community/quantum-os/issues/128), landed):* single-word concepts need no brackets (`/lemma Man` → `@Man`). A multi-word claim is written as a sentence with one word marked as the handle (`/lemma All men are @mortal` → `@mortal`, sentence kept as shown text), or as a bare multi-word name (`/lemma All Men are Mortal` → cite as `@[All Men are Mortal]`); explicit twists / composed refs go after a `|` pipe. The `[Multi Word Name]` bracket form still works. This transcript uses bare names for concepts and the pipe form for composed premises.
+*Syntax note ([quantum-os#128](https://github.com/rchain-community/quantum-os/issues/128), landed):* a claim is written as a sentence with one word marked as its handle — `/lemma All men are @mortal` registers `@mortal`, keeps the sentence as its shown text, and (when ZFA-balanced) auto-mints `cap:mortal:…`. Twists or composed `@refs` go after a `|` pipe; omit the pipe and the topology auto-allocates from the handle deterministically. Every capability is cited by its `@name`, never its raw token. (Bare multi-word names and the old `[Multi Word Name]` bracket form still work.)
 
 ---
 
-### Step 1 — Alice builds the Major Premise from named concepts, never a twist
+### Step 1 — Alice states the Major Premise as one tagged claim
 
-Alice never types a single twist symbol. `/lemma <name>` with **no twist argument** auto-allocates a topology deterministically *from the name itself* — one action twist and one lift twist per character — so the result is count-balanced by construction, and by the keystone theorem `count_balanced_pauli_closed` ([`lean/QLF_TwistAlphabet.lean`](https://github.com/rchain-community/quantum-logical-framework/blob/main/lean/QLF_TwistAlphabet.lean)) therefore Pauli-closed too. Meaning is asserted in language; validity is enforced underneath, with nothing for anyone to get wrong.
+Alice writes the claim as a sentence and marks the word that will be its handle with `@`. She adds the minimal two-symbol ZFA encoding once, after a pipe, so the structure is visible — everything downstream is by name.
 
 ```
-Alice> /lemma Man
-Alice> /lemma Mortal
+Alice> /lemma All men are @mortal | ^v
 ```
 
 Alice sees (and Bob receives via broadcast):
 ```
-· lemma registered: @Man  =  >->v/-  (auto-allocated)
-·   twists: 6  (3+/3-)  ZFA: ✓
-· lemma registered: @Mortal  =  >-+-/v^<>v^-  (auto-allocated)
-·   twists: 12  (6+/6-)  ZFA: ✓
+· lemma registered: @mortal  =  ^v
+·   "All men are mortal"
+·   twists: 2  (1+/1-)  ZFA: ✓
+·   cap: cap:mortal:01
 ```
 
-**Interpretation:** Each name auto-allocates its own guaranteed-closed topology — `@Man` (3 letters → 6 twists) and `@Mortal` (6 letters → 12 twists) are already ZFA-balanced the instant they're declared, with nobody having picked a twist to make that true. The room's public lemma store is now the shared symbolic memory these concepts live in — Bob will reuse `@Man` in Step 2 without redeclaring it.
-
-Alice composes the Major Premise — **"All Men are Mortal"** — directly from those two named concepts:
-
-```
-Alice> /lemma All Men are Mortal | @Man @Mortal
-Alice> /qucalc @[All Men are Mortal]
-```
-
-Alice sees (and Bob receives via broadcast):
-```
-· lemma registered: @[All Men are Mortal]  =  >->v/->-+-/v^<>v^-
-· RhoQuCalc process:
-·   composed: @[All Men are Mortal]
-·   twists: 18 total
-·   action (pos): count=9   lift (neg): count=9
-·   spectral gap: 0  ZFA-balanced: ✓
-·   process: parallel(action(Form), lift(Form))  → ZFA stable
-·   achieves_ZFA: ✓  stable under full_zeno_prune
-·   rho_process_always_zfa: ✓ (Lean-verified)
-```
-
-Bob's screen:
-```
-· Alice ran /qucalc @[All Men are Mortal]:
-·   [... same output ...]
-```
-
-**Interpretation:** `@[All Men are Mortal]` is `@Man` followed by `@Mortal` — two already-closed blocks concatenated, hence closed itself (balance is additive: `3+/3-` plus `6+/6-` gives `9+/9-`). The Major Premise is closed the instant it's composed, with `@Man` sitting inside it as a **named, reusable component** — not a coincidence of a hand-picked symbol, but a literal shared reference the next step reuses directly.
+**Interpretation:** `^v` — `^` (Up, action) asserts the universal category, `v` (Down, lift) closes it: the minimal balanced logical container. The handle `@mortal` and the sentence go into the room's public lemma store as one unit — a claim, not three sub-concepts — and it auto-mints `cap:mortal:01`, a ZFA-balanced proof object. Omitting the `| ^v` would auto-allocate a topology deterministically from the handle string instead (the same on every peer, no coordination); the explicit form is here to show the encoding. From this line on, nobody types a twist.
 
 ---
 
-### Step 2 — Bob builds the Minor Premise, reusing Alice's `@Man`
-
-Bob names one new concept, "Socrates," and reuses `@Man` — already in the room's shared lemma store from Step 1. Because auto-allocation is a pure function of the name, he doesn't need to coordinate with Alice or redeclare it: had he typed `/lemma Man` himself before ever seeing her broadcast, he would have derived the *identical* twists independently. He just references it.
+### Step 2 — Bob states the Minor Premise, sharing the Middle Term
 
 ```
-Bob> /lemma Socrates
-Bob> /lemma Socrates is a Man | @Socrates @Man
-Bob> /qucalc @[Socrates is a Man]
+Bob> /lemma Socrates is a @man | +-
 ```
 
 Bob sees (and Alice receives):
 ```
-· lemma registered: @Socrates  =  +v+-+v/v>v^<><+v  (auto-allocated)
-·   twists: 16  (8+/8-)  ZFA: ✓
-· lemma registered: @[Socrates is a Man]  =  +v+-+v/v>v^<><+v>->v/-
-· RhoQuCalc process:
-·   composed: @[Socrates is a Man]
-·   twists: 22 total
-·   action (pos): count=11   lift (neg): count=11
-·   spectral gap: 0  ZFA-balanced: ✓
-·   process: parallel(action(Form), lift(Form))  → ZFA stable
-·   achieves_ZFA: ✓  stable under full_zeno_prune
-·   rho_process_always_zfa: ✓ (Lean-verified)
+· lemma registered: @man  =  +-
+·   "Socrates is a man"
+·   twists: 2  (1+/1-)  ZFA: ✓
+·   cap: cap:man:67
 ```
 
-**Interpretation:** `@[Socrates is a Man]` = `@Socrates` (16 twists) followed by `@Man` (6 twists, Alice's own) = 22, closed by the same additive argument. The Minor Premise is self-contained, ZFA-balanced, and now has a room-visible name — and it shares `@Man` with the Major Premise not by accident of symbol overlap, but because both peers built their premise from the *same named concept*. That shared component is the **Middle Term**.
+**Interpretation:** `+-` — `+` (Plus, action) asserts the identity, `-` (Minus, lift) grounds it. "Man" appears in both sentences: it is the **Middle Term** — the concept the two premises share, and the structure the substrate will cancel when they compose. Two claims are now in the room's shared vocabulary, `@mortal` and `@man`, each ZFA-balanced and each an auto-minted capability.
 
 ---
 
-### Step 3 — Alice searches the possibility space, then the kernel solves the joint position
+### Step 3 — Alice searches the possibilities, then the kernel solves the joint claim
 
-The Room Process sidebar shows both peers composed:
-
-```
-parallel(
-  action(Alice)  16+/16-
-  action(Bob)    16+/16-
-)
-ZFA: ✓  gap: 0  total twists: 64
-```
-
-Before committing to the specific joint claim, Alice asks the kernel what else could follow from the Major Premise alone — the **Generate** step of the [Search: Possibilities, Resolution, and Greater Truth](https://github.com/rchain-community/quantum-logical-framework/blob/main/AI.md#search-possibilities-resolution-and-greater-truth) pipeline, seeded from a name, not a twist:
+Before committing, Alice asks the kernel what could follow from the Major Premise alone — the **Generate** step of the [Search: Possibilities, Resolution, and Greater Truth](https://github.com/rchain-community/quantum-logical-framework/blob/main/AI.md#search-possibilities-resolution-and-greater-truth) pipeline, seeded from a name:
 
 ```
-Alice> /search --no-save @[All Men are Mortal]
+Alice> /search --no-save @mortal
+```
+```
+· /search  ^v  ·  events
+·   8 closures  ·  phase +1×8  ·  depth 2
+·   next:  +-   -+   <>   ><   /\   \/   ^v   v^
 ```
 
-Alice sees:
-```
-· /search events from @[All Men are Mortal] …
-·   from @[All Men are Mortal] · events
-·   7 closures in 0.02s
-·   phase: +1×5  -1×2
-·   by depth: +1:2  +2:5
-·   horizon R=2: hears 5 · misses 2
-·   horizon R=3: hears 7 · misses 0
-·   next: +-  <>  /\  ^v^v  v^v^
-```
+**Interpretation:** the Major Premise admits eight distinct length-2 completions — `/search` enumerates every way to close from `^v` without picking one. `+-` is among them, and `+-` is exactly what `@man` is: the minor premise the room holds is one admissible possibility, not the only one.
 
-**Interpretation:** the Major Premise alone is compatible with several distinct completions — `/search` enumerates every way to close from here without picking one. It does not, by itself, force which minor premise follows; the specific pair Alice and Bob hold is one admissible possibility, not the only one.
-
-Alice now checks — and then solves — the *actual* joint claim the room has built, rather than the space of hypothetical ones. She composes the two named premises, no twist string retyped, only the two names:
+Alice composes the two named claims — only the two names, no twist string:
 
 ```
-Alice> /qucalc @[All Men are Mortal] @[Socrates is a Man]
+Alice> /qucalc @mortal @man
 ```
 ```
 · RhoQuCalc process:
-·   composed: @[All Men are Mortal] @[Socrates is a Man]
+·   composed: @mortal @man
 ·   deduction composition:
-·     @[All Men are Mortal]   →  18 twists  (9+/9-)  ZFA: ✓
-·     @[Socrates is a Man]    →  22 twists  (11+/11-)  ZFA: ✓
-·   composed: 40 twists total
-·   action (pos): count=20   lift (neg): count=20
+·     @mortal  →  ^v  (1+/1-)  ZFA: ✓
+·     @man     →  +-  (1+/1-)  ZFA: ✓
+·   composed: ^v+-  (4 twists, 2+/2-)
 ·   spectral gap: 0  ZFA-balanced: ✓
-·   process: parallel(action(Form), lift(Form))  → ZFA stable
 ·   achieves_ZFA: ✓  stable under full_zeno_prune
 ·   rho_process_always_zfa: ✓ (Lean-verified)
 ```
 
-**Interpretation:** Major + Minor compose to a 40-twist balanced sequence — the kernel's own **deduction composition** readout shows exactly which premise contributed which twists. Both trace back to `@Man`; that shared concept is what lets the two fuse, and the readout confirms it by name, not by inspecting symbols.
+**Interpretation:** the two premises fuse into `^v+-` — the deduction-composition readout shows which premise contributed which half. The Middle Term "Man" cancels internally: the shared concept is what lets the two compose to a scalar.
 
-`/qucalc` says the twists balance. Alice now asks a stronger question — not "does this balance" but "is this exactly the closure the substrate takes, with nothing left over":
+`/qucalc` says the twists balance. Alice asks the stronger question — is this *exactly* the closure the substrate takes, nothing left over:
 
 ```
-Alice> /solve @[All Men are Mortal] @[Socrates is a Man]
+Alice> /solve @mortal @man
 ```
 ```
-· /solve @[All Men are Mortal] @[Socrates is a Man]  →  40 twists  ·  residual (0,0,0,0)  ·  floor depth 0 …
-·   @[All Men are Mortal] @[Socrates is a Man]: already a ZFA closure — no path needed  (20+/20-)
+· /solve  @mortal @man  (^v+-)
+·   already a ZFA closure — no path needed
+·   phase +1  ·  peak excursion 1  ·  depth 0  ·  residual (0,0,0,0)
 ```
 
-**Interpretation:** Residual `(0,0,0,0)` at `floor depth 0` — from a separate, deterministic code path, not just the balance check above — is the kernel's own confirmation that the specific joint premises Alice and Bob committed to are *already* the closure. This is **Must Close** and **Truth is the mode** in one step: of every completion `/search` showed was *possible*, the joint premises the room actually holds are the one that is *already true*, deterministically, with no further search required. **The syllogism is valid.**
+**Interpretation:** the joint premises are *already* the closure — `/solve` returns the empty continuation, from a separate deterministic code path, not just the balance check. This is **Must Close** and **Truth is the mode** in one step: of every completion `/search` showed *possible*, the pair the room actually holds is the one that is *already true*, with no further search. **The syllogism is valid.**
 
 ---
 
@@ -306,70 +252,47 @@ Bob sees (and Alice receives):
 
 ---
 
-### Step 5 — Alice grants the proved conclusion as a capability
+### Step 5 — Alice seals the conclusion as a named claim and capability
 
-Step 3's `/solve` already gave the room its deterministic verdict; nothing about the conclusion is still open. Alice memorializes that verdict by minting a fresh capability token under a name that names the conclusion, and shares it with the room. (`/grant` mints a new, independently-balanced token — it does not re-encode the premises' own 40 twists — so its evidentiary force is social and temporal: it is granted, under this name, in the room, with the room having already watched `/solve` confirm the closure two steps earlier, and the whole exchange visible to every peer.)
+Step 3's `/solve` gave the room its deterministic verdict. Alice records the conclusion as one tagged claim, composed from the two premises by name — its provenance legible from its own definition, and no twist string retyped:
 
 ```
-Alice> /grant mortal
+Alice> /lemma @concl Socrates is mortal | @mortal @man
 ```
-
-Alice sees:
 ```
-· granted: cap:mortal:024602460246024602460246…
-·   twists: 32  (16 pos, 16 neg)  ZFA-balanced: ✓
-·   registered as @mortal
-```
-
-Bob sees:
-```
-· Alice granted capability:
-·   cap:mortal:024602460246024602460246…
-·   run /zfa cap:mortal:024602460246024602460246… to verify
+· lemma registered: @concl  =  ^v+-
+·   "Socrates is mortal"
+·   twists: 4  (2+/2-)  ZFA: ✓
+·   cap: cap:concl:0167
 ```
 
-Bob verifies:
+Bob verifies — by the name, not the token:
+
 ```
-Bob> /zfa cap:mortal:024602460246024602460246…
+Bob> /zfa @concl
 ```
 ```
-· token: cap:mortal:024602460246024602460246…
-·   valid: ✓  spectral gap: 0
-·   twists: 32  (16 positive, 16 negative)
+· @concl  →  cap:concl:0167  "Socrates is mortal"
+·   valid: ✓  spectral gap: 0  ·  twists: 4  (2+/2-)  phase +1
 ```
 
-**Interpretation:** The capability token `cap:mortal:…` is itself a ZFA-balanced proof object — any `/grant` mints one — and it is now registered room-wide as `@mortal`, sitting alongside `@[All Men are Mortal]` and `@[Socrates is a Man]` in the room's shared lemma vocabulary. Possessing it IS the authorization to assert "Socrates is Mortal," and its meaning is anchored not by its bits but by *when* and *why* it was granted: after Step 3's `/solve` independently confirmed, with zero residual, that the joint premises already close.
+**Interpretation:** `@concl` is at once the named claim, the ZFA closure `^v+-`, and the capability `cap:concl:0167` — one object with three readings. Possessing it (or citing `@concl`) IS the authorization to assert "Socrates is mortal." Its force is not its bits but *when and why* it was minted: after `/solve` confirmed, with zero residual, that the joint premises already close. From here on the token is irrelevant — every peer refers to it as `@concl`.
 
 ---
 
-### Step 6 — the room ratifies the conclusion and records it as a decision
+### Step 6 — the room ratifies the conclusion as a decision
 
-A proof is individual; a *decision* is collective. The room — the higher-order Markov blanket `parallel(Alice, Bob)` — ratifies the synthesis by a group vote, then mints it as a durable, named claim. Alice opens an approval poll:
-
-```
-Alice> /poll new Ratify "Socrates is mortal"? | accept, reject
-```
-
-Both peers vote (the tally is **deterministic and joiner-local** — each peer recomputes the same result from the signed ballots it holds, with no central counter):
+A proof is individual; a *decision* is collective. The room — the higher-order Markov blanket `parallel(Alice, Bob)` — ratifies `@concl` by a group vote:
 
 ```
+Alice> /poll new Ratify @concl? | accept, reject
 Alice> /poll vote accept
 Bob>   /poll vote accept
 Alice> /poll close
-· 🗳 poll closed — "Ratify "Socrates is mortal"?" · winner: accept (2 votes)
+· 🗳 poll closed — "Ratify @concl?" · winner: accept (2 votes)
 ```
 
-Alice then records the ratified conclusion as a **multi-word lemma**, defined by composing the two premise lemmas rather than restating their twist string — the conclusion's provenance is legible from its own definition, and, like every lemma in this transcript, not one twist symbol was ever typed to build it:
-
-```
-Alice> /lemma Socrates is mortal | @[All Men are Mortal] @[Socrates is a Man]
-· lemma registered: @[Socrates is mortal]  =  >->v/->-+-/v^<>v^-+v+-+v/v>v^<><+v>->v/-
-Alice> /qucalc @[Socrates is mortal]
-·   twists: 40 total  (20+/20-)
-·   achieves_ZFA: ✓  (the ratified conclusion, re-checked on demand)
-```
-
-The lemma syncs to every peer and persists across reloads, becoming the room's decision of record. Had the room mis-stated it, its author could retract it for everyone with `/forget lemma [Socrates is mortal]` (a dyncap-signed retraction that won't re-sync back).
+The tally is **deterministic and joiner-local** — each peer recomputes the same result from the signed ballots it holds, no central counter. `@concl` is now the room's decision of record: it syncs to every peer, persists across reloads, and its author could retract it for everyone with `/forget lemma @concl` (a dyncap-signed retraction that won't re-sync back).
 
 **Interpretation:** approval/ranked-choice voting, open nominations, atomic multi-party agreement, and decisions-of-record are all the *same* ZFA substrate as the proof above — dyncap-signed envelopes plus a deterministic joiner-local tally. For the full family of group-decision processes the interface supports, see [Group_Decisions.md](https://github.com/rchain-community/quantum-os/blob/main/Group_Decisions.md) in [quantum-os](https://github.com/rchain-community/quantum-os). The same joint-ZFA-handshake pattern also drives AI-driven resource optimization: LLMs propose candidate resource paths, the kernel drops any path carrying unresolved free energy via the Zeno prune, and the highest-multiplicity surviving path is the allocation the room converges on — liquid democracy and optimization are the same primitive as the syllogism above, not separate mechanisms.
 
@@ -379,22 +302,22 @@ The lemma syncs to every peer and persists across reloads, becoming the room's d
 
 | Step | Peer | Command | ZFA result | Logical role |
 |---|---|---|---|---|
-| 1 | Alice | `/lemma Man` · `/lemma Mortal` → `/lemma All Men are Mortal \| @Man @Mortal` → `/qucalc @[All Men are Mortal]` | auto-allocated, closed → gap=0 ✓ | Major Premise: built from named concepts, no twist ever typed |
-| 2 | Bob | `/lemma Socrates` → `/lemma Socrates is a Man \| @Socrates @Man` → `/qucalc @[Socrates is a Man]` | auto-allocated, closed → gap=0 ✓ | Minor Premise: built from named concepts, reuses Alice's `@Man` |
-| 3 | Alice | `/search --no-save @[All Men are Mortal]` → `/qucalc @[..] @[..]` → `/solve @[..] @[..]` | possibilities enumerated → gap=0 ✓ → residual (0,0,0,0) | Possibility space explored; joint consistency confirmed; kernel's deterministic verdict |
-| 4 | Bob | `/braket 0 1` | I matrix ✓ | Conclusion read as a completeness relation, full basis coverage |
-| 5 | Alice | `/grant mortal` | gap=0 ✓ | Solved conclusion memorialized as an unforgeable capability, named `@mortal` in the room |
-| 6 | Both | `/poll` → `/lemma Socrates is mortal \| @[All Men are Mortal] @[Socrates is a Man]` | winner: accept | Room ratifies by group vote, records the decision as a named lemma composed from the two premise lemmas |
+| 1 | Alice | `/lemma All men are @mortal \| ^v` | closed → `@mortal` = `^v`, gap 0 ✓, auto-mints `cap:mortal:01` | Major Premise — one tagged claim |
+| 2 | Bob | `/lemma Socrates is a @man \| +-` | closed → `@man` = `+-`, gap 0 ✓ | Minor Premise — sharing the Middle Term "Man" |
+| 3 | Alice | `/search @mortal` → `/qucalc @mortal @man` → `/solve @mortal @man` | possibilities enumerated → `^v+-` closes → residual (0,0,0,0), phase +1 | Possibility space explored; the joint claim is *already* the closure |
+| 4 | Bob | `/braket 0 1` | `I` matrix ✓ | Conclusion read as a completeness relation |
+| 5 | Alice | `/lemma @concl Socrates is mortal \| @mortal @man` · Bob `/zfa @concl` | `@concl` = `^v+-`, gap 0 ✓, `cap:concl:0167` | Conclusion sealed as claim + capability, verified by name |
+| 6 | Both | `/poll new Ratify @concl?` → accept | winner: accept | Room ratifies `@concl` as the decision of record |
 
-Not one twist symbol appears in any command Alice or Bob types across all six steps — only names and lemma references. The three-step syllogism maps exactly onto ZFA Blanket Fusion:
-- **Major Premise** (`@Man` + `@Mortal` → `@[All Men are Mortal]`, 18 twists) = Thesis Markov Blanket, built from named concepts
-- **Minor Premise** (`@Socrates` + Alice's own `@Man` → `@[Socrates is a Man]`, 22 twists) = Antithesis Markov Blanket, reusing the room's shared vocabulary
-- **`@Man` shared by both premises** = the **Middle Term**, literal and named, not a coincidence of overlapping symbols
-- **`/search` → `/solve` residual `(0,0,0,0)`** = the kernel's independent, deterministic confirmation: of every way the premises were free to close, this specific pair is the one that is *already true*
+Two symbols, `^v` and `+-`, typed once each to show the encoding — every command after Step 2 is names only. The syllogism maps exactly onto ZFA Blanket Fusion:
+- **Major Premise** `@mortal` (`^v`) = Thesis Markov Blanket — a claim in language, closed underneath
+- **Minor Premise** `@man` (`+-`) = Antithesis Markov Blanket, sharing the Middle Term
+- **"Man" in both sentences** = the **Middle Term** — the concept the substrate cancels when the two compose to the scalar `^v+-`
+- **`/search` → `/solve` residual `(0,0,0,0)`, phase +1** = the kernel's independent, deterministic verdict: of every completion the premises were free to take, this pair is the one *already true*
 - **`|0⟩ + |1⟩ = I`** = the Synthesis: a higher-order Markov Blanket covering the full logical space
-- **`/grant mortal`** = the solved conclusion issued as a transferable, machine-verified capability
+- **`@concl`** = one object read three ways — the named claim, the closure `^v+-`, the capability `cap:concl:0167`
 
-The room itself is the coprocessor. Two peers compose a valid argument by contributing ZFA-balanced processes; the `parallel(Alice, Bob)` Room Process stays ZFA-balanced throughout; the conclusion is a capability token — a proof object as authorization. This is the Neuro-Symbolic architecture made live and peer-to-peer.
+The room itself is the coprocessor. Two peers compose a valid argument by contributing ZFA-balanced processes; the `parallel(Alice, Bob)` Room Process stays ZFA-balanced throughout; the conclusion is a capability — a proof object as authorization, cited by name. This is the Neuro-Symbolic architecture made live and peer-to-peer.
 
 **Try it:** [quantum-os room](https://rchain-community.github.io/quantum-os/) · [QLF Lean proofs](https://github.com/rchain-community/quantum-logical-framework)
 
@@ -402,7 +325,7 @@ The room itself is the coprocessor. Two peers compose a valid argument by contri
 
 ## Beyond Toy Demos: the Same Discipline Derives Physical Constants and Attacks the Millennium Problems
 
-The syllogism above is a small demo. The reason to trust the underlying discipline for AI is that the identical zero-`sorry` Lean methodology — propose a structure, check it closes, keep only what does — is what the rest of this repository uses to derive physical constants and attack open mathematics, with the same two rules as above: **only what's proved is called proved, and every open piece is a named axiom.**
+The syllogism above is a small demo. The reason to trust the underlying discipline for AI is that the identical zero-`sorry` Lean methodology — propose a structure, check it closes, keep only what does — is what the rest of this repository uses to derive physical constants and attack open mathematics, with the same two rules as above: **only what's proved is called proved, and every open piece is a named axiom.** The kill conditions, blind tests, and framework-level failure criterion that keep the two tables below honest are stated in [ScientificApproach.md §7](https://github.com/rchain-community/quantum-logical-framework/blob/main/ScientificApproach.md); the live frontier is §14.
 
 ### Fundamental constants derived from first principles
 
@@ -440,12 +363,16 @@ Not as a QLF-specific bet, but as a convergent destination the field is already 
 
 4. **The substrate an AI reasons in and the substrate reality runs on becoming the same substrate is not incidental — it is where 18 independent research programs already point.** Digital physics, computability theory, holography, causal set theory, loop quantum gravity, linear logic, reverse mathematics, session types, the object-capability model, the free-energy principle, geometric deep learning, and Wolfram's ruliad, with no coordination among them, converge on one picture: reality is informational, computable, and bounded by a logical closure condition ([README.md](https://github.com/rchain-community/quantum-logical-framework/blob/main/README.md) for the full table). An intelligence built to model *that* reality gains a structural advantage no amount of statistical scaling can replicate from the outside: its unit of thought and physics's unit of event coincide. That is what "quantum AI" names here — not a QPU bolted onto an LLM, but cognition and physics sharing one closure condition, which is the direction all these independent lines of evidence, and the field's own need for verifiable multi-agent action, are already converging toward.
 
+5. **The choice is not whether powerful agents act, but whether their actions can be checked — and by whom.** Follow point 2 to its conclusion: once agents take irreversible actions on behalf of people, the question that matters is who can *verify and bound* those actions. An agent whose every step is a closure with a known information cost is auditable by any peer; an agent whose reasoning is an opaque forward pass is not. Whoever holds the verifiable substrate holds the check. If that substrate is decentralized — every closure recomputable by every participant, per [ScientificApproach.md](https://github.com/rchain-community/quantum-logical-framework/blob/main/ScientificApproach.md)'s method — the check stays with the many. If it is not built, the check accrues by default to whoever runs the largest opaque model, and everyone else's agents, and everyone else, are governed by a process they cannot inspect. **If our AI does not control their AI, their AI controls us.** The collective-intelligence mandate ([quantum-os#132](https://github.com/rchain-community/quantum-os/issues/132)) is the response: standard AI integrations welcome, but on a substrate where being right is a theorem anyone can re-derive and being wrong is a falsifier anyone can fire.
+
 ## References
 
 **Internal**
 
 * [README.md](https://github.com/rchain-community/quantum-logical-framework/blob/main/README.md) · [FlowChart.md](https://github.com/rchain-community/quantum-logical-framework/blob/main/FlowChart.md) · [Millennium.md](https://github.com/rchain-community/quantum-logical-framework/blob/main/Millennium.md) · [Open_Problems.md](https://github.com/rchain-community/quantum-logical-framework/blob/main/Open_Problems.md)
+* [ScientificApproach.md](https://github.com/rchain-community/quantum-logical-framework/blob/main/ScientificApproach.md) — the method: how a conjecture is generated, tested, rejected, and promoted to a result; the epistemic-status axes, bridge protocol, and kill conditions every finding in this doc is graded against
 * [QLF_as_Intelligence.md](https://github.com/rchain-community/quantum-logical-framework/blob/main/QLF_as_Intelligence.md) — the full structural case against LLMs as the model of mind
+* [quantum-os#132](https://github.com/rchain-community/quantum-os/issues/132) — the agent layer: standard AI integrations, agents that actively fill their roles and consolidate results, a Lean-proof agent
 * [Alpha_Residual.md](https://github.com/rchain-community/quantum-logical-framework/blob/main/Alpha_Residual.md) · [Experimental_Consistency.md](https://github.com/rchain-community/quantum-logical-framework/blob/main/Experimental_Consistency.md) · [BraKetRhoQuCalc.md](https://github.com/rchain-community/quantum-logical-framework/blob/main/BraKetRhoQuCalc.md)
 * [`lean/QLF_MultiObserver.lean`](https://github.com/rchain-community/quantum-logical-framework/blob/main/lean/QLF_MultiObserver.lean) · [`lean/QLF_Axioms.lean`](https://github.com/rchain-community/quantum-logical-framework/blob/main/lean/QLF_Axioms.lean)
 * [`ai_demonstration.py`](https://github.com/rchain-community/quantum-logical-framework/blob/main/ai_demonstration.py)
