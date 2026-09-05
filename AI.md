@@ -133,7 +133,7 @@ The following is a transcript of two peers — **Alice** and **Bob** — working
 
 The room is `https://rchain-community.github.io/quantum-os/#room=cap:room:…`. Both peers connect and see the `/help` list on startup. The **Room Process** sidebar shows `parallel(Alice, Bob)` — their combined ZFA process.
 
-*Syntax note:* this transcript uses today's `/lemma [Multi Word Name]` bracket syntax. A shorter form is under discussion ([quantum-os#128](https://github.com/rchain-community/quantum-os/issues/128)); if that lands, the commands throughout this script should be updated to match.
+*Syntax note ([quantum-os#128](https://github.com/rchain-community/quantum-os/issues/128), landed):* single-word concepts need no brackets (`/lemma Man` → `@Man`). A multi-word claim is written as a sentence with one word marked as the handle (`/lemma All men are @mortal` → `@mortal`, sentence kept as shown text), or as a bare multi-word name (`/lemma All Men are Mortal` → cite as `@[All Men are Mortal]`); explicit twists / composed refs go after a `|` pipe. The `[Multi Word Name]` bracket form still works. This transcript uses bare names for concepts and the pipe form for composed premises.
 
 ---
 
@@ -142,24 +142,24 @@ The room is `https://rchain-community.github.io/quantum-os/#room=cap:room:…`. 
 Alice never types a single twist symbol. `/lemma <name>` with **no twist argument** auto-allocates a topology deterministically *from the name itself* — one action twist and one lift twist per character — so the result is count-balanced by construction, and by the keystone theorem `count_balanced_pauli_closed` ([`lean/QLF_TwistAlphabet.lean`](https://github.com/rchain-community/quantum-logical-framework/blob/main/lean/QLF_TwistAlphabet.lean)) therefore Pauli-closed too. Meaning is asserted in language; validity is enforced underneath, with nothing for anyone to get wrong.
 
 ```
-Alice> /lemma [Man]
-Alice> /lemma [Mortal]
+Alice> /lemma Man
+Alice> /lemma Mortal
 ```
 
 Alice sees (and Bob receives via broadcast):
 ```
-· lemma registered: @[Man]  =  >->v/-  (auto-allocated)
+· lemma registered: @Man  =  >->v/-  (auto-allocated)
 ·   twists: 6  (3+/3-)  ZFA: ✓
-· lemma registered: @[Mortal]  =  >-+-/v^<>v^-  (auto-allocated)
+· lemma registered: @Mortal  =  >-+-/v^<>v^-  (auto-allocated)
 ·   twists: 12  (6+/6-)  ZFA: ✓
 ```
 
-**Interpretation:** Each name auto-allocates its own guaranteed-closed topology — `@[Man]` (3 letters → 6 twists) and `@[Mortal]` (6 letters → 12 twists) are already ZFA-balanced the instant they're declared, with nobody having picked a twist to make that true. The room's public lemma store is now the shared symbolic memory these concepts live in — Bob will reuse `@[Man]` in Step 2 without redeclaring it.
+**Interpretation:** Each name auto-allocates its own guaranteed-closed topology — `@Man` (3 letters → 6 twists) and `@Mortal` (6 letters → 12 twists) are already ZFA-balanced the instant they're declared, with nobody having picked a twist to make that true. The room's public lemma store is now the shared symbolic memory these concepts live in — Bob will reuse `@Man` in Step 2 without redeclaring it.
 
 Alice composes the Major Premise — **"All Men are Mortal"** — directly from those two named concepts:
 
 ```
-Alice> /lemma [All Men are Mortal] @[Man] @[Mortal]
+Alice> /lemma All Men are Mortal | @Man @Mortal
 Alice> /qucalc @[All Men are Mortal]
 ```
 
@@ -182,23 +182,23 @@ Bob's screen:
 ·   [... same output ...]
 ```
 
-**Interpretation:** `@[All Men are Mortal]` is `@[Man]` followed by `@[Mortal]` — two already-closed blocks concatenated, hence closed itself (balance is additive: `3+/3-` plus `6+/6-` gives `9+/9-`). The Major Premise is closed the instant it's composed, with `@[Man]` sitting inside it as a **named, reusable component** — not a coincidence of a hand-picked symbol, but a literal shared reference the next step reuses directly.
+**Interpretation:** `@[All Men are Mortal]` is `@Man` followed by `@Mortal` — two already-closed blocks concatenated, hence closed itself (balance is additive: `3+/3-` plus `6+/6-` gives `9+/9-`). The Major Premise is closed the instant it's composed, with `@Man` sitting inside it as a **named, reusable component** — not a coincidence of a hand-picked symbol, but a literal shared reference the next step reuses directly.
 
 ---
 
-### Step 2 — Bob builds the Minor Premise, reusing Alice's `@[Man]`
+### Step 2 — Bob builds the Minor Premise, reusing Alice's `@Man`
 
-Bob names one new concept, "Socrates," and reuses `@[Man]` — already in the room's shared lemma store from Step 1. Because auto-allocation is a pure function of the name, he doesn't need to coordinate with Alice or redeclare it: had he typed `/lemma [Man]` himself before ever seeing her broadcast, he would have derived the *identical* twists independently. He just references it.
+Bob names one new concept, "Socrates," and reuses `@Man` — already in the room's shared lemma store from Step 1. Because auto-allocation is a pure function of the name, he doesn't need to coordinate with Alice or redeclare it: had he typed `/lemma Man` himself before ever seeing her broadcast, he would have derived the *identical* twists independently. He just references it.
 
 ```
-Bob> /lemma [Socrates]
-Bob> /lemma [Socrates is a Man] @[Socrates] @[Man]
+Bob> /lemma Socrates
+Bob> /lemma Socrates is a Man | @Socrates @Man
 Bob> /qucalc @[Socrates is a Man]
 ```
 
 Bob sees (and Alice receives):
 ```
-· lemma registered: @[Socrates]  =  +v+-+v/v>v^<><+v  (auto-allocated)
+· lemma registered: @Socrates  =  +v+-+v/v>v^<><+v  (auto-allocated)
 ·   twists: 16  (8+/8-)  ZFA: ✓
 · lemma registered: @[Socrates is a Man]  =  +v+-+v/v>v^<><+v>->v/-
 · RhoQuCalc process:
@@ -211,7 +211,7 @@ Bob sees (and Alice receives):
 ·   rho_process_always_zfa: ✓ (Lean-verified)
 ```
 
-**Interpretation:** `@[Socrates is a Man]` = `@[Socrates]` (16 twists) followed by `@[Man]` (6 twists, Alice's own) = 22, closed by the same additive argument. The Minor Premise is self-contained, ZFA-balanced, and now has a room-visible name — and it shares `@[Man]` with the Major Premise not by accident of symbol overlap, but because both peers built their premise from the *same named concept*. That shared component is the **Middle Term**.
+**Interpretation:** `@[Socrates is a Man]` = `@Socrates` (16 twists) followed by `@Man` (6 twists, Alice's own) = 22, closed by the same additive argument. The Minor Premise is self-contained, ZFA-balanced, and now has a room-visible name — and it shares `@Man` with the Major Premise not by accident of symbol overlap, but because both peers built their premise from the *same named concept*. That shared component is the **Middle Term**.
 
 ---
 
@@ -266,7 +266,7 @@ Alice> /qucalc @[All Men are Mortal] @[Socrates is a Man]
 ·   rho_process_always_zfa: ✓ (Lean-verified)
 ```
 
-**Interpretation:** Major + Minor compose to a 40-twist balanced sequence — the kernel's own **deduction composition** readout shows exactly which premise contributed which twists. Both trace back to `@[Man]`; that shared concept is what lets the two fuse, and the readout confirms it by name, not by inspecting symbols.
+**Interpretation:** Major + Minor compose to a 40-twist balanced sequence — the kernel's own **deduction composition** readout shows exactly which premise contributed which twists. Both trace back to `@Man`; that shared concept is what lets the two fuse, and the readout confirms it by name, not by inspecting symbols.
 
 `/qucalc` says the twists balance. Alice now asks a stronger question — not "does this balance" but "is this exactly the closure the substrate takes, with nothing left over":
 
@@ -362,7 +362,7 @@ Alice> /poll close
 Alice then records the ratified conclusion as a **multi-word lemma**, defined by composing the two premise lemmas rather than restating their twist string — the conclusion's provenance is legible from its own definition, and, like every lemma in this transcript, not one twist symbol was ever typed to build it:
 
 ```
-Alice> /lemma [Socrates is mortal] @[All Men are Mortal] @[Socrates is a Man]
+Alice> /lemma Socrates is mortal | @[All Men are Mortal] @[Socrates is a Man]
 · lemma registered: @[Socrates is mortal]  =  >->v/->-+-/v^<>v^-+v+-+v/v>v^<><+v>->v/-
 Alice> /qucalc @[Socrates is mortal]
 ·   twists: 40 total  (20+/20-)
@@ -379,17 +379,17 @@ The lemma syncs to every peer and persists across reloads, becoming the room's d
 
 | Step | Peer | Command | ZFA result | Logical role |
 |---|---|---|---|---|
-| 1 | Alice | `/lemma [Man]` · `/lemma [Mortal]` → `/lemma [All Men are Mortal] @[Man] @[Mortal]` → `/qucalc @[All Men are Mortal]` | auto-allocated, closed → gap=0 ✓ | Major Premise: built from named concepts, no twist ever typed |
-| 2 | Bob | `/lemma [Socrates]` → `/lemma [Socrates is a Man] @[Socrates] @[Man]` → `/qucalc @[Socrates is a Man]` | auto-allocated, closed → gap=0 ✓ | Minor Premise: built from named concepts, reuses Alice's `@[Man]` |
+| 1 | Alice | `/lemma Man` · `/lemma Mortal` → `/lemma All Men are Mortal \| @Man @Mortal` → `/qucalc @[All Men are Mortal]` | auto-allocated, closed → gap=0 ✓ | Major Premise: built from named concepts, no twist ever typed |
+| 2 | Bob | `/lemma Socrates` → `/lemma Socrates is a Man \| @Socrates @Man` → `/qucalc @[Socrates is a Man]` | auto-allocated, closed → gap=0 ✓ | Minor Premise: built from named concepts, reuses Alice's `@Man` |
 | 3 | Alice | `/search --no-save @[All Men are Mortal]` → `/qucalc @[..] @[..]` → `/solve @[..] @[..]` | possibilities enumerated → gap=0 ✓ → residual (0,0,0,0) | Possibility space explored; joint consistency confirmed; kernel's deterministic verdict |
 | 4 | Bob | `/braket 0 1` | I matrix ✓ | Conclusion read as a completeness relation, full basis coverage |
 | 5 | Alice | `/grant mortal` | gap=0 ✓ | Solved conclusion memorialized as an unforgeable capability, named `@mortal` in the room |
-| 6 | Both | `/poll` → `/lemma [Socrates is mortal] @[All Men are Mortal] @[Socrates is a Man]` | winner: accept | Room ratifies by group vote, records the decision as a named lemma composed from the two premise lemmas |
+| 6 | Both | `/poll` → `/lemma Socrates is mortal \| @[All Men are Mortal] @[Socrates is a Man]` | winner: accept | Room ratifies by group vote, records the decision as a named lemma composed from the two premise lemmas |
 
 Not one twist symbol appears in any command Alice or Bob types across all six steps — only names and lemma references. The three-step syllogism maps exactly onto ZFA Blanket Fusion:
-- **Major Premise** (`@[Man]` + `@[Mortal]` → `@[All Men are Mortal]`, 18 twists) = Thesis Markov Blanket, built from named concepts
-- **Minor Premise** (`@[Socrates]` + Alice's own `@[Man]` → `@[Socrates is a Man]`, 22 twists) = Antithesis Markov Blanket, reusing the room's shared vocabulary
-- **`@[Man]` shared by both premises** = the **Middle Term**, literal and named, not a coincidence of overlapping symbols
+- **Major Premise** (`@Man` + `@Mortal` → `@[All Men are Mortal]`, 18 twists) = Thesis Markov Blanket, built from named concepts
+- **Minor Premise** (`@Socrates` + Alice's own `@Man` → `@[Socrates is a Man]`, 22 twists) = Antithesis Markov Blanket, reusing the room's shared vocabulary
+- **`@Man` shared by both premises** = the **Middle Term**, literal and named, not a coincidence of overlapping symbols
 - **`/search` → `/solve` residual `(0,0,0,0)`** = the kernel's independent, deterministic confirmation: of every way the premises were free to close, this specific pair is the one that is *already true*
 - **`|0⟩ + |1⟩ = I`** = the Synthesis: a higher-order Markov Blanket covering the full logical space
 - **`/grant mortal`** = the solved conclusion issued as a transferable, machine-verified capability
