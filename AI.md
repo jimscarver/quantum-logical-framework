@@ -135,42 +135,39 @@ The room is `https://rchain-community.github.io/quantum-os/#room=cap:room:…`. 
 
 ---
 
-### Step 1 — Alice discovers, then maps, the Major Premise
+### Step 1 — Alice builds the Major Premise from named concepts, never a twist
 
-Rather than inventing a twist sequence for **"All Men are Mortal"** out of nowhere, Alice starts from the bare directional twist `^` (a general, unqualified assertion — action, unpaired) and asks the kernel what would close it. This is the **Generate** step of the [Search: Possibilities, Resolution, and Greater Truth](#search-possibilities-resolution-and-greater-truth) pipeline made literal, run before any premise is chosen:
-
-```
-Alice> /search --no-save ^
-```
-
-Alice sees:
-```
-· /search events from ^ …
-·   from ^ · events
-·   4 closures in 0.01s
-·   phase: +1×3  -1×1
-·   by depth: +1:1  +2:3
-·   horizon R=2: hears 4 · misses 0
-·   horizon R=3: hears 4 · misses 0
-·   next: v  <>+-  \/^v  ^v^v
-```
-
-**Interpretation:** `v` is the shortest continuation that closes `^` — the single-twist completion that cancels it exactly, at depth 1. Everything else in the list closes too, but at greater cost. Alice takes the shortest: `^v` is *discovered* by the search, not chosen by fiat — the possibilist reading of [Philosophy.md](Philosophy.md), applied to picking a premise.
-
-She registers that discovered closure as a **named lemma**, so the room references it by name from here on rather than by raw twist string. The Major Premise is the outer container: it moves from a general category (`^` Up = action) to its negation (`v` Down = lift). The sequence `^v` is the minimal ZFA-balanced unit — a complete logical container.
+Alice never types a single twist symbol. `/lemma <name>` with **no twist argument** auto-allocates a topology deterministically *from the name itself* — one action twist and one lift twist per character — so the result is count-balanced by construction, and by the keystone theorem `count_balanced_pauli_closed` ([`lean/QLF_TwistAlphabet.lean`](lean/QLF_TwistAlphabet.lean)) therefore Pauli-closed too. Meaning is asserted in language; validity is enforced underneath, with nothing for anyone to get wrong.
 
 ```
-Alice> /lemma [All Men are Mortal] ^v
+Alice> /lemma [Man]
+Alice> /lemma [Mortal]
+```
+
+Alice sees (and Bob receives via broadcast):
+```
+· lemma registered: @[Man]  =  >->v/-  (auto-allocated)
+·   twists: 6  (3+/3-)  ZFA: ✓
+· lemma registered: @[Mortal]  =  >-+-/v^<>v^-  (auto-allocated)
+·   twists: 12  (6+/6-)  ZFA: ✓
+```
+
+**Interpretation:** Each name auto-allocates its own guaranteed-closed topology — `@[Man]` (3 letters → 6 twists) and `@[Mortal]` (6 letters → 12 twists) are already ZFA-balanced the instant they're declared, with nobody having picked a twist to make that true. The room's public lemma store is now the shared symbolic memory these concepts live in — Bob will reuse `@[Man]` in Step 2 without redeclaring it.
+
+Alice composes the Major Premise — **"All Men are Mortal"** — directly from those two named concepts:
+
+```
+Alice> /lemma [All Men are Mortal] @[Man] @[Mortal]
 Alice> /qucalc @[All Men are Mortal]
 ```
 
 Alice sees (and Bob receives via broadcast):
 ```
-· lemma registered: @[All Men are Mortal]  =  ^v
+· lemma registered: @[All Men are Mortal]  =  >->v/->-+-/v^<>v^-
 · RhoQuCalc process:
 ·   composed: @[All Men are Mortal]
-·   twists: ^v  (2 total)
-·   action (pos): count=1   lift (neg): count=1
+·   twists: 18 total
+·   action (pos): count=9   lift (neg): count=9
 ·   spectral gap: 0  ZFA-balanced: ✓
 ·   process: parallel(action(Form), lift(Form))  → ZFA stable
 ·   achieves_ZFA: ✓  stable under full_zeno_prune
@@ -183,55 +180,40 @@ Bob's screen:
 ·   [... same output ...]
 ```
 
-**Interpretation:** `@[All Men are Mortal]` resolves to `^v` = `action(Form) + lift(Form)` = one complete thesis/antithesis pair. Naming it turns a raw twist string into room-wide vocabulary — any peer can reference the Major Premise by name instead of retyping its topology, and the room's public lemma store becomes the shared symbolic memory of the argument. The Major Premise is closed — it makes a universal claim (action) that implies its own complement (lift). ZFA gap = 0 confirms it is a logically self-consistent statement.
+**Interpretation:** `@[All Men are Mortal]` is `@[Man]` followed by `@[Mortal]` — two already-closed blocks concatenated, hence closed itself (balance is additive: `3+/3-` plus `6+/6-` gives `9+/9-`). The Major Premise is closed the instant it's composed, with `@[Man]` sitting inside it as a **named, reusable component** — not a coincidence of a hand-picked symbol, but a literal shared reference the next step reuses directly.
 
 ---
 
-### Step 2 — Bob discovers, then maps, the Minor Premise
+### Step 2 — Bob builds the Minor Premise, reusing Alice's `@[Man]`
 
-Bob does the same for **"Socrates is a Man"**, starting from the bare twist `+` (a singular assertion of identity, unpaired):
-
-```
-Bob> /search --no-save +
-```
-
-Bob sees:
-```
-· /search events from + …
-·   from + · events
-·   4 closures in 0.01s
-·   phase: +1×3  -1×1
-·   by depth: +1:1  +2:3
-·   horizon R=2: hears 4 · misses 0
-·   horizon R=3: hears 4 · misses 0
-·   next: -  ^v+-  <>/\  v^-+
-```
-
-**Interpretation:** `-` is the shortest continuation that closes `+`, giving `+-` at depth 1 — the Plus/Minus pair. `+` (action, even) asserts the identity; `-` (lift, odd) grounds it in the specific instance. Same discovery, same pipeline, a different starting twist.
+Bob names one new concept, "Socrates," and reuses `@[Man]` — already in the room's shared lemma store from Step 1. Because auto-allocation is a pure function of the name, he doesn't need to coordinate with Alice or redeclare it: had he typed `/lemma [Man]` himself before ever seeing her broadcast, he would have derived the *identical* twists independently. He just references it.
 
 ```
-Bob> /lemma [Socrates is a Man] +-
+Bob> /lemma [Socrates]
+Bob> /lemma [Socrates is a Man] @[Socrates] @[Man]
 Bob> /qucalc @[Socrates is a Man]
 ```
 
 Bob sees (and Alice receives):
 ```
-· lemma registered: @[Socrates is a Man]  =  +-
+· lemma registered: @[Socrates]  =  +v+-+v/v>v^<><+v  (auto-allocated)
+·   twists: 16  (8+/8-)  ZFA: ✓
+· lemma registered: @[Socrates is a Man]  =  +v+-+v/v>v^<><+v>->v/-
 · RhoQuCalc process:
 ·   composed: @[Socrates is a Man]
-·   twists: +-  (2 total)
-·   action (pos): count=1   lift (neg): count=1
+·   twists: 22 total
+·   action (pos): count=11   lift (neg): count=11
 ·   spectral gap: 0  ZFA-balanced: ✓
 ·   process: parallel(action(Form), lift(Form))  → ZFA stable
 ·   achieves_ZFA: ✓  stable under full_zeno_prune
 ·   rho_process_always_zfa: ✓ (Lean-verified)
 ```
 
-**Interpretation:** `@[Socrates is a Man]` resolves to `+-` — the Minor Premise is also self-contained and ZFA-balanced, and now has a room-visible name exactly like the Major Premise. It shares the `+` (action) with the Major Premise's `^` (action); that shared positive twist is the **Middle Term** ("Man") that will let the two premises fuse.
+**Interpretation:** `@[Socrates is a Man]` = `@[Socrates]` (16 twists) followed by `@[Man]` (6 twists, Alice's own) = 22, closed by the same additive argument. The Minor Premise is self-contained, ZFA-balanced, and now has a room-visible name — and it shares `@[Man]` with the Major Premise not by accident of symbol overlap, but because both peers built their premise from the *same named concept*. That shared component is the **Middle Term**.
 
 ---
 
-### Step 3 — Alice checks the joint consistency, and the kernel solves it
+### Step 3 — Alice searches the possibility space, then the kernel solves the joint position
 
 The Room Process sidebar shows both peers composed:
 
@@ -243,7 +225,27 @@ parallel(
 ZFA: ✓  gap: 0  total twists: 64
 ```
 
-Alice evaluates the **combined logical structure** of both premises by composing their named lemmas — no twist string is retyped, only the two names:
+Before committing to the specific joint claim, Alice asks the kernel what else could follow from the Major Premise alone — the **Generate** step of the [Search: Possibilities, Resolution, and Greater Truth](#search-possibilities-resolution-and-greater-truth) pipeline, seeded from a name, not a twist:
+
+```
+Alice> /search --no-save @[All Men are Mortal]
+```
+
+Alice sees:
+```
+· /search events from @[All Men are Mortal] …
+·   from @[All Men are Mortal] · events
+·   7 closures in 0.02s
+·   phase: +1×5  -1×2
+·   by depth: +1:2  +2:5
+·   horizon R=2: hears 5 · misses 2
+·   horizon R=3: hears 7 · misses 0
+·   next: +-  <>  /\  ^v^v  v^v^
+```
+
+**Interpretation:** the Major Premise alone is compatible with several distinct completions — `/search` enumerates every way to close from here without picking one. It does not, by itself, force which minor premise follows; the specific pair Alice and Bob hold is one admissible possibility, not the only one.
+
+Alice now checks — and then solves — the *actual* joint claim the room has built, rather than the space of hypothetical ones. She composes the two named premises, no twist string retyped, only the two names:
 
 ```
 Alice> /qucalc @[All Men are Mortal] @[Socrates is a Man]
@@ -252,17 +254,17 @@ Alice> /qucalc @[All Men are Mortal] @[Socrates is a Man]
 · RhoQuCalc process:
 ·   composed: @[All Men are Mortal] @[Socrates is a Man]
 ·   deduction composition:
-·     @[All Men are Mortal]   →  ^v  (1+/1-)  ZFA: ✓
-·     @[Socrates is a Man]    →  +-  (1+/1-)  ZFA: ✓
-·   composed: ^v+-  (4 total)
-·   action (pos): count=2   lift (neg): count=2
+·     @[All Men are Mortal]   →  18 twists  (9+/9-)  ZFA: ✓
+·     @[Socrates is a Man]    →  22 twists  (11+/11-)  ZFA: ✓
+·   composed: 40 twists total
+·   action (pos): count=20   lift (neg): count=20
 ·   spectral gap: 0  ZFA-balanced: ✓
 ·   process: parallel(action(Form), lift(Form))  → ZFA stable
 ·   achieves_ZFA: ✓  stable under full_zeno_prune
 ·   rho_process_always_zfa: ✓ (Lean-verified)
 ```
 
-**Interpretation:** Major (`@[All Men are Mortal]`) + Minor (`@[Socrates is a Man]`) compose to the 4-twist balanced sequence `^v+-` — the kernel's own **deduction composition** readout shows exactly which premise contributed which twists, so the Middle Term cancellation is visible by name, not just by symbol: the `v` (lift) of the Major meets the `+` (action) of the Minor. ZFA gap = 0. The premises are jointly consistent.
+**Interpretation:** Major + Minor compose to a 40-twist balanced sequence — the kernel's own **deduction composition** readout shows exactly which premise contributed which twists. Both trace back to `@[Man]`; that shared concept is what lets the two fuse, and the readout confirms it by name, not by inspecting symbols.
 
 `/qucalc` says the twists balance. Alice now asks a stronger question — not "does this balance" but "is this exactly the closure the substrate takes, with nothing left over":
 
@@ -270,11 +272,11 @@ Alice> /qucalc @[All Men are Mortal] @[Socrates is a Man]
 Alice> /solve @[All Men are Mortal] @[Socrates is a Man]
 ```
 ```
-· /solve @[All Men are Mortal] @[Socrates is a Man]  →  ^v+-  ·  residual (0,0,0,0)  ·  floor depth 0 …
-·   @[All Men are Mortal] @[Socrates is a Man]: ^v+- is already a ZFA closure — no path needed  (2+/2-)
+· /solve @[All Men are Mortal] @[Socrates is a Man]  →  40 twists  ·  residual (0,0,0,0)  ·  floor depth 0 …
+·   @[All Men are Mortal] @[Socrates is a Man]: already a ZFA closure — no path needed  (20+/20-)
 ```
 
-**Interpretation:** Residual `(0,0,0,0)` at `floor depth 0` — from a separate, deterministic code path, not just the balance check above — is the kernel's own confirmation that the specific joint premises Alice and Bob committed to are *already* the closure. This is **Must Close** and **Truth is the mode** in one step: of every way `^` and `+` were free to close (Steps 1–2's `/search` runs), the pair the room actually holds is the one that is *already true*, deterministically, with no further search required. **The syllogism is valid.**
+**Interpretation:** Residual `(0,0,0,0)` at `floor depth 0` — from a separate, deterministic code path, not just the balance check above — is the kernel's own confirmation that the specific joint premises Alice and Bob committed to are *already* the closure. This is **Must Close** and **Truth is the mode** in one step: of every completion `/search` showed was *possible*, the joint premises the room actually holds are the one that is *already true*, deterministically, with no further search required. **The syllogism is valid.**
 
 ---
 
@@ -304,7 +306,7 @@ Bob sees (and Alice receives):
 
 ### Step 5 — Alice grants the proved conclusion as a capability
 
-Step 3's `/solve` already gave the room its deterministic verdict; nothing about the conclusion is still open. Alice memorializes that verdict by minting a fresh capability token under a name that names the conclusion, and shares it with the room. (`/grant` mints a new, independently-balanced token — it does not re-encode `^v+-`'s own bits — so its evidentiary force is social and temporal: it is granted, under this name, in the room, with the room having already watched `/solve` confirm the closure two steps earlier, and the whole exchange visible to every peer.)
+Step 3's `/solve` already gave the room its deterministic verdict; nothing about the conclusion is still open. Alice memorializes that verdict by minting a fresh capability token under a name that names the conclusion, and shares it with the room. (`/grant` mints a new, independently-balanced token — it does not re-encode the premises' own 40 twists — so its evidentiary force is social and temporal: it is granted, under this name, in the room, with the room having already watched `/solve` confirm the closure two steps earlier, and the whole exchange visible to every peer.)
 
 ```
 Alice> /grant mortal
@@ -355,12 +357,13 @@ Alice> /poll close
 · 🗳 poll closed — "Ratify "Socrates is mortal"?" · winner: accept (2 votes)
 ```
 
-Alice then records the ratified conclusion as a **multi-word lemma**, defined by composing the two premise lemmas rather than restating their twist string — the conclusion's provenance is legible from its own definition:
+Alice then records the ratified conclusion as a **multi-word lemma**, defined by composing the two premise lemmas rather than restating their twist string — the conclusion's provenance is legible from its own definition, and, like every lemma in this transcript, not one twist symbol was ever typed to build it:
 
 ```
 Alice> /lemma [Socrates is mortal] @[All Men are Mortal] @[Socrates is a Man]
-· lemma registered: @[Socrates is mortal]  =  ^v+-
+· lemma registered: @[Socrates is mortal]  =  >->v/->-+-/v^<>v^-+v+-+v/v>v^<><+v>->v/-
 Alice> /qucalc @[Socrates is mortal]
+·   twists: 40 total  (20+/20-)
 ·   achieves_ZFA: ✓  (the ratified conclusion, re-checked on demand)
 ```
 
@@ -374,18 +377,18 @@ The lemma syncs to every peer and persists across reloads, becoming the room's d
 
 | Step | Peer | Command | ZFA result | Logical role |
 |---|---|---|---|---|
-| 1 | Alice | `/search --no-save ^` → `/lemma [All Men are Mortal] ^v` → `/qucalc @[All Men are Mortal]` | closure discovered → gap=0 ✓ | Major Premise: discovered, named, self-contained |
-| 2 | Bob | `/search --no-save +` → `/lemma [Socrates is a Man] +-` → `/qucalc @[Socrates is a Man]` | closure discovered → gap=0 ✓ | Minor Premise: discovered, named, self-contained |
-| 3 | Alice | `/qucalc @[All Men are Mortal] @[Socrates is a Man]` → `/solve @[All Men are Mortal] @[Socrates is a Man]` | gap=0 ✓ → residual (0,0,0,0) | Joint consistency: Middle Term cancels; kernel confirms this is the closure, deterministically |
+| 1 | Alice | `/lemma [Man]` · `/lemma [Mortal]` → `/lemma [All Men are Mortal] @[Man] @[Mortal]` → `/qucalc @[All Men are Mortal]` | auto-allocated, closed → gap=0 ✓ | Major Premise: built from named concepts, no twist ever typed |
+| 2 | Bob | `/lemma [Socrates]` → `/lemma [Socrates is a Man] @[Socrates] @[Man]` → `/qucalc @[Socrates is a Man]` | auto-allocated, closed → gap=0 ✓ | Minor Premise: built from named concepts, reuses Alice's `@[Man]` |
+| 3 | Alice | `/search --no-save @[All Men are Mortal]` → `/qucalc @[..] @[..]` → `/solve @[..] @[..]` | possibilities enumerated → gap=0 ✓ → residual (0,0,0,0) | Possibility space explored; joint consistency confirmed; kernel's deterministic verdict |
 | 4 | Bob | `/braket 0 1` | I matrix ✓ | Conclusion read as a completeness relation, full basis coverage |
 | 5 | Alice | `/grant mortal` | gap=0 ✓ | Solved conclusion memorialized as an unforgeable capability, named `@mortal` in the room |
 | 6 | Both | `/poll` → `/lemma [Socrates is mortal] @[All Men are Mortal] @[Socrates is a Man]` | winner: accept | Room ratifies by group vote, records the decision as a named lemma composed from the two premise lemmas |
 
-The three-step syllogism maps exactly onto ZFA Blanket Fusion:
-- **Major Premise** (`/search` from `^` → `@[All Men are Mortal]` = `^v`) = Thesis Markov Blanket, discovered not invented
-- **Minor Premise** (`/search` from `+` → `@[Socrates is a Man]` = `+-`) = Antithesis Markov Blanket, discovered not invented
-- **Joint sequence** (`@[All Men are Mortal] @[Socrates is a Man]` = `^v+-`) = ZFA handshake confirming the Middle Term cancels
-- **`/solve` residual `(0,0,0,0)`** = the kernel's independent, deterministic confirmation: of every way the premises were free to close, this specific pair is the one that is *already true*
+Not one twist symbol appears in any command Alice or Bob types across all six steps — only names and lemma references. The three-step syllogism maps exactly onto ZFA Blanket Fusion:
+- **Major Premise** (`@[Man]` + `@[Mortal]` → `@[All Men are Mortal]`, 18 twists) = Thesis Markov Blanket, built from named concepts
+- **Minor Premise** (`@[Socrates]` + Alice's own `@[Man]` → `@[Socrates is a Man]`, 22 twists) = Antithesis Markov Blanket, reusing the room's shared vocabulary
+- **`@[Man]` shared by both premises** = the **Middle Term**, literal and named, not a coincidence of overlapping symbols
+- **`/search` → `/solve` residual `(0,0,0,0)`** = the kernel's independent, deterministic confirmation: of every way the premises were free to close, this specific pair is the one that is *already true*
 - **`|0⟩ + |1⟩ = I`** = the Synthesis: a higher-order Markov Blanket covering the full logical space
 - **`/grant mortal`** = the solved conclusion issued as a transferable, machine-verified capability
 
