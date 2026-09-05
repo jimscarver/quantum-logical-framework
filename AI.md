@@ -228,9 +228,41 @@ Alice> /qucalc @[All Men are Mortal] @[Socrates is a Man]
 
 ---
 
-### Step 4 — Bob evaluates the Conclusion as a quantum state
+### Step 4 — Bob searches the possibility space, then lets the kernel solve the joint position
 
-Bob evaluates the Conclusion — **"Socrates is Mortal"** — as a bra-ket state. The synthesis of the two premises points to the superposition that resolves the tension between the general (`|0⟩` = universal category) and the particular (`|1⟩` = named individual).
+Before reading the Conclusion off as a quantum state, Bob runs the two commands that make the [Search: Possibilities, Resolution, and Greater Truth](#search-possibilities-resolution-and-greater-truth) pipeline above concrete instead of abstract: `/search` to see what the Major Premise alone admits, then `/solve` to get the kernel's own deterministic verdict on the specific joint claim Alice and Bob have actually built.
+
+```
+Bob> /search --no-save @[All Men are Mortal]
+```
+
+Bob sees:
+```
+· /search events from ^v …
+·   from ^v · events
+·   6 closures in 0.01s
+·   phase: +1×4  -1×2
+·   by depth: +1:2  +2:4
+·   horizon R=2: hears 4 · misses 2
+·   horizon R=3: hears 6 · misses 0
+·   next: +-  <>  /\  ^v^v  v^v^  <>/\
+```
+
+**Interpretation:** `^v` alone (the Major Premise) is compatible with several distinct completions — `+-`, `<>`, `/\`, and others — each a different admissible "instance of Man." `/search` is the **Generate** step made literal: it enumerates every twist word that closes from here without picking one. `@[Socrates is a Man]` (`+-`) is one specific member of that list, not the only one — the Major Premise alone does not force it.
+
+Bob now solves the *actual* joint claim the room has built, rather than the space of hypothetical ones:
+
+```
+Bob> /solve @[All Men are Mortal] @[Socrates is a Man]
+```
+```
+· /solve @[All Men are Mortal] @[Socrates is a Man]  →  ^v+-  ·  residual (0,0,0,0)  ·  floor depth 0 …
+·   @[All Men are Mortal] @[Socrates is a Man]: ^v+- is already a ZFA closure — no path needed  (2+/2-)
+```
+
+**Interpretation:** Residual `(0,0,0,0)` at `floor depth 0` is the kernel's own confirmation that the specific joint premises Alice and Bob committed to are *already* the closure — there is no free action left to search away. This is **Must Close** and **Truth is the mode** in one step: of every completion `/search` showed was *possible*, the joint premises the room actually holds are the one that is *already true*, deterministically, with no further search required.
+
+Only now does Bob read the conclusion off as a quantum state. He evaluates the Conclusion — **"Socrates is Mortal"** — as a bra-ket state. The synthesis of the two premises points to the superposition that resolves the tension between the general (`|0⟩` = universal category) and the particular (`|1⟩` = named individual).
 
 ```
 Bob> /braket 0 1
@@ -248,13 +280,13 @@ Bob sees (and Alice receives):
 ·   bra_ket_always_balanced: ✓ (BraKetRhoQuCalc.lean)
 ```
 
-**Interpretation:** `|0⟩⟨0| + |1⟩⟨1| = I` — the identity matrix. The conclusion is a **completeness relation**: it spans the full logical space of the premises. The universal (Mortal) and the particular (Socrates) together cover the entire basis. This is the geometric exhaust of the syllogism — the synthesis `I` says the result is the identity on the space defined by the premises. Nothing is left unresolved.
+**Interpretation:** `|0⟩⟨0| + |1⟩⟨1| = I` — the identity matrix. The conclusion is a **completeness relation**: it spans the full logical space of the premises. The universal (Mortal) and the particular (Socrates) together cover the entire basis. This is the geometric exhaust of the syllogism — the synthesis `I` says the result is the identity on the space defined by the premises. Nothing is left unresolved, exactly as `/solve`'s zero residual already said.
 
 ---
 
 ### Step 5 — Alice grants the proved conclusion as a capability
 
-The conclusion has been verified as ZFA-balanced. Alice mints it as a capability token — an unforgeable proof object that the syllogism reached ZFA closure — and shares it with the room.
+`/solve` has already given the room its deterministic verdict; nothing about the conclusion is still open. Alice memorializes that verdict by minting a fresh capability token under a name that names the conclusion, and shares it with the room. (`/grant` mints a new, independently-balanced token — it does not re-encode `^v+-`'s own bits — so its evidentiary force is social and temporal: it is granted, under this name, in the room, immediately after `/solve` confirmed the closure, with the whole exchange visible to every peer.)
 
 ```
 Alice> /grant mortal
@@ -264,6 +296,7 @@ Alice sees:
 ```
 · granted: cap:mortal:024602460246024602460246…
 ·   twists: 32  (16 pos, 16 neg)  ZFA-balanced: ✓
+·   registered as @mortal
 ```
 
 Bob sees:
@@ -283,7 +316,7 @@ Bob> /zfa cap:mortal:024602460246024602460246…
 ·   twists: 32  (16 positive, 16 negative)
 ```
 
-**Interpretation:** The capability token `cap:mortal:…` is a ZFA-balanced proof object. Possessing it IS the authorization to assert "Socrates is Mortal" — Curry-Howard for capability security applied to logical inference. The token cannot be forged; an unbalanced conclusion (invalid syllogism) cannot produce a valid `cap:` token.
+**Interpretation:** The capability token `cap:mortal:…` is itself a ZFA-balanced proof object — any `/grant` mints one — and it is now registered room-wide as `@mortal`, sitting alongside `@[All Men are Mortal]` and `@[Socrates is a Man]` in the room's shared lemma vocabulary. Possessing it IS the authorization to assert "Socrates is Mortal," and its meaning is anchored not by its bits but by *when* and *why* it was granted: right after `/solve` independently confirmed, with zero residual, that the joint premises already close.
 
 ---
 
@@ -326,16 +359,17 @@ The lemma syncs to every peer and persists across reloads, becoming the room's d
 | 1 | Alice | `/lemma [All Men are Mortal] ^v` → `/qucalc @[All Men are Mortal]` | gap=0 ✓ | Major Premise: universal claim, self-contained, named |
 | 2 | Bob | `/lemma [Socrates is a Man] +-` → `/qucalc @[Socrates is a Man]` | gap=0 ✓ | Minor Premise: singular predication, self-contained, named |
 | 3 | Alice | `/qucalc @[All Men are Mortal] @[Socrates is a Man]` | gap=0 ✓ | Joint consistency: Middle Term cancels, premises fuse |
-| 4 | Bob | `/braket 0 1` | I matrix ✓ | Conclusion: completeness relation, full basis coverage |
-| 5 | Alice | `/grant mortal` | gap=0 ✓ | Proved conclusion issued as unforgeable capability |
+| 4 | Bob | `/search --no-save @[All Men are Mortal]` → `/solve @[All Men are Mortal] @[Socrates is a Man]` → `/braket 0 1` | possibilities enumerated → residual (0,0,0,0) → I matrix ✓ | Possibility space explored; joint position confirmed already-closed; Conclusion read as completeness relation |
+| 5 | Alice | `/grant mortal` | gap=0 ✓ | Solved conclusion memorialized as an unforgeable capability, named `@mortal` in the room |
 | 6 | Both | `/poll` → `/lemma [Socrates is mortal] @[All Men are Mortal] @[Socrates is a Man]` | winner: accept | Room ratifies by group vote, records the decision as a named lemma composed from the two premise lemmas |
 
 The three-step syllogism maps exactly onto ZFA Blanket Fusion:
 - **Major Premise** (`@[All Men are Mortal]` = `^v`) = Thesis Markov Blanket
 - **Minor Premise** (`@[Socrates is a Man]` = `+-`) = Antithesis Markov Blanket
 - **Joint sequence** (`@[All Men are Mortal] @[Socrates is a Man]` = `^v+-`) = ZFA handshake confirming the Middle Term cancels
+- **`/search` → `/solve` residual `(0,0,0,0)`** = the kernel's independent, deterministic confirmation: of every completion that was *possible*, this joint claim is the one that is *already true*
 - **`|0⟩ + |1⟩ = I`** = the Synthesis: a higher-order Markov Blanket covering the full logical space
-- **`/grant mortal`** = the proved conclusion issued as a transferable, machine-verified capability
+- **`/grant mortal`** = the solved conclusion issued as a transferable, machine-verified capability
 
 The room itself is the coprocessor. Two peers compose a valid argument by contributing ZFA-balanced processes; the `parallel(Alice, Bob)` Room Process stays ZFA-balanced throughout; the conclusion is a capability token — a proof object as authorization. This is the Neuro-Symbolic architecture made live and peer-to-peer.
 
