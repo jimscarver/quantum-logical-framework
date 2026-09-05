@@ -137,16 +137,18 @@ The room is `https://rchain-community.github.io/quantum-os/#room=cap:room:…`. 
 
 ### Step 1 — Alice maps the Major Premise
 
-Alice encodes **"All Men are Mortal"** as a ZFA twist sequence. The Major Premise is the outer container: it moves from a general category (`^` Up = action) to its negation (`v` Down = lift). The sequence `^v` is the minimal ZFA-balanced unit — a complete logical container.
+Alice encodes **"All Men are Mortal"** as a ZFA twist sequence and immediately registers it as a **named lemma**, so the room references it by name from here on rather than by raw twist string. The Major Premise is the outer container: it moves from a general category (`^` Up = action) to its negation (`v` Down = lift). The sequence `^v` is the minimal ZFA-balanced unit — a complete logical container.
 
 ```
-Alice> /qucalc ^v
+Alice> /lemma [All Men are Mortal] ^v
+Alice> /qucalc @[All Men are Mortal]
 ```
 
 Alice sees (and Bob receives via broadcast):
 ```
+· lemma registered: @[All Men are Mortal]  =  ^v
 · RhoQuCalc process:
-·   input: ^v
+·   composed: @[All Men are Mortal]
 ·   twists: ^v  (2 total)
 ·   action (pos): count=1   lift (neg): count=1
 ·   spectral gap: 0  ZFA-balanced: ✓
@@ -157,26 +159,28 @@ Alice sees (and Bob receives via broadcast):
 
 Bob's screen:
 ```
-· Alice ran /qucalc ^v:
+· Alice ran /qucalc @[All Men are Mortal]:
 ·   [... same output ...]
 ```
 
-**Interpretation:** `^v` = `action(Form) + lift(Form)` = one complete thesis/antithesis pair. The Major Premise is closed — it makes a universal claim (action) that implies its own complement (lift). ZFA gap = 0 confirms it is a logically self-consistent statement.
+**Interpretation:** `@[All Men are Mortal]` resolves to `^v` = `action(Form) + lift(Form)` = one complete thesis/antithesis pair. Naming it turns a raw twist string into room-wide vocabulary — any peer can reference the Major Premise by name instead of retyping its topology, and the room's public lemma store becomes the shared symbolic memory of the argument. The Major Premise is closed — it makes a universal claim (action) that implies its own complement (lift). ZFA gap = 0 confirms it is a logically self-consistent statement.
 
 ---
 
 ### Step 2 — Bob maps the Minor Premise
 
-Bob encodes **"Socrates is a Man"** as `+-` — the Plus/Minus pair from the twist alphabet. `+` (action, even) asserts the identity; `-` (lift, odd) grounds it in the specific instance. Together they form a second ZFA-balanced unit: a singular predication.
+Bob encodes **"Socrates is a Man"** as `+-` — the Plus/Minus pair from the twist alphabet — and registers it as a second named lemma. `+` (action, even) asserts the identity; `-` (lift, odd) grounds it in the specific instance. Together they form a second ZFA-balanced unit: a singular predication.
 
 ```
-Bob> /qucalc +-
+Bob> /lemma [Socrates is a Man] +-
+Bob> /qucalc @[Socrates is a Man]
 ```
 
 Bob sees (and Alice receives):
 ```
+· lemma registered: @[Socrates is a Man]  =  +-
 · RhoQuCalc process:
-·   input: +-
+·   composed: @[Socrates is a Man]
 ·   twists: +-  (2 total)
 ·   action (pos): count=1   lift (neg): count=1
 ·   spectral gap: 0  ZFA-balanced: ✓
@@ -185,7 +189,7 @@ Bob sees (and Alice receives):
 ·   rho_process_always_zfa: ✓ (Lean-verified)
 ```
 
-**Interpretation:** `+-` = the Minor Premise is also self-contained and ZFA-balanced. It is a stable claim on its own — but it shares the `+` (action) with the Major Premise's `^` (action). That shared positive twist is the **Middle Term** ("Man") that allows the two premises to fuse.
+**Interpretation:** `@[Socrates is a Man]` resolves to `+-` — the Minor Premise is also self-contained and ZFA-balanced, and now has a room-visible name exactly like the Major Premise. It shares the `+` (action) with the Major Premise's `^` (action); that shared positive twist is the **Middle Term** ("Man") that will let the two premises fuse.
 
 ---
 
@@ -201,15 +205,18 @@ parallel(
 ZFA: ✓  gap: 0  total twists: 64
 ```
 
-Alice evaluates the **combined logical structure** of both premises by concatenating their twist sequences:
+Alice evaluates the **combined logical structure** of both premises by composing their named lemmas — no twist string is retyped, only the two names:
 
 ```
-Alice> /qucalc ^v+-
+Alice> /qucalc @[All Men are Mortal] @[Socrates is a Man]
 ```
 ```
 · RhoQuCalc process:
-·   input: ^v+-
-·   twists: ^v+-  (4 total)
+·   composed: @[All Men are Mortal] @[Socrates is a Man]
+·   deduction composition:
+·     @[All Men are Mortal]   →  ^v  (1+/1-)  ZFA: ✓
+·     @[Socrates is a Man]    →  +-  (1+/1-)  ZFA: ✓
+·   composed: ^v+-  (4 total)
 ·   action (pos): count=2   lift (neg): count=2
 ·   spectral gap: 0  ZFA-balanced: ✓
 ·   process: parallel(action(Form), lift(Form))  → ZFA stable
@@ -217,7 +224,7 @@ Alice> /qucalc ^v+-
 ·   rho_process_always_zfa: ✓ (Lean-verified)
 ```
 
-**Interpretation:** Major (`^v`) + Minor (`+-`) = 4-twist balanced sequence. The Middle Term ("Man") is the internal cancellation: the `v` (lift) of the Major meets the `+` (action) of the Minor. ZFA gap = 0. The premises are jointly consistent. **The syllogism is valid.**
+**Interpretation:** Major (`@[All Men are Mortal]`) + Minor (`@[Socrates is a Man]`) compose to the 4-twist balanced sequence `^v+-` — the kernel's own **deduction composition** readout shows exactly which premise contributed which twists, so the Middle Term cancellation is visible by name, not just by symbol: the `v` (lift) of the Major meets the `+` (action) of the Minor. ZFA gap = 0. The premises are jointly consistent. **The syllogism is valid.**
 
 ---
 
@@ -297,10 +304,10 @@ Alice> /poll close
 · 🗳 poll closed — "Ratify "Socrates is mortal"?" · winner: accept (2 votes)
 ```
 
-Alice then records the ratified conclusion as a **multi-word lemma** — a natural-language name, referenced anywhere with `@[…]`:
+Alice then records the ratified conclusion as a **multi-word lemma**, defined by composing the two premise lemmas rather than restating their twist string — the conclusion's provenance is legible from its own definition:
 
 ```
-Alice> /lemma [Socrates is mortal] ^v+-
+Alice> /lemma [Socrates is mortal] @[All Men are Mortal] @[Socrates is a Man]
 · lemma registered: @[Socrates is mortal]  =  ^v+-
 Alice> /qucalc @[Socrates is mortal]
 ·   achieves_ZFA: ✓  (the ratified conclusion, re-checked on demand)
@@ -316,17 +323,17 @@ The lemma syncs to every peer and persists across reloads, becoming the room's d
 
 | Step | Peer | Command | ZFA result | Logical role |
 |---|---|---|---|---|
-| 1 | Alice | `/qucalc ^v` | gap=0 ✓ | Major Premise: universal claim, self-contained |
-| 2 | Bob | `/qucalc +-` | gap=0 ✓ | Minor Premise: singular predication, self-contained |
-| 3 | Alice | `/qucalc ^v+-` | gap=0 ✓ | Joint consistency: Middle Term cancels, premises fuse |
+| 1 | Alice | `/lemma [All Men are Mortal] ^v` → `/qucalc @[All Men are Mortal]` | gap=0 ✓ | Major Premise: universal claim, self-contained, named |
+| 2 | Bob | `/lemma [Socrates is a Man] +-` → `/qucalc @[Socrates is a Man]` | gap=0 ✓ | Minor Premise: singular predication, self-contained, named |
+| 3 | Alice | `/qucalc @[All Men are Mortal] @[Socrates is a Man]` | gap=0 ✓ | Joint consistency: Middle Term cancels, premises fuse |
 | 4 | Bob | `/braket 0 1` | I matrix ✓ | Conclusion: completeness relation, full basis coverage |
 | 5 | Alice | `/grant mortal` | gap=0 ✓ | Proved conclusion issued as unforgeable capability |
-| 6 | Both | `/poll` → `/lemma [Socrates is mortal]` | winner: accept | Room ratifies by group vote, records the decision as a named lemma |
+| 6 | Both | `/poll` → `/lemma [Socrates is mortal] @[All Men are Mortal] @[Socrates is a Man]` | winner: accept | Room ratifies by group vote, records the decision as a named lemma composed from the two premise lemmas |
 
 The three-step syllogism maps exactly onto ZFA Blanket Fusion:
-- **Major Premise** (`^v`) = Thesis Markov Blanket
-- **Minor Premise** (`+-`) = Antithesis Markov Blanket
-- **Joint sequence** (`^v+-`) = ZFA handshake confirming the Middle Term cancels
+- **Major Premise** (`@[All Men are Mortal]` = `^v`) = Thesis Markov Blanket
+- **Minor Premise** (`@[Socrates is a Man]` = `+-`) = Antithesis Markov Blanket
+- **Joint sequence** (`@[All Men are Mortal] @[Socrates is a Man]` = `^v+-`) = ZFA handshake confirming the Middle Term cancels
 - **`|0⟩ + |1⟩ = I`** = the Synthesis: a higher-order Markov Blanket covering the full logical space
 - **`/grant mortal`** = the proved conclusion issued as a transferable, machine-verified capability
 
