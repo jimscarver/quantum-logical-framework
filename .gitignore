@@ -12,3 +12,7 @@ __pycache__/
 
 # Local runtime dir for  qucalc_search.py --serve  (pid/log)
 .run
+
+# Claude Code scheduled-tasks lock — per-session runtime state, churns every
+# session and was accidentally committed once (bb7b40a); never track it.
+.claude/*.lock
