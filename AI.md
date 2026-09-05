@@ -133,6 +133,8 @@ The following is a transcript of two peers — **Alice** and **Bob** — working
 
 The room is `https://rchain-community.github.io/quantum-os/#room=cap:room:…`. Both peers connect and see the `/help` list on startup. The **Room Process** sidebar shows `parallel(Alice, Bob)` — their combined ZFA process.
 
+*Syntax note:* this transcript uses today's `/lemma [Multi Word Name]` bracket syntax. A shorter form is under discussion ([quantum-os#128](https://github.com/rchain-community/quantum-os/issues/128)); if that lands, the commands throughout this script should be updated to match.
+
 ---
 
 ### Step 1 — Alice builds the Major Premise from named concepts, never a twist
